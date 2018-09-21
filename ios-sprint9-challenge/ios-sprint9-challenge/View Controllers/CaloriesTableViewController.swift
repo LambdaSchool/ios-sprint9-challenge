@@ -9,18 +9,30 @@
 import UIKit
 
 class CaloriesTableViewController: UITableViewController {
+    var calorieController = CalorieController()
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd-yyyy hh:mm:ss"
+        return formatter
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return calorieController.caloriesTracked.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieTrackerCell", for: indexPath)
-
+        
+        let amount = String(calorieController.caloriesTracked[indexPath.row].amount)
+        let date = dateFormatter.string(from: calorieController.caloriesTracked[indexPath.row].date)
+        
+        cell.textLabel?.text = "Calories: \(amount)"
+        cell.detailTextLabel?.text = date
+        
         return cell
     }
 
@@ -36,11 +48,13 @@ class CaloriesTableViewController: UITableViewController {
 
         alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { action in
             if let calories = alert.textFields?.first?.text {
-                print("Your calories: \(calories)")
+                self.calorieController.addCalories(amount: Int(calories) ?? 0)
+                self.tableView.reloadData()
             }
         }))
 
         self.present(alert, animated: true)
     }
+    
 
 }

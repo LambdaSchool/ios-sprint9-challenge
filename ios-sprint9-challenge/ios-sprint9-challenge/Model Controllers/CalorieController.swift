@@ -9,5 +9,10 @@
 import Foundation
 
 class CalorieController {
+    func addCalories(amount: Int) {
+        let calorie = Calorie(amount: amount)
+        caloriesTracked.append(calorie)
+    }
+    
     var caloriesTracked: [Calorie] = []
 }

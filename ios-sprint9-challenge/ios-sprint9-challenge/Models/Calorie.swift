@@ -9,6 +9,12 @@
 import Foundation
 
 struct Calorie {
+    
+    init(amount: Int, date: Date = Date()) {
+        self.amount = amount
+        self.date = date
+    }
+    
     let amount: Int
     let date: Date
 }
