@@ -28,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="353" width="375" height="314"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="nDV-9T-rcL" detailTextLabel="oMb-hk-CzQ" style="IBUITableViewCellStyleValue1" id="b9G-TJ-29Q">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieCell" textLabel="nDV-9T-rcL" detailTextLabel="oMb-hk-CzQ" style="IBUITableViewCellStyleValue1" id="b9G-TJ-29Q">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b9G-TJ-29Q" id="g3f-za-jAy">
@@ -53,6 +53,9 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Rl9-OO-gdH"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -68,8 +71,16 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="Cbf-h7-2zY">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1SL-aa-b2g"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1SL-aa-b2g">
+                            <connections>
+                                <action selector="addCalorie:" destination="BYZ-38-t0r" id="rwL-e1-ELU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chart" destination="HmE-ol-uoO" id="jar-Yd-CA7"/>
+                        <outlet property="tableView" destination="Ifi-7E-9vd" id="uiZ-Jv-2Yx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
