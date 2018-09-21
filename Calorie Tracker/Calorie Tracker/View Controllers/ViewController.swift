@@ -27,14 +27,12 @@ class ViewController: UIViewController, UITableViewDataSource {
             titleTextField.keyboardType = .numberPad
         }
         
-        
         alert.addAction(UIAlertAction(title: "Sumbit", style: .default, handler: { (action) in
             guard let calorie = alert.textFields![0].text, calorie.count > 0 else { return }
             guard let calorieCount = Int64(calorie), calorieCount >= 0 else { return }
             
             self.calorieController.create(calorie: calorieCount)
             
-            self.tableView.reloadData()
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -61,6 +59,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         chartSeries.data.append((x: Double(chartSeries.data.count), y: Double(calorieCount)))
         
         chart.setNeedsDisplay()
+        
+        self.tableView.reloadData()
     }
 
     // MARK: - UITableViewDataSource
