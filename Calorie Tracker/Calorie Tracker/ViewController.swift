@@ -16,7 +16,10 @@ extension Notification.Name {
     static let newCalorieEntryAdded = Notification.Name(rawValue: "newCalorieEntryAdded")
 }
 
-class ViewController: UIViewController {
+
+// MARK: - ViewController
+
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Layout
     
@@ -86,6 +89,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(CalorieEntryCell.self, forCellReuseIdentifier: "CalorieEntryCell")
+        
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(updateViews(_:)), name: .newCalorieEntryAdded, object: nil)
     }
@@ -128,6 +135,24 @@ class ViewController: UIViewController {
     @objc func updateViews(_ notification: Notification) {
         chartView.series = [chartSeriesHelper.convertToChartSeries(calorieEntries: calorieEntryController.calorieEntries)]
         tableView.reloadData()
+    }
+    
+    
+    // MARK: - TableView Delegate and DataSource
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return calorieEntryController.calorieEntries.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieEntryCell", for: indexPath)
+        
+        let calorieEntry = calorieEntryController.calorieEntries[indexPath.row]
+        
+        cell.textLabel?.text = "Calories: \(Int(calorieEntry.calories))"
+        cell.detailTextLabel?.text = "Date"
+        
+        return cell
     }
 }
 
