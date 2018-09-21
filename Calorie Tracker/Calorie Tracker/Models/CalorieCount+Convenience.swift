@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 extension CalorieCount {
-    convenience init(calories: Int64, date: Date = Date(), managedObjectContext: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    convenience init(calories: Double, date: Date = Date(), managedObjectContext: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         self.init(context: managedObjectContext)
         self.calories = calories

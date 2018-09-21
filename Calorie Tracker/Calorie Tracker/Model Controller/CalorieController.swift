@@ -13,7 +13,7 @@ class CalorieController {
     
     // MARK: - Create (Core Data Version)
     
-    func createCalorieCount(with calories: Int64) {
+    func createCalorieCount(with calories: Double) {
         let _ = CalorieCount(calories: calories)
         saveToPersistentStore()
     }

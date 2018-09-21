@@ -14,11 +14,27 @@ class CalorieTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureChart()
     }
     
     // MARK: - Chart
     
-    // let chart = Chart()
+    
+    func configureChart() {
+        let chart = Chart()
+        var calorieCounts = calorieController.calorieCounts
+        var data: [Double] = []
+        while !calorieCounts.isEmpty {
+            guard let last = calorieCounts.popLast() else { continue }
+            data.insert(last.calories, at: 0)
+        }
+        let series = ChartSeries(data)
+        series.color = ChartColors.cyanColor()
+        series.area = true
+        chart.add(series)
+    }
+    
+    
 
     // MARK: - Table view data source
 
@@ -53,7 +69,7 @@ class CalorieTableViewController: UITableViewController {
         }
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
             if let caloriesString = alert.textFields?.first?.text {
-                guard let calories = Int64(caloriesString) else { return }
+                guard let calories = Double(caloriesString) else { return }
                 self.calorieController.createCalorieCount(with: calories)
             }
             self.tableView.reloadData() // may need to be moved elsewhere to refresh at the correct time
