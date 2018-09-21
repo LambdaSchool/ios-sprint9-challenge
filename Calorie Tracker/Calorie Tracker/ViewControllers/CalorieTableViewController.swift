@@ -27,7 +27,7 @@ class CalorieTableViewController: UITableViewController {
         guard let date = calorieCount.date else { return cell }
         
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = "MMM dd, yyyy 'at' hh:mm:ss a"
         
         cell.textLabel?.text = "Calories: \(calorieCount.calories)"
         cell.detailTextLabel?.text = "\(dateFormatter.string(from: date))"
@@ -43,21 +43,21 @@ class CalorieTableViewController: UITableViewController {
     
     // MARK: - Properties
     
-    let alert = UIAlertController(title: "Add Calorie Input", message: "Add the amount of calories in the field", preferredStyle: .alert)
     
     func configureAlert() {
+        let alert = UIAlertController(title: "Add Calorie Input", message: "Add the amount of calories in the field", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addTextField { (textField) in
             textField.placeholder = "Calories:"
         }
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-            if let caloriesString = self.alert.textFields?.first?.text {
+            if let caloriesString = alert.textFields?.first?.text {
                 guard let calories = Int64(caloriesString) else { return }
                 self.calorieController.createCalorieCount(with: calories)
             }
+            self.tableView.reloadData() // may need to be moved elsewhere to refresh at the correct time
         }))
         self.present(alert, animated: true)
-        tableView.reloadData() // may need to be moved elsewhere to refresh at the correct time
     }
     
     let calorieController = CalorieController()
