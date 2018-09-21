@@ -79,7 +79,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                      tableViewTopConstraint])
         
         self.chartView = chartView
-        chartView.add(ChartSeries(data: data))
         self.tableView = tableView
     }
     
@@ -104,9 +103,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var chartView: Chart!
     var tableView: UITableView!
-    var data = [(x: 0.0, y: 0.0)]
     var calorieEntryController = CalorieEntryController()
     let chartSeriesHelper = ChartSeriesHelper()
+    lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .medium
+        return formatter
+    }()
     
     
     // MARK: - Actions
@@ -152,7 +156,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let calorieEntry = calorieEntryController.calorieEntries[indexPath.row]
         
         cell.textLabel?.text = "Calories: \(Int(calorieEntry.calories))"
-        cell.detailTextLabel?.text = "Date"
+        cell.detailTextLabel?.text = dateFormatter.string(from: calorieEntry.date ?? Date())
         
         return cell
     }
