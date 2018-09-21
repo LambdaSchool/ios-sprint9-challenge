@@ -49,8 +49,10 @@ class ViewController: UIViewController, UITableViewDataSource {
         for calorie in calorieController.calories {
             chartSeries.data.append((x: Double(chartSeries.data.count), y: Double(calorie.calorie)))
         }
-        
+        chartSeries.color = ChartColors.blueColor()
+        chartSeries.area = true
         chart.add(chartSeries)
+        
     }
     
     @objc func calorieAdded(notification: Notification) {
