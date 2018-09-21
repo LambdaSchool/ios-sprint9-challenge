@@ -14,10 +14,20 @@ class CaloriesTableViewController: UITableViewController {
         super.viewDidLoad()
     }
 
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieTrackerCell", for: indexPath)
+
+        return cell
+    }
+
     @IBAction func addCalories(_ sender: Any) {
         let alert = UIAlertController(title: "Add Calorie Intake",
-                                      message: "Enter the amount of calories",
-                                      preferredStyle: .alert)
+            message: "Enter the amount of calories",
+            preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
         alert.addTextField(configurationHandler: { textField in
