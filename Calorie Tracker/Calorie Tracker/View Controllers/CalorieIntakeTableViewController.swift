@@ -20,6 +20,8 @@ class CalorieIntakeTableViewController: UITableViewController {
         
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(didCreateCalorieIntake(_:)), name: .didCreateCalorieIntake, object: nil)
+        
+        chart.add(series)
     }
     
     @IBAction func addCaloriesWasTapped(_ sender: Any) {
@@ -36,6 +38,10 @@ class CalorieIntakeTableViewController: UITableViewController {
             if let calories = alert.textFields?.first?.text {
                 let calorieIntake = CalorieIntake(calorie: Int16(calories) ?? 0)
                 self.calorieIntakes.append(calorieIntake)
+                
+                let data = calorieIntake.calorie
+                self.seriesData.append(data)
+                
                 
                 do {
                     try calorieIntake.managedObjectContext?.save()
@@ -56,7 +62,8 @@ class CalorieIntakeTableViewController: UITableViewController {
     
     @objc func didCreateCalorieIntake(_ notification: Notification) {
         tableView?.reloadData()
-        
+        chart.removeAllSeries()
+        chart.add(series)
     }
     
 
@@ -76,7 +83,11 @@ class CalorieIntakeTableViewController: UITableViewController {
         return cell
     }
     
+    // MARK: - Properies and Outlets
+    
     @IBOutlet weak var chart: Chart!
     
     var calorieIntakes: [CalorieIntake] = []
+    let series = ChartSeries([])
+    var seriesData: [Int16] = []
 }
