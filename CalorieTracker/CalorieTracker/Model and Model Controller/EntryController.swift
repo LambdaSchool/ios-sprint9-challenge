@@ -16,7 +16,7 @@ class EntryController {
     
     //CRUD Method
     func create(withCalories calories: Int){
-        Entry(calories: calories)
+        let entry = Entry(calories: calories)
         save()
     }
     

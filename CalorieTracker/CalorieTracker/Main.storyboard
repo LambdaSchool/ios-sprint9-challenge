@@ -44,7 +44,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="CalorieChart" destination="OFK-lV-qpL" id="VFZ-Qb-uS0"/>
+                        <outlet property="calorieChart" destination="OFK-lV-qpL" id="VFZ-Qb-uS0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RcD-W3-1TM" userLabel="First Responder" sceneMemberID="firstResponder"/>
