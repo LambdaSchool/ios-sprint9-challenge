@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="S2x-8I-uhm">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="S2x-8I-uhm" customClass="ChartView" customModule="calorie_tracker" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="191"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -59,9 +59,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="chartView" destination="S2x-8I-uhm" id="f7A-bf-za3"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l1M-oI-HRG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

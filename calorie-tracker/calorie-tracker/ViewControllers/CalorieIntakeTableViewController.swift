@@ -10,11 +10,14 @@ import UIKit
 import CoreData
 import SwiftChart
 
+extension NSNotification.Name {
+    static let updateChart = NSNotification.Name("updateChart")
+}
+
 class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
     // MARK: - Properties
     
-    @IBOutlet weak var chartView: UIView!
     let calorieIntakeController = CalorieIntakeController()
     
     lazy var frc: NSFetchedResultsController<CalorieIntake> = {
@@ -37,7 +40,8 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let nc = NotificationCenter.default
+        nc.post(name: .updateChart, object: getCalorieSeries())
     }
     
     // MARK: - Actions
@@ -48,6 +52,8 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
             let textField = alert.textFields![0] as UITextField
             if let calorieInput = Int16(textField.text ?? "") {
                 self.calorieIntakeController.create(with: calorieInput)
+                let nc = NotificationCenter.default
+                nc.post(name: .updateChart, object: self.getCalorieSeries())
                 self.tableView.reloadData()
             }
         }
@@ -60,6 +66,18 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
         alert.addAction(cancelAction)
         alert.addAction(submitAction)
         self.present(alert, animated:true, completion: nil)
+    }
+    
+    // MARK: - Private methods
+    
+    private func getCalorieSeries() -> [Double] {
+        return self.frc.fetchedObjects?.map { Double($0.calorie) } ?? []
+    }
+    
+    private func formatDate(for date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.string(from: date)
     }
     
     // MARK: - NSFetchedResultsControllerDelegate
@@ -172,19 +190,6 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
     }
     */
 
-    
-    // MARK: - Private methods
-    
-    private func formatDate(for date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        return dateFormatter.string(from: date)
-    }
-    
-}
-
-extension CalorieIntakeTableViewController {
-    
     
     
 }
