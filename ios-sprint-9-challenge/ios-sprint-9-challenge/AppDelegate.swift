@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let vc = ViewController()
+        let vc = CalorieTableViewController()
         let navVC = UINavigationController(rootViewController: vc)
 
         window?.rootViewController = navVC

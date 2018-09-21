@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CalorieTableViewController.swift
 //  ios-sprint-9-challenge
 //
 //  Created by David Doswell on 9/21/18.
@@ -9,9 +9,11 @@
 import UIKit
 import SwiftChart
 
-class ViewController: UIViewController, UITextFieldDelegate {
+private let reuseIdentifier = "reuseIdentifier"
+
+class CalorieTableViewController: UITableViewController, UITextFieldDelegate {
     
-    let chart = Chart(frame: CGRect(x: 30, y: 150, width: 350, height: 250))
+    let chart = Chart(frame: CGRect(x: 0, y: 0, width: 420, height: 300))
     let data = [
         (x: 0, y: 0),
         (x: 3, y: 2.5),
@@ -24,9 +26,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setUpViews()
         chartSeries()
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
     }
     
     private func chartSeries() {
@@ -38,7 +42,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         chart.add(series)
     }
-
+    
     private func setUpViews() {
         view.backgroundColor = .white
         self.title = "Calorie Tracker"
@@ -77,5 +81,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
         present(alert, animated: true, completion: nil)
     }
 
-}
+    // MARK: - Table view data source
 
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 10
+    }
+
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+
+        return cell
+    }
+}
