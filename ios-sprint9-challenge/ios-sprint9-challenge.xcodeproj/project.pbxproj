@@ -15,6 +15,7 @@
 		13838054215545C900C41D92 /* Calorie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13838053215545C900C41D92 /* Calorie.swift */; };
 		138380572155460E00C41D92 /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138380562155460E00C41D92 /* CalorieController.swift */; };
 		1383806A2155520200C41D92 /* Calories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 138380682155520200C41D92 /* Calories.xcdatamodeld */; };
+		1383806C2155526700C41D92 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1383806B2155526700C41D92 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		13838053215545C900C41D92 /* Calorie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calorie.swift; sourceTree = "<group>"; };
 		138380562155460E00C41D92 /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
 		138380692155520200C41D92 /* Calories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calories.xcdatamodel; sourceTree = "<group>"; };
+		1383806B2155526700C41D92 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = "ios-sprint9-challenge/Core Data/CoreDataManager.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				138380682155520200C41D92 /* Calories.xcdatamodeld */,
+				1383806B2155526700C41D92 /* CoreDataManager.swift */,
 			);
 			name = "Core Data";
 			path = "New Group";
@@ -177,6 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1383806C2155526700C41D92 /* CoreDataManager.swift in Sources */,
 				13838054215545C900C41D92 /* Calorie.swift in Sources */,
 				138380572155460E00C41D92 /* CalorieController.swift in Sources */,
 				1383803D2155414B00C41D92 /* AppDelegate.swift in Sources */,
