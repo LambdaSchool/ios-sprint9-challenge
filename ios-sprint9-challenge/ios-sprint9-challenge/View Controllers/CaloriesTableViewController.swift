@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import SwiftChart
+import PMAlertController
 
 extension NSNotification.Name {
     static let shouldUpdateChart = NSNotification.Name("ShouldUpdateChart")
@@ -142,22 +143,18 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
     }
     
     @IBAction func addCalories(_ sender: Any) {
-        let alert = UIAlertController(title: "Add Calorie Intake",
-                                      message: "Enter the amount of calories",
-                                      preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        alert.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Calories"
-        })
-        
-        alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { action in
-            if let calories = alert.textFields?.first?.text {
+        let alert = PMAlertController(title: "Add Calorie Intake", description: "Enter the amount of calories", image: nil, style: .alert)
+        alert.addTextField { (textField) in
+            textField?.placeholder = "Calories"
+        }
+        alert.addAction(PMAlertAction(title: "Submit", style: .default, action: { () in
+            if let calories = alert.textFields.first?.text {
                 self.calorieController.addCalories(amount: Int(calories) ?? 0)
                 self.tableView.reloadData()
                 self.nc.post(name: .shouldUpdateChart, object: self)
             }
         }))
+        alert.addAction(PMAlertAction(title: "Cancel", style: .cancel))
         
         self.present(alert, animated: true)
     }
