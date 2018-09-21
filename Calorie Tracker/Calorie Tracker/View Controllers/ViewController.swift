@@ -13,6 +13,8 @@ class ViewController: UIViewController, UITableViewDataSource {
 
     var calorieController = CalorieController()
     
+    var chartSeries = ChartSeries([])
+    
     @IBOutlet weak var chart: Chart!
     @IBOutlet weak var tableView: UITableView!
     
@@ -42,7 +44,20 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(calorieAdded), name: CalorieController.addedCalorieNotificaiton, object: nil)
         
+        for calorie in calorieController.calories {
+            chartSeries.data.append((x: Double(chartSeries.data.count), y: Double(calorie.calorie)))
+        }
+        
+        chart.add(chartSeries)
+    }
+    
+    @objc func calorieAdded(notification: Notification) {
+        guard let calorieCount = notification.userInfo?["calorie"] as? Int64 else { return }
+        chartSeries.data.append((x: Double(chartSeries.data.count), y: Double(calorieCount)))
+        
+        chart.setNeedsDisplay()
     }
 
     // MARK: - UITableViewDataSource

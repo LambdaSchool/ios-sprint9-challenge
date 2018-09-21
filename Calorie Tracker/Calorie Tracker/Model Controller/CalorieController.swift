@@ -11,12 +11,16 @@ import CoreData
 
 class CalorieController {
     
+    static let addedCalorieNotificaiton = Notification.Name("AddedCalorie")
+    
     var calories: [Calorie] {
         return loadFromCoreData()
     }
     
     func create(calorie: Int64) {
         let _ = Calorie(calorie: calorie)
+        
+        NotificationCenter.default.post(name: CalorieController.addedCalorieNotificaiton, object: nil, userInfo: ["calorie" : calorie])
         
         saveToCoreData()
     }
