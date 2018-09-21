@@ -19,9 +19,13 @@ class CalorieTableViewController: UITableViewController {
     
     // MARK: - Chart
     
+    @IBOutlet weak var calorieChart: Chart!
     
     func configureChart() {
-        let chart = Chart()
+        let chart = calorieChart!
+        chart.frame = CGRect(origin: CGPoint(x: 0.0, y: 0.0), size: CGSize(width: 300.0, height: 200.0))
+        chart.showXLabelsAndGrid = true
+        chart.showYLabelsAndGrid = true
         var calorieCounts = calorieController.calorieCounts
         var data: [Double] = []
         while !calorieCounts.isEmpty {
@@ -72,7 +76,8 @@ class CalorieTableViewController: UITableViewController {
                 guard let calories = Double(caloriesString) else { return }
                 self.calorieController.createCalorieCount(with: calories)
             }
-            self.tableView.reloadData() // may need to be moved elsewhere to refresh at the correct time
+            self.tableView.reloadData()
+            self.configureChart()
         }))
         self.present(alert, animated: true)
     }
