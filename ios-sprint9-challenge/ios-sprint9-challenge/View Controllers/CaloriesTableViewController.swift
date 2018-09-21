@@ -10,9 +10,15 @@ import UIKit
 import CoreData
 import SwiftChart
 
+extension NSNotification.Name {
+    static let shouldUpdateChart = NSNotification.Name("ShouldUpdateChart")
+}
+
 class CaloriesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     @IBOutlet var chartView: UIView!
-    var chart: Chart = Chart()
+    var chart = Chart()
+    var series = ChartSeries([])
+    let nc = NotificationCenter.default
     
     lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
         let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
@@ -45,12 +51,15 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
                                     width: chartView.frame.width + 35,
                                     height: chartView.frame.height))
         chartView.addSubview(chart)
-        updateChart()
+        
+        nc.addObserver(self, selector: #selector(updateChart(_:)), name: .shouldUpdateChart, object: nil)
+        nc.post(name: .shouldUpdateChart, object: self)
     }
     
-    func updateChart() {
+    @objc func updateChart(_ notification: Notification) {
         if let data = fetchedResultsController.fetchedObjects?.compactMap({ Double($0.amount) }) {
-            let series = ChartSeries(data)
+            chart.removeAllSeries()
+            series = ChartSeries(data)
             series.color = ChartColors.redColor()
             series.area = true
             chart.add(series)
@@ -146,7 +155,7 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
             if let calories = alert.textFields?.first?.text {
                 self.calorieController.addCalories(amount: Int(calories) ?? 0)
                 self.tableView.reloadData()
-                self.updateChart()
+                self.nc.post(name: .shouldUpdateChart, object: self)
             }
         }))
         
