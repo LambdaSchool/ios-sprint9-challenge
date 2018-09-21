@@ -15,6 +15,7 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
     // MARK: - Properties
     
     @IBOutlet weak var chartView: UIView!
+    let calorieIntakeController = CalorieIntakeController()
     
     lazy var frc: NSFetchedResultsController<CalorieIntake> = {
         let fetchRequest: NSFetchRequest<CalorieIntake> = CalorieIntake.fetchRequest()
@@ -23,7 +24,7 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
         
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
                                              managedObjectContext: moc,
-                                             sectionNameKeyPath: "timestamp",
+                                             sectionNameKeyPath: nil,
                                              cacheName: nil)
         
         frc.delegate = self
@@ -45,14 +46,16 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories below", preferredStyle: UIAlertController.Style.alert)
         let submitAction = UIAlertAction(title: "Submit", style: .default) { (alertAction) in
             let textField = alert.textFields![0] as UITextField
-            print(textField.text)
+            if let calorieInput = Int16(textField.text ?? "") {
+                self.calorieIntakeController.create(with: calorieInput)
+                self.tableView.reloadData()
+            }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alertAction) in
-            let textField = alert.textFields![0] as UITextField
-            print(textField.text)
+            self.dismiss(animated: true, completion: nil)
         }
         alert.addTextField { (textField) in
-            textField.placeholder = "Enter your name"
+            textField.placeholder = "Calories..."
         }
         alert.addAction(cancelAction)
         alert.addAction(submitAction)
@@ -177,5 +180,11 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return dateFormatter.string(from: date)
     }
+    
+}
+
+extension CalorieIntakeTableViewController {
+    
+    
     
 }
