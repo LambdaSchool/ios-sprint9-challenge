@@ -28,7 +28,7 @@ class CaloriesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieTrackerCell", for: indexPath)
         
         let amount = String(calorieController.caloriesTracked[indexPath.row].amount)
-        let date = dateFormatter.string(from: calorieController.caloriesTracked[indexPath.row].date)
+        let date = dateFormatter.string(from: calorieController.caloriesTracked[indexPath.row].date ?? Date())
         
         cell.textLabel?.text = "Calories: \(amount)"
         cell.detailTextLabel?.text = date

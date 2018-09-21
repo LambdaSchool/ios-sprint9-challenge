@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Calorie {
+struct CalorieRepresentation {
     
     init(amount: Int, date: Date = Date()) {
         self.amount = amount
