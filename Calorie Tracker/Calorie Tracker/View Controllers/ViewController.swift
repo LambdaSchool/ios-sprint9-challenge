@@ -14,7 +14,7 @@ class ViewController: UIViewController, UITableViewDataSource, NSFetchedResultsC
 
     var calorieController = CalorieController()
     
-    var chartSeries = ChartSeries([])
+    var allChartSeries: [String : ChartSeries] = [:]
     
     lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
         let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
@@ -76,17 +76,38 @@ class ViewController: UIViewController, UITableViewDataSource, NSFetchedResultsC
         NotificationCenter.default.addObserver(self, selector: #selector(calorieAdded), name: CalorieController.addedCalorieNotificaiton, object: nil)
         
         for calorie in calorieController.calories {
-            chartSeries.data.append((x: Double(chartSeries.data.count), y: Double(calorie.calorie)))
+            guard let name = calorie.name else { return }
+            var chartSeries = allChartSeries[name]
+            
+            if chartSeries == nil {
+                chartSeries = ChartSeries([])
+                chartSeries?.area = true
+                chartSeries?.color = UIColor(hue: CGFloat(drand48()), saturation: 1, brightness: 0.7, alpha: 1)
+                allChartSeries[name] = chartSeries
+                chart.add(chartSeries!)
+            }
+            
+            chartSeries!.data.append((x: Double(chartSeries!.data.count), y: Double(calorie.calorie)))
         }
-        chartSeries.color = ChartColors.pinkColor()
-        chartSeries.area = true
-        chart.add(chartSeries)
-        
     }
     
     @objc func calorieAdded(notification: Notification) {
         guard let calorieCount = notification.userInfo?["calorie"] as? Int64 else { return }
-        chartSeries.data.append((x: Double(chartSeries.data.count), y: Double(calorieCount)))
+//        chartSeries!.data.append((x: Double(chartSeries!.data.count), y: Double(calorieCount)))
+        
+        guard let name = notification.userInfo?["name"] as? String else { return }
+        var chartSeries = allChartSeries[name]
+        
+        if chartSeries == nil {
+            chartSeries = ChartSeries([])
+            chartSeries?.area = true
+            chartSeries?.color = UIColor(hue: CGFloat(drand48()), saturation: 1, brightness: 0.7, alpha: 1)
+            allChartSeries[name] = chartSeries
+            chart.add(chartSeries!)
+        }
+        
+        chartSeries!.data.append((x: Double(chartSeries!.data.count), y: Double(calorieCount)))
+
         
         chart.setNeedsDisplay()
         
