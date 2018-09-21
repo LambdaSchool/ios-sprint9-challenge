@@ -9,11 +9,18 @@
 import UIKit
 import SwiftChart
 
+extension NSNotification.Name {
+    static let newCalorieInput = NSNotification.Name("NewCalorieInput")
+}
+
 class CalorieTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(newCalorieInput(_:)), name: .newCalorieInput, object: nil)
+        
         configureChart()
     }
     
@@ -38,7 +45,12 @@ class CalorieTableViewController: UITableViewController {
         chart.add(series)
     }
     
+    // MARK: - Notifications
     
+    @objc func newCalorieInput(_ notification: Notification) {
+        tableView.reloadData()
+        configureChart()
+    }
 
     // MARK: - Table view data source
 
@@ -76,8 +88,10 @@ class CalorieTableViewController: UITableViewController {
                 guard let calories = Double(caloriesString) else { return }
                 self.calorieController.createCalorieCount(with: calories)
             }
-            self.tableView.reloadData()
-            self.configureChart()
+//            self.tableView.reloadData()
+//            self.configureChart()
+            let nc = NotificationCenter.default
+            nc.post(name: .newCalorieInput, object: self)
         }))
         self.present(alert, animated: true)
     }
