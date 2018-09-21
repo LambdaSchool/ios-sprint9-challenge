@@ -22,26 +22,33 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
     
     lazy var frc: NSFetchedResultsController<CalorieIntake> = {
         let fetchRequest: NSFetchRequest<CalorieIntake> = CalorieIntake.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "person", ascending: true), NSSortDescriptor(key: "timestamp", ascending: true)]
         let moc = CoreDataStack.shared.mainContext
         
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
                                              managedObjectContext: moc,
-                                             sectionNameKeyPath: nil,
+                                             sectionNameKeyPath: "person",
                                              cacheName: nil)
         
         frc.delegate = self
         try! frc.performFetch()
         return frc
     }()
-    
+
+    var caloriesByPerson: [String : [CalorieIntake]]!
     
     // MARK: - Init
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Create a dictionary that is grouped by person, e.g. ["Stefano" : [CalorieIntake],  "Billy" : [CalorieIntake]]
+        guard let calories = frc.fetchedObjects else { return }
+        caloriesByPerson = Dictionary(grouping: calories, by: { $0.person ?? "" })
+        
+        // Send notification to ChartView with calorie series stored in local persistence
         let nc = NotificationCenter.default
-        nc.post(name: .updateChart, object: getCalorieSeries())
+        nc.post(name: .updateChart, object: caloriesByPerson)
+        
     }
     
     // MARK: - Actions
@@ -49,22 +56,40 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
     @IBAction func add(_ sender: Any) {
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories below", preferredStyle: UIAlertController.Style.alert)
         let submitAction = UIAlertAction(title: "Submit", style: .default) { (alertAction) in
-            let textField = alert.textFields![0] as UITextField
-            if let calorieInput = Int16(textField.text ?? "") {
-                self.calorieIntakeController.create(with: calorieInput)
+            let calorieTextField = alert.textFields![0] as UITextField
+            let nameTextField = alert.textFields![1] as UITextField
+            if let calorieInput = Int16(calorieTextField.text ?? ""), let personName = nameTextField.text {
+                // Create new calorie intake instance
+                self.calorieIntakeController.create(with: calorieInput, for: personName)
+                
+                guard let calories = self.frc.fetchedObjects else { return }
+                self.caloriesByPerson = Dictionary(grouping: calories, by: { $0.person ?? "" })
+                
+                // Setup notification center and set calorieSeries -> [Double]
                 let nc = NotificationCenter.default
-                nc.post(name: .updateChart, object: self.getCalorieSeries())
+                nc.post(name: .updateChart, object: self.caloriesByPerson)
+                
+                // Update table view with new calorie intake
                 self.tableView.reloadData()
             }
         }
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alertAction) in
+            // Dismiss if pressed on cancel
             self.dismiss(animated: true, completion: nil)
         }
+        
         alert.addTextField { (textField) in
             textField.placeholder = "Calories..."
         }
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Your name..."
+        }
+        
         alert.addAction(cancelAction)
         alert.addAction(submitAction)
+        
         self.present(alert, animated:true, completion: nil)
     }
     
@@ -125,11 +150,15 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return frc.sections?.count ?? 0
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return frc.sections?[section].name
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return frc.fetchedObjects?.count ?? 0
+        return frc.sections?[section].numberOfObjects ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

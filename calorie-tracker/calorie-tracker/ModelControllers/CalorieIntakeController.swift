@@ -11,8 +11,8 @@ import CoreData
 
 class CalorieIntakeController {
     
-    func create(with calories: Int16, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
-        _ = CalorieIntake(calorie: calories)
+    func create(with calories: Int16, for person: String, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        _ = CalorieIntake(person: person, calorie: calories)
         
         do {
             try CoreDataStack.shared.save(context: context)

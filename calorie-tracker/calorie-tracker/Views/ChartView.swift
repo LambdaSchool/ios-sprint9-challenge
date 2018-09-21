@@ -15,10 +15,12 @@ class ChartView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        let nc = NotificationCenter.default
+        // Initial setup of chart view
         setupChartView()
+        
+        // Listen to notifications whenever the chart should be updated
+        let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(updateChartView(_:)), name: .updateChart, object: nil)
-        //setupChartView(_:)
     }
     
     private func setupChartView() {
@@ -36,10 +38,27 @@ class ChartView: UIView {
     }
     
     @objc private func updateChartView(_ notification: Notification) {
-        if let object = notification.object as? [Double] {
-            let chartSeries = ChartSeries(object)
-            chartView.add(chartSeries)
+        
+        if let caloriesByPerson = notification.object as? [String : [CalorieIntake]] {
+            
+            for person in caloriesByPerson {
+                let calorieSeries = getCalorieSeries(for: person.value)
+                let series = ChartSeries(calorieSeries)
+                series.area = true
+                series.colors = (
+                    above: ChartColors.greenColor(),
+                    below: ChartColors.redColor(),
+                    zeroLevel: -1
+                )
+                
+                chartView.add(series)
+            }
+            
         }
+    }
+    
+    private func getCalorieSeries(for calorieIntake: [CalorieIntake]) -> [Double] {
+        return calorieIntake.map { Double($0.calorie) }
     }
 
 }

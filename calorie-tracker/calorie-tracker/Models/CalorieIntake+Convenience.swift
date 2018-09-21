@@ -11,9 +11,10 @@ import CoreData
 
 extension CalorieIntake {
     
-    convenience init(id: String = UUID().uuidString, calorie: Int16, timestamp: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    convenience init(id: String = UUID().uuidString, person: String, calorie: Int16, timestamp: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.id = id
+        self.person = person
         self.calorie = calorie
         self.timestamp = timestamp
     }
