@@ -11,7 +11,14 @@ import SwiftChart
 
 private let reuseIdentifier = "reuseIdentifier"
 
+struct Calorie {
+    let calories: String
+    let timestamp: Date
+}
+
 class CalorieTableViewController: UITableViewController, UITextFieldDelegate {
+    
+    let calories : [Calorie] = []
     
     let chart = Chart(frame: CGRect(x: 0, y: 0, width: 420, height: 300))
     let data = [
@@ -59,10 +66,11 @@ class CalorieTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @objc private func rightBarButtonTap(sender: UIButton) {
-        presentAddCalorieAlert()
+        let cell = CalorieCell()
+        presentAddCalorieAlert(cell: cell)
     }
     
-    private func presentAddCalorieAlert() {
+    private func presentAddCalorieAlert(cell: CalorieCell) {
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
         
         alert.addTextField { (textfield) in
@@ -72,8 +80,17 @@ class CalorieTableViewController: UITableViewController, UITextFieldDelegate {
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
         }
         let submit = UIAlertAction(title: "Submit", style: .default) { (action) in
-            let textField = alert.textFields![0] as UITextField
-            textField.autocapitalizationType = .none
+            let textfield = alert.textFields![0] as UITextField
+            textfield.autocapitalizationType = .none
+            
+            cell.caloriesLabel.text = "Calories"
+            cell.caloriesNumber.text = "\(String(describing: textfield.text))"
+            
+            let date = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .medium
+            cell.timestampLabel.text = dateFormatter.string(from: date)
         }
         alert.addAction(cancel)
         alert.addAction(submit)
@@ -94,7 +111,7 @@ class CalorieTableViewController: UITableViewController, UITextFieldDelegate {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! CalorieCell
 
         return cell
     }

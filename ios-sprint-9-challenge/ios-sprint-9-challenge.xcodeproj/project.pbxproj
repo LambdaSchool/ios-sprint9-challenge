@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		491996F821555B4D004AFB89 /* CalorieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491996F721555B4D004AFB89 /* CalorieTableViewController.swift */; };
+		491996FC21555D53004AFB89 /* CalorieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491996FB21555D53004AFB89 /* CalorieCell.swift */; };
 		49B2CA7B215547AE00A06669 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B2CA7A215547AE00A06669 /* AppDelegate.swift */; };
-		49B2CA80215547AE00A06669 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49B2CA7E215547AE00A06669 /* Main.storyboard */; };
 		49B2CA82215547AE00A06669 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49B2CA81215547AE00A06669 /* Assets.xcassets */; };
 		49B2CA85215547AE00A06669 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49B2CA83215547AE00A06669 /* LaunchScreen.storyboard */; };
 		8FE29980A9F8D117D1342CE1 /* Pods_ios_sprint_9_challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121600FACD299F0AF2CFD02A /* Pods_ios_sprint_9_challenge.framework */; };
@@ -19,9 +19,9 @@
 		121600FACD299F0AF2CFD02A /* Pods_ios_sprint_9_challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_sprint_9_challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2004F658DEA5970CF7988A03 /* Pods-ios-sprint-9-challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-sprint-9-challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-sprint-9-challenge/Pods-ios-sprint-9-challenge.release.xcconfig"; sourceTree = "<group>"; };
 		491996F721555B4D004AFB89 /* CalorieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewController.swift; sourceTree = "<group>"; };
+		491996FB21555D53004AFB89 /* CalorieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieCell.swift; sourceTree = "<group>"; };
 		49B2CA77215547AE00A06669 /* ios-sprint-9-challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-sprint-9-challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49B2CA7A215547AE00A06669 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		49B2CA7F215547AE00A06669 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49B2CA81215547AE00A06669 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49B2CA84215547AE00A06669 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49B2CA86215547AE00A06669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,6 +48,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		491996F921555D12004AFB89 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				491996F721555B4D004AFB89 /* CalorieTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		491996FA21555D25004AFB89 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				49B2CA81215547AE00A06669 /* Assets.xcassets */,
+				49B2CA83215547AE00A06669 /* LaunchScreen.storyboard */,
+				491996FB21555D53004AFB89 /* CalorieCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		49B2CA6E215547AE00A06669 = {
 			isa = PBXGroup;
 			children = (
@@ -70,11 +88,9 @@
 			isa = PBXGroup;
 			children = (
 				49B2CA7A215547AE00A06669 /* AppDelegate.swift */,
-				491996F721555B4D004AFB89 /* CalorieTableViewController.swift */,
-				49B2CA7E215547AE00A06669 /* Main.storyboard */,
-				49B2CA81215547AE00A06669 /* Assets.xcassets */,
-				49B2CA83215547AE00A06669 /* LaunchScreen.storyboard */,
 				49B2CA86215547AE00A06669 /* Info.plist */,
+				491996FA21555D25004AFB89 /* Views */,
+				491996F921555D12004AFB89 /* Controllers */,
 			);
 			path = "ios-sprint-9-challenge";
 			sourceTree = "<group>";
@@ -150,7 +166,6 @@
 			files = (
 				49B2CA85215547AE00A06669 /* LaunchScreen.storyboard in Resources */,
 				49B2CA82215547AE00A06669 /* Assets.xcassets in Resources */,
-				49B2CA80215547AE00A06669 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				491996FC21555D53004AFB89 /* CalorieCell.swift in Sources */,
 				491996F821555B4D004AFB89 /* CalorieTableViewController.swift in Sources */,
 				49B2CA7B215547AE00A06669 /* AppDelegate.swift in Sources */,
 			);
@@ -216,14 +232,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		49B2CA7E215547AE00A06669 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				49B2CA7F215547AE00A06669 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		49B2CA83215547AE00A06669 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
