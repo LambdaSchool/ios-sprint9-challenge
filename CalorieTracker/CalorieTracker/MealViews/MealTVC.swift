@@ -1,33 +1,25 @@
-//
-//  MealViews.swift
-//  CalorieTracker
-//
-//  Created by William Bundy on 9/21/18.
-//  Copyright © 2018 William Bundy. All rights reserved.
-//
 
 import Foundation
 import UIKit
 import CoreData
-import SwiftChart
-
-let AllChartColors = [
-	ChartColors.blueColor(),
-	ChartColors.cyanColor(),
-	ChartColors.darkRedColor(),
-	ChartColors.darkGreenColor(),
-	ChartColors.goldColor(),
-	ChartColors.greenColor(),
-	ChartColors.greyColor(),
-	ChartColors.maroonColor(),
-	ChartColors.orangeColor(),
-	ChartColors.pinkColor(),
-	ChartColors.purpleColor(),
-	ChartColors.redColor(),
-	ChartColors.yellowColor()]
 
 class MealTVC: UITableViewController, NSFetchedResultsControllerDelegate
 {
+	let AllChartColors = [
+		ChartColors.blueColor(),
+		ChartColors.cyanColor(),
+		ChartColors.darkRedColor(),
+		ChartColors.darkGreenColor(),
+		ChartColors.goldColor(),
+		ChartColors.greenColor(),
+		ChartColors.greyColor(),
+		ChartColors.maroonColor(),
+		ChartColors.orangeColor(),
+		ChartColors.pinkColor(),
+		ChartColors.purpleColor(),
+		ChartColors.redColor(),
+		ChartColors.yellowColor()]
+
 	var person = "Anonymous"
 
 	var controller = MealController.shared
