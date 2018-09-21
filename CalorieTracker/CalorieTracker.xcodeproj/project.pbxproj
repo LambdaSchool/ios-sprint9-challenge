@@ -11,10 +11,11 @@
 		10D325DD21554AE400DB32C5 /* Entry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10D325DB21554AE400DB32C5 /* Entry.xcdatamodeld */; };
 		10D325DF21554AE400DB32C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10D325DE21554AE400DB32C5 /* Assets.xcassets */; };
 		10D325E221554AE400DB32C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10D325E021554AE400DB32C5 /* LaunchScreen.storyboard */; };
-		10D325ED21554B7C00DB32C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10D325EA21554B7C00DB32C5 /* Main.storyboard */; };
 		10D325EE21554B7C00DB32C5 /* CalorieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D325EC21554B7C00DB32C5 /* CalorieTableViewController.swift */; };
 		10D325F121554BB800DB32C5 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D325F021554BB800DB32C5 /* CoreDataStack.swift */; };
 		10D325F321554C4600DB32C5 /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D325F221554C4600DB32C5 /* Entry+Convenience.swift */; };
+		10D325F5215551AA00DB32C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10D325F4215551AA00DB32C5 /* Main.storyboard */; };
+		10D325F72155540600DB32C5 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D325F62155540600DB32C5 /* EntryController.swift */; };
 		9E62C8EE68A561C3D2076466 /* Pods_CalorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6414F70D4BBD30DEB1D2790 /* Pods_CalorieTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,10 +26,11 @@
 		10D325DE21554AE400DB32C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10D325E121554AE400DB32C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		10D325E321554AE500DB32C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10D325EB21554B7C00DB32C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../CalorieTracker2/CalorieTracker/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		10D325EC21554B7C00DB32C5 /* CalorieTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalorieTableViewController.swift; sourceTree = "<group>"; };
 		10D325F021554BB800DB32C5 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		10D325F221554C4600DB32C5 /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
+		10D325F4215551AA00DB32C5 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		10D325F62155540600DB32C5 /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 		1FA69DAC4A1769264ED04E20 /* Pods-CalorieTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.release.xcconfig"; sourceTree = "<group>"; };
 		51BC9EB3793D712CE504B3D5 /* Pods-CalorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		B6414F70D4BBD30DEB1D2790 /* Pods_CalorieTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,9 +77,9 @@
 		10D325D321554AE400DB32C5 /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
-				10D325EF21554B9F00DB32C5 /* Model and Model Controller */,
-				10D325EA21554B7C00DB32C5 /* Main.storyboard */,
+				10D325F4215551AA00DB32C5 /* Main.storyboard */,
 				10D325EC21554B7C00DB32C5 /* CalorieTableViewController.swift */,
+				10D325EF21554B9F00DB32C5 /* Model and Model Controller */,
 				10D325E921554AF200DB32C5 /* Resources */,
 			);
 			path = CalorieTracker;
@@ -100,6 +102,7 @@
 				10D325DB21554AE400DB32C5 /* Entry.xcdatamodeld */,
 				10D325F221554C4600DB32C5 /* Entry+Convenience.swift */,
 				10D325F021554BB800DB32C5 /* CoreDataStack.swift */,
+				10D325F62155540600DB32C5 /* EntryController.swift */,
 			);
 			path = "Model and Model Controller";
 			sourceTree = "<group>";
@@ -173,7 +176,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10D325ED21554B7C00DB32C5 /* Main.storyboard in Resources */,
+				10D325F5215551AA00DB32C5 /* Main.storyboard in Resources */,
 				10D325E221554AE400DB32C5 /* LaunchScreen.storyboard in Resources */,
 				10D325DF21554AE400DB32C5 /* Assets.xcassets in Resources */,
 			);
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10D325F72155540600DB32C5 /* EntryController.swift in Sources */,
 				10D325D521554AE400DB32C5 /* AppDelegate.swift in Sources */,
 				10D325EE21554B7C00DB32C5 /* CalorieTableViewController.swift in Sources */,
 				10D325DD21554AE400DB32C5 /* Entry.xcdatamodeld in Sources */,
@@ -250,14 +254,6 @@
 				10D325E121554AE400DB32C5 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		10D325EA21554B7C00DB32C5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				10D325EB21554B7C00DB32C5 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

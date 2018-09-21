@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import CoreData
 
 extension Entry {
-    convenience init(date: Date = Date(), calories: Int) {
-        self.init()
+    @discardableResult convenience init(date: Date = Date(), calories: Int, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        self.init(context: context)
         self.date = date
         self.calories = Int32(calories)
     }
