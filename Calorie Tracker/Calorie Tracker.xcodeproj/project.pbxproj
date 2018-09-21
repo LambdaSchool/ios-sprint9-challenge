@@ -15,6 +15,7 @@
 		F82204EF2155444400F9B219 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82204EE2155444400F9B219 /* CoreDataStack.swift */; };
 		F82204F22155447200F9B219 /* Calorie_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F82204F02155447200F9B219 /* Calorie_Tracker.xcdatamodeld */; };
 		F82204F42155452000F9B219 /* CalorieCount+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82204F32155452000F9B219 /* CalorieCount+Convenience.swift */; };
+		F82204F721554CB400F9B219 /* CalorieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82204F621554CB400F9B219 /* CalorieTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		F82204EE2155444400F9B219 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		F82204F12155447200F9B219 /* Calorie_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calorie_Tracker.xcdatamodel; sourceTree = "<group>"; };
 		F82204F32155452000F9B219 /* CalorieCount+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieCount+Convenience.swift"; sourceTree = "<group>"; };
+		F82204F621554CB400F9B219 /* CalorieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				F82204DA2155420400F9B219 /* Main.storyboard */,
 				F82204E8215542E000F9B219 /* Models */,
 				F82204EB2155436200F9B219 /* Model Controller */,
+				F82204F521554C8E00F9B219 /* ViewControllers */,
 				F82204DD2155420500F9B219 /* Assets.xcassets */,
 				F82204DF2155420500F9B219 /* LaunchScreen.storyboard */,
 				F82204E22155420500F9B219 /* Info.plist */,
@@ -87,6 +90,14 @@
 				F82204EC2155437800F9B219 /* CalorieController.swift */,
 			);
 			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		F82204F521554C8E00F9B219 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F82204F621554CB400F9B219 /* CalorieTableViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +175,7 @@
 				F82204D72155420400F9B219 /* AppDelegate.swift in Sources */,
 				F82204ED2155437800F9B219 /* CalorieController.swift in Sources */,
 				F82204EF2155444400F9B219 /* CoreDataStack.swift in Sources */,
+				F82204F721554CB400F9B219 /* CalorieTableViewController.swift in Sources */,
 				F82204F22155447200F9B219 /* Calorie_Tracker.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
