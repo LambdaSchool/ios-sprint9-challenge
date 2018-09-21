@@ -35,6 +35,7 @@ class CalorieIntakeTableViewController: UITableViewController {
             
             if let calories = alert.textFields?.first?.text {
                 let calorieIntake = CalorieIntake(calorie: Int16(calories) ?? 0)
+                self.calorieIntakes.append(calorieIntake)
                 
                 do {
                     try calorieIntake.managedObjectContext?.save()
@@ -62,17 +63,20 @@ class CalorieIntakeTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return calorieIntakes.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieIntakeCell", for: indexPath)
 
-        
+        let calorieIntake = calorieIntakes[indexPath.row]
+        cell.textLabel?.text  = "Calories: \(calorieIntake.calorie)"
+        cell.detailTextLabel?.text = "\(calorieIntake.timestamp ?? Date())"
 
         return cell
     }
     
     @IBOutlet weak var chart: Chart!
     
+    var calorieIntakes: [CalorieIntake] = []
 }
