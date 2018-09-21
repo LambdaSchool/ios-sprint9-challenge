@@ -14,4 +14,23 @@ class CaloriesTableViewController: UITableViewController {
         super.viewDidLoad()
     }
 
+    @IBAction func addCalories(_ sender: Any) {
+        let alert = UIAlertController(title: "Add Calorie Intake",
+                                      message: "Enter the amount of calories",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        alert.addTextField(configurationHandler: { textField in
+            textField.placeholder = "Calories"
+        })
+
+        alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { action in
+            if let calories = alert.textFields?.first?.text {
+                print("Your calories: \(calories)")
+            }
+        }))
+
+        self.present(alert, animated: true)
+    }
+
 }

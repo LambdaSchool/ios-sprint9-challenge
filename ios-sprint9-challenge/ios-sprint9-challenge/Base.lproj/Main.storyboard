@@ -11,7 +11,7 @@
         <!--Calorie Tracker-->
         <scene sceneID="LBs-Uj-DEc">
             <objects>
-                <tableViewController id="wFZ-3S-wir" sceneMemberID="viewController">
+                <tableViewController id="wFZ-3S-wir" customClass="CaloriesTableViewController" customModule="ios_sprint9_challenge" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="g5U-l3-Gug">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,7 +48,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="o0w-4r-dgM">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="09e-jl-yXA"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="09e-jl-yXA">
+                            <connections>
+                                <action selector="addCalories:" destination="wFZ-3S-wir" id="aAk-dk-iMv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09R-IU-OXH" userLabel="First Responder" sceneMemberID="firstResponder"/>
