@@ -30,11 +30,6 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
         tableView.reloadData()
     }
     
-    // MARK: - Setup Chart
-    func setupChart(){
-//        calorieChart = Chart()
-    }
-    
     //MARK: - Add Action
     
     @IBAction func addEntry(_ sender: Any) {
@@ -63,48 +58,20 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
         self.present(alert,animated:true, completion:nil)
 
     }
-    
-    func addEntryToChart() {
-        
-    }
-    // MARK: - NSFetchedResultsControllerDelegate
-    
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
-    }
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
-    }
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
-                    didChange anObject: Any,
-                    at indexPath: IndexPath?,
-                    for type: NSFetchedResultsChangeType,
-                    newIndexPath: IndexPath?) {
-        switch type {
-        case .insert:
-            tableView.insertRows(at: [newIndexPath!], with: .automatic)
-        case .delete:
-            tableView.deleteRows(at: [indexPath!], with: .automatic)
-        case .update:
-            tableView.reloadRows(at: [indexPath!], with: .automatic)
-        case .move:
-            tableView.deleteRows(at: [indexPath!], with: .automatic)
-            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+    // MARK: - Setup Chart
+    func setupChart(){
+        guard let entries = fetchedResultsController.sections?.first?.objects else {
+            NSLog("No entries")
+            return
         }
-    }
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
-                    didChange sectionInfo: NSFetchedResultsSectionInfo,
-                    atSectionIndex sectionIndex: Int,
-                    for type: NSFetchedResultsChangeType) {
-        switch type {
-        case .insert:
-            tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
-        case .delete:
-            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
-        default:
-            break
+        for entry in entries{
+            if let entry = entry as? Entry{
+            data.append((data.count, Double(entry.calories)))
+            }
         }
+        calorieChart.add(ChartSeries(data: data))
     }
+    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
