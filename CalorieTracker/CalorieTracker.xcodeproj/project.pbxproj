@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BE8A056F21554187000DC557 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8A056E21554187000DC557 /* AppDelegate.swift */; };
-		BE8A057121554187000DC557 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8A057021554187000DC557 /* ViewController.swift */; };
 		BE8A057421554187000DC557 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE8A057221554187000DC557 /* Main.storyboard */; };
 		BE8A057621554189000DC557 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE8A057521554189000DC557 /* Assets.xcassets */; };
 		BE8A057921554189000DC557 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE8A057721554189000DC557 /* LaunchScreen.storyboard */; };
@@ -16,12 +15,12 @@
 		BE8A05842155424E000DC557 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8A05832155424E000DC557 /* CoreDataStack.swift */; };
 		BE8A058621554437000DC557 /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8A058521554437000DC557 /* MealModel.swift */; };
 		BE8A058821554B47000DC557 /* MealViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8A058721554B47000DC557 /* MealViews.swift */; };
+		BE8A058C21554FA6000DC557 /* SwiftChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8A058B21554FA6000DC557 /* SwiftChart.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BE8A056B21554187000DC557 /* CalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8A056E21554187000DC557 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BE8A057021554187000DC557 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BE8A057321554187000DC557 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE8A057521554189000DC557 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE8A057821554189000DC557 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -30,6 +29,7 @@
 		BE8A05832155424E000DC557 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		BE8A058521554437000DC557 /* MealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealModel.swift; sourceTree = "<group>"; };
 		BE8A058721554B47000DC557 /* MealViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViews.swift; sourceTree = "<group>"; };
+		BE8A058B21554FA6000DC557 /* SwiftChart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftChart.framework; path = Carthage/Build/iOS/SwiftChart.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE8A058C21554FA6000DC557 /* SwiftChart.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,8 +63,8 @@
 		BE8A056D21554187000DC557 /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
+				BE8A058B21554FA6000DC557 /* SwiftChart.framework */,
 				BE8A056E21554187000DC557 /* AppDelegate.swift */,
-				BE8A057021554187000DC557 /* ViewController.swift */,
 				BE8A057221554187000DC557 /* Main.storyboard */,
 				BE8A057521554189000DC557 /* Assets.xcassets */,
 				BE8A057721554189000DC557 /* LaunchScreen.storyboard */,
@@ -86,6 +87,7 @@
 				BE8A056721554187000DC557 /* Sources */,
 				BE8A056821554187000DC557 /* Frameworks */,
 				BE8A056921554187000DC557 /* Resources */,
+				BE8A058D21554FAF000DC557 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -142,6 +144,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BE8A058D21554FAF000DC557 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftChart.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Carthage/Build/iOS/SwiftChart.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BE8A056721554187000DC557 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -149,7 +173,6 @@
 			files = (
 				BE8A058621554437000DC557 /* MealModel.swift in Sources */,
 				BE8A058821554B47000DC557 /* MealViews.swift in Sources */,
-				BE8A057121554187000DC557 /* ViewController.swift in Sources */,
 				BE8A056F21554187000DC557 /* AppDelegate.swift in Sources */,
 				BE8A0582215541F5000DC557 /* CalorieTracker.xcdatamodeld in Sources */,
 				BE8A05842155424E000DC557 /* CoreDataStack.swift in Sources */,
@@ -300,6 +323,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 46P9FSKMSU;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CalorieTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -318,6 +345,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 46P9FSKMSU;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CalorieTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

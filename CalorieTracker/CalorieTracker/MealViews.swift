@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CoreData
+import SwiftChart
 
 class MealTVC: UITableViewController, NSFetchedResultsControllerDelegate
 {
@@ -45,6 +46,7 @@ class MealTVC: UITableViewController, NSFetchedResultsControllerDelegate
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
+		tableView.reloadData()
 	}
 
 	func controller(
