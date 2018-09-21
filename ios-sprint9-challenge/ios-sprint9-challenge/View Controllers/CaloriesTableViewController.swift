@@ -128,6 +128,5 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 
         self.present(alert, animated: true)
     }
-    
 
 }
