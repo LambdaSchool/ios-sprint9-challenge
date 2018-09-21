@@ -46,8 +46,12 @@ class CalorieTrackerTableViewController: UITableViewController
     {
         let stringArray = ["0", "6", "2", "8", "4", "7", "3", "10", "8"]
         var convertedArray = [Double]()
-        
-        convertedArray = stringArray.map { Double($0) ?? 0}
+        for string in stringArray
+        {
+            let convertedString = Double(string)
+            convertedArray.append(convertedString!)
+        }
+        //convertedArray = stringArray.map { Double($0) ?? 0}
         let result = convertedArray
         let series = ChartSeries(result)
         chartView.add(series)
