@@ -103,7 +103,7 @@ class MealTVC: UITableViewController, NSFetchedResultsControllerDelegate
 	{
 		let defaultCell = tableView.dequeueReusableCell(withIdentifier: "MealCell", for: indexPath)
 		let meal = fetcher.object(at: indexPath)
-		defaultCell.textLabel.text = "\(meal.calories) \(dateFormatter.string(from: meal.timestamp))"
+		defaultCell.textLabel?.text = "\(meal.calories) \(dateFormatter.string(from: meal.timestamp ?? Date()))"
 		return defaultCell
 	}
 }
