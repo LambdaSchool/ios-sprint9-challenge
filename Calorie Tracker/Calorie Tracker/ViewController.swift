@@ -93,6 +93,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
         tableView.register(CalorieEntryCell.self, forCellReuseIdentifier: "CalorieEntryCell")
         
+        chartView.series = [chartSeriesHelper.convertToChartSeries(calorieEntries: calorieEntryController.calorieEntries)]
+        
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(updateViews(_:)), name: .newCalorieEntryAdded, object: nil)
     }

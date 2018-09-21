@@ -13,6 +13,6 @@ class CalorieEntryCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
     
     override init(style: UITableViewCell.CellStyle = .value1, reuseIdentifier: String?) {
-        super.init(style: .value2, reuseIdentifier: reuseIdentifier)
+        super.init(style: .value1, reuseIdentifier: reuseIdentifier)
     }
 }
