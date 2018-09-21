@@ -6,7 +6,5 @@ target 'Calorie Tracker' do
   use_frameworks!
 
   # Pods for Calorie Tracker
-
 pod "SwiftChart"
-
 end

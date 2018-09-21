@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftChart
 
 class CalorieTableViewController: UITableViewController {
 
@@ -14,6 +15,10 @@ class CalorieTableViewController: UITableViewController {
         super.viewDidLoad()
 
     }
+    
+    // MARK: - Chart
+    
+    // let chart = Chart()
 
     // MARK: - Table view data source
 
@@ -38,11 +43,7 @@ class CalorieTableViewController: UITableViewController {
 
     @IBAction func addCalorieCount(_ sender: Any) {
         configureAlert()
-        
     }
-    
-    // MARK: - Properties
-    
     
     func configureAlert() {
         let alert = UIAlertController(title: "Add Calorie Input", message: "Add the amount of calories in the field", preferredStyle: .alert)
@@ -59,6 +60,8 @@ class CalorieTableViewController: UITableViewController {
         }))
         self.present(alert, animated: true)
     }
+    
+    // MARK: - Properties
     
     let calorieController = CalorieController()
 
