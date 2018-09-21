@@ -16,16 +16,19 @@ class EntryController {
     
     //CRUD Method
     func create(withCalories calories: Int){
-        let entry = Entry(calories: calories)
+         Entry(calories: calories)
         save()
     }
     
     func save(){
-        do {
-            try moc.save()
-        } catch {
-            NSLog("Error saving")
-            moc.reset()
+        moc.perform {
+            
+            do {
+                try moc.save()
+            } catch {
+                NSLog("Error saving")
+                moc.reset()
+            }
         }
     }
 }
