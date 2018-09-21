@@ -1,0 +1,929 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A92D874FDC4BEF6E604BA92E5CF2AD3 /* PMAlertController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 69538AE353DF7BD2A758EE1153BD54F7 /* PMAlertController-dummy.m */; };
+		2767160981B7E3DB86DCB1E2A2A87C86 /* PMAlertController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 701367FC250AA61E109E9CC83815A96B /* PMAlertController.bundle */; };
+		3F0CF06257BFD625FE4775B36B80D315 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */; };
+		3FEB2EF59F7A42F35703B518C81A91A1 /* PMAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E086E7FF44A1F1DB4336E7104FD49151 /* PMAlertController.xib */; };
+		47E6A7AEA618B5236FFAE97C96220028 /* SwiftChart-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 86532BCA4DB6968FF26376C99A504833 /* SwiftChart-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5695CEE3C4F58EE97223390713FDFE25 /* PMAlertController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BF61F926CE425BDE9DD1ED24224FF77D /* PMAlertController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		614E7245D6274E6D98BFDF4F9BF38374 /* ChartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483134A843FA9BB35EB3F07BD9A74A6F /* ChartColors.swift */; };
+		9197F942FE1C0EFC816A5B2B89539D72 /* ChartSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D91897273306B2D83D40EBE2A914B41 /* ChartSeries.swift */; };
+		993824DFDED0884592768AE8B53DDFAA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */; };
+		A219A4BCD49B6795495F648495C0BED7 /* Pods-ios-sprint9-challenge-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A54A85CBEB61D2E3CE50C4FBFC2BDDF /* Pods-ios-sprint9-challenge-dummy.m */; };
+		A22B29895FDF58B7045658E9DCFF7E5D /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5D3C3D1DE698ED3D858C4E4D490623 /* Chart.swift */; };
+		B090509A5AC0BD687AC86926DCC30FA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
+		D6E0D50EB024782A913350A2BAD5882B /* PMAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E104B38F313628B157BF2545E0950 /* PMAlertController.swift */; };
+		DAAEF923EF98BE62143CD08354CF6E84 /* PMAlertController.xib in Sources */ = {isa = PBXBuildFile; fileRef = E086E7FF44A1F1DB4336E7104FD49151 /* PMAlertController.xib */; };
+		ED055D569380FE238F2A710A9F913F89 /* SwiftChart-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E63EEF04EE09CD3C761433FAADE4B2 /* SwiftChart-dummy.m */; };
+		EE5EC113681DE664F052AA613C479DD5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
+		F7259C1E36BB19B7CAE899763CFD1056 /* PMAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74327D357D10C294F5618CBF9D959A /* PMAlertAction.swift */; };
+		F9E5F97EB2983A545D50191B2B068E70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
+		FF5111F52E1765AA90450CB9AC9B3436 /* Pods-ios-sprint9-challenge-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 66633DFF4DA4667641776F39B457BB6E /* Pods-ios-sprint9-challenge-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		55880A253250F02C5D7FD0D7F75418C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C428D81C38161BEEA96202EBA91E97B7;
+			remoteInfo = "PMAlertController-PMAlertController";
+		};
+		60A0496E71C75ADCEBDDDCD44004CED1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C13CE1B1BFC25DD2469DB739C96EEF8B;
+			remoteInfo = SwiftChart;
+		};
+		90CA5F8D19A392368489A47C2E030128 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F988D60552EFE7F51C22331E9D3A468B;
+			remoteInfo = PMAlertController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		11E63EEF04EE09CD3C761433FAADE4B2 /* SwiftChart-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftChart-dummy.m"; sourceTree = "<group>"; };
+		27E216311DFD0B6EE9808D39C00AB526 /* Pods-ios-sprint9-challenge-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ios-sprint9-challenge-resources.sh"; sourceTree = "<group>"; };
+		290F369641A37E146CA0F7A5CF5396B7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3649EFD8A174AAB37C0FAA2ABCED6037 /* PMAlertController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PMAlertController.xcconfig; sourceTree = "<group>"; };
+		384E104B38F313628B157BF2545E0950 /* PMAlertController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PMAlertController.swift; path = Library/PMAlertController.swift; sourceTree = "<group>"; };
+		3F6F323E2F9A27473BA7C7F84F9E610D /* Pods_ios_sprint9_challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ios_sprint9_challenge.framework; path = "Pods-ios-sprint9-challenge.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		483134A843FA9BB35EB3F07BD9A74A6F /* ChartColors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartColors.swift; path = Source/ChartColors.swift; sourceTree = "<group>"; };
+		4DF4C038A9E34B15B37DC9FDCEA4F145 /* Pods-ios-sprint9-challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ios-sprint9-challenge.debug.xcconfig"; sourceTree = "<group>"; };
+		54CBA67539FD85E4A7754A0BCA7CC8C2 /* SwiftChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftChart.framework; path = SwiftChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A56CD28C051C80B6B37D9C92C21F4E5 /* Pods-ios-sprint9-challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ios-sprint9-challenge.release.xcconfig"; sourceTree = "<group>"; };
+		5E0B60D4EADD3C859EBF8487211A496B /* SwiftChart.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftChart.xcconfig; sourceTree = "<group>"; };
+		64D517B49C45AE03D7CC60CC1FBD9D9E /* SwiftChart-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftChart-prefix.pch"; sourceTree = "<group>"; };
+		66633DFF4DA4667641776F39B457BB6E /* Pods-ios-sprint9-challenge-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ios-sprint9-challenge-umbrella.h"; sourceTree = "<group>"; };
+		69538AE353DF7BD2A758EE1153BD54F7 /* PMAlertController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PMAlertController-dummy.m"; sourceTree = "<group>"; };
+		6ED1E1741C5936B1217A99C84A6C1AA6 /* Pods-ios-sprint9-challenge.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ios-sprint9-challenge.modulemap"; sourceTree = "<group>"; };
+		701367FC250AA61E109E9CC83815A96B /* PMAlertController.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = PMAlertController.bundle; path = "PMAlertController-PMAlertController.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A54A85CBEB61D2E3CE50C4FBFC2BDDF /* Pods-ios-sprint9-challenge-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ios-sprint9-challenge-dummy.m"; sourceTree = "<group>"; };
+		7D5D3C3D1DE698ED3D858C4E4D490623 /* Chart.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Chart.swift; path = Source/Chart.swift; sourceTree = "<group>"; };
+		7EA3EB963475E636FB839BCA7228A243 /* PMAlertController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PMAlertController.modulemap; sourceTree = "<group>"; };
+		86532BCA4DB6968FF26376C99A504833 /* SwiftChart-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftChart-umbrella.h"; sourceTree = "<group>"; };
+		908E902E026C5C22904CF9014A5604AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9CE3BBE3C0714CC750BD41B4FAE9E91A /* PMAlertController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PMAlertController.framework; path = PMAlertController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D91897273306B2D83D40EBE2A914B41 /* ChartSeries.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartSeries.swift; path = Source/ChartSeries.swift; sourceTree = "<group>"; };
+		AEB71816A2F4060C3CD30B76201FAFBF /* Pods-ios-sprint9-challenge-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ios-sprint9-challenge-frameworks.sh"; sourceTree = "<group>"; };
+		BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		BF61F926CE425BDE9DD1ED24224FF77D /* PMAlertController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PMAlertController-umbrella.h"; sourceTree = "<group>"; };
+		C2C8A45C7BF80FA006DBB9C5789E98FF /* Pods-ios-sprint9-challenge-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ios-sprint9-challenge-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C766A755683784A224BB17899B08CFF2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE74327D357D10C294F5618CBF9D959A /* PMAlertAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PMAlertAction.swift; path = Library/PMAlertAction.swift; sourceTree = "<group>"; };
+		E086E7FF44A1F1DB4336E7104FD49151 /* PMAlertController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = PMAlertController.xib; path = Library/PMAlertController.xib; sourceTree = "<group>"; };
+		E3440A3B739F4C93251F723019FE7CE9 /* SwiftChart.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftChart.modulemap; sourceTree = "<group>"; };
+		E99A8FC007E96D066B327FB46BABCA5D /* ResourceBundle-PMAlertController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-PMAlertController-Info.plist"; sourceTree = "<group>"; };
+		EA454EF8ED5B772C77E81F1D5BD34378 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F375C1CD890488E590C5A176430AB231 /* PMAlertController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PMAlertController-prefix.pch"; sourceTree = "<group>"; };
+		FDBFA9EFE8064D9B34D212B257751DF8 /* Pods-ios-sprint9-challenge-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ios-sprint9-challenge-acknowledgements.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		504356535EB27C75B8733CFD0DD0E199 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B090509A5AC0BD687AC86926DCC30FA4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BECBE5C8140FAB0981BBEDB45B4935D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9E5F97EB2983A545D50191B2B068E70 /* Foundation.framework in Frameworks */,
+				3F0CF06257BFD625FE4775B36B80D315 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8965B42889B8D1CBD777623F04AAFC48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE5EC113681DE664F052AA613C479DD5 /* Foundation.framework in Frameworks */,
+				993824DFDED0884592768AE8B53DDFAA /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE9740B0FCF2F7915157B03D224A197D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0C1B8D910999A85033C4D8DA9B3A1ABE /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				290F369641A37E146CA0F7A5CF5396B7 /* Info.plist */,
+				7EA3EB963475E636FB839BCA7228A243 /* PMAlertController.modulemap */,
+				3649EFD8A174AAB37C0FAA2ABCED6037 /* PMAlertController.xcconfig */,
+				69538AE353DF7BD2A758EE1153BD54F7 /* PMAlertController-dummy.m */,
+				F375C1CD890488E590C5A176430AB231 /* PMAlertController-prefix.pch */,
+				BF61F926CE425BDE9DD1ED24224FF77D /* PMAlertController-umbrella.h */,
+				E99A8FC007E96D066B327FB46BABCA5D /* ResourceBundle-PMAlertController-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PMAlertController";
+			sourceTree = "<group>";
+		};
+		10DEDCB394BAA0C7FEDEBE330207B074 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				908E902E026C5C22904CF9014A5604AD /* Foundation.framework */,
+				BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		2631BFD0CDC789A55C768297B5DF0A13 /* SwiftChart */ = {
+			isa = PBXGroup;
+			children = (
+				7D5D3C3D1DE698ED3D858C4E4D490623 /* Chart.swift */,
+				483134A843FA9BB35EB3F07BD9A74A6F /* ChartColors.swift */,
+				9D91897273306B2D83D40EBE2A914B41 /* ChartSeries.swift */,
+				C41C2168431B4FEABCC1405A0A616AF1 /* Support Files */,
+			);
+			name = SwiftChart;
+			path = SwiftChart;
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10DEDCB394BAA0C7FEDEBE330207B074 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		492C0D0F88705411655DC45BE478A110 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A3B28B1D52361ADE207EA132AAB7C4CB /* PMAlertController */,
+				2631BFD0CDC789A55C768297B5DF0A13 /* SwiftChart */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				492C0D0F88705411655DC45BE478A110 /* Pods */,
+				AEB4BD3A5BB937D884009238FD5228A2 /* Products */,
+				9A9115591C04F1441FBFB3D93120B2C0 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		84B05D8807443994F2FCF576046583CA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9A9115591C04F1441FBFB3D93120B2C0 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				ABBC5E421FE9FB12C413E61277626E6A /* Pods-ios-sprint9-challenge */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		A3B28B1D52361ADE207EA132AAB7C4CB /* PMAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				CE74327D357D10C294F5618CBF9D959A /* PMAlertAction.swift */,
+				384E104B38F313628B157BF2545E0950 /* PMAlertController.swift */,
+				E086E7FF44A1F1DB4336E7104FD49151 /* PMAlertController.xib */,
+				84B05D8807443994F2FCF576046583CA /* Resources */,
+				0C1B8D910999A85033C4D8DA9B3A1ABE /* Support Files */,
+			);
+			name = PMAlertController;
+			path = PMAlertController;
+			sourceTree = "<group>";
+		};
+		ABBC5E421FE9FB12C413E61277626E6A /* Pods-ios-sprint9-challenge */ = {
+			isa = PBXGroup;
+			children = (
+				C766A755683784A224BB17899B08CFF2 /* Info.plist */,
+				6ED1E1741C5936B1217A99C84A6C1AA6 /* Pods-ios-sprint9-challenge.modulemap */,
+				C2C8A45C7BF80FA006DBB9C5789E98FF /* Pods-ios-sprint9-challenge-acknowledgements.markdown */,
+				FDBFA9EFE8064D9B34D212B257751DF8 /* Pods-ios-sprint9-challenge-acknowledgements.plist */,
+				7A54A85CBEB61D2E3CE50C4FBFC2BDDF /* Pods-ios-sprint9-challenge-dummy.m */,
+				AEB71816A2F4060C3CD30B76201FAFBF /* Pods-ios-sprint9-challenge-frameworks.sh */,
+				27E216311DFD0B6EE9808D39C00AB526 /* Pods-ios-sprint9-challenge-resources.sh */,
+				66633DFF4DA4667641776F39B457BB6E /* Pods-ios-sprint9-challenge-umbrella.h */,
+				4DF4C038A9E34B15B37DC9FDCEA4F145 /* Pods-ios-sprint9-challenge.debug.xcconfig */,
+				5A56CD28C051C80B6B37D9C92C21F4E5 /* Pods-ios-sprint9-challenge.release.xcconfig */,
+			);
+			name = "Pods-ios-sprint9-challenge";
+			path = "Target Support Files/Pods-ios-sprint9-challenge";
+			sourceTree = "<group>";
+		};
+		AEB4BD3A5BB937D884009238FD5228A2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				701367FC250AA61E109E9CC83815A96B /* PMAlertController.bundle */,
+				9CE3BBE3C0714CC750BD41B4FAE9E91A /* PMAlertController.framework */,
+				3F6F323E2F9A27473BA7C7F84F9E610D /* Pods_ios_sprint9_challenge.framework */,
+				54CBA67539FD85E4A7754A0BCA7CC8C2 /* SwiftChart.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C41C2168431B4FEABCC1405A0A616AF1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EA454EF8ED5B772C77E81F1D5BD34378 /* Info.plist */,
+				E3440A3B739F4C93251F723019FE7CE9 /* SwiftChart.modulemap */,
+				5E0B60D4EADD3C859EBF8487211A496B /* SwiftChart.xcconfig */,
+				11E63EEF04EE09CD3C761433FAADE4B2 /* SwiftChart-dummy.m */,
+				64D517B49C45AE03D7CC60CC1FBD9D9E /* SwiftChart-prefix.pch */,
+				86532BCA4DB6968FF26376C99A504833 /* SwiftChart-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftChart";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		31245E1AE3D63252CFAFB8D79C5D1145 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF5111F52E1765AA90450CB9AC9B3436 /* Pods-ios-sprint9-challenge-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CA1151CCB71F596BAF28F479A56A7CD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5695CEE3C4F58EE97223390713FDFE25 /* PMAlertController-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7C84B82365315A1B317D8FEDB657ED2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47E6A7AEA618B5236FFAE97C96220028 /* SwiftChart-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		AD469879B799B8F622DBA1DC87696EDF /* Pods-ios-sprint9-challenge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10BE566A01067F0BF10E1F6D43A2EB1C /* Build configuration list for PBXNativeTarget "Pods-ios-sprint9-challenge" */;
+			buildPhases = (
+				31245E1AE3D63252CFAFB8D79C5D1145 /* Headers */,
+				602A4C994B86AD1CEF895BFBA333458C /* Sources */,
+				504356535EB27C75B8733CFD0DD0E199 /* Frameworks */,
+				4AA12FD87B35FD6A164807D21CBEE442 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				62DEABD4CA7A4D5544F2DC5C4F20D68A /* PBXTargetDependency */,
+				713C207373AC4517B1B72CD7DC1A80A9 /* PBXTargetDependency */,
+			);
+			name = "Pods-ios-sprint9-challenge";
+			productName = "Pods-ios-sprint9-challenge";
+			productReference = 3F6F323E2F9A27473BA7C7F84F9E610D /* Pods_ios_sprint9_challenge.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C13CE1B1BFC25DD2469DB739C96EEF8B /* SwiftChart */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 384EAABCF942E8BA470A31FC607571E5 /* Build configuration list for PBXNativeTarget "SwiftChart" */;
+			buildPhases = (
+				E7C84B82365315A1B317D8FEDB657ED2 /* Headers */,
+				F761DE1F6E3981988AC5E4064C163CE5 /* Sources */,
+				8965B42889B8D1CBD777623F04AAFC48 /* Frameworks */,
+				2D81CA5F93539CDB78295A1180DE0D6A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftChart;
+			productName = SwiftChart;
+			productReference = 54CBA67539FD85E4A7754A0BCA7CC8C2 /* SwiftChart.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C428D81C38161BEEA96202EBA91E97B7 /* PMAlertController-PMAlertController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BEB0F354A67EEC6BCBFA28F86FF417B /* Build configuration list for PBXNativeTarget "PMAlertController-PMAlertController" */;
+			buildPhases = (
+				C11624514309F01F37016773FED02DF2 /* Sources */,
+				BE9740B0FCF2F7915157B03D224A197D /* Frameworks */,
+				A7F462B41BB887D0DB77E1479E51A5C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PMAlertController-PMAlertController";
+			productName = "PMAlertController-PMAlertController";
+			productReference = 701367FC250AA61E109E9CC83815A96B /* PMAlertController.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		F988D60552EFE7F51C22331E9D3A468B /* PMAlertController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57B4DC7B0A7D8688C00C439974403E26 /* Build configuration list for PBXNativeTarget "PMAlertController" */;
+			buildPhases = (
+				4CA1151CCB71F596BAF28F479A56A7CD /* Headers */,
+				3A6D2A35D5717A556E963B67C8281579 /* Sources */,
+				5BECBE5C8140FAB0981BBEDB45B4935D /* Frameworks */,
+				6E6E240B46ED2463C2DA0740E9884072 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4895F826DB06849726DAA1D9732BE4AE /* PBXTargetDependency */,
+			);
+			name = PMAlertController;
+			productName = PMAlertController;
+			productReference = 9CE3BBE3C0714CC750BD41B4FAE9E91A /* PMAlertController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = AEB4BD3A5BB937D884009238FD5228A2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F988D60552EFE7F51C22331E9D3A468B /* PMAlertController */,
+				C428D81C38161BEEA96202EBA91E97B7 /* PMAlertController-PMAlertController */,
+				AD469879B799B8F622DBA1DC87696EDF /* Pods-ios-sprint9-challenge */,
+				C13CE1B1BFC25DD2469DB739C96EEF8B /* SwiftChart */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2D81CA5F93539CDB78295A1180DE0D6A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AA12FD87B35FD6A164807D21CBEE442 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E6E240B46ED2463C2DA0740E9884072 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2767160981B7E3DB86DCB1E2A2A87C86 /* PMAlertController.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7F462B41BB887D0DB77E1479E51A5C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FEB2EF59F7A42F35703B518C81A91A1 /* PMAlertController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3A6D2A35D5717A556E963B67C8281579 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7259C1E36BB19B7CAE899763CFD1056 /* PMAlertAction.swift in Sources */,
+				1A92D874FDC4BEF6E604BA92E5CF2AD3 /* PMAlertController-dummy.m in Sources */,
+				D6E0D50EB024782A913350A2BAD5882B /* PMAlertController.swift in Sources */,
+				DAAEF923EF98BE62143CD08354CF6E84 /* PMAlertController.xib in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		602A4C994B86AD1CEF895BFBA333458C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A219A4BCD49B6795495F648495C0BED7 /* Pods-ios-sprint9-challenge-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C11624514309F01F37016773FED02DF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F761DE1F6E3981988AC5E4064C163CE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A22B29895FDF58B7045658E9DCFF7E5D /* Chart.swift in Sources */,
+				614E7245D6274E6D98BFDF4F9BF38374 /* ChartColors.swift in Sources */,
+				9197F942FE1C0EFC816A5B2B89539D72 /* ChartSeries.swift in Sources */,
+				ED055D569380FE238F2A710A9F913F89 /* SwiftChart-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4895F826DB06849726DAA1D9732BE4AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "PMAlertController-PMAlertController";
+			target = C428D81C38161BEEA96202EBA91E97B7 /* PMAlertController-PMAlertController */;
+			targetProxy = 55880A253250F02C5D7FD0D7F75418C7 /* PBXContainerItemProxy */;
+		};
+		62DEABD4CA7A4D5544F2DC5C4F20D68A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PMAlertController;
+			target = F988D60552EFE7F51C22331E9D3A468B /* PMAlertController */;
+			targetProxy = 90CA5F8D19A392368489A47C2E030128 /* PBXContainerItemProxy */;
+		};
+		713C207373AC4517B1B72CD7DC1A80A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftChart;
+			target = C13CE1B1BFC25DD2469DB739C96EEF8B /* SwiftChart */;
+			targetProxy = 60A0496E71C75ADCEBDDDCD44004CED1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		40B45BB3CF3EE4476259302A7FAAD78F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		46F14607DA6B0239363971DC5A24005B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3649EFD8A174AAB37C0FAA2ABCED6037 /* PMAlertController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/PMAlertController/PMAlertController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PMAlertController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/PMAlertController/PMAlertController.modulemap";
+				PRODUCT_MODULE_NAME = PMAlertController;
+				PRODUCT_NAME = PMAlertController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4756AC4DC5672A3B6F3F080298C482C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3649EFD8A174AAB37C0FAA2ABCED6037 /* PMAlertController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/PMAlertController";
+				INFOPLIST_FILE = "Target Support Files/PMAlertController/ResourceBundle-PMAlertController-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_NAME = PMAlertController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		50A9EB0521485827B4733E30D9171FE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3649EFD8A174AAB37C0FAA2ABCED6037 /* PMAlertController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/PMAlertController";
+				INFOPLIST_FILE = "Target Support Files/PMAlertController/ResourceBundle-PMAlertController-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_NAME = PMAlertController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		6DC9410EDBBF908AF5F59A540F41B951 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DF4C038A9E34B15B37DC9FDCEA4F145 /* Pods-ios-sprint9-challenge.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ios-sprint9-challenge/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ios-sprint9-challenge/Pods-ios-sprint9-challenge.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		76595F29E9EB8CD42DD0979F3B23FAAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A56CD28C051C80B6B37D9C92C21F4E5 /* Pods-ios-sprint9-challenge.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ios-sprint9-challenge/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ios-sprint9-challenge/Pods-ios-sprint9-challenge.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		85ED3013A635C27F8B7FAF51362B108C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		AEF76A451CAF9472E4A202FDC821326D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E0B60D4EADD3C859EBF8487211A496B /* SwiftChart.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftChart/SwiftChart-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftChart/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftChart/SwiftChart.modulemap";
+				PRODUCT_MODULE_NAME = SwiftChart;
+				PRODUCT_NAME = SwiftChart;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DB7D4E9E4821B873F53A70C03953B8AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3649EFD8A174AAB37C0FAA2ABCED6037 /* PMAlertController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/PMAlertController/PMAlertController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PMAlertController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/PMAlertController/PMAlertController.modulemap";
+				PRODUCT_MODULE_NAME = PMAlertController;
+				PRODUCT_NAME = PMAlertController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FD5C6658DC8CACC89292C7B848451930 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E0B60D4EADD3C859EBF8487211A496B /* SwiftChart.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftChart/SwiftChart-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftChart/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftChart/SwiftChart.modulemap";
+				PRODUCT_MODULE_NAME = SwiftChart;
+				PRODUCT_NAME = SwiftChart;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		10BE566A01067F0BF10E1F6D43A2EB1C /* Build configuration list for PBXNativeTarget "Pods-ios-sprint9-challenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DC9410EDBBF908AF5F59A540F41B951 /* Debug */,
+				76595F29E9EB8CD42DD0979F3B23FAAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85ED3013A635C27F8B7FAF51362B108C /* Debug */,
+				40B45BB3CF3EE4476259302A7FAAD78F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		384EAABCF942E8BA470A31FC607571E5 /* Build configuration list for PBXNativeTarget "SwiftChart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEF76A451CAF9472E4A202FDC821326D /* Debug */,
+				FD5C6658DC8CACC89292C7B848451930 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57B4DC7B0A7D8688C00C439974403E26 /* Build configuration list for PBXNativeTarget "PMAlertController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46F14607DA6B0239363971DC5A24005B /* Debug */,
+				DB7D4E9E4821B873F53A70C03953B8AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BEB0F354A67EEC6BCBFA28F86FF417B /* Build configuration list for PBXNativeTarget "PMAlertController-PMAlertController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50A9EB0521485827B4733E30D9171FE9 /* Debug */,
+				4756AC4DC5672A3B6F3F080298C482C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
