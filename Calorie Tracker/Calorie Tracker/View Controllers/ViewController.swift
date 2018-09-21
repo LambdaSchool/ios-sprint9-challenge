@@ -30,7 +30,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         alert.addAction(UIAlertAction(title: "Sumbit", style: .default, handler: { (action) in
             guard let calorie = alert.textFields![0].text, calorie.count > 0 else { return }
-            guard let calorieCount = Int64(calorie) else { return }
+            guard let calorieCount = Int64(calorie), calorieCount >= 0 else { return }
+            
             self.calorieController.create(calorie: calorieCount)
             
             self.tableView.reloadData()
@@ -49,7 +50,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         for calorie in calorieController.calories {
             chartSeries.data.append((x: Double(chartSeries.data.count), y: Double(calorie.calorie)))
         }
-        chartSeries.color = ChartColors.blueColor()
+        chartSeries.color = ChartColors.pinkColor()
         chartSeries.area = true
         chart.add(chartSeries)
         
