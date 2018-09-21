@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftChart
 
 extension NSNotification.Name
 {
@@ -17,6 +18,9 @@ class CalorieTrackerTableViewController: UITableViewController
 {
     var calorie: Calorie?
     var caloriesController = CaloriesController()
+    @IBOutlet weak var chartView: Chart!
+    
+    
     
     override func viewWillAppear(_ animated: Bool)
     {
@@ -29,6 +33,8 @@ class CalorieTrackerTableViewController: UITableViewController
         super.viewDidLoad()
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(shouldUpdateCell(_:)), name: .shouldUpdateCell, object: nil)
+        print(caloriesController.calories)
+        makeChart()
     }
 
     @objc func shouldUpdateCell(_ notification: Notification)
@@ -36,6 +42,16 @@ class CalorieTrackerTableViewController: UITableViewController
         tableView.reloadData()
     }
     
+    func makeChart()
+    {
+        let stringArray = ["0", "6", "2", "8", "4", "7", "3", "10", "8"]
+        var convertedArray = [Double]()
+        
+        convertedArray = stringArray.map { Double($0) ?? 0}
+        let result = convertedArray
+        let series = ChartSeries(result)
+        chartView.add(series)
+    }
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -72,6 +88,8 @@ class CalorieTrackerTableViewController: UITableViewController
             calorieTextfield = textField
         }
         
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: nil)
+        
         let saveAction = UIAlertAction(title: "Submit", style: .default, handler: { (_) in
             
             guard let calorie = calorieTextfield?.text else {return}
@@ -84,11 +102,8 @@ class CalorieTrackerTableViewController: UITableViewController
             print("\(calorie)")
         })
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: nil)
-        
-        
-        alertController.addAction(saveAction)
         alertController.addAction(cancelAction)
+        alertController.addAction(saveAction)
         
         self.present(alertController, animated: true, completion: nil)
     }
