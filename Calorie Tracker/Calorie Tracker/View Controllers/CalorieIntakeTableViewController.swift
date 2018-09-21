@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftChart
+import CoreData
 
 extension NSNotification.Name {
     static let didCreateCalorieIntake = NSNotification.Name("DidCreateCalorieIntake")
@@ -21,8 +22,35 @@ class CalorieIntakeTableViewController: UITableViewController {
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(didCreateCalorieIntake(_:)), name: .didCreateCalorieIntake, object: nil)
         
+        calorieIntakes = fetchCalorieIntakeFromStore(context: CoreDataStack.shared.mainContext)
+        
+        for intake in calorieIntakes {
+            let index = series.data.count
+            let data = intake.calorie
+            series.data.append((x: Double(index), y: Double(data)))
+        }
+        
         chart.add(series)
+        series.color = ChartColors.greenColor()
+        series.area = true
     }
+    
+    // MARK: - Persistent Store
+    
+    func fetchCalorieIntakeFromStore(context: NSManagedObjectContext) -> [CalorieIntake] {
+        
+        let fetchRequest: NSFetchRequest<CalorieIntake> = CalorieIntake.fetchRequest()
+        
+        do {
+            return try context.fetch(fetchRequest)
+        }
+        catch {
+            NSLog("Error fetching calorie intakes: \(error)")
+            return []
+        }
+    }
+    
+    // MARK: - Actions
     
     @IBAction func addCaloriesWasTapped(_ sender: Any) {
         
@@ -40,8 +68,8 @@ class CalorieIntakeTableViewController: UITableViewController {
                 self.calorieIntakes.append(calorieIntake)
                 
                 let data = calorieIntake.calorie
-                self.seriesData.append(data)
-                
+                let index = self.series.data.count
+                self.series.data.append((x: Double(index), y: Double(data)))
                 
                 do {
                     try calorieIntake.managedObjectContext?.save()
@@ -78,16 +106,21 @@ class CalorieIntakeTableViewController: UITableViewController {
 
         let calorieIntake = calorieIntakes[indexPath.row]
         cell.textLabel?.text  = "Calories: \(calorieIntake.calorie)"
-        cell.detailTextLabel?.text = "\(calorieIntake.timestamp ?? Date())"
+        
+        formatter.dateFormat = "MM/dd/yyyy 'at' hh:mm aaa"
+        cell.detailTextLabel?.text = calorieIntake.timestamp.map({ (timestamp) -> String in
+            return formatter.string(from: timestamp)
+        })
 
         return cell
     }
     
     // MARK: - Properies and Outlets
     
+    let formatter = DateFormatter()
+    
     @IBOutlet weak var chart: Chart!
     
     var calorieIntakes: [CalorieIntake] = []
     let series = ChartSeries([])
-    var seriesData: [Int16] = []
 }
