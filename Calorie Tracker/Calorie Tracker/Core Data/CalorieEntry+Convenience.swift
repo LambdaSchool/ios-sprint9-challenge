@@ -11,10 +11,9 @@ import CoreData
 
 extension CalorieEntry {
     
-    convenience init(calories: Double, xCoord: Double, date: Date = Date(), context: NSManagedObjectContext = CoreDataStack.moc) {
+    convenience init(calories: Double, date: Date = Date(), context: NSManagedObjectContext = CoreDataStack.moc) {
         self.init(context: context)
         self.calories = calories
-        self.xCoord = xCoord
         self.date = date
     }
 }

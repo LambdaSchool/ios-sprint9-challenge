@@ -3,9 +3,8 @@
     <entity name="CalorieEntry" representedClassName="CalorieEntry" syncable="YES" codeGenerationType="class">
         <attribute name="calories" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="xCoord" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CalorieEntry" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="CalorieEntry" positionX="-63" positionY="-18" width="128" height="75"/>
     </elements>
 </model>

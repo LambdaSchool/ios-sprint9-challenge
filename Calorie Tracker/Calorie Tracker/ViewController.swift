@@ -9,6 +9,13 @@
 import UIKit
 import SwiftChart
 
+
+// MARK: - Notification.Name Extension
+
+extension Notification.Name {
+    static let newCalorieEntryAdded = Notification.Name(rawValue: "newCalorieEntryAdded")
+}
+
 class ViewController: UIViewController {
     
     // MARK: - Layout
@@ -74,16 +81,51 @@ class ViewController: UIViewController {
     }
     
     
+    // MARK: - ViewDidLoad
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(updateViews(_:)), name: .newCalorieEntryAdded, object: nil)
+    }
+    
+    
     // MARK: - Properties
     
     var chartView: Chart!
     var tableView: UITableView!
     var data = [(x: 0.0, y: 0.0)]
+    var calorieEntryController = CalorieEntryController()
     
     
     // MARK: - Actions
     
     @IBAction func addCalorieEntry(_ sender: Any) {
+        let calorieInputAlert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+        var textField: UITextField!
+        calorieInputAlert.addTextField { (alertTextField) in
+            textField = alertTextField
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { (_) in
+            let calories = Double(textField.text ?? "0") ?? 0
+            self.calorieEntryController.addCalorieEntry(calories)
+            
+            
+            let nc = NotificationCenter.default
+            nc.post(name: .newCalorieEntryAdded, object: self)
+        }
+        calorieInputAlert.addAction(cancelAction)
+        calorieInputAlert.addAction(submitAction)
+        
+        self.present(calorieInputAlert, animated: true, completion: nil)
+    }
+    
+    
+    // MARK: - Functions
+    
+    @objc func updateViews(_ notification: Notification) {
         
     }
 }

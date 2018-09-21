@@ -15,11 +15,9 @@ class CalorieEntryController {
         return loadFromPersistentStore()
     }
     
-    func addCalorieEntry(_ calories: Double) -> Double {
-        let xCoord = Double(self.calorieEntries.count + 1)
-        _ = CalorieEntry(calories: calories, xCoord: xCoord)
+    func addCalorieEntry(_ calories: Double) {
+        _ = CalorieEntry(calories: calories, context: CoreDataStack.moc)
         saveToPersistentStore()
-        return xCoord
     }
     
     func saveToPersistentStore(context: NSManagedObjectContext = CoreDataStack.moc) {
