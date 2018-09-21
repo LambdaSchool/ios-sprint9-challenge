@@ -97,6 +97,7 @@ class ViewController: UIViewController {
     var tableView: UITableView!
     var data = [(x: 0.0, y: 0.0)]
     var calorieEntryController = CalorieEntryController()
+    let chartSeriesHelper = ChartSeriesHelper()
     
     
     // MARK: - Actions
@@ -112,7 +113,6 @@ class ViewController: UIViewController {
             let calories = Double(textField.text ?? "0") ?? 0
             self.calorieEntryController.addCalorieEntry(calories)
             
-            
             let nc = NotificationCenter.default
             nc.post(name: .newCalorieEntryAdded, object: self)
         }
@@ -126,7 +126,8 @@ class ViewController: UIViewController {
     // MARK: - Functions
     
     @objc func updateViews(_ notification: Notification) {
-        
+        chartView.series = [chartSeriesHelper.convertToChartSeries(calorieEntries: calorieEntryController.calorieEntries)]
+        tableView.reloadData()
     }
 }
 
