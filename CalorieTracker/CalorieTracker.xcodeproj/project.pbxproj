@@ -13,6 +13,10 @@
 		DEA92853215542080053593C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEA92852215542080053593C /* Assets.xcassets */; };
 		DEA92856215542080053593C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEA92854215542080053593C /* LaunchScreen.storyboard */; };
 		DEA9285E2155464C0053593C /* CalorieTrackerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA9285D2155464C0053593C /* CalorieTrackerTableViewController.swift */; };
+		DEA9286021554C9D0053593C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA9285F21554C9D0053593C /* CoreDataStack.swift */; };
+		DEA9286321554CE20053593C /* Calories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DEA9286121554CE20053593C /* Calories.xcdatamodeld */; };
+		DEA9286521554D8D0053593C /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA9286421554D8D0053593C /* Calorie+Convenience.swift */; };
+		DEA9286B2155510A0053593C /* CaloriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA9286A2155510A0053593C /* CaloriesController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		DEA92855215542080053593C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DEA92857215542080053593C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DEA9285D2155464C0053593C /* CalorieTrackerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerTableViewController.swift; sourceTree = "<group>"; };
+		DEA9285F21554C9D0053593C /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		DEA9286221554CE20053593C /* Calories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calories.xcdatamodel; sourceTree = "<group>"; };
+		DEA9286421554D8D0053593C /* Calorie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience.swift"; sourceTree = "<group>"; };
+		DEA9286A2155510A0053593C /* CaloriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,10 @@
 			children = (
 				DEA9284B215542070053593C /* AppDelegate.swift */,
 				DEA9285D2155464C0053593C /* CalorieTrackerTableViewController.swift */,
+				DEA9286121554CE20053593C /* Calories.xcdatamodeld */,
+				DEA9285F21554C9D0053593C /* CoreDataStack.swift */,
+				DEA9286421554D8D0053593C /* Calorie+Convenience.swift */,
+				DEA9286A2155510A0053593C /* CaloriesController.swift */,
 				DEA9284F215542070053593C /* Main.storyboard */,
 				DEA92852215542080053593C /* Assets.xcassets */,
 				DEA92854215542080053593C /* LaunchScreen.storyboard */,
@@ -200,8 +212,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEA9286021554C9D0053593C /* CoreDataStack.swift in Sources */,
+				DEA9286B2155510A0053593C /* CaloriesController.swift in Sources */,
 				DEA9285E2155464C0053593C /* CalorieTrackerTableViewController.swift in Sources */,
 				DEA9284C215542070053593C /* AppDelegate.swift in Sources */,
+				DEA9286521554D8D0053593C /* Calorie+Convenience.swift in Sources */,
+				DEA9286321554CE20053593C /* Calories.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +419,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DEA9286121554CE20053593C /* Calories.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DEA9286221554CE20053593C /* Calories.xcdatamodel */,
+			);
+			currentVersion = DEA9286221554CE20053593C /* Calories.xcdatamodel */;
+			path = Calories.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DEA92840215542070053593C /* Project object */;
 }
