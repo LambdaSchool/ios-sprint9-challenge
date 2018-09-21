@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CaloriesTableViewController.swift
 //  ios-sprint9-challenge
 //
 //  Created by Conner on 9/21/18.
@@ -8,13 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CaloriesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
-
 }
-
