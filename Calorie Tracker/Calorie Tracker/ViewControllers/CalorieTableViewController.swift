@@ -33,8 +33,32 @@ class CalorieTableViewController: UITableViewController {
         cell.detailTextLabel?.text = "\(dateFormatter.string(from: date))"
         return cell
     }
+    
+    // MARK: - Buttons
 
+    @IBAction func addCalorieCount(_ sender: Any) {
+        configureAlert()
+        
+    }
+    
     // MARK: - Properties
+    
+    let alert = UIAlertController(title: "Add Calorie Input", message: "Add the amount of calories in the field", preferredStyle: .alert)
+    
+    func configureAlert() {
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addTextField { (textField) in
+            textField.placeholder = "Calories:"
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            if let caloriesString = self.alert.textFields?.first?.text {
+                guard let calories = Int64(caloriesString) else { return }
+                self.calorieController.createCalorieCount(with: calories)
+            }
+        }))
+        self.present(alert, animated: true)
+        tableView.reloadData() // may need to be moved elsewhere to refresh at the correct time
+    }
     
     let calorieController = CalorieController()
 

@@ -47,7 +47,13 @@
                             <outlet property="delegate" destination="0WR-cD-DMz" id="rEC-M5-Z7l"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Calorie Tracker" id="anL-tq-elG"/>
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="anL-tq-elG">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hUo-Uq-ndH">
+                            <connections>
+                                <action selector="addCalorieCount:" destination="0WR-cD-DMz" id="nCd-m5-5kb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJx-ST-J4X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
