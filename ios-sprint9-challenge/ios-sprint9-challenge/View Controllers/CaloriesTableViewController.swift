@@ -8,8 +8,12 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class CaloriesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+    @IBOutlet var chartView: UIView!
+    var chart: Chart = Chart()
+    
     lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
         let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
         
@@ -30,20 +34,39 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
     var calorieController = CalorieController()
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM-dd-yyyy hh:mm:ss"
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .medium
         return formatter
     }
-
+    
+    override func viewDidLoad() {
+        chart = Chart(frame: CGRect(x: chartView.frame.origin.x,
+                                    y: chartView.frame.origin.y,
+                                    width: chartView.frame.width + 35,
+                                    height: chartView.frame.height))
+        chartView.addSubview(chart)
+        updateChart()
+    }
+    
+    func updateChart() {
+        if let data = fetchedResultsController.fetchedObjects?.compactMap({ Double($0.amount) }) {
+            let series = ChartSeries(data)
+            series.color = ChartColors.redColor()
+            series.area = true
+            chart.add(series)
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieTrackerCell", for: indexPath)
         
         let calorie = fetchedResultsController.object(at: indexPath)
         let amount = String(calorie.amount)
         let date = dateFormatter.string(from: calorie.date ?? Date())
-
+        
         cell.textLabel?.text = "Calories: \(amount)"
         cell.detailTextLabel?.text = date
-
+        
         return cell
     }
     
@@ -108,25 +131,26 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
-
+    
     @IBAction func addCalories(_ sender: Any) {
         let alert = UIAlertController(title: "Add Calorie Intake",
-            message: "Enter the amount of calories",
-            preferredStyle: .alert)
+                                      message: "Enter the amount of calories",
+                                      preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-
+        
         alert.addTextField(configurationHandler: { textField in
             textField.placeholder = "Calories"
         })
-
+        
         alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { action in
             if let calories = alert.textFields?.first?.text {
                 self.calorieController.addCalories(amount: Int(calories) ?? 0)
                 self.tableView.reloadData()
+                self.updateChart()
             }
         }))
-
+        
         self.present(alert, animated: true)
     }
-
+    
 }
