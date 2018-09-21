@@ -1,5 +1,5 @@
 //
-//  CalorieEntry.swift
+//  CalorieEntry+Convenience.swift
 //  Calorie Tracker
 //
 //  Created by Samantha Gatt on 9/21/18.
@@ -7,16 +7,14 @@
 //
 
 import Foundation
+import CoreData
 
-struct CalorieEntry {
+extension CalorieEntry {
     
-    init(calories: Double, xCoord: Double, date: Date = Date()) {
+    convenience init(calories: Double, xCoord: Double, date: Date = Date(), context: NSManagedObjectContext = CoreDataStack.moc) {
+        self.init(context: context)
         self.calories = calories
         self.xCoord = xCoord
         self.date = date
     }
-    
-    var calories: Double
-    var xCoord: Double
-    var date: Date
 }
