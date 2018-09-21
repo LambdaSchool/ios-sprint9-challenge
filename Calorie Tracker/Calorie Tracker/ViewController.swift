@@ -38,7 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let chartHeightContraint = NSLayoutConstraint(item: chartView, attribute: .height,
                                                       relatedBy: .equal,
                                                       toItem: self.view.safeAreaLayoutGuide, attribute: .height,
-                                                      multiplier: chartHeightMultiplyer, constant: -16.0)
+                                                      multiplier: chartHeightMultiplyer, constant: 0.0)
         let chartCenterXConstraint = NSLayoutConstraint(item: chartView, attribute: .centerX,
                                                         relatedBy: .equal,
                                                         toItem: self.view, attribute: .centerX,
@@ -46,7 +46,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let chartTopConstraint = NSLayoutConstraint(item: chartView, attribute: .top,
                                                     relatedBy: .equal,
                                                     toItem: self.view.safeAreaLayoutGuide, attribute: .top,
-                                                    multiplier: 1.0, constant: 16.0)
+                                                    multiplier: 1.0, constant: 0.0)
         
         NSLayoutConstraint.activate([chartWidthConstraint,
                                      chartHeightContraint,

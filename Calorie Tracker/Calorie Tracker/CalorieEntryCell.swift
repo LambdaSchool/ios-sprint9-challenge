@@ -12,7 +12,7 @@ import UIKit
 class CalorieEntryCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
     
-    override init(style: UITableViewCell.CellStyle = .value1, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
     }
 }
