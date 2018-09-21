@@ -10,10 +10,11 @@ import Foundation
 import CoreData
 
 extension Calorie {
-    convenience init(calorie: Int64, timestamp: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    convenience init(name: String, calorie: Int64, timestamp: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         self.init(context: context)
         
+        self.name = name
         self.calorie = calorie
         self.timestamp = timestamp
     }

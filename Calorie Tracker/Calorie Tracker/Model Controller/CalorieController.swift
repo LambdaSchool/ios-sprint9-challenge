@@ -17,10 +17,10 @@ class CalorieController {
         return loadFromCoreData()
     }
     
-    func create(calorie: Int64) {
-        let _ = Calorie(calorie: calorie)
+    func create(name: String, calorie: Int64) {
+        let _ = Calorie(name: name, calorie: calorie)
         
-        NotificationCenter.default.post(name: CalorieController.addedCalorieNotificaiton, object: nil, userInfo: ["calorie" : calorie])
+        NotificationCenter.default.post(name: CalorieController.addedCalorieNotificaiton, object: nil, userInfo: ["name" : name, "calorie" : calorie])
         
         saveToCoreData()
     }
