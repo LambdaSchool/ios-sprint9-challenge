@@ -91,11 +91,76 @@ struct MealStub: Equatable, Comparable, Codable
 	}
 }
 
+let MealChanged = NSNotification.Name("com.wb.MealChangedNotification")
+
 class MealController
 {
 	static var shared = MealController()
 
-	var meals:[Meal] = []
+	var meals:[String:[MealStub]] = [:]
+
+	func loadMeals()
+	{
+		let moc = CoreDataStack.shared.mainContext
+		moc.performAndWait {
+			let req:NSFetchRequest<Meal> = Meal.fetchRequest()
+			req.sortDescriptors = [
+				NSSortDescriptor(key: "person", ascending: false)
+			]
+			do {
+				let localMeals = try moc.fetch(req)
+				for meal in localMeals {
+					fastInsertMeal(meal.getStub())
+				}
+
+				for person in meals.keys {
+					meals[person]?.sort()
+				}
+			} catch {
+				NSLog("Couldn't fetch existing meals: \(error)")
+			}
+		}
+	}
+
+	private func fastInsertMeal(_ stub:MealStub)
+	{
+		if meals[stub.person] != nil {
+			meals[stub.person]?.append(stub)
+		} else {
+			meals[stub.person] = [stub]
+		}
+	}
+
+	private func insertMeal(_ stub:MealStub)
+	{
+		// does this person exist?
+		if let list = meals[stub.person] {
+			// if we're updating an existing meal
+			if let index = list.index(of: stub) {
+				meals[stub.person]?[index] = stub
+			} else {
+				// otherwise, append
+				meals[stub.person]?.append(stub)
+			}
+
+			meals[stub.person]?.sort()
+		} else {
+			meals[stub.person] = [stub]
+		}
+
+		let nc = NotificationCenter.default
+		nc.post(name: MealChanged, object: meals[stub.person] ?? [])
+	}
+
+	private func removeMeal(_ stub:MealStub)
+	{
+		if let list = meals[stub.person] {
+			if let index = list.index(of: stub) {
+				meals[stub.person]?.remove(at: index)
+			}
+			meals[stub.person]?.sort()
+		}
+	}
 
 	@discardableResult
 	func create(_ calories:Int,
@@ -107,6 +172,7 @@ class MealController
 		var meal:Meal?
 		moc.performAndWait {
 			meal = Meal(calories, person, timestamp:timestamp, uuid:uuid, moc:moc)
+			insertMeal(meal!.getStub())
 			self.save(moc:moc)
 		}
 		return meal!
@@ -119,6 +185,7 @@ class MealController
 		var meal:Meal?
 		moc.performAndWait {
 			meal = Meal(stub, moc:moc)
+			insertMeal(meal!.getStub())
 			self.save(moc:moc)
 		}
 		return meal!
@@ -129,7 +196,6 @@ class MealController
 	{
 		// TODO: send notification
 
-		meals.sort(by: { $0 < $1 })
 		return moc.safeSave(withReset: withReset)
 	}
 
@@ -138,6 +204,7 @@ class MealController
 		guard let moc = meal.managedObjectContext else { NSLog("Meal didn't have a moc?"); return }
 		moc.performAndWait {
 			meal.applyStub(stub)
+			insertMeal(meal.getStub())
 			self.save(moc:moc)
 		}
 	}
@@ -157,6 +224,7 @@ class MealController
 
 			if let meal = meal {
 				meal.applyStub(stub)
+				insertMeal(meal.getStub())
 				self.save(moc:moc)
 			} else {
 				meal = self.create(stub, moc:moc)
@@ -169,6 +237,7 @@ class MealController
 	{
 		guard let moc = meal.managedObjectContext else { NSLog("Meal didn't have a moc?"); return }
 		moc.performAndWait {
+			removeMeal(meal.getStub())
 			moc.delete(meal)
 			self.save(moc:moc)
 		}
