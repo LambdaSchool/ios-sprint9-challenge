@@ -11,9 +11,24 @@ import UIKit
 import CoreData
 import SwiftChart
 
+let AllChartColors = [
+	ChartColors.blueColor(),
+	ChartColors.cyanColor(),
+	ChartColors.darkRedColor(),
+	ChartColors.darkGreenColor(),
+	ChartColors.goldColor(),
+	ChartColors.greenColor(),
+	ChartColors.greyColor(),
+	ChartColors.maroonColor(),
+	ChartColors.orangeColor(),
+	ChartColors.pinkColor(),
+	ChartColors.purpleColor(),
+	ChartColors.redColor(),
+	ChartColors.yellowColor()]
+
 class MealTVC: UITableViewController, NSFetchedResultsControllerDelegate
 {
-	let person = "Anonymous Coward"
+	var person = "Anonymous"
 
 	var controller = MealController.shared
 	lazy var dateFormatter:DateFormatter = {
@@ -48,27 +63,33 @@ class MealTVC: UITableViewController, NSFetchedResultsControllerDelegate
 	@IBAction func addMeal(_ sender: Any) {
 		let alert = UIAlertController(title: "New Meal", message: "Enter Calories", preferredStyle: .alert)
 
-		var textField:UITextField!
+		var calorieField:UITextField!
 		alert.addTextField {
 			local in
-			textField = local
+			calorieField = local
 			local.placeholder = "Calories"
 			local.keyboardType = .numberPad
 		}
 
-		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) {
-			action in
-			alert.dismiss(animated: true) {
+		var nameField:UITextField!
+		alert.addTextField {
+			local in
+			nameField = local
+			local.text = self.person
+		}
 
-			}
-		})
+
+		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { action in })
 
 		alert.addAction(UIAlertAction(title: "Add", style: .default) {
 			action in
 
-			guard let text = textField.text else { return }
+			guard let text = calorieField.text else { return }
+			guard let newPerson = nameField.text else { return}
 			guard let amount = Int(text) else { return }
-			self.controller.create(amount,  self.person)
+			self.controller.create(amount, newPerson)
+			self.person = newPerson
+			UserDefaults.standard.set(self.person, forKey: "com.wb.PersonName")
 		})
 
 		self.present(alert, animated: true) {
@@ -81,6 +102,8 @@ class MealTVC: UITableViewController, NSFetchedResultsControllerDelegate
 		let nc = NotificationCenter.default
 		nc.addObserver(self, selector: #selector(onMealChanged(_:)), name: MealChanged, object: nil)
 
+		person = UserDefaults.standard.string(forKey: "com.wb.PersonName") ?? "Anonymous"
+
 		controller.loadMeals()
 		rebuildChart()
 	}
@@ -91,20 +114,20 @@ class MealTVC: UITableViewController, NSFetchedResultsControllerDelegate
 
 	@objc func onMealChanged(_ notification:NSNotification)
 	{
-		guard let meals = notification.object as? [MealStub] else {
-			NSLog("Got MealChanged notification, but no object!")
-			return
-		}
-
 		rebuildChart()
 	}
 
 	func rebuildChart()
 	{
 		chart.removeAllSeries()
-		for meals in controller.meals.values {
-			chart.add(ChartSeries(meals.map({Double($0.calories)})))
+		var allSeries:[ChartSeries] = []
+		for (person, meals) in controller.meals {
+			let series = ChartSeries(meals.map({Double($0.calories)}))
+			series.color = AllChartColors[person.hashValue % AllChartColors.count]
+			series.area = true
+			allSeries.append(series)
 		}
+		chart.add(allSeries)
 	}
 
 	func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>)
@@ -166,11 +189,21 @@ class MealTVC: UITableViewController, NSFetchedResultsControllerDelegate
 		return fetcher.sections!.count
 	}
 
+	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		return fetcher.sections![section].name
+	}
+
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
 	{
 		let defaultCell = tableView.dequeueReusableCell(withIdentifier: "MealCell", for: indexPath)
 		let meal = fetcher.object(at: indexPath)
-		defaultCell.textLabel?.text = "\(meal.calories) \(dateFormatter.string(from: meal.timestamp ?? Date()))"
+		defaultCell.textLabel?.text = "\(meal.calories) \t\t \(dateFormatter.string(from: meal.timestamp ?? Date()))"
 		return defaultCell
+	}
+
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			controller.delete(fetcher.object(at: indexPath))
+		}
 	}
 }

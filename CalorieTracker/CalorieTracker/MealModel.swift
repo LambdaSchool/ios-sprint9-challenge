@@ -159,6 +159,8 @@ class MealController
 				meals[stub.person]?.remove(at: index)
 			}
 			meals[stub.person]?.sort()
+			let nc = NotificationCenter.default
+			nc.post(name: MealChanged, object: meals[stub.person] ?? [])
 		}
 	}
 
