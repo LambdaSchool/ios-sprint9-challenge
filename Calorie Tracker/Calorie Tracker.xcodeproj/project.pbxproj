@@ -92,7 +92,6 @@
 				EB4076FC218366270030E077 /* Assets.xcassets */,
 				EB4076FE218366270030E077 /* LaunchScreen.storyboard */,
 				EB407701218366270030E077 /* Info.plist */,
-				EB40770921837B3E0030E077 /* CalorieTableViewController.swift */,
 			);
 			path = "Calorie Tracker";
 			sourceTree = "<group>";
@@ -100,6 +99,7 @@
 		EB40770B21837B450030E077 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EB40770921837B3E0030E077 /* CalorieTableViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";

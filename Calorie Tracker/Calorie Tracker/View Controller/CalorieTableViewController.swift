@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreData
+import SwiftChart
 
 class CalorieTableViewController: UITableViewController {
 
@@ -86,5 +88,8 @@ class CalorieTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+    @IBOutlet weak var chart: Chart!
+    
 }
