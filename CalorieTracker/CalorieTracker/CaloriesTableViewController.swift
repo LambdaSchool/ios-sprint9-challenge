@@ -13,15 +13,14 @@ class CaloriesTableViewController: UITableViewController, ChartDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setUpChart()
-        NotificationCenter.default.addObserver(self, selector: #selector(setUpChart), name: .didAddCalorie, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateChart), name: .didAddCalorie, object: nil)
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return dailyIntakeController.dailyIntakes.count
     }
 
@@ -59,13 +58,28 @@ class CaloriesTableViewController: UITableViewController, ChartDelegate {
     
     // MARK: - Swift Chart
     
-    @objc func setUpChart() {
-        let chart = Chart(frame: CGRect(x: 0, y: 100, width: chartView.frame.width, height: chartView.frame.height))
+    func setUpChart() {
+        chart = Chart(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: chartView.frame.height))
+        chart.delegate = self
+        chartView.addSubview(chart)
         
-        let series = ChartSeries([0, 2, 5])
+        // Create data set for chart.
+        let calories = dailyIntakeController.dailyIntakes.compactMap { (dailyIntake) -> Double? in
+            return Double(dailyIntake.calories)
+        }
+        let series = ChartSeries(calories)
         series.area = true
         chart.add(series)
-        chart.delegate = self
+    }
+    
+    @objc func updateChart(_ notification: Notification) {
+        chart.series = []
+        let calories = dailyIntakeController.dailyIntakes.compactMap { (dailyIntake) -> Double? in
+            return Double(dailyIntake.calories)
+        }
+        let series = ChartSeries(calories)
+        series.area = true
+        chart.add(series)
     }
     
     func didTouchChart(_ chart: Chart, indexes: [Int?], x: Double, left: CGFloat) {
@@ -84,7 +98,8 @@ class CaloriesTableViewController: UITableViewController, ChartDelegate {
     
     @IBOutlet weak var chartView: UIView!
     
-    let dailyIntakeController = DailyIntakeController()
+    private var chart: Chart = Chart(frame: .zero)
+    private let dailyIntakeController = DailyIntakeController()
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.timeStyle = .short
