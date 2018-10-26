@@ -34,7 +34,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
     // MARK: - Chart Properties
     let chart = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
     lazy var series = ChartSeries(popOverViewController.data)
-    //chart.add(series)
+    lazy var seeChart = chart.add(series)
 
     // MARK: - UIPopoverPresentationControllerDelegate
     
