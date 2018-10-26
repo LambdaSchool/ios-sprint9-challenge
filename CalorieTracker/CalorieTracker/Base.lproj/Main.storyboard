@@ -53,7 +53,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="Mdm-p7-Qdm">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="iYQ-Js-xwP"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="iYQ-Js-xwP">
+                            <connections>
+                                <action selector="addIntake:" destination="OZ7-Uo-oa5" id="P3j-CK-mdC"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="chartView" destination="NK4-5M-QvL" id="fNq-Tp-bcl"/>
