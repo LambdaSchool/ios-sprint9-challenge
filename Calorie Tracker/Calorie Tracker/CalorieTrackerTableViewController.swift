@@ -15,7 +15,7 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
     override func viewDidLoad() {
         super.viewDidLoad()
         initialRenderChart()
-        NotificationCenter.default.addObserver(self, selector: #selector(renderChart(_:)), name: .didRenderChart, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(renderChart(_:)), name: .didAddCalorie, object: nil)
     }
     
     func initialRenderChart() {
@@ -117,7 +117,7 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         
         let submitAction = UIAlertAction(title: "Submit", style: .default) { (_) in
             self.calorieEntryController.createCalorieEntry(amount: Int16((caloriesTextField?.text)!)!)
-            NotificationCenter.default.post(name: .didRenderChart, object: nil)
+            NotificationCenter.default.post(name: .didAddCalorie, object: nil)
             self.tableView.reloadData()
         }
         alert.addAction(submitAction)
@@ -148,5 +148,5 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
 }
 
 extension Notification.Name {
-    static let didRenderChart = Notification.Name("didRenderChart")
+    static let didAddCalorie = Notification.Name("didAddCalorie")
 }
