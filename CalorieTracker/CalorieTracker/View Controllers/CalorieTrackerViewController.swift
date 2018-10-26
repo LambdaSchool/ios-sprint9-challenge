@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CalorieTrackerViewController.swift
 //  CalorieTracker
 //
 //  Created by Dillon McElhinney on 10/26/18.
@@ -8,15 +8,16 @@
 
 import UIKit
 
+class CalorieTrackerViewController: UIViewController {
 
-class ViewController: UIViewController {
-
+    @IBOutlet weak var headerView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+
     }
 
-    
+    @IBAction func addCalorieData(_ sender: Any) {
+        
+    }
 }
-
