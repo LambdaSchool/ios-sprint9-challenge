@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		B8B92810C6235297F9EED5FB /* Pods_Calorie_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06FD27689C1205F7BD7A200C /* Pods_Calorie_Tracker.framework */; };
 		EB4076F6218366260030E077 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4076F5218366260030E077 /* AppDelegate.swift */; };
-		EB4076F8218366260030E077 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4076F7218366260030E077 /* ViewController.swift */; };
 		EB4076FB218366260030E077 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB4076F9218366260030E077 /* Main.storyboard */; };
 		EB4076FD218366270030E077 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4076FC218366270030E077 /* Assets.xcassets */; };
 		EB407700218366270030E077 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB4076FE218366270030E077 /* LaunchScreen.storyboard */; };
+		EB40770A21837B3E0030E077 /* CalorieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB40770921837B3E0030E077 /* CalorieTableViewController.swift */; };
+		EB40771321837C3F0030E077 /* Entry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB40771121837C3F0030E077 /* Entry.xcdatamodeld */; };
+		EB40771521837C820030E077 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB40771421837C820030E077 /* CoreDataStack.swift */; };
+		EB40771721837CDD0030E077 /* Entry+Convinience.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB40771621837CDD0030E077 /* Entry+Convinience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +24,14 @@
 		D9F1C3FE4671921BAAE8B26C /* Pods-Calorie Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calorie Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Calorie Tracker/Pods-Calorie Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		EB4076F2218366260030E077 /* Calorie Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calorie Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4076F5218366260030E077 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EB4076F7218366260030E077 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EB4076FA218366260030E077 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB4076FC218366270030E077 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB4076FF218366270030E077 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB407701218366270030E077 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB40770921837B3E0030E077 /* CalorieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewController.swift; sourceTree = "<group>"; };
+		EB40771221837C3F0030E077 /* Entry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Entry.xcdatamodel; sourceTree = "<group>"; };
+		EB40771421837C820030E077 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		EB40771621837CDD0030E077 /* Entry+Convinience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convinience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,22 +84,41 @@
 		EB4076F4218366260030E077 /* Calorie Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				EB40770821836C620030E077 /* Pods */,
+				EB40770D21837B8A0030E077 /* Model Controller */,
+				EB40770C21837B740030E077 /* Model */,
+				EB40770B21837B450030E077 /* View Controller */,
 				EB4076F5218366260030E077 /* AppDelegate.swift */,
-				EB4076F7218366260030E077 /* ViewController.swift */,
 				EB4076F9218366260030E077 /* Main.storyboard */,
 				EB4076FC218366270030E077 /* Assets.xcassets */,
 				EB4076FE218366270030E077 /* LaunchScreen.storyboard */,
 				EB407701218366270030E077 /* Info.plist */,
+				EB40770921837B3E0030E077 /* CalorieTableViewController.swift */,
 			);
 			path = "Calorie Tracker";
 			sourceTree = "<group>";
 		};
-		EB40770821836C620030E077 /* Pods */ = {
+		EB40770B21837B450030E077 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Pods;
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		EB40770C21837B740030E077 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EB40771121837C3F0030E077 /* Entry.xcdatamodeld */,
+				EB40771421837C820030E077 /* CoreDataStack.swift */,
+				EB40771621837CDD0030E077 /* Entry+Convinience.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EB40770D21837B8A0030E077 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,8 +241,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB4076F8218366260030E077 /* ViewController.swift in Sources */,
+				EB40771321837C3F0030E077 /* Entry.xcdatamodeld in Sources */,
+				EB40770A21837B3E0030E077 /* CalorieTableViewController.swift in Sources */,
+				EB40771721837CDD0030E077 /* Entry+Convinience.swift in Sources */,
 				EB4076F6218366260030E077 /* AppDelegate.swift in Sources */,
+				EB40771521837C820030E077 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +445,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EB40771121837C3F0030E077 /* Entry.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EB40771221837C3F0030E077 /* Entry.xcdatamodel */,
+			);
+			currentVersion = EB40771221837C3F0030E077 /* Entry.xcdatamodel */;
+			path = Entry.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EB4076EA218366260030E077 /* Project object */;
 }
