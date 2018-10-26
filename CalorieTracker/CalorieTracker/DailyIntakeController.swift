@@ -7,25 +7,20 @@
 //
 
 import Foundation
+import CoreData
 
 class DailyIntakeController {
     
     // MARK: - CRUD Methods
     
-    func add(calories: Int) {
+    func add(calories: Int, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         let dailyIntake = DailyIntake(calories: calories)
         dailyIntakes.append(dailyIntake)
         
-        saveToPersistentStore()
-    }
-    
-    // MARK: - Persistent Store
-    
-    private func saveToPersistentStore() {
         do {
-            try CoreDataStack.shared.mainContext.save()
+            try CoreDataStack.shared.save(context: context)
         } catch {
-            NSLog("Error saving managed object context: \(error)")
+            NSLog("Error saving new daily intake to core data.")
         }
     }
     

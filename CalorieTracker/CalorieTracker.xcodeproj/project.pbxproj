@@ -16,7 +16,6 @@
 		7B1CE077218368330002272D /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1CE076218368330002272D /* CoreData.swift */; };
 		7B1CE07D218369A20002272D /* DailyIntake+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1CE07C218369A20002272D /* DailyIntake+Convenience.swift */; };
 		7B1CE07F21836A3F0002272D /* DailyIntakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1CE07E21836A3F0002272D /* DailyIntakeController.swift */; };
-		7B1CE08121837B910002272D /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1CE08021837B910002272D /* TestViewController.swift */; };
 		F321361B794E2DF6F26CD244 /* Pods_CalorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44347C871B778F06137FA0A2 /* Pods_CalorieTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +33,6 @@
 		7B1CE076218368330002272D /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		7B1CE07C218369A20002272D /* DailyIntake+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DailyIntake+Convenience.swift"; sourceTree = "<group>"; };
 		7B1CE07E21836A3F0002272D /* DailyIntakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIntakeController.swift; sourceTree = "<group>"; };
-		7B1CE08021837B910002272D /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		CC2A14B24CA43BF4B4C89445 /* Pods-CalorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.debug.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,7 +82,6 @@
 				7B1CE07C218369A20002272D /* DailyIntake+Convenience.swift */,
 				7B1CE05F218363D00002272D /* AppDelegate.swift */,
 				7B1CE063218363D00002272D /* Main.storyboard */,
-				7B1CE08021837B910002272D /* TestViewController.swift */,
 				7B1CE069218363D80002272D /* Assets.xcassets */,
 				7B1CE06B218363D80002272D /* LaunchScreen.storyboard */,
 				7B1CE06E218363D80002272D /* Info.plist */,
@@ -223,7 +220,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B1CE08121837B910002272D /* TestViewController.swift in Sources */,
 				7B1CE07D218369A20002272D /* DailyIntake+Convenience.swift in Sources */,
 				7B1CE077218368330002272D /* CoreData.swift in Sources */,
 				7B1CE060218363D00002272D /* AppDelegate.swift in Sources */,

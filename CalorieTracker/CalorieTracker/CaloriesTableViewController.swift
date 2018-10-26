@@ -8,8 +8,9 @@
 
 import UIKit
 import SwiftChart
+import CoreData
 
-class CaloriesTableViewController: UITableViewController, ChartDelegate {
+class CaloriesTableViewController: UITableViewController, ChartDelegate, NSFetchedResultsControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +22,13 @@ class CaloriesTableViewController: UITableViewController, ChartDelegate {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dailyIntakeController.dailyIntakes.count
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DailyIntakeCell", for: indexPath)
         
-        let dailyIntake = dailyIntakeController.dailyIntakes[indexPath.row]
+        let dailyIntake = fetchedResultsController.object(at: indexPath)
         cell.textLabel?.text = "Calories: \(dailyIntake.calories)"
         cell.detailTextLabel?.text = dateFormatter.string(for: dailyIntake.date)
 
@@ -56,6 +57,47 @@ class CaloriesTableViewController: UITableViewController, ChartDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
+    // MARK: - NSFetchedResultsControllerDelegate
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            guard let newIndexPath = newIndexPath else { return }
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        case .delete:
+            guard let indexPath = indexPath else { return }
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        case .update:
+            guard let indexPath = indexPath else { return }
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        case .move:
+            guard let indexPath = indexPath,
+                let newIndexPath = newIndexPath else { return }
+            //            tableView.moveRow(at: indexPath, to: newIndexPath)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
+        case .delete:
+            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
+        default:
+            break
+        }
+    }
+    
     // MARK: - Swift Chart
     
     func setUpChart() {
@@ -64,9 +106,8 @@ class CaloriesTableViewController: UITableViewController, ChartDelegate {
         chartView.addSubview(chart)
         
         // Create data set for chart.
-        let calories = dailyIntakeController.dailyIntakes.compactMap { (dailyIntake) -> Double? in
-            return Double(dailyIntake.calories)
-        }
+        guard let dailyIntakes = fetchedResultsController.fetchedObjects else { return }
+        let calories = dailyIntakes.compactMap({ Double($0.calories) })
         let series = ChartSeries(calories)
         series.area = true
         chart.add(series)
@@ -74,9 +115,8 @@ class CaloriesTableViewController: UITableViewController, ChartDelegate {
     
     @objc func updateChart(_ notification: Notification) {
         chart.series = []
-        let calories = dailyIntakeController.dailyIntakes.compactMap { (dailyIntake) -> Double? in
-            return Double(dailyIntake.calories)
-        }
+        guard let dailyIntakes = fetchedResultsController.fetchedObjects else { return }
+        let calories = dailyIntakes.compactMap({ Double($0.calories) })
         let series = ChartSeries(calories)
         series.area = true
         chart.add(series)
@@ -105,6 +145,23 @@ class CaloriesTableViewController: UITableViewController, ChartDelegate {
         formatter.timeStyle = .short
         formatter.dateStyle = .short
         return formatter
+    }()
+    
+    lazy var fetchedResultsController: NSFetchedResultsController<DailyIntake> = {
+        let fetchRequest: NSFetchRequest<DailyIntake> = DailyIntake.fetchRequest()
+        
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        let moc = CoreDataStack.shared.mainContext
+        
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+        
+        frc.delegate = self
+        
+        try! frc.performFetch()
+        return frc
     }()
 }
 
