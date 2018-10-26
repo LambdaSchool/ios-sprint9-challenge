@@ -10,12 +10,15 @@ import UIKit
 
 class CalorieTrackerTableViewController: UITableViewController {
     
+    // MARK: - Properties
     var calorieDataController: CalorieDataController!
     var people: [Person] = []
     
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Add observer that will notify the table view when the data has been updated.
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .updatedCalorieDataNotification, object: nil)
         updateViews()
     }

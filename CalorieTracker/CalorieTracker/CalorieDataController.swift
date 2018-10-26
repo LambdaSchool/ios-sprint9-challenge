@@ -10,8 +10,10 @@ import Foundation
 import CoreData
 
 class CalorieDataController {
+    // MARK: - Properties
     private(set) var calorieDatas: [CalorieData] = []
     
+    // MARK: - Initializers
     init() {
         loadFromPersistentStore()
     }
