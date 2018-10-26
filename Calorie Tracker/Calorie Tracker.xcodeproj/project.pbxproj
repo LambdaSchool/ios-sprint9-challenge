@@ -13,6 +13,8 @@
 		F115B0272183654800CBFEB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F115B0252183654800CBFEB3 /* Main.storyboard */; };
 		F115B0292183654900CBFEB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F115B0282183654900CBFEB3 /* Assets.xcassets */; };
 		F115B02C2183654900CBFEB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F115B02A2183654900CBFEB3 /* LaunchScreen.storyboard */; };
+		F115B0392183739F00CBFEB3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F115B0382183739F00CBFEB3 /* CoreDataStack.swift */; };
+		F115B03C2183740800CBFEB3 /* Calorie Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F115B03A2183740800CBFEB3 /* Calorie Tracker.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		F115B0282183654900CBFEB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F115B02B2183654900CBFEB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F115B02D2183654900CBFEB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F115B0382183739F00CBFEB3 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		F115B03B2183740800CBFEB3 /* Calorie Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Calorie Tracker.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,8 @@
 		F115B037218365B100CBFEB3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F115B0382183739F00CBFEB3 /* CoreDataStack.swift */,
+				F115B03A2183740800CBFEB3 /* Calorie Tracker.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -248,8 +254,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F115B0392183739F00CBFEB3 /* CoreDataStack.swift in Sources */,
 				F115B0242183654800CBFEB3 /* ViewController.swift in Sources */,
 				F115B0222183654800CBFEB3 /* AppDelegate.swift in Sources */,
+				F115B03C2183740800CBFEB3 /* Calorie Tracker.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +459,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F115B03A2183740800CBFEB3 /* Calorie Tracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F115B03B2183740800CBFEB3 /* Calorie Tracker.xcdatamodel */,
+			);
+			currentVersion = F115B03B2183740800CBFEB3 /* Calorie Tracker.xcdatamodel */;
+			path = "Calorie Tracker.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F115B0162183654800CBFEB3 /* Project object */;
 }
