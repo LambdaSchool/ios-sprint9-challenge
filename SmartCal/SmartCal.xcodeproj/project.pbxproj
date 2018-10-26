@@ -17,6 +17,8 @@
 		D88958D521836EC3001BF6F5 /* Intake.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D88958D321836EC3001BF6F5 /* Intake.xcdatamodeld */; };
 		D88958D821836F91001BF6F5 /* CalorieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88958D721836F91001BF6F5 /* CalorieTableViewController.swift */; };
 		D88958DC2183703C001BF6F5 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88958DB2183703C001BF6F5 /* CoreDataStack.swift */; };
+		D88958DE21837156001BF6F5 /* Intake + Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88958DD21837156001BF6F5 /* Intake + Convenience.swift */; };
+		D88958E0218372AF001BF6F5 /* IntakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88958DF218372AF001BF6F5 /* IntakeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		D88958D421836EC3001BF6F5 /* Intake.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Intake.xcdatamodel; sourceTree = "<group>"; };
 		D88958D721836F91001BF6F5 /* CalorieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalorieTableViewController.swift; path = Assets.xcassets/CalorieTableViewController.swift; sourceTree = "<group>"; };
 		D88958DB2183703C001BF6F5 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		D88958DD21837156001BF6F5 /* Intake + Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Intake + Convenience.swift"; sourceTree = "<group>"; };
+		D88958DF218372AF001BF6F5 /* IntakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				D88958D321836EC3001BF6F5 /* Intake.xcdatamodeld */,
+				D88958DD21837156001BF6F5 /* Intake + Convenience.swift */,
+				D88958DF218372AF001BF6F5 /* IntakeController.swift */,
 				D88958DB2183703C001BF6F5 /* CoreDataStack.swift */,
 			);
 			path = CoreData;
@@ -274,8 +280,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D88958D521836EC3001BF6F5 /* Intake.xcdatamodeld in Sources */,
+				D88958DE21837156001BF6F5 /* Intake + Convenience.swift in Sources */,
 				D88958A321836D28001BF6F5 /* AppDelegate.swift in Sources */,
 				D88958DC2183703C001BF6F5 /* CoreDataStack.swift in Sources */,
+				D88958E0218372AF001BF6F5 /* IntakeController.swift in Sources */,
 				D88958D821836F91001BF6F5 /* CalorieTableViewController.swift in Sources */,
 				D88958AB21836D28001BF6F5 /* SmartCal.xcdatamodeld in Sources */,
 			);

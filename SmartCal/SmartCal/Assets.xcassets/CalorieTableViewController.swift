@@ -9,18 +9,20 @@
 import UIKit
 import CoreData
 
-class CalorieTableViewController: UITableViewController {
+class CalorieTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+    
+    let intakeController = IntakeController()
     
     //MARK:- FetchedResultsController
     
     lazy var fetchedResultsController: NSFetchedResultsController<Intake> = {
-        let fetchRequest: NSFetchRequest<Movie> = Movie.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
+        let fetchRequest: NSFetchRequest<Intake> = Intake.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: true)
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         let moc = CoreDataStack.shared.mainContext
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "hasWatched", cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
         frc.delegate = self
         try! frc.performFetch()
         return frc
@@ -74,48 +76,72 @@ class CalorieTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
+    
+    @IBAction func newEntry(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "New Data Point", message: "How many calories did you just eat?", preferredStyle: .alert)
+        
+        var calorieField: UITextField?
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Your Calorie Estimate:"
+            calorieField = textField
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { (_) in
+            
+            guard let calorieString = calorieField?.text else { return }
+            guard let calories = Int32(calorieString) else {return}
+            
+            self.intakeController.createDataPoint(with: calories)
+            
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(submitAction)
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return fetchedResultsController.sections?.count ?? 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return fetchedResultsController.fetchedObjects?.count ?? 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
 
-        // Configure the cell...
+        let dataPoint = fetchedResultsController.object(at: indexPath)
+        cell.textLabel?.text = String(dataPoint.calories)
+        
+        
+        cell.detailTextLabel?.text = dataPoint.timestamp?.description
+        
 
         return cell
     }
-    */
+    
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
+    
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            let dataPoint = fetchedResultsController.object(at: indexPath)
+            intakeController.deleteDataPoint(point: dataPoint)
+        }
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
