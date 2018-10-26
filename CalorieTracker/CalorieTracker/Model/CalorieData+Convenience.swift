@@ -18,4 +18,16 @@ extension CalorieData {
         self.id = id
         
     }
+    
+    var formattedTimestamp: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .medium
+        dateFormatter.dateStyle = .medium
+        
+        if let timestamp = timestamp {
+            return dateFormatter.string(from: timestamp)
+        } else {
+            return ""
+        }
+    }
 }

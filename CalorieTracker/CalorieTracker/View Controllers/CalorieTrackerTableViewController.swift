@@ -27,8 +27,9 @@ class CalorieTrackerTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
         let calorieData = calorieDataController.calorieDatas[indexPath.row]
         
-        cell.textLabel?.text = "Calories: \(calorieData.calories)"
-
+        cell.textLabel?.text = "Calories: \(Int(calorieData.calories))"
+        cell.detailTextLabel?.text = calorieData.formattedTimestamp
+        
         return cell
     }
     

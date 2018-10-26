@@ -25,7 +25,7 @@
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8N-A3-tyG">
-                                <rect key="frame" x="0.0" y="340" width="375" height="438"/>
+                                <rect key="frame" x="0.0" y="348" width="375" height="430"/>
                                 <connections>
                                     <segue destination="0c7-gg-gRb" kind="embed" id="UoC-vM-VLt"/>
                                 </connections>
@@ -34,7 +34,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uc3-Cd-0f8" secondAttribute="trailing" id="8mE-xw-g0d"/>
-                            <constraint firstItem="D8N-A3-tyG" firstAttribute="top" secondItem="uc3-Cd-0f8" secondAttribute="bottom" id="90h-NJ-ZHp"/>
+                            <constraint firstItem="D8N-A3-tyG" firstAttribute="top" secondItem="uc3-Cd-0f8" secondAttribute="bottom" constant="8" id="90h-NJ-ZHp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="D8N-A3-tyG" secondAttribute="trailing" id="OXw-Wj-8fv"/>
                             <constraint firstItem="D8N-A3-tyG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Pej-cV-Fe0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="D8N-A3-tyG" secondAttribute="bottom" id="SEN-KL-7hl"/>
@@ -81,7 +81,7 @@
             <objects>
                 <tableViewController id="0c7-gg-gRb" customClass="CalorieTrackerTableViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xT2-BJ-euv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="438"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="430"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
