@@ -1,5 +1,5 @@
 //
-//  CaloriesRepresentation.swift
+//  CalorieRepresentation.swift
 //  Calorie Tracker
 //
 //  Created by Ilgar Ilyasov on 10/26/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CaloriesRepresentation {
+struct CalorieRepresentation {
     let amount: Int
     let date: Date
     

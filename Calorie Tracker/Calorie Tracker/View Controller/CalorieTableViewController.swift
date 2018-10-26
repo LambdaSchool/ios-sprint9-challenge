@@ -1,5 +1,5 @@
 //
-//  CaloriesTableViewController.swift
+//  CalorieTableViewController.swift
 //  Calorie Tracker
 //
 //  Created by Ilgar Ilyasov on 10/26/18.
@@ -9,11 +9,11 @@
 import UIKit
 import SwiftChart
 
-class CaloriesTableViewController: UITableViewController {
+class CalorieTableViewController: UITableViewController{
     
     // MARK: - Property
     
-    let cellIdentifier = "CalorieCell"
+    let cellIdentifier = "CaloriesCell"
     
     // MARK: - Lifecycle functions
 
