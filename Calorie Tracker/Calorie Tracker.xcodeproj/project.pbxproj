@@ -1,0 +1,655 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		112459442183669D000A5165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112459432183669D000A5165 /* AppDelegate.swift */; };
+		112459462183669D000A5165 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112459452183669D000A5165 /* ViewController.swift */; };
+		112459492183669D000A5165 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 112459472183669D000A5165 /* Main.storyboard */; };
+		1124594B218366A0000A5165 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1124594A218366A0000A5165 /* Assets.xcassets */; };
+		1124594E218366A0000A5165 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1124594C218366A0000A5165 /* LaunchScreen.storyboard */; };
+		11245956218368C2000A5165 /* Calories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11245955218368C2000A5165 /* Calories.swift */; };
+		1124595A21836911000A5165 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124595921836911000A5165 /* CoreDataStack.swift */; };
+		1124598121836B66000A5165 /* Calories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1124597F21836B65000A5165 /* Calories.xcdatamodeld */; };
+		1124598321836D9F000A5165 /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124598221836D9F000A5165 /* CalorieController.swift */; };
+		1124598521837618000A5165 /* PopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124598421837618000A5165 /* PopOverViewController.swift */; };
+		112459D521837CDB000A5165 /* ChartSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124599521837881000A5165 /* ChartSeries.swift */; };
+		112459D621837CDB000A5165 /* ChartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124599721837881000A5165 /* ChartColors.swift */; };
+		112459D721837CDB000A5165 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124599621837881000A5165 /* Chart.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		112459C821837882000A5165 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1124599B21837882000A5165 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C1064C02BC378A7101A8B9260973E770;
+			remoteInfo = "Pods-SwiftChart_Example";
+		};
+		112459CA21837882000A5165 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1124599B21837882000A5165 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 123781041F3CE57CBDE9F463E440FB4B;
+			remoteInfo = SwiftChart;
+		};
+		112459CD21837882000A5165 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 112459C321837882000A5165 /* SwiftChart.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 607FACD01AFB9204008FA782;
+			remoteInfo = SwiftChart_Example;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		112459402183669D000A5165 /* Calorie Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calorie Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		112459432183669D000A5165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		112459452183669D000A5165 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		112459482183669D000A5165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1124594A218366A0000A5165 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1124594D218366A0000A5165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1124594F218366A0000A5165 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11245955218368C2000A5165 /* Calories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calories.swift; sourceTree = "<group>"; };
+		1124595921836911000A5165 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		1124598021836B66000A5165 /* Calories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calories.xcdatamodel; sourceTree = "<group>"; };
+		1124598221836D9F000A5165 /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
+		1124598421837618000A5165 /* PopOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverViewController.swift; sourceTree = "<group>"; };
+		1124599521837881000A5165 /* ChartSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartSeries.swift; sourceTree = "<group>"; };
+		1124599621837881000A5165 /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
+		1124599721837881000A5165 /* ChartColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartColors.swift; sourceTree = "<group>"; };
+		1124599921837882000A5165 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		1124599B21837882000A5165 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Pods.xcodeproj; sourceTree = "<group>"; };
+		112459A021837882000A5165 /* Pods-SwiftChart_Example-resources.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "Pods-SwiftChart_Example-resources.sh"; sourceTree = "<group>"; };
+		112459A121837882000A5165 /* Pods-SwiftChart_Example-acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pods-SwiftChart_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		112459A221837882000A5165 /* Pods-SwiftChart_Example-acknowledgements.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Pods-SwiftChart_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		112459A321837882000A5165 /* Pods-SwiftChart_Example-frameworks.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "Pods-SwiftChart_Example-frameworks.sh"; sourceTree = "<group>"; };
+		112459A421837882000A5165 /* Pods-SwiftChart_Example-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftChart_Example-dummy.m"; sourceTree = "<group>"; };
+		112459A521837882000A5165 /* Pods-SwiftChart_Example-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftChart_Example-umbrella.h"; sourceTree = "<group>"; };
+		112459A621837882000A5165 /* Pods-SwiftChart_Example.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwiftChart_Example.modulemap"; sourceTree = "<group>"; };
+		112459A721837882000A5165 /* Pods-SwiftChart_Example.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-SwiftChart_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		112459A821837882000A5165 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		112459A921837882000A5165 /* Pods-SwiftChart_Example.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-SwiftChart_Example.release.xcconfig"; sourceTree = "<group>"; };
+		112459AB21837882000A5165 /* SwiftChart.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SwiftChart.xcconfig; sourceTree = "<group>"; };
+		112459AC21837882000A5165 /* SwiftChart-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftChart-umbrella.h"; sourceTree = "<group>"; };
+		112459AD21837882000A5165 /* SwiftChart-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SwiftChart-dummy.m"; sourceTree = "<group>"; };
+		112459AE21837882000A5165 /* SwiftChart-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftChart-prefix.pch"; sourceTree = "<group>"; };
+		112459AF21837882000A5165 /* SwiftChart.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = SwiftChart.modulemap; sourceTree = "<group>"; };
+		112459B021837882000A5165 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		112459B121837882000A5165 /* Manifest.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Manifest.lock; sourceTree = "<group>"; };
+		112459B321837882000A5165 /* SwiftChart.podspec.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SwiftChart.podspec.json; sourceTree = "<group>"; };
+		112459B521837882000A5165 /* BasicChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicChartViewController.swift; sourceTree = "<group>"; };
+		112459B621837882000A5165 /* AAPL.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AAPL.json; sourceTree = "<group>"; };
+		112459B821837882000A5165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		112459BA21837882000A5165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		112459BB21837882000A5165 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		112459BC21837882000A5165 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		112459BD21837882000A5165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		112459BE21837882000A5165 /* StockChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockChartViewController.swift; sourceTree = "<group>"; };
+		112459BF21837882000A5165 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		112459C021837882000A5165 /* SwiftChart.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = SwiftChart.xcworkspace; sourceTree = "<group>"; };
+		112459C121837882000A5165 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		112459C221837882000A5165 /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
+		112459C321837882000A5165 /* SwiftChart.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SwiftChart.xcodeproj; sourceTree = "<group>"; };
+		112459CF21837882000A5165 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		112459D021837882000A5165 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		112459D121837882000A5165 /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
+		112459D221837883000A5165 /* SwiftChart.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = SwiftChart.podspec; sourceTree = "<group>"; };
+		112459D321837883000A5165 /* ISSUE_TEMPLATE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ISSUE_TEMPLATE.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1124593D2183669D000A5165 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		112459372183669D000A5165 = {
+			isa = PBXGroup;
+			children = (
+				112459422183669D000A5165 /* Calorie Tracker */,
+				112459412183669D000A5165 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		112459412183669D000A5165 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				112459402183669D000A5165 /* Calorie Tracker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		112459422183669D000A5165 /* Calorie Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				11245957218368C9000A5165 /* Model */,
+				1124595C21836987000A5165 /* View Controllers */,
+				1124595D2183698F000A5165 /* Storyboards */,
+				1124595B21836920000A5165 /* CoreDataStack */,
+				11245958218368D9000A5165 /* Resources */,
+			);
+			path = "Calorie Tracker";
+			sourceTree = "<group>";
+		};
+		11245957218368C9000A5165 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				11245955218368C2000A5165 /* Calories.swift */,
+				1124598221836D9F000A5165 /* CalorieController.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		11245958218368D9000A5165 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				112459D121837882000A5165 /* CODE_OF_CONDUCT.md */,
+				1124599821837882000A5165 /* Example */,
+				112459D321837883000A5165 /* ISSUE_TEMPLATE.md */,
+				112459D021837882000A5165 /* LICENSE.txt */,
+				112459CF21837882000A5165 /* README.md */,
+				1124599421837881000A5165 /* Source */,
+				1124599521837881000A5165 /* ChartSeries.swift */,
+				1124599621837881000A5165 /* Chart.swift */,
+				1124599721837881000A5165 /* ChartColors.swift */,
+				112459D221837883000A5165 /* SwiftChart.podspec */,
+				112459432183669D000A5165 /* AppDelegate.swift */,
+				1124597F21836B65000A5165 /* Calories.xcdatamodeld */,
+				1124594A218366A0000A5165 /* Assets.xcassets */,
+				1124594C218366A0000A5165 /* LaunchScreen.storyboard */,
+				1124594F218366A0000A5165 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1124595B21836920000A5165 /* CoreDataStack */ = {
+			isa = PBXGroup;
+			children = (
+				1124595921836911000A5165 /* CoreDataStack.swift */,
+			);
+			path = CoreDataStack;
+			sourceTree = "<group>";
+		};
+		1124595C21836987000A5165 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				112459452183669D000A5165 /* ViewController.swift */,
+				1124598421837618000A5165 /* PopOverViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		1124595D2183698F000A5165 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				112459472183669D000A5165 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		1124599421837881000A5165 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		1124599821837882000A5165 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				1124599921837882000A5165 /* .swiftlint.yml */,
+				1124599A21837882000A5165 /* Pods */,
+				112459B421837882000A5165 /* SwiftChart */,
+				112459C021837882000A5165 /* SwiftChart.xcworkspace */,
+				112459C121837882000A5165 /* Podfile */,
+				112459C221837882000A5165 /* Podfile.lock */,
+				112459C321837882000A5165 /* SwiftChart.xcodeproj */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		1124599A21837882000A5165 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1124599B21837882000A5165 /* Pods.xcodeproj */,
+				1124599E21837882000A5165 /* Target Support Files */,
+				112459B121837882000A5165 /* Manifest.lock */,
+				112459B221837882000A5165 /* Local Podspecs */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		1124599C21837882000A5165 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				112459C921837882000A5165 /* Pods_SwiftChart_Example.framework */,
+				112459CB21837882000A5165 /* SwiftChart.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1124599E21837882000A5165 /* Target Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1124599F21837882000A5165 /* Pods-SwiftChart_Example */,
+				112459AA21837882000A5165 /* SwiftChart */,
+			);
+			path = "Target Support Files";
+			sourceTree = "<group>";
+		};
+		1124599F21837882000A5165 /* Pods-SwiftChart_Example */ = {
+			isa = PBXGroup;
+			children = (
+				112459A021837882000A5165 /* Pods-SwiftChart_Example-resources.sh */,
+				112459A121837882000A5165 /* Pods-SwiftChart_Example-acknowledgements.plist */,
+				112459A221837882000A5165 /* Pods-SwiftChart_Example-acknowledgements.markdown */,
+				112459A321837882000A5165 /* Pods-SwiftChart_Example-frameworks.sh */,
+				112459A421837882000A5165 /* Pods-SwiftChart_Example-dummy.m */,
+				112459A521837882000A5165 /* Pods-SwiftChart_Example-umbrella.h */,
+				112459A621837882000A5165 /* Pods-SwiftChart_Example.modulemap */,
+				112459A721837882000A5165 /* Pods-SwiftChart_Example.debug.xcconfig */,
+				112459A821837882000A5165 /* Info.plist */,
+				112459A921837882000A5165 /* Pods-SwiftChart_Example.release.xcconfig */,
+			);
+			path = "Pods-SwiftChart_Example";
+			sourceTree = "<group>";
+		};
+		112459AA21837882000A5165 /* SwiftChart */ = {
+			isa = PBXGroup;
+			children = (
+				112459AB21837882000A5165 /* SwiftChart.xcconfig */,
+				112459AC21837882000A5165 /* SwiftChart-umbrella.h */,
+				112459AD21837882000A5165 /* SwiftChart-dummy.m */,
+				112459AE21837882000A5165 /* SwiftChart-prefix.pch */,
+				112459AF21837882000A5165 /* SwiftChart.modulemap */,
+				112459B021837882000A5165 /* Info.plist */,
+			);
+			path = SwiftChart;
+			sourceTree = "<group>";
+		};
+		112459B221837882000A5165 /* Local Podspecs */ = {
+			isa = PBXGroup;
+			children = (
+				112459B321837882000A5165 /* SwiftChart.podspec.json */,
+			);
+			path = "Local Podspecs";
+			sourceTree = "<group>";
+		};
+		112459B421837882000A5165 /* SwiftChart */ = {
+			isa = PBXGroup;
+			children = (
+				112459B521837882000A5165 /* BasicChartViewController.swift */,
+				112459B621837882000A5165 /* AAPL.json */,
+				112459B721837882000A5165 /* LaunchScreen.xib */,
+				112459B921837882000A5165 /* Main.storyboard */,
+				112459BB21837882000A5165 /* TableViewController.swift */,
+				112459BC21837882000A5165 /* Images.xcassets */,
+				112459BD21837882000A5165 /* AppDelegate.swift */,
+				112459BE21837882000A5165 /* StockChartViewController.swift */,
+				112459BF21837882000A5165 /* Info.plist */,
+			);
+			path = SwiftChart;
+			sourceTree = "<group>";
+		};
+		112459C421837882000A5165 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				112459CE21837882000A5165 /* SwiftChart_Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1124593F2183669D000A5165 /* Calorie Tracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11245952218366A0000A5165 /* Build configuration list for PBXNativeTarget "Calorie Tracker" */;
+			buildPhases = (
+				1124593C2183669D000A5165 /* Sources */,
+				1124593D2183669D000A5165 /* Frameworks */,
+				1124593E2183669D000A5165 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Calorie Tracker";
+			productName = "Calorie Tracker";
+			productReference = 112459402183669D000A5165 /* Calorie Tracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		112459382183669D000A5165 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Jonah Bergevin";
+				TargetAttributes = {
+					1124593F2183669D000A5165 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = 1124593B2183669D000A5165 /* Build configuration list for PBXProject "Calorie Tracker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 112459372183669D000A5165;
+			productRefGroup = 112459412183669D000A5165 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1124599C21837882000A5165 /* Products */;
+					ProjectRef = 1124599B21837882000A5165 /* Pods.xcodeproj */;
+				},
+				{
+					ProductGroup = 112459C421837882000A5165 /* Products */;
+					ProjectRef = 112459C321837882000A5165 /* SwiftChart.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				1124593F2183669D000A5165 /* Calorie Tracker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		112459C921837882000A5165 /* Pods_SwiftChart_Example.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_SwiftChart_Example.framework;
+			remoteRef = 112459C821837882000A5165 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		112459CB21837882000A5165 /* SwiftChart.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftChart.framework;
+			remoteRef = 112459CA21837882000A5165 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		112459CE21837882000A5165 /* SwiftChart_Example.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SwiftChart_Example.app;
+			remoteRef = 112459CD21837882000A5165 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1124593E2183669D000A5165 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1124594E218366A0000A5165 /* LaunchScreen.storyboard in Resources */,
+				1124594B218366A0000A5165 /* Assets.xcassets in Resources */,
+				112459492183669D000A5165 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1124593C2183669D000A5165 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				112459D721837CDB000A5165 /* Chart.swift in Sources */,
+				112459462183669D000A5165 /* ViewController.swift in Sources */,
+				112459D521837CDB000A5165 /* ChartSeries.swift in Sources */,
+				11245956218368C2000A5165 /* Calories.swift in Sources */,
+				1124598521837618000A5165 /* PopOverViewController.swift in Sources */,
+				112459442183669D000A5165 /* AppDelegate.swift in Sources */,
+				1124595A21836911000A5165 /* CoreDataStack.swift in Sources */,
+				1124598121836B66000A5165 /* Calories.xcdatamodeld in Sources */,
+				1124598321836D9F000A5165 /* CalorieController.swift in Sources */,
+				112459D621837CDB000A5165 /* ChartColors.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		112459472183669D000A5165 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				112459482183669D000A5165 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1124594C218366A0000A5165 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1124594D218366A0000A5165 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		112459B721837882000A5165 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				112459B821837882000A5165 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		112459B921837882000A5165 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				112459BA21837882000A5165 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		11245950218366A0000A5165 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		11245951218366A0000A5165 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		11245953218366A0000A5165 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "$(SRCROOT)/Calorie Tracker/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jdb.Calorie-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		11245954218366A0000A5165 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "$(SRCROOT)/Calorie Tracker/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jdb.Calorie-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1124593B2183669D000A5165 /* Build configuration list for PBXProject "Calorie Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11245950218366A0000A5165 /* Debug */,
+				11245951218366A0000A5165 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11245952218366A0000A5165 /* Build configuration list for PBXNativeTarget "Calorie Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11245953218366A0000A5165 /* Debug */,
+				11245954218366A0000A5165 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1124597F21836B65000A5165 /* Calories.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1124598021836B66000A5165 /* Calories.xcdatamodel */,
+			);
+			currentVersion = 1124598021836B66000A5165 /* Calories.xcdatamodel */;
+			path = Calories.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 112459382183669D000A5165 /* Project object */;
+}
