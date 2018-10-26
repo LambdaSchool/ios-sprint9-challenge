@@ -37,7 +37,7 @@ class PopOverViewController: UIViewController {
         // add calorie value to data Array
         //addCalorieValueTextField.text = Calorie.value(8)
         guard let value = addCalorieValueTextField.text,
-            let calorieValue = Int(value) else { return }
+            let calorieValue = Double(value) else { return }
             data.append(calorieValue)
             print(data)
         
@@ -59,6 +59,6 @@ class PopOverViewController: UIViewController {
         case value(Int)
     }
     
-    var data: [Int] = []
+    var data: [Double] = []
     let viewController = ViewController()
 }
