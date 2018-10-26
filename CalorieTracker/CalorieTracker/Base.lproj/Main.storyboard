@@ -44,6 +44,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="5pj-zk-fRh">
+                        <barButtonItem key="leftBarButtonItem" title="Change Person" id="dri-Yo-7Pv">
+                            <connections>
+                                <action selector="addPerson:" destination="BYZ-38-t0r" id="YiD-oM-rCL"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dgs-Tx-JSQ">
                             <connections>
                                 <action selector="addCalorieData:" destination="BYZ-38-t0r" id="MXt-1t-q4c"/>

@@ -14,6 +14,7 @@ class CalorieTrackerViewController: UIViewController {
     // MARK: - Properties
     let calorieDataController = CalorieDataController()
     var calorieChart: Chart!
+    var currentPerson: Person?
     
     @IBOutlet weak var headerView: UIView!
     
@@ -24,6 +25,7 @@ class CalorieTrackerViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateChart), name: .updatedCalorieDataNotification , object: nil)
         
         headerView.backgroundColor = .white
+        setPerson()
         setupChart()
         updateChart()
     }
@@ -31,6 +33,10 @@ class CalorieTrackerViewController: UIViewController {
     // MARK: - Actions
     @IBAction func addCalorieData(_ sender: Any) {
         presentAddCalorieAlert()
+    }
+    
+    @IBAction func addPerson(_ sender: Any) {
+        presentChangePersonAlert()
     }
     
     // MARK: - Navigation
@@ -41,30 +47,16 @@ class CalorieTrackerViewController: UIViewController {
     }
     
     // MARK: - Utility Methods
-    private func presentAddCalorieAlert() {
-        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
-        
-        var calorieTextField: UITextField?
-        
-        alert.addTextField { (textField) in
-            textField.placeholder = "Calories"
-            
-            calorieTextField = textField
+    private func setPerson() {
+        let people = calorieDataController.fetchPeople()
+        if people.count < 1 {
+            presentAddPersonAlert()
+        } else if people.count == 1 {
+            currentPerson = people.first
+        } else {
+            presentChangePersonAlert()
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        alert.addAction(cancelAction)
-        
-        let submitAction = UIAlertAction(title: "Submit", style: .default) { (_) in
-            if let calorieString = calorieTextField?.text, let calories = Double(calorieString) {
-                self.calorieDataController.createCalorieData(calories: calories)
-                self.calorieDataController.fetchData()
-                NotificationCenter.default.post(name: .updatedCalorieDataNotification, object: nil)
-            }
-        }
-        alert.addAction(submitAction)
-        
-        present(alert, animated: true)
     }
     
     private func setupChart() {
@@ -83,13 +75,94 @@ class CalorieTrackerViewController: UIViewController {
     }
     
     @objc private func updateChart() {
-        let data = calorieDataController.calorieDatas.map() { $0.calories }
-        let series = ChartSeries(data)
-        series.area = true
-        calorieChart.add(series)
+        
+        let people = calorieDataController.fetchPeople()
+        for (index, person) in people.enumerated() {
+            let data = calorieDataController.fetchCalories(for: person).map() { $0.calories }
+            let series = ChartSeries(data)
+            let colorIndex = index % ChartColors.colors.count
+            series.color = ChartColors.colors[colorIndex]
+            calorieChart.add(series)
+        }
+    }
+    
+    private func presentAddCalorieAlert() {
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+        
+        var calorieTextField: UITextField?
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Calories"
+            
+            calorieTextField = textField
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(cancelAction)
+        
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { (_) in
+            if let calorieString = calorieTextField?.text, let calories = Double(calorieString), let currentPerson = self.currentPerson {
+                self.calorieDataController.createCalorieData(calories: calories, person: currentPerson)
+                self.calorieDataController.fetchData()
+                NotificationCenter.default.post(name: .updatedCalorieDataNotification, object: nil)
+            }
+        }
+        alert.addAction(submitAction)
+        
+        present(alert, animated: true)
+    }
+    
+    private func presentAddPersonAlert() {
+        let alert = UIAlertController(title: "Add Your Name", message: nil, preferredStyle: .alert)
+        
+        var nameTextField: UITextField?
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Your Name"
+            
+            nameTextField = textField
+        }
+        
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { (_) in
+            if let nameString = nameTextField?.text {
+                let name = !nameString.isEmpty ? nameString : "Unknown Person"
+                self.currentPerson = self.calorieDataController.createPerson(name: name)
+                NotificationCenter.default.post(name: .updatedCalorieDataNotification, object: nil)
+            }
+        }
+        alert.addAction(submitAction)
+        
+        present(alert, animated: true)
+    }
+    
+    private func presentChangePersonAlert() {
+        let alert = UIAlertController(title: "Who Are You?", message: nil, preferredStyle: .actionSheet)
+        
+        let people = self.calorieDataController.fetchPeople()
+        
+        for person in people {
+            let personAction = UIAlertAction(title: person.name, style: .default) { (_) in
+                self.currentPerson = person
+            }
+            
+            alert.addAction(personAction)
+        }
+        
+        let newPersonAction = UIAlertAction(title: "Add New", style: .default) { (_) in
+            self.presentAddPersonAlert()
+        }
+        alert.addAction(newPersonAction)
+        
+        present(alert, animated: true)
     }
 }
 
 extension Notification.Name {
     static let updatedCalorieDataNotification = Notification.Name("UpdatedCalorieDataNotification")
+}
+
+extension ChartColors {
+    static var colors: [UIColor] {
+        return [ChartColors.blueColor(), ChartColors.orangeColor(), ChartColors.greenColor(), ChartColors.redColor(), ChartColors.purpleColor(), ChartColors.maroonColor(), ChartColors.pinkColor(), ChartColors.greenColor(), ChartColors.cyanColor(), ChartColors.goldColor(), ChartColors.yellowColor()]
+    }
 }
