@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-private let moc = CoreDataStack.shared.mainContext
+let moc = CoreDataStack.shared.mainContext
 
 class EntryController {
     

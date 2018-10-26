@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Calorie Table View Controller-->
+        <!--Calorie Tracker-->
         <scene sceneID="zNT-5E-xgk">
             <objects>
                 <tableViewController id="BxT-bD-DuJ" customClass="CalorieTableViewController" customModule="Calorie_Tracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -52,7 +52,13 @@
                             <outlet property="delegate" destination="BxT-bD-DuJ" id="wpO-Cj-C5D"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ycN-1C-41F"/>
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="ycN-1C-41F">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="iKu-3I-2P6">
+                            <connections>
+                                <action selector="addCalorie:" destination="BxT-bD-DuJ" id="5cg-wv-DxD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="chart" destination="d8A-pI-VN3" id="iPX-vj-Fxi"/>
                     </connections>
@@ -66,8 +72,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xGm-5d-yiz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sPc-0R-RIr">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="sPc-0R-RIr">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
