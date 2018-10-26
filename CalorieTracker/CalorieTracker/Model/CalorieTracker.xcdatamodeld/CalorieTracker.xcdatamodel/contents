@@ -3,7 +3,7 @@
     <entity name="CalorieData" representedClassName="CalorieData" syncable="YES" codeGenerationType="class">
         <attribute name="calories" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" attributeType="String" syncable="YES"/>
-        <attribute name="timeStamp" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="calorieDatas" inverseEntity="Person" syncable="YES"/>
     </entity>
     <entity name="Person" representedClassName="Person" syncable="YES" codeGenerationType="class">
