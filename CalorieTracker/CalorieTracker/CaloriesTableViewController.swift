@@ -9,12 +9,13 @@
 import UIKit
 import SwiftChart
 
-class CaloriesTableViewController: UITableViewController {
-
+class CaloriesTableViewController: UITableViewController, ChartDelegate {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
+        setUpChart()
+        NotificationCenter.default.addObserver(self, selector: #selector(setUpChart), name: .didAddCalorie, object: nil)
     }
 
     // MARK: - Table view data source
@@ -28,7 +29,7 @@ class CaloriesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DailyIntakeCell", for: indexPath)
         
         let dailyIntake = dailyIntakeController.dailyIntakes[indexPath.row]
-        cell.textLabel?.text = String(dailyIntake.calories)
+        cell.textLabel?.text = "Calories: \(dailyIntake.calories)"
         cell.detailTextLabel?.text = dateFormatter.string(for: dailyIntake.date)
 
         return cell
@@ -38,7 +39,7 @@ class CaloriesTableViewController: UITableViewController {
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
         
         alert.addTextField { (textField) in
-            textField.text = "Calories:"
+            textField.placeholder = "Calories:"
         }
         
         alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (alertAction) in
@@ -46,7 +47,37 @@ class CaloriesTableViewController: UITableViewController {
             
             let calories = Int(caloriesString) ?? 0
             self.dailyIntakeController.add(calories: calories)
+            
+            self.tableView.reloadData()
+            
+            NotificationCenter.default.post(name: .didAddCalorie, object: nil)
         }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - Swift Chart
+    
+    @objc func setUpChart() {
+        let chart = Chart(frame: CGRect(x: 0, y: 100, width: chartView.frame.width, height: chartView.frame.height))
+        
+        let series = ChartSeries([0, 2, 5])
+        series.area = true
+        chart.add(series)
+        chart.delegate = self
+    }
+    
+    func didTouchChart(_ chart: Chart, indexes: [Int?], x: Double, left: CGFloat) {
+        
+    }
+    
+    func didFinishTouchingChart(_ chart: Chart) {
+        
+    }
+    
+    func didEndTouchingChart(_ chart: Chart) {
+        
     }
     
     // MARK: - Properties
@@ -56,8 +87,12 @@ class CaloriesTableViewController: UITableViewController {
     let dailyIntakeController = DailyIntakeController()
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.timeStyle = .medium
-        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        formatter.dateStyle = .short
         return formatter
     }()
+}
+
+extension Notification.Name {
+    static let didAddCalorie = Notification.Name("DidAddCalorie")
 }
