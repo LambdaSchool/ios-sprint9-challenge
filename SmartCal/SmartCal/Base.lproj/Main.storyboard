@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Calorie Tracker-->
         <scene sceneID="d39-VK-vBu">
             <objects>
                 <tableViewController id="jCZ-vU-c0M" customClass="CalorieTableViewController" customModule="SmartCal" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,7 +47,7 @@
                             <outlet property="delegate" destination="jCZ-vU-c0M" id="nnd-um-kpA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="xqw-op-ad7">
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="xqw-op-ad7">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="f3U-UM-4YQ">
                             <connections>
                                 <action selector="newEntry:" destination="jCZ-vU-c0M" id="z75-pv-bj6"/>
@@ -63,8 +63,8 @@
         <scene sceneID="7m8-5I-qn2">
             <objects>
                 <navigationController id="0jg-Pv-fXb" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XmE-Dy-oC5">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="XmE-Dy-oC5">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

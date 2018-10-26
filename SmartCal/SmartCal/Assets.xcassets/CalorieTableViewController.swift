@@ -86,6 +86,7 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
         
         alert.addTextField { (textField) in
             textField.placeholder = "Your Calorie Estimate:"
+            textField.keyboardType = .asciiCapableNumberPad
             calorieField = textField
         }
         
@@ -106,6 +107,15 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
         
     }
     
+    private func beautifyDate(date: Date) -> String {
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "MMM d, h:mm a"
+        
+        return dateFormatterPrint.string(from: date)
+        
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -123,12 +133,10 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
 
         let dataPoint = fetchedResultsController.object(at: indexPath)
-        cell.textLabel?.text = String(dataPoint.calories)
+        cell.textLabel?.text = "\(String(dataPoint.calories)) Cals"
         
+        cell.detailTextLabel?.text = "on \(beautifyDate(date: dataPoint.timestamp!))"
         
-        cell.detailTextLabel?.text = dataPoint.timestamp?.description
-        
-
         return cell
     }
     
