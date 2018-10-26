@@ -11,9 +11,9 @@ import CoreData
 
 class CalorieController {
     
-//    func calorieValue(with value: UInt16, timestamp: Date) {
+//    func calorieValue(with value: value, timestamp: Date) {
 //
-//        let calories = Calories(value: UInt16, timestamp: Date)
+//        let calories = Calories(value: value)
 //        saveToPersistentStore()
 //    }
     

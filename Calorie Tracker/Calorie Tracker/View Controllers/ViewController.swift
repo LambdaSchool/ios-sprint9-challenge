@@ -20,21 +20,21 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
     
     // MARK: - Chart Methods
     func didTouchChart(_ chart: Chart, indexes: [Int?], x: Double, left: CGFloat) {
-        <#code#>
+        
     }
     
     func didFinishTouchingChart(_ chart: Chart) {
-        <#code#>
+        
     }
     
     func didEndTouchingChart(_ chart: Chart) {
-        <#code#>
+        
     }
     
     // MARK: - Chart Properties
     let chart = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-    let series = ChartSeries(PopOverViewController.data)
-    chart.add(series)
+    lazy var series = ChartSeries(Double(popOverViewController.data))
+    //chart.add(series)
 
     // MARK: - UIPopoverPresentationControllerDelegate
     

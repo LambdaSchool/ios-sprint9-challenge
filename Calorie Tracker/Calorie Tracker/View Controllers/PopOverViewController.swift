@@ -35,8 +35,11 @@ class PopOverViewController: UIViewController {
     func updateViews() {
         
         // add calorie value to data Array
-        addCalorieValueTextField.text = .calorie(let )
-        data.append(
+        //addCalorieValueTextField.text = Calorie.value(8)
+        guard let value = addCalorieValueTextField.text,
+            let calorieValue = Int(value) else { return }
+            data.append(calorieValue)
+            print(data)
         
     
     }
@@ -53,9 +56,9 @@ class PopOverViewController: UIViewController {
     */
     
     enum Calorie{
-        case calorie(Int)
+        case value(Int)
     }
     
-    let data: [Int] = []
+    var data: [Int] = []
     let viewController = ViewController()
 }

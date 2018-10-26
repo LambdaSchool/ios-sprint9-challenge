@@ -12,13 +12,13 @@ import CoreData
 extension Calories {
     
     convenience init(timestamp: Date = Date(),
-                     value: UInt16,
+                     value: String,
                      context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
 
         self.init(context: context)
         
         self.timestamp = timestamp
-        self.value = Int16(value)
+        self.value = value
         
     }
 }
