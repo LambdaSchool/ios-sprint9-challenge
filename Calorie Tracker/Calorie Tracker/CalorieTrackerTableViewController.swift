@@ -27,6 +27,7 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
     }
     
     func render() {
+        print(chartView.frame)
         let chart = Chart(frame: chartView.frame)
         // Create a new series specifying x and y values
         var count = 0
