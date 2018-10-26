@@ -18,7 +18,7 @@ extension CalorieEntry {
     
     var formattedDate: String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM d Y, h:mm a"
+        dateFormatter.dateFormat = "MMM d, Y 'at' h:mm a"
         let date = dateFormatter.string(from: (self.date)!)
         return date
     }

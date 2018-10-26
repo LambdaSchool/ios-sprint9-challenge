@@ -14,6 +14,19 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initialRenderChart()
+        NotificationCenter.default.addObserver(self, selector: #selector(renderChart(_:)), name: .didRenderChart, object: nil)
+    }
+    
+    func initialRenderChart() {
+        render()
+    }
+    
+    @objc func renderChart(_ notification: Notification) {
+        render()
+    }
+    
+    func render() {
         let chart = Chart(frame: chartView.frame)
         // Create a new series specifying x and y values
         var count = 0
@@ -23,7 +36,9 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
             count += 1
         }
         let series = ChartSeries(data: data)
+        series.area = true
         chart.add(series)
+        chartView.subviews.forEach { $0.removeFromSuperview() }
         chartView.addSubview(chart)
     }
 
@@ -88,19 +103,20 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
 
 
     @IBAction func addCalorieEntry(_ sender: Any) {
-        let alert = UIAlertController(title: "Set Calories", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
         var caloriesTextField: UITextField?
         alert.addTextField { (textField) in
             textField.placeholder = "Calories:"
             caloriesTextField = textField
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (_) in
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
 
         }
         alert.addAction(cancelAction)
         
         let submitAction = UIAlertAction(title: "Submit", style: .default) { (_) in
             self.calorieEntryController.createCalorieEntry(amount: Int16((caloriesTextField?.text)!)!)
+            NotificationCenter.default.post(name: .didRenderChart, object: nil)
             self.tableView.reloadData()
         }
         alert.addAction(submitAction)
@@ -128,4 +144,8 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         return frc
     }()
     
+}
+
+extension Notification.Name {
+    static let didRenderChart = Notification.Name("didRenderChart")
 }
