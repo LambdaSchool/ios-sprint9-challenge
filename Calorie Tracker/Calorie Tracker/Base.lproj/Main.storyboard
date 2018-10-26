@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Calorie Tracker Table View Controller-->
+        <!--Calorie Tracker-->
         <scene sceneID="GRU-Lz-jIY">
             <objects>
                 <tableViewController id="0zR-mh-tdD" customClass="CalorieTrackerTableViewController" customModule="Calorie_Tracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -52,7 +52,7 @@
                             <outlet property="delegate" destination="0zR-mh-tdD" id="eb4-gg-d1b"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="hZh-xF-Cpb">
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="hZh-xF-Cpb">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Mrz-k1-ydQ">
                             <connections>
                                 <action selector="addCalorieEntry:" destination="0zR-mh-tdD" id="Dvi-ES-9uG"/>

@@ -8,12 +8,23 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let chart = Chart(frame: chartView.frame)
+        // Create a new series specifying x and y values
+        var count = 0
+        var data:[(x: Double, y: Double)] = []
+        for calorie in fetchedResultsController.fetchedObjects! {
+            data.append((x: Double(count), y: Double(calorie.amount)))
+            count += 1
+        }
+        let series = ChartSeries(data: data)
+        chart.add(series)
+        chartView.addSubview(chart)
     }
 
     // MARK: - Table view data source
