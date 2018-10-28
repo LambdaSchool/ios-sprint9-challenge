@@ -19,6 +19,7 @@
 		D88958DC2183703C001BF6F5 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88958DB2183703C001BF6F5 /* CoreDataStack.swift */; };
 		D88958DE21837156001BF6F5 /* Intake + Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88958DD21837156001BF6F5 /* Intake + Convenience.swift */; };
 		D88958E0218372AF001BF6F5 /* IntakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88958DF218372AF001BF6F5 /* IntakeController.swift */; };
+		D8DC48F521867E5D00B4A7C5 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DC48F421867E5D00B4A7C5 /* ChartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +54,11 @@
 		D88958C521836D2B001BF6F5 /* SmartCalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCalUITests.swift; sourceTree = "<group>"; };
 		D88958C721836D2B001BF6F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D88958D421836EC3001BF6F5 /* Intake.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Intake.xcdatamodel; sourceTree = "<group>"; };
-		D88958D721836F91001BF6F5 /* CalorieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalorieTableViewController.swift; path = Assets.xcassets/CalorieTableViewController.swift; sourceTree = "<group>"; };
+		D88958D721836F91001BF6F5 /* CalorieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewController.swift; sourceTree = "<group>"; };
 		D88958DB2183703C001BF6F5 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		D88958DD21837156001BF6F5 /* Intake + Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Intake + Convenience.swift"; sourceTree = "<group>"; };
 		D88958DF218372AF001BF6F5 /* IntakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeController.swift; sourceTree = "<group>"; };
+		D8DC48F421867E5D00B4A7C5 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +112,7 @@
 				D88958A221836D28001BF6F5 /* AppDelegate.swift */,
 				D88958D621836ECA001BF6F5 /* CoreData */,
 				D88958A621836D28001BF6F5 /* Main.storyboard */,
-				D88958D721836F91001BF6F5 /* CalorieTableViewController.swift */,
+				D8DC48F621867E6200B4A7C5 /* View Controllers */,
 				D88958AC21836D2A001BF6F5 /* Assets.xcassets */,
 				D88958AE21836D2A001BF6F5 /* LaunchScreen.storyboard */,
 				D88958B121836D2A001BF6F5 /* Info.plist */,
@@ -146,6 +148,15 @@
 				D88958DB2183703C001BF6F5 /* CoreDataStack.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		D8DC48F621867E6200B4A7C5 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D8DC48F421867E5D00B4A7C5 /* ChartViewController.swift */,
+				D88958D721836F91001BF6F5 /* CalorieTableViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +295,7 @@
 				D88958A321836D28001BF6F5 /* AppDelegate.swift in Sources */,
 				D88958DC2183703C001BF6F5 /* CoreDataStack.swift in Sources */,
 				D88958E0218372AF001BF6F5 /* IntakeController.swift in Sources */,
+				D8DC48F521867E5D00B4A7C5 /* ChartViewController.swift in Sources */,
 				D88958D821836F91001BF6F5 /* CalorieTableViewController.swift in Sources */,
 				D88958AB21836D28001BF6F5 /* SmartCal.xcdatamodeld in Sources */,
 			);
