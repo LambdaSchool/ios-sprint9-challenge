@@ -12,14 +12,16 @@
 		112459492183669D000A5165 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 112459472183669D000A5165 /* Main.storyboard */; };
 		1124594B218366A0000A5165 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1124594A218366A0000A5165 /* Assets.xcassets */; };
 		1124594E218366A0000A5165 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1124594C218366A0000A5165 /* LaunchScreen.storyboard */; };
-		11245956218368C2000A5165 /* Calories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11245955218368C2000A5165 /* Calories.swift */; };
+		11245956218368C2000A5165 /* Calorie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11245955218368C2000A5165 /* Calorie.swift */; };
 		1124595A21836911000A5165 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124595921836911000A5165 /* CoreDataStack.swift */; };
-		1124598121836B66000A5165 /* Calories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1124597F21836B65000A5165 /* Calories.xcdatamodeld */; };
+		1124598121836B66000A5165 /* Calorie-Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1124597F21836B65000A5165 /* Calorie-Tracker.xcdatamodeld */; };
 		1124598321836D9F000A5165 /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124598221836D9F000A5165 /* CalorieController.swift */; };
 		1124598521837618000A5165 /* PopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124598421837618000A5165 /* PopOverViewController.swift */; };
 		112459D521837CDB000A5165 /* ChartSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124599521837881000A5165 /* ChartSeries.swift */; };
 		112459D621837CDB000A5165 /* ChartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124599721837881000A5165 /* ChartColors.swift */; };
 		112459D721837CDB000A5165 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124599621837881000A5165 /* Chart.swift */; };
+		112459E221857751000A5165 /* CalorieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112459E121857751000A5165 /* CalorieTableViewCell.swift */; };
+		112459E421857B22000A5165 /* TimestampFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112459E321857B22000A5165 /* TimestampFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +56,7 @@
 		1124594A218366A0000A5165 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1124594D218366A0000A5165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1124594F218366A0000A5165 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		11245955218368C2000A5165 /* Calories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calories.swift; sourceTree = "<group>"; };
+		11245955218368C2000A5165 /* Calorie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calorie.swift; sourceTree = "<group>"; };
 		1124595921836911000A5165 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		1124598021836B66000A5165 /* Calories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calories.xcdatamodel; sourceTree = "<group>"; };
 		1124598221836D9F000A5165 /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,8 @@
 		112459D121837882000A5165 /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
 		112459D221837883000A5165 /* SwiftChart.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = SwiftChart.podspec; sourceTree = "<group>"; };
 		112459D321837883000A5165 /* ISSUE_TEMPLATE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ISSUE_TEMPLATE.md; sourceTree = "<group>"; };
+		112459E121857751000A5165 /* CalorieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewCell.swift; sourceTree = "<group>"; };
+		112459E321857B22000A5165 /* TimestampFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +120,7 @@
 		112459372183669D000A5165 = {
 			isa = PBXGroup;
 			children = (
-				112459422183669D000A5165 /* Calorie Tracker */,
+				112459422183669D000A5165 /* Calorie_Tracker */,
 				112459412183669D000A5165 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -129,7 +133,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		112459422183669D000A5165 /* Calorie Tracker */ = {
+		112459422183669D000A5165 /* Calorie_Tracker */ = {
 			isa = PBXGroup;
 			children = (
 				11245957218368C9000A5165 /* Model */,
@@ -138,13 +142,13 @@
 				1124595B21836920000A5165 /* CoreDataStack */,
 				11245958218368D9000A5165 /* Resources */,
 			);
-			path = "Calorie Tracker";
+			path = Calorie_Tracker;
 			sourceTree = "<group>";
 		};
 		11245957218368C9000A5165 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				11245955218368C2000A5165 /* Calories.swift */,
+				11245955218368C2000A5165 /* Calorie.swift */,
 				1124598221836D9F000A5165 /* CalorieController.swift */,
 			);
 			path = Model;
@@ -164,10 +168,11 @@
 				1124599721837881000A5165 /* ChartColors.swift */,
 				112459D221837883000A5165 /* SwiftChart.podspec */,
 				112459432183669D000A5165 /* AppDelegate.swift */,
-				1124597F21836B65000A5165 /* Calories.xcdatamodeld */,
+				1124597F21836B65000A5165 /* Calorie-Tracker.xcdatamodeld */,
 				1124594A218366A0000A5165 /* Assets.xcassets */,
 				1124594C218366A0000A5165 /* LaunchScreen.storyboard */,
 				1124594F218366A0000A5165 /* Info.plist */,
+				112459E321857B22000A5165 /* TimestampFormatter.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				112459452183669D000A5165 /* ViewController.swift */,
+				112459E121857751000A5165 /* CalorieTableViewCell.swift */,
 				1124598421837618000A5165 /* PopOverViewController.swift */,
 			);
 			path = "View Controllers";
@@ -344,7 +350,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1124593B2183669D000A5165 /* Build configuration list for PBXProject "Calorie Tracker" */;
+			buildConfigurationList = 1124593B2183669D000A5165 /* Build configuration list for PBXProject "Calorie_Tracker" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -417,11 +423,13 @@
 				112459D721837CDB000A5165 /* Chart.swift in Sources */,
 				112459462183669D000A5165 /* ViewController.swift in Sources */,
 				112459D521837CDB000A5165 /* ChartSeries.swift in Sources */,
-				11245956218368C2000A5165 /* Calories.swift in Sources */,
+				112459E421857B22000A5165 /* TimestampFormatter.swift in Sources */,
+				11245956218368C2000A5165 /* Calorie.swift in Sources */,
 				1124598521837618000A5165 /* PopOverViewController.swift in Sources */,
 				112459442183669D000A5165 /* AppDelegate.swift in Sources */,
 				1124595A21836911000A5165 /* CoreDataStack.swift in Sources */,
-				1124598121836B66000A5165 /* Calories.xcdatamodeld in Sources */,
+				1124598121836B66000A5165 /* Calorie-Tracker.xcdatamodeld in Sources */,
+				112459E221857751000A5165 /* CalorieTableViewCell.swift in Sources */,
 				1124598321836D9F000A5165 /* CalorieController.swift in Sources */,
 				112459D621837CDB000A5165 /* ChartColors.swift in Sources */,
 			);
@@ -586,7 +594,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "$(SRCROOT)/Calorie Tracker/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Calorie_Tracker/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -603,7 +611,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "$(SRCROOT)/Calorie Tracker/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Calorie_Tracker/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -618,7 +626,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1124593B2183669D000A5165 /* Build configuration list for PBXProject "Calorie Tracker" */ = {
+		1124593B2183669D000A5165 /* Build configuration list for PBXProject "Calorie_Tracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				11245950218366A0000A5165 /* Debug */,
@@ -639,13 +647,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		1124597F21836B65000A5165 /* Calories.xcdatamodeld */ = {
+		1124597F21836B65000A5165 /* Calorie-Tracker.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				1124598021836B66000A5165 /* Calories.xcdatamodel */,
 			);
 			currentVersion = 1124598021836B66000A5165 /* Calories.xcdatamodel */;
-			path = Calories.xcdatamodeld;
+			path = "Calorie-Tracker.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

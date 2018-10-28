@@ -29,6 +29,24 @@ class PopOverViewController: UIViewController {
         
         updateViews()
         
+        // MARK: - Constraints
+//        let redView = UIView()
+//        let redFrame = CGRect(x: 50, y: 50, width: 250, height: 200)
+//        redView.frame = redFrame
+//        redView.backgroundColor = .red
+//        redView.alpha = 8.0
+        
+//        redView.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(redView)
+//
+//        let redCenterXConstraint = NSLayoutConstraint(item: redView,
+//                                                      attribute: .centerX,
+//                                                      relatedBy: .equal,
+//                                                      toItem: view,
+//                                                      attribute: .centerX,
+//                                                      multiplier: 1,
+//                                                      constant: 0)
+        
         // Do any additional setup after loading the view.
     }
     

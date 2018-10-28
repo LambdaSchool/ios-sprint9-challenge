@@ -11,11 +11,13 @@ import CoreData
 
 class CalorieController {
     
-//    func calorieValue(with value: value, timestamp: Date) {
-//
-//        let calories = Calories(value: value)
-//        saveToPersistentStore()
-//    }
+    
+    
+    func calorieValue(with value: String, timestamp: Date) {
+
+        let calories = Calories(value: value)
+        saveToPersistentStore()
+    }
     
     func saveToPersistentStore() {
         do {
