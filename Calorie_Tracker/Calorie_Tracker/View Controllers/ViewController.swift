@@ -11,6 +11,8 @@ import CoreData
 
 class ViewController: UITableViewController, UIPopoverPresentationControllerDelegate, NSFetchedResultsControllerDelegate, ChartDelegate {
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -33,9 +35,13 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
     }
     
     // MARK: - Chart Properties
-    let chart = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+    
+    
+    @IBOutlet weak var chart: Chart!
+    
+    let calorieChart = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
     lazy var series = ChartSeries(popOverViewController.data)
-    lazy var seeChart = chart.add(series)
+    lazy var seeChart = calorieChart.add(series)
 
     // MARK: - UIPopoverPresentationControllerDelegate
     

@@ -116,8 +116,9 @@ open class Chart: UIControl {
     /**
     Font used for the labels.
     */
-    open var labelFont: UIFont? = UIFont.systemFont(ofSize: 12)
-
+    open var labelSetFont: UIFont? = UIFont.systemFont(ofSize: 12)
+    // The issue was that i had set the wrong module, so check for the "module target" too I hope this can be helpful for someone :)
+    
     /**
     Font used for the labels.
     */
@@ -580,7 +581,7 @@ open class Chart: UIControl {
 
             // Add label
             let label = UILabel(frame: CGRect(x: x, y: drawingHeight, width: 0, height: 0))
-            label.font = labelFont
+            label.font = labelSetFont
             label.text = xLabelsFormatter(i, labels[i])
             label.textColor = labelColor
 
@@ -654,7 +655,7 @@ open class Chart: UIControl {
             }
 
             let label = UILabel(frame: CGRect(x: padding, y: y, width: 0, height: 0))
-            label.font = labelFont
+            label.font = labelSetFont
             label.text = yLabelsFormatter(i, labels[i])
             label.textColor = labelColor
             label.sizeToFit()

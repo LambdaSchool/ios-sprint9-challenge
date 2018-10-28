@@ -34,21 +34,31 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calories:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URz-VJ-095">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Calories:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URz-VJ-095">
                                                     <rect key="frame" x="15" y="12" width="131" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="131" id="WTU-8P-ze8"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaq-xV-kzQ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaq-xV-kzQ">
                                                     <rect key="frame" x="183" y="11" width="145" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="URz-VJ-095" firstAttribute="centerY" secondItem="pI3-F8-Nzi" secondAttribute="centerY" id="Al2-aQ-3tw"/>
+                                                <constraint firstItem="gaq-xV-kzQ" firstAttribute="leading" secondItem="URz-VJ-095" secondAttribute="trailing" constant="37" id="Bnd-8d-gwB"/>
+                                                <constraint firstItem="URz-VJ-095" firstAttribute="bottom" secondItem="pI3-F8-Nzi" secondAttribute="bottomMargin" id="DhZ-UB-Ab0"/>
+                                                <constraint firstItem="gaq-xV-kzQ" firstAttribute="top" secondItem="pI3-F8-Nzi" secondAttribute="topMargin" constant="-20" id="Hds-9m-1gR"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="gaq-xV-kzQ" secondAttribute="trailing" constant="-1" id="O7N-mf-9p0"/>
+                                                <constraint firstItem="URz-VJ-095" firstAttribute="leading" secondItem="pI3-F8-Nzi" secondAttribute="leadingMargin" constant="-1" id="RLr-ws-8Kx"/>
+                                                <constraint firstItem="gaq-xV-kzQ" firstAttribute="centerY" secondItem="pI3-F8-Nzi" secondAttribute="centerY" id="bxG-eu-XGe"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="CalorieInputLabel" destination="URz-VJ-095" id="4Xj-fS-w1g"/>
@@ -70,6 +80,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chart" destination="MaU-NJ-8lb" id="OpV-GV-Qbs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
