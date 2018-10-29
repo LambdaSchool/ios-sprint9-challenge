@@ -98,6 +98,8 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
             
             self.intakeController.createDataPoint(with: calories)
             
+            NotificationCenter.default.post(name: .caloriesWereUpdated, object: nil)
+            
         }
         
         alert.addAction(cancelAction)
