@@ -8,11 +8,19 @@
 
 import UIKit
 import SwiftChart
+import CoreData
 
 class ChartViewController: UIViewController {
     
     var chart: Chart?
     var data = [Double]()
+    var fetchedResultsController: NSFetchedResultsController<Intake>?{
+        didSet {
+            DispatchQueue.main.async {
+                NotificationCenter.default.addObserver(self, selector: #selector(self.updateChart), name: .caloriesWereUpdated, object: nil)
+            }
+        }
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -23,16 +31,20 @@ class ChartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(updateChart), name: .caloriesWereUpdated, object: nil)
-        
     }
     
     @objc func updateChart() {
         NSLog("I'm LISTENING")
+        guard let newIntakes = fetchedResultsController?.fetchedObjects else {return}
+        let newSeries = newIntakes.compactMap({Double($0.calories)})
+        
+        createChart(for: newSeries)
+        
     }
     
     func createChart(for seriesData: [Double]){
+        
+        chart?.removeAllSeries()
         
         let series = ChartSeries(seriesData)
         series.color = ChartColors.darkGreenColor()

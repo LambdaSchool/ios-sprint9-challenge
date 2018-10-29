@@ -12,6 +12,7 @@ import CoreData
 class IntakeController {
     
 //    var dataPoints: [Intake] = []
+//    static let shared = IntakeController()
     
     func createDataPoint(with calories: Int32, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
