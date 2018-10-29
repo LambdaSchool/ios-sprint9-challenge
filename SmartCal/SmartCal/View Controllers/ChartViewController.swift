@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftChart
 
 class ChartViewController: UIViewController {
 
@@ -14,6 +15,17 @@ class ChartViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let chart = Chart(frame: CGRect(x: 0, y: 0, width: 375, height: 150))
+        
+        let series1 = ChartSeries([0, 6, 2, 8, 4, 7, 3, 10, 8])
+        series1.color = ChartColors.yellowColor()
+        series1.area = true
+        chart.add(series1)
+        
+        chart.sizeThatFits(CGSize(width: view.frame.width, height: view.frame.height))
+        view.addSubview(chart)
+        
+        
     }
     
 

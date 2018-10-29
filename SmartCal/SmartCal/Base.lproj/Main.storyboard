@@ -82,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="-698" y="136"/>
         </scene>
-        <!--View Controller-->
+        <!--Chart View Controller-->
         <scene sceneID="ncS-pW-VW2">
             <objects>
-                <viewController id="bxx-j1-TRy" sceneMemberID="viewController">
+                <viewController id="bxx-j1-TRy" customClass="ChartViewController" customModule="SmartCal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J87-iE-Sss">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -20,6 +20,7 @@
 		D88958DE21837156001BF6F5 /* Intake + Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88958DD21837156001BF6F5 /* Intake + Convenience.swift */; };
 		D88958E0218372AF001BF6F5 /* IntakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88958DF218372AF001BF6F5 /* IntakeController.swift */; };
 		D8DC48F521867E5D00B4A7C5 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DC48F421867E5D00B4A7C5 /* ChartViewController.swift */; };
+		D8DC48F821867FEA00B4A7C5 /* SwiftChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8DC48F721867FEA00B4A7C5 /* SwiftChart.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		D88958DD21837156001BF6F5 /* Intake + Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Intake + Convenience.swift"; sourceTree = "<group>"; };
 		D88958DF218372AF001BF6F5 /* IntakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeController.swift; sourceTree = "<group>"; };
 		D8DC48F421867E5D00B4A7C5 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		D8DC48F721867FEA00B4A7C5 /* SwiftChart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftChart.framework; path = Carthage/Build/iOS/SwiftChart.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8DC48F821867FEA00B4A7C5 /* SwiftChart.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +112,7 @@
 		D88958A121836D28001BF6F5 /* SmartCal */ = {
 			isa = PBXGroup;
 			children = (
+				D8DC48F721867FEA00B4A7C5 /* SwiftChart.framework */,
 				D88958A221836D28001BF6F5 /* AppDelegate.swift */,
 				D88958D621836ECA001BF6F5 /* CoreData */,
 				D88958A621836D28001BF6F5 /* Main.storyboard */,
@@ -169,6 +173,7 @@
 				D889589B21836D28001BF6F5 /* Sources */,
 				D889589C21836D28001BF6F5 /* Frameworks */,
 				D889589D21836D28001BF6F5 /* Resources */,
+				D8DC48F92186800700B4A7C5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -284,6 +289,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D8DC48F92186800700B4A7C5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftChart.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D889589B21836D28001BF6F5 /* Sources */ = {
@@ -474,6 +501,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9AL899TPVP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SmartCal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -492,6 +523,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9AL899TPVP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SmartCal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
