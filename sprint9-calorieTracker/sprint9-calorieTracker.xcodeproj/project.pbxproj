@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		11F3006F21E8F4D3009B9575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3006E21E8F4D3009B9575 /* AppDelegate.swift */; };
-		11F3007121E8F4D3009B9575 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3007021E8F4D3009B9575 /* ViewController.swift */; };
 		11F3007421E8F4D3009B9575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11F3007221E8F4D3009B9575 /* Main.storyboard */; };
 		11F3007721E8F4D3009B9575 /* sprint9_calorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11F3007521E8F4D3009B9575 /* sprint9_calorieTracker.xcdatamodeld */; };
 		11F3007921E8F4D4009B9575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11F3007821E8F4D4009B9575 /* Assets.xcassets */; };
 		11F3007C21E8F4D4009B9575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11F3007A21E8F4D4009B9575 /* LaunchScreen.storyboard */; };
+		11F3008A21E8F9FB009B9575 /* CalorieTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3008921E8F9FB009B9575 /* CalorieTVC.swift */; };
 		410772530923882E85B06C1A /* Pods_sprint9_calorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049BAB4D6B22E96D01F50519 /* Pods_sprint9_calorieTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,12 +20,12 @@
 		049BAB4D6B22E96D01F50519 /* Pods_sprint9_calorieTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sprint9_calorieTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		11F3006B21E8F4D3009B9575 /* sprint9-calorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sprint9-calorieTracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11F3006E21E8F4D3009B9575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		11F3007021E8F4D3009B9575 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		11F3007321E8F4D3009B9575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		11F3007621E8F4D3009B9575 /* sprint9_calorieTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = sprint9_calorieTracker.xcdatamodel; sourceTree = "<group>"; };
 		11F3007821E8F4D4009B9575 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11F3007B21E8F4D4009B9575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11F3007D21E8F4D4009B9575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11F3008921E8F9FB009B9575 /* CalorieTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTVC.swift; sourceTree = "<group>"; };
 		86BC7FDA3419A29F6117CE1D /* Pods-sprint9-calorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sprint9-calorieTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sprint9-calorieTracker/Pods-sprint9-calorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		DC3F94E8C8DC9278CC27363F /* Pods-sprint9-calorieTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sprint9-calorieTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-sprint9-calorieTracker/Pods-sprint9-calorieTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,14 +64,38 @@
 			isa = PBXGroup;
 			children = (
 				11F3006E21E8F4D3009B9575 /* AppDelegate.swift */,
-				11F3007021E8F4D3009B9575 /* ViewController.swift */,
 				11F3007221E8F4D3009B9575 /* Main.storyboard */,
+				11F3008D21E8FA13009B9575 /* View Controllers */,
+				11F3008C21E8FA07009B9575 /* Model */,
+				11F3008B21E8FA02009B9575 /* Extra */,
+			);
+			path = "sprint9-calorieTracker";
+			sourceTree = "<group>";
+		};
+		11F3008B21E8FA02009B9575 /* Extra */ = {
+			isa = PBXGroup;
+			children = (
 				11F3007821E8F4D4009B9575 /* Assets.xcassets */,
 				11F3007A21E8F4D4009B9575 /* LaunchScreen.storyboard */,
 				11F3007D21E8F4D4009B9575 /* Info.plist */,
+			);
+			path = Extra;
+			sourceTree = "<group>";
+		};
+		11F3008C21E8FA07009B9575 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				11F3007521E8F4D3009B9575 /* sprint9_calorieTracker.xcdatamodeld */,
 			);
-			path = "sprint9-calorieTracker";
+			path = Model;
+			sourceTree = "<group>";
+		};
+		11F3008D21E8FA13009B9575 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				11F3008921E8F9FB009B9575 /* CalorieTVC.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		B0F6DAEBB9BB84664880BEFA /* Pods */ = {
@@ -211,9 +235,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11F3007121E8F4D3009B9575 /* ViewController.swift in Sources */,
 				11F3007721E8F4D3009B9575 /* sprint9_calorieTracker.xcdatamodeld in Sources */,
 				11F3006F21E8F4D3009B9575 /* AppDelegate.swift in Sources */,
+				11F3008A21E8F9FB009B9575 /* CalorieTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,7 +386,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FXUY9QKNNU;
-				INFOPLIST_FILE = "sprint9-calorieTracker/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/sprint9-calorieTracker/Extra/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -381,7 +405,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FXUY9QKNNU;
-				INFOPLIST_FILE = "sprint9-calorieTracker/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/sprint9-calorieTracker/Extra/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
