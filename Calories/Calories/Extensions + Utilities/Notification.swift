@@ -10,6 +10,6 @@ import Foundation
 
 extension Notification.Name {
     
-    static let newCalorieIntakeValueAdded = Notification.Name("newCalorieIntakeValueAdded")
+    static let calorieIntakeValuesChanged = Notification.Name("calorieIntakeValuesChanged")
     
 }

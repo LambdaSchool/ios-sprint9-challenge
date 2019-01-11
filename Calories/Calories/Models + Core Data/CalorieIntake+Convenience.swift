@@ -11,11 +11,10 @@ import CoreData
 
 extension CalorieIntake {
     
-    // MARK:- Convenience initializers
+    // MARK:- Convenience initializer
     
-    // CGFloat
     convenience init(name: String,
-                     amount: CGFloat,
+                     amount: Double,
                      timestamp: Date = Date(),
                      identifier: String = UUID().uuidString,
                      context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
@@ -23,22 +22,9 @@ extension CalorieIntake {
         self.init(context: context)
         
         self.name = name
-        self.amount = Float(amount)
+        self.amount = amount
         self.timestamp = timestamp
-    }
-    
-    // Float
-    convenience init(name: String,
-                     amount: Float,
-                     timestamp: Date = Date(),
-                     identifier: String = UUID().uuidString,
-                     context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
-        
-        self.init(context: context)
-        
-        self.name = name
-        self.amount = Float(amount)
-        self.timestamp = timestamp
+        self.identifier = identifier
     }
     
     

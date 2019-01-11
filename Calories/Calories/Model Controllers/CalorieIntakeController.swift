@@ -22,13 +22,13 @@ class CalorieIntakeController {
     
     // MARK:- Create new calorie intakes and delete them
     
-    func newCalorieIntake(name: String, amount: CGFloat) {
+    func newCalorieIntake(name: String, amount: Double) {
         let intake = CalorieIntake(name: name, amount: amount)
         
         put(calorieIntake: intake)
         savePersistentStore()
         
-        NotificationCenter.default.post(name: .newCalorieIntakeValueAdded, object: nil)
+        NotificationCenter.default.post(name: .calorieIntakeValuesChanged, object: nil)
     }
     
     func delete(calorieIntake: CalorieIntake) {
@@ -36,6 +36,8 @@ class CalorieIntakeController {
         
         deleteCalorieIntakeFromServer(calorieIntake)
         savePersistentStore()
+        
+        NotificationCenter.default.post(name: .calorieIntakeValuesChanged, object: nil)
     }
     
 }

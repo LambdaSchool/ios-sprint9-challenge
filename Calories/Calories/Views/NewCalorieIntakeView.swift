@@ -20,9 +20,7 @@ class NewCalorieIntakeView: UIView, UITextFieldDelegate {
         
         guard let name = calorieSourceTextField.text,
             let stringAmount = calorieAmountTextField.text,
-            let cgAmount = NumberFormatter().number(from: stringAmount) else { return }
-        
-        let amount = CGFloat(cgAmount)
+            let amount = Double(stringAmount) else { return }
         
         CalorieIntakeController.shared.newCalorieIntake(name: name, amount: amount)
         newCalorieIntakePopover.dismiss()

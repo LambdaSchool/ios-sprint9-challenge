@@ -23,7 +23,7 @@
                     <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Source" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NiQ-DC-BGw">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Source of calories" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NiQ-DC-BGw">
                     <rect key="frame" x="30" y="54" width="315" height="52"/>
                     <color key="tintColor" name="Theme"/>
                     <constraints>
@@ -36,7 +36,7 @@
                         <outlet property="delegate" destination="B83-7T-cb3" id="Tet-xY-whp"/>
                     </connections>
                 </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Calorie amount" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I2e-fv-gTc">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Total amount" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I2e-fv-gTc">
                     <rect key="frame" x="30" y="116" width="315" height="52"/>
                     <color key="tintColor" name="Theme"/>
                     <constraints>
@@ -90,7 +90,7 @@
     </objects>
     <resources>
         <namedColor name="Background">
-            <color red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Theme">
             <color red="0.16470588235294117" green="0.5725490196078431" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

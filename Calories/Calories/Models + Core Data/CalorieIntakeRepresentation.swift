@@ -13,13 +13,13 @@ import Foundation
 struct CalorieIntakeRepresentation: Codable, Equatable {
     
     let name: String
-    let amount: Float
+    let amount: Double
     let timestamp: Date
     let identifier: String
     
-    init(name: String, amount: CGFloat, identifier: String = UUID().uuidString) {
+    init(name: String, amount: Double, identifier: String = UUID().uuidString) {
         self.name = name
-        self.amount = Float(amount)
+        self.amount = amount
         self.timestamp = Date()
         self.identifier = identifier
     }
