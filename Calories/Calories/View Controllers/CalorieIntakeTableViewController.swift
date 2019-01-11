@@ -31,14 +31,15 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
     @objc func updateChart(_ notification: Notification? = nil) {
         intakeChart.backgroundColor = .white
         intakeChart.lineWidth = 4
-        intakeChart.highlightLineWidth = 6
+        intakeChart.highlightLineWidth = 4
         intakeChart.highlightLineColor = UIColor(named: "Theme")!
         
         intakeChart.series = []
         guard let dailyIntakes = fetchedResultsController.fetchedObjects else { return }
         let calories = dailyIntakes.compactMap({ $0.amount })
-        let series = ChartSeries(calories)
+        let series = ChartSeries(calories.reversed())
         series.area = true
+        series.color = UIColor.init(named: "Theme")!
         intakeChart.add(series)
     }
     
