@@ -1,0 +1,6 @@
+framework module Pods_CalorieTracker_SwiftChart {
+  umbrella header "Pods-CalorieTracker-SwiftChart-umbrella.h"
+
+  export *
+  module * { export * }
+}
