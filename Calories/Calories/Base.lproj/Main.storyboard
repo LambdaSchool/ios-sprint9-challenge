@@ -72,14 +72,14 @@
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YMg-gI-th0">
                                             <rect key="frame" x="16" y="7" width="343" height="65.5"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="kS2-Tl-Xiw" userLabel="Wrapper stack view">
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="kS2-Tl-Xiw" userLabel="Wrapper stack view">
                                                     <rect key="frame" x="16" y="11" width="311" height="44"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="EBx-qM-ONv" userLabel="Item and time labels">
-                                                            <rect key="frame" x="0.0" y="0.0" width="155.5" height="44"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="205.5" height="44"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name of food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndd-er-r9k">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="155.5" height="26"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="205.5" height="26"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="26" id="UdH-Ab-puO"/>
                                                                     </constraints>
@@ -88,7 +88,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 days ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Feh-Y0-lgQ">
-                                                                    <rect key="frame" x="0.0" y="22" width="155.5" height="22"/>
+                                                                    <rect key="frame" x="0.0" y="22" width="205.5" height="22"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                                     <color key="textColor" white="0.63707636443661975" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -96,16 +96,16 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="-2" translatesAutoresizingMaskIntoConstraints="NO" id="moA-Su-8r1" userLabel="Calorie count">
-                                                            <rect key="frame" x="155.5" y="0.0" width="155.5" height="44"/>
+                                                            <rect key="frame" x="205.5" y="0.0" width="105.5" height="44"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="52.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Wc-c7-2Si">
-                                                                    <rect key="frame" x="96" y="0.0" width="59.5" height="31.5"/>
+                                                                    <rect key="frame" x="46" y="0.0" width="59.5" height="31.5"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="26"/>
                                                                     <color key="textColor" name="Theme"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxX-rx-EhL">
-                                                                    <rect key="frame" x="107.5" y="29.5" width="48" height="14.5"/>
+                                                                    <rect key="frame" x="57.5" y="29.5" width="48" height="14.5"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                                     <color key="textColor" name="Theme"/>
                                                                     <nil key="highlightedColor"/>

@@ -31,8 +31,7 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
     @objc func updateChart(_ notification: Notification? = nil) {
         intakeChart.backgroundColor = .white
         intakeChart.lineWidth = 4
-        intakeChart.highlightLineWidth = 4
-        intakeChart.highlightLineColor = UIColor(named: "Theme")!
+        intakeChart.highlightLineWidth = 0
         
         intakeChart.series = []
         guard let dailyIntakes = fetchedResultsController.fetchedObjects else { return }
