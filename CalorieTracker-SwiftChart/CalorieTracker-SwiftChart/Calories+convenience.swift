@@ -21,3 +21,26 @@ extension Calories {
     }
     
 }
+
+
+class CaloriesController {
+    
+    var calorie: [Calories] = []
+    
+    func addCalorie(number: Int) {
+        let calories = Calories(number: Int32(number))
+        calorie.append(calories)
+        
+        saveToPersistentStore()
+    }
+    
+    func saveToPersistentStore() {
+        do {
+            let moc = CoreDataStack.shared.mainContext
+            try moc.save()
+        } catch {
+            NSLog("Error saving data to persistent store: \(error)")
+        }
+    }
+    
+}
