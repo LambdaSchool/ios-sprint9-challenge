@@ -46,9 +46,18 @@
 		9689C47121E8FB6B00E441F5 /* UIAppearance+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = 9689C46021E8FB6B00E441F5 /* UIAppearance+Swift.m */; };
 		9689C47221E8FB6B00E441F5 /* UIImage+ChameleonPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9689C46121E8FB6B00E441F5 /* UIImage+ChameleonPrivate.m */; };
 		96FBADB021E90698007D51DD /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADAF21E90698007D51DD /* Notification.swift */; };
-		96FBADB321E907FE007D51DD /* CalorieIntake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADB221E907FE007D51DD /* CalorieIntake.swift */; };
+		96FBADB321E907FE007D51DD /* CalorieIntakeRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADB221E907FE007D51DD /* CalorieIntakeRepresentation.swift */; };
 		96FBADB521E908A0007D51DD /* CalorieIntakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADB421E908A0007D51DD /* CalorieIntakeController.swift */; };
 		96FBADB721E909E5007D51DD /* CalorieIntakeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADB621E909E5007D51DD /* CalorieIntakeTableViewController.swift */; };
+		96FBADBC21E91004007D51DD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADBB21E91004007D51DD /* CoreDataStack.swift */; };
+		96FBADBF21E91028007D51DD /* Calories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADBD21E91028007D51DD /* Calories.xcdatamodeld */; };
+		96FBADC221E91222007D51DD /* CalorieIntake+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADC121E91222007D51DD /* CalorieIntake+Codable.swift */; };
+		96FBADC421E9129A007D51DD /* CalorieIntake+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADC321E9129A007D51DD /* CalorieIntake+Convenience.swift */; };
+		96FBADC621E9164D007D51DD /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADC521E9164D007D51DD /* HTTPMethod.swift */; };
+		96FBADC821E91F7B007D51DD /* CalorieIntakePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADC721E91F7B007D51DD /* CalorieIntakePopover.swift */; };
+		96FBADCD21E92378007D51DD /* NewCalorieIntakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADCC21E92378007D51DD /* NewCalorieIntakeView.swift */; };
+		96FBADCF21E923FB007D51DD /* Instantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADCE21E923FB007D51DD /* Instantiate.swift */; };
+		96FBADD121E93068007D51DD /* NewCalorieIntakeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96FBADD021E93068007D51DD /* NewCalorieIntakeView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,9 +119,18 @@
 		9689C46421E8FB6B00E441F5 /* UIView+ChameleonPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ChameleonPrivate.h"; sourceTree = "<group>"; };
 		9689C47421E8FC9900E441F5 /* Calories-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Calories-Bridging-Header.h"; sourceTree = "<group>"; };
 		96FBADAF21E90698007D51DD /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
-		96FBADB221E907FE007D51DD /* CalorieIntake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntake.swift; sourceTree = "<group>"; };
+		96FBADB221E907FE007D51DD /* CalorieIntakeRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeRepresentation.swift; sourceTree = "<group>"; };
 		96FBADB421E908A0007D51DD /* CalorieIntakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeController.swift; sourceTree = "<group>"; };
 		96FBADB621E909E5007D51DD /* CalorieIntakeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeTableViewController.swift; sourceTree = "<group>"; };
+		96FBADBB21E91004007D51DD /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		96FBADBE21E91028007D51DD /* Calories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calories.xcdatamodel; sourceTree = "<group>"; };
+		96FBADC121E91222007D51DD /* CalorieIntake+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieIntake+Codable.swift"; sourceTree = "<group>"; };
+		96FBADC321E9129A007D51DD /* CalorieIntake+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieIntake+Convenience.swift"; sourceTree = "<group>"; };
+		96FBADC521E9164D007D51DD /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		96FBADC721E91F7B007D51DD /* CalorieIntakePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakePopover.swift; sourceTree = "<group>"; };
+		96FBADCC21E92378007D51DD /* NewCalorieIntakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCalorieIntakeView.swift; sourceTree = "<group>"; };
+		96FBADCE21E923FB007D51DD /* Instantiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instantiate.swift; sourceTree = "<group>"; };
+		96FBADD021E93068007D51DD /* NewCalorieIntakeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewCalorieIntakeView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,8 +166,10 @@
 			children = (
 				966F32D621E8F8BA000A6B30 /* AppDelegate.swift */,
 				966F32DA21E8F8BA000A6B30 /* Main.storyboard */,
+				96FBADB121E907BC007D51DD /* Models + Core Data */,
+				96FBADC021E91097007D51DD /* Model Controllers */,
 				96FBADB821E909F0007D51DD /* View Controllers */,
-				96FBADB121E907BC007D51DD /* Model + ModelController */,
+				96FBADC921E91FA4007D51DD /* Views */,
 				96FBADAE21E9067C007D51DD /* Extensions + Utilities */,
 				966F32E821E8F9AF000A6B30 /* Frameworks */,
 				966F32E921E8F9D1000A6B30 /* Resources */,
@@ -299,18 +319,22 @@
 		96FBADAE21E9067C007D51DD /* Extensions + Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				96FBADCE21E923FB007D51DD /* Instantiate.swift */,
 				96FBADAF21E90698007D51DD /* Notification.swift */,
+				96FBADC521E9164D007D51DD /* HTTPMethod.swift */,
 			);
 			path = "Extensions + Utilities";
 			sourceTree = "<group>";
 		};
-		96FBADB121E907BC007D51DD /* Model + ModelController */ = {
+		96FBADB121E907BC007D51DD /* Models + Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				96FBADB221E907FE007D51DD /* CalorieIntake.swift */,
-				96FBADB421E908A0007D51DD /* CalorieIntakeController.swift */,
+				96FBADC321E9129A007D51DD /* CalorieIntake+Convenience.swift */,
+				96FBADC121E91222007D51DD /* CalorieIntake+Codable.swift */,
+				96FBADB221E907FE007D51DD /* CalorieIntakeRepresentation.swift */,
+				96FBADBA21E90FE1007D51DD /* Core Data */,
 			);
-			path = "Model + ModelController";
+			path = "Models + Core Data";
 			sourceTree = "<group>";
 		};
 		96FBADB821E909F0007D51DD /* View Controllers */ = {
@@ -319,6 +343,33 @@
 				96FBADB621E909E5007D51DD /* CalorieIntakeTableViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		96FBADBA21E90FE1007D51DD /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				96FBADBB21E91004007D51DD /* CoreDataStack.swift */,
+				96FBADBD21E91028007D51DD /* Calories.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		96FBADC021E91097007D51DD /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				96FBADB421E908A0007D51DD /* CalorieIntakeController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		96FBADC921E91FA4007D51DD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				96FBADCC21E92378007D51DD /* NewCalorieIntakeView.swift */,
+				96FBADD021E93068007D51DD /* NewCalorieIntakeView.xib */,
+				96FBADC721E91F7B007D51DD /* CalorieIntakePopover.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,6 +433,7 @@
 			files = (
 				966F32E121E8F8BA000A6B30 /* LaunchScreen.storyboard in Resources */,
 				966F32DE21E8F8BA000A6B30 /* Assets.xcassets in Resources */,
+				96FBADD121E93068007D51DD /* NewCalorieIntakeView.xib in Resources */,
 				966F32DC21E8F8BA000A6B30 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,11 +468,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9689C43521E8FB4C00E441F5 /* Reusable+NSCollectionView.swift in Sources */,
+				96FBADC421E9129A007D51DD /* CalorieIntake+Convenience.swift in Sources */,
 				9689C43C21E8FB4C00E441F5 /* Nib+UIViewController.swift in Sources */,
 				9689C43821E8FB4C00E441F5 /* Reusable.swift in Sources */,
+				96FBADCF21E923FB007D51DD /* Instantiate.swift in Sources */,
 				9689C46F21E8FB6B00E441F5 /* UILabel+Chameleon.m in Sources */,
 				9689C43E21E8FB4C00E441F5 /* Storyboard.swift in Sources */,
 				9689C46E21E8FB6B00E441F5 /* UINavigationController+Chameleon.m in Sources */,
+				96FBADCD21E92378007D51DD /* NewCalorieIntakeView.swift in Sources */,
 				9689C47021E8FB6B00E441F5 /* UIViewController+Chameleon.m in Sources */,
 				9689C47121E8FB6B00E441F5 /* UIAppearance+Swift.m in Sources */,
 				9689C43721E8FB4C00E441F5 /* Nib.swift in Sources */,
@@ -430,13 +485,16 @@
 				9689C46821E8FB6B00E441F5 /* ChameleonConstants.m in Sources */,
 				96FBADB521E908A0007D51DD /* CalorieIntakeController.swift in Sources */,
 				9689C46D21E8FB6B00E441F5 /* NSArray+Chameleon.m in Sources */,
+				96FBADBC21E91004007D51DD /* CoreDataStack.swift in Sources */,
 				9689C44121E8FB4C00E441F5 /* Instantiatable.swift in Sources */,
 				9689C43F21E8FB4C00E441F5 /* Deprecated.swift in Sources */,
+				96FBADBF21E91028007D51DD /* Calories.xcdatamodeld in Sources */,
 				9689C44321E8FB4C00E441F5 /* ViewLoadBeforeInject.swift in Sources */,
 				9689C41921E8FB2D00E441F5 /* Chart.swift in Sources */,
 				9689C43921E8FB4C00E441F5 /* Nib+UIView.swift in Sources */,
 				9689C46721E8FB6B00E441F5 /* UIColor+ChameleonPrivate.m in Sources */,
-				96FBADB321E907FE007D51DD /* CalorieIntake.swift in Sources */,
+				96FBADB321E907FE007D51DD /* CalorieIntakeRepresentation.swift in Sources */,
+				96FBADC221E91222007D51DD /* CalorieIntake+Codable.swift in Sources */,
 				96FBADB021E90698007D51DD /* Notification.swift in Sources */,
 				9689C46B21E8FB6B00E441F5 /* UIView+ChameleonPrivate.m in Sources */,
 				9689C46921E8FB6B00E441F5 /* UIColor+Chameleon.m in Sources */,
@@ -447,6 +505,8 @@
 				9689C43221E8FB4C00E441F5 /* Reusable+NSTableView.swift in Sources */,
 				9689C43B21E8FB4C00E441F5 /* Storyboard+UIViewController.swift in Sources */,
 				9689C41B21E8FB2D00E441F5 /* ChartSeries.swift in Sources */,
+				96FBADC621E9164D007D51DD /* HTTPMethod.swift in Sources */,
+				96FBADC821E91F7B007D51DD /* CalorieIntakePopover.swift in Sources */,
 				9689C44021E8FB4C00E441F5 /* Injectable.swift in Sources */,
 				9689C43421E8FB4C00E441F5 /* Storyboard+NSViewController.swift in Sources */,
 				9689C43A21E8FB4C00E441F5 /* Reusable+UICollectionView.swift in Sources */,
@@ -659,6 +719,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		96FBADBD21E91028007D51DD /* Calories.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				96FBADBE21E91028007D51DD /* Calories.xcdatamodel */,
+			);
+			currentVersion = 96FBADBE21E91028007D51DD /* Calories.xcdatamodel */;
+			path = Calories.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 966F32CB21E8F8BA000A6B30 /* Project object */;
 }

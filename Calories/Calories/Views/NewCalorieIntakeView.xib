@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="B83-7T-cb3" customClass="NewCalorieIntakeView" customModule="Calories" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW CALORIE INTAKE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjb-lX-OYf">
+                    <rect key="frame" x="22" y="20" width="147" height="16"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="13"/>
+                    <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Source" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NiQ-DC-BGw">
+                    <rect key="frame" x="30" y="54" width="315" height="52"/>
+                    <color key="tintColor" name="Theme"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="52" id="4C7-xi-8SL"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light" returnKeyType="next"/>
+                    <connections>
+                        <outlet property="delegate" destination="B83-7T-cb3" id="Tet-xY-whp"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Calorie amount" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I2e-fv-gTc">
+                    <rect key="frame" x="30" y="116" width="315" height="52"/>
+                    <color key="tintColor" name="Theme"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="52" id="JAM-3s-IQT"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="light" returnKeyType="done"/>
+                </textField>
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKw-BY-QKy">
+                    <rect key="frame" x="12" y="196" width="351" height="52"/>
+                    <color key="backgroundColor" name="Theme"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="52" id="uuS-Qw-N52"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <state key="normal" title="Add calories">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="addCaloriesButtonPressed:" destination="B83-7T-cb3" eventType="touchUpInside" id="JOi-sM-IfU"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" name="Background"/>
+            <constraints>
+                <constraint firstItem="vmy-Ff-ear" firstAttribute="trailing" secondItem="NiQ-DC-BGw" secondAttribute="trailing" constant="30" id="0iK-GL-AgB"/>
+                <constraint firstItem="NiQ-DC-BGw" firstAttribute="leading" secondItem="vmy-Ff-ear" secondAttribute="leading" constant="30" id="1iJ-Gt-Gkk"/>
+                <constraint firstItem="wjb-lX-OYf" firstAttribute="top" secondItem="vmy-Ff-ear" secondAttribute="top" constant="20" id="3nJ-yI-pGd"/>
+                <constraint firstItem="NiQ-DC-BGw" firstAttribute="top" secondItem="wjb-lX-OYf" secondAttribute="bottom" constant="18" id="AZK-kW-0yk"/>
+                <constraint firstItem="I2e-fv-gTc" firstAttribute="leading" secondItem="vmy-Ff-ear" secondAttribute="leading" constant="30" id="BK9-bc-FG1"/>
+                <constraint firstItem="vmy-Ff-ear" firstAttribute="bottom" secondItem="WKw-BY-QKy" secondAttribute="bottom" constant="12" id="Hiy-68-mlM"/>
+                <constraint firstItem="I2e-fv-gTc" firstAttribute="top" secondItem="NiQ-DC-BGw" secondAttribute="bottom" constant="10" id="J4U-A5-RmE"/>
+                <constraint firstItem="vmy-Ff-ear" firstAttribute="trailing" secondItem="WKw-BY-QKy" secondAttribute="trailing" constant="12" id="SMq-OG-Xk0"/>
+                <constraint firstItem="vmy-Ff-ear" firstAttribute="trailing" secondItem="I2e-fv-gTc" secondAttribute="trailing" constant="30" id="awF-Ba-Eue"/>
+                <constraint firstItem="wjb-lX-OYf" firstAttribute="leading" secondItem="vmy-Ff-ear" secondAttribute="leading" constant="22" id="bNB-bk-xKA"/>
+                <constraint firstItem="WKw-BY-QKy" firstAttribute="leading" secondItem="vmy-Ff-ear" secondAttribute="leading" constant="12" id="n10-8V-XMp"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vmy-Ff-ear"/>
+            <connections>
+                <outlet property="calorieAmountTextField" destination="I2e-fv-gTc" id="0E6-Dd-qxl"/>
+                <outlet property="calorieSourceTextField" destination="NiQ-DC-BGw" id="zle-46-ija"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Background">
+            <color red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Theme">
+            <color red="0.16470588235294117" green="0.5725490196078431" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
