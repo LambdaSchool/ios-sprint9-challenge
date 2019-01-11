@@ -3,16 +3,10 @@
     <entity name="CalorieData" representedClassName="CalorieData" syncable="YES" codeGenerationType="class">
         <attribute name="calories" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" attributeType="String" syncable="YES"/>
+        <attribute name="person" attributeType="String" defaultValueString="Dillon" syncable="YES"/>
         <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="calorieDatas" inverseEntity="Person" syncable="YES"/>
-    </entity>
-    <entity name="Person" representedClassName="Person" syncable="YES" codeGenerationType="class">
-        <attribute name="id" attributeType="String" syncable="YES"/>
-        <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="calorieDatas" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="CalorieData" inverseName="person" inverseEntity="CalorieData" syncable="YES"/>
     </entity>
     <elements>
         <element name="CalorieData" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="Person" positionX="-45" positionY="27" width="128" height="90"/>
     </elements>
 </model>
