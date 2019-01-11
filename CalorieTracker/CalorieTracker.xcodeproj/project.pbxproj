@@ -14,6 +14,7 @@
 		C3C3F75921E8FAE400AAE456 /* CaloriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3F75821E8FAE400AAE456 /* CaloriesTableViewController.swift */; };
 		C3C3F75C21E8FD1500AAE456 /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3C3F75A21E8FD1500AAE456 /* CalorieTracker.xcdatamodeld */; };
 		C3C3F75E21E8FDE600AAE456 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3F75D21E8FDE600AAE456 /* CoreData.swift */; };
+		C3C3F76221E8FFDD00AAE456 /* CalorieIntakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C3F76121E8FFDD00AAE456 /* CalorieIntakeController.swift */; };
 		CC8C319DDE20D6A0CF91A9FE /* Pods_CalorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F7DDD7ECC2980FCDC233F27 /* Pods_CalorieTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		C3C3F75821E8FAE400AAE456 /* CaloriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesTableViewController.swift; sourceTree = "<group>"; };
 		C3C3F75B21E8FD1500AAE456 /* CalorieTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieTracker.xcdatamodel; sourceTree = "<group>"; };
 		C3C3F75D21E8FDE600AAE456 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		C3C3F76121E8FFDD00AAE456 /* CalorieIntakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				C3C3F74621E8F8A400AAE456 /* AppDelegate.swift */,
 				C3C3F74A21E8F8A400AAE456 /* Main.storyboard */,
 				C3C3F75A21E8FD1500AAE456 /* CalorieTracker.xcdatamodeld */,
+				C3C3F76121E8FFDD00AAE456 /* CalorieIntakeController.swift */,
 				C3C3F75821E8FAE400AAE456 /* CaloriesTableViewController.swift */,
 				C3C3F75D21E8FDE600AAE456 /* CoreData.swift */,
 				C3C3F74D21E8F8A700AAE456 /* Assets.xcassets */,
@@ -216,6 +219,7 @@
 			files = (
 				C3C3F75E21E8FDE600AAE456 /* CoreData.swift in Sources */,
 				C3C3F74721E8F8A400AAE456 /* AppDelegate.swift in Sources */,
+				C3C3F76221E8FFDD00AAE456 /* CalorieIntakeController.swift in Sources */,
 				C3C3F75921E8FAE400AAE456 /* CaloriesTableViewController.swift in Sources */,
 				C3C3F75C21E8FD1500AAE456 /* CalorieTracker.xcdatamodeld in Sources */,
 			);
