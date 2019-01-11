@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jp8-Al-mzR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <!--Calorie Tracker-->
         <scene sceneID="eHB-bM-DOp">
             <objects>
-                <tableViewController id="6f7-1Y-a6d" sceneMemberID="viewController">
+                <tableViewController id="6f7-1Y-a6d" customClass="CaloriesTableViewController" customModule="CalorieTracker_SwiftChart" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jxT-ZS-OMz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,7 +53,16 @@
                             <outlet property="delegate" destination="6f7-1Y-a6d" id="TBW-cK-bDJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Calorie Tracker" id="zH4-2w-lYv"/>
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="zH4-2w-lYv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IDX-YF-8Bt">
+                            <connections>
+                                <action selector="add:" destination="6f7-1Y-a6d" id="8dI-BT-4jo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="chartViews" destination="BaY-23-5wV" id="aFM-1I-ljQ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IEU-7f-Vz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
