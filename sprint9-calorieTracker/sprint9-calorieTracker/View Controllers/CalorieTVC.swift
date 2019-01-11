@@ -13,6 +13,12 @@ class CalorieTVC: UITableViewController {
 
     @IBOutlet weak var chart: Chart!
     
+    var chartGoal = 2000 {
+        didSet {
+            updateChart()
+        }
+    }
+    
     var calorieEntries: [CalorieEntry] = [] {
         didSet {
             self.tableView.reloadData()
@@ -30,7 +36,42 @@ class CalorieTVC: UITableViewController {
         
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bananas")!)
     }
-
+    @IBAction func goalButtonPressed(_ sender: Any) {
+        let vc = UIViewController()
+        vc.preferredContentSize = CGSize(width: 250, height: 65)
+        let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 250, height: 50))
+        
+        textField.keyboardType = .numberPad
+        
+        textField.borderStyle = .roundedRect
+        textField.layer.cornerRadius = 2
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = #colorLiteral(red: 0.5741485357, green: 0.5741624236, blue: 0.574154973, alpha: 1)
+        textField.layer.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+        vc.view.addSubview(textField)
+        
+        let alert = UIAlertController(title: "What's your daily caloric goal?", message: "", preferredStyle: .alert)
+        let cancel =  UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let submit = UIAlertAction(title: "Submit", style: .default) { (action) in
+            print("Action")
+            
+            if let text = textField.text {
+                if let caloricGoal = Int(text) {
+                    GoalController.shared.saveGoal(calories: caloricGoal)
+                    
+                    self.chartGoal = caloricGoal
+                }
+            }
+        }
+        
+        alert.setValue(vc, forKey: "contentViewController")
+        alert.addAction(submit)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func addButtonTapped(_ sender: Any) {
         let vc = UIViewController()
         vc.preferredContentSize = CGSize(width: 250, height: 65)
@@ -93,8 +134,24 @@ class CalorieTVC: UITableViewController {
         }
         
         let series = ChartSeries(data)
+        
+        // Caloric goal
+        series.area = true
+        
+        let highestPoint = data.max() ?? 2000
+        
+        chart.minY = 0
+        chart.maxY = highestPoint + (highestPoint / 10)
+        
+        series.colors = (
+            above: ChartColors.redColor(),
+            below: ChartColors.yellowColor(),
+            zeroLevel: Double(chartGoal)
+        )
+        
         chart.add(series)
     }
+    
     
     // MARK: - Table view data source
     
@@ -123,5 +180,6 @@ class CalorieTVC: UITableViewController {
         
         return cell
     }
+
 
 }

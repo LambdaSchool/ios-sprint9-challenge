@@ -34,7 +34,7 @@ class CalorieController {
             print("Could not save \(error)")
         }
     }
-    
+
     
     
     func getEntries() {
