@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import SwiftChart
 
-class CaloriesTableViewController: UITableViewController, ChartDelegate, NSFetchedResultsControllerDelegate {
+class CaloriesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, ChartDelegate {
   
     // set up FRC
     // set up FRC Delegate
@@ -20,7 +20,9 @@ class CaloriesTableViewController: UITableViewController, ChartDelegate, NSFetch
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.reloadData()
+        
+        
         
     }
     
@@ -140,7 +142,7 @@ class CaloriesTableViewController: UITableViewController, ChartDelegate, NSFetch
                                              managedObjectContext: moc,
                                              sectionNameKeyPath: nil,
                                              cacheName: nil)
-        frc.delegate = self
+        //frc.delegate = self
         try! frc.performFetch()
         return frc
     }()
