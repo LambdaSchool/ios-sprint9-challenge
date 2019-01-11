@@ -23,6 +23,8 @@ class CalorieTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        chart.backgroundColor = UIColor.white
+        
         updateCalorieEntries()
         updateChart()
         
