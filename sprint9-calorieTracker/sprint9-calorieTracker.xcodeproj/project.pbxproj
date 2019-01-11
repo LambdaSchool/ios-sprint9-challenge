@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		11F3006F21E8F4D3009B9575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3006E21E8F4D3009B9575 /* AppDelegate.swift */; };
 		11F3007421E8F4D3009B9575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11F3007221E8F4D3009B9575 /* Main.storyboard */; };
-		11F3007721E8F4D3009B9575 /* sprint9_calorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11F3007521E8F4D3009B9575 /* sprint9_calorieTracker.xcdatamodeld */; };
+		11F3007721E8F4D3009B9575 /* calorie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11F3007521E8F4D3009B9575 /* calorie.xcdatamodeld */; };
 		11F3007921E8F4D4009B9575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11F3007821E8F4D4009B9575 /* Assets.xcassets */; };
 		11F3007C21E8F4D4009B9575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11F3007A21E8F4D4009B9575 /* LaunchScreen.storyboard */; };
 		11F3008A21E8F9FB009B9575 /* CalorieTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3008921E8F9FB009B9575 /* CalorieTVC.swift */; };
@@ -91,7 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				11F3008E21E8FAC8009B9575 /* CalorieEntry.swift */,
-				11F3007521E8F4D3009B9575 /* sprint9_calorieTracker.xcdatamodeld */,
+				11F3007521E8F4D3009B9575 /* calorie.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -249,7 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11F3007721E8F4D3009B9575 /* sprint9_calorieTracker.xcdatamodeld in Sources */,
+				11F3007721E8F4D3009B9575 /* calorie.xcdatamodeld in Sources */,
 				11F3009121E8FB03009B9575 /* CalorieController.swift in Sources */,
 				11F3006F21E8F4D3009B9575 /* AppDelegate.swift in Sources */,
 				11F3008F21E8FAC8009B9575 /* CalorieEntry.swift in Sources */,
@@ -457,13 +457,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		11F3007521E8F4D3009B9575 /* sprint9_calorieTracker.xcdatamodeld */ = {
+		11F3007521E8F4D3009B9575 /* calorie.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				11F3007621E8F4D3009B9575 /* sprint9_calorieTracker.xcdatamodel */,
 			);
 			currentVersion = 11F3007621E8F4D3009B9575 /* sprint9_calorieTracker.xcdatamodel */;
-			path = sprint9_calorieTracker.xcdatamodeld;
+			path = calorie.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
