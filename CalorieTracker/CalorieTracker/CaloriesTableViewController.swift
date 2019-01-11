@@ -21,8 +21,11 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
-        
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        chartSetUp()
         
     }
     
@@ -34,14 +37,10 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
     let reuseIdentifier = "CalorieCell"
     var dateFormatter: DateFormatter  {
         let formatter = DateFormatter()
-        formatter.timeStyle = .medium
+        formatter.timeStyle = .short
         formatter.dateStyle = .short
         return formatter
     }
-    
-
-    
-    
     
     // MARK: - Table view data source
 
@@ -52,7 +51,7 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return fetchedResultsController.sections?.count ?? 0 // should be number of objects.. if I remember.
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0  // should be number of objects.. if I remember.
         
     }
     
@@ -125,10 +124,35 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
+         guard let newIndexPath = newIndexPath,
+            let indexPath = indexPath else { return }
+        
+        switch type {
+        case .insert :
+            tableView.insertRows(at: [newIndexPath], with: .fade)
+        
+        case .delete:
+            tableView.deleteRows(at: [newIndexPath], with: .fade)
+        
+        case .update:
+            tableView.reloadRows(at: [newIndexPath], with: .fade)
+        
+        case .move:
+            tableView.insertRows(at: [newIndexPath], with: .fade)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        
+        switch type {
+        case .insert:
+            tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
+        case .delete:
+            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
+        default:
+            break
+        }
     }
    
     // MARK: FRC
@@ -142,13 +166,33 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
                                              managedObjectContext: moc,
                                              sectionNameKeyPath: nil,
                                              cacheName: nil)
-        //frc.delegate = self
+        
         try! frc.performFetch()
         return frc
     }()
     
     
+    // Mark: SwiftChartView
     
+        // draw chart in chartView
+        // add subView
+        // set data
+        // chart should respond to notification??
+    
+    func chartSetUp() {
+       let chart = Chart(frame: CGRect(x: 0, y: 0, width: swiftChartView.frame.width, height: swiftChartView.frame.height))
+        chart.delegate = self
+        swiftChartView.addSubview(chart)
+        
+        //set data set for chart.
+        guard let caloricIntake = fetchedResultsController.fetchedObjects else { return }
+        let calories = caloricIntake.compactMap({ Double($0.calories) })
+        let series = ChartSeries(calories)
+        series.area = true
+        series.color = ChartColors.goldColor()
+        chart.add(series)
+        
+    }
      
      
      // MARK:  Chart Delegate - ?? Do I need this..
@@ -164,16 +208,7 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
      func didEndTouchingChart(_ chart: Chart) {
     
      }
-     
-     
-     
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
     
 
 }
+
