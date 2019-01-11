@@ -13,6 +13,7 @@
 		11F3007921E8F4D4009B9575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11F3007821E8F4D4009B9575 /* Assets.xcassets */; };
 		11F3007C21E8F4D4009B9575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11F3007A21E8F4D4009B9575 /* LaunchScreen.storyboard */; };
 		11F3008A21E8F9FB009B9575 /* CalorieTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3008921E8F9FB009B9575 /* CalorieTVC.swift */; };
+		11F3008F21E8FAC8009B9575 /* CalorieEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3008E21E8FAC8009B9575 /* CalorieEntry.swift */; };
 		410772530923882E85B06C1A /* Pods_sprint9_calorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049BAB4D6B22E96D01F50519 /* Pods_sprint9_calorieTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		11F3007B21E8F4D4009B9575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11F3007D21E8F4D4009B9575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11F3008921E8F9FB009B9575 /* CalorieTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTVC.swift; sourceTree = "<group>"; };
+		11F3008E21E8FAC8009B9575 /* CalorieEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieEntry.swift; sourceTree = "<group>"; };
 		86BC7FDA3419A29F6117CE1D /* Pods-sprint9-calorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sprint9-calorieTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sprint9-calorieTracker/Pods-sprint9-calorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		DC3F94E8C8DC9278CC27363F /* Pods-sprint9-calorieTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sprint9-calorieTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-sprint9-calorieTracker/Pods-sprint9-calorieTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 		11F3008C21E8FA07009B9575 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				11F3008E21E8FAC8009B9575 /* CalorieEntry.swift */,
 				11F3007521E8F4D3009B9575 /* sprint9_calorieTracker.xcdatamodeld */,
 			);
 			path = Model;
@@ -237,6 +240,7 @@
 			files = (
 				11F3007721E8F4D3009B9575 /* sprint9_calorieTracker.xcdatamodeld in Sources */,
 				11F3006F21E8F4D3009B9575 /* AppDelegate.swift in Sources */,
+				11F3008F21E8FAC8009B9575 /* CalorieEntry.swift in Sources */,
 				11F3008A21E8F9FB009B9575 /* CalorieTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
