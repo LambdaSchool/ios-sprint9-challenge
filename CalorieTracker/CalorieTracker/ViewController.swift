@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftChart
 
 class ViewController: UIViewController {
 
