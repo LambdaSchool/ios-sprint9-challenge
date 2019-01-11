@@ -138,9 +138,17 @@ class CalorieTVC: UITableViewController {
     func updateChart() {
         
         var data: [Double] = []
+//        var dateInt: [Int] = []
         
         for point in calorieEntries {
             data.append(Double(point.calories))
+            
+//            let dateFormatter = DateFormatter()
+//            dateFormatter.dateFormat = "d"
+//            let dateString = dateFormatter.string(from: point.date)
+//
+//            dateInt.append(Int(dateString)!)
+            
         }
         
         let series = ChartSeries(data)
@@ -158,6 +166,7 @@ class CalorieTVC: UITableViewController {
             below: ChartColors.yellowColor(),
             zeroLevel: Double(chartGoal)
         )
+        
         
         chart.add(series)
     }
