@@ -21,6 +21,11 @@ class CaloriesTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    
+    // MARK: - Properties
+    
+    private let calorieIntakeController = CalorieIntakeController()
 
     // MARK: - Table view data source
 
@@ -34,6 +39,36 @@ class CaloriesTableViewController: UITableViewController {
         return 0
     }
 
+    
+    @IBAction func addCalories(_ sender: Any) {
+        
+        // um... Alert Controller thing?
+        
+        let alert = UIAlertController(title: "Add", message: "How many Calories is this", preferredStyle: .alert)
+        
+        alert.addTextField { (TextField) in
+            TextField.placeholder = "Calories:"
+        }
+        
+        alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (UIAlertAction) in
+                guard let textField = alert.textFields?.first,
+                let caloriesString = textField.text else {return}
+            
+            let calories = Int16(caloriesString) ?? 0
+            self.calorieIntakeController.add(calories: calories)
+            
+            self.tableView.reloadData()
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
