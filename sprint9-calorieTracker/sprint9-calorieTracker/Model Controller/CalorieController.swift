@@ -24,7 +24,7 @@ class CalorieController {
         
         let entry = NSManagedObject(entity: entity, insertInto: managedContext)
         
-        entry.setValue(Int16(calories), forKey: "calories")
+        entry.setValue(Int(calories), forKey: "calories")
         entry.setValue(Date(), forKey: "date")
         
         do {
