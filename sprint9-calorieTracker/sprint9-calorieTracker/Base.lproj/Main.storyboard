@@ -17,13 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="aSO-Zz-HGD">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="aSO-Zz-HGD" customClass="Chart" customModule="SwiftChart">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="qhf-3P-KUS" detailTextLabel="JEL-xS-DDi" style="IBUITableViewCellStyleValue1" id="dgI-da-KpJ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="calorieCell" textLabel="qhf-3P-KUS" detailTextLabel="JEL-xS-DDi" style="IBUITableViewCellStyleValue1" id="dgI-da-KpJ">
                                 <rect key="frame" x="0.0" y="188" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dgI-da-KpJ" id="wQr-hh-u8r">
@@ -56,6 +56,9 @@
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="hWY-JZ-f9k">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bOj-MF-cfA"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chart" destination="aSO-Zz-HGD" id="FSc-mY-iYS"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8Z-QP-ffY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
