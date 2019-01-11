@@ -31,17 +31,22 @@ class CalorieTVC: UITableViewController {
         
         chart.backgroundColor = UIColor.white
         
+        getGoal()
+        
         updateCalorieEntries()
         updateChart()
         
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bananas")!)
     }
+    
+    
     @IBAction func goalButtonPressed(_ sender: Any) {
         let vc = UIViewController()
         vc.preferredContentSize = CGSize(width: 250, height: 65)
         let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 250, height: 50))
         
         textField.keyboardType = .numberPad
+        textField.placeholder = String(chartGoal)
         
         textField.borderStyle = .roundedRect
         textField.layer.cornerRadius = 2
@@ -70,6 +75,11 @@ class CalorieTVC: UITableViewController {
         alert.addAction(cancel)
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    func getGoal() {
+        
+        self.chartGoal = GoalController.shared.retrieveGoal()
     }
     
     @IBAction func addButtonTapped(_ sender: Any) {
