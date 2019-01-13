@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import SwiftChart
 
-class CaloriesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, ChartDelegate {
+class CaloriesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
   
     // set up FRC
     // set up FRC Delegate
@@ -20,20 +20,29 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
+      
+        // Build Swiftchart and add to subview of chart
+        
+        let frame = CGRect(x: 0, y:0, width: swiftChartView.frame.width, height: swiftChartView.frame.height)
+            chart = Chart(frame:frame)
+            swiftChartView.addSubview(chart)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCalories), name: .updateCalories, object: nil)
+        
+        updateCalories()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        chartSetUp()
-        
+        tableView.reloadData()
     }
     
     
     // MARK: - Properties
     
     private let calorieIntakeController = CalorieIntakeController()
-    private var swiftChart: Chart = Chart(frame: .zero)
+    var chart = Chart()
     let reuseIdentifier = "CalorieCell"
     var dateFormatter: DateFormatter  {
         let formatter = DateFormatter()
@@ -67,20 +76,13 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
      return cell
      }
     
-
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-    
     
     // UIAlert Controller
     @IBAction func addCalories(_ sender: Any) {
         
         // um... Alert Controller thing?
         
-        let alert = UIAlertController(title: "Add", message: "How many Calories is this", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add", message: "How many Calories would you like to log", preferredStyle: .alert)
         
         alert.addTextField { (TextField) in
             TextField.placeholder = "Calories:"
@@ -93,6 +95,9 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
             let calories = Int16(caloriesString) ?? 0
             self.calorieIntakeController.add(calories: calories)
             
+            // needs to be post.
+            NotificationCenter.default.post( name: .updateCalories , object: nil)
+            
             self.tableView.reloadData()
             
         }))
@@ -100,6 +105,8 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
+        
+       
     }
     
     // MARK: - ChartViewOutlet
@@ -157,7 +164,7 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
    
     // MARK: FRC
     
-        var fetchedResultsController: NSFetchedResultsController<CalorieIntake> = {
+      lazy var fetchedResultsController: NSFetchedResultsController<CalorieIntake> = {
         let fetchRequest: NSFetchRequest<CalorieIntake> = CalorieIntake.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
@@ -168,6 +175,7 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
                                              cacheName: nil)
         
         try! frc.performFetch()
+        frc.delegate = self // why wasn't this working?!
         return frc
     }()
     
@@ -178,37 +186,20 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
         // add subView
         // set data
         // chart should respond to notification??
+        // create an objc function
     
-    func chartSetUp() {
-       let chart = Chart(frame: CGRect(x: 0, y: 0, width: swiftChartView.frame.width, height: swiftChartView.frame.height))
-        chart.delegate = self
-        swiftChartView.addSubview(chart)
+    @objc func updateCalories() {
         
-        //set data set for chart.
-        guard let caloricIntake = fetchedResultsController.fetchedObjects else { return }
-        let calories = caloricIntake.compactMap({ Double($0.calories) })
-        let series = ChartSeries(calories)
+        guard let caloricIntake = fetchedResultsController.fetchedObjects?.compactMap({ Double($0.calories) }) else { return }
+        
+        let series = ChartSeries(caloricIntake)
         series.area = true
         series.color = ChartColors.goldColor()
         chart.add(series)
         
     }
-     
-     
-     // MARK:  Chart Delegate - ?? Do I need this..
-     
-     func didTouchChart(_ chart: Chart, indexes: [Int?], x: Double, left: CGFloat) {
-     
-     }
-     
-     func didFinishTouchingChart(_ chart: Chart) {
-    
-     }
-     
-     func didEndTouchingChart(_ chart: Chart) {
-    
-     }
-    
-
 }
 
+extension Notification.Name {
+    static let updateCalories = Notification.Name("updateCalories")
+}
