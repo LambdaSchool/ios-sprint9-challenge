@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Calorie Counter-->
         <scene sceneID="OVi-gP-Yv9">
             <objects>
                 <tableViewController id="wnR-oE-gfQ" customClass="CalorieEntryTableViewController" customModule="CalorieIntake" customModuleProvider="target" sceneMemberID="viewController">
@@ -72,7 +72,7 @@
                             <outlet property="delegate" destination="wnR-oE-gfQ" id="YW6-jv-s1w"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="ZT6-S9-aDT">
+                    <navigationItem key="navigationItem" title="Calorie Counter" id="ZT6-S9-aDT">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="is9-45-q4S">
                             <connections>
                                 <action selector="addNewCalories:" destination="wnR-oE-gfQ" id="AKP-Pc-EWl"/>

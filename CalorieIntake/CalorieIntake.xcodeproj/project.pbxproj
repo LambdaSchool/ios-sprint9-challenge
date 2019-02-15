@@ -23,6 +23,7 @@
 		D1CF343622172B24004CE687 /* HeaderChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF343522172B24004CE687 /* HeaderChartController.swift */; };
 		D1CF343922172D84004CE687 /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF343822172D84004CE687 /* CalorieController.swift */; };
 		D1CF343B221730BE004CE687 /* Notification+UpdateChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF343A221730BE004CE687 /* Notification+UpdateChart.swift */; };
+		D1CF343D22174234004CE687 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF343C22174234004CE687 /* Appearance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		D1CF343522172B24004CE687 /* HeaderChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderChartController.swift; sourceTree = "<group>"; };
 		D1CF343822172D84004CE687 /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
 		D1CF343A221730BE004CE687 /* Notification+UpdateChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+UpdateChart.swift"; sourceTree = "<group>"; };
+		D1CF343C22174234004CE687 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			children = (
 				D1CF34332217227B004CE687 /* DisplayEntryAlertWindow.swift */,
 				D1CF343A221730BE004CE687 /* Notification+UpdateChart.swift */,
+				D1CF343C22174234004CE687 /* Appearance.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				D1CF34342217227B004CE687 /* DisplayEntryAlertWindow.swift in Sources */,
 				D1CF343022172101004CE687 /* CalorieIntake.xcdatamodeld in Sources */,
 				D1CF343622172B24004CE687 /* HeaderChartController.swift in Sources */,
+				D1CF343D22174234004CE687 /* Appearance.swift in Sources */,
 				D1CF342922171CB8004CE687 /* CalorieTableViewCell.swift in Sources */,
 				D1CF342D221720D6004CE687 /* CoreDataStack.swift in Sources */,
 				D1CF343922172D84004CE687 /* CalorieController.swift in Sources */,
