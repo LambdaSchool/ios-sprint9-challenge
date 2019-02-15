@@ -6,13 +6,12 @@
 //
 
 import Foundation
+import CoreData
 
 
-class NetworkController {
+extension EntryController {
     
-    private let baseURl = URL(string: "https://calorie-tracker-5526f.firebaseio.com/")!
     typealias CompletionHandler = (Error?) -> Void
-    
     func put(entry: Entry, completion: @escaping CompletionHandler = {_ in }) {
         
         let url = baseURl
@@ -38,5 +37,54 @@ class NetworkController {
         }.resume()
     }
     
+    
+    func fetchSingleEntryFromPersisitenceStore(identifier: UUID) -> Entry?{
+        let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "identifier == %@", identifier as NSUUID)
+        return (try? moc.fetch(fetchRequest))?.first
+    }
+    
+    func fetchEntriesFromServer(completionHandler: @escaping CompletionHandler = {_ in}) {
+        let url = baseURl.appendingPathExtension("json")
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            guard let data = data else {
+                NSLog("Data not found on database")
+                completionHandler(NSError())
+                return
+            }
+            
+            if let error = error {
+                NSLog("Error fetching data task: \(error)")
+                completionHandler(error)
+                return
+            }
+            
+            do{
+                let entryRepresetationDict = try JSONDecoder().decode([String: EntryReperesentation].self, from: data)
+                let entryRepresentations = Array(entryRepresetationDict.values)
+                print(entryRepresentations)
+                for entryRep in entryRepresentations {
+                    if let entry = self.fetchSingleEntryFromPersisitenceStore(identifier: entryRep.identifier){
+                        self.update(entry: entry, entryRepresentation: entryRep)
+                    }else {
+                        let _ = Entry(entryRepresentation: entryRep)
+                    }
+                }
+                self.save()
+                completionHandler(nil)
+            }catch{
+                NSLog("Error occured trying to retrieve data from dataBase \(error)")
+                completionHandler(error)
+                return
+            }
+            }.resume()
+    }
+    
+    func update(entry: Entry, entryRepresentation: EntryReperesentation){
+        entry.calories = entryRepresentation.calories
+        entry.date = entryRepresentation.date
+        entry.identifier = entryRepresentation.identifier
+        put(entry: entry)
+    }
     
 }

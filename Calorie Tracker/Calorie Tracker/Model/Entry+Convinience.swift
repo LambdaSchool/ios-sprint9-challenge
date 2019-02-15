@@ -17,4 +17,7 @@ extension Entry {
         self.identifier = identifier 
     }
     
+    convenience init?(entryRepresentation: EntryReperesentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext){
+        self.init(date: entryRepresentation.date, calories: Int(entryRepresentation.calories), identifier: entryRepresentation.identifier, context: context)
+    }
 }

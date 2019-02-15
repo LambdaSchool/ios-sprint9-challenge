@@ -13,6 +13,12 @@ let moc = CoreDataStack.shared.mainContext
 
 class EntryController {
     
+    init(){
+        fetchEntriesFromServer()
+    }
+    
+    let baseURl = URL(string: "https://calorie-tracker-5526f.firebaseio.com/")!
+    
     func createCalorie( calories: Int) -> Entry {
         let entry = Entry(calories: calories)
         save()

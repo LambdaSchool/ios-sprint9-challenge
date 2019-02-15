@@ -10,7 +10,7 @@ import Foundation
 
 extension Entry: Encodable {
     
-    enum CodingKeys: String, CodingKey {
+    enum CodingKeys: CodingKey {
         case calories
         case date
         case identifier
@@ -20,7 +20,7 @@ extension Entry: Encodable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         
         try container.encode(self.calories, forKey: .calories)
-        try container.encode(self.date?.description, forKey: .date)
+        try container.encode(self.date, forKey: .date)
         try container.encode(self.identifier, forKey: .identifier)
     }
     

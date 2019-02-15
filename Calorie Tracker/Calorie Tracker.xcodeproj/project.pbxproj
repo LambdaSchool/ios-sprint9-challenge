@@ -10,6 +10,7 @@
 		B8B92810C6235297F9EED5FB /* Pods_Calorie_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06FD27689C1205F7BD7A200C /* Pods_Calorie_Tracker.framework */; };
 		EB12BB3422171E4200205DB9 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB12BB3322171E4200205DB9 /* NetworkController.swift */; };
 		EB12BB372217241800205DB9 /* Entry+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB12BB362217241800205DB9 /* Entry+Encodable.swift */; };
+		EB12BB392217371600205DB9 /* EntryReperesentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB12BB382217371600205DB9 /* EntryReperesentation.swift */; };
 		EB21B5192183836A0083BDE7 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB21B5182183836A0083BDE7 /* EntryController.swift */; };
 		EB4076F6218366260030E077 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4076F5218366260030E077 /* AppDelegate.swift */; };
 		EB4076FB218366260030E077 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB4076F9218366260030E077 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		EB12BB3322171E4200205DB9 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		EB12BB3522171EBA00205DB9 /* Entry 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Entry 2.xcdatamodel"; sourceTree = "<group>"; };
 		EB12BB362217241800205DB9 /* Entry+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Encodable.swift"; sourceTree = "<group>"; };
+		EB12BB382217371600205DB9 /* EntryReperesentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryReperesentation.swift; sourceTree = "<group>"; };
 		EB21B5182183836A0083BDE7 /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 		EB4076F2218366260030E077 /* Calorie Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calorie Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4076F5218366260030E077 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				EB40771121837C3F0030E077 /* Entry.xcdatamodeld */,
+				EB12BB382217371600205DB9 /* EntryReperesentation.swift */,
 				EB40771421837C820030E077 /* CoreDataStack.swift */,
 				EB40771621837CDD0030E077 /* Entry+Convinience.swift */,
 				EB12BB362217241800205DB9 /* Entry+Encodable.swift */,
@@ -258,6 +261,7 @@
 				EB40771721837CDD0030E077 /* Entry+Convinience.swift in Sources */,
 				EB4076F6218366260030E077 /* AppDelegate.swift in Sources */,
 				EB12BB3422171E4200205DB9 /* NetworkController.swift in Sources */,
+				EB12BB392217371600205DB9 /* EntryReperesentation.swift in Sources */,
 				EB40771521837C820030E077 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

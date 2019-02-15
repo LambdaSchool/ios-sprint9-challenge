@@ -14,13 +14,11 @@ extension NSNotification.Name{
 }
 
 class CalorieTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
-    
-    let networkController = NetworkController()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         notificationCentre.addObserver(self, selector: #selector(calorieWasAdded), name: .entryWasAdded, object: nil)
-       createChart()
+        createChart()
+        tableView.reloadData()
     }
     // MARK: - Notification
     @objc func calorieWasAdded(_ notification: Notification){
@@ -109,10 +107,9 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
             guard let input = alert.textFields?[0].text,
                 let calories = Int(input) else {return}
             let entry = self.entryController.createCalorie(calories: calories)
-            self.networkController.put(entry: entry)
+            self.entryController.put(entry: entry)
             self.data.append((x: self.data.count, y: Double(calories)))
             self.chart.add(ChartSeries(data: self.data))
-    
             self.notificationCentre.post(name: .entryWasAdded, object: self)
             
         }
