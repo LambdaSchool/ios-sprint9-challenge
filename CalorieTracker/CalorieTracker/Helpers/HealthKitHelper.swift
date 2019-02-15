@@ -9,6 +9,7 @@
 import Foundation
 import HealthKit
 
+/// Class to take care of Health Kit related tasks
 class HealthKitHelper {
     
     static let shared = HealthKitHelper()
@@ -22,7 +23,7 @@ class HealthKitHelper {
         }
     }
     
-    
+    /// Requests authorization from the user to read and write their calorie data.
     func requestAuthorization(completion: @escaping (_ success: Bool) -> Void) {
         guard let store = store else { completion(false); return }
         let type = Set([HKObjectType.quantityType(forIdentifier: .dietaryEnergyConsumed)!])
@@ -34,6 +35,7 @@ class HealthKitHelper {
         })
     }
     
+    /// Fetches calorie data from the Health Kit store. Returns only calories written by this app if read access is denied.
     func fetchCalorieData(for day: Date = Date(), completion: @escaping ([CalorieData]) -> Void) {
         
         let calendar = Calendar.current
@@ -58,7 +60,7 @@ class HealthKitHelper {
             
             var calorieDatas: [CalorieData] = []
             guard let samples = results as? [HKQuantitySample] else {
-                NSLog("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(error!.localizedDescription)")
+                NSLog("An error occured fetching the user's calorie data: \(error!.localizedDescription)")
                 completion(calorieDatas)
                 return
             }
@@ -76,7 +78,10 @@ class HealthKitHelper {
         store?.execute(query)
     }
     
+    /// Saves a new calories data sample to the Health Kit store
     func saveCalorieData(_ calorieData: CalorieData) {
+        // TODO: Verify that the app has permission to write to the health kit store and handle it in some way (let the user know) if it can't write to the Health Kit store.
+        
         guard let object = HKObjectType.quantityType(forIdentifier: .dietaryEnergyConsumed) else {
             fatalError("This should never fail.")
         }
