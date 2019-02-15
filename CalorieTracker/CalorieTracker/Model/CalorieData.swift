@@ -19,4 +19,14 @@ struct CalorieData {
         
         return dateFormatter.string(from: timestamp)
     }
+    
+    var chartTime: Double {
+        let components = CalorieData.calendar.dateComponents([.hour, .minute], from: timestamp)
+        return Double("\(components.hour ?? 0).\(components.minute ?? 0 / 60)") ?? 0
+    }
+    
+    static let calendar: Calendar = {
+        let calendar = Calendar.current
+        return calendar
+    }()
 }

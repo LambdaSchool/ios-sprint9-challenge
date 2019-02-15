@@ -64,8 +64,8 @@ class CalorieTrackerViewController: UIViewController {
     /// Updates the chart with the currently available data
     @objc private func updateChart() {
         DispatchQueue.main.async {
-            let data = self.calorieDataController.calorieDatas.map() { $0.calories }
-            let series = ChartSeries(data)
+            let data = self.calorieDataController.calorieDatas.map() { (x: $0.chartTime, y: $0.calories) }
+            let series = ChartSeries(data: data)
             series.color = ChartColors.blueColor()
             series.area = true
             self.calorieChart.add(series)
