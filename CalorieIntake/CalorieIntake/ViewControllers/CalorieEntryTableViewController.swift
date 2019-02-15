@@ -21,6 +21,9 @@ class CalorieEntryTableViewController: UITableViewController {
         series.area = true
         headerView.add(series)
         tableView.tableHeaderView = headerView
+        
+        
+
     }
 
     // MARK: - Table view data source
@@ -56,6 +59,8 @@ class CalorieEntryTableViewController: UITableViewController {
     
     // MARK: - Actions
     @IBAction func addNewCalories(_ sender: Any) {
+        let alert = DisplayEntryAlertWindow.getAlterDisplay()
+        self.present(alert, animated: true, completion: nil)
         
     }
     
