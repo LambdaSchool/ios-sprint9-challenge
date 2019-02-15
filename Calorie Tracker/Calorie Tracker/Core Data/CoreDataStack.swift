@@ -11,7 +11,6 @@ import CoreData
 
 // Well this is a mess...
 class CoreDataStack {
-
     static let shared = CoreDataStack()
     let mainContext: NSManagedObjectContext
     let container: NSPersistentContainer
