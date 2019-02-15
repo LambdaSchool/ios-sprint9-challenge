@@ -43,8 +43,8 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
         cell.textLabel?.text = "\(entry.calories) calories"
         
         let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .none
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .medium
         
         cell.detailTextLabel?.text = formatter.string(from: entry.date!)
         
