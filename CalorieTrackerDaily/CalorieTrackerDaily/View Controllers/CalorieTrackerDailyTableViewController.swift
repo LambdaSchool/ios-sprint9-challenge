@@ -41,13 +41,15 @@ class CalorieTrackerDailyTableViewController: UITableViewController {
         // Configure the cell...
         let entry = calorieTrackerEntries[indexPath.row]
         let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, yyyy h:mm:ss a"
         let dateString = formatter.string(from: entry.date!)
+       
         let caloriesString = String(entry.calories)
         print(dateString)
 //        cell.caloriesLabel.text = entry.value(forKey: "calories") as? String
 //        cell.timestampLabel.text = entry.value(forKey: "date") as? String
         cell.caloriesLabel.text = "Calories: \(caloriesString)"
-        cell.timestampLabel.text = "T: \(dateString)"
+        cell.timestampLabel.text = "\(dateString)"
 
 
         return cell

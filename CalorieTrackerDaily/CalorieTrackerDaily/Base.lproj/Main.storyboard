@@ -26,18 +26,21 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieEntryCell" id="n4O-nv-KWk" customClass="CalorieEntryTableViewCell" customModule="CalorieTrackerDaily" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="285" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n4O-nv-KWk" id="cAw-lZ-Fhl">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n4O-nv-KWk" id="cAw-lZ-Fhl">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories: 1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIC-Cz-ZTe">
-                                            <rect key="frame" x="24" y="11.5" width="110" height="21"/>
+                                            <rect key="frame" x="24" y="11.5" width="120" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="35U-RZ-ZcT"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feb 15, 2018 at 10:06:42 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qY2-ns-f2o">
-                                            <rect key="frame" x="147" y="11.5" width="220" height="21"/>
+                                            <rect key="frame" x="157" y="11.5" width="220" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="aGF-i7-p95"/>
                                             </constraints>
@@ -48,6 +51,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="qY2-ns-f2o" firstAttribute="trailing" secondItem="cAw-lZ-Fhl" secondAttribute="trailingMargin" constant="8" id="LAg-Ew-nFe"/>
+                                        <constraint firstItem="qY2-ns-f2o" firstAttribute="leading" secondItem="iIC-Cz-ZTe" secondAttribute="trailing" constant="13" id="YcU-ql-AjQ"/>
                                         <constraint firstItem="iIC-Cz-ZTe" firstAttribute="leading" secondItem="cAw-lZ-Fhl" secondAttribute="leadingMargin" constant="8" id="pPe-Bu-w2j"/>
                                         <constraint firstItem="qY2-ns-f2o" firstAttribute="centerY" secondItem="cAw-lZ-Fhl" secondAttribute="centerY" id="uzu-ja-Sto"/>
                                         <constraint firstItem="iIC-Cz-ZTe" firstAttribute="centerY" secondItem="cAw-lZ-Fhl" secondAttribute="centerY" id="ytj-3n-mKH"/>
