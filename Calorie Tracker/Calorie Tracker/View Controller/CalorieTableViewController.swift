@@ -18,7 +18,9 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
         super.viewDidLoad()
         notificationCentre.addObserver(self, selector: #selector(calorieWasAdded), name: .entryWasAdded, object: nil)
         createChart()
+        view.backgroundColor = .cyan
         tableView.reloadData()
+        
     }
     // MARK: - Notification
     @objc func calorieWasAdded(_ notification: Notification){
