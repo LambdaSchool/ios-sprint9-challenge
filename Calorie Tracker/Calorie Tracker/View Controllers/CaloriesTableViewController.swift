@@ -11,9 +11,7 @@ class CaloriesTableViewController: UITableViewController {
     
     
     @IBAction func addButton(_ sender: Any) {
-        
         showInputPopUp()
-        
     }
     
     func showInputPopUp() {
@@ -26,9 +24,13 @@ class CaloriesTableViewController: UITableViewController {
             
             // Get the input values from user
             let calories = alertController.textFields?[0].text
+            let caloriesInt = Int(calories ?? "0")
+            
+            //guard let caloriesInt = caloriesInt else { return }
             
             // Put the user-entered amount into the caloriesInput property
             // caloriesInput = calories(calories: calories, timestamp: Date())
+            self.caloriesInput.append(CalorieInput(calories: caloriesInt!))
         }
         
         // Cancel action does nothing
@@ -48,4 +50,27 @@ class CaloriesTableViewController: UITableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return caloriesInput.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        let calorieInput = caloriesInput[indexPath.row]
+        
+        cell.textLabel?.text = "Calories: \(calorieInput.calories)"
+        cell.detailTextLabel?.text = "\(calorieInput.timestamp)"
+        
+        return cell
+    }
+    
+    var caloriesInput: [CalorieInput] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
+
 }
