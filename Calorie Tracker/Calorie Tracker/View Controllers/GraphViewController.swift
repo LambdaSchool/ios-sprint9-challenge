@@ -13,6 +13,7 @@ class GraphViewController: UIViewController {
 
     let calorieTrackerController = CalorieTrackerController()
     var entries: [CalorieEntry] = []
+    var chart: Chart = Chart()
     @IBOutlet weak var chartView: UIView!
     
     @IBAction func addButtonTapped(_ sender: Any) {
@@ -22,7 +23,7 @@ class GraphViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         entries = calorieTrackerController.entries
-        let chart = Chart(frame: CGRect(x: 0, y: 0, width: chartView.frame.width, height: chartView.frame.height))
+        chart = Chart(frame: CGRect(x: 0, y: 0, width: chartView.frame.width, height: chartView.frame.height))
         let arrayOfEntryCalories = entries.map{ $0.calorie }
         let series = ChartSeries(arrayOfEntryCalories)
         chart.add(series)
@@ -31,12 +32,12 @@ class GraphViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateViews()
+//        updateViews()
     }
 
-    private func updateViews() {
-        // Update Chart Here...
-    }
+//    private func updateViews() {
+//        // Update Chart Here...
+//    }
     
     func showAlert()
     {
@@ -53,9 +54,13 @@ class GraphViewController: UIViewController {
                 let text = textField.text else {return}
             
             let calorie = Double(text) ?? 0
-            //self.calorieTrackerController.entries.append(CalorieEntry(calorie: calorie))
-            self.calorieTrackerController.add(calorie: calorie)
-            
+            self.entries.append(CalorieEntry(calorie: calorie))
+            //self.calorieTrackerController.add(calorie: calorie)
+            do {
+                try CoreDataStack.shared.mainContext.save()
+            } catch {
+                print("\nGraphViewController\nError attempting to save new entry:\n\(error)")
+            }
             
         
         })
