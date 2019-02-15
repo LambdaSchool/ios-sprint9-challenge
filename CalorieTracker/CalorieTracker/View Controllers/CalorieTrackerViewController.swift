@@ -14,7 +14,6 @@ class CalorieTrackerViewController: UIViewController {
     // MARK: - Properties
     let calorieDataController = CalorieDataController()
     var calorieChart: Chart!
-    var healthKit = HealthKitHelper.shared
     
     @IBOutlet weak var headerView: UIView!
     
@@ -31,8 +30,6 @@ class CalorieTrackerViewController: UIViewController {
         setupChart()
         // Update the chart's data
         updateChart()
-        
-        healthKit.requestAuthorization()
     }
 
     // MARK: - Actions
@@ -66,11 +63,13 @@ class CalorieTrackerViewController: UIViewController {
     
     /// Updates the chart with the currently available data
     @objc private func updateChart() {
-        let data = calorieDataController.calorieDatas.map() { $0.calories }
-        let series = ChartSeries(data)
-        series.color = ChartColors.blueColor()
-        series.area = true
-        calorieChart.add(series)
+        DispatchQueue.main.async {
+            let data = self.calorieDataController.calorieDatas.map() { $0.calories }
+            let series = ChartSeries(data)
+            series.color = ChartColors.blueColor()
+            series.area = true
+            self.calorieChart.add(series)
+        }
     }
     
     /// Presents an alert for the user to add calories

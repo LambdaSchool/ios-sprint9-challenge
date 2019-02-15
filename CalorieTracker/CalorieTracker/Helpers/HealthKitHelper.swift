@@ -23,16 +23,18 @@ class HealthKitHelper {
     }
     
     
-    func requestAuthorization() {
+    func requestAuthorization(completion: @escaping (_ success: Bool) -> Void) {
+        guard let store = store else { completion(false); return }
         let type = Set([HKObjectType.quantityType(forIdentifier: .dietaryEnergyConsumed)!])
-        store?.requestAuthorization(toShare: type, read: type, completion: { (success, error) in
+        store.requestAuthorization(toShare: type, read: type, completion: { (success, error) in
             if let error = error {
                 NSLog("Error requesting permission: \(error)")
             }
+            completion(success)
         })
     }
     
-    func fetchCalorieData(for day: Date = Date(), completion: @escaping ([NewCalorieData]) -> Void) {
+    func fetchCalorieData(for day: Date = Date(), completion: @escaping ([CalorieData]) -> Void) {
         
         let calendar = Calendar.current
         
@@ -54,7 +56,7 @@ class HealthKitHelper {
         let query = HKSampleQuery(sampleType: quantityType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) {
             query, results, error in
             
-            var calorieDatas: [NewCalorieData] = []
+            var calorieDatas: [CalorieData] = []
             guard let samples = results as? [HKQuantitySample] else {
                 NSLog("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(error!.localizedDescription)")
                 completion(calorieDatas)
@@ -65,7 +67,7 @@ class HealthKitHelper {
                 let calories = sample.quantity.doubleValue(for: .kilocalorie())
                 let timestamp = sample.startDate
                 
-                let calorieData = NewCalorieData(calories: calories, timestamp: timestamp)
+                let calorieData = CalorieData(calories: calories, timestamp: timestamp)
                 calorieDatas.append(calorieData)
             }
             completion(calorieDatas)
@@ -74,7 +76,7 @@ class HealthKitHelper {
         store?.execute(query)
     }
     
-    func saveCalorieData(_ calorieData: NewCalorieData) {
+    func saveCalorieData(_ calorieData: CalorieData) {
         guard let object = HKObjectType.quantityType(forIdentifier: .dietaryEnergyConsumed) else {
             fatalError("This should never fail.")
         }

@@ -1,5 +1,5 @@
 //
-//  NewCalorieData.swift
+//  CalorieData.swift
 //  CalorieTracker
 //
 //  Created by Dillon McElhinney on 2/15/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct NewCalorieData {
+struct CalorieData {
     let calories: Double
     let timestamp: Date
     
