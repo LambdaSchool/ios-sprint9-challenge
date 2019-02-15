@@ -1,14 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w2a-Y6-3jB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nRQ-1j-uuh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Calorie Tracker-->
+        <scene sceneID="fTI-LZ-Vl5">
+            <objects>
+                <viewController id="a3D-Py-Bha" customClass="GraphViewController" customModule="Calorie_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p13-Bp-53a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zzV-cc-IKr">
+                                <rect key="frame" x="0.0" y="116" width="375" height="220.5"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7kG-Yq-jAc">
+                                <rect key="frame" x="0.0" y="336.5" width="375" height="330.5"/>
+                                <connections>
+                                    <segue destination="VVQ-XS-byc" kind="embed" id="P1m-sT-yKx"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zzV-cc-IKr" firstAttribute="centerX" secondItem="p13-Bp-53a" secondAttribute="centerX" id="1Y9-PT-dJg"/>
+                            <constraint firstItem="Zle-n7-wU0" firstAttribute="bottom" secondItem="7kG-Yq-jAc" secondAttribute="bottom" id="3Tu-I1-6zy"/>
+                            <constraint firstItem="zzV-cc-IKr" firstAttribute="top" secondItem="Zle-n7-wU0" secondAttribute="top" id="3oG-yP-0Qg"/>
+                            <constraint firstItem="7kG-Yq-jAc" firstAttribute="width" secondItem="Zle-n7-wU0" secondAttribute="width" id="IMv-nh-iPf"/>
+                            <constraint firstItem="zzV-cc-IKr" firstAttribute="width" secondItem="Zle-n7-wU0" secondAttribute="width" id="JwV-rn-fzZ"/>
+                            <constraint firstItem="7kG-Yq-jAc" firstAttribute="height" secondItem="Zle-n7-wU0" secondAttribute="height" multiplier="0.6" id="Z4o-ge-t99"/>
+                            <constraint firstItem="zzV-cc-IKr" firstAttribute="height" secondItem="Zle-n7-wU0" secondAttribute="height" multiplier="0.4" id="bT6-yO-nX4"/>
+                            <constraint firstItem="7kG-Yq-jAc" firstAttribute="centerX" secondItem="p13-Bp-53a" secondAttribute="centerX" id="rXf-R3-9Gv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Zle-n7-wU0"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="FLz-Rc-ZYo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GZT-36-Kbg"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="chartView" destination="zzV-cc-IKr" id="sEl-bU-8yO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pMm-JB-ePE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1548" y="-939.58020989505258"/>
+        </scene>
+        <!--Calorie Tracker Table View Controller-->
+        <scene sceneID="HVE-jv-aH0">
+            <objects>
+                <tableViewController id="VVQ-XS-byc" customClass="CalorieTrackerTableViewController" customModule="Calorie_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YPd-uk-7kc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="330.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="bzn-aE-vBg">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bzn-aE-vBg" id="F7W-YE-Git">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="VVQ-XS-byc" id="Ddz-k6-1hD"/>
+                            <outlet property="delegate" destination="VVQ-XS-byc" id="1Xp-wo-vGh"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z74-VC-Tt9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1548" y="-264"/>
+        </scene>
         <!--Calorie Tracker-->
         <scene sceneID="VP6-md-XIc">
             <objects>
@@ -85,6 +157,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIV-Zj-loL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="22" y="506"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Efj-kg-BXQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nRQ-1j-uuh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="6pX-ad-spW">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="a3D-Py-Bha" kind="relationship" relationship="rootViewController" id="zxx-Kc-fIa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bCM-uU-aXW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="608.79999999999995" y="-939.58020989505258"/>
         </scene>
     </scenes>
 </document>
