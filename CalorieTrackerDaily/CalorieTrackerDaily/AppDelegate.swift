@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  CalorieTrackerDaily
 //
-//  Created by TuneUp Shop  on 2/15/19.
+//  Created by jkaunert on 2/15/19.
 //  Copyright © 2019 jkaunert. All rights reserved.
 //
 
@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        print(CoreDataStack.shared.container.persistentStoreDescriptions.first?.url ?? "No Data Found")
         return true
     }
 
@@ -42,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         //FIXME: -
-        //try? CoreDataStack.shared.save(context: CoreDataStack.shared.mainContext)
+        try? CoreDataStack.shared.save(context: CoreDataStack.shared.mainContext)
     }
 
 //    // MARK: - Core Data stack

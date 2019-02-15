@@ -2,7 +2,7 @@
 //  CalorieEntryTableViewCell.swift
 //  CalorieTrackerDaily
 //
-//  Created by TuneUp Shop  on 2/15/19.
+//  Created by jkaunert on 2/15/19.
 //  Copyright © 2019 jkaunert. All rights reserved.
 //
 
