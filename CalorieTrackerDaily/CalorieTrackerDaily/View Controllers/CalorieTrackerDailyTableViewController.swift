@@ -8,8 +8,10 @@
 
 import UIKit
 import SwiftChart
+import CoreData
 
 class CalorieTrackerDailyTableViewController: UITableViewController {
+    let reuseIdentifier = "CalorieEntryCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,18 +32,27 @@ class CalorieTrackerDailyTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return calorieTrackerEntries.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! CalorieEntryTableViewCell
         // Configure the cell...
+        let entry = calorieTrackerEntries[indexPath.row]
+        let formatter = DateFormatter()
+        let dateString = formatter.string(from: entry.date!)
+        let caloriesString = String(entry.calories)
+        print(dateString)
+//        cell.caloriesLabel.text = entry.value(forKey: "calories") as? String
+//        cell.timestampLabel.text = entry.value(forKey: "date") as? String
+        cell.caloriesLabel.text = "Calories: \(caloriesString)"
+        cell.timestampLabel.text = "T: \(dateString)"
+
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -89,6 +100,9 @@ class CalorieTrackerDailyTableViewController: UITableViewController {
     */
 
     // MARK: - Properties
+    let moc = CoreDataStack.shared.mainContext
+    //var calorieTrackerEntries: [NSManagedObject] = []
+    var calorieTrackerEntries: [CalorieTrackerEntry] = []
     
     @IBAction func addEntry(_ sender: UIBarButtonItem) {
         let addEntryAlert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field below.", preferredStyle: .alert)
@@ -96,8 +110,16 @@ class CalorieTrackerDailyTableViewController: UITableViewController {
             calorieInputTextField.placeholder = "Enter Calories: "
         }
         addEntryAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in}))
-        addEntryAlert.addAction(UIAlertAction(title: "Submit", style: .default, handler: {_ in
+        addEntryAlert.addAction(UIAlertAction(title: "Submit", style: .default, handler: {
+            [unowned self] action in
             //TODO: - handle submit entry
+            guard let textField = addEntryAlert.textFields?.first, let caloriesToSave = textField.text else { return }
+            let newEntry = CalorieTrackerEntry(calories: Int32(caloriesToSave) ?? 0, context: self.moc)
+            self.calorieTrackerEntries.append(newEntry)
+            print(newEntry)
+            print(self.calorieTrackerEntries)
+            self.tableView.reloadData()
+            
         }))
         
         self.present(addEntryAlert, animated: true)
