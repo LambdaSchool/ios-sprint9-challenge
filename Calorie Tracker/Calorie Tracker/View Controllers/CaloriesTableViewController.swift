@@ -78,8 +78,20 @@ class CaloriesTableViewController: UITableViewController {
     
     // MARK: UITableViewDataSource
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     // Number of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+//        switch section {
+//        case 0:
+//            return 1
+//        case 1: return caloriesInput.count
+//        default:
+//            fatalError("Illegal section")
+//        }
         return caloriesInput.count
     }
     
@@ -87,13 +99,14 @@ class CaloriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
+            
         let calorieInput = caloriesInput[indexPath.row]
-        
+            
         cell.textLabel?.text = "Calories: \(calorieInput.calories)"
         cell.detailTextLabel?.text = "\(calorieInput.timestamp)"
-        
+            
         return cell
+        
     }
     
     // MARK: - Chart

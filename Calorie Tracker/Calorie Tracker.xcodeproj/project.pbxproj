@@ -17,6 +17,9 @@
 		84852D492217278B004761E1 /* CalorieInput+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84852D482217278B004761E1 /* CalorieInput+Convenience.swift */; };
 		84852D4B221728C2004761E1 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84852D4A221728C2004761E1 /* DateFormat.swift */; };
 		84852D4D22173569004761E1 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84852D4C22173569004761E1 /* Chart.swift */; };
+		84852D6E2217752C004761E1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84852D6D2217752C004761E1 /* CoreDataStack.swift */; };
+		84852D71221775AE004761E1 /* Calorie Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84852D6F221775AE004761E1 /* Calorie Tracker.xcdatamodeld */; };
+		84852D7422177846004761E1 /* CalorieInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84852D7322177845004761E1 /* CalorieInputController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		84852D482217278B004761E1 /* CalorieInput+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieInput+Convenience.swift"; sourceTree = "<group>"; };
 		84852D4A221728C2004761E1 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		84852D4C22173569004761E1 /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
+		84852D6D2217752C004761E1 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		84852D70221775AE004761E1 /* Calorie Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Calorie Tracker.xcdatamodel"; sourceTree = "<group>"; };
+		84852D7322177845004761E1 /* CalorieInputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieInputController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,10 +83,11 @@
 		84852D2922171A4F004761E1 /* Calorie Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				84852D41221722FF004761E1 /* Models */,
+				84852D72221777E3004761E1 /* Old Files */,
 				84852D3D22171DB6004761E1 /* View Controllers */,
 				84852D3E22171DC6004761E1 /* Storyboards */,
 				84852D3C22171DAB004761E1 /* Resources */,
+				84852D6C221774F0004761E1 /* CoreData */,
 			);
 			path = "Calorie Tracker";
 			sourceTree = "<group>";
@@ -88,6 +95,7 @@
 		84852D3C22171DAB004761E1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				84852D4A221728C2004761E1 /* DateFormat.swift */,
 				84852D2A22171A4F004761E1 /* AppDelegate.swift */,
 				84852D3122171A52004761E1 /* Assets.xcassets */,
 				84852D3622171A52004761E1 /* Info.plist */,
@@ -113,14 +121,23 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		84852D41221722FF004761E1 /* Models */ = {
+		84852D6C221774F0004761E1 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				84852D6D2217752C004761E1 /* CoreDataStack.swift */,
+				84852D482217278B004761E1 /* CalorieInput+Convenience.swift */,
+				84852D7322177845004761E1 /* CalorieInputController.swift */,
+				84852D6F221775AE004761E1 /* Calorie Tracker.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		84852D72221777E3004761E1 /* Old Files */ = {
 			isa = PBXGroup;
 			children = (
 				84852D422217232C004761E1 /* CalorieInput.swift */,
-				84852D482217278B004761E1 /* CalorieInput+Convenience.swift */,
-				84852D4A221728C2004761E1 /* DateFormat.swift */,
 			);
-			path = Models;
+			path = "Old Files";
 			sourceTree = "<group>";
 		};
 		D19A2E1E8187234158DCEF7F /* Pods */ = {
@@ -252,12 +269,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84852D6E2217752C004761E1 /* CoreDataStack.swift in Sources */,
 				84852D492217278B004761E1 /* CalorieInput+Convenience.swift in Sources */,
 				84852D4022171E2E004761E1 /* CaloriesTableViewController.swift in Sources */,
 				84852D4D22173569004761E1 /* Chart.swift in Sources */,
 				84852D2B22171A4F004761E1 /* AppDelegate.swift in Sources */,
 				84852D4B221728C2004761E1 /* DateFormat.swift in Sources */,
 				84852D432217232C004761E1 /* CalorieInput.swift in Sources */,
+				84852D7422177846004761E1 /* CalorieInputController.swift in Sources */,
+				84852D71221775AE004761E1 /* Calorie Tracker.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +477,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		84852D6F221775AE004761E1 /* Calorie Tracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				84852D70221775AE004761E1 /* Calorie Tracker.xcdatamodel */,
+			);
+			currentVersion = 84852D70221775AE004761E1 /* Calorie Tracker.xcdatamodel */;
+			path = "Calorie Tracker.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 84852D1F22171A4F004761E1 /* Project object */;
 }
