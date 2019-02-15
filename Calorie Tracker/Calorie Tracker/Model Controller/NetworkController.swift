@@ -25,9 +25,17 @@ class NetworkController {
             let jsonEncoder = JSONEncoder()
             requestURL.httpBody = try jsonEncoder.encode(entry)
         } catch {
-            
+            NSLog("Error encoding Entry Data")
+            completion(error)
         }
         
+        URLSession.shared.dataTask(with: requestURL) { (_, _, error) in
+            if let error = error {
+                NSLog("Error Putting data to Database")
+                completion(error)
+            }
+            completion(nil)
+        }.resume()
     }
     
     

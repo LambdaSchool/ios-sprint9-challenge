@@ -20,7 +20,16 @@ extension Entry: Encodable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         
         try container.encode(self.calories, forKey: .calories)
-        try container.encode(self.date, forKey: .calories)
+        try container.encode(self.date?.description, forKey: .date)
         try container.encode(self.identifier, forKey: .identifier)
     }
+    
+//    var identity: UUID {
+//        get {
+//            return self.identifier!
+//        } set {
+//            self.identifier = newValue
+//        }
+//
+//    }
 }

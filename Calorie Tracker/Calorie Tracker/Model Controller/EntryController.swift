@@ -13,10 +13,10 @@ let moc = CoreDataStack.shared.mainContext
 
 class EntryController {
     
-    func createCalorie( calories: Int) {
-        Entry(calories: calories)
+    func createCalorie( calories: Int) -> Entry {
+        let entry = Entry(calories: calories)
         save()
-        
+        return entry
     }
     
     func save(){

@@ -14,6 +14,8 @@ extension NSNotification.Name{
 }
 
 class CalorieTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+    
+    let networkController = NetworkController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,7 +108,8 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
             guard let input = alert.textFields?[0].text,
                 let calories = Int(input) else {return}
-            self.entryController.createCalorie(calories: calories)
+            let entry = self.entryController.createCalorie(calories: calories)
+            self.networkController.put(entry: entry)
             self.data.append((x: self.data.count, y: Double(calories)))
             self.chart.add(ChartSeries(data: self.data))
     
