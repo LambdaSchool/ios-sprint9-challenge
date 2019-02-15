@@ -17,6 +17,7 @@ class AddCaloriesViewController: UIViewController {
         guard let caloriesString = addCaloriesTextField.text else {return}
         let calories = caloriesString.convertToDouble()
         CalorieIntakeController.shared.calorieIntakesArray.append(CalorieIntake(calories: calories, timestamp: Date.init(), identifier: UUID.init().uuidString, insertInto: CoreDataStack.shared.mainContext))
+        CalorieIntakeController.shared.saveToPersistentStore(context: CoreDataStack.shared.mainContext)
         
         dismiss(animated: true)
         

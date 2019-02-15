@@ -14,7 +14,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        CalorieIntakeController.shared.loadFromPersistentStore()
         series = ChartSeries(CalorieIntakeController.shared.caloriesArray)
         chart.add(series)
         NotificationCenter.default.addObserver(self, selector: #selector(caloriesArrayDidChange(_:)), name: .calorieIntakesDidChange, object: nil)

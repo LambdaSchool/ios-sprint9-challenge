@@ -17,13 +17,13 @@ class CalorieIntakeController {
     
     static let shared = CalorieIntakeController()
     
-    func loadFromPersistentStore() -> [CalorieIntake] {
+    func loadFromPersistentStore() {
         let fetchRequest: NSFetchRequest<CalorieIntake> = CalorieIntake.fetchRequest()
         var results = [CalorieIntake]()
         CoreDataStack.shared.mainContext.performAndWait {
             results = try! fetchRequest.execute()
         }
-        return results
+        calorieIntakesArray = results
         
     }
     
@@ -53,7 +53,11 @@ class CalorieIntakeController {
     
     var calorieIntakesArray: [CalorieIntake] = [] {
         didSet {
-            caloriesArray.append(((calorieIntakesArray.last?.calories)) ?? 0.0)
+            if caloriesArray.count == 0 {
+                caloriesArray = calorieIntakesArray.map{ $0.calories }
+            } else {
+                caloriesArray.append((calorieIntakesArray.last?.calories)!)
+            }
             calorieIntakesArrayWasUpdated = true
         }
     }
