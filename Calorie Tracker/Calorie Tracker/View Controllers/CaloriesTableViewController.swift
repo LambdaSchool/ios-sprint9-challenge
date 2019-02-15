@@ -8,8 +8,6 @@ extension NSNotification.Name {
 
 class CaloriesTableViewController: UITableViewController {
     
-    private var chart: Chart?
-    
     @IBOutlet weak var chartView: Chart!
     
     override func viewDidLoad() {
@@ -45,12 +43,12 @@ class CaloriesTableViewController: UITableViewController {
             
             // Get the input values from user
             let calories = alertController.textFields?[0].text
-            let caloriesInt = Int(calories ?? "0")
+            let caloriesInt = Int16(calories ?? "0")
             
             //guard let caloriesInt = caloriesInt else { return }
             
             // Put the user-entered amount into the caloriesInput property
-            self.caloriesInput.append(CalorieInput(calories: caloriesInt!))
+            calorieInputController.caloriesInput.append(CalorieInput(calories: caloriesInt!))
             
             // Put the integers only in to an array that will populate the chart
             self.calorieIntsForChart.append(Double(caloriesInt!))
@@ -78,9 +76,9 @@ class CaloriesTableViewController: UITableViewController {
     
     // MARK: UITableViewDataSource
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        return 2
+//    }
     
     // Number of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,7 +90,9 @@ class CaloriesTableViewController: UITableViewController {
 //        default:
 //            fatalError("Illegal section")
 //        }
-        return caloriesInput.count
+        
+        //return caloriesInput.count
+        return calorieInputController.caloriesInput.count
     }
     
     // Cell contents
@@ -100,7 +100,7 @@ class CaloriesTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             
-        let calorieInput = caloriesInput[indexPath.row]
+        let calorieInput = calorieInputController.caloriesInput[indexPath.row]
             
         cell.textLabel?.text = "Calories: \(calorieInput.calories)"
         cell.detailTextLabel?.text = "\(calorieInput.timestamp)"
@@ -128,11 +128,14 @@ class CaloriesTableViewController: UITableViewController {
     
     // MARK: - Properties
     
-    var caloriesInput: [CalorieInput] = [] {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    private var chart: Chart?
+    
+//    var caloriesInput: [CalorieInput] = [] {
+//        didSet {
+//            tableView.reloadData()
+//        }
+//    }
+    let calorieInputController = CalorieInputController()
     
     var calorieInput: CalorieInput!
     

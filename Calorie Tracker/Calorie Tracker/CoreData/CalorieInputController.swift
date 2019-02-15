@@ -5,6 +5,12 @@ import CoreData
 
 class CalorieInputController {
     
+    var caloriesInput: [CalorieInput] {
+        
+        // Allows any changes to the persistent store to become imediately visible when accessing the array (i.e. in the table view showing a list of calorie inputs)
+        return loadFromPersistentStore()
+    }
+    
     // Saves core data stack's mainContext
     // This will bundle the changes in the context, pass them to the persistent store coordinator, who will then put those changes in the persistent store.
     func saveToPersistentStore() {
@@ -19,7 +25,7 @@ class CalorieInputController {
     }
     
     func loadFromPersistentStore() -> [CalorieInput] {
-        var calorieInput: [CalorieInput] {
+        var caloriesInput: [CalorieInput] {
             do {
                 let fetchRequest: NSFetchRequest<CalorieInput> = CalorieInput.fetchRequest()
                 let result = try CoreDataStack.shared.mainContext.fetch(fetchRequest)
@@ -28,13 +34,7 @@ class CalorieInputController {
                 fatalError("Can't fetch Data \(error)")
             }
         }
-        return calorieInput
-    }
-    
-    var caloriesInput: [CalorieInput] {
-        
-        // This allows any changes to the persistent store to become imediately visible when accessing the array (i.e. in the table view showing a list of entries)
-        return loadFromPersistentStore()
+        return caloriesInput
     }
     
     
