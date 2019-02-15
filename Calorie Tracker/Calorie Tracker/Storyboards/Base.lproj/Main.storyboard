@@ -54,7 +54,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="TFJ-t5-kth">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="jTA-OT-MVw"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="jTA-OT-MVw">
+                            <connections>
+                                <action selector="addButton:" destination="pKJ-Zi-ZNe" id="vb1-Ki-nfG"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wOv-tg-2rh" userLabel="First Responder" sceneMemberID="firstResponder"/>
