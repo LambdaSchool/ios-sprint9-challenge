@@ -1,7 +1,6 @@
 //
 //  CalorieTableViewController.swift
 //  Calorie Tracker
-//
 //  Created by Iyin Raphael on 10/26/18.
 //  Copyright © 2018 Iyin Raphael. All rights reserved.
 //
@@ -19,7 +18,6 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
     override func viewDidLoad() {
         super.viewDidLoad()
         notificationCentre.addObserver(self, selector: #selector(calorieWasAdded), name: .entryWasAdded, object: nil)
-        
        createChart()
     }
     // MARK: - Notification

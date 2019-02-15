@@ -10,10 +10,11 @@ import Foundation
 import CoreData
 
 extension Entry {
-    @discardableResult convenience init(date: Date = Date(), calories: Int, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    @discardableResult convenience init(date: Date = Date(), calories: Int, identifier: UUID = UUID(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.date = date
         self.calories = Int32(calories)
+        self.identifier = identifier 
     }
     
 }
