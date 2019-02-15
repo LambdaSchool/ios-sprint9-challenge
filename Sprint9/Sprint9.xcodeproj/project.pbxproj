@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A52FCA8922171DB30073AF00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FCA8822171DB30073AF00 /* AppDelegate.swift */; };
-		A52FCA8B22171DB30073AF00 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FCA8A22171DB30073AF00 /* ViewController.swift */; };
 		A52FCA8E22171DB30073AF00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A52FCA8C22171DB30073AF00 /* Main.storyboard */; };
 		A52FCA9022171DB40073AF00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52FCA8F22171DB40073AF00 /* Assets.xcassets */; };
 		A52FCA9322171DB40073AF00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A52FCA9122171DB40073AF00 /* LaunchScreen.storyboard */; };
@@ -21,7 +20,6 @@
 		92ADCE1CECB1493CEEABE578 /* Pods-Sprint9.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sprint9.debug.xcconfig"; path = "Target Support Files/Pods-Sprint9/Pods-Sprint9.debug.xcconfig"; sourceTree = "<group>"; };
 		A52FCA8522171DB30073AF00 /* Sprint9.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sprint9.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A52FCA8822171DB30073AF00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A52FCA8A22171DB30073AF00 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A52FCA8D22171DB30073AF00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A52FCA8F22171DB40073AF00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A52FCA9222171DB40073AF00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -74,7 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				A52FCA8822171DB30073AF00 /* AppDelegate.swift */,
-				A52FCA8A22171DB30073AF00 /* ViewController.swift */,
 				A52FCA8C22171DB30073AF00 /* Main.storyboard */,
 				A52FCA8F22171DB40073AF00 /* Assets.xcassets */,
 				A52FCA9122171DB40073AF00 /* LaunchScreen.storyboard */,
@@ -212,7 +209,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A52FCA8B22171DB30073AF00 /* ViewController.swift in Sources */,
 				A52FCA8922171DB30073AF00 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
