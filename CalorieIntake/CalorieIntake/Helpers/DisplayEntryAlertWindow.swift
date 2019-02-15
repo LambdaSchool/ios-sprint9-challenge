@@ -36,6 +36,9 @@ class DisplayEntryAlertWindow {
                     print("unable to save new calorie event to Core Data")
                     return
                 }
+                
+                NotificationCenter.default.post(name: .updateChart, object: self)
+                
                 return
             case .cancel:
                 return
@@ -49,5 +52,13 @@ class DisplayEntryAlertWindow {
         
         return alert
     }
+    
+    
+    
+    
+    
+    // MARK: - Properties
+    
+    var calorieController: CalorieController = CalorieController()
     
 }

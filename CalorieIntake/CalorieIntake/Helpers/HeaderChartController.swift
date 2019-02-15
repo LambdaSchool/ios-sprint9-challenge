@@ -12,14 +12,22 @@ import CoreData
 
 class HeaderChartController {
     
-    static func setup() -> Chart {
+    init(){
+        self.chart = Chart()
+        self.series = ChartSeries([])
+        setup()
         
-        let headerView: Chart = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
-        let series = ChartSeries([0, 6.5, 2, 8, 4.1, 7, -3.1, 10, 8])
+    }
+    
+    func setup() {
+        
+        chart = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+        updateChartFromCoreData()
         series.area = true
-        headerView.add(series)
+        chart.add(series)
         
-        return headerView
+        NotificationCenter.default.addObserver(self, selector: #selector(updateChart(_:)), name: .updateChart, object: nil)
+    
     }
     
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieEvent> = {
@@ -29,7 +37,7 @@ class HeaderChartController {
         
         let moc = CoreDataStack.shared.mainContext
         
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "timestamp", cacheName: nil)
         
         do {
             try frc.performFetch()
@@ -39,4 +47,32 @@ class HeaderChartController {
         
         return frc
     }()
+    
+    @objc func updateChart(_ notification: Notification){
+        
+        updateChartFromCoreData()
+        
+    }
+    
+    func updateChartFromCoreData(){
+        guard let fetchCount = fetchedResultsController.fetchedObjects?.count else { return }
+        
+        guard let fetchedObjects = fetchedResultsController.fetchedObjects else { return }
+        
+        series.data = []
+        for index in 0..<fetchCount{
+            let calorieEvent = fetchedObjects[index]
+            let amount = calorieEvent.numberOfCalories
+            series.data.append((x: Double(index), y: amount))
+        }
+        
+    }
+    
+    
+    
+    // MARK: Properties
+    
+    var chart: Chart
+    var series: ChartSeries
+    
 }

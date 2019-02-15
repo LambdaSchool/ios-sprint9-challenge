@@ -10,14 +10,15 @@ import UIKit
 import SwiftChart
 import CoreData
 
-class CalorieEntryTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class CalorieEntryTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, ChartDelegate {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Set up
-        
-        tableView.tableHeaderView = HeaderChartController.setup()
+        // Set up chart header View
+        tableView.tableHeaderView = headerChartController.chart
+        headerChartController.chart.delegate = self
 
     }
 
@@ -32,11 +33,11 @@ class CalorieEntryTableViewController: UITableViewController, NSFetchedResultsCo
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath) as? CalorieTableViewCell else { fatalError("Unable to Dequeue cell as CalorieTableViewCell") }
         
         let calorieEvent = fetchedResultsController.object(at: indexPath)
-        cell.calorieNumberLabel.text = "\(calorieEvent.numberOfCalories)"
+        cell.calorieNumberLabel.text = "\(Int(calorieEvent.numberOfCalories))"
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
+        dateFormatter.timeStyle = .medium
         dateFormatter.locale = Locale(identifier: "en_US")
         
         guard let timestamp = calorieEvent.timestamp else { fatalError("Cell Calorie Event had no associated Timestamp") }
@@ -62,6 +63,29 @@ class CalorieEntryTableViewController: UITableViewController, NSFetchedResultsCo
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: - Chart Touch Delegate Methods
+    
+    func didTouchChart(_ chart: Chart, indexes: [Int?], x: Double, left: CGFloat) {
+        
+    }
+
+    func didFinishTouchingChart(_ chart: Chart) {
+        
+    }
+
+    func didEndTouchingChart(_ chart: Chart) {
+        
+    }
+//    func didTouchChart(chart: Chart, indexes: Array<Int?>, x: Double, left: CGFloat) {
+//        for (seriesIndex, dataIndex) in enumerate(indexes) {
+//            if dataIndex != nil {
+//                // The series at `seriesIndex` is that which has been touched
+//                let value = chart.valueForSeries(seriesIndex, atIndex: dataIndex)
+//            }
+//        }
+//    }
+//
     
     // MARK: - FetchedResultsControllerDelegateMethods
     
@@ -126,6 +150,7 @@ class CalorieEntryTableViewController: UITableViewController, NSFetchedResultsCo
     // MARK: - Properties
     @IBOutlet weak var addCaloriesBarButton: UIBarButtonItem!
     var calorieController: CalorieController = CalorieController()
+    var headerChartController: HeaderChartController = HeaderChartController()
     
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieEvent> = {
         

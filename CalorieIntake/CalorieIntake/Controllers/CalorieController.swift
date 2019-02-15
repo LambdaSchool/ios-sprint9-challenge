@@ -25,5 +25,5 @@ class CalorieController {
             NSLog("Error saving managed object context: \(error)")
         }
     }
-    
+
 }

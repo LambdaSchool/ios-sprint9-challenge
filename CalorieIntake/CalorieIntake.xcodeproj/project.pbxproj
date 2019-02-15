@@ -22,6 +22,7 @@
 		D1CF34342217227B004CE687 /* DisplayEntryAlertWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF34332217227B004CE687 /* DisplayEntryAlertWindow.swift */; };
 		D1CF343622172B24004CE687 /* HeaderChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF343522172B24004CE687 /* HeaderChartController.swift */; };
 		D1CF343922172D84004CE687 /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF343822172D84004CE687 /* CalorieController.swift */; };
+		D1CF343B221730BE004CE687 /* Notification+UpdateChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF343A221730BE004CE687 /* Notification+UpdateChart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		D1CF34332217227B004CE687 /* DisplayEntryAlertWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayEntryAlertWindow.swift; sourceTree = "<group>"; };
 		D1CF343522172B24004CE687 /* HeaderChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderChartController.swift; sourceTree = "<group>"; };
 		D1CF343822172D84004CE687 /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
+		D1CF343A221730BE004CE687 /* Notification+UpdateChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+UpdateChart.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 			children = (
 				D1CF34332217227B004CE687 /* DisplayEntryAlertWindow.swift */,
 				D1CF343522172B24004CE687 /* HeaderChartController.swift */,
+				D1CF343A221730BE004CE687 /* Notification+UpdateChart.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 			files = (
 				D1CF342622171C69004CE687 /* CalorieEntryTableViewController.swift in Sources */,
 				D1CF340522171A8D004CE687 /* AppDelegate.swift in Sources */,
+				D1CF343B221730BE004CE687 /* Notification+UpdateChart.swift in Sources */,
 				D1CF3432221721A4004CE687 /* CalorieEvent+Convenience.swift in Sources */,
 				D1CF34342217227B004CE687 /* DisplayEntryAlertWindow.swift in Sources */,
 				D1CF343022172101004CE687 /* CalorieIntake.xcdatamodeld in Sources */,
