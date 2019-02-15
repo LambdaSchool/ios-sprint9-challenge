@@ -19,6 +19,8 @@ class CalorieEntryTableViewController: UITableViewController, NSFetchedResultsCo
         // Set up chart header View
         tableView.tableHeaderView = headerChartController.chart
         headerChartController.chart.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateChart(_:)), name: .updateChart, object: nil)
 
     }
 
@@ -144,6 +146,11 @@ class CalorieEntryTableViewController: UITableViewController, NSFetchedResultsCo
         
     }
     
+    @objc func updateChart(_ notification: Notification){
+        
+        headerChartController.updateChartFromCoreData()
+        tableView.tableHeaderView = headerChartController.chart
+    }
     
     
     

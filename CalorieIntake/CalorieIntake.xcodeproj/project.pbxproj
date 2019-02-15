@@ -168,7 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				D1CF34332217227B004CE687 /* DisplayEntryAlertWindow.swift */,
-				D1CF343522172B24004CE687 /* HeaderChartController.swift */,
 				D1CF343A221730BE004CE687 /* Notification+UpdateChart.swift */,
 			);
 			path = Helpers;
@@ -187,6 +186,7 @@
 		D1CF343722172D43004CE687 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D1CF343522172B24004CE687 /* HeaderChartController.swift */,
 				D1CF343822172D84004CE687 /* CalorieController.swift */,
 			);
 			path = Controllers;

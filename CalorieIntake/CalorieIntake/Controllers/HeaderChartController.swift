@@ -25,8 +25,6 @@ class HeaderChartController {
         updateChartFromCoreData()
         series.area = true
         chart.add(series)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(updateChart(_:)), name: .updateChart, object: nil)
     
     }
     
@@ -48,27 +46,32 @@ class HeaderChartController {
         return frc
     }()
     
-    @objc func updateChart(_ notification: Notification){
-        
-        updateChartFromCoreData()
-        
-    }
-    
     func updateChartFromCoreData(){
-        guard let fetchCount = fetchedResultsController.fetchedObjects?.count else { return }
-        
-        guard let fetchedObjects = fetchedResultsController.fetchedObjects else { return }
-        
+
+        let fetchedResult = fetchCalorieEvents()
         series.data = []
-        for index in 0..<fetchCount{
-            let calorieEvent = fetchedObjects[index]
+        for index in 0..<fetchedResult.count{
+            let calorieEvent = fetchedResult[index]
             let amount = calorieEvent.numberOfCalories
             series.data.append((x: Double(index), y: amount))
         }
-        
+        chart.series = [series]
     }
     
-    
+    private func fetchCalorieEvents()-> [CalorieEvent] {
+        let moc = CoreDataStack.shared.mainContext
+        let fetchRequest = NSFetchRequest<CalorieEvent>(entityName: "CalorieEvent")
+        var fetchedResults: [CalorieEvent] = []
+        do {
+            fetchedResults = try moc.fetch(fetchRequest)
+        } catch let error as NSError {
+            // something went wrong, print the error.
+            print(error.description)
+        }
+        
+        return fetchedResults
+        
+    }
     
     // MARK: Properties
     
