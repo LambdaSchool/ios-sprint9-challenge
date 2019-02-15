@@ -20,6 +20,9 @@ class CalorieEntryTableViewController: UITableViewController, NSFetchedResultsCo
         tableView.tableHeaderView = headerChartController.chart
         headerChartController.chart.delegate = self
         
+        // add a footer view so that empty cells don't show up
+        tableView.tableFooterView = UIView()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(updateChart(_:)), name: .updateChart, object: nil)
 
     }
@@ -53,7 +56,11 @@ class CalorieEntryTableViewController: UITableViewController, NSFetchedResultsCo
             
             let calorieEntry = fetchedResultsController.object(at: indexPath)
             calorieController.deleteCalorieEntry(for: calorieEntry)
+            NotificationCenter.default.post(name: .updateChart, object: self)
+            
         }
+        
+        
     }
 
     /*
