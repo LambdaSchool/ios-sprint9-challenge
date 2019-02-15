@@ -18,6 +18,9 @@
 		341EE7492183642800670354 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 341EE7482183642800670354 /* Assets.xcassets */; };
 		341EE74C2183642800670354 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341EE74A2183642800670354 /* LaunchScreen.storyboard */; };
 		346A3EC922171E320034E8CE /* NotificationName+CustomNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346A3EC822171E320034E8CE /* NotificationName+CustomNames.swift */; };
+		346A3ECD221723910034E8CE /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346A3ECC221723910034E8CE /* HealthKit.framework */; };
+		346A3ECF221723D70034E8CE /* HealthKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346A3ECE221723D70034E8CE /* HealthKitHelper.swift */; };
+		346A3ED122172EA10034E8CE /* NewCalorieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346A3ED022172EA10034E8CE /* NewCalorieData.swift */; };
 		A61C101D6C55958E3D165B20 /* Pods_CalorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D60753BD84D2CE6D7C5B4E /* Pods_CalorieTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +40,10 @@
 		341EE74B2183642800670354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		341EE74D2183642800670354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		346A3EC822171E320034E8CE /* NotificationName+CustomNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+CustomNames.swift"; sourceTree = "<group>"; };
+		346A3ECB221723910034E8CE /* CalorieTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalorieTracker.entitlements; sourceTree = "<group>"; };
+		346A3ECC221723910034E8CE /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		346A3ECE221723D70034E8CE /* HealthKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitHelper.swift; sourceTree = "<group>"; };
+		346A3ED022172EA10034E8CE /* NewCalorieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCalorieData.swift; sourceTree = "<group>"; };
 		4909254392B3A65E407C0E2D /* Pods-CalorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		CA33237D1BAF685643D4009A /* Pods-CalorieTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -47,6 +54,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A61C101D6C55958E3D165B20 /* Pods_CalorieTracker.framework in Frameworks */,
+				346A3ECD221723910034E8CE /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +85,7 @@
 			children = (
 				341106D3218368F5009673BA /* CalorieTracker.xcdatamodeld */,
 				341106DC21836B99009673BA /* CalorieData+Convenience.swift */,
+				346A3ED022172EA10034E8CE /* NewCalorieData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -102,6 +111,7 @@
 		341EE7402183642700670354 /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
+				346A3ECB221723910034E8CE /* CalorieTracker.entitlements */,
 				341EE7412183642700670354 /* AppDelegate.swift */,
 				341106DB21836B85009673BA /* Model */,
 				341106D921836AD5009673BA /* CalorieDataController.swift */,
@@ -118,6 +128,7 @@
 			children = (
 				341106D7218369EF009673BA /* CoreDataStack.swift */,
 				346A3EC822171E320034E8CE /* NotificationName+CustomNames.swift */,
+				346A3ECE221723D70034E8CE /* HealthKitHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -125,6 +136,7 @@
 		4832A976772D18C72A337B74 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				346A3ECC221723910034E8CE /* HealthKit.framework */,
 				09D60753BD84D2CE6D7C5B4E /* Pods_CalorieTracker.framework */,
 			);
 			name = Frameworks;
@@ -173,6 +185,11 @@
 				TargetAttributes = {
 					341EE73D2183642700670354 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -260,10 +277,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				341106D8218369EF009673BA /* CoreDataStack.swift in Sources */,
+				346A3ECF221723D70034E8CE /* HealthKitHelper.swift in Sources */,
 				341106D1218367E9009673BA /* CalorieTrackerTableViewController.swift in Sources */,
 				341106DD21836B99009673BA /* CalorieData+Convenience.swift in Sources */,
 				346A3EC922171E320034E8CE /* NotificationName+CustomNames.swift in Sources */,
 				341EE7422183642700670354 /* AppDelegate.swift in Sources */,
+				346A3ED122172EA10034E8CE /* NewCalorieData.swift in Sources */,
 				341106D5218368F5009673BA /* CalorieTracker.xcdatamodeld in Sources */,
 				341106CF218367D1009673BA /* CalorieTrackerViewController.swift in Sources */,
 				341106DA21836AD5009673BA /* CalorieDataController.swift in Sources */,
@@ -413,6 +432,7 @@
 			baseConfigurationReference = 4909254392B3A65E407C0E2D /* Pods-CalorieTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CalorieTracker/CalorieTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SS9AYZ8LT;
 				INFOPLIST_FILE = "$(SRCROOT)/CalorieTracker/Resources/Info.plist";
@@ -432,6 +452,7 @@
 			baseConfigurationReference = CA33237D1BAF685643D4009A /* Pods-CalorieTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CalorieTracker/CalorieTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SS9AYZ8LT;
 				INFOPLIST_FILE = "$(SRCROOT)/CalorieTracker/Resources/Info.plist";

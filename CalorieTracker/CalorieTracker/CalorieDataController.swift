@@ -11,23 +11,25 @@ import CoreData
 
 class CalorieDataController {
     // MARK: - Properties
-    private(set) var calorieDatas: [CalorieData] = [] {
+    private(set) var calorieDatas: [NewCalorieData] = [] {
         didSet {
             // Notify the observers that the data has been updated.
             NotificationCenter.default.post(name: .updatedCalorieDataNotification, object: nil)
         }
     }
     
+    let healthKit = HealthKitHelper.shared
+    
     // MARK: - Properties
     init() {
-        fetchCalories()
+        fetchHealthKitCalories()
     }
     
     // MARK: - CRUD Methods
     func createCalorieData(calories: Double, timestamp: Date = Date(), id: String = UUID().uuidString) {
         let newCalorie = CalorieData(calories: calories, timestamp: timestamp, id: id)
         
-        calorieDatas.append(newCalorie)
+//        calorieDatas.append(newCalorie)
         saveToPersistentStore()
     }
     
@@ -50,9 +52,15 @@ class CalorieDataController {
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {
-            calorieDatas = try CoreDataStack.shared.mainContext.fetch(fetchRequest)
+//            calorieDatas = try CoreDataStack.shared.mainContext.fetch(fetchRequest)
         } catch {
             NSLog("Error fetching Calories to main object context: \(error)")
+        }
+    }
+    
+    func fetchHealthKitCalories() {
+        healthKit.fetchCalorieData { (calories) in
+            self.calorieDatas = calories
         }
     }
 }

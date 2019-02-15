@@ -14,6 +14,7 @@ class CalorieTrackerViewController: UIViewController {
     // MARK: - Properties
     let calorieDataController = CalorieDataController()
     var calorieChart: Chart!
+    var healthKit = HealthKitHelper.shared
     
     @IBOutlet weak var headerView: UIView!
     
@@ -30,6 +31,8 @@ class CalorieTrackerViewController: UIViewController {
         setupChart()
         // Update the chart's data
         updateChart()
+        
+        healthKit.requestAuthorization()
     }
 
     // MARK: - Actions
