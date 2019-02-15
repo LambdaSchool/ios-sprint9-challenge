@@ -12,6 +12,11 @@
 		A52FCA9022171DB40073AF00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52FCA8F22171DB40073AF00 /* Assets.xcassets */; };
 		A52FCA9322171DB40073AF00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A52FCA9122171DB40073AF00 /* LaunchScreen.storyboard */; };
 		A52FCA9B22171EBB0073AF00 /* SwiftChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52FCA9A22171EBB0073AF00 /* SwiftChart.framework */; };
+		A52FCA9D221720570073AF00 /* CalorieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FCA9C221720570073AF00 /* CalorieTableViewController.swift */; };
+		A52FCA9F221722C00073AF00 /* CalorieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FCA9E221722C00073AF00 /* CalorieTableViewCell.swift */; };
+		A52FCAA1221729B30073AF00 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FCAA0221729B30073AF00 /* CoreDataStack.swift */; };
+		A52FCAA4221729FA0073AF00 /* Calorie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A52FCAA2221729FA0073AF00 /* Calorie.xcdatamodeld */; };
+		A52FCAAA221737EC0073AF00 /* Calorie+Conv.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FCAA9221737EC0073AF00 /* Calorie+Conv.swift */; };
 		B4887F444A54FCF47CDC3690 /* Pods_Sprint9.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD63EB9C222B927E309AA25D /* Pods_Sprint9.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +30,11 @@
 		A52FCA9222171DB40073AF00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A52FCA9422171DB40073AF00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A52FCA9A22171EBB0073AF00 /* SwiftChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A52FCA9C221720570073AF00 /* CalorieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewController.swift; sourceTree = "<group>"; };
+		A52FCA9E221722C00073AF00 /* CalorieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewCell.swift; sourceTree = "<group>"; };
+		A52FCAA0221729B30073AF00 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		A52FCAA3221729FA0073AF00 /* Calorie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calorie.xcdatamodel; sourceTree = "<group>"; };
+		A52FCAA9221737EC0073AF00 /* Calorie+Conv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calorie+Conv.swift"; sourceTree = "<group>"; };
 		AD63EB9C222B927E309AA25D /* Pods_Sprint9.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sprint9.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -73,6 +83,11 @@
 			children = (
 				A52FCA8822171DB30073AF00 /* AppDelegate.swift */,
 				A52FCA8C22171DB30073AF00 /* Main.storyboard */,
+				A52FCA9C221720570073AF00 /* CalorieTableViewController.swift */,
+				A52FCAA2221729FA0073AF00 /* Calorie.xcdatamodeld */,
+				A52FCAA0221729B30073AF00 /* CoreDataStack.swift */,
+				A52FCAA9221737EC0073AF00 /* Calorie+Conv.swift */,
+				A52FCA9E221722C00073AF00 /* CalorieTableViewCell.swift */,
 				A52FCA8F22171DB40073AF00 /* Assets.xcassets */,
 				A52FCA9122171DB40073AF00 /* LaunchScreen.storyboard */,
 				A52FCA9422171DB40073AF00 /* Info.plist */,
@@ -209,7 +224,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A52FCA9D221720570073AF00 /* CalorieTableViewController.swift in Sources */,
+				A52FCAA4221729FA0073AF00 /* Calorie.xcdatamodeld in Sources */,
 				A52FCA8922171DB30073AF00 /* AppDelegate.swift in Sources */,
+				A52FCAAA221737EC0073AF00 /* Calorie+Conv.swift in Sources */,
+				A52FCA9F221722C00073AF00 /* CalorieTableViewCell.swift in Sources */,
+				A52FCAA1221729B30073AF00 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +431,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A52FCAA2221729FA0073AF00 /* Calorie.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A52FCAA3221729FA0073AF00 /* Calorie.xcdatamodel */,
+			);
+			currentVersion = A52FCAA3221729FA0073AF00 /* Calorie.xcdatamodel */;
+			path = Calorie.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A52FCA7D22171DB20073AF00 /* Project object */;
 }
