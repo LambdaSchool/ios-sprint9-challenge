@@ -43,7 +43,11 @@
                         <viewLayoutGuide key="safeArea" id="Zle-n7-wU0"/>
                     </view>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="FLz-Rc-ZYo">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GZT-36-Kbg"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GZT-36-Kbg">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="a3D-Py-Bha" id="xG1-fH-hqf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="chartView" destination="zzV-cc-IKr" id="sEl-bU-8yO"/>
@@ -57,17 +61,26 @@
         <scene sceneID="HVE-jv-aH0">
             <objects>
                 <tableViewController id="VVQ-XS-byc" customClass="CalorieTrackerTableViewController" customModule="Calorie_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YPd-uk-7kc">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YPd-uk-7kc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="330.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="bzn-aE-vBg">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieCell" textLabel="G5m-Aj-xWC" rowHeight="50" style="IBUITableViewCellStyleDefault" id="bzn-aE-vBg">
+                                <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bzn-aE-vBg" id="F7W-YE-Git">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G5m-Aj-xWC">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="49.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -121,10 +134,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="BsN-rU-gqy">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="FbD-mm-aIn"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="FbD-mm-aIn">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="NZb-MC-33J" id="Com-Oc-NaO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DmI-oV-nML" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="NZb-MC-33J" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="21.600000000000001" y="-39.130434782608695"/>
         </scene>

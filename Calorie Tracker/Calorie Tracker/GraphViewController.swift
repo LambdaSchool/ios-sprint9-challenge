@@ -13,9 +13,12 @@ class GraphViewController: UIViewController {
 
     @IBOutlet weak var chartView: UIView!
     
+    @IBAction func addButtonTapped(_ sender: Any) {
+        showAlert()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         let chart = Chart(frame: CGRect(x: 0, y: 0, width: chartView.frame.width, height: chartView.frame.height))
         let series = ChartSeries([0, 6.5, 2, 8, 4.1, 7, -3.1, 10, 8])
         chart.add(series)
@@ -23,7 +26,20 @@ class GraphViewController: UIViewController {
     }
     
 
-    
+    func showAlert()
+    {
+        let alertController = UIAlertController(title: "Add Calorie Tracker", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let submitAction = UIAlertAction(title: "Submit", style: .default, handler: nil)
+
+        // TODO: Add the text field with handler
+        alertController.addTextField { (textField) in
+            print("Observe and Send Notification")
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(submitAction)
+        present(alertController, animated: true)
+    }
     
     
     /*
