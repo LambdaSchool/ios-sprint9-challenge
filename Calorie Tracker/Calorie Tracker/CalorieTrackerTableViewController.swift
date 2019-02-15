@@ -7,18 +7,22 @@
 //
 
 import UIKit
+import CoreData
 
-class CalorieTrackerTableViewController: UITableViewController {
+class CalorieTrackerTableViewController: UITableViewController{
+    
+    // MARK: - Properties
     var food = ["Pizza", "Cheeseburger", "Burrito"]
+    var dateFormatter: DateFormatter  {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .short
+        return formatter
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.reloadData()
     }
 
     func viewWillAppear() {
@@ -34,6 +38,7 @@ class CalorieTrackerTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        //fetchResults
         return food.count
     }
 
@@ -56,17 +61,9 @@ class CalorieTrackerTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
 
     /*
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
