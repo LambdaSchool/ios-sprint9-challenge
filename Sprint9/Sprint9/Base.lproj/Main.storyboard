@@ -67,11 +67,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="tQz-Uo-Egb">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="T4w-xF-5qf">
-                            <connections>
-                                <action selector="addCalorie:" destination="Ag5-fm-ywQ" id="mEx-LZ-2sF"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="T4w-xF-5qf">
+                                <connections>
+                                    <action selector="addCalorie:" destination="Ag5-fm-ywQ" id="mEx-LZ-2sF"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem enabled="NO" title="Remove" id="o7g-2R-TfL">
+                                <connections>
+                                    <action selector="removeCalories:" destination="Ag5-fm-ywQ" id="FOp-on-kEV"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="chart" destination="ipU-zC-GVh" id="Yf2-SG-hPm"/>
@@ -86,8 +93,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0mA-QB-Q1e" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qUq-1I-DhP">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="qUq-1I-DhP">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

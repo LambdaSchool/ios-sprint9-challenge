@@ -11,11 +11,27 @@ import SwiftChart
 import CoreData
 
 extension NSNotification.Name {
-    static let cleanCalories = NSNotification.Name("cleanCalories")
+    static let caloriesDidChange = NSNotification.Name("cleanCalories")
 }
 
 class CalorieTableViewController: UITableViewController {
     
+//    @IBAction func removeCalories(_ sender: Any) {
+//      
+//        chart.removeAllSeries()
+//        do {
+//            try CoreDataStack.shared.mainContext.save()
+//            let nc = NotificationCenter.default
+//            nc.addObserver(self, selector: #selector(caloriesDidChange(_:)), name: .caloriesDidChange, object: nil)
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        } catch {
+//            print("Failed to delete task: \(error)")
+//        }
+//        calories = fetchCalorieFromStore()
+//        
+//    }
     
     
     func fetchCalorieFromStore() -> [Calorie] {
@@ -25,12 +41,11 @@ class CalorieTableViewController: UITableViewController {
         let resualt = (try? CoreDataStack.shared.mainContext.fetch(fetchRequest)) ?? []
         return resualt
     }
-    
+    var caloriesIndex: [Int] = []
     var calories: [Calorie] = []
     var timestamp: [String] = []
     var series = ChartSeries([])
-    var calorieData = Calorie(data: 0)
-    
+    var calorieData = Calorie()
     @IBAction func addCalorie(_ sender: Any) {
         addCalories()
         
@@ -41,7 +56,7 @@ class CalorieTableViewController: UITableViewController {
         super.viewDidLoad()
 
         let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(cleanCalories(_:)), name: .cleanCalories, object: nil)
+        nc.addObserver(self, selector: #selector(caloriesDidChange(_:)), name: .caloriesDidChange, object: nil)
         calories = fetchCalorieFromStore()
         navigationItem.title = "Calorie Tracker"
         
@@ -56,14 +71,21 @@ class CalorieTableViewController: UITableViewController {
         chart.frame = CGRect(x: 0, y: 0, width: 250, height: 450)
         
         series.color = ChartColors.greenColor()
-        chart.xLabelsFormatter = { "Day \(Int (round($1)))" }
         chart.add(series)
+       
+        chart.xLabelsFormatter = { "Day \(Int (round($1)))" }
+        
         series.area = true
         
         
     }
 
     // MARK: - Table view data source
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
 override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return calories.count
@@ -73,25 +95,37 @@ override func tableView(_ tableView: UITableView, numberOfRowsInSection section:
       
         cell.calorie.text = "Calorie: \(Int(calories[indexPath.row].data))" //" \(Int(data[indexPath.row]))"
         cell.timestamp.text = calories[indexPath.row].timestamp  //"\(timeFormatted)"
+        
+        func remove() {
+            tableView.cellForRow(at: indexPath)?.removeFromSuperview()
+        }
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            
-//            let calorie = data[indexPath.row]
-//            
-//            CoreDataStack.shared.mainContext.delete(calories[indexPath.row])
-//            
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//            do {
-//                try CoreDataStack.shared.mainContext.save()
-//            } catch {
-//                print("Failed to delete task: \(error)")
-//            }
-//        }
-//    }
-    @objc func cleanCalories(_ notification: Notification) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            let calorie = calories[indexPath.row]
+            
+            CoreDataStack.shared.mainContext.delete(calorie)
+            
+            //tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            do {
+                try CoreDataStack.shared.mainContext.save()
+                let nc = NotificationCenter.default
+                nc.addObserver(self, selector: #selector(caloriesDidChange(_:)), name: .caloriesDidChange, object: nil)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } catch {
+                print("Failed to delete task: \(error)")
+            }
+        }
+        calories = fetchCalorieFromStore()
+       
+    }
+    @objc func caloriesDidChange(_ notification: Notification) {
         tableView?.reloadData()
         chart.removeAllSeries()
         chart.add(series)
@@ -118,18 +152,19 @@ override func tableView(_ tableView: UITableView, numberOfRowsInSection section:
             
             do {
                 try CoreDataStack.shared.mainContext.save()
-                self.navigationController?.popViewController(animated: true)
+                
             } catch {
                 print("Failed to save \(error)")
             }
+            let nc = NotificationCenter.default
+            nc.post(name: .caloriesDidChange, object: self)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (_) in
             self.dismiss(animated: true, completion: {
                 
                 self.show(self, sender: self.reloadInputViews())
-                let nc = NotificationCenter.default
-                nc.post(name: .cleanCalories, object: self)
+                
             })
         }
         alert.addAction(cancelAction)
