@@ -54,7 +54,7 @@ class CalorieTrackerTableViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
-        cell.textLabel?.text = "Calories: \(entries[indexPath.row].calorie)  \t\(String(describing: entries[indexPath.row].timestamp))"
+        cell.textLabel?.text = "Calories: \(entries[indexPath.row].calorie) \t\t\t\((entries[indexPath.row].timestamp)!)"
         return cell
     }
     

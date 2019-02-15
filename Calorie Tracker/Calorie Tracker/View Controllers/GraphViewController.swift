@@ -61,8 +61,7 @@ class GraphViewController: UIViewController {
             } catch {
                 print("\nGraphViewController\nError attempting to save new entry:\n\(error)")
             }
-            
-        
+
         })
 
         alertController.addAction(cancelAction)
