@@ -54,21 +54,38 @@ class HealthKitHelper {
         let query = HKSampleQuery(sampleType: quantityType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) {
             query, results, error in
             
+            var calorieDatas: [NewCalorieData] = []
             guard let samples = results as? [HKQuantitySample] else {
-                fatalError("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(error!.localizedDescription)");
+                NSLog("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(error!.localizedDescription)")
+                completion(calorieDatas)
+                return
             }
             
-            var results: [NewCalorieData] = []
             for sample in samples {
                 let calories = sample.quantity.doubleValue(for: .kilocalorie())
                 let timestamp = sample.startDate
                 
                 let calorieData = NewCalorieData(calories: calories, timestamp: timestamp)
-                results.append(calorieData)
+                calorieDatas.append(calorieData)
             }
-            completion(results)
+            completion(calorieDatas)
         }
         
         store?.execute(query)
+    }
+    
+    func saveCalorieData(_ calorieData: NewCalorieData) {
+        guard let object = HKObjectType.quantityType(forIdentifier: .dietaryEnergyConsumed) else {
+            fatalError("This should never fail.")
+        }
+        
+        let quantity = HKQuantity(unit: .kilocalorie(), doubleValue: calorieData.calories)
+        let sample = HKQuantitySample(type: object, quantity: quantity, start: calorieData.timestamp, end: calorieData.timestamp)
+        
+        store?.save(sample, withCompletion: { (_, error) in
+            if let error = error {
+                NSLog("Error saving calorie: \(error)")
+            }
+        })
     }
 }

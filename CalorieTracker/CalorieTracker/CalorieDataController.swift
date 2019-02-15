@@ -26,36 +26,11 @@ class CalorieDataController {
     }
     
     // MARK: - CRUD Methods
-    func createCalorieData(calories: Double, timestamp: Date = Date(), id: String = UUID().uuidString) {
-        let newCalorie = CalorieData(calories: calories, timestamp: timestamp, id: id)
+    func createCalorieData(calories: Double, timestamp: Date = Date()) {
+        let newCalorie = NewCalorieData(calories: calories, timestamp: timestamp)
         
-//        calorieDatas.append(newCalorie)
-        saveToPersistentStore()
-    }
-    
-    // MARK: - Persistence
-    private func saveToPersistentStore() {
-        let mainContext = CoreDataStack.shared.mainContext
-        mainContext.performAndWait {
-            do {
-                try mainContext.save()
-            } catch {
-                NSLog("Error saving main object context: \(error)")
-            }
-        }
-    }
-    
-    func fetchCalories(){
-        let fetchRequest: NSFetchRequest<CalorieData> = CalorieData.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: true)
-        
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        do {
-//            calorieDatas = try CoreDataStack.shared.mainContext.fetch(fetchRequest)
-        } catch {
-            NSLog("Error fetching Calories to main object context: \(error)")
-        }
+        calorieDatas.append(newCalorie)
+        healthKit.saveCalorieData(newCalorie)
     }
     
     func fetchHealthKitCalories() {
