@@ -110,6 +110,8 @@ class CaloriesTableViewController: UITableViewController {
         chart.add(series)
     }
     
+
+    
     
     // MARK: - Properties
     
