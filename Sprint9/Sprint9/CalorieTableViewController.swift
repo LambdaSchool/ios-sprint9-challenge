@@ -16,7 +16,7 @@ extension NSNotification.Name {
 
 class CalorieTableViewController: UITableViewController {
     
-    var calories: [Calorie] = []
+    
     
     func fetchCalorieFromStore() -> [Calorie] {
         
@@ -26,10 +26,10 @@ class CalorieTableViewController: UITableViewController {
         return resualt
     }
     
-   
+    var calories: [Calorie] = []
     var timestamp: [String] = []
-    var series = ChartSeries([])
     
+    var calorieData = Calorie(data: 0)
     
     @IBAction func addCalorie(_ sender: Any) {
         addCalories()
@@ -44,16 +44,23 @@ class CalorieTableViewController: UITableViewController {
         nc.addObserver(self, selector: #selector(cleanCalories(_:)), name: .cleanCalories, object: nil)
         calories = fetchCalorieFromStore()
         navigationItem.title = "Calorie Tracker"
-        chart.frame = CGRect(x: 0, y: 0, width: 50, height: 450)
-        let series = ChartSeries([0])
-        series.area = true
-        chart.xLabels = [0]
-        chart.xLabelsFormatter = { "Day \(Int (round($1)))" }
         
+        
+        for calorie in calories {
+            let index = series.data.count
+            let data = calorie.data
+            series.data.append((x: Double(index), y: Double(data)))
+        }
+        
+        chart.frame = CGRect(x: 0, y: 0, width: 50, height: 450)
+        series.area = true
+        //chart.xLabels = [0]
+        chart.xLabelsFormatter = { "Day \(Int (round($1)))" }
         chart.add(series)
         
+        
     }
-
+var series = ChartSeries([])
     // MARK: - Table view data source
 override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -97,11 +104,11 @@ override func tableView(_ tableView: UITableView, numberOfRowsInSection section:
         }
         let submitAction = UIAlertAction(title: "Submit", style: .default) { (_) in
             guard let text = calorieTextField?.text else { return }
-            let calorieData = Calorie(data: Double(text) ?? 0)
-            self.calories.append(calorieData)
+            self.calorieData = Calorie(data: Double(text) ?? 0)
+            self.calories.append(self.calorieData)
             self.chart.frame = CGRect(x: 0, y: 0, width: 50, height: 450)
             let index = Double(self.series.data.count)
-            self.series.data.append((x: index, y: calorieData.data ))
+            self.series.data.append((x: index, y: self.calorieData.data ))
             self.series.color = ChartColors.greenColor()
             self.series.area = true
             self.chart.add(self.series)
