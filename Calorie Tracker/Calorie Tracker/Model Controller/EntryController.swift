@@ -13,9 +13,9 @@ let moc = CoreDataStack.shared.mainContext
 
 class EntryController {
     
-    init(){
-        fetchEntriesFromServer()
-    }
+//    init(){
+//        fetchEntriesFromServer()
+//    }
     
     let baseURl = URL(string: "https://calorie-tracker-5526f.firebaseio.com/")!
     
