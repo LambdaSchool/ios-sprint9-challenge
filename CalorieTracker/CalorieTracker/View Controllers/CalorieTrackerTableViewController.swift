@@ -12,7 +12,6 @@ class CalorieTrackerTableViewController: UITableViewController {
     
     // MARK: - Properties
     var calorieDataController: CalorieDataController!
-    var people: [Person] = []
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -25,20 +24,16 @@ class CalorieTrackerTableViewController: UITableViewController {
 
     // MARK: - Table View Data Source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return people.count
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return people[section].name
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return calorieDataController.fetchCalories(for: people[section]).count
+        return calorieDataController.calorieDatas.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
-        let calorieData = calorieDataController.fetchCalories(for: people[indexPath.section])[indexPath.row]
+        let calorieData = calorieDataController.calorieDatas[indexPath.row]
         
         cell.textLabel?.text = "Calories: \(Int(calorieData.calories))"
         cell.detailTextLabel?.text = calorieData.formattedTimestamp
@@ -49,7 +44,6 @@ class CalorieTrackerTableViewController: UITableViewController {
     // MARK: - Utility Methods
     @objc private func updateViews() {
         DispatchQueue.main.async {
-            self.people = self.calorieDataController.fetchPeople()
             self.tableView.reloadData()
         }
     }

@@ -11,25 +11,24 @@ import CoreData
 
 class CalorieDataController {
     // MARK: - Properties
-    private(set) var calorieDatas: [CalorieData] = []
+    private(set) var calorieDatas: [CalorieData] = [] {
+        didSet {
+            // Notify the observers that the data has been updated.
+            NotificationCenter.default.post(name: .updatedCalorieDataNotification, object: nil)
+        }
+    }
     
-    // MARK: - Initializers
+    // MARK: - Properties
     init() {
-        loadFromPersistentStore()
+        fetchCalories()
     }
     
     // MARK: - CRUD Methods
-    func createCalorieData(calories: Double, person: Person, timestamp: Date = Date(), id: String = UUID().uuidString) {
-        _ = CalorieData(calories: calories, person: person, timestamp: timestamp, id: id)
+    func createCalorieData(calories: Double, timestamp: Date = Date(), id: String = UUID().uuidString) {
+        let newCalorie = CalorieData(calories: calories, timestamp: timestamp, id: id)
         
+        calorieDatas.append(newCalorie)
         saveToPersistentStore()
-    }
-    
-    func createPerson(name: String, id: String = UUID().uuidString) -> Person {
-        let person = Person(name: name, id: id)
-        
-        saveToPersistentStore()
-        return person
     }
     
     // MARK: - Persistence
@@ -44,7 +43,7 @@ class CalorieDataController {
         }
     }
     
-    private func loadFromPersistentStore() {
+    func fetchCalories(){
         let fetchRequest: NSFetchRequest<CalorieData> = CalorieData.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: true)
         
@@ -55,41 +54,5 @@ class CalorieDataController {
         } catch {
             NSLog("Error fetching Calories to main object context: \(error)")
         }
-    }
-    
-    func fetchCalories(for person: Person) -> [CalorieData] {
-        let fetchRequest: NSFetchRequest<CalorieData> = CalorieData.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: true)
-        let predicate = NSPredicate(format: "person = %@", person)
-        
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        fetchRequest.predicate = predicate
-        
-        do {
-            let calorieDatas = try CoreDataStack.shared.mainContext.fetch(fetchRequest)
-            return calorieDatas
-        } catch {
-            NSLog("Error fetching Calories to main object context: \(error)")
-            return []
-        }
-    }
-    
-    func fetchPeople() -> [Person] {
-        let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-        
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        do {
-            let people = try CoreDataStack.shared.mainContext.fetch(fetchRequest)
-            return people
-        } catch {
-            NSLog("Error fetching People to main object context: \(error)")
-            return []
-        }
-    }
-    
-    func fetchData() {
-        loadFromPersistentStore()
     }
 }
