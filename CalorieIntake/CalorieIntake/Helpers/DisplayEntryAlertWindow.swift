@@ -28,7 +28,14 @@ class DisplayEntryAlertWindow {
             
             switch action.style{
             case .default:
-                print("passed: \(text)")
+                guard let count = Double(text) else { return }
+                _ = CalorieEvent(numberOfCalories: count)
+                do {
+                    try CoreDataStack.shared.mainContext.save()
+                } catch {
+                    print("unable to save new calorie event to Core Data")
+                    return
+                }
                 return
             case .cancel:
                 return

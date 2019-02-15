@@ -17,13 +17,7 @@ class CalorieEntryTableViewController: UITableViewController, NSFetchedResultsCo
 
         // Set up
         
-        let headerView: Chart = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
-        let series = ChartSeries([0, 6.5, 2, 8, 4.1, 7, -3.1, 10, 8])
-        series.area = true
-        headerView.add(series)
-        tableView.tableHeaderView = headerView
-        
-        
+        tableView.tableHeaderView = HeaderChartController.setup()
 
     }
 
@@ -31,17 +25,33 @@ class CalorieEntryTableViewController: UITableViewController, NSFetchedResultsCo
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath) as? CalorieTableViewCell else { fatalError("Unable to Dequeue cell as CalorieTableViewCell") }
+        
+        let calorieEvent = fetchedResultsController.object(at: indexPath)
+        cell.calorieNumberLabel.text = "\(calorieEvent.numberOfCalories)"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "en_US")
+        
+        guard let timestamp = calorieEvent.timestamp else { fatalError("Cell Calorie Event had no associated Timestamp") }
+        cell.calorieTimestampLabel.text = dateFormatter.string(from: timestamp)
+        
         return cell
     }
  
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            let calorieEntry = fetchedResultsController.object(at: indexPath)
+            calorieController.deleteCalorieEntry(for: calorieEntry)
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -115,6 +125,7 @@ class CalorieEntryTableViewController: UITableViewController, NSFetchedResultsCo
     
     // MARK: - Properties
     @IBOutlet weak var addCaloriesBarButton: UIBarButtonItem!
+    var calorieController: CalorieController = CalorieController()
     
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieEvent> = {
         
@@ -123,7 +134,7 @@ class CalorieEntryTableViewController: UITableViewController, NSFetchedResultsCo
         
         let moc = CoreDataStack.shared.mainContext
         
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "timestamp", cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
         
         frc.delegate = self
         

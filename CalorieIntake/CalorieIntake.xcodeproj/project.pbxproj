@@ -20,6 +20,8 @@
 		D1CF343022172101004CE687 /* CalorieIntake.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1CF342E22172101004CE687 /* CalorieIntake.xcdatamodeld */; };
 		D1CF3432221721A4004CE687 /* CalorieEvent+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF3431221721A4004CE687 /* CalorieEvent+Convenience.swift */; };
 		D1CF34342217227B004CE687 /* DisplayEntryAlertWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF34332217227B004CE687 /* DisplayEntryAlertWindow.swift */; };
+		D1CF343622172B24004CE687 /* HeaderChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF343522172B24004CE687 /* HeaderChartController.swift */; };
+		D1CF343922172D84004CE687 /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF343822172D84004CE687 /* CalorieController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		D1CF342F22172101004CE687 /* CalorieIntake.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieIntake.xcdatamodel; sourceTree = "<group>"; };
 		D1CF3431221721A4004CE687 /* CalorieEvent+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieEvent+Convenience.swift"; sourceTree = "<group>"; };
 		D1CF34332217227B004CE687 /* DisplayEntryAlertWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayEntryAlertWindow.swift; sourceTree = "<group>"; };
+		D1CF343522172B24004CE687 /* HeaderChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderChartController.swift; sourceTree = "<group>"; };
+		D1CF343822172D84004CE687 /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 			children = (
 				D1CF342B221720B3004CE687 /* Model */,
 				D1CF342A22171E3C004CE687 /* Helpers */,
+				D1CF343722172D43004CE687 /* Controllers */,
 				D1CF342722171C9B004CE687 /* Views */,
 				D1CF342422171C4B004CE687 /* ViewControllers */,
 				D1CF340422171A8D004CE687 /* AppDelegate.swift */,
@@ -161,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				D1CF34332217227B004CE687 /* DisplayEntryAlertWindow.swift */,
+				D1CF343522172B24004CE687 /* HeaderChartController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -173,6 +179,14 @@
 				D1CF342E22172101004CE687 /* CalorieIntake.xcdatamodeld */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D1CF343722172D43004CE687 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D1CF343822172D84004CE687 /* CalorieController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,8 +367,10 @@
 				D1CF3432221721A4004CE687 /* CalorieEvent+Convenience.swift in Sources */,
 				D1CF34342217227B004CE687 /* DisplayEntryAlertWindow.swift in Sources */,
 				D1CF343022172101004CE687 /* CalorieIntake.xcdatamodeld in Sources */,
+				D1CF343622172B24004CE687 /* HeaderChartController.swift in Sources */,
 				D1CF342922171CB8004CE687 /* CalorieTableViewCell.swift in Sources */,
 				D1CF342D221720D6004CE687 /* CoreDataStack.swift in Sources */,
+				D1CF343922172D84004CE687 /* CalorieController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
