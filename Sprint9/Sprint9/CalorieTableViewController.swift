@@ -28,7 +28,7 @@ class CalorieTableViewController: UITableViewController {
     
     var calories: [Calorie] = []
     var timestamp: [String] = []
-    
+    var series = ChartSeries([])
     var calorieData = Calorie(data: 0)
     
     @IBAction func addCalorie(_ sender: Any) {
@@ -50,17 +50,19 @@ class CalorieTableViewController: UITableViewController {
             let index = series.data.count
             let data = calorie.data
             series.data.append((x: Double(index), y: Double(data)))
+            
         }
         
-        chart.frame = CGRect(x: 0, y: 0, width: 50, height: 450)
-        series.area = true
-        //chart.xLabels = [0]
+        chart.frame = CGRect(x: 0, y: 0, width: 250, height: 450)
+        
+        series.color = ChartColors.greenColor()
         chart.xLabelsFormatter = { "Day \(Int (round($1)))" }
         chart.add(series)
+        series.area = true
         
         
     }
-var series = ChartSeries([])
+
     // MARK: - Table view data source
 override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -69,7 +71,7 @@ override func tableView(_ tableView: UITableView, numberOfRowsInSection section:
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Calorie", for: indexPath) as? CalorieTableViewCell else { fatalError("No such cell")}
       
-        cell.calorie.text = "Calorie: \(calories[indexPath.row].data)" //" \(Int(data[indexPath.row]))"
+        cell.calorie.text = "Calorie: \(Int(calories[indexPath.row].data))" //" \(Int(data[indexPath.row]))"
         cell.timestamp.text = calories[indexPath.row].timestamp  //"\(timeFormatted)"
         return cell
     }
