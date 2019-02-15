@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
     func convertToDouble() -> Double {
-        let calorieTextConversionToIntDict: [Character: Int] = ["1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9]
+        let calorieTextConversionToIntDict: [Character: Int] = ["0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9]
         var caloriesIntArray: [Int] = []
         let stringToConvert = self
         for character in stringToConvert {
@@ -20,9 +20,9 @@ extension String {
         }
         var total: Int = 0
         for _ in caloriesIntArray {
-            let last = caloriesIntArray.popLast()
+            let last = caloriesIntArray.removeFirst()
             total *= 10
-            total += last!
+            total += last
         }
         return Double(total)
     }

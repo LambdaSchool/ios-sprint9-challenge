@@ -53,7 +53,7 @@ class CalorieIntakeController {
     
     var calorieIntakesArray: [CalorieIntake] = [] {
         didSet {
-            caloriesArray.append((calorieIntakesArray.last?.calories)!)
+            caloriesArray.append(((calorieIntakesArray.last?.calories)) ?? 0.0)
             calorieIntakesArrayWasUpdated = true
         }
     }

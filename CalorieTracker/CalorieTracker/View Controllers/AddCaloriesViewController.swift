@@ -16,13 +16,11 @@ class AddCaloriesViewController: UIViewController {
         
         guard let caloriesString = addCaloriesTextField.text else {return}
         let calories = caloriesString.convertToDouble()
-        calorieIntakeController.calorieIntakesArray.append(CalorieIntake(calories: calories, timestamp: Date.init(), identifier: UUID.init().uuidString, insertInto: CoreDataStack.shared.mainContext))
+        CalorieIntakeController.shared.calorieIntakesArray.append(CalorieIntake(calories: calories, timestamp: Date.init(), identifier: UUID.init().uuidString, insertInto: CoreDataStack.shared.mainContext))
         
         dismiss(animated: true)
         
     }
-    
-    var calorieIntakeController: CalorieIntakeController!
     
     @IBOutlet weak var addCaloriesTextField: UITextField!
 }
