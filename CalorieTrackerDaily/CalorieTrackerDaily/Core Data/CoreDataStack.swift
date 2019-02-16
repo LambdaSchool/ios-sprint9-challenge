@@ -44,4 +44,23 @@ class CoreDataStack {
             throw saveError
         }
     }
+    
+    func removeData (context: NSManagedObjectContext) {
+        // Remove the existing items
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CalorieTrackerEntry")
+        var e: NSError?
+        let entries = try? context.fetch(fetchRequest) as! [CalorieTrackerEntry]
+            
+            if e != nil {
+                print("Failed to retrieve record: \(e!.localizedDescription)")
+                
+            } else {
+                
+                for entry in entries! {
+                    context.delete(entry)
+                }
+            }
+        }
+    
 }

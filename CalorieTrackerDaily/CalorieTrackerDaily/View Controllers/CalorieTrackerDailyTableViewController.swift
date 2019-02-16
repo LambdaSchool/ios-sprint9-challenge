@@ -9,13 +9,22 @@
 import UIKit
 import SwiftChart
 import CoreData
+import Foundation
 
 class CalorieTrackerDailyTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     let reuseIdentifier = "CalorieEntryCell"
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
+
+        reloadChart()
     }
 
     // MARK: - Table view data source
@@ -28,22 +37,19 @@ class CalorieTrackerDailyTableViewController: UITableViewController, NSFetchedRe
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return fetchedResultsController.sections?[section].numberOfObjects ?? 0
-        //return calorieTrackerEntries.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! CalorieEntryTableViewCell
+//
         // Configure the cell...
-        //let entry = calorieTrackerEntries[indexPath.row]
         let entry = fetchedResultsController.object(at: indexPath)
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, yyyy h:mm:ss a"
         let dateString = formatter.string(from: entry.date!)
        
         let caloriesString = String(entry.calories)
-//        cell.caloriesLabel.text = entry.value(forKey: "calories") as? String
-//        cell.timestampLabel.text = entry.value(forKey: "date") as? String
         cell.caloriesLabel.text = "Calories: \(caloriesString)"
         cell.timestampLabel.text = "\(dateString)"
 
@@ -103,6 +109,7 @@ class CalorieTrackerDailyTableViewController: UITableViewController, NSFetchedRe
         
     }()
     
+    
     // Delegate Methods
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
@@ -157,9 +164,16 @@ class CalorieTrackerDailyTableViewController: UITableViewController, NSFetchedRe
     */
 
     // MARK: - Properties
+
     let moc = CoreDataStack.shared.mainContext
-    //var calorieTrackerEntries: [NSManagedObject] = []
+    
     var calorieTrackerEntries: [CalorieTrackerEntry] = []
+    var seriesValues: [Double] = []
+
+    
+    
+    
+    
     
     @IBAction func addEntry(_ sender: UIBarButtonItem) {
         let addEntryAlert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field below.", preferredStyle: .alert)
@@ -173,16 +187,38 @@ class CalorieTrackerDailyTableViewController: UITableViewController, NSFetchedRe
             guard let textField = addEntryAlert.textFields?.first, let caloriesToSave = textField.text else { return }
             let newEntry = CalorieTrackerEntry(calories: Int32(caloriesToSave) ?? 0, context: self.moc)
             self.calorieTrackerEntries.append(newEntry)
-            try? CoreDataStack.shared.save(context: self.moc)
-            print(self.calorieTrackerEntries)
-            self.tableView.reloadData()
             
+            self.seriesValues.append(Double(caloriesToSave)!)
+            self.calorieChart.series = [ChartSeries(self.seriesValues)]
+            try? CoreDataStack.shared.save(context: self.moc)
+            
+            DispatchQueue.main.async {
+                self.reloadChart()
+            }
+            
+                        
         }))
         
         self.present(addEntryAlert, animated: true)
     }
     
+    func reloadChart() {
+        guard let num = fetchedResultsController.fetchedObjects?.count else {return}
+        var seriesTemp: [Double] = []
+        calorieChart.removeAllSeries()
+        for i in 0..<num {
+            seriesTemp.append(Double(fetchedResultsController.fetchedObjects?[i].calories ?? 0))
+        }
+        seriesValues = seriesTemp
+        let series = ChartSeries(seriesValues)
+        series.area = true
+        series.colors = (above: ChartColors.cyanColor(), below: .white, zeroLevel: 0)
+        
+        calorieChart.add(series)
+        self.calorieChart.setNeedsDisplay()
+    }
     
     @IBOutlet weak var calorieChart: Chart!
+
     
 }

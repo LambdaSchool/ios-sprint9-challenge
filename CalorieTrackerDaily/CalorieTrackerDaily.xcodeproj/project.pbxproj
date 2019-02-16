@@ -31,6 +31,9 @@
 		AB3A0F1922172BFB00BE8432 /* CalorieTrackerEntry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieTrackerEntry+Convenience.swift"; sourceTree = "<group>"; };
 		AB3A0F1B22172E8800BE8432 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		AB3A0F1D2217393E00BE8432 /* CalorieEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieEntryTableViewCell.swift; sourceTree = "<group>"; };
+		AB3A0F2022177CB000BE8432 /* CalorieTrackerDaily 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CalorieTrackerDaily 2.xcdatamodel"; sourceTree = "<group>"; };
+		AB3A0F252217C7BB00BE8432 /* CalorieTrackerDaily 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CalorieTrackerDaily 3.xcdatamodel"; sourceTree = "<group>"; };
+		AB3A0F282217E83F00BE8432 /* CalorieTrackerDaily 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CalorieTrackerDaily 4.xcdatamodel"; sourceTree = "<group>"; };
 		EE2AA4DF3203D46DBBA28578 /* Pods-CalorieTrackerDaily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTrackerDaily.release.xcconfig"; path = "Target Support Files/Pods-CalorieTrackerDaily/Pods-CalorieTrackerDaily.release.xcconfig"; sourceTree = "<group>"; };
 		F2DEE7B63CF20DB3D08BC322 /* Pods-CalorieTrackerDaily.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTrackerDaily.debug.xcconfig"; path = "Target Support Files/Pods-CalorieTrackerDaily/Pods-CalorieTrackerDaily.debug.xcconfig"; sourceTree = "<group>"; };
 		FD55D6EDBED07926D27E801C /* Pods_CalorieTrackerDaily.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieTrackerDaily.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -456,6 +459,9 @@
 		AB3A0F052217159200BE8432 /* CalorieTrackerDaily.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				AB3A0F282217E83F00BE8432 /* CalorieTrackerDaily 4.xcdatamodel */,
+				AB3A0F252217C7BB00BE8432 /* CalorieTrackerDaily 3.xcdatamodel */,
+				AB3A0F2022177CB000BE8432 /* CalorieTrackerDaily 2.xcdatamodel */,
 				AB3A0F062217159200BE8432 /* CalorieTrackerDaily.xcdatamodel */,
 			);
 			currentVersion = AB3A0F062217159200BE8432 /* CalorieTrackerDaily.xcdatamodel */;

@@ -79,7 +79,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="calorieChart" destination="x5j-W0-6XR" id="Qrw-Xc-cHa"/>
+                        <outlet property="calorieChart" destination="x5j-W0-6XR" id="CiB-we-Zq4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Xb-ju-1Pl" userLabel="First Responder" sceneMemberID="firstResponder"/>
