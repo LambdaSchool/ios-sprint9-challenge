@@ -48,7 +48,9 @@ class CaloriesTableViewController: UITableViewController {
             //guard let caloriesInt = caloriesInt else { return }
             
             // Put the user-entered amount into the caloriesInput property
-            calorieInputController.caloriesInput.append(CalorieInput(calories: caloriesInt!))
+            //self.calorieInputController.caloriesInput.append(CalorieInput(calories: caloriesInt!))
+            
+            self.calorieInputController.createInput(calories: caloriesInt!, timestamp: Date())
             
             // Put the integers only in to an array that will populate the chart
             self.calorieIntsForChart.append(Double(caloriesInt!))
@@ -101,10 +103,13 @@ class CaloriesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             
         let calorieInput = calorieInputController.caloriesInput[indexPath.row]
-            
+ 
         cell.textLabel?.text = "Calories: \(calorieInput.calories)"
-        cell.detailTextLabel?.text = "\(calorieInput.timestamp)"
-            
+        
+        if calorieInput.formattedTimeStamp != nil {
+           cell.detailTextLabel?.text = "\(calorieInput.formattedTimeStamp!)"
+        }
+        
         return cell
         
     }

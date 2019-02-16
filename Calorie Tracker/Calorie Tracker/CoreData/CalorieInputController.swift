@@ -6,7 +6,7 @@ import CoreData
 class CalorieInputController {
     
     var caloriesInput: [CalorieInput] {
-        
+
         // Allows any changes to the persistent store to become imediately visible when accessing the array (i.e. in the table view showing a list of calorie inputs)
         return loadFromPersistentStore()
     }
