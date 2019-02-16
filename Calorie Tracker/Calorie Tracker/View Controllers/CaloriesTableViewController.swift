@@ -13,6 +13,11 @@ class CaloriesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        DispatchQueue.main.async {
+            self.chartSetUp()
+            self.tableView.reloadData()
+        }
+        
         chartSetUp()
         
         // Register for notifications
@@ -53,7 +58,7 @@ class CaloriesTableViewController: UITableViewController {
             self.calorieInputController.createInput(calories: caloriesInt!, timestamp: Date())
             
             // Put the integers only in to an array that will populate the chart
-            self.calorieIntsForChart.append(Double(caloriesInt!))
+            //self.calorieIntsForChart.append(Double(caloriesInt!))
             
             // Post a notification
             NotificationCenter.default.post(name: .shouldShowChartDataChanged, object: self)
@@ -118,14 +123,21 @@ class CaloriesTableViewController: UITableViewController {
     
     func chartSetUp() {
         
-        guard let chart = chart else { return }
+        //guard let chart = chart else { return }
+        
+        for input in calorieInputController.caloriesInput {
+            if let input = input as? CalorieInput {
+                data.append((data.count + 1, Double(input.calories)))
+            }
+        }
+        let series = ChartSeries(data: data)
         
         //chart = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-        let series = ChartSeries(calorieIntsForChart)
-        chart.add(series)
+        //let series = ChartSeries(calorieInputController.caloriesInput)
+        chartView.add(series)
 
         series.color = ChartColors.cyanColor()
-        chart.add(series)
+        chartView.add(series)
     }
     
 
@@ -133,19 +145,16 @@ class CaloriesTableViewController: UITableViewController {
     
     // MARK: - Properties
     
-    private var chart: Chart?
+    //private var chart: Chart?
     
-//    var caloriesInput: [CalorieInput] = [] {
-//        didSet {
-//            tableView.reloadData()
-//        }
-//    }
+    private var data: [(Int, Double)] = []
+    
     let calorieInputController = CalorieInputController()
     
     var calorieInput: CalorieInput!
     
     // test data
-    var calorieIntsForChart: [Double] = [150.0, 200.0]
+    //var calorieIntsForChart: [Double] = [150.0, 200.0]
     
 
 }
