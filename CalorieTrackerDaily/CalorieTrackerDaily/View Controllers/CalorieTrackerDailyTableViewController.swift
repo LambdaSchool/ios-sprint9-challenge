@@ -11,13 +11,22 @@ import SwiftChart
 import CoreData
 import Foundation
 
+extension Notification.Name {
+    static let calorieEntryAdded = Notification.Name("calorieEntryAdded")
+}
+
 class CalorieTrackerDailyTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     let reuseIdentifier = "CalorieEntryCell"
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(calorieEntryAdded(_:)), name: .calorieEntryAdded, object: nil)
+    }
+    
+    @objc func calorieEntryAdded(_ notification: Notification) {
+        DispatchQueue.main.async {
+            self.reloadChart()
+        }
     }
     
     override func viewDidLoad() {
@@ -192,9 +201,7 @@ class CalorieTrackerDailyTableViewController: UITableViewController, NSFetchedRe
             self.calorieChart.series = [ChartSeries(self.seriesValues)]
             try? CoreDataStack.shared.save(context: self.moc)
             
-            DispatchQueue.main.async {
-                self.reloadChart()
-            }
+            NotificationCenter.default.post(name: .calorieEntryAdded, object: self)
             
                         
         }))
