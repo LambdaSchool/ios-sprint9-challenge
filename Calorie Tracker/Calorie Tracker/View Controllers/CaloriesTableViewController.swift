@@ -119,6 +119,15 @@ class CaloriesTableViewController: UITableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let calorieInput = calorieInputController.caloriesInput[indexPath.row]
+            
+            calorieInputController.deleteInput(calorieInput: calorieInput)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     // MARK: - Chart
     
     func chartSetUp() {
@@ -140,21 +149,13 @@ class CaloriesTableViewController: UITableViewController {
         chartView.add(series)
     }
     
-
-    
-    
     // MARK: - Properties
     
-    //private var chart: Chart?
-    
-    private var data: [(Int, Double)] = []
+    // Array starts at 0 in order for chart to start at 0
+    private var data: [(Int, Double)] = [(0, 0.0)]
     
     let calorieInputController = CalorieInputController()
     
     var calorieInput: CalorieInput!
     
-    // test data
-    //var calorieIntsForChart: [Double] = [150.0, 200.0]
-    
-
 }
