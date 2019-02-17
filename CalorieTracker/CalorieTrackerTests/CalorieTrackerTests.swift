@@ -1,15 +1,15 @@
 //
-//  Calorie_TrackerTests.swift
-//  Calorie TrackerTests
+//  CalorieTrackerTests.swift
+//  CalorieTrackerTests
 //
-//  Created by Madison Waters on 2/15/19.
+//  Created by Madison Waters on 2/16/19.
 //  Copyright © 2019 Jonah Bergevin. All rights reserved.
 //
 
 import XCTest
-@testable import Calorie_Tracker
+@testable import CalorieTracker
 
-class Calorie_TrackerTests: XCTestCase {
+class CalorieTrackerTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

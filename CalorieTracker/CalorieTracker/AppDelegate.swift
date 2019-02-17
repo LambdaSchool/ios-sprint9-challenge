@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Calorie Tracker
+//  CalorieTracker
 //
-//  Created by Madison Waters on 2/15/19.
+//  Created by Madison Waters on 2/16/19.
 //  Copyright © 2019 Jonah Bergevin. All rights reserved.
 //
 

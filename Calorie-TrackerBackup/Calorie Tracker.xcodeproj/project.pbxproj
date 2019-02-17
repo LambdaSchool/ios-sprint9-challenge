@@ -380,6 +380,7 @@
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		110604EF22171EAC00AE4EE4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -512,7 +513,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7B7AFC09CA6266FBACD1791B /* Pods-Calorie Tracker.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KZQGC2NP54;
 				INFOPLIST_FILE = "$(SRCROOT)/Calorie TrackerTests/Info.plist";
@@ -531,7 +531,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AFA6E34E14D5FAF7847EA749 /* Pods-Calorie Tracker.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KZQGC2NP54;
 				INFOPLIST_FILE = "$(SRCROOT)/Calorie TrackerTests/Info.plist";
