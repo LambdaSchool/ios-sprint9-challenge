@@ -24,6 +24,7 @@ class CalorieInputController {
         }
     }
     
+    // Load Core Data
     func loadFromPersistentStore() -> [CalorieInput] {
         var caloriesInput: [CalorieInput] {
             do {
@@ -36,19 +37,21 @@ class CalorieInputController {
         }
         return caloriesInput
     }
-    
-//    func loadCaloriesFromPersistentStore() -> [CalorieInput] {
-//        var onlyCaloriesInput: [CalorieInput] {
-//            do {
-//                let fetchRequest: NSFetchRequest<CalorieInput> = CalorieInput.fetchRequest()
-//                fetchRequest.sortDescriptors = [NSSortDescriptor(key: "calories", ascending: true)]
-//
-//            } catch {
-//
-//            }
-//        }
-//    }
 
+    // Fetch from Core Data
+    func fetchSingleInputFromPersistentStore(identifier: String, context: NSManagedObjectContext) -> CalorieInput? {
+        let request: NSFetchRequest<CalorieInput> = CalorieInput.fetchRequest()
+        let predicate = NSPredicate(format: "identifier == %@", identifier)
+        request.predicate = predicate
+        
+        // Return first input from the array
+        
+        var calorieInput: CalorieInput?
+        context.performAndWait {
+            calorieInput = (try? context.fetch(request))?.first
+        }
+        return calorieInput
+    }
     
     func createInput(calories: Int16, timestamp: Date) {
         
@@ -62,7 +65,15 @@ class CalorieInputController {
         
     }
     
-    // Paremeters: Input to be updated & calories - not allowing for manual time update
+    func deleteInput(calorieInput: CalorieInput) {
+        
+        CoreDataStack.shared.mainContext.delete(calorieInput)
+        
+        // Save this deletion to the persistent store
+        saveToPersistentStore()
+    }
+    
+    // Parameters: Input to be updated & calories - not allowing for manual time update
     func updateInput(calorieInput: CalorieInput, calories: Int16) {
         
         // Change the # of calories of the Input to the new value passed in as parameters
@@ -73,16 +84,6 @@ class CalorieInputController {
         
         // Save changes to the persistent store
         saveToPersistentStore()
-        
     }
-    
-    
-    func deleteInput(calorieInput: CalorieInput) {
-        
-        CoreDataStack.shared.mainContext.delete(calorieInput)
-        
-        // Save this deletion to the persistent store
-        saveToPersistentStore()
-    }
-    
+
 }
