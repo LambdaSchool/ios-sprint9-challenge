@@ -191,8 +191,8 @@
 		2C9A375C22175B4C00B45C95 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2C74ED0422171EDE008CAD65 /* LaunchScreen.storyboard */,
 				2C74ECFC22171ECC008CAD65 /* Main.storyboard */,
+				2C74ED0422171EDE008CAD65 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";

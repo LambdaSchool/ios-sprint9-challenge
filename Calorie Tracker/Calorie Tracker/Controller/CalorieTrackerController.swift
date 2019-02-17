@@ -6,21 +6,20 @@
 //  Copyright © 2019 Ivan Caldwell. All rights reserved.
 //
 
-
-
 import Foundation
 import CoreData
 
 class CalorieTrackerController {
-    var entries: [CalorieEntry] {
-        
-        get {
-            let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
-            let result = (try? CoreDataStack.shared.mainContext.fetch(fetchRequest)) ?? []
-            return result
-        } set {
-            
-        }
+    var entries: [CalorieEntry] = []
+    
+    init () {
+        entries = fetchCalorieEntryFromStore()
+    }
+  
+    func fetchCalorieEntryFromStore() -> [CalorieEntry] {
+        let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
+        let result = (try? CoreDataStack.shared.mainContext.fetch(fetchRequest)) ?? []
+        return result
     }
     
     func add(calorie: Double, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {

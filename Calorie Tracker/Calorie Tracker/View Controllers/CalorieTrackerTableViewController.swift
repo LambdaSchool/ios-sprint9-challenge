@@ -6,42 +6,22 @@
 //  Copyright © 2019 Ivan Caldwell. All rights reserved.
 //
 
-extension Notification.Name{
-    static let entriesDidChange = Notification.Name("entriesDidChange")
-}
-
 import UIKit
 import CoreData
 import SwiftChart
 
-class CalorieTrackerTableViewController: UITableViewController{
-    var entries: [CalorieEntry] = []
+class CalorieTrackerTableViewController: UITableViewController {
     
     // MARK: - Properties
-    var calories: [CalorieEntry] = []
-    let calorieTrackerController = CalorieTrackerController()
-
-    
-    var dateFormatter: DateFormatter  {
-        let formatter = DateFormatter()
-        formatter.timeStyle = .short
-        formatter.dateStyle = .short
-        return formatter
-    }
+    var calorieTrackerController = CalorieTrackerController()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        entries = fetchCalorieEntryFromStore()
-        // Don't think I will need this here...
-        NotificationCenter.default.addObserver(self, selector: #selector(entriesDidChange(_:)), name: .entriesDidChange, object: nil)
-        tableView.reloadData()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews(_:)), name: .addCalorieEntry, object: nil)
     }
-    
-    func viewWillAppear() {
-        super.viewWillAppear(true)
-        NotificationCenter.default.addObserver(self, selector: #selector(entriesDidChange(_:)), name: .entriesDidChange, object: nil)
-        tableView.reloadData()
-    }
+//    func viewWillAppear() {
+//        super.viewWillAppear(true)
+//        NotificationCenter.default.addObserver(self, selector: #selector(updateViews(_:)), name: .addCalorieEntry, object: nil)
+//    }
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -49,22 +29,21 @@ class CalorieTrackerTableViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return entries.count
+        return calorieTrackerController.entries.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
-        cell.textLabel?.text = "Calories: \(entries[indexPath.row].calorie) \t\t\t\((entries[indexPath.row].timestamp)!)"
+        // I should make a type alias or something...
+        cell.textLabel?.text = "Calories: \(Int(calorieTrackerController.entries[indexPath.row].calorie)) \t\((calorieTrackerController.entries[indexPath.row].timestamp)!)"
         return cell
     }
     
-    func fetchCalorieEntryFromStore() -> [CalorieEntry] {
-        let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
-        let result = (try? CoreDataStack.shared.mainContext.fetch(fetchRequest)) ?? []
-        return result
-    }
-    
-    @objc func entriesDidChange(_ notification: Notification) {
-        tableView?.reloadData()
+    @objc func updateViews(_ notification: Notification) {
+        print ("I heard your notification")
+        calorieTrackerController = CalorieTrackerController()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }

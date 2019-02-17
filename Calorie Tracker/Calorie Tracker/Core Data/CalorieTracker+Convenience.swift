@@ -20,8 +20,13 @@ extension CalorieEntry {
     
     var dateFormatter: DateFormatter  {
         let formatter = DateFormatter()
-        formatter.timeStyle = .short
-        formatter.dateStyle = .short
+        formatter.timeStyle = .medium
+        formatter.dateStyle = .medium
         return formatter
     }
+}
+
+
+extension Notification.Name {
+    static let addCalorieEntry = Notification.Name(rawValue: "addCalorieEntry")
 }
