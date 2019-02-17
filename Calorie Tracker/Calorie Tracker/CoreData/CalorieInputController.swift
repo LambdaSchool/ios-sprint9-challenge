@@ -37,6 +37,18 @@ class CalorieInputController {
         return caloriesInput
     }
     
+//    func loadCaloriesFromPersistentStore() -> [CalorieInput] {
+//        var onlyCaloriesInput: [CalorieInput] {
+//            do {
+//                let fetchRequest: NSFetchRequest<CalorieInput> = CalorieInput.fetchRequest()
+//                fetchRequest.sortDescriptors = [NSSortDescriptor(key: "calories", ascending: true)]
+//
+//            } catch {
+//
+//            }
+//        }
+//    }
+
     
     func createInput(calories: Int16, timestamp: Date) {
         

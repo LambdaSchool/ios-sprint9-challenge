@@ -18,8 +18,6 @@ class CaloriesTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
         
-        chartSetUp()
-        
         // Register for notifications
         NotificationCenter.default.addObserver(self, selector: #selector(shouldShowChartDataChanged(_:)), name: .shouldShowChartDataChanged, object: nil)
     }
@@ -28,6 +26,8 @@ class CaloriesTableViewController: UITableViewController {
     
     @objc func shouldShowChartDataChanged(_ notification: Notification) {
         
+        clearChart()
+        chartView.removeAllSeries()
         chartSetUp()
         tableView.reloadData()
     }
@@ -42,63 +42,53 @@ class CaloriesTableViewController: UITableViewController {
         
         // Create UIAlertController, set title and message
         let alertController = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field below", preferredStyle: .alert)
-        
+
         // Confirm action taking the inputs
         let confirmAction = UIAlertAction(title: "Submit", style: .default) { (_) in
-            
+
             // Get the input values from user
             let calories = alertController.textFields?[0].text
             let caloriesInt = Int16(calories ?? "0")
-            
-            //guard let caloriesInt = caloriesInt else { return }
-            
+
             // Put the user-entered amount into the caloriesInput property
-            //self.calorieInputController.caloriesInput.append(CalorieInput(calories: caloriesInt!))
-            
             self.calorieInputController.createInput(calories: caloriesInt!, timestamp: Date())
-            
-            // Put the integers only in to an array that will populate the chart
-            //self.calorieIntsForChart.append(Double(caloriesInt!))
             
             // Post a notification
             NotificationCenter.default.post(name: .shouldShowChartDataChanged, object: self)
+            
+            //self.data.append((self.data.count + 1, Double(caloriesInt!)))
+            
+//            self.newData.append((self.data.count + 1, Double(caloriesInt!)))
+//
+//            let newSeries = ChartSeries(data: self.newData)
+//
+//            newSeries.area = true
+//            newSeries.color = ChartColors.cyanColor()
+//
+//            self.chartView.add(newSeries)
         }
         
         // Cancel action does nothing
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
-        
+
         // Add textfield to popup
         alertController.addTextField { (textField) in
             textField.placeholder = "Calories:"
         }
-        
+
         // Add action to popup
         alertController.addAction(confirmAction)
         alertController.addAction(cancelAction)
-        
+
         // Present the popup
         self.present(alertController, animated: true, completion: nil)
-        
     }
     
     // MARK: UITableViewDataSource
     
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        return 2
-//    }
-    
     // Number of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-//        switch section {
-//        case 0:
-//            return 1
-//        case 1: return caloriesInput.count
-//        default:
-//            fatalError("Illegal section")
-//        }
-        
-        //return caloriesInput.count
+
         return calorieInputController.caloriesInput.count
     }
     
@@ -125,28 +115,48 @@ class CaloriesTableViewController: UITableViewController {
             
             calorieInputController.deleteInput(calorieInput: calorieInput)
             tableView.deleteRows(at: [indexPath], with: .fade)
+
+            clearChart()
+            chartView.removeAllSeries()
+            chartSetUp()
+            
+            NotificationCenter.default.addObserver(self, selector: #selector(shouldShowChartDataChanged(_:)), name: .shouldShowChartDataChanged, object: nil)
         }
     }
     
     // MARK: - Chart
     
-    func chartSetUp() {
+    func clearChart() {
         
-        //guard let chart = chart else { return }
+        data = [(0, 0.0)]
+        
+    }
+    
+    func chartSetUp() {
         
         for input in calorieInputController.caloriesInput {
             if let input = input as? CalorieInput {
-                data.append((data.count + 1, Double(input.calories)))
+                data.append((data.count, Double(input.calories)))
             }
         }
-        let series = ChartSeries(data: data)
         
-        //chart = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-        //let series = ChartSeries(calorieInputController.caloriesInput)
-        chartView.add(series)
-
+        let series = ChartSeries(data: data)
+        series.area = true
+        
         series.color = ChartColors.cyanColor()
         chartView.add(series)
+        
+//        let caloriesDouble = Double(calorieInput.calories)
+//        let series = ChartSeries([caloriesDouble])
+        //let series = ChartSeries(calorieIntsForChart)
+//        let initialSeries = ChartSeries([0.0, 0.0])
+//        chartView.add(initialSeries)
+//
+//        let series = ChartSeries([calorieInput.calories])
+    
+
+//        chartView.add([(data.count + 1, caloriesInt)])
+        
     }
     
     // MARK: - Properties
