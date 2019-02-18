@@ -16,7 +16,7 @@ class CalorieController {
     
     var calories: [Calorie] = []
     
-    var chartCalories: [String] = []
+    var chartCalories: [Double] = []
     
     var calorieValueChanged: Bool {
         get { return self.calorieValueChanged }
@@ -32,6 +32,13 @@ class CalorieController {
     func addCalorie(calorie: String) {
         let newCalories = Calorie(value: calorie, timestamp: Date.init(), context: moc)
         calories.append(newCalories)
+        
+        do { try moc.save() }
+        catch { NSLog("Error saving to managed object context") }
+    }
+    
+    func chartCalorie(calorie: Double) {
+        chartCalories.append(calorie)
         
         do { try moc.save() }
         catch { NSLog("Error saving to managed object context") }

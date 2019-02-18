@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class CalorieTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
@@ -28,15 +29,27 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // This is dummy data //
+        let series = ChartSeries([1346.0, 1462.0, 2134.0, 1846.0, 1234.0, 2012.0, 1654.0])
+        series.color = ChartColors.greenColor()
+        chart.add(series)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(caloriesDidChange(_:)), name: .caloriesDidChange, object: nil)
     }
     
+    func updateChart(indexPath: IndexPath) {
+        
+        
+    }
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
     
     @objc func caloriesDidChange(_ notification: Notification) {
+        
+
         tableView.reloadData()
     }
     
@@ -112,6 +125,11 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
     }
     
     // MARK: - Properties
+    
+    @IBOutlet weak var chart: Chart!
+    
+    let calorie: Calorie? = nil
+    
     let calorieController = CalorieController()
 }
 

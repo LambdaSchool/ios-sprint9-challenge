@@ -18,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="Fh4-SQ-r8f">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="219"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Fh4-SQ-r8f" customClass="Chart" customModule="SwiftChart">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieCell" textLabel="Whj-Wt-LgG" detailTextLabel="gvU-La-X0g" style="IBUITableViewCellStyleValue1" id="vur-xg-a2w">
-                                <rect key="frame" x="0.0" y="247" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="294" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vur-xg-a2w" id="rbj-mr-qRX">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -57,10 +57,15 @@
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="BB4-er-Chx">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="VDP-qG-5KH">
                             <connections>
-                                <segue destination="0jW-Ev-yyC" kind="presentation" identifier="AddCalorie" id="ihT-Or-gYg"/>
+                                <segue destination="0jW-Ev-yyC" kind="popoverPresentation" identifier="AddCalorie" popoverAnchorBarButtonItem="VDP-qG-5KH" id="ihT-Or-gYg">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chart" destination="Fh4-SQ-r8f" id="0X6-WG-wj5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cyl-cF-iTi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,61 +75,41 @@
         <scene sceneID="Ste-vw-joC">
             <objects>
                 <viewController id="0jW-Ev-yyC" customClass="AddViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2AP-v7-rRM">
+                    <view key="view" alpha="0.90000000000000002" contentMode="scaleToFill" id="2AP-v7-rRM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xrv-fh-gxR">
-                                <rect key="frame" x="16" y="116" width="343" height="150"/>
+                                <rect key="frame" x="16" y="118" width="343" height="171.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="C4V-ZG-h1b">
-                                        <rect key="frame" x="16" y="0.0" width="311" height="150"/>
+                                        <rect key="frame" x="16" y="20" width="311" height="151.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MTn-Tr-CML">
-                                                <rect key="frame" x="0.0" y="0.0" width="311" height="105"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="MTn-Tr-CML">
+                                                <rect key="frame" x="0.0" y="0.0" width="311" height="106.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Calorie Intake" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIL-jE-6dK">
-                                                        <rect key="frame" x="0.0" y="0.0" width="311" height="35.5"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35.5" id="a8T-7V-YsP"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="0.0" y="0.0" width="311" height="30"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the amount of calories in the field" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVI-9A-wXE">
-                                                        <rect key="frame" x="0.0" y="35.5" width="311" height="34.5"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34.5" id="oGp-E8-6Jm"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="0.0" y="43" width="311" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="it6-P5-ZUz">
-                                                        <rect key="frame" x="0.0" y="70" width="311" height="35"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="35" id="AAp-87-QYj"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="0.0" y="76.5" width="311" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="LVI-9A-wXE" firstAttribute="top" secondItem="VIL-jE-6dK" secondAttribute="bottom" id="5Qj-7v-H18"/>
-                                                    <constraint firstAttribute="trailing" secondItem="VIL-jE-6dK" secondAttribute="trailing" id="AYO-UM-ve8"/>
-                                                    <constraint firstItem="VIL-jE-6dK" firstAttribute="top" secondItem="MTn-Tr-CML" secondAttribute="top" id="ErV-1y-dSi"/>
-                                                    <constraint firstItem="it6-P5-ZUz" firstAttribute="leading" secondItem="MTn-Tr-CML" secondAttribute="leading" id="KZP-Bk-O60"/>
-                                                    <constraint firstAttribute="trailing" secondItem="it6-P5-ZUz" secondAttribute="trailing" id="LjG-1s-g0h"/>
-                                                    <constraint firstItem="it6-P5-ZUz" firstAttribute="top" secondItem="LVI-9A-wXE" secondAttribute="bottom" id="dlX-jB-a8p"/>
-                                                    <constraint firstItem="VIL-jE-6dK" firstAttribute="leading" secondItem="MTn-Tr-CML" secondAttribute="leading" id="jIr-Mx-e4j"/>
-                                                    <constraint firstAttribute="trailing" secondItem="LVI-9A-wXE" secondAttribute="trailing" id="nG8-ei-IXW"/>
-                                                    <constraint firstItem="LVI-9A-wXE" firstAttribute="leading" secondItem="MTn-Tr-CML" secondAttribute="leading" id="wKy-80-e6V"/>
-                                                </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tYh-kl-w6G">
-                                                <rect key="frame" x="0.0" y="105" width="311" height="45"/>
+                                                <rect key="frame" x="0.0" y="106.5" width="311" height="45"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aq1-vv-jvX">
                                                         <rect key="frame" x="0.0" y="0.0" width="155.5" height="45"/>
@@ -142,36 +127,31 @@
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="Wbk-Fv-zb8"/>
+                                                    <constraint firstAttribute="height" constant="45" id="Hq1-78-T3g"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="MTn-Tr-CML" firstAttribute="top" secondItem="C4V-ZG-h1b" secondAttribute="top" id="1G8-sz-EpF"/>
-                                            <constraint firstItem="tYh-kl-w6G" firstAttribute="leading" secondItem="C4V-ZG-h1b" secondAttribute="leading" id="Gpa-Ai-EbB"/>
-                                            <constraint firstItem="MTn-Tr-CML" firstAttribute="leading" secondItem="C4V-ZG-h1b" secondAttribute="leading" id="KgV-ae-BIC"/>
-                                            <constraint firstAttribute="height" constant="150" id="VB1-dK-PJ1"/>
-                                            <constraint firstAttribute="trailing" secondItem="MTn-Tr-CML" secondAttribute="trailing" id="XV1-9F-bhK"/>
-                                            <constraint firstAttribute="bottom" secondItem="tYh-kl-w6G" secondAttribute="bottom" id="nGk-vl-z6M"/>
-                                            <constraint firstAttribute="trailing" secondItem="tYh-kl-w6G" secondAttribute="trailing" id="qXK-KA-2yu"/>
+                                            <constraint firstItem="MTn-Tr-CML" firstAttribute="leading" secondItem="C4V-ZG-h1b" secondAttribute="leading" id="RFv-u8-lIk"/>
+                                            <constraint firstItem="tYh-kl-w6G" firstAttribute="trailing" secondItem="MTn-Tr-CML" secondAttribute="trailing" id="cTB-AQ-0VS"/>
+                                            <constraint firstAttribute="trailing" secondItem="MTn-Tr-CML" secondAttribute="trailing" id="kxM-UP-OJV"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="C4V-ZG-h1b" firstAttribute="leading" secondItem="xrv-fh-gxR" secondAttribute="leading" constant="16" id="Fq3-D8-liW"/>
-                                    <constraint firstAttribute="trailing" secondItem="C4V-ZG-h1b" secondAttribute="trailing" constant="16" id="gmt-o7-S7n"/>
-                                    <constraint firstAttribute="bottom" secondItem="C4V-ZG-h1b" secondAttribute="bottom" id="mks-NX-pbR"/>
-                                    <constraint firstItem="C4V-ZG-h1b" firstAttribute="top" secondItem="xrv-fh-gxR" secondAttribute="top" id="y0k-VF-wfR"/>
+                                    <constraint firstAttribute="trailing" secondItem="C4V-ZG-h1b" secondAttribute="trailing" constant="16" id="8IE-i9-GtU"/>
+                                    <constraint firstItem="C4V-ZG-h1b" firstAttribute="leading" secondItem="xrv-fh-gxR" secondAttribute="leading" constant="16" id="Lyg-CQ-I0Y"/>
+                                    <constraint firstAttribute="bottom" secondItem="C4V-ZG-h1b" secondAttribute="bottom" id="gb0-jG-8s2"/>
+                                    <constraint firstItem="C4V-ZG-h1b" firstAttribute="top" secondItem="xrv-fh-gxR" secondAttribute="top" constant="20" id="tkD-WA-04q"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xrv-fh-gxR" firstAttribute="leading" secondItem="2AP-v7-rRM" secondAttribute="leadingMargin" id="H84-EF-72I"/>
                             <constraint firstItem="xrv-fh-gxR" firstAttribute="trailing" secondItem="2AP-v7-rRM" secondAttribute="trailingMargin" id="W85-qQ-szw"/>
-                            <constraint firstItem="T0g-C0-uJn" firstAttribute="bottom" secondItem="xrv-fh-gxR" secondAttribute="bottom" constant="401" id="WsZ-dm-RLU"/>
-                            <constraint firstItem="xrv-fh-gxR" firstAttribute="top" secondItem="T0g-C0-uJn" secondAttribute="top" constant="96" id="gx5-Tf-gnV"/>
+                            <constraint firstItem="xrv-fh-gxR" firstAttribute="top" secondItem="T0g-C0-uJn" secondAttribute="top" constant="98" id="gx5-Tf-gnV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T0g-C0-uJn"/>
                     </view>
