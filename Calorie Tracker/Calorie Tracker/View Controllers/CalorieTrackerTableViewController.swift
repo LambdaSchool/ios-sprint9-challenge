@@ -11,18 +11,14 @@ import CoreData
 import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController {
-    
     // MARK: - Properties
     var calorieTrackerController = CalorieTrackerController()
     
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews(_:)), name: .addCalorieEntry, object: nil)
+        tableView.tableFooterView = UIView()
     }
-//    func viewWillAppear() {
-//        super.viewWillAppear(true)
-//        NotificationCenter.default.addObserver(self, selector: #selector(updateViews(_:)), name: .addCalorieEntry, object: nil)
-//    }
-    
+
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -33,14 +29,16 @@ class CalorieTrackerTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
-        // I should make a type alias or something...
-        cell.textLabel?.text = "Calories: \(Int(calorieTrackerController.entries[indexPath.row].calorie)) \t\((calorieTrackerController.entries[indexPath.row].timestamp)!)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath) as! CalorieTableViewCell
+        cell.calorieLabel.text = "Calories: \(Int(calorieTrackerController.entries[indexPath.row].calorie))"
+        cell.dateLabel.text = "\((calorieTrackerController.entries[indexPath.row].timestamp)!)"
         return cell
     }
     
     @objc func updateViews(_ notification: Notification) {
-        print ("I heard your notification")
+        print("I'm the observer in the CalorieTrackerTableViewController.")
+        print("I heard somebody tapped the submit button in the GraphViewController.")
+        print("I'm gonna reload the my tableView...(I'm definitely going overboard)")
         calorieTrackerController = CalorieTrackerController()
         DispatchQueue.main.async {
             self.tableView.reloadData()

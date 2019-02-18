@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 
 class CalorieTrackerController {
+    // MARK: - Properties
     var entries: [CalorieEntry] = []
     
     init () {

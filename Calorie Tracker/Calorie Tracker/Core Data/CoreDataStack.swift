@@ -9,8 +9,8 @@
 import Foundation
 import CoreData
 
-// Well this is a mess...
 class CoreDataStack {
+    // MARK: - Properties
     static let shared = CoreDataStack()
     let mainContext: NSManagedObjectContext
     let container: NSPersistentContainer

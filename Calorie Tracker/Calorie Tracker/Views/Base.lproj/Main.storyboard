@@ -20,7 +20,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zzV-cc-IKr">
                                 <rect key="frame" x="0.0" y="116" width="375" height="220.5"/>
-                                <color key="backgroundColor" red="0.3761742347" green="1" blue="0.98990605089999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7kG-Yq-jAc">
                                 <rect key="frame" x="0.0" y="336.5" width="375" height="330.5"/>
@@ -55,7 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pMm-JB-ePE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1548" y="-939.58020989505258"/>
+            <point key="canvasLocation" x="1548" y="-1175"/>
         </scene>
         <!--Calorie Tracker Table View Controller-->
         <scene sceneID="HVE-jv-aH0">
@@ -66,22 +66,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieCell" textLabel="G5m-Aj-xWC" rowHeight="75" style="IBUITableViewCellStyleDefault" id="bzn-aE-vBg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieCell" rowHeight="75" id="bzn-aE-vBg" customClass="CalorieTableViewCell" customModule="Calorie_Tracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bzn-aE-vBg" id="F7W-YE-Git">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G5m-Aj-xWC">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="74.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oz8-CW-C4i">
+                                            <rect key="frame" x="24" y="27" width="327" height="20.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4sm-Wn-Z2T">
+                                                    <rect key="frame" x="0.0" y="0.0" width="131" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6G-Zc-srm">
+                                                    <rect key="frame" x="131" y="0.0" width="196" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="f6G-Zc-srm" firstAttribute="width" secondItem="oz8-CW-C4i" secondAttribute="width" multiplier="0.6" id="aHx-Ch-gb1"/>
+                                                <constraint firstItem="4sm-Wn-Z2T" firstAttribute="width" secondItem="oz8-CW-C4i" secondAttribute="width" multiplier="0.4" id="z7t-29-dVe"/>
+                                            </constraints>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="oz8-CW-C4i" secondAttribute="trailing" constant="8" id="Sub-rz-sLt"/>
+                                        <constraint firstItem="oz8-CW-C4i" firstAttribute="centerY" secondItem="F7W-YE-Git" secondAttribute="centerY" id="Swc-dO-KzY"/>
+                                        <constraint firstItem="oz8-CW-C4i" firstAttribute="leading" secondItem="F7W-YE-Git" secondAttribute="leadingMargin" constant="8" id="xYI-7t-er4"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="calorieLabel" destination="4sm-Wn-Z2T" id="yKV-0P-4lN"/>
+                                    <outlet property="dateLabel" destination="f6G-Zc-srm" id="bra-DT-NLD"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -92,7 +115,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z74-VC-Tt9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1548" y="-264"/>
+            <point key="canvasLocation" x="2353" y="-1176"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Efj-kg-BXQ">
@@ -110,7 +133,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCM-uU-aXW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="608.79999999999995" y="-939.58020989505258"/>
+            <point key="canvasLocation" x="799" y="-1176"/>
         </scene>
     </scenes>
 </document>
