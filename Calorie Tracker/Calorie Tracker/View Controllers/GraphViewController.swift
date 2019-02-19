@@ -9,16 +9,9 @@ class GraphViewController: UIViewController {
         showAlert()
     }
     
-    override func viewDidLoad() {
-        // I couldn't use the loadChart() here, because the graph wouldn't fill up the
-        // whole chartView, on initial view. I still couldn't figure out why...
-        var chart: Chart = Chart()
-        chart = Chart(frame: CGRect(x: 0, y: 0, width: chartView.frame.width * 1.1, height: chartView.frame.height * 1.3))
-        let series = ChartSeries(calorieTrackerController.entries.map{ $0.calorie })
-        series.area = true
-        series.color = ChartColors.greenColor()
-        chart.add(series)
-        chartView.addSubview(chart)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        loadChart()
     }
     
     func loadChart() {
