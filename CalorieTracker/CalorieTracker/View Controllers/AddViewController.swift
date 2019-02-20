@@ -26,14 +26,6 @@ class AddViewController: UIViewController {
         
         guard let calorieInput = AddValueTextField.text else { return }
         calorieController?.addCalorie(calorie: calorieInput)
-        
-        guard let chartCalorie = Double(calorieInput) else { return }
-        calorieController?.chartCalorie(calorie: chartCalorie)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     var calorie: Calorie? {

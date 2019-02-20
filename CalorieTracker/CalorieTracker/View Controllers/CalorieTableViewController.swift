@@ -29,15 +29,10 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateChart()
         NotificationCenter.default.addObserver(self, selector: #selector(caloriesDidChange(_:)), name: .caloriesDidChange, object: nil)
+        updateChart()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
-    }
-    
+        
     func updateChart() {
         
         let series = ChartSeries([])
@@ -46,18 +41,22 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
         
         for index in 0 ..< result.count {
             let calorie = result[index]
-            let calDouble = Double(calorie.value!)!
-            series.data.append((x: Double(index), y: calDouble))
+            let calorieDouble = Double(calorie.value!)!
+            series.data.append((x: Double(index), y: calorieDouble))
             
         }
         chart.add(series)
     }
     
     @objc func caloriesDidChange(_ notification: Notification) {
+        
         print("Calories Changed")
-        updateChart()
-        tableView.tableHeaderView = self.chart
-        tableView.reloadData()
+        
+        if calorieValueChanged == true {
+            updateChart()
+        } else {
+            calorieValueChanged = false
+        }
     }
     
     // MARK: - Table view data source
@@ -134,6 +133,11 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
     // MARK: - Properties
     
     @IBOutlet weak var chart: Chart!
+    
+    var calorieValueChanged: Bool {
+        get { return true }
+        set { NotificationCenter.default.post(name: .caloriesDidChange, object: self) }
+    }
     
     let calorie: Calorie? = nil
     

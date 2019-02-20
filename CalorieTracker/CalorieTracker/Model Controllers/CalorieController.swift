@@ -17,18 +17,7 @@ class CalorieController {
     
     var calories: [Calorie] = []
     
-    var chartCalories: [Double] = []
-    
-    var calorieValueChanged: Bool {
-        get { return self.calorieValueChanged }
-        set { NotificationCenter.default.post(name: .caloriesDidChange, object: self) }
-    }
-    
     let moc = CoreDataStack.shared.mainContext
-    
-    func calorieCount() -> Int {
-        return calories.count
-    }
     
     func addCalorie(calorie: String) {
         let newCalories = Calorie(value: calorie, timestamp: Date.init(), context: moc)
@@ -37,14 +26,7 @@ class CalorieController {
         do { try moc.save() }
         catch { NSLog("Error saving to managed object context") }
     }
-    
-    func chartCalorie(calorie: Double) {
-        chartCalories.append(calorie)
         
-        do { try moc.save() }
-        catch { NSLog("Error saving to managed object context") }
-    }
-    
     func fetchCalories() -> [Calorie] {
         
         let moc = CoreDataStack.shared.mainContext
