@@ -29,27 +29,34 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // This is dummy data //
-        let series = ChartSeries([1346.0, 1462.0, 2134.0, 1846.0, 1234.0, 2012.0, 1654.0])
-        series.color = ChartColors.greenColor()
-        chart.add(series)
-        
+        updateChart()
         NotificationCenter.default.addObserver(self, selector: #selector(caloriesDidChange(_:)), name: .caloriesDidChange, object: nil)
     }
     
-    func updateChart(indexPath: IndexPath) {
-        
-        
-    }
-        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
     
-    @objc func caloriesDidChange(_ notification: Notification) {
+    func updateChart() {
         
-
+        let series = ChartSeries([])
+        series.color = ChartColors.greenColor()
+        let result = calorieController.fetchCalories()
+        
+        for index in 0 ..< result.count {
+            let calorie = result[index]
+            let calDouble = Double(calorie.value!)!
+            series.data.append((x: Double(index), y: calDouble))
+            
+        }
+        chart.add(series)
+    }
+    
+    @objc func caloriesDidChange(_ notification: Notification) {
+        print("Calories Changed")
+        updateChart()
+        tableView.tableHeaderView = self.chart
         tableView.reloadData()
     }
     

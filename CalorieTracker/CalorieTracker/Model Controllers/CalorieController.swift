@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 extension Notification.Name {
     static let caloriesDidChange = Notification.Name("caloriesDidChange")
@@ -42,6 +43,20 @@ class CalorieController {
         
         do { try moc.save() }
         catch { NSLog("Error saving to managed object context") }
+    }
+    
+    func fetchCalories() -> [Calorie] {
+        
+        let moc = CoreDataStack.shared.mainContext
+        let fetchRequest = NSFetchRequest<Calorie>(entityName: "Calorie")
+        var results: [Calorie] = []
+        
+        do {
+            results = try moc.fetch(fetchRequest)
+        } catch {
+            NSLog("Error fetching Calorie data from moc")
+        }
+        return results
     }
     
 }
