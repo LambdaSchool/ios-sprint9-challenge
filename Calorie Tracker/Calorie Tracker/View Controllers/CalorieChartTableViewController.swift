@@ -15,7 +15,7 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
     override func viewDidLoad() {
         super.viewDidLoad()
         updateChart()
-        observeCalorieIntakeAdded()
+        observeCalorieIntakeChanged()
     }
     
     @IBAction func addCalorieIntakeButtonTapped(_ sender: Any) {
@@ -50,16 +50,14 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
         
         guard var allcalories = fetchedResultsController.fetchedObjects?.compactMap({$0.calories}) else { return }
         allcalories.insert(0.0, at: 0)
-        
-        let series = ChartSeries(allcalories)
 
-        self.series = series
+        self.series = ChartSeries(allcalories)
         self.series.color = ChartColors.orangeColor()
         self.series.area = true
         calorieChart.add(self.series)
     }
     
-    func observeCalorieIntakeAdded() {
+    func observeCalorieIntakeChanged() {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshViews), name: .calorieIntakeChanged, object: nil)
     }
     
