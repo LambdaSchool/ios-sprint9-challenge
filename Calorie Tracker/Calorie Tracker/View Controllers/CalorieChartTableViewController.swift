@@ -25,14 +25,14 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
         var caloriesTextField: UITextField?
         
         alert.addTextField { (textField) in
-            textField.placeholder = "Amount:"
+            textField.placeholder = "Amount: (must be less than 2000)"
             caloriesTextField = textField
         }
         
         let submitAction = UIAlertAction(title: "Submit", style: .default) { (_) in
             
             guard let caloriesString = caloriesTextField?.text, !caloriesString.isEmpty,
-                let calories = Double(caloriesString) else { return }
+                let calories = Double(caloriesString), calories < 2000.0 else { return }
             
             self.calorieIntakeController.create(calories: calories)
             NotificationCenter.default.post(name: .calorieIntakeChanged, object: nil)
