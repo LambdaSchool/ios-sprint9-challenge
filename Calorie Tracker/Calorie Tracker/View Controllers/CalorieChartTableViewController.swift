@@ -14,13 +14,8 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard var allcalories = fetchedResultsController.fetchedObjects?.compactMap({$0.calories}) else { return }
-        
-        allcalories.insert(0.0, at: 0)
-        let series = ChartSeries(allcalories)
-        series.color = ChartColors.maroonColor()
-        calorieChart.add(series)
+        updateChart()
+        observeCalorieIntakeAdded()
     }
 
     @IBAction func addCalorieIntakeButtonTapped(_ sender: Any) {
@@ -40,7 +35,7 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
                 let calories = Double(caloriesString) else { return }
             
             self.calorieIntakeController.create(calories: calories)
-            NotificationCenter.default.post(name: .calorieIntakeAdded, object: nil)
+            NotificationCenter.default.post(name: .calorieIntakeChanged, object: nil)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
@@ -52,12 +47,21 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
         present(alert, animated: true, completion: nil)
     }
     
+    private func updateChart() {
+        guard var allcalories = fetchedResultsController.fetchedObjects?.compactMap({$0.calories}) else { return }
+        
+        allcalories.insert(0.0, at: 0)
+        let series = ChartSeries(allcalories)
+        series.color = ChartColors.maroonColor()
+        calorieChart.add(series)
+    }
+    
     func observeCalorieIntakeAdded() {
-        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews), name: .calorieIntakeAdded, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews), name: .calorieIntakeChanged, object: nil)
     }
     
         @objc func refreshViews() {
-            calorieChart.reloadInputViews()
+            updateChart()
         }
     
     // MARK: - Table view data source
@@ -73,7 +77,7 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
 
         let calorieIntake = fetchedResultsController.object(at: indexPath)
         
-        cell.textLabel?.text = "Calories: \(calorieIntake.calories)"
+        cell.textLabel?.text = "Calories: \(Int(calorieIntake.calories))"
         
         let date = formatter.string(from: calorieIntake.timestamp!)
         cell.detailTextLabel?.text = date
@@ -88,6 +92,7 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
             
             calorieIntakeController.delete(calorieIntake: calorieIntake)
         }
+        NotificationCenter.default.post(name: .calorieIntakeChanged, object: nil)
     }
     
     // MARK: - NSFetchedResultsControllerDelegate
