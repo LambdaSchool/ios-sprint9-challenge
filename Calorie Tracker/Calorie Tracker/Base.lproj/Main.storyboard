@@ -12,7 +12,7 @@
         <!--Calorie Tracker-->
         <scene sceneID="tBX-Xl-RAD">
             <objects>
-                <tableViewController id="Yrj-WT-GQi" sceneMemberID="viewController">
+                <tableViewController id="Yrj-WT-GQi" customClass="CalorieChartTableViewController" customModule="Calorie_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Myx-A9-zvJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,12 +35,28 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieIntakeCell" id="rjp-E4-PHh">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieIntakeCell" textLabel="hWi-Pn-IKW" detailTextLabel="wep-ea-NT0" style="IBUITableViewCellStyleValue1" id="rjp-E4-PHh">
                                 <rect key="frame" x="0.0" y="208" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rjp-E4-PHh" id="SIB-n3-Fqw">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hWi-Pn-IKW">
+                                            <rect key="frame" x="16" y="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wep-ea-NT0">
+                                            <rect key="frame" x="315" y="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -49,7 +65,16 @@
                             <outlet property="delegate" destination="Yrj-WT-GQi" id="Sq8-wA-I6a"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Calorie Tracker" id="8Lu-ws-jEg"/>
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="8Lu-ws-jEg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NL8-Hp-3Za">
+                            <connections>
+                                <action selector="addCalorieIntakeButtonTapped:" destination="Yrj-WT-GQi" id="DlQ-so-xmW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="calorieChart" destination="dQg-qG-raE" id="iCq-i7-t2Z"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xIK-b6-4Gc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

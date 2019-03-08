@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3921C7EC2232D3730050AFDD /* CalorieChartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3921C7EB2232D3730050AFDD /* CalorieChartTableViewController.swift */; };
 		3925D9482232CDFB00A9978A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3925D9472232CDFB00A9978A /* AppDelegate.swift */; };
 		3925D94D2232CDFB00A9978A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3925D94B2232CDFB00A9978A /* Main.storyboard */; };
 		3925D94F2232CDFB00A9978A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3925D94E2232CDFB00A9978A /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3921C7EB2232D3730050AFDD /* CalorieChartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieChartTableViewController.swift; sourceTree = "<group>"; };
 		3925D9442232CDFA00A9978A /* Calorie Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calorie Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3925D9472232CDFB00A9978A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3925D94C2232CDFB00A9978A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,6 +40,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3921C7ED2232D37C0050AFDD /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3921C7EB2232D3730050AFDD /* CalorieChartTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
 		3925D93B2232CDFA00A9978A = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +71,7 @@
 			children = (
 				3925D9472232CDFB00A9978A /* AppDelegate.swift */,
 				3925D94B2232CDFB00A9978A /* Main.storyboard */,
+				3921C7ED2232D37C0050AFDD /* View Controllers */,
 				3925D94E2232CDFB00A9978A /* Assets.xcassets */,
 				3925D9502232CDFB00A9978A /* LaunchScreen.storyboard */,
 				3925D9532232CDFB00A9978A /* Info.plist */,
@@ -74,7 +85,6 @@
 				3F4A021802B59386F2B7E3AB /* Pods-Calorie Tracker.debug.xcconfig */,
 				FC7A679E26BB3DC2F5388D28 /* Pods-Calorie Tracker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -206,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3921C7EC2232D3730050AFDD /* CalorieChartTableViewController.swift in Sources */,
 				3925D9482232CDFB00A9978A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
