@@ -11,6 +11,7 @@
 		3921C7F32232E0F90050AFDD /* Calorie Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3921C7F12232E0F90050AFDD /* Calorie Tracker.xcdatamodeld */; };
 		3921C7F52232E25D0050AFDD /* CalorieIntake+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3921C7F42232E25D0050AFDD /* CalorieIntake+Convenience.swift */; };
 		3921C7F72232E2C80050AFDD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3921C7F62232E2C80050AFDD /* CoreDataStack.swift */; };
+		3921C7F92232E5900050AFDD /* CalorieIntakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3921C7F82232E5900050AFDD /* CalorieIntakeController.swift */; };
 		3925D9482232CDFB00A9978A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3925D9472232CDFB00A9978A /* AppDelegate.swift */; };
 		3925D94D2232CDFB00A9978A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3925D94B2232CDFB00A9978A /* Main.storyboard */; };
 		3925D94F2232CDFB00A9978A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3925D94E2232CDFB00A9978A /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		3921C7F22232E0F90050AFDD /* Calorie Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Calorie Tracker.xcdatamodel"; sourceTree = "<group>"; };
 		3921C7F42232E25D0050AFDD /* CalorieIntake+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieIntake+Convenience.swift"; sourceTree = "<group>"; };
 		3921C7F62232E2C80050AFDD /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		3921C7F82232E5900050AFDD /* CalorieIntakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeController.swift; sourceTree = "<group>"; };
 		3925D9442232CDFA00A9978A /* Calorie Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calorie Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3925D9472232CDFB00A9978A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3925D94C2232CDFB00A9978A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 		3921C7F02232E0970050AFDD /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3921C7F82232E5900050AFDD /* CalorieIntakeController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				3921C7F72232E2C80050AFDD /* CoreDataStack.swift in Sources */,
 				3921C7EC2232D3730050AFDD /* CalorieChartTableViewController.swift in Sources */,
 				3921C7F52232E25D0050AFDD /* CalorieIntake+Convenience.swift in Sources */,
+				3921C7F92232E5900050AFDD /* CalorieIntakeController.swift in Sources */,
 				3921C7F32232E0F90050AFDD /* Calorie Tracker.xcdatamodeld in Sources */,
 				3925D9482232CDFB00A9978A /* AppDelegate.swift in Sources */,
 			);
