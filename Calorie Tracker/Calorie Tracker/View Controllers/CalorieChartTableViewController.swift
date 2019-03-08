@@ -46,12 +46,17 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
     }
     
     private func updateChart() {
-        guard var allcalories = fetchedResultsController.fetchedObjects?.compactMap({$0.calories}) else { return }
+        calorieChart.series.removeAll()
         
+        guard var allcalories = fetchedResultsController.fetchedObjects?.compactMap({$0.calories}) else { return }
         allcalories.insert(0.0, at: 0)
+        
         let series = ChartSeries(allcalories)
-        series.color = ChartColors.orangeColor()
-        calorieChart.add(series)
+
+        self.series = series
+        self.series.color = ChartColors.orangeColor()
+        self.series.area = true
+        calorieChart.add(self.series)
     }
     
     func observeCalorieIntakeAdded() {
@@ -90,6 +95,7 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
             
             calorieIntakeController.delete(calorieIntake: calorieIntake)
         }
+        NotificationCenter.default.post(name: .calorieIntakeChanged, object: nil)
     }
     
     // MARK: - NSFetchedResultsControllerDelegate
@@ -138,6 +144,8 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
     // MARK: - Properties
     
     var calorieIntakeController = CalorieIntakeController()
+    
+    var series: ChartSeries!
     
     private lazy var formatter: DateFormatter = {
         let result = DateFormatter()
