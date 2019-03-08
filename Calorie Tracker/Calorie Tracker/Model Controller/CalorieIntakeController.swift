@@ -19,7 +19,7 @@ class CalorieIntakeController {
         }
     }
     
-    func create(calories: Int16) {
+    func create(calories: Double) {
         
         _ = CalorieIntake(calories: calories)
         saveToPersistentStore()

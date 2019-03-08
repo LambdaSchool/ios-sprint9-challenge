@@ -14,12 +14,51 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard var allcalories = fetchedResultsController.fetchedObjects?.compactMap({$0.calories}) else { return }
+        
+        allcalories.insert(0.0, at: 0)
+        let series = ChartSeries(allcalories)
+        series.color = ChartColors.maroonColor()
+        calorieChart.add(series)
     }
 
     @IBAction func addCalorieIntakeButtonTapped(_ sender: Any) {
         
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories below:", preferredStyle: .alert)
         
+        var caloriesTextField: UITextField?
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Amount:"
+            caloriesTextField = textField
+        }
+        
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { (_) in
+            
+            guard let caloriesString = caloriesTextField?.text, !caloriesString.isEmpty,
+                let calories = Double(caloriesString) else { return }
+            
+            self.calorieIntakeController.create(calories: calories)
+            NotificationCenter.default.post(name: .calorieIntakeAdded, object: nil)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(submitAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
     }
+    
+    func observeCalorieIntakeAdded() {
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews), name: .calorieIntakeAdded, object: nil)
+    }
+    
+        @objc func refreshViews() {
+            calorieChart.reloadInputViews()
+        }
     
     // MARK: - Table view data source
 
@@ -35,6 +74,9 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
         let calorieIntake = fetchedResultsController.object(at: indexPath)
         
         cell.textLabel?.text = "Calories: \(calorieIntake.calories)"
+        
+        let date = formatter.string(from: calorieIntake.timestamp!)
+        cell.detailTextLabel?.text = date
 
         return cell
     }
@@ -98,11 +140,18 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
     
     var calorieIntakeController = CalorieIntakeController()
     
+    private lazy var formatter: DateFormatter = {
+        let result = DateFormatter()
+        result.dateStyle = .medium
+        result.timeStyle = .medium
+        return result
+    }()
+    
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieIntake> = {
         
         let fetchRequest: NSFetchRequest<CalorieIntake> = CalorieIntake.fetchRequest()
         fetchRequest.sortDescriptors = [
-            NSSortDescriptor(key: "timestamp", ascending: false)
+            NSSortDescriptor(key: "timestamp", ascending: true)
         ]
         
         let moc = CoreDataStack.shared.mainContext
