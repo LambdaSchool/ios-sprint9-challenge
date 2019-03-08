@@ -11,13 +11,13 @@ import SwiftChart
 import CoreData
 
 class CalorieChartTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateChart()
         observeCalorieIntakeAdded()
     }
-
+    
     @IBAction func addCalorieIntakeButtonTapped(_ sender: Any) {
         
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories below:", preferredStyle: .alert)
@@ -37,10 +37,8 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
             self.calorieIntakeController.create(calories: calories)
             NotificationCenter.default.post(name: .calorieIntakeChanged, object: nil)
         }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
-            self.dismiss(animated: true, completion: nil)
-        }
         alert.addAction(submitAction)
         alert.addAction(cancelAction)
         
@@ -52,7 +50,7 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
         
         allcalories.insert(0.0, at: 0)
         let series = ChartSeries(allcalories)
-        series.color = ChartColors.maroonColor()
+        series.color = ChartColors.orangeColor()
         calorieChart.add(series)
     }
     
@@ -60,31 +58,31 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
         NotificationCenter.default.addObserver(self, selector: #selector(refreshViews), name: .calorieIntakeChanged, object: nil)
     }
     
-        @objc func refreshViews() {
-            updateChart()
-        }
+    @objc func refreshViews() {
+        updateChart()
+    }
     
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fetchedResultsController.fetchedObjects?.count ?? 0
     }
-
+    
     let reuseIdentifier = "CalorieIntakeCell"
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-
+        
         let calorieIntake = fetchedResultsController.object(at: indexPath)
+        let date = formatter.string(from: calorieIntake.timestamp!)
         
         cell.textLabel?.text = "Calories: \(Int(calorieIntake.calories))"
-        
-        let date = formatter.string(from: calorieIntake.timestamp!)
         cell.detailTextLabel?.text = date
-
+        cell.selectionStyle = .none
+        
         return cell
     }
-
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
@@ -92,7 +90,6 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
             
             calorieIntakeController.delete(calorieIntake: calorieIntake)
         }
-        NotificationCenter.default.post(name: .calorieIntakeChanged, object: nil)
     }
     
     // MARK: - NSFetchedResultsControllerDelegate
@@ -122,9 +119,6 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
             guard let indexPath = indexPath,
                 let newIndexPath = newIndexPath else { return }
             tableView.moveRow(at: indexPath, to: newIndexPath)
-            
-            //            tableView.deleteRows(at: [indexPath], with: .automatic)
-            //            tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
     }
     
@@ -140,7 +134,7 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
             break
         }
     }
-
+    
     // MARK: - Properties
     
     var calorieIntakeController = CalorieIntakeController()
