@@ -98,10 +98,10 @@
 		3925D9462232CDFA00A9978A /* Calorie Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				3921C7EE2232E0860050AFDD /* Model */,
-				3921C7F02232E0970050AFDD /* Model Controller */,
 				3925D9472232CDFB00A9978A /* AppDelegate.swift */,
 				3925D94B2232CDFB00A9978A /* Main.storyboard */,
+				3921C7EE2232E0860050AFDD /* Model */,
+				3921C7F02232E0970050AFDD /* Model Controller */,
 				3921C7ED2232D37C0050AFDD /* View Controllers */,
 				3925D94E2232CDFB00A9978A /* Assets.xcassets */,
 				3925D9502232CDFB00A9978A /* LaunchScreen.storyboard */,
