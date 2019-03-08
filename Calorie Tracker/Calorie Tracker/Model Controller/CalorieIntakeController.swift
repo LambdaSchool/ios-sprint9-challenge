@@ -31,5 +31,4 @@ class CalorieIntakeController {
         moc.delete(calorieIntake)
         saveToPersistentStore()
     }
-    
 }
