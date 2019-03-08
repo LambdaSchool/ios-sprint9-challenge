@@ -17,9 +17,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Z7d-rH-Wso">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQg-qG-raE" customClass="Chart" customModule="SwiftChart">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                    <color key="backgroundColor" red="0.81903038350000001" green="0.89943224899999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="dQg-qG-raE" firstAttribute="leading" secondItem="Z7d-rH-Wso" secondAttribute="leading" id="3ch-wU-0vb"/>
+                                <constraint firstItem="dQg-qG-raE" firstAttribute="top" secondItem="Z7d-rH-Wso" secondAttribute="top" id="OJg-rn-tGJ"/>
+                                <constraint firstAttribute="trailing" secondItem="dQg-qG-raE" secondAttribute="trailing" id="wjm-Ho-wgR"/>
+                                <constraint firstAttribute="bottom" secondItem="dQg-qG-raE" secondAttribute="bottom" id="xc3-IW-RXc"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieIntakeCell" id="rjp-E4-PHh">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="208" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rjp-E4-PHh" id="SIB-n3-Fqw">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -36,7 +53,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xIK-b6-4Gc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="222" y="140"/>
+            <point key="canvasLocation" x="221.59999999999999" y="139.880059970015"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0YB-1n-cuQ">
