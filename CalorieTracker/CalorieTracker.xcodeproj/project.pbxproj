@@ -16,6 +16,7 @@
 		C4FB5D8B223BFA49001B08D6 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB5D8A223BFA49001B08D6 /* CoreDataStack.swift */; };
 		C4FB5D8D223BFC57001B08D6 /* CalorieIntakeRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB5D8C223BFC57001B08D6 /* CalorieIntakeRepresentation.swift */; };
 		C4FB5D91223C01CD001B08D6 /* CalorieIntakeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB5D90223C01CD001B08D6 /* CalorieIntakeTableViewController.swift */; };
+		C4FB5D93223C063F001B08D6 /* CalorieIntakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB5D92223C063F001B08D6 /* CalorieIntakeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		C4FB5D8A223BFA49001B08D6 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		C4FB5D8C223BFC57001B08D6 /* CalorieIntakeRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeRepresentation.swift; sourceTree = "<group>"; };
 		C4FB5D90223C01CD001B08D6 /* CalorieIntakeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeTableViewController.swift; sourceTree = "<group>"; };
+		C4FB5D92223C063F001B08D6 /* CalorieIntakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,13 +77,14 @@
 		C4FB5D73223BF0E1001B08D6 /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
+				C4FB5D90223C01CD001B08D6 /* CalorieIntakeTableViewController.swift */,
+				C4FB5D92223C063F001B08D6 /* CalorieIntakeController.swift */,
 				C4FB5D74223BF0E1001B08D6 /* AppDelegate.swift */,
 				C4FB5D78223BF0E1001B08D6 /* Main.storyboard */,
 				C4FB5D7B223BF0E1001B08D6 /* Assets.xcassets */,
 				C4FB5D7D223BF0E1001B08D6 /* LaunchScreen.storyboard */,
 				C4FB5D80223BF0E1001B08D6 /* Info.plist */,
 				C4FB5D89223BFA24001B08D6 /* Core Data */,
-				C4FB5D90223C01CD001B08D6 /* CalorieIntakeTableViewController.swift */,
 			);
 			path = CalorieTracker;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				C4FB5D88223BF935001B08D6 /* CalorieTracker.xcdatamodeld in Sources */,
 				C4FB5D8D223BFC57001B08D6 /* CalorieIntakeRepresentation.swift in Sources */,
 				C4FB5D91223C01CD001B08D6 /* CalorieIntakeTableViewController.swift in Sources */,
+				C4FB5D93223C063F001B08D6 /* CalorieIntakeController.swift in Sources */,
 				C4FB5D75223BF0E1001B08D6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
