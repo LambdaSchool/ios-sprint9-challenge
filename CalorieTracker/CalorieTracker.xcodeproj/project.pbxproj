@@ -12,6 +12,7 @@
 		C4FB5D7A223BF0E1001B08D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4FB5D78223BF0E1001B08D6 /* Main.storyboard */; };
 		C4FB5D7C223BF0E1001B08D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4FB5D7B223BF0E1001B08D6 /* Assets.xcassets */; };
 		C4FB5D7F223BF0E1001B08D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4FB5D7D223BF0E1001B08D6 /* LaunchScreen.storyboard */; };
+		C4FB5D88223BF935001B08D6 /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4FB5D86223BF935001B08D6 /* CalorieTracker.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C4FB5D7B223BF0E1001B08D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4FB5D7E223BF0E1001B08D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4FB5D80223BF0E1001B08D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4FB5D87223BF935001B08D6 /* CalorieTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieTracker.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				C4FB5D7B223BF0E1001B08D6 /* Assets.xcassets */,
 				C4FB5D7D223BF0E1001B08D6 /* LaunchScreen.storyboard */,
 				C4FB5D80223BF0E1001B08D6 /* Info.plist */,
+				C4FB5D86223BF935001B08D6 /* CalorieTracker.xcdatamodeld */,
 			);
 			path = CalorieTracker;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4FB5D88223BF935001B08D6 /* CalorieTracker.xcdatamodeld in Sources */,
 				C4FB5D75223BF0E1001B08D6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +411,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C4FB5D86223BF935001B08D6 /* CalorieTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C4FB5D87223BF935001B08D6 /* CalorieTracker.xcdatamodel */,
+			);
+			currentVersion = C4FB5D87223BF935001B08D6 /* CalorieTracker.xcdatamodel */;
+			path = CalorieTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C4FB5D69223BF0E1001B08D6 /* Project object */;
 }
