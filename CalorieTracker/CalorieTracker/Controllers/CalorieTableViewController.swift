@@ -14,6 +14,7 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateChart()
         
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(refreshViews(_:)), name: .calorieIntakeChange, object: nil)
@@ -69,6 +70,16 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
     //MARK: - Notification
     @objc func refreshViews(_ notification: Notification) {
         tableView.reloadData()
+    }
+    
+    private func updateChart() {
+        guard var allcalories = fetchedResultsController.fetchedObjects?.compactMap({$0.calories}) else { return }
+        allcalories.insert(0.0, at: 0)
+        
+        self.series = ChartSeries(allcalories)
+        self.series.color = ChartColors.pinkColor()
+        self.series.area = true
+        calorieChart.add(self.series)
     }
     
     // MARK: - Table view data source
