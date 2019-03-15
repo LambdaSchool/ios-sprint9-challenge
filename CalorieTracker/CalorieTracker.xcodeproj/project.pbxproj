@@ -104,9 +104,9 @@
 		4800D645223C03540041AF8B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4800D648223C0DA00041AF8B /* Notification.swift */,
 				4800D643223C02CC0041AF8B /* CalorieController.swift */,
 				4800D646223C05FE0041AF8B /* CalorieTableViewController.swift */,
-				4800D648223C0DA00041AF8B /* Notification.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
