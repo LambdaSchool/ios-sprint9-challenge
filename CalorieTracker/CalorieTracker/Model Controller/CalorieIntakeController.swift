@@ -40,6 +40,7 @@ class CalorieIntakeController {
         let predicate = NSPredicate(format: "identifier == %@", identifier)
         request.predicate = predicate
         
+
         var calorieIntake: CalorieIntake?
         context.performAndWait {
             calorieIntake = (try? context.fetch(request))?.first

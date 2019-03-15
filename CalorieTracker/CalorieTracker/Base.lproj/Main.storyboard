@@ -54,8 +54,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Cal-Trac" id="uQb-VH-Jfw">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tQJ-dE-TzY"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tQJ-dE-TzY">
+                            <connections>
+                                <action selector="add:" destination="vMM-DT-lMw" id="h6T-5o-Rir"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chartView" destination="dzJ-6B-NTF" id="naB-JU-y9t"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MxT-Vs-MG2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

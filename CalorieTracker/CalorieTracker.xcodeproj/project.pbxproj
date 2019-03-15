@@ -52,12 +52,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9F78416A6F5C0A2F396874E5 /* Frameworks */ = {
+		9F78416A6F5C0A2F396874E5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				5118C34BE5AA455B34F25267 /* Pods_CalorieTracker.framework */,
 			);
-			name = Frameworks;
+			name = Model;
 			sourceTree = "<group>";
 		};
 		C4FB5D68223BF0E1001B08D6 = {
@@ -66,7 +66,7 @@
 				C4FB5D73223BF0E1001B08D6 /* CalorieTracker */,
 				C4FB5D72223BF0E1001B08D6 /* Products */,
 				F3D0727CA35E001AABCBF8FB /* Pods */,
-				9F78416A6F5C0A2F396874E5 /* Frameworks */,
+				9F78416A6F5C0A2F396874E5 /* Model */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,10 +81,9 @@
 		C4FB5D73223BF0E1001B08D6 /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
-				C4FB5D90223C01CD001B08D6 /* CalorieIntakeTableViewController.swift */,
-				C4FB5D92223C063F001B08D6 /* CalorieIntakeController.swift */,
-				C4FB5D94223C0AC8001B08D6 /* CalorieIntake + Convenience.swift */,
-				C4FB5D96223C0B34001B08D6 /* DateHelper.swift */,
+				C4FB5D9A223C1985001B08D6 /* View Controller */,
+				C4FB5D99223C1925001B08D6 /* Model Controller */,
+				C4FB5D98223C18FA001B08D6 /* Helpers */,
 				C4FB5D74223BF0E1001B08D6 /* AppDelegate.swift */,
 				C4FB5D78223BF0E1001B08D6 /* Main.storyboard */,
 				C4FB5D7B223BF0E1001B08D6 /* Assets.xcassets */,
@@ -103,6 +102,31 @@
 				C4FB5D8A223BFA49001B08D6 /* CoreDataStack.swift */,
 			);
 			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		C4FB5D98223C18FA001B08D6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C4FB5D94223C0AC8001B08D6 /* CalorieIntake + Convenience.swift */,
+				C4FB5D96223C0B34001B08D6 /* DateHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C4FB5D99223C1925001B08D6 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C4FB5D92223C063F001B08D6 /* CalorieIntakeController.swift */,
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		C4FB5D9A223C1985001B08D6 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C4FB5D90223C01CD001B08D6 /* CalorieIntakeTableViewController.swift */,
+			);
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 		F3D0727CA35E001AABCBF8FB /* Pods */ = {
