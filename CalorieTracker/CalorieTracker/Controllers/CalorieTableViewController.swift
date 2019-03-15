@@ -26,7 +26,7 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
     
     private lazy var formatter: DateFormatter = {
         let result = DateFormatter()
-        result.dateStyle = .short
+        result.dateStyle = .medium
         result.timeStyle = .short
         return result
     }()
@@ -80,6 +80,8 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
     }
     
     private func updateChart() {
+        calorieChart.series.removeAll()
+
         guard var allcalories = fetchedResultsController.fetchedObjects?.compactMap({$0.calories}) else { return }
         allcalories.insert(0.0, at: 0)
         
