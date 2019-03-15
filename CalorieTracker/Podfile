@@ -9,6 +9,7 @@ target 'CalorieTracker' do
   # Pods for CalorieTracker
   
     pod 'Firebase/Core'
+    pod 'SwiftChart'
 
   target 'CalorieTrackerTests' do
     inherit! :search_paths
