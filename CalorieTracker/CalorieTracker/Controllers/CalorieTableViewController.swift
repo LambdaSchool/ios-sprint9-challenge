@@ -35,7 +35,28 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
     //MARK: - Outlets
     @IBOutlet weak var calorieChart: Chart!
     @IBAction func addCalories(_ sender: Any) {
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the text field below:", preferredStyle: .alert)
         
+        var caloriesTextField: UITextField?
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Calories:"
+            caloriesTextField = textField
+        }
+        
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { (_) in
+            
+            guard let caloriesString = caloriesTextField?.text, !caloriesString.isEmpty,
+                let calories = Double(caloriesString) else { return }
+            
+            self.calorieController.create(calories: calories)
+            NotificationCenter.default.post(name: .calorieIntakeChange, object: nil)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(submitAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
     
 
