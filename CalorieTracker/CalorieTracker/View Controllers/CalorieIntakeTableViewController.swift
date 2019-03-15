@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftChart
+import Firebase
 import CoreData
 
 extension NSNotification.Name {
@@ -28,6 +29,8 @@ class CalorieIntakeTableViewController: UITableViewController {
         chart.add(series)
         series.color = ChartColors.blueColor()
         series.area = true
+        
+        ref = Database.database().reference()
     }
     
     // MARK: - Persistent Store
@@ -112,6 +115,8 @@ class CalorieIntakeTableViewController: UITableViewController {
     }
     
     // MARK: Properties and Outlets
+    
+    var ref: DatabaseReference!
     
     let formatter = DateFormatter()
     
