@@ -13,9 +13,12 @@
 		A2076B72223BFB6300DFBD01 /* S9_Calorie_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2076B70223BFB6300DFBD01 /* S9_Calorie_Tracker.xcdatamodeld */; };
 		A2076B74223BFB6600DFBD01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2076B73223BFB6600DFBD01 /* Assets.xcassets */; };
 		A2076B77223BFB6600DFBD01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2076B75223BFB6600DFBD01 /* LaunchScreen.storyboard */; };
+		C510123E9895C93D5C28426E /* Pods_S9_Calorie_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE1F7A6BCAA2FEA692081969 /* Pods_S9_Calorie_Tracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25ACEC9DE5371550D4941DE4 /* Pods-S9 Calorie Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S9 Calorie Tracker.release.xcconfig"; path = "Target Support Files/Pods-S9 Calorie Tracker/Pods-S9 Calorie Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		45B05612149948A4DE1E4875 /* Pods-S9 Calorie Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S9 Calorie Tracker.debug.xcconfig"; path = "Target Support Files/Pods-S9 Calorie Tracker/Pods-S9 Calorie Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		A2076B66223BFB6300DFBD01 /* S9 Calorie Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "S9 Calorie Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2076B69223BFB6300DFBD01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2076B6B223BFB6300DFBD01 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		A2076B73223BFB6600DFBD01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2076B76223BFB6600DFBD01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2076B78223BFB6600DFBD01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE1F7A6BCAA2FEA692081969 /* Pods_S9_Calorie_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_S9_Calorie_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C510123E9895C93D5C28426E /* Pods_S9_Calorie_Tracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92E6F84D54324DFF92F279B7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				45B05612149948A4DE1E4875 /* Pods-S9 Calorie Tracker.debug.xcconfig */,
+				25ACEC9DE5371550D4941DE4 /* Pods-S9 Calorie Tracker.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A2076B5D223BFB6300DFBD01 = {
 			isa = PBXGroup;
 			children = (
 				A2076B68223BFB6300DFBD01 /* S9 Calorie Tracker */,
 				A2076B67223BFB6300DFBD01 /* Products */,
+				92E6F84D54324DFF92F279B7 /* Pods */,
+				BA104E4144AAB5557D7E2817 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +83,14 @@
 			path = "S9 Calorie Tracker";
 			sourceTree = "<group>";
 		};
+		BA104E4144AAB5557D7E2817 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE1F7A6BCAA2FEA692081969 /* Pods_S9_Calorie_Tracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2076B7B223BFB6600DFBD01 /* Build configuration list for PBXNativeTarget "S9 Calorie Tracker" */;
 			buildPhases = (
+				04FB8A7A9DC0A41910D61DC7 /* [CP] Check Pods Manifest.lock */,
 				A2076B62223BFB6300DFBD01 /* Sources */,
 				A2076B63223BFB6300DFBD01 /* Frameworks */,
 				A2076B64223BFB6300DFBD01 /* Resources */,
+				3D239C7253B23E1DE01B3FC3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +158,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04FB8A7A9DC0A41910D61DC7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-S9 Calorie Tracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3D239C7253B23E1DE01B3FC3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-S9 Calorie Tracker/Pods-S9 Calorie Tracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftChart/SwiftChart.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftChart.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-S9 Calorie Tracker/Pods-S9 Calorie Tracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A2076B62223BFB6300DFBD01 /* Sources */ = {
@@ -284,6 +357,7 @@
 		};
 		A2076B7C223BFB6600DFBD01 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45B05612149948A4DE1E4875 /* Pods-S9 Calorie Tracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +376,7 @@
 		};
 		A2076B7D223BFB6600DFBD01 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25ACEC9DE5371550D4941DE4 /* Pods-S9 Calorie Tracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
