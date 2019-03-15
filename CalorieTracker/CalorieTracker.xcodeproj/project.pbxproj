@@ -14,6 +14,9 @@
 		77C464A8223BF68D00FF6C56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77C464A6223BF68D00FF6C56 /* LaunchScreen.storyboard */; };
 		77E335B6223BFA18003E7FC7 /* CalorieTrackerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E335B5223BFA18003E7FC7 /* CalorieTrackerTableViewController.swift */; };
 		77E335B8223BFA3A003E7FC7 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E335B7223BFA3A003E7FC7 /* ChartViewController.swift */; };
+		77E335BB223BFB5C003E7FC7 /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77E335B9223BFB5C003E7FC7 /* CalorieTracker.xcdatamodeld */; };
+		77E335BD223BFBB9003E7FC7 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E335BC223BFBB9003E7FC7 /* CoreDataStack.swift */; };
+		77E335BF223BFBF6003E7FC7 /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E335BE223BFBF6003E7FC7 /* Entry+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		77C464A9223BF68D00FF6C56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77E335B5223BFA18003E7FC7 /* CalorieTrackerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerTableViewController.swift; sourceTree = "<group>"; };
 		77E335B7223BFA3A003E7FC7 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		77E335BA223BFB5C003E7FC7 /* CalorieTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieTracker.xcdatamodel; sourceTree = "<group>"; };
+		77E335BC223BFBB9003E7FC7 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		77E335BE223BFBF6003E7FC7 /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
 		D2A501B47D062BECACA3D814 /* Pods-CalorieTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.release.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +85,9 @@
 				77C464A9223BF68D00FF6C56 /* Info.plist */,
 				77E335B5223BFA18003E7FC7 /* CalorieTrackerTableViewController.swift */,
 				77E335B7223BFA3A003E7FC7 /* ChartViewController.swift */,
+				77E335B9223BFB5C003E7FC7 /* CalorieTracker.xcdatamodeld */,
+				77E335BC223BFBB9003E7FC7 /* CoreDataStack.swift */,
+				77E335BE223BFBF6003E7FC7 /* Entry+Convenience.swift */,
 			);
 			path = CalorieTracker;
 			sourceTree = "<group>";
@@ -211,8 +220,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77E335BD223BFBB9003E7FC7 /* CoreDataStack.swift in Sources */,
 				77E335B6223BFA18003E7FC7 /* CalorieTrackerTableViewController.swift in Sources */,
 				77C4649E223BF68D00FF6C56 /* AppDelegate.swift in Sources */,
+				77E335BB223BFB5C003E7FC7 /* CalorieTracker.xcdatamodeld in Sources */,
+				77E335BF223BFBF6003E7FC7 /* Entry+Convenience.swift in Sources */,
 				77E335B8223BFA3A003E7FC7 /* ChartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +427,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		77E335B9223BFB5C003E7FC7 /* CalorieTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				77E335BA223BFB5C003E7FC7 /* CalorieTracker.xcdatamodel */,
+			);
+			currentVersion = 77E335BA223BFB5C003E7FC7 /* CalorieTracker.xcdatamodel */;
+			path = CalorieTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 77C46492223BF68D00FF6C56 /* Project object */;
 }
