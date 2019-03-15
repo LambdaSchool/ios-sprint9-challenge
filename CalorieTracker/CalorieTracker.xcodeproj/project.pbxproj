@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E8DB19FA232B31242490725 /* Pods_CalorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D84EF3A45B283C2C5DCA3805 /* Pods_CalorieTracker.framework */; };
 		4BCB7830223BF822008E1BE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCB782F223BF822008E1BE5 /* AppDelegate.swift */; };
 		4BCB7832223BF822008E1BE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCB7831223BF822008E1BE5 /* ViewController.swift */; };
 		4BCB7835223BF822008E1BE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BCB7833223BF822008E1BE5 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 		4BCB7845223BF825008E1BE5 /* CalorieTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCB7844223BF825008E1BE5 /* CalorieTrackerTests.swift */; };
 		4BCB7851223BF8B1008E1BE5 /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4BCB784F223BF8B1008E1BE5 /* CalorieTracker.xcdatamodeld */; };
 		4BCB7853223BF8E9008E1BE5 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCB7852223BF8E9008E1BE5 /* CoreDataStack.swift */; };
+		4BCB7855223BFC02008E1BE5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BCB7854223BFC02008E1BE5 /* GoogleService-Info.plist */; };
+		7802608C88C844364EB22D94 /* Pods_CalorieTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF18A7D6B44735AFB72984B8 /* Pods_CalorieTrackerTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C6AC769D068ADE825CC45A9 /* Pods-CalorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.debug.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		4BCB782C223BF822008E1BE5 /* CalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BCB782F223BF822008E1BE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BCB7831223BF822008E1BE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +44,12 @@
 		4BCB7846223BF825008E1BE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BCB7850223BF8B1008E1BE5 /* CalorieTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieTracker.xcdatamodel; sourceTree = "<group>"; };
 		4BCB7852223BF8E9008E1BE5 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		4BCB7854223BFC02008E1BE5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7B74EC01EC44EBFA08CE8F81 /* Pods-CalorieTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-CalorieTrackerTests/Pods-CalorieTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9F625F2B9F8161384803F6DA /* Pods-CalorieTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.release.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.release.xcconfig"; sourceTree = "<group>"; };
+		D84EF3A45B283C2C5DCA3805 /* Pods_CalorieTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8B89AA1F48EF1EC82BB117B /* Pods-CalorieTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-CalorieTrackerTests/Pods-CalorieTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		DF18A7D6B44735AFB72984B8 /* Pods_CalorieTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E8DB19FA232B31242490725 /* Pods_CalorieTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7802608C88C844364EB22D94 /* Pods_CalorieTrackerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +78,8 @@
 				4BCB782E223BF822008E1BE5 /* CalorieTracker */,
 				4BCB7843223BF825008E1BE5 /* CalorieTrackerTests */,
 				4BCB782D223BF822008E1BE5 /* Products */,
+				778A34F1A2932B46A413AFC9 /* Pods */,
+				C2EE9D3F1D313B0A71CD89F8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,6 +103,7 @@
 				4BCB7836223BF825008E1BE5 /* Assets.xcassets */,
 				4BCB7838223BF825008E1BE5 /* LaunchScreen.storyboard */,
 				4BCB783B223BF825008E1BE5 /* Info.plist */,
+				4BCB7854223BFC02008E1BE5 /* GoogleService-Info.plist */,
 			);
 			path = CalorieTracker;
 			sourceTree = "<group>";
@@ -102,6 +117,27 @@
 			path = CalorieTrackerTests;
 			sourceTree = "<group>";
 		};
+		778A34F1A2932B46A413AFC9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3C6AC769D068ADE825CC45A9 /* Pods-CalorieTracker.debug.xcconfig */,
+				9F625F2B9F8161384803F6DA /* Pods-CalorieTracker.release.xcconfig */,
+				7B74EC01EC44EBFA08CE8F81 /* Pods-CalorieTrackerTests.debug.xcconfig */,
+				D8B89AA1F48EF1EC82BB117B /* Pods-CalorieTrackerTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C2EE9D3F1D313B0A71CD89F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D84EF3A45B283C2C5DCA3805 /* Pods_CalorieTracker.framework */,
+				DF18A7D6B44735AFB72984B8 /* Pods_CalorieTrackerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -109,9 +145,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4BCB7849223BF825008E1BE5 /* Build configuration list for PBXNativeTarget "CalorieTracker" */;
 			buildPhases = (
+				944CD48E81C113FCF87C917E /* [CP] Check Pods Manifest.lock */,
 				4BCB7828223BF822008E1BE5 /* Sources */,
 				4BCB7829223BF822008E1BE5 /* Frameworks */,
 				4BCB782A223BF822008E1BE5 /* Resources */,
+				5963D8732BD716E2C8295AC1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,6 +164,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4BCB784C223BF825008E1BE5 /* Build configuration list for PBXNativeTarget "CalorieTrackerTests" */;
 			buildPhases = (
+				AC4079DD5162384DC38C74EA /* [CP] Check Pods Manifest.lock */,
 				4BCB783C223BF825008E1BE5 /* Sources */,
 				4BCB783D223BF825008E1BE5 /* Frameworks */,
 				4BCB783E223BF825008E1BE5 /* Resources */,
@@ -183,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BCB7855223BFC02008E1BE5 /* GoogleService-Info.plist in Resources */,
 				4BCB783A223BF825008E1BE5 /* LaunchScreen.storyboard in Resources */,
 				4BCB7837223BF825008E1BE5 /* Assets.xcassets in Resources */,
 				4BCB7835223BF822008E1BE5 /* Main.storyboard in Resources */,
@@ -197,6 +237,77 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5963D8732BD716E2C8295AC1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		944CD48E81C113FCF87C917E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CalorieTracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC4079DD5162384DC38C74EA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CalorieTrackerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4BCB7828223BF822008E1BE5 /* Sources */ = {
@@ -366,6 +477,7 @@
 		};
 		4BCB784A223BF825008E1BE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C6AC769D068ADE825CC45A9 /* Pods-CalorieTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -384,6 +496,7 @@
 		};
 		4BCB784B223BF825008E1BE5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F625F2B9F8161384803F6DA /* Pods-CalorieTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -402,6 +515,7 @@
 		};
 		4BCB784D223BF825008E1BE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B74EC01EC44EBFA08CE8F81 /* Pods-CalorieTrackerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -423,6 +537,7 @@
 		};
 		4BCB784E223BF825008E1BE5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8B89AA1F48EF1EC82BB117B /* Pods-CalorieTrackerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
