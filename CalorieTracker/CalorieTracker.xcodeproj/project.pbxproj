@@ -17,6 +17,7 @@
 		77E335BB223BFB5C003E7FC7 /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77E335B9223BFB5C003E7FC7 /* CalorieTracker.xcdatamodeld */; };
 		77E335BD223BFBB9003E7FC7 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E335BC223BFBB9003E7FC7 /* CoreDataStack.swift */; };
 		77E335BF223BFBF6003E7FC7 /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E335BE223BFBF6003E7FC7 /* Entry+Convenience.swift */; };
+		77E335C1223BFCCD003E7FC7 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E335C0223BFCCD003E7FC7 /* EntryController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		77E335BA223BFB5C003E7FC7 /* CalorieTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieTracker.xcdatamodel; sourceTree = "<group>"; };
 		77E335BC223BFBB9003E7FC7 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		77E335BE223BFBF6003E7FC7 /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
+		77E335C0223BFCCD003E7FC7 /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 		D2A501B47D062BECACA3D814 /* Pods-CalorieTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.release.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				77E335B9223BFB5C003E7FC7 /* CalorieTracker.xcdatamodeld */,
 				77E335BC223BFBB9003E7FC7 /* CoreDataStack.swift */,
 				77E335BE223BFBF6003E7FC7 /* Entry+Convenience.swift */,
+				77E335C0223BFCCD003E7FC7 /* EntryController.swift */,
 			);
 			path = CalorieTracker;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			files = (
 				77E335BD223BFBB9003E7FC7 /* CoreDataStack.swift in Sources */,
 				77E335B6223BFA18003E7FC7 /* CalorieTrackerTableViewController.swift in Sources */,
+				77E335C1223BFCCD003E7FC7 /* EntryController.swift in Sources */,
 				77C4649E223BF68D00FF6C56 /* AppDelegate.swift in Sources */,
 				77E335BB223BFB5C003E7FC7 /* CalorieTracker.xcdatamodeld in Sources */,
 				77E335BF223BFBF6003E7FC7 /* Entry+Convenience.swift in Sources */,
