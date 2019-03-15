@@ -12,12 +12,13 @@ struct CalorieRepresentation: Decodable, Equatable {
     
     let amount: Int64
     let timestamp: Date
+    let identifier: String
     
 }
 
 func ==(lhs: CalorieRepresentation, rhs: Calorie) -> Bool {
     return rhs.amount == lhs.amount &&
-        rhs.timestamp == lhs.timestamp
+        rhs.timestamp == lhs.timestamp && rhs.identifier == lhs.identifier
 }
 
 func ==(lhs: Calorie, rhs: CalorieRepresentation) -> Bool {

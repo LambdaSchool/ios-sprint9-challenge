@@ -46,11 +46,11 @@ class CalorieController {
     func createCalorie(with amount: Int64) {
         let calorie = Calorie(amount: amount)
         
-       // putToServer(calorie: calorie)
+        putToServer(calorie: calorie)
         saveToPersistentStore()
     }
     
-   /* func putToServer(calorie: Calorie, completion: @escaping (Error?) -> Void = { _ in }) {
+    func putToServer(calorie: Calorie, completion: @escaping (Error?) -> Void = { _ in }) {
         let identifier = calorie.identifier ?? UUID().uuidString
         
         let urlPlusID = baseURL.appendingPathComponent(identifier)
@@ -78,7 +78,78 @@ class CalorieController {
             
             completion(nil)
             }.resume()
-    }*/
+    }
+    
+    func update(calorie: Calorie, calorieRep: CalorieRepresentation) {
+        calorie.identifier = calorieRep.identifier
+        calorie.timestamp = calorieRep.timestamp
+        calorie.amount = calorieRep.amount
+    }
+    
+
+    func fetchSingleCalorieFromPersistentStore(identifier: String, context: NSManagedObjectContext) -> Calorie? {
+        let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "identifier == %@", identifier)
+        
+        var calorie: Calorie?
+        context.performAndWait {
+            do {
+                calorie = try context.fetch(fetchRequest).first
+            } catch {
+                NSLog("Error fetching single entry from Persistent Store")
+            }
+        }
+        return calorie
+    }
+    
+    func updatePersistentStoreWithServer(_ calorieRepresentations: [CalorieRepresentation],
+                                         context: NSManagedObjectContext) {
+        context.performAndWait {
+            for cal in calorieRepresentations {
+                let calorie = self.fetchSingleCalorieFromPersistentStore(identifier: cal.identifier,
+                                                                     context: context)
+                
+                if let calorie = calorie, calorie != cal {
+                    self.update(calorie: calorie, calorieRep: cal)
+                } else if calorie == nil {
+                    Calorie(calorieRep: cal, context: context)
+                }
+            }
+        }
+    }
+    
+    func fetchCaloriesFromServer(completion: @escaping (Error?) -> Void = { _ in }) {
+        let urlPlusJSON = baseURL.appendingPathExtension("json")
+        
+        URLSession.shared.dataTask(with: urlPlusJSON) { (data, _, error) in
+            if let error = error {
+                NSLog("Error fetching entries from server: \(error)")
+                completion(error)
+                return
+            }
+            
+            guard let data = data else  {
+                NSLog("No data returned from server")
+                completion(NSError())
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let calorieRepDict = try decoder.decode([String: CalorieRepresentation].self, from: data)
+                let calorieRepresentations = calorieRepDict.map{ $0.value }
+                
+                self.updatePersistentStoreWithServer(calorieRepresentations, context: self.backgroundMoc)
+                self.saveToBackgroundMoc()
+                completion(nil)
+            } catch {
+                NSLog("Error decoding entry representation: \(error)")
+                completion(error)
+            }
+            
+            }.resume()
+    }
+    
     
     
 }

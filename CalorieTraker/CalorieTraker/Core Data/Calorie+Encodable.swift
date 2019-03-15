@@ -15,11 +15,13 @@ extension Calorie: Encodable {
         
         try container.encode(timestamp, forKey: .timestamp)
         try container.encode(amount, forKey: .amount)
+        try container.encode(identifier, forKey: .identifier)
     }
     
     enum CodingKeys: String, CodingKey {
         case amount
         case timestamp
+        case identifier
     }
 }
 
