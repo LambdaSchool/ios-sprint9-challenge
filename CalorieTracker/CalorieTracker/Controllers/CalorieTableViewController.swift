@@ -91,8 +91,10 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
         let cell = tableView.dequeueReusableCell(withIdentifier: "calorieCell", for: indexPath)
 
         let calorieIntake = fetchedResultsController.object(at: indexPath)
+        let date = String(from: calorieIntake.timestamp!)
+
         cell.textLabel?.text = "Calories: \(Int(calorieIntake.calories))"
-        cell.detailTextLabel?.text = Date
+        cell.detailTextLabel?.text = date
         
         return cell
     }
