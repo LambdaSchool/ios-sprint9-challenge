@@ -86,6 +86,15 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            let calorieIntake = fetchedResultsController.object(at: indexPath)
+            calorieController.delete(calorieIntake: calorieIntake)
+        }
+        NotificationCenter.default.post(name: .calorieIntakeChange, object: nil)
+    }
+    
     // MARK: - NSFetchedResultsControllerDelegate
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
