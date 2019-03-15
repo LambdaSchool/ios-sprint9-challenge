@@ -20,6 +20,8 @@ class CalorieIntakeTableViewController: UITableViewController {
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(didCreateCalorieIntake(_:)), name: .didCreateCaloricIntake, object: nil)
+        
+        chart.add(series)
     }
     
     @IBAction func addCaloriesWasTapped(_ sender: Any) {
@@ -35,6 +37,11 @@ class CalorieIntakeTableViewController: UITableViewController {
             
             if let calories = alert.textFields?.first?.text {
                 let calorieIntake = CalorieIntake(calorie: Int16(calories) ?? 0)
+                
+                self.calorieIntakes.append(calorieIntake)
+                
+                let data = calorieIntake.calorie
+                self.seriesData.append(data)
                 
                 do {
                     try calorieIntake.managedObjectContext?.save()
@@ -56,23 +63,32 @@ class CalorieIntakeTableViewController: UITableViewController {
     @objc func didCreateCalorieIntake(_ notification: Notification) {
         tableView?.reloadData()
         
+        chart.removeAllSeries()
+        chart.add(series)
+        
     }
     
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return calorieIntakes.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieIntakeCell", for: indexPath)
         
-        
+        let calorieIntake = calorieIntakes[indexPath.row]
+        cell.textLabel?.text = "Calories: \(calorieIntake.calorie)"
+        cell.detailTextLabel?.text = "\(calorieIntake.timestamp ?? Date())"
         
         return cell
     }
     
     @IBOutlet weak var chart: Chart!
+    
+    var calorieIntakes: [CalorieIntake] = []
+    let series = ChartSeries([])
+    var seriesData: [Int16] = []
     
 }
 

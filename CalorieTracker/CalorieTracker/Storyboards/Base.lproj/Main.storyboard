@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="fve-no-0Mk">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="fve-no-0Mk" customClass="Chart" customModule="SwiftChart">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -54,7 +54,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="RPY-nN-ioz">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LpR-Nd-LBA"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LpR-Nd-LBA">
+                            <connections>
+                                <action selector="addCaloriesWasTapped:" destination="iY1-pc-lbd" id="dNG-Mb-lAt"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JmK-0y-Gph" userLabel="First Responder" sceneMemberID="firstResponder"/>
