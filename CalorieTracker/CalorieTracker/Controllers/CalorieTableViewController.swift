@@ -77,6 +77,7 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
     //MARK: - Notification
     @objc func refreshViews(_ notification: Notification) {
         tableView.reloadData()
+        updateChart()
     }
     
     private func updateChart() {
