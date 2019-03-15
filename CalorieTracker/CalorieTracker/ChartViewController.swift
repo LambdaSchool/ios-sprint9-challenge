@@ -11,6 +11,24 @@ import SwiftChart
 
 class ChartViewController: UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(newCalorie(_:)), name: .newCalorieAmountAdded, object: nil)
+    }
+    
+    @objc func newCalorie(_ notification: NSNotification) {
+        
+        guard let parent = parent as? CalorieTrackerTableViewController else { return }
+        
+        let entries = parent.entryController.entries
+        
+        let calories = entries.map { Double($0.amountOfCalories) }
+        
+        self.calories = calories
+    }
+    
     func setUpChart() {
         guard let calories = calories else { return }
         
