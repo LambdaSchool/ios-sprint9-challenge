@@ -45,18 +45,16 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
     }
 
     // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return fetchedResultsController.fetchedObjects?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "calorieCell", for: indexPath)
 
-
+        let calorieIntake = fetchedResultsController.object(at: indexPath)
+        cell.textLabel?.text = "Calories: \(Int(calorieIntake.calories))"
+        cell.detailTextLabel?.text = Date
         
         return cell
     }
