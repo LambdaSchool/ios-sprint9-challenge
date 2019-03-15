@@ -10,7 +10,7 @@ import Foundation
 
 struct CalorieRepresentation: Decodable, Equatable {
     
-    let amount: Int64
+    let amount: Double
     let timestamp: Date
     let identifier: String
     

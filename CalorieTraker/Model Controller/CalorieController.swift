@@ -13,12 +13,17 @@ import CoreData
 
 class CalorieController {
     
+    init() {
+        print("about to fetch")
+        fetchCaloriesFromServer()
+    }
     
     // MARK: - Properties
     
-    private let baseURL = URL(string: "https://calorietraker.firebaseio.com/")!
+    let baseURL = URL(string: "https://calorietraker.firebaseio.com/")!
     let moc = CoreDataStack.shared.mainContext
     let backgroundMoc = CoreDataStack.shared.backgroundContext
+    var calorieSeries: [Double] = []
     
     // MARK: - Persistent Coordinator
     
@@ -43,9 +48,10 @@ class CalorieController {
         }
     }
     
-    func createCalorie(with amount: Int64) {
+    func createCalorie(with amount: Double) {
         let calorie = Calorie(amount: amount)
         
+        calorieSeries.append(amount)
         putToServer(calorie: calorie)
         saveToPersistentStore()
     }
@@ -120,7 +126,7 @@ class CalorieController {
     
     func fetchCaloriesFromServer(completion: @escaping (Error?) -> Void = { _ in }) {
         let urlPlusJSON = baseURL.appendingPathExtension("json")
-        
+        print(urlPlusJSON)
         URLSession.shared.dataTask(with: urlPlusJSON) { (data, _, error) in
             if let error = error {
                 NSLog("Error fetching entries from server: \(error)")
@@ -135,6 +141,7 @@ class CalorieController {
             }
             
             do {
+                print("about to decode")
                 let decoder = JSONDecoder()
                 let calorieRepDict = try decoder.decode([String: CalorieRepresentation].self, from: data)
                 let calorieRepresentations = calorieRepDict.map{ $0.value }

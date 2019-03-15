@@ -12,7 +12,7 @@ import CoreData
 extension Calorie {
     
     @discardableResult
-    convenience init(amount: Int64, timestamp: Date = Date(), identifier: String = UUID().uuidString,
+    convenience init(amount: Double, timestamp: Date = Date(), identifier: String = UUID().uuidString,
                      context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         self.init(context: context)

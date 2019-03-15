@@ -8,17 +8,30 @@
 
 import UIKit
 
+extension Date {
+    func dateString() -> String {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .medium
+        formatter.dateStyle = .medium
+        return formatter.string(from: self)
+    }
+}
+
 class CaloriesTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var calorie: Calorie? {
+        didSet {
+            updateViews()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    private func updateViews() {
+        guard let calorie = calorie,
+            let timestamp = calorie.timestamp else { return }
+        
+        caloriesLabel.text = "Calories: \(Int(calorie.amount))"
+        dateLabel.text = timestamp.dateString()
+        
     }
     
     
