@@ -25,9 +25,13 @@ class CaloriesTableViewCell: UITableViewCell {
         }
     }
     
+    let calorieController = CalorieController()
+    
     private func updateViews() {
         guard let calorie = calorie,
             let timestamp = calorie.timestamp else { return }
+        
+        
         
         caloriesLabel.text = "Calories: \(Int(calorie.amount))"
         dateLabel.text = timestamp.dateString()

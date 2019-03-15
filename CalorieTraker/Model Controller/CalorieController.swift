@@ -14,7 +14,7 @@ import CoreData
 class CalorieController {
     
     init() {
-        print("about to fetch")
+       // print("about to fetch")
         fetchCaloriesFromServer()
     }
     
@@ -52,6 +52,7 @@ class CalorieController {
         let calorie = Calorie(amount: amount)
         
         calorieSeries.append(amount)
+        print(calorieSeries)
         putToServer(calorie: calorie)
         saveToPersistentStore()
     }
@@ -90,6 +91,12 @@ class CalorieController {
         calorie.identifier = calorieRep.identifier
         calorie.timestamp = calorieRep.timestamp
         calorie.amount = calorieRep.amount
+    }
+    
+    func delete(calorie: Calorie) {
+        moc.delete(calorie)
+       // deleteFromServer(calorie: calorie)
+        saveToPersistentStore()
     }
     
 
@@ -146,6 +153,7 @@ class CalorieController {
                 let calorieRepDict = try decoder.decode([String: CalorieRepresentation].self, from: data)
                 let calorieRepresentations = calorieRepDict.map{ $0.value }
                 
+                
                 self.updatePersistentStoreWithServer(calorieRepresentations, context: self.backgroundMoc)
                 self.saveToBackgroundMoc()
                 completion(nil)
@@ -156,7 +164,5 @@ class CalorieController {
             
             }.resume()
     }
-    
-    
     
 }

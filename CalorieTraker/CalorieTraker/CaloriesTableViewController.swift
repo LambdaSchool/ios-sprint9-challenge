@@ -10,23 +10,44 @@ import UIKit
 import CoreData
 import SwiftChart
 
-class CaloriesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class CaloriesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, ChartDelegate {
+    func didTouchChart(_ chart: Chart, indexes: [Int?], x: Double, left: CGFloat) {
+        
+    }
+    
+    func didFinishTouchingChart(_ chart: Chart) {
+        
+    }
+    
+    func didEndTouchingChart(_ chart: Chart) {
+        
+    }
+    
 
     let calorieController = CalorieController()
+    
+    @IBOutlet weak var calorieChart: Chart!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let chart = Chart()
-        
-        let series = ChartSeries([0, 5, 2, 3])
-        //calorieController.calorieSeries
-        chart.add(series)
+        //let chart = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+        print(calorieController.calorieSeries)
+        let series = ChartSeries(calorieController.calorieSeries)
+
+        calorieChart.axesColor = .gray
+        calorieChart.gridColor = .blue
+        calorieChart.add(series)
     
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
+        
+        calorieChart.axesColor = .gray
+        calorieChart.gridColor = .blue
         
         tableView.reloadData()
     }
@@ -51,11 +72,17 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
         
         let calorie = fetchedResultsController.object(at: indexPath)
         calorieCell.calorie = calorie
-        
+        calorieController.calorieSeries.append(fetchedResultsController.object(at: indexPath).amount)
     
         return calorieCell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let calorie = fetchedResultsController.object(at: indexPath)
+            calorieController.delete(calorie: calorie)
+        }
+    }
 
     // MARK: - NSFetchedResultsControllerDelegate
     
@@ -129,6 +156,9 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
             let amountNum = Double(Int(amount)!)
             
             self.calorieController.createCalorie(with: amountNum)
+            let series = ChartSeries(self.calorieController.calorieSeries)
+            self.calorieChart.add(series)
+          //  self.calorieController.calorieSeries.append(amountNum)
             self.tableView.reloadData()
         }
         
