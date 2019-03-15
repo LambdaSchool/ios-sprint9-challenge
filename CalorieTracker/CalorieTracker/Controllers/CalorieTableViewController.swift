@@ -12,6 +12,13 @@ import SwiftChart
 
 class CalorieTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(refreshViews(_:)), name: .calorieIntakeChange, object: nil)
+    }
+    
     //MARK: - Properties
     var calorieController = CalorieController()
     var series: ChartSeries!
@@ -59,12 +66,11 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
         present(alert, animated: true, completion: nil)
     }
     
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    //MARK: - Notification
+    @objc func refreshViews(_ notification: Notification) {
+        tableView.reloadData()
     }
-
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fetchedResultsController.fetchedObjects?.count ?? 0
