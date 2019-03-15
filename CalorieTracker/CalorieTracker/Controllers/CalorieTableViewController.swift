@@ -24,6 +24,13 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
     var calorieController = CalorieController()
     var series: ChartSeries!
     
+    private lazy var formatter: DateFormatter = {
+        let result = DateFormatter()
+        result.dateStyle = .short
+        result.timeStyle = .short
+        return result
+    }()
+    
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieIntake> = {
         
         let fetchRequest: NSFetchRequest<CalorieIntake> = CalorieIntake.fetchRequest()
@@ -91,7 +98,8 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
         let cell = tableView.dequeueReusableCell(withIdentifier: "calorieCell", for: indexPath)
 
         let calorieIntake = fetchedResultsController.object(at: indexPath)
-        let date = String(from: calorieIntake.timestamp!)
+        let date = formatter.string(from: calorieIntake.timestamp!)
+
 
         cell.textLabel?.text = "Calories: \(Int(calorieIntake.calories))"
         cell.detailTextLabel?.text = date
