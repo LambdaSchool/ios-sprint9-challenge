@@ -10,13 +10,30 @@ import UIKit
 import CoreData
 import SwiftChart
 
-class CalorieTableViewController: UITableViewController {
+class CalorieTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     //MARK: - Properties
     var calorieController = CalorieController()
     var series: ChartSeries!
     
+    lazy var fetchedResultsController: NSFetchedResultsController<CalorieIntake> = {
+        
+        let fetchRequest: NSFetchRequest<CalorieIntake> = CalorieIntake.fetchRequest()
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(key: "timestamp", ascending: true)
+        ]
+        
+        let moc = CoreDataStack.shared.mainContext
+        
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+        
+        frc.delegate = self
+        try! frc.performFetch()
+        return frc
+    }()
+    
     //MARK: - Outlets
+    @IBOutlet weak var calorieChart: Chart!
     @IBAction func addCalories(_ sender: Any) {
         
     }
