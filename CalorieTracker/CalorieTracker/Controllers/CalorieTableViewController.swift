@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import CoreData
+import SwiftChart
 
 class CalorieTableViewController: UITableViewController {
+    
+    //MARK: - Properties
+    var calorieController = CalorieController()
+    var series: ChartSeries!
 
     override func viewDidLoad() {
         super.viewDidLoad()
