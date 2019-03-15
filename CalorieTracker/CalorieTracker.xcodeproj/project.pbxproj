@@ -14,6 +14,7 @@
 		C4FB5D7F223BF0E1001B08D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4FB5D7D223BF0E1001B08D6 /* LaunchScreen.storyboard */; };
 		C4FB5D88223BF935001B08D6 /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4FB5D86223BF935001B08D6 /* CalorieTracker.xcdatamodeld */; };
 		C4FB5D8B223BFA49001B08D6 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB5D8A223BFA49001B08D6 /* CoreDataStack.swift */; };
+		C4FB5D8D223BFC57001B08D6 /* CalorieIntakeRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB5D8C223BFC57001B08D6 /* CalorieIntakeRepresentation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C4FB5D80223BF0E1001B08D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4FB5D87223BF935001B08D6 /* CalorieTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieTracker.xcdatamodel; sourceTree = "<group>"; };
 		C4FB5D8A223BFA49001B08D6 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		C4FB5D8C223BFC57001B08D6 /* CalorieIntakeRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeRepresentation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				C4FB5D7D223BF0E1001B08D6 /* LaunchScreen.storyboard */,
 				C4FB5D80223BF0E1001B08D6 /* Info.plist */,
 				C4FB5D89223BFA24001B08D6 /* Core Data */,
+				C4FB5D8C223BFC57001B08D6 /* CalorieIntakeRepresentation.swift */,
 			);
 			path = CalorieTracker;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			files = (
 				C4FB5D8B223BFA49001B08D6 /* CoreDataStack.swift in Sources */,
 				C4FB5D88223BF935001B08D6 /* CalorieTracker.xcdatamodeld in Sources */,
+				C4FB5D8D223BFC57001B08D6 /* CalorieIntakeRepresentation.swift in Sources */,
 				C4FB5D75223BF0E1001B08D6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
