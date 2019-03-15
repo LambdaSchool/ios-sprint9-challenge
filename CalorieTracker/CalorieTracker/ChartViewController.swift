@@ -21,11 +21,8 @@ class ChartViewController: UIViewController {
     @objc func newCalorie(_ notification: NSNotification) {
         
         guard let parent = parent as? CalorieTrackerTableViewController else { return }
-        
         let entries = parent.entryController.entries
-        
         let calories = entries.map { Double($0.amountOfCalories) }
-        
         self.calories = calories
     }
     

@@ -27,7 +27,7 @@ class CalorieTrackerTableViewController: UITableViewController {
         let entry = entryController.entries[indexPath.row]
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long
+        dateFormatter.dateStyle = .full
         let date = dateFormatter.string(from: entry.timestamp!)
         
         cell.textLabel?.text = "Calories: \(entry.amountOfCalories)     \(date)"
