@@ -9,6 +9,12 @@
 import UIKit
 
 class CalorieTrackerTableViewController: UITableViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        guard let chartVC = children.first as? ChartViewController else { fatalError("Chart View Controller is missing.") }
+        chartViewController = chartVC
+    }
 
     // MARK: - Table view data source
 
@@ -43,9 +49,16 @@ class CalorieTrackerTableViewController: UITableViewController {
         }
         
         let submitAction = UIAlertAction(title: "Submit", style: .default) { (_) in
-            guard let caloriesText = calories.text else { return }
-            let caloriesNumber = Int16(caloriesText)!
+            guard let caloriesText = calories.text, !caloriesText.isEmpty else { return }
+            let caloriesNumber = Int(caloriesText)!
             self.entryController.createEntry(numberOfCalories: caloriesNumber)
+            
+            let nc = NotificationCenter.default
+            nc.post(name: .newCalorieAmountAdded, object: self)
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
@@ -56,6 +69,21 @@ class CalorieTrackerTableViewController: UITableViewController {
         present(addEntryAlert, animated: true, completion: nil)
     }
     
+    // MARK: - Segues
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let chartVC = segue.destination as? ChartViewController {
+            let calories = entryController.entries.map { Double($0.amountOfCalories) }
+            chartVC.calories = calories
+        }
+    }
+    
+    // MARK: - Properties
     
     let entryController = EntryController()
+    private var chartViewController: ChartViewController?
+}
+
+extension NSNotification.Name {
+    static let newCalorieAmountAdded = NSNotification.Name("newCalorieAmountAdded")
 }

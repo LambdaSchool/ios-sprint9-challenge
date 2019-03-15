@@ -21,7 +21,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <connections>
-                                <segue destination="FR3-aN-vLd" kind="embed" id="gon-Q9-nHJ"/>
+                                <segue destination="FR3-aN-vLd" kind="embed" identifier="ChartSegue" id="gon-Q9-nHJ"/>
                             </connections>
                         </containerView>
                         <prototypes>

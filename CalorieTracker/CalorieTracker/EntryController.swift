@@ -15,7 +15,7 @@ class EntryController {
         return loadFromCoreDataStore()
     }
     
-    func createEntry(numberOfCalories: Int16) {
+    func createEntry(numberOfCalories: Int) {
         _ = Entry(calories: numberOfCalories)
         saveToCoreDataStore()
     }
