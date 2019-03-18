@@ -8,25 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		A2076B6A223BFB6300DFBD01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2076B69223BFB6300DFBD01 /* AppDelegate.swift */; };
-		A2076B6C223BFB6300DFBD01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2076B6B223BFB6300DFBD01 /* ViewController.swift */; };
 		A2076B6F223BFB6300DFBD01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2076B6D223BFB6300DFBD01 /* Main.storyboard */; };
 		A2076B72223BFB6300DFBD01 /* S9_Calorie_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2076B70223BFB6300DFBD01 /* S9_Calorie_Tracker.xcdatamodeld */; };
 		A2076B74223BFB6600DFBD01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2076B73223BFB6600DFBD01 /* Assets.xcassets */; };
 		A2076B77223BFB6600DFBD01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2076B75223BFB6600DFBD01 /* LaunchScreen.storyboard */; };
+		A2A55D98223F237100F4E809 /* CalorieTrackerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A55D97223F237100F4E809 /* CalorieTrackerTableViewController.swift */; };
 		C510123E9895C93D5C28426E /* Pods_S9_Calorie_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE1F7A6BCAA2FEA692081969 /* Pods_S9_Calorie_Tracker.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A2A55D96223F13A100F4E809 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		25ACEC9DE5371550D4941DE4 /* Pods-S9 Calorie Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S9 Calorie Tracker.release.xcconfig"; path = "Target Support Files/Pods-S9 Calorie Tracker/Pods-S9 Calorie Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		45B05612149948A4DE1E4875 /* Pods-S9 Calorie Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S9 Calorie Tracker.debug.xcconfig"; path = "Target Support Files/Pods-S9 Calorie Tracker/Pods-S9 Calorie Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		A2076B66223BFB6300DFBD01 /* S9 Calorie Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "S9 Calorie Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2076B69223BFB6300DFBD01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A2076B6B223BFB6300DFBD01 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A2076B6E223BFB6300DFBD01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A2076B71223BFB6300DFBD01 /* S9_Calorie_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = S9_Calorie_Tracker.xcdatamodel; sourceTree = "<group>"; };
 		A2076B73223BFB6600DFBD01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2076B76223BFB6600DFBD01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2076B78223BFB6600DFBD01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2A55D97223F237100F4E809 /* CalorieTrackerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerTableViewController.swift; sourceTree = "<group>"; };
 		EE1F7A6BCAA2FEA692081969 /* Pods_S9_Calorie_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_S9_Calorie_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -73,8 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				A2076B69223BFB6300DFBD01 /* AppDelegate.swift */,
-				A2076B6B223BFB6300DFBD01 /* ViewController.swift */,
 				A2076B6D223BFB6300DFBD01 /* Main.storyboard */,
+				A2A55D97223F237100F4E809 /* CalorieTrackerTableViewController.swift */,
 				A2076B73223BFB6600DFBD01 /* Assets.xcassets */,
 				A2076B75223BFB6600DFBD01 /* LaunchScreen.storyboard */,
 				A2076B78223BFB6600DFBD01 /* Info.plist */,
@@ -103,6 +116,7 @@
 				A2076B63223BFB6300DFBD01 /* Frameworks */,
 				A2076B64223BFB6300DFBD01 /* Resources */,
 				3D239C7253B23E1DE01B3FC3 /* [CP] Embed Pods Frameworks */,
+				A2A55D96223F13A100F4E809 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -211,7 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2076B6C223BFB6300DFBD01 /* ViewController.swift in Sources */,
+				A2A55D98223F237100F4E809 /* CalorieTrackerTableViewController.swift in Sources */,
 				A2076B72223BFB6300DFBD01 /* S9_Calorie_Tracker.xcdatamodeld in Sources */,
 				A2076B6A223BFB6300DFBD01 /* AppDelegate.swift in Sources */,
 			);
