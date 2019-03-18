@@ -10,6 +10,10 @@ import UIKit
 import SwiftChart
 import CoreData
 
+extension NSNotification.Name {
+    static let shouldAddCalories = NSNotification.Name("ShouldAddCalories")
+}
+
 class CalorieTrackerTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     let calorieController = CaloriesController()
@@ -18,11 +22,20 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
     override func viewDidLoad() {
         super.viewDidLoad()
         update()
+        
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(shouldAddCalories(_:)), name: .shouldAddCalories, object: nil)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    // MARK: - Notifications
+    
+    @objc func shouldAddCalories(_ notification: Notification) {
+        update()
     }
 
     // MARK: - Table view data source
@@ -106,10 +119,6 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
     
     func update(){
         calorieChart.removeAllSeries()
-//        for calories in calorieController.calories {
-//            guard let amount = calories.calorieAmount else { return }
-//            series.data.append((x: 1.0, y: Double(amount) ?? 0))
-//        }
         var doubleCalories: [Double] = []
         for calories in calorieController.calories {
             guard let amount = calories.calorieAmount else { return }
@@ -123,6 +132,9 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
     }
     
     @IBAction func addButtonTapped(_ sender: Any) {
+        
+        
+        
         
         // Create alert to have user enter calorie information
         let calorieAlert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories below", preferredStyle: .alert)
@@ -141,7 +153,10 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
             print(self.calorieController.calories.count)
             self.calorieController.calories.insert(newCalories, at: self.calorieController.calories.count)
             self.calorieController.saveToPersistentStore()
-            self.update()
+            
+            NotificationCenter.default.post(name: .shouldAddCalories,  object: self)
+            
+           // self.update()
         }))
         present(calorieAlert, animated: true)
     }
