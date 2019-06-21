@@ -40,7 +40,6 @@ class CoreDataStack {
 			}
 		})
 		// May need to be disabled if dataset is too large for performance reasons
-		container.viewContext.automaticallyMergesChangesFromParent = true
 		return container
 	}()
 

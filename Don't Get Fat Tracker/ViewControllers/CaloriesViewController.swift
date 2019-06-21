@@ -13,21 +13,7 @@ import CoreData
 class CaloriesViewController: UIViewController {
 
 	lazy var fetchedResultsController: NSFetchedResultsController<Calories> = {
-		let fetchRequest: NSFetchRequest<Calories> = Calories.fetchRequest()
-		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "person", ascending: true), NSSortDescriptor(key: "timestamp", ascending: false)]
-
-		let moc = CoreDataStack.shared.mainContext
-		let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
-																  managedObjectContext: moc,
-																  sectionNameKeyPath: "person",
-																  cacheName: nil)
-		fetchedResultsController.delegate = self
-		do {
-			try fetchedResultsController.performFetch()
-		} catch {
-			print("error performing initial fetch for frc: \(error)")
-		}
-		return fetchedResultsController
+		return newFetchedResults()
 	}()
 	let caloriesController = CaloriesController()
 
@@ -39,7 +25,7 @@ class CaloriesViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupChart()
-//		setupNotificationObserver()
+		setupNotificationObserver()
 	}
 
 	func setupChart() {
@@ -55,23 +41,27 @@ class CaloriesViewController: UIViewController {
 
 	func setupNotificationObserver() {
 		NotificationCenter.default.addObserver(forName: .caloriesUpdated, object: nil, queue: nil) { [weak self] (notification) in
-			guard let personSections = self?.fetchedResultsController.sections else { return }
+			guard let self = self else { return }
+			self.fetchedResultsController = self.newFetchedResults()
+			self.tableView.reloadData()
+			guard let personSections = self.fetchedResultsController.sections else { return }
 			for person in personSections {
 				guard let calories = person.objects as? [Calories] else { continue }
 				guard let personID = UUID(uuidString: person.name) else { continue }
 				var datas = [Double]()
-				for caloriesObject in calories {
+				for caloriesObject in calories.reversed() {
 					datas.append(caloriesObject.calories)
 				}
-				if let series = self?.peoplesSeries[personID] {
-					let start = series.data.count
-					for index in start..<datas.count {
-						series.data.append((x: Double(index), y: datas[index]))
-					}
-					self?.chart.add(series)
+				if let series = self.peoplesSeries[personID] {
+					series.data.removeAll()
+					let seriesData: [(x: Double, y: Double)] = datas.enumerated().map { (x: Double($0.offset), y: $0.element) }
+					series.data = seriesData
+					self.peoplesSeries[personID] = series
+					self.chart.add(series)
 				} else {
 					let series = ChartSeries(datas)
-					self?.chart.add(series)
+					self.peoplesSeries[personID] = series
+					self.chart.add(series)
 				}
 			}
 		}
@@ -88,14 +78,6 @@ class CaloriesViewController: UIViewController {
 			guard let calorieString = calorieTextField?.text, let calorieAmount = Double(calorieString) else { return }
 			self?.caloriesController.create(calories: calorieAmount)
 			NotificationCenter.default.post(name: .caloriesUpdated, object: nil)
-//			if let series = self?.chart.series.first {
-//				series.data.append((x: Double(series.data.count), y: calorieAmount))
-//				self?.chart.add(series)
-//			} else {
-//				let series = ChartSeries([calorieAmount])
-//				self?.chart.add(series)
-//			}
-
 		}
 		let cancel = UIAlertAction(title: "Cancel", style: .cancel)
 		alert.addAction(action)
@@ -124,51 +106,33 @@ extension CaloriesViewController: UITableViewDelegate, UITableViewDataSource {
 		calorieCell.calories = fetchedResultsController.object(at: indexPath)
 		return calorieCell
 	}
+
+	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			let calories = fetchedResultsController.object(at: indexPath)
+			caloriesController.delete(calories: calories)
+		}
+	}
 }
 
 // MARK: - Fetched Results Controller Delegate
-extension CaloriesViewController: NSFetchedResultsControllerDelegate {
-	func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-		tableView.beginUpdates()
-	}
+extension CaloriesViewController {
 
-	func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-		tableView.endUpdates()
-	}
+	func newFetchedResults() -> NSFetchedResultsController<Calories> {
+		let fetchRequest: NSFetchRequest<Calories> = Calories.fetchRequest()
+		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "person", ascending: true), NSSortDescriptor(key: "timestamp", ascending: false)]
 
-	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-		let indexSet = IndexSet([sectionIndex])
-		switch type {
-		case .insert:
-			tableView.insertSections(indexSet, with: .automatic)
-		case .delete:
-			tableView.deleteSections(indexSet, with: .automatic)
-		default:
-			print(#line, #file, "unexpected NSFetchedResultsChangeType: \(type)")
+		let moc = CoreDataStack.shared.mainContext
+		let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+																  managedObjectContext: moc,
+																  sectionNameKeyPath: "person",
+																  cacheName: nil)
+		do {
+			try fetchedResultsController.performFetch()
+		} catch {
+			print("error performing initial fetch for frc: \(error)")
 		}
-	}
-
-	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-		switch type {
-		case .insert:
-			guard let newIndexPath = newIndexPath else { return }
-			tableView.insertRows(at: [newIndexPath], with: .automatic)
-		case .move:
-			guard let newIndexPath = newIndexPath, let indexPath = indexPath else { return }
-			tableView.moveRow(at: indexPath, to: newIndexPath)
-		case .update:
-			guard let indexPath = indexPath else { return }
-			tableView.reloadRows(at: [indexPath], with: .automatic)
-		case .delete:
-			guard let indexPath = indexPath else { return }
-			tableView.deleteRows(at: [indexPath], with: .automatic)
-		@unknown default:
-			print(#line, #file, "unknown NSFetchedResultsChangeType: \(type)")
-		}
-	}
-
-	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, sectionIndexTitleForSectionName sectionName: String) -> String? {
-		return nil
+		return fetchedResultsController
 	}
 }
 

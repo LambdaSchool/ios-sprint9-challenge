@@ -31,8 +31,10 @@ class CaloriesController {
 	}
 	
 	func create(calories: Double, id: UUID = UUID(), person: UUID, timestamp: Date = Date()) {
-		let calories = Calories(calories: calories, id: id, person: person, timestamp: timestamp)
-		saveToPersistentStore(onContext: calories.managedObjectContext)
+		CoreDataStack.shared.mainContext.performAndWait {
+			let calories = Calories(calories: calories, id: id, person: person, timestamp: timestamp)
+			saveToPersistentStore(onContext: calories.managedObjectContext)
+		}
 	}
 
 	func delete(calories: Calories) {
