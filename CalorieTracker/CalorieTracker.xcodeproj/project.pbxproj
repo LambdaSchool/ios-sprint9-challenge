@@ -12,9 +12,12 @@
 		ECD71DC822BD3B7C00274BEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD71DC622BD3B7C00274BEB /* Main.storyboard */; };
 		ECD71DCA22BD3B7F00274BEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD71DC922BD3B7F00274BEB /* Assets.xcassets */; };
 		ECD71DCD22BD3B7F00274BEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD71DCB22BD3B7F00274BEB /* LaunchScreen.storyboard */; };
-		ECD71DDD22BD3C9A00274BEB /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD71DDA22BD3C9900274BEB /* Chart.swift */; };
-		ECD71DDE22BD3C9A00274BEB /* ChartSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD71DDB22BD3C9900274BEB /* ChartSeries.swift */; };
-		ECD71DDF22BD3C9A00274BEB /* ChartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD71DDC22BD3C9900274BEB /* ChartColors.swift */; };
+		ECD71DE522BD3DEC00274BEB /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD71DE222BD3DEB00274BEB /* Chart.swift */; };
+		ECD71DE622BD3DEC00274BEB /* ChartSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD71DE322BD3DEB00274BEB /* ChartSeries.swift */; };
+		ECD71DE722BD3DEC00274BEB /* ChartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD71DE422BD3DEB00274BEB /* ChartColors.swift */; };
+		ECD71DEA22BD3E3E00274BEB /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ECD71DE822BD3E3E00274BEB /* CalorieTracker.xcdatamodeld */; };
+		ECD71DEC22BD3EA500274BEB /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD71DEB22BD3EA500274BEB /* CoreDataStack.swift */; };
+		ECD71DEE22BD3EFA00274BEB /* CalorieTracker+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD71DED22BD3EFA00274BEB /* CalorieTracker+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +28,12 @@
 		ECD71DC922BD3B7F00274BEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECD71DCC22BD3B7F00274BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECD71DCE22BD3B7F00274BEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ECD71DDA22BD3C9900274BEB /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
-		ECD71DDB22BD3C9900274BEB /* ChartSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartSeries.swift; sourceTree = "<group>"; };
-		ECD71DDC22BD3C9900274BEB /* ChartColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartColors.swift; sourceTree = "<group>"; };
+		ECD71DE222BD3DEB00274BEB /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
+		ECD71DE322BD3DEB00274BEB /* ChartSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartSeries.swift; sourceTree = "<group>"; };
+		ECD71DE422BD3DEB00274BEB /* ChartColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartColors.swift; sourceTree = "<group>"; };
+		ECD71DE922BD3E3E00274BEB /* CalorieTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieTracker.xcdatamodel; sourceTree = "<group>"; };
+		ECD71DEB22BD3EA500274BEB /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		ECD71DED22BD3EFA00274BEB /* CalorieTracker+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieTracker+Convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +66,7 @@
 		ECD71DC122BD3B7C00274BEB /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
-				ECD71DE022BD3CE100274BEB /* Chart */,
+				ECD71DE122BD3DD300274BEB /* Chart */,
 				ECD71DD922BD3BD200274BEB /* Extensions+Utilities */,
 				ECD71DD822BD3BCA00274BEB /* Model */,
 				ECD71DD722BD3BBD00274BEB /* Model Controller */,
@@ -108,6 +114,8 @@
 		ECD71DD822BD3BCA00274BEB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ECD71DE822BD3E3E00274BEB /* CalorieTracker.xcdatamodeld */,
+				ECD71DEB22BD3EA500274BEB /* CoreDataStack.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -115,16 +123,17 @@
 		ECD71DD922BD3BD200274BEB /* Extensions+Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				ECD71DED22BD3EFA00274BEB /* CalorieTracker+Convenience.swift */,
 			);
 			path = "Extensions+Utilities";
 			sourceTree = "<group>";
 		};
-		ECD71DE022BD3CE100274BEB /* Chart */ = {
+		ECD71DE122BD3DD300274BEB /* Chart */ = {
 			isa = PBXGroup;
 			children = (
-				ECD71DDA22BD3C9900274BEB /* Chart.swift */,
-				ECD71DDC22BD3C9900274BEB /* ChartColors.swift */,
-				ECD71DDB22BD3C9900274BEB /* ChartSeries.swift */,
+				ECD71DE222BD3DEB00274BEB /* Chart.swift */,
+				ECD71DE422BD3DEB00274BEB /* ChartColors.swift */,
+				ECD71DE322BD3DEB00274BEB /* ChartSeries.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -200,11 +209,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECD71DEC22BD3EA500274BEB /* CoreDataStack.swift in Sources */,
 				ECD71DC522BD3B7C00274BEB /* ViewController.swift in Sources */,
-				ECD71DDE22BD3C9A00274BEB /* ChartSeries.swift in Sources */,
+				ECD71DE622BD3DEC00274BEB /* ChartSeries.swift in Sources */,
+				ECD71DEA22BD3E3E00274BEB /* CalorieTracker.xcdatamodeld in Sources */,
+				ECD71DEE22BD3EFA00274BEB /* CalorieTracker+Convenience.swift in Sources */,
 				ECD71DC322BD3B7C00274BEB /* AppDelegate.swift in Sources */,
-				ECD71DDD22BD3C9A00274BEB /* Chart.swift in Sources */,
-				ECD71DDF22BD3C9A00274BEB /* ChartColors.swift in Sources */,
+				ECD71DE522BD3DEC00274BEB /* Chart.swift in Sources */,
+				ECD71DE722BD3DEC00274BEB /* ChartColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +416,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ECD71DE822BD3E3E00274BEB /* CalorieTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ECD71DE922BD3E3E00274BEB /* CalorieTracker.xcdatamodel */,
+			);
+			currentVersion = ECD71DE922BD3E3E00274BEB /* CalorieTracker.xcdatamodel */;
+			path = CalorieTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = ECD71DB722BD3B7C00274BEB /* Project object */;
 }
