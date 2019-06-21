@@ -18,6 +18,9 @@ class CalorieTrackerTableViewController: UITableViewController {
     
     //MARK: Properties
     var calorieController = CalorieController()
+    var dataEntries: [ChartDataEntry] = []
+    
+    @IBOutlet weak var calorieChart: LineChartView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +30,52 @@ class CalorieTrackerTableViewController: UITableViewController {
     @objc func submitButtonPressed(notificaiton: Notification) {
         print("submit")
         print(calorieController.calories)
+        getChartData()
         tableView.reloadData()
+    }
+    
+    func getChartData() {
+        var values: [Double] = []
+        for value in calorieController.calories {
+            values.append(Double(value.amount))
+        }
+        setChart(values: values)
+    }
+    
+    func setChart(values: [Double]) {
+        calorieChart.noDataText = "No Data"
+        for i in 0..<values.count {
+            let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
+            dataEntries.append(dataEntry)
+        }
+        let line1 = LineChartDataSet(entries: dataEntries, label: "Calorie")
+        line1.colors = [NSUIColor.init(red: 113/255, green: 232/255, blue: 225/255, alpha: 1)]
+        line1.mode = .cubicBezier
+        line1.cubicIntensity = 0.2
+        line1.valueTextColor = .clear
+        let gradient = getGradientFilling()
+        line1.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
+        line1.drawFilledEnabled = true
+        
+        let data = LineChartData()
+        data.addDataSet(line1)
+        calorieChart.data = data
+        calorieChart.setScaleEnabled(false)
+        calorieChart.animate(xAxisDuration: 1.0)
+        calorieChart.legend.textColor = .white
+        calorieChart.leftAxis.labelTextColor = .white
+        calorieChart.rightAxis.drawAxisLineEnabled = false
+        calorieChart.rightAxis.drawGridLinesEnabled = false
+        calorieChart.rightAxis.enabled = false
+        calorieChart.xAxis.drawLabelsEnabled = false
+    }
+    
+    private func getGradientFilling() -> CGGradient {
+        let coloTop = UIColor(red: 141/255, green: 133/255, blue: 220/255, alpha: 1).cgColor
+        let colorBottom = UIColor(red: 230/255, green: 155/255, blue: 210/255, alpha: 1).cgColor
+        let gradientColors = [coloTop, colorBottom] as CFArray
+        let colorLocations: [CGFloat] = [0.7, 0.0]
+        return CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations)!
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
