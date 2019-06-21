@@ -10,6 +10,7 @@
 		EC66179022BD44890043BD40 /* CalorieTrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC66178F22BD44890043BD40 /* CalorieTrackerController.swift */; };
 		EC6617AC22BD521A0043BD40 /* SwiftChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6617AB22BD52050043BD40 /* SwiftChart.framework */; };
 		EC6617AD22BD521A0043BD40 /* SwiftChart.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC6617AB22BD52050043BD40 /* SwiftChart.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC6617B822BD58EF0043BD40 /* CalorieTrackerViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6617B722BD58EF0043BD40 /* CalorieTrackerViewControllerExtensions.swift */; };
 		ECD71DC322BD3B7C00274BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD71DC222BD3B7C00274BEB /* AppDelegate.swift */; };
 		ECD71DC822BD3B7C00274BEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD71DC622BD3B7C00274BEB /* Main.storyboard */; };
 		ECD71DCA22BD3B7F00274BEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD71DC922BD3B7F00274BEB /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		EC66178F22BD44890043BD40 /* CalorieTrackerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerController.swift; sourceTree = "<group>"; };
 		EC6617A622BD52050043BD40 /* SwiftChart.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftChart.xcodeproj; path = ../SwiftChart/SwiftChart.xcodeproj; sourceTree = "<group>"; };
+		EC6617B722BD58EF0043BD40 /* CalorieTrackerViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerViewControllerExtensions.swift; sourceTree = "<group>"; };
 		ECD71DBF22BD3B7C00274BEB /* CalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD71DC222BD3B7C00274BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECD71DC722BD3B7C00274BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				ECD71DED22BD3EFA00274BEB /* CalorieTracker+Convenience.swift */,
+				EC6617B722BD58EF0043BD40 /* CalorieTrackerViewControllerExtensions.swift */,
 			);
 			path = "Extensions+Utilities";
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				ECD71DEC22BD3EA500274BEB /* CoreDataStack.swift in Sources */,
 				EC66179022BD44890043BD40 /* CalorieTrackerController.swift in Sources */,
 				ECD71DEA22BD3E3E00274BEB /* CalorieTracker.xcdatamodeld in Sources */,
+				EC6617B822BD58EF0043BD40 /* CalorieTrackerViewControllerExtensions.swift in Sources */,
 				ECD71DF022BD3F9300274BEB /* CalorieTrackerViewController.swift in Sources */,
 				ECD71DEE22BD3EFA00274BEB /* CalorieTracker+Convenience.swift in Sources */,
 				ECD71DC322BD3B7C00274BEB /* AppDelegate.swift in Sources */,
