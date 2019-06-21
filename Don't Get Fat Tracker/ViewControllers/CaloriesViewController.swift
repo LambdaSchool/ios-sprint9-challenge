@@ -29,14 +29,17 @@ class CaloriesViewController: UIViewController {
 		}
 		return fetchedResultsController
 	}()
+	let caloriesController = CaloriesController()
 
 	@IBOutlet var tableView: UITableView!
 	@IBOutlet var chartParentView: UIView!
 	let chart = Chart()
+	var peoplesSeries = [UUID: ChartSeries]()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupChart()
+//		setupNotificationObserver()
 	}
 
 	func setupChart() {
@@ -50,6 +53,30 @@ class CaloriesViewController: UIViewController {
 		chart.trailingAnchor.constraint(equalTo: chartParentView.trailingAnchor).isActive = true
 	}
 
+	func setupNotificationObserver() {
+		NotificationCenter.default.addObserver(forName: .caloriesUpdated, object: nil, queue: nil) { [weak self] (notification) in
+			guard let personSections = self?.fetchedResultsController.sections else { return }
+			for person in personSections {
+				guard let calories = person.objects as? [Calories] else { continue }
+				guard let personID = UUID(uuidString: person.name) else { continue }
+				var datas = [Double]()
+				for caloriesObject in calories {
+					datas.append(caloriesObject.calories)
+				}
+				if let series = self?.peoplesSeries[personID] {
+					let start = series.data.count
+					for index in start..<datas.count {
+						series.data.append((x: Double(index), y: datas[index]))
+					}
+					self?.chart.add(series)
+				} else {
+					let series = ChartSeries(datas)
+					self?.chart.add(series)
+				}
+			}
+		}
+	}
+
 	@IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
 		let alert = UIAlertController(title: "Add Calorie Intake", message: "Careful what you eat!", preferredStyle: .alert)
 		var calorieTextField: UITextField?
@@ -59,13 +86,16 @@ class CaloriesViewController: UIViewController {
 		}
 		let action = UIAlertAction(title: "Add", style: .default) { [weak self] (action) in
 			guard let calorieString = calorieTextField?.text, let calorieAmount = Double(calorieString) else { return }
-			if let series = self?.chart.series.first {
-				series.data.append((x: Double(series.data.count), y: calorieAmount))
-				self?.chart.add(series)
-		} else {
-				let series = ChartSeries([calorieAmount])
-				self?.chart.add(series)
-			}
+			self?.caloriesController.create(calories: calorieAmount)
+			NotificationCenter.default.post(name: .caloriesUpdated, object: nil)
+//			if let series = self?.chart.series.first {
+//				series.data.append((x: Double(series.data.count), y: calorieAmount))
+//				self?.chart.add(series)
+//			} else {
+//				let series = ChartSeries([calorieAmount])
+//				self?.chart.add(series)
+//			}
+
 		}
 		let cancel = UIAlertAction(title: "Cancel", style: .cancel)
 		alert.addAction(action)
@@ -79,12 +109,20 @@ class CaloriesViewController: UIViewController {
 }
 
 extension CaloriesViewController: UITableViewDelegate, UITableViewDataSource {
+
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return fetchedResultsController.sections?.count ?? 0
+	}
+
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 0
+		return fetchedResultsController.sections?[section].numberOfObjects ?? 0
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		return tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
+		let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
+		guard let calorieCell = cell as? CalorieTableViewCell else { return cell }
+		calorieCell.calories = fetchedResultsController.object(at: indexPath)
+		return calorieCell
 	}
 }
 
