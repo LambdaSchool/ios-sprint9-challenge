@@ -15,6 +15,8 @@
 		33212ACF22BD29BD00F0E3C9 /* Don_t_Get_Fat_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33212ACE22BD29BD00F0E3C9 /* Don_t_Get_Fat_TrackerTests.swift */; };
 		33212ADE22BD2AC800F0E3C9 /* SwiftChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33212ADD22BD2AC800F0E3C9 /* SwiftChart.framework */; };
 		33212AE522BD2D1700F0E3C9 /* CalorieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33212AE422BD2D1700F0E3C9 /* CalorieTableViewCell.swift */; };
+		33212AE722BD343B00F0E3C9 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33212AE622BD343B00F0E3C9 /* CoreDataStack.swift */; };
+		33212AEA22BD347600F0E3C9 /* FatTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33212AE822BD347600F0E3C9 /* FatTracker.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,8 @@
 		33212AD922BD29D000F0E3C9 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		33212ADD22BD2AC800F0E3C9 /* SwiftChart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftChart.framework; path = Carthage/Build/iOS/SwiftChart.framework; sourceTree = "<group>"; };
 		33212AE422BD2D1700F0E3C9 /* CalorieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewCell.swift; sourceTree = "<group>"; };
+		33212AE622BD343B00F0E3C9 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		33212AE922BD347600F0E3C9 /* FatTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FatTracker.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,16 +89,12 @@
 		33212AB822BD29BB00F0E3C9 /* Don't Get Fat Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				33212AB922BD29BB00F0E3C9 /* AppDelegate.swift */,
 				33212AE322BD2CFB00F0E3C9 /* Helpers */,
 				33212AE222BD2CF600F0E3C9 /* Models */,
 				33212AE122BD2CF100F0E3C9 /* Model Controllers */,
 				33212AE022BD2CEF00F0E3C9 /* Views */,
 				33212ADF22BD2CEA00F0E3C9 /* ViewControllers */,
-				33212ABD22BD29BB00F0E3C9 /* Main.storyboard */,
-				33212AC022BD29BD00F0E3C9 /* Assets.xcassets */,
-				33212AC222BD29BD00F0E3C9 /* LaunchScreen.storyboard */,
-				33212AC522BD29BD00F0E3C9 /* Info.plist */,
+				33212AEB22BD34ED00F0E3C9 /* Resources */,
 			);
 			path = "Don't Get Fat Tracker";
 			sourceTree = "<group>";
@@ -142,6 +142,7 @@
 		33212AE222BD2CF600F0E3C9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				33212AE822BD347600F0E3C9 /* FatTracker.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -149,8 +150,21 @@
 		33212AE322BD2CFB00F0E3C9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				33212AE622BD343B00F0E3C9 /* CoreDataStack.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		33212AEB22BD34ED00F0E3C9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				33212AB922BD29BB00F0E3C9 /* AppDelegate.swift */,
+				33212ABD22BD29BB00F0E3C9 /* Main.storyboard */,
+				33212AC022BD29BD00F0E3C9 /* Assets.xcassets */,
+				33212AC222BD29BD00F0E3C9 /* LaunchScreen.storyboard */,
+				33212AC522BD29BD00F0E3C9 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +295,8 @@
 				33212ABC22BD29BB00F0E3C9 /* CaloriesViewController.swift in Sources */,
 				33212ABA22BD29BB00F0E3C9 /* AppDelegate.swift in Sources */,
 				33212AE522BD2D1700F0E3C9 /* CalorieTableViewCell.swift in Sources */,
+				33212AEA22BD347600F0E3C9 /* FatTracker.xcdatamodeld in Sources */,
+				33212AE722BD343B00F0E3C9 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,7 +464,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "Don't Get Fat Tracker/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Don't Get Fat Tracker/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -470,7 +486,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "Don't Get Fat Tracker/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Don't Get Fat Tracker/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -555,6 +571,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		33212AE822BD347600F0E3C9 /* FatTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				33212AE922BD347600F0E3C9 /* FatTracker.xcdatamodel */,
+			);
+			currentVersion = 33212AE922BD347600F0E3C9 /* FatTracker.xcdatamodel */;
+			path = FatTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 33212AAE22BD29BB00F0E3C9 /* Project object */;
 }

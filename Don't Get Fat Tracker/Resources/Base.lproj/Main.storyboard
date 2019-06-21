@@ -86,6 +86,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="chartParentView" destination="f3f-kV-kTg" id="y1A-CD-hsc"/>
+                        <outlet property="tableView" destination="pZz-Di-PKv" id="glT-fF-AVg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
