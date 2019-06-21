@@ -82,7 +82,19 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Fat Tracker" id="uia-wz-7pn">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="sWd-fC-DbF">
+                        <leftBarButtonItems>
+                            <barButtonItem tag="3" title="User 3 +" id="G3y-sp-Oj5">
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="BYZ-38-t0r" id="Pwq-kO-mRn"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem tag="2" title="User 2 +" id="Ru5-QI-EW7">
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="BYZ-38-t0r" id="NCQ-8P-W4R"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" tag="1" systemItem="add" id="sWd-fC-DbF">
                             <connections>
                                 <action selector="addButtonPressed:" destination="BYZ-38-t0r" id="QpC-89-8aa"/>
                             </connections>

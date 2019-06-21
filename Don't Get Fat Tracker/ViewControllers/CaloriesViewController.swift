@@ -22,6 +22,8 @@ class CaloriesViewController: UIViewController {
 	let chart = Chart()
 	var peoplesSeries = [UUID: ChartSeries]()
 
+	let randomColors: [UIColor] = [.red, .blue, .green, .purple, .orange, .brown, .cyan, .magenta, .yellow]
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupChart()
@@ -65,6 +67,8 @@ class CaloriesViewController: UIViewController {
 					self.chart.add(series)
 				} else {
 					let series = ChartSeries(datas)
+					series.area = true
+					series.color = self.randomColors.randomElement()!
 					self.peoplesSeries[personID] = series
 					self.chart.add(series)
 				}
@@ -73,6 +77,17 @@ class CaloriesViewController: UIViewController {
 	}
 
 	@IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+		let user: CaloriesController.User
+		switch sender.tag {
+		case 1:
+			user = .primaryUser
+		case 2: user = .secondaryUser
+		case 3: user = .thirdaryUser
+		default:
+			user = .primaryUser
+		}
+		let userID = caloriesController.getIDForUser(user: user)
+
 		let alert = UIAlertController(title: "Add Calorie Intake", message: "Careful what you eat!", preferredStyle: .alert)
 		var calorieTextField: UITextField?
 		alert.addTextField { (textField) in
@@ -80,8 +95,9 @@ class CaloriesViewController: UIViewController {
 			calorieTextField?.addTarget(self, action: #selector(self.calorieTextFieldEdited), for: .editingChanged)
 		}
 		let action = UIAlertAction(title: "Add", style: .default) { [weak self] (action) in
+			guard let self = self else { return }
 			guard let calorieString = calorieTextField?.text, let calorieAmount = Double(calorieString) else { return }
-			self?.caloriesController.create(calories: calorieAmount)
+			self.caloriesController.create(calories: calorieAmount, person: userID)
 			NotificationCenter.default.post(name: .caloriesUpdated, object: nil)
 		}
 		let cancel = UIAlertAction(title: "Cancel", style: .cancel)
@@ -99,6 +115,20 @@ extension CaloriesViewController: UITableViewDelegate, UITableViewDataSource {
 
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return fetchedResultsController.sections?.count ?? 0
+	}
+
+	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		guard let uuidStr = fetchedResultsController.sections?[section].name, let uuid = UUID(uuidString: uuidStr) else { return nil }
+		switch uuid {
+		case caloriesController.primaryUser:
+			return "User 1"
+		case caloriesController.secondaryUser:
+			return "User 2"
+		case caloriesController.thirdaryUser:
+			return "User 3"
+		default:
+			return "Random Unknown User"
+		}
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

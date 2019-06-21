@@ -11,19 +11,45 @@ import CoreData
 
 class CaloriesController {
 
+	enum User: String {
+		case primaryUser, secondaryUser, thirdaryUser
+	}
+
 	var primaryUser: UUID {
 		get {
-			let string = UserDefaults.standard.string(forKey: "primaryUser") ?? ""
-			guard let user = UUID(uuidString: string) else {
-				let newUser = UUID()
-				UserDefaults.standard.set(newUser.uuidString, forKey: "primaryUser")
-				return newUser
-			}
-			return user
+			return getIDForUser(user: .primaryUser)
 		}
 		set {
-			UserDefaults.standard.set(newValue.uuidString, forKey: "primaryUser")
+			UserDefaults.standard.set(newValue.uuidString, forKey: User.primaryUser.rawValue)
 		}
+	}
+
+	var secondaryUser: UUID {
+		get {
+			return getIDForUser(user: .secondaryUser)
+		}
+		set {
+			UserDefaults.standard.set(newValue.uuidString, forKey: User.secondaryUser.rawValue)
+		}
+	}
+
+	var thirdaryUser: UUID {
+		get {
+			return getIDForUser(user: .thirdaryUser)
+		}
+		set {
+			UserDefaults.standard.set(newValue.uuidString, forKey: User.thirdaryUser.rawValue)
+		}
+	}
+
+	func getIDForUser(user: User) -> UUID {
+		let string = UserDefaults.standard.string(forKey: user.rawValue) ?? ""
+		guard let userID = UUID(uuidString: string) else {
+			let newUser = UUID()
+			UserDefaults.standard.set(newUser.uuidString, forKey: user.rawValue)
+			return newUser
+		}
+		return userID
 	}
 
 	func create(calories: Double, id: UUID = UUID(), timestamp: Date = Date()) {
