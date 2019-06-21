@@ -28,6 +28,11 @@ class CaloriesViewController: UIViewController {
 		setupNotificationObserver()
 	}
 
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		NotificationCenter.default.post(name: .caloriesUpdated, object: nil)
+	}
+
 	func setupChart() {
 		chartParentView.addSubview(chart)
 
@@ -111,6 +116,7 @@ extension CaloriesViewController: UITableViewDelegate, UITableViewDataSource {
 		if editingStyle == .delete {
 			let calories = fetchedResultsController.object(at: indexPath)
 			caloriesController.delete(calories: calories)
+			NotificationCenter.default.post(name: .caloriesUpdated, object: nil)
 		}
 	}
 }
