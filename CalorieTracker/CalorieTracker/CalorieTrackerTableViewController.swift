@@ -19,8 +19,11 @@ class CalorieTrackerTableViewController: UITableViewController {
     //MARK: Properties
     var calorieController = CalorieController()
     var dataEntries: [ChartDataEntry] = []
+    var chartCalorie: Calorie?
+    
     
     @IBOutlet weak var calorieChart: LineChartView!
+    let data = LineChartData()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +33,21 @@ class CalorieTrackerTableViewController: UITableViewController {
     @objc func submitButtonPressed(notificaiton: Notification) {
         print("submit")
         print(calorieController.calories)
-        getChartData()
+        if calorieController.calories.count == 1 {
+            getChartData()
+        } else {
+            appendChart()
+        }
         tableView.reloadData()
+    }
+    
+    func appendChart() {
+        guard let chartCalorie = chartCalorie else {return}
+        let y = Double(chartCalorie.amount)
+        let count = calorieController.calories.count - 1
+        let dataEntry = ChartDataEntry(x: Double(count), y: y)
+        calorieChart.data?.addEntry(dataEntry, dataSetIndex: 0)
+        calorieChart.notifyDataSetChanged()
     }
     
     func getChartData() {
@@ -39,6 +55,7 @@ class CalorieTrackerTableViewController: UITableViewController {
         for value in calorieController.calories {
             values.append(Double(value.amount))
         }
+        print(values)
         setChart(values: values)
     }
     
@@ -57,17 +74,13 @@ class CalorieTrackerTableViewController: UITableViewController {
         line1.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
         line1.drawFilledEnabled = true
         
-        let data = LineChartData()
         data.addDataSet(line1)
         calorieChart.data = data
         calorieChart.setScaleEnabled(false)
         calorieChart.animate(xAxisDuration: 1.0)
-        calorieChart.legend.textColor = .white
-        calorieChart.leftAxis.labelTextColor = .white
         calorieChart.rightAxis.drawAxisLineEnabled = false
         calorieChart.rightAxis.drawGridLinesEnabled = false
         calorieChart.rightAxis.enabled = false
-        calorieChart.xAxis.drawLabelsEnabled = false
     }
     
     private func getGradientFilling() -> CGGradient {
@@ -108,6 +121,7 @@ class CalorieTrackerTableViewController: UITableViewController {
             let timestamp = NSDate().timeIntervalSince1970
             let calorie = Calorie(amount: amount, timeStamp: timestamp)
             self.calorieController.calories += [calorie]
+            self.chartCalorie = calorie
             NotificationCenter.default.post(name: .didSubmitCalorie, object: Any?.self)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
