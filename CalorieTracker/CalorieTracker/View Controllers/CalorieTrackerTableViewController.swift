@@ -20,19 +20,18 @@ class CalorieTrackerTableViewController: UITableViewController {
     var calorieController = CalorieController()
     var dataEntries: [ChartDataEntry] = []
     var chartCalorie: Calorie?
-    
-    
-    @IBOutlet weak var calorieChart: LineChartView!
     let data = LineChartData()
+    //Outlets
+    @IBOutlet weak var calorieChart: LineChartView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //listener
         NotificationCenter.default.addObserver(self, selector: #selector(submitButtonPressed(notificaiton:)), name: .didSubmitCalorie, object: nil)
     }
     
     @objc func submitButtonPressed(notificaiton: Notification) {
-        print("submit")
-        print(calorieController.calories)
+        //handles logic for submit button pressed
         if calorieController.calories.count == 1 {
             getChartData()
         } else {
@@ -41,6 +40,9 @@ class CalorieTrackerTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    //MARK: Helper methods
+    
+    //appends chart
     func appendChart() {
         guard let chartCalorie = chartCalorie else {return}
         let y = Double(chartCalorie.amount)
@@ -50,6 +52,7 @@ class CalorieTrackerTableViewController: UITableViewController {
         calorieChart.notifyDataSetChanged()
     }
     
+    //makes chart data
     func getChartData() {
         var values: [Double] = []
         for value in calorieController.calories {
@@ -91,6 +94,8 @@ class CalorieTrackerTableViewController: UITableViewController {
         return CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations)!
     }
     
+    //MARK: Data Source
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return calorieController.calories.count
     }
@@ -107,24 +112,36 @@ class CalorieTrackerTableViewController: UITableViewController {
     }
     
     
+    //MARK: Actions
+    
     @IBAction func addCalorieIntakeButtonPressed(_ sender: Any) {
+        //sets up the alert controller
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
         
+        //adds text field to alert
         alert.addTextField { (textField) in
             textField.placeholder = "Calories:"
         }
+        
+        //adds actions to alert
         alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { [weak alert] (_) in
+            //logic to get textfield input
             guard let textField = alert?.textFields![0] else {return}
             guard let amount = Int(textField.text!) else {
                 print("not a valid number")
                 return}
+            //logic to make calorie
             let timestamp = NSDate().timeIntervalSince1970
             let calorie = Calorie(amount: amount, timeStamp: timestamp)
             self.calorieController.calories += [calorie]
             self.chartCalorie = calorie
+            
+            //sender
             NotificationCenter.default.post(name: .didSubmitCalorie, object: Any?.self)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        //presents the alert
         self.present(alert, animated: true, completion: nil)
     }
     
