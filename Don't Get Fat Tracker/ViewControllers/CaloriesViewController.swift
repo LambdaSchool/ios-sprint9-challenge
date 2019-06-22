@@ -36,14 +36,15 @@ class CaloriesViewController: UIViewController {
 
 	@IBOutlet var tableView: UITableView!
 	@IBOutlet var chartParentView: UIView!
-//	let chart = Chart()
-	var peoplesSeries = [UUID: ChartSeries]()
+	let chart = Chart()
+	var peoplesSeries = [Int64: ChartSeries]()
 
 	let randomColors: [UIColor] = [.red, .blue, .green, .purple, .orange, .brown, .cyan, .magenta, .yellow]
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-//		setupChart()
+		setupChart()
+		updateChart()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -51,46 +52,49 @@ class CaloriesViewController: UIViewController {
 		NotificationCenter.default.post(name: .caloriesUpdated, object: nil)
 	}
 
-//	func setupChart() {
-//		chartParentView.addSubview(chart)
-//
-//		chart.minY = 0
-//		chart.translatesAutoresizingMaskIntoConstraints = false
-//		chart.topAnchor.constraint(equalTo: chartParentView.topAnchor).isActive = true
-//		chart.bottomAnchor.constraint(equalTo: chartParentView.bottomAnchor).isActive = true
-//		chart.leadingAnchor.constraint(equalTo: chartParentView.leadingAnchor).isActive = true
-//		chart.trailingAnchor.constraint(equalTo: chartParentView.trailingAnchor).isActive = true
-//	}
+	func setupChart() {
+		chartParentView.addSubview(chart)
 
-//	func setupNotificationObserver() {
-//		NotificationCenter.default.addObserver(forName: .caloriesUpdated, object: nil, queue: nil) { [weak self] (notification) in
-//			guard let self = self else { return }
-//			self.fetchedResultsController = self.newFetchedResults()
-//			self.tableView.reloadData()
-//			guard let personSections = self.fetchedResultsController.sections else { return }
-//			for person in personSections {
-//				guard let calories = person.objects as? [Calories] else { continue }
-//				guard let personID = UUID(uuidString: person.name) else { continue }
-//				var datas = [Double]()
-//				for caloriesObject in calories.reversed() {
-//					datas.append(caloriesObject.calories)
-//				}
-//				if let series = self.peoplesSeries[personID] {
-//					series.data.removeAll()
-//					let seriesData: [(x: Double, y: Double)] = datas.enumerated().map { (x: Double($0.offset), y: $0.element) }
-//					series.data = seriesData
-//					self.peoplesSeries[personID] = series
-//					self.chart.add(series)
-//				} else {
-//					let series = ChartSeries(datas)
-//					series.area = true
-//					series.color = self.randomColors.randomElement()!
-//					self.peoplesSeries[personID] = series
-//					self.chart.add(series)
-//				}
-//			}
-//		}
-//	}
+		chart.minY = 0
+		chart.translatesAutoresizingMaskIntoConstraints = false
+		chart.topAnchor.constraint(equalTo: chartParentView.topAnchor).isActive = true
+		chart.bottomAnchor.constraint(equalTo: chartParentView.bottomAnchor).isActive = true
+		chart.leadingAnchor.constraint(equalTo: chartParentView.leadingAnchor).isActive = true
+		chart.trailingAnchor.constraint(equalTo: chartParentView.trailingAnchor).isActive = true
+	}
+
+	func setupNotificationObserver() {
+		NotificationCenter.default.addObserver(forName: .caloriesUpdated, object: nil, queue: nil) { [weak self] (notification) in
+			guard let self = self else { return }
+			self.tableView.reloadData()
+
+		}
+	}
+
+	func updateChart() {
+		guard let personSections = fetchedResultsController.sections else { return }
+		for person in personSections {
+			guard let calories = person.objects as? [Calories] else { continue }
+			guard let userID = Int64(person.name) else { continue }
+			var datas = [Double]()
+			for caloriesObject in calories.reversed() {
+				datas.append(caloriesObject.calories)
+			}
+			if let series = self.peoplesSeries[userID] {
+				series.data.removeAll()
+				let seriesData: [(x: Double, y: Double)] = datas.enumerated().map { (x: Double($0.offset), y: $0.element) }
+				series.data = seriesData
+				self.peoplesSeries[userID] = series
+				self.chart.add(series)
+			} else {
+				let series = ChartSeries(datas)
+				series.area = true
+				series.color = self.randomColors.randomElement()!
+				self.peoplesSeries[userID] = series
+				self.chart.add(series)
+			}
+		}
+	}
 
 	@IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
 		let user = userController.user(forID: Int64(sender.tag))
@@ -154,6 +158,7 @@ extension CaloriesViewController: NSFetchedResultsControllerDelegate {
 
 	func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 		tableView.endUpdates()
+		updateChart()
 	}
 
 	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
