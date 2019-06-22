@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 extension Calories {
-	convenience init(calories: Double, id: UUID = UUID(), person: UUID, timestamp: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+	convenience init(calories: Double, id: UUID = UUID(), person: Int64, timestamp: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
 		self.init(context: context)
 		self.calories = calories
 		self.id = id

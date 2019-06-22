@@ -13,21 +13,37 @@ import CoreData
 class CaloriesViewController: UIViewController {
 
 	lazy var fetchedResultsController: NSFetchedResultsController<Calories> = {
-		return newFetchedResults()
+		let fetchRequest: NSFetchRequest<Calories> = Calories.fetchRequest()
+		fetchRequest.sortDescriptors = [
+			NSSortDescriptor(key: "person", ascending: true),
+			NSSortDescriptor(key: "timestamp", ascending: false)]
+
+		let moc = CoreDataStack.shared.mainContext
+		let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+																  managedObjectContext: moc,
+																  sectionNameKeyPath: "person",
+																  cacheName: nil)
+		fetchedResultsController.delegate = self
+		do {
+			try fetchedResultsController.performFetch()
+		} catch {
+			print("error performing initial fetch for frc: \(error)")
+		}
+		return fetchedResultsController
 	}()
 	let caloriesController = CaloriesController()
+	let userController = UserController()
 
 	@IBOutlet var tableView: UITableView!
 	@IBOutlet var chartParentView: UIView!
-	let chart = Chart()
+//	let chart = Chart()
 	var peoplesSeries = [UUID: ChartSeries]()
 
 	let randomColors: [UIColor] = [.red, .blue, .green, .purple, .orange, .brown, .cyan, .magenta, .yellow]
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		setupChart()
-		setupNotificationObserver()
+//		setupChart()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -35,58 +51,49 @@ class CaloriesViewController: UIViewController {
 		NotificationCenter.default.post(name: .caloriesUpdated, object: nil)
 	}
 
-	func setupChart() {
-		chartParentView.addSubview(chart)
+//	func setupChart() {
+//		chartParentView.addSubview(chart)
+//
+//		chart.minY = 0
+//		chart.translatesAutoresizingMaskIntoConstraints = false
+//		chart.topAnchor.constraint(equalTo: chartParentView.topAnchor).isActive = true
+//		chart.bottomAnchor.constraint(equalTo: chartParentView.bottomAnchor).isActive = true
+//		chart.leadingAnchor.constraint(equalTo: chartParentView.leadingAnchor).isActive = true
+//		chart.trailingAnchor.constraint(equalTo: chartParentView.trailingAnchor).isActive = true
+//	}
 
-		chart.minY = 0
-		chart.translatesAutoresizingMaskIntoConstraints = false
-		chart.topAnchor.constraint(equalTo: chartParentView.topAnchor).isActive = true
-		chart.bottomAnchor.constraint(equalTo: chartParentView.bottomAnchor).isActive = true
-		chart.leadingAnchor.constraint(equalTo: chartParentView.leadingAnchor).isActive = true
-		chart.trailingAnchor.constraint(equalTo: chartParentView.trailingAnchor).isActive = true
-	}
-
-	func setupNotificationObserver() {
-		NotificationCenter.default.addObserver(forName: .caloriesUpdated, object: nil, queue: nil) { [weak self] (notification) in
-			guard let self = self else { return }
-			self.fetchedResultsController = self.newFetchedResults()
-			self.tableView.reloadData()
-			guard let personSections = self.fetchedResultsController.sections else { return }
-			for person in personSections {
-				guard let calories = person.objects as? [Calories] else { continue }
-				guard let personID = UUID(uuidString: person.name) else { continue }
-				var datas = [Double]()
-				for caloriesObject in calories.reversed() {
-					datas.append(caloriesObject.calories)
-				}
-				if let series = self.peoplesSeries[personID] {
-					series.data.removeAll()
-					let seriesData: [(x: Double, y: Double)] = datas.enumerated().map { (x: Double($0.offset), y: $0.element) }
-					series.data = seriesData
-					self.peoplesSeries[personID] = series
-					self.chart.add(series)
-				} else {
-					let series = ChartSeries(datas)
-					series.area = true
-					series.color = self.randomColors.randomElement()!
-					self.peoplesSeries[personID] = series
-					self.chart.add(series)
-				}
-			}
-		}
-	}
+//	func setupNotificationObserver() {
+//		NotificationCenter.default.addObserver(forName: .caloriesUpdated, object: nil, queue: nil) { [weak self] (notification) in
+//			guard let self = self else { return }
+//			self.fetchedResultsController = self.newFetchedResults()
+//			self.tableView.reloadData()
+//			guard let personSections = self.fetchedResultsController.sections else { return }
+//			for person in personSections {
+//				guard let calories = person.objects as? [Calories] else { continue }
+//				guard let personID = UUID(uuidString: person.name) else { continue }
+//				var datas = [Double]()
+//				for caloriesObject in calories.reversed() {
+//					datas.append(caloriesObject.calories)
+//				}
+//				if let series = self.peoplesSeries[personID] {
+//					series.data.removeAll()
+//					let seriesData: [(x: Double, y: Double)] = datas.enumerated().map { (x: Double($0.offset), y: $0.element) }
+//					series.data = seriesData
+//					self.peoplesSeries[personID] = series
+//					self.chart.add(series)
+//				} else {
+//					let series = ChartSeries(datas)
+//					series.area = true
+//					series.color = self.randomColors.randomElement()!
+//					self.peoplesSeries[personID] = series
+//					self.chart.add(series)
+//				}
+//			}
+//		}
+//	}
 
 	@IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-		let user: CaloriesController.User
-		switch sender.tag {
-		case 1:
-			user = .primaryUser
-		case 2: user = .secondaryUser
-		case 3: user = .thirdaryUser
-		default:
-			user = .primaryUser
-		}
-		let userID = caloriesController.getIDForUser(user: user)
+		let user = userController.user(forID: Int64(sender.tag))
 
 		let alert = UIAlertController(title: "Add Calorie Intake", message: "Careful what you eat!", preferredStyle: .alert)
 		var calorieTextField: UITextField?
@@ -97,8 +104,7 @@ class CaloriesViewController: UIViewController {
 		let action = UIAlertAction(title: "Add", style: .default) { [weak self] (action) in
 			guard let self = self else { return }
 			guard let calorieString = calorieTextField?.text, let calorieAmount = Double(calorieString) else { return }
-			self.caloriesController.create(calories: calorieAmount, person: userID)
-			NotificationCenter.default.post(name: .caloriesUpdated, object: nil)
+			self.caloriesController.create(calories: calorieAmount, person: user)
 		}
 		let cancel = UIAlertAction(title: "Cancel", style: .cancel)
 		alert.addAction(action)
@@ -118,17 +124,7 @@ extension CaloriesViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		guard let uuidStr = fetchedResultsController.sections?[section].name, let uuid = UUID(uuidString: uuidStr) else { return nil }
-		switch uuid {
-		case caloriesController.primaryUser:
-			return "User 1"
-		case caloriesController.secondaryUser:
-			return "User 2"
-		case caloriesController.thirdaryUser:
-			return "User 3"
-		default:
-			return "Random Unknown User"
-		}
+		return fetchedResultsController.sections?[section].indexTitle
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -146,29 +142,55 @@ extension CaloriesViewController: UITableViewDelegate, UITableViewDataSource {
 		if editingStyle == .delete {
 			let calories = fetchedResultsController.object(at: indexPath)
 			caloriesController.delete(calories: calories)
-			NotificationCenter.default.post(name: .caloriesUpdated, object: nil)
 		}
 	}
 }
 
 // MARK: - Fetched Results Controller Delegate
-extension CaloriesViewController {
+extension CaloriesViewController: NSFetchedResultsControllerDelegate {
+	func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+		tableView.beginUpdates()
+	}
 
-	func newFetchedResults() -> NSFetchedResultsController<Calories> {
-		let fetchRequest: NSFetchRequest<Calories> = Calories.fetchRequest()
-		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "person", ascending: true), NSSortDescriptor(key: "timestamp", ascending: false)]
+	func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+		tableView.endUpdates()
+	}
 
-		let moc = CoreDataStack.shared.mainContext
-		let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
-																  managedObjectContext: moc,
-																  sectionNameKeyPath: "person",
-																  cacheName: nil)
-		do {
-			try fetchedResultsController.performFetch()
-		} catch {
-			print("error performing initial fetch for frc: \(error)")
+	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+		let indexSet = IndexSet([sectionIndex])
+		switch type {
+		case .insert:
+			tableView.insertSections(indexSet, with: .automatic)
+		case .delete:
+			tableView.deleteSections(indexSet, with: .automatic)
+		default:
+			print(#line, #file, "unexpected NSFetchedResultsChangeType: \(type)")
 		}
-		return fetchedResultsController
+	}
+
+	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+		switch type {
+		case .insert:
+			guard let newIndexPath = newIndexPath else { return }
+			tableView.insertRows(at: [newIndexPath], with: .automatic)
+		case .move:
+			guard let newIndexPath = newIndexPath, let indexPath = indexPath else { return }
+			tableView.moveRow(at: indexPath, to: newIndexPath)
+		case .update:
+			guard let indexPath = indexPath else { return }
+			tableView.reloadRows(at: [indexPath], with: .automatic)
+		case .delete:
+			guard let indexPath = indexPath else { return }
+			tableView.deleteRows(at: [indexPath], with: .automatic)
+		@unknown default:
+			print(#line, #file, "unknown NSFetchedResultsChangeType: \(type)")
+		}
+	}
+
+	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, sectionIndexTitleForSectionName sectionName: String) -> String? {
+		guard let userID = Int64(sectionName) else { return nil }
+		let user = userController.user(forID: userID)
+		return user.name
 	}
 }
 

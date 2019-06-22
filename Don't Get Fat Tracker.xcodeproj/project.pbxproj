@@ -20,6 +20,8 @@
 		33212AED22BD35BD00F0E3C9 /* CaloriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33212AEC22BD35BD00F0E3C9 /* CaloriesController.swift */; };
 		33212AEF22BD35D200F0E3C9 /* Calories+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33212AEE22BD35D200F0E3C9 /* Calories+Convenience.swift */; };
 		33EA1B5322BD3B1E00387C6F /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EA1B5222BD3B1E00387C6F /* NotificationNames.swift */; };
+		33EA1B5622BDA53700387C6F /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EA1B5522BDA53700387C6F /* UserController.swift */; };
+		33EA1B5822BDA53D00387C6F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EA1B5722BDA53D00387C6F /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,9 @@
 		33212AEC22BD35BD00F0E3C9 /* CaloriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesController.swift; sourceTree = "<group>"; };
 		33212AEE22BD35D200F0E3C9 /* Calories+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calories+Convenience.swift"; sourceTree = "<group>"; };
 		33EA1B5222BD3B1E00387C6F /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
+		33EA1B5422BD577000387C6F /* FatTracker 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "FatTracker 2.xcdatamodel"; sourceTree = "<group>"; };
+		33EA1B5522BDA53700387C6F /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		33EA1B5722BDA53D00387C6F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				33212AEC22BD35BD00F0E3C9 /* CaloriesController.swift */,
+				33EA1B5522BDA53700387C6F /* UserController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -151,6 +157,7 @@
 			children = (
 				33212AE822BD347600F0E3C9 /* FatTracker.xcdatamodeld */,
 				33212AEE22BD35D200F0E3C9 /* Calories+Convenience.swift */,
+				33EA1B5722BDA53D00387C6F /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -301,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33EA1B5622BDA53700387C6F /* UserController.swift in Sources */,
 				33212ABC22BD29BB00F0E3C9 /* CaloriesViewController.swift in Sources */,
 				33212AEF22BD35D200F0E3C9 /* Calories+Convenience.swift in Sources */,
 				33212ABA22BD29BB00F0E3C9 /* AppDelegate.swift in Sources */,
@@ -308,6 +316,7 @@
 				33212AED22BD35BD00F0E3C9 /* CaloriesController.swift in Sources */,
 				33EA1B5322BD3B1E00387C6F /* NotificationNames.swift in Sources */,
 				33212AEA22BD347600F0E3C9 /* FatTracker.xcdatamodeld in Sources */,
+				33EA1B5822BDA53D00387C6F /* User.swift in Sources */,
 				33212AE722BD343B00F0E3C9 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,9 +597,10 @@
 		33212AE822BD347600F0E3C9 /* FatTracker.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				33EA1B5422BD577000387C6F /* FatTracker 2.xcdatamodel */,
 				33212AE922BD347600F0E3C9 /* FatTracker.xcdatamodel */,
 			);
-			currentVersion = 33212AE922BD347600F0E3C9 /* FatTracker.xcdatamodel */;
+			currentVersion = 33EA1B5422BD577000387C6F /* FatTracker 2.xcdatamodel */;
 			path = FatTracker.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
