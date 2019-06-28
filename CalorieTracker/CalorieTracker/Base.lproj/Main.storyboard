@@ -22,12 +22,28 @@
                                 <rect key="frame" x="0.0" y="364" width="414" height="498"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CalorieCell" id="g3Y-p2-OhI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CalorieCell" textLabel="6mx-H9-oUJ" detailTextLabel="ruQ-J2-AgA" style="IBUITableViewCellStyleValue1" id="g3Y-p2-OhI">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g3Y-p2-OhI" id="DFa-0T-nnw">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6mx-H9-oUJ">
+                                                    <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ruQ-J2-AgA">
+                                                    <rect key="frame" x="350" y="12" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -50,9 +66,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7Vs-79-ygq"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Uvu-qi-lTa"/>
+                    <navigationItem key="navigationItem" id="Uvu-qi-lTa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="JDH-wf-aAH">
+                            <connections>
+                                <action selector="addLog:" destination="wrH-Jh-BRd" id="BcQ-Bz-irb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="chartView" destination="Cvz-HH-0I5" id="Aee-Tz-TTI"/>
+                        <outlet property="chartView" destination="Cvz-HH-0I5" id="sxo-tp-d8T"/>
                         <outlet property="tableView" destination="nSa-j9-AgU" id="XnL-j6-SLK"/>
                     </connections>
                 </viewController>
