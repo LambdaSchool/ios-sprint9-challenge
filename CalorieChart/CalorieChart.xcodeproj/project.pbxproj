@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		13AD7162E1D780DA49002591 /* Pods_CalorieChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CCC767CC841D7E4BB642DF /* Pods_CalorieChart.framework */; };
 		9E5CF0C122C66825008DF10D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5CF0C022C66825008DF10D /* AppDelegate.swift */; };
-		9E5CF0C322C66825008DF10D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5CF0C222C66825008DF10D /* ViewController.swift */; };
 		9E5CF0C622C66825008DF10D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E5CF0C422C66825008DF10D /* Main.storyboard */; };
 		9E5CF0C822C6683D008DF10D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E5CF0C722C6683D008DF10D /* Assets.xcassets */; };
 		9E5CF0CB22C6683D008DF10D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E5CF0C922C6683D008DF10D /* LaunchScreen.storyboard */; };
 		9E5CF0D322C66EAB008DF10D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E5CF0D222C66EAA008DF10D /* GoogleService-Info.plist */; };
+		9E5CF0DE22C68416008DF10D /* ColorieIntake.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E5CF0DC22C68416008DF10D /* ColorieIntake.xcdatamodeld */; };
+		9E5CF0E022C68495008DF10D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5CF0DF22C68495008DF10D /* CoreDataStack.swift */; };
+		9E5CF0E222C68519008DF10D /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5CF0E122C68519008DF10D /* Calorie+Convenience.swift */; };
+		9E5CF0E422C686DA008DF10D /* CalorieIntakeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5CF0E322C686DA008DF10D /* CalorieIntakeTableViewController.swift */; };
+		9E5CF0E622C690E7008DF10D /* CalorieIntakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5CF0E522C690E7008DF10D /* CalorieIntakeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,12 +25,16 @@
 		9155440B6B10CBE6FD75D411 /* Pods-CalorieChart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieChart.release.xcconfig"; path = "Target Support Files/Pods-CalorieChart/Pods-CalorieChart.release.xcconfig"; sourceTree = "<group>"; };
 		9E5CF0BD22C66825008DF10D /* CalorieChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E5CF0C022C66825008DF10D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9E5CF0C222C66825008DF10D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9E5CF0C522C66825008DF10D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E5CF0C722C6683D008DF10D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E5CF0CA22C6683D008DF10D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E5CF0CC22C6683D008DF10D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E5CF0D222C66EAA008DF10D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9E5CF0DD22C68416008DF10D /* ColorieIntake.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ColorieIntake.xcdatamodel; sourceTree = "<group>"; };
+		9E5CF0DF22C68495008DF10D /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		9E5CF0E122C68519008DF10D /* Calorie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience.swift"; sourceTree = "<group>"; };
+		9E5CF0E322C686DA008DF10D /* CalorieIntakeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeTableViewController.swift; sourceTree = "<group>"; };
+		9E5CF0E522C690E7008DF10D /* CalorieIntakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeController.swift; sourceTree = "<group>"; };
 		F90F2B8D331F18A98F09E3DE /* Pods-CalorieChart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieChart.debug.xcconfig"; path = "Target Support Files/Pods-CalorieChart/Pods-CalorieChart.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,12 +89,16 @@
 			isa = PBXGroup;
 			children = (
 				9E5CF0C022C66825008DF10D /* AppDelegate.swift */,
-				9E5CF0C222C66825008DF10D /* ViewController.swift */,
 				9E5CF0C422C66825008DF10D /* Main.storyboard */,
+				9E5CF0E322C686DA008DF10D /* CalorieIntakeTableViewController.swift */,
 				9E5CF0D222C66EAA008DF10D /* GoogleService-Info.plist */,
 				9E5CF0C722C6683D008DF10D /* Assets.xcassets */,
 				9E5CF0C922C6683D008DF10D /* LaunchScreen.storyboard */,
 				9E5CF0CC22C6683D008DF10D /* Info.plist */,
+				9E5CF0DC22C68416008DF10D /* ColorieIntake.xcdatamodeld */,
+				9E5CF0DF22C68495008DF10D /* CoreDataStack.swift */,
+				9E5CF0E122C68519008DF10D /* Calorie+Convenience.swift */,
+				9E5CF0E522C690E7008DF10D /* CalorieIntakeController.swift */,
 			);
 			path = CalorieChart;
 			sourceTree = "<group>";
@@ -218,8 +230,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E5CF0C322C66825008DF10D /* ViewController.swift in Sources */,
+				9E5CF0E022C68495008DF10D /* CoreDataStack.swift in Sources */,
+				9E5CF0E222C68519008DF10D /* Calorie+Convenience.swift in Sources */,
 				9E5CF0C122C66825008DF10D /* AppDelegate.swift in Sources */,
+				9E5CF0E422C686DA008DF10D /* CalorieIntakeTableViewController.swift in Sources */,
+				9E5CF0DE22C68416008DF10D /* ColorieIntake.xcdatamodeld in Sources */,
+				9E5CF0E622C690E7008DF10D /* CalorieIntakeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +437,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9E5CF0DC22C68416008DF10D /* ColorieIntake.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9E5CF0DD22C68416008DF10D /* ColorieIntake.xcdatamodel */,
+			);
+			currentVersion = 9E5CF0DD22C68416008DF10D /* ColorieIntake.xcdatamodel */;
+			path = ColorieIntake.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9E5CF0B522C66825008DF10D /* Project object */;
 }
