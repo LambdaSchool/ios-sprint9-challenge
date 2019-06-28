@@ -14,13 +14,14 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
     override func viewDidLoad() {
         super.viewDidLoad()
 		barButtonItems()
-	
+		NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: .caloriesAdded, object: nil)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		caloriTrackerController.fetchTracks()
-		
+		addChartData()
+
 		
 	}
 	
@@ -51,6 +52,11 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteAllCalories))
 	}
 
+	@objc func refresh() {
+		self.tableView.reloadData()
+		self.addChartData()
+	}
+	
 	@objc func addCalorie() {
 		let alertController = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of Calories in the field", preferredStyle: .alert)
 		alertController.addTextField()
@@ -66,13 +72,13 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 		})
 		
 		[cancel, submit].forEach { alertController.addAction($0) }
-		
 		present(alertController, animated:  true)
 	}
+	
+	
 	@objc func deleteAllCalories() {
 		caloriTrackerController.deleteAll()
-		tableView.reloadData()
-		addChartData()
+		NotificationCenter.default.post(name: .caloriesAdded, object: nil)
 	}
 	
 	private func submitCalories(_ caloriesCount: String) {
@@ -87,10 +93,7 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 
 		}
 		
-		DispatchQueue.main.async {
-			self.tableView.reloadData()
-			self.addChartData()
-		}
+		NotificationCenter.default.post(name: .caloriesAdded, object: nil)
 	}
 	
 	

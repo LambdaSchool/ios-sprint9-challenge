@@ -19,6 +19,7 @@
 		E8D3351A22C67B4F000C8463 /* Track.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E8D3351822C67B4F000C8463 /* Track.xcdatamodeld */; };
 		E8D3351C22C67BF4000C8463 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3351B22C67BF4000C8463 /* CoreDataStack.swift */; };
 		E8D3351E22C68040000C8463 /* Movie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3351D22C68040000C8463 /* Movie+Convenience.swift */; };
+		E8D3352022C6C6B0000C8463 /* Notification+CaloriesAdded.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3351F22C6C6B0000C8463 /* Notification+CaloriesAdded.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		E8D3351922C67B4F000C8463 /* Track.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Track.xcdatamodel; sourceTree = "<group>"; };
 		E8D3351B22C67BF4000C8463 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		E8D3351D22C68040000C8463 /* Movie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+Convenience.swift"; sourceTree = "<group>"; };
+		E8D3351F22C6C6B0000C8463 /* Notification+CaloriesAdded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+CaloriesAdded.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				E8D3351022C66941000C8463 /* CalorieTableViewCell.swift */,
+				E8D3351F22C6C6B0000C8463 /* Notification+CaloriesAdded.swift */,
 				E8D3350022C664A4000C8463 /* Assets.xcassets */,
 				E8D3350522C664A4000C8463 /* Info.plist */,
 			);
@@ -271,6 +274,7 @@
 				E8D3351E22C68040000C8463 /* Movie+Convenience.swift in Sources */,
 				E8D3351A22C67B4F000C8463 /* Track.xcdatamodeld in Sources */,
 				E8D3350E22C66853000C8463 /* CaloriesTableViewController.swift in Sources */,
+				E8D3352022C6C6B0000C8463 /* Notification+CaloriesAdded.swift in Sources */,
 				E8D3351622C66E42000C8463 /* CalorieTrackerController.swift in Sources */,
 				E8D3351122C66941000C8463 /* CalorieTableViewCell.swift in Sources */,
 				E8D3351322C66DD4000C8463 /* TrackRep.swift in Sources */,
