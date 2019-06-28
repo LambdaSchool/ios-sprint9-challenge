@@ -7,3 +7,20 @@
 //
 
 import Foundation
+import CoreData
+
+class CalorieEntryController {
+    var calorieEntries: [CalorieEntry] = []
+    
+    func saveCalorieEntryToPersistentStore() {
+        
+    }
+    
+    func addCalorieEntry() {
+        
+    }
+    
+    func deleteCalorieEntry() {
+        
+    }
+}
