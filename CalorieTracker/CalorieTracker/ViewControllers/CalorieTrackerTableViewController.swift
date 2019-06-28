@@ -62,8 +62,6 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         guard let allCaloriePoints = fetchedResultsController.fetchedObjects?.compactMap({ Double($0.caloriesRecorded) }) else { return }
         let series = ChartSeries(allCaloriePoints)
         chart.add(series)
-        
-        //chart.add(allCaloriePoints)
     }
     
     
