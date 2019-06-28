@@ -51,4 +51,16 @@ class CaloriesController {
         CoreDataStack.shared.mainContext.delete(calories)
         saveToPersistentStore()
     }
+    
+    func fetchPersistentStore(identifier: String, context: NSManagedObjectContext) -> Calories? {
+        let request: NSFetchRequest<Calories> = Calories.fetchRequest()
+        let predicate = NSPredicate(format: "identifier == %@", identifier)
+        request.predicate = predicate
+        
+        var calories: Calories?
+        context.performAndWait {
+            calories = (try? context.fetch(request))?.first
+        }
+        return calories
+    }
 }
