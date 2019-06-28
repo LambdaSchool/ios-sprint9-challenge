@@ -20,9 +20,33 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         defineChart()
         
         // Create notification
-        NotificationCenter.default.addObserver(self, #selector(updateCalorieChart), name: .updateCalorieChart, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCalorieChart), name: .updateCalorieChart, object: nil)
     }
-
+    
+    // Add Calorie data action
+    @IBAction func addCalorieDataTapped(_ sender: Any) {
+        let inputDialog = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+        
+        // Placeholder text
+        inputDialog.addTextField { (caloriesInput) in caloriesInput.placeholder = "Calories"}
+        
+        // Dialog submit action
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { ( _ ) in
+            // Make sure there is a text field
+            if let caloriesInputField = inputDialog.textFields?[0] {
+                let fieldText = caloriesInputField.text
+                let caloriePoint = Int16(fieldText ?? "0")
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        inputDialog.addAction(submitAction)
+        inputDialog.addAction(cancelAction)
+        
+         self.present(inputDialog, animated: true, completion: nil)
+    }
+    
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
