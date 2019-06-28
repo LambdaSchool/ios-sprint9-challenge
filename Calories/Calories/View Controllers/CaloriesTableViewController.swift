@@ -14,6 +14,18 @@ class CaloriesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateChartView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(newCalorieAdded(_:)), name: .showChartDataChanged, object: nil)
+    }
+    
+    @objc func newCalorieAdded(_ notification: Notification) {
+        DispatchQueue.main.async {
+            self.updateChartView()
+        }
     }
     
     // MARK: - Table view data source
@@ -41,12 +53,11 @@ class CaloriesTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+
+            let calorie = fetchedResultsController.object(at: indexPath)
+            caloriesController.deleteCalories(calories: calorie)
             
-            let calories = caloriesController.calories[indexPath.row]
-            caloriesController.deleteCalories(calories: calories)
-            
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            
+            updateChartView()
         }
     }
     
@@ -72,16 +83,25 @@ class CaloriesTableViewController: UITableViewController {
     }
     
     func updateChartView() {
-        for calories in caloriesController.calories {
-            guard let calories = calories as? Calories else { return }
-            data.append((data.count, Double(calories.calories)))
+        guard let numbers = fetchedResultsController.fetchedObjects?.count else {return}
+        var temporary: [Double] = []
+        chartView.removeAllSeries()
+        
+        for number in 0..<numbers {
+            temporary.append(Double(fetchedResultsController.fetchedObjects?[number].calories ?? 0.0))
         }
         
-        let series = ChartSeries(data: data)
-        series.area = true
-        series.color = ChartColors.blueColor()
-        chartView.add(series)
+        calorieValues = temporary
+        
+        
+        let chartSeries = ChartSeries(calorieValues)
+        chartSeries.area = true
+        chartView.add(chartSeries)
         chartView.setNeedsDisplay()
+    }
+    
+    func clearChart() {
+        data = [(0, 0.0)]
     }
     
     lazy var fetchedResultsController: NSFetchedResultsController<Calories> = {
