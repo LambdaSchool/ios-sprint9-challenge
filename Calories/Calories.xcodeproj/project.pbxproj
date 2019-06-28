@@ -19,6 +19,7 @@
 		EFCC503022C66C4C00D00D2F /* DateFormatterForCalories.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC502F22C66C4C00D00D2F /* DateFormatterForCalories.swift */; };
 		EFCC503222C66F3600D00D2F /* CaloriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC503122C66F3600D00D2F /* CaloriesController.swift */; };
 		EFCC503422C6771900D00D2F /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC503322C6771900D00D2F /* Notifications.swift */; };
+		EFCC503622C677EF00D00D2F /* CaloriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC503522C677EF00D00D2F /* CaloriesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		EFCC502F22C66C4C00D00D2F /* DateFormatterForCalories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterForCalories.swift; sourceTree = "<group>"; };
 		EFCC503122C66F3600D00D2F /* CaloriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesController.swift; sourceTree = "<group>"; };
 		EFCC503322C6771900D00D2F /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		EFCC503522C677EF00D00D2F /* CaloriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		EFCC502122C665E300D00D2F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EFCC503522C677EF00D00D2F /* CaloriesTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFCC503422C6771900D00D2F /* Notifications.swift in Sources */,
+				EFCC503622C677EF00D00D2F /* CaloriesTableViewController.swift in Sources */,
 				EFCC502622C6676000D00D2F /* CaloriesRepresentation.swift in Sources */,
 				EFCC500C22C6648D00D00D2F /* AppDelegate.swift in Sources */,
 				EFCC502422C666A800D00D2F /* Calories.xcdatamodeld in Sources */,
