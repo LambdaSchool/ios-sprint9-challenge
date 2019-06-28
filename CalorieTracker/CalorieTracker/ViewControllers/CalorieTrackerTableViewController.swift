@@ -12,15 +12,7 @@ import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    init() {
-        let chartFrame = CGRect(x: 0, y: 0, width: chartView.frame.width, height: chartView.frame.height)
-        let chart = Chart(frame: chartFrame)
-        chartView.addSubview(chart)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var haveChart: Bool = false
     
     // MARK: - View states
     override func viewDidLoad() {
@@ -34,6 +26,7 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         tableView.reloadData()
     }
     
@@ -67,6 +60,10 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
     
     // MARK: - Update Calorie Chart
     @objc func updateCalorieChart() {
+        let chartFrame = CGRect(x: 0, y: 0, width: chartView.frame.width, height: chartView.frame.height)
+        let chart = Chart(frame: chartFrame)
+        chartView.addSubview(chart)
+        
         guard let allCaloriePoints = fetchedResultsController.fetchedObjects?.compactMap({ Double($0.caloriesRecorded) }) else { return }
         let series = ChartSeries(allCaloriePoints)
         chart.add(series)
