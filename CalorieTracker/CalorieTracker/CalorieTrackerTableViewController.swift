@@ -10,19 +10,64 @@ import UIKit
 import CoreData
 import SwiftChart
 
-class CalorieTrackerTableViewController: UITableViewController {
+class CalorieTrackerTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
     // MARK: - View Overriding Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        DispatchQueue.main.async {
+            self.updateViews()
+            self.tableView.reloadData()
+        }
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .calorieEntryAdded, object: nil)
     }
 
+    // MARK: - SwiftChart Methods
+    
+    @objc func newCalorieEntry(_ notification: Notification) {
+        DispatchQueue.main.async {
+            self.updateViews()
+        }
+    }
+    
+    @objc func updateViews() {
+        guard let chartInput = fetchedResultsController.fetchedObjects?.count else { return }
+        var initialData: [Double] = []
+        chart.removeAllSeries()
+        for allValues in 0..<chartInput {
+            initialData.append(fetchedResultsController.fetchedObjects?[allValues].numberOfCalories ?? 0.0)
+        }
+        let refactoredData = initialData
+        let series = ChartSeries(refactoredData)
+        series.area = true
+        chart.add(series)
+        chart.backgroundColor = .black
+        chart.highlightLineColor = .green
+        chart.axesColor = .green
+        chart.setNeedsDisplay()
+    }
+    
     // MARK: - Actions/Methods
     
     @IBAction func addButtonTapped(_ sender: Any) {
-        print("Let's add a new entry!")
+        let notification = UIAlertController(title: "Add Calorie Entry", message: "Enter the number of calories", preferredStyle: .alert)
+        var calorieEntryTextField: UITextField!
+        notification.addTextField { (notificationTextField) in
+            notificationTextField.keyboardType = .numbersAndPunctuation
+            notificationTextField.placeholder = "Number of calories:"
+            calorieEntryTextField = notificationTextField
+        }
+        let action = UIAlertAction(title: "Enter", style: .default) { (action) in
+            let enteredNumberOfCalories = calorieEntryTextField.text ?? "0"
+            self.calorieEntryController.addCalorieEntry(numberOfCalories: Double(enteredNumberOfCalories) ?? 0)
+            NotificationCenter.default.post(name: .calorieEntryAdded, object: nil)
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        notification.addAction(action)
+        notification.addAction(cancel)
+        present(notification, animated: true)
     }
 
     // MARK: - Table View Data Source
@@ -42,12 +87,12 @@ class CalorieTrackerTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let calorieEntry = fetchedResultsController.object(at: indexPath)
-            calorieEntryController.deleteCalorieEntry()
+            calorieEntryController.deleteCalorieEntry(calorieEntry: calorieEntry)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
 
-    // MARK: - Table View Data Source Delegate Methods
+    // MARK: - Table View Fetched Result Controller Delegate Methods
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
@@ -91,15 +136,15 @@ class CalorieTrackerTableViewController: UITableViewController {
     
     // MARK: - Properties & Outlets
     
-    
     @IBOutlet weak var chart: Chart!
+    let calorieEntries: [CalorieEntry] = []
     let calorieEntryController = CalorieEntryController()
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieEntry> = {
         let fetchedRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
         fetchedRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchedRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
-        frc.delegate = self as? NSFetchedResultsControllerDelegate
+        frc.delegate = self
         try! frc.performFetch()
         return frc
     }()

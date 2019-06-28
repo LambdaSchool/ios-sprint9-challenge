@@ -10,17 +10,26 @@ import Foundation
 import CoreData
 
 class CalorieEntryController {
+    
     var calorieEntries: [CalorieEntry] = []
     
     func saveCalorieEntryToPersistentStore() {
-        
+        let moc = CoreDataStack.shared.mainContext
+        do {
+            try moc.save()
+        } catch {
+            NSLog("Error saving managed object context: \(error)")
+        }
     }
     
-    func addCalorieEntry() {
-        
+    func addCalorieEntry(numberOfCalories: Double) {
+        _ = CalorieEntry(numberOfCalories: numberOfCalories)
+        saveCalorieEntryToPersistentStore()
     }
     
-    func deleteCalorieEntry() {
-        
+    func deleteCalorieEntry(calorieEntry: CalorieEntry) {
+        let moc = CoreDataStack.shared.mainContext
+        moc.delete(calorieEntry)
+        saveCalorieEntryToPersistentStore()
     }
 }
