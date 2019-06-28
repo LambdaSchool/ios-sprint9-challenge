@@ -103,5 +103,16 @@ class CalorieTrackerTableViewController: UITableViewController {
         try! frc.performFetch()
         return frc
     }()
-
+    
+    // MARK: - Date Formatter
+    
+    struct DateFormat {
+        static var dateFormatter: DateFormatter {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .short
+            dateFormatter.timeStyle = .short
+            return dateFormatter
+        }
+        let entryDate: Date = Date()
+    }
 }
