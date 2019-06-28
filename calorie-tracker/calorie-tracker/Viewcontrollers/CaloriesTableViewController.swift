@@ -114,7 +114,7 @@ extension CaloriesTableViewController {
 	func addChartData() {
 		chartView.delegate = self
 		
-		chartView.xLabels = caloriTrackerController.countArr
+		chartView.xLabels = caloriTrackerController.getXLabels
 		chartView.yLabels = caloriTrackerController.getYLabels
 		
 		chartView.add(ChartSeries(data: [(x: 0, y: 0)]))

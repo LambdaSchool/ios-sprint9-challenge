@@ -61,23 +61,24 @@ class CalorieTrackerController {
 		self.shared = shared
 	}
 	
-	var countArr: [Double] {
+	var getXLabels: [Double] {
 		var arr: [Double] = []
-		for i in 0...trackedCalories.count{
+		for i in 1...trackedCalories.count{
 			arr.append(Double(i))
 		}
 		return arr
 	}
 	
 	var getYLabels: [Double] {
-		var big: [Double] = [0]
+		var big: Double = 0
 		for t in trackedCalories {
-			guard let i = Int(t.caloriesCount!) else { return big}
-			if  Double(i) > big.first! { big.append( Double(i)) }
+			guard let i = Int(t.caloriesCount!) else { return [0]}
+			if  Double(i) > big { big = Double(i) }
 		}
 		
-		return big
+		return [0, big/2,big]
 	}
+	
 	
 	
 	
