@@ -61,17 +61,15 @@ class CalorieTrackerController {
 	}
 	
 	var getXLabels: [Double] {
-		guard !trackedCalories.isEmpty else  { return [0] }		
-		var arr: [Double] = [0]
-		for i in 1...trackedCalories.count {
+		guard !trackedCalories.isEmpty else  { return [0] }
+		var arr: [Double] = []
+		for i in 0...trackedCalories.count - 1 {
 			arr.append(Double(i))
 		}
 		return arr
 	}
 	
 	var getYLabels: [Double] {
-		if trackedCalories.count == 1 { return [ Double(trackedCalories[0].caloriesCount!)! ]}
-		
 		var big: Double = 0
 		for t in trackedCalories {
 			guard let i = Int(t.caloriesCount!) else { return [0]}

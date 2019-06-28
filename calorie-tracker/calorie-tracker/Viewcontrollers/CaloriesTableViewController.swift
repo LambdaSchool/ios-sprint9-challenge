@@ -49,6 +49,8 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 	
 	private func barButtonItems() {
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCalorie))
+		
+		// MARK: Remove only for testing
 		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteAllCalories))
 	}
 
@@ -78,6 +80,7 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 	
 	@objc func deleteAllCalories() {
 		caloriTrackerController.deleteAll()
+		chartView.add([])
 		NotificationCenter.default.post(name: .caloriesAdded, object: nil)
 	}
 	
