@@ -21,7 +21,7 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
 
     let formatter = DateFormatter()
     let calorieIntakeController = CalorieIntakeController()
-    var series = ChartSeries([])
+    var series: ChartSeries!
     @IBOutlet weak var chart: Chart!
 
 
