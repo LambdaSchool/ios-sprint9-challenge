@@ -14,7 +14,7 @@
 		37ED3AD422C6665500034B7C /* CalorieTrackerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ED3AD322C6665500034B7C /* CalorieTrackerTableViewController.swift */; };
 		37ED3ADB22C66A3400034B7C /* Pods_CalorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB905BA94B41E963820D7BD5 /* Pods_CalorieTracker.framework */; };
 		37ED3AE222C67A2A00034B7C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ED3AE122C67A2A00034B7C /* CoreDataStack.swift */; };
-		37ED3AE622C67A6C00034B7C /* CalorieData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37ED3AE422C67A6C00034B7C /* CalorieData.xcdatamodeld */; };
+		37ED3AE922C67F6700034B7C /* CalorieData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37ED3AE722C67F6700034B7C /* CalorieData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +26,7 @@
 		37ED3ACD22C6645F00034B7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37ED3AD322C6665500034B7C /* CalorieTrackerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerTableViewController.swift; sourceTree = "<group>"; };
 		37ED3AE122C67A2A00034B7C /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		37ED3AE522C67A6C00034B7C /* CalorieData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieData.xcdatamodel; sourceTree = "<group>"; };
+		37ED3AE822C67F6700034B7C /* CalorieData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieData.xcdatamodel; sourceTree = "<group>"; };
 		39D70F6125DD1F7D8D04E40C /* Pods-CalorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.debug.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		BB905BA94B41E963820D7BD5 /* Pods_CalorieTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF776260105B758C90A4430C /* Pods-CalorieTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.release.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				37ED3AE122C67A2A00034B7C /* CoreDataStack.swift */,
-				37ED3AE422C67A6C00034B7C /* CalorieData.xcdatamodeld */,
+				37ED3AE722C67F6700034B7C /* CalorieData.xcdatamodeld */,
 			);
 			path = "CoreData Model";
 			sourceTree = "<group>";
@@ -242,7 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37ED3AE222C67A2A00034B7C /* CoreDataStack.swift in Sources */,
-				37ED3AE622C67A6C00034B7C /* CalorieData.xcdatamodeld in Sources */,
+				37ED3AE922C67F6700034B7C /* CalorieData.xcdatamodeld in Sources */,
 				37ED3AD422C6665500034B7C /* CalorieTrackerTableViewController.swift in Sources */,
 				37ED3AC222C6645F00034B7C /* AppDelegate.swift in Sources */,
 			);
@@ -448,12 +448,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		37ED3AE422C67A6C00034B7C /* CalorieData.xcdatamodeld */ = {
+		37ED3AE722C67F6700034B7C /* CalorieData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				37ED3AE522C67A6C00034B7C /* CalorieData.xcdatamodel */,
+				37ED3AE822C67F6700034B7C /* CalorieData.xcdatamodel */,
 			);
-			currentVersion = 37ED3AE522C67A6C00034B7C /* CalorieData.xcdatamodel */;
+			currentVersion = 37ED3AE822C67F6700034B7C /* CalorieData.xcdatamodel */;
 			path = CalorieData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
