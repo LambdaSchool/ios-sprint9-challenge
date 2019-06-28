@@ -11,6 +11,15 @@ import SwiftChart
 
 class ChartViewController: UIViewController {
     
+    var chart: Chart?
+    var series: ChartSeries?
+    
+    var calories: [Double]? {
+        didSet {
+            setUpChart()
+        }
+    }
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,14 +50,7 @@ class ChartViewController: UIViewController {
         view.addSubview(chart!)
     }
     
-    var chart: Chart?
-    var series: ChartSeries?
     
-    var calories: [Double]? {
-        didSet {
-            setUpChart()
-        }
-    }
 }
 
 

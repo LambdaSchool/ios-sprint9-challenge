@@ -10,13 +10,17 @@ import UIKit
 
 class CalorieTableViewController: UITableViewController {
     
+    
+    
+    let entryController = EntryController()
+    private var chartViewController: ChartViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let chartVC = children.first as? ChartViewController else { fatalError("ChartVC Not Loading") }
         chartViewController = chartVC
     }
     
-    // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entryController.entries.count
@@ -27,21 +31,25 @@ class CalorieTableViewController: UITableViewController {
         let entry = entryController.entries[indexPath.row]
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        
+        dateFormatter.dateFormat = "MMM d, yyyy 'at' hh:mm a"
+//        dateFormatter.amSymbol = "AM"
+//        dateFormatter.pmSymbol = "PM"
         let date = dateFormatter.string(from: entry.timestamp!)
         
-        cell.textLabel?.text = "Calories: \(entry.numberOfCalories)   \(date)"
+        cell.textLabel?.text = "Calories: \(entry.numberOfCalories)  \(date)"
         
         return cell
     }
     
-    // MARK: - IBActions
     
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         
         var calories: UITextField!
         
-        let addEntryAlert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field.", preferredStyle: .alert)
+        let addEntryAlert = UIAlertController(title: "Add Caloie Intake", message: "Enter the amount of calories in the field.", preferredStyle: .alert)
         
         addEntryAlert.addTextField { (textField) in
             textField.placeholder = "Calories:"
@@ -69,8 +77,6 @@ class CalorieTableViewController: UITableViewController {
         present(addEntryAlert, animated: true, completion: nil)
     }
     
-    // MARK: - Segues
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let chartVC = segue.destination as? ChartViewController {
             let calories = entryController.entries.map { Double($0.numberOfCalories) }
@@ -78,10 +84,7 @@ class CalorieTableViewController: UITableViewController {
         }
     }
     
-    // MARK: - Properties
-    
-    let entryController = EntryController()
-    private var chartViewController: ChartViewController?
+
 }
 
 extension NSNotification.Name {
