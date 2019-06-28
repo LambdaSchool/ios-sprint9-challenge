@@ -11,8 +11,9 @@ import CoreData
 
 class CalorieTrackerController {
 	
-	func save() throws {
+	func save(_ track: Track) throws {
 		try shared.save(context: shared.mainContext)
+		trackedCalories.append(track)
 	}
 	
 	func fetchTracks() -> [Track] {

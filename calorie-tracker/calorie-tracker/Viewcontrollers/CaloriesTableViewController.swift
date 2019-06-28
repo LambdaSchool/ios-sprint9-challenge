@@ -79,9 +79,11 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 		}
 		
 		CoreDataStack.shared.mainContext.performAndWait {
-			let _ = Track(caloriesCount: caloriesCount)
-			try? caloriTrackerController.save()
+			let track = Track(caloriesCount: caloriesCount)
+			try? caloriTrackerController.save(track)
+
 		}
+		
 		DispatchQueue.main.async {
 			self.tableView.reloadData()
 		}
