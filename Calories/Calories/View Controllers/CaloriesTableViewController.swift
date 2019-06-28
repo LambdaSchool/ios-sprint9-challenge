@@ -18,14 +18,20 @@ class CaloriesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return caloriesController.calories.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "caloriesCell", for: indexPath)
 
-        // Configure the cell...
+        let calories = caloriesController.calories[indexPath.row]
+        
+        cell.textLabel?.text = "Calories: \(calories.calories)"
+        
+        if calories.formattedDate != nil {
+            cell.detailTextLabel?.text = "\(calories.formattedDate!)"
+        }
 
         return cell
     }
@@ -33,10 +39,15 @@ class CaloriesTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            
+            let calories = caloriesController.calories[indexPath.row]
+            caloriesController.deleteCalories(calories: calories)
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            
+        }
     }
+    
+    // MARK: - Properties
+    var caloriesController = CaloriesController()
 }

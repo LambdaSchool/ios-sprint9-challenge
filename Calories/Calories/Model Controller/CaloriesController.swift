@@ -66,4 +66,9 @@ class CaloriesController {
         }
         return calories
     }
+    
+    // MARK: - Properties
+    var calories: [Calories] {
+        return loadFromPersistentStore()
+    }
 }
