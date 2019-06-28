@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController {
 
@@ -18,29 +19,30 @@ class CalorieTrackerTableViewController: UITableViewController {
 
     }
 
-    // MARK: - Table View Data Source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 0
+    // MARK: - Actions/Methods
+    
+    @IBAction func addButtonTapped(_ sender: Any) {
+        print("Let's add a new entry!")
     }
 
+    // MARK: - Table View Data Source
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 0
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieEntryCell", for: indexPath)
-
-        // Configure the cell...
-
+        let calorieEntry = fetchedResultsController.object(at: indexPath)
+        cell.textLabel?.text = "\(calorieEntry.numberOfCalories)"
+        cell.detailTextLabel?.text = "\(String(describing: calorieEntry.entryDate))"
         return cell
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-
+            let calorieEntry = fetchedResultsController.object(at: indexPath)
+            calorieEntryController.deleteCalorieEntry()
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -89,6 +91,8 @@ class CalorieTrackerTableViewController: UITableViewController {
     
     // MARK: - Properties & Outlets
     
+    
+    @IBOutlet weak var chart: Chart!
     let calorieEntryController = CalorieEntryController()
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieEntry> = {
         let fetchedRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
