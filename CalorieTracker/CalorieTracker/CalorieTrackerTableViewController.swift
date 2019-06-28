@@ -18,7 +18,6 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         super.viewDidLoad()
         DispatchQueue.main.async {
             self.updateViews()
-            self.tableView.reloadData()
         }
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .calorieEntryAdded, object: nil)
     }
@@ -32,19 +31,19 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
     }
     
     @objc func updateViews() {
-        guard let chartInput = fetchedResultsController.fetchedObjects?.count else { return }
-        var initialData: [Double] = []
-        chart.removeAllSeries()
-        for allValues in 0..<chartInput {
-            initialData.append(fetchedResultsController.fetchedObjects?[allValues].numberOfCalories ?? 0.0)
+        let chartInput = fetchedResultsController.fetchedObjects!.count
+        var enteredNumberOfCalories: [Double] = []
+        for calories in 0..<chartInput {
+        enteredNumberOfCalories.append(fetchedResultsController.fetchedObjects?[calories].numberOfCalories ?? 0.0)
         }
-        let refactoredData = initialData
-        let series = ChartSeries(refactoredData)
+        let caloriesToChart = enteredNumberOfCalories
+        let series = ChartSeries(caloriesToChart)
         series.area = true
         chart.add(series)
+        chart.gridColor = .green
         chart.highlightLineColor = .green
         chart.axesColor = .green
-        chart.setNeedsDisplay()
+        tableView.reloadData()
     }
     
     // MARK: - Actions/Methods
@@ -53,7 +52,6 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         let notification = UIAlertController(title: "Add Calorie Entry", message: "Enter the number of calories", preferredStyle: .alert)
         var calorieEntryTextField: UITextField!
         notification.addTextField { (notificationTextField) in
-            notificationTextField.keyboardType = .numbersAndPunctuation
             notificationTextField.placeholder = "Number of calories:"
             calorieEntryTextField = notificationTextField
         }
@@ -79,15 +77,21 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieEntryCell", for: indexPath)
         let calorieEntry = fetchedResultsController.object(at: indexPath)
         cell.textLabel?.text = "\(calorieEntry.numberOfCalories)"
-        cell.detailTextLabel?.text = "\(String(describing: calorieEntry.entryDate))"
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .short
+        dateFormatter.dateStyle = .medium
+        if let entryDate = calorieEntry.entryDate {
+            cell.detailTextLabel?.text = dateFormatter.string(from: entryDate)
+        }
         return cell
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let calorieEntry = fetchedResultsController.object(at: indexPath)
-            calorieEntryController.deleteCalorieEntry(calorieEntry: calorieEntry)
+//            let calorieEntry = fetchedResultsController.object(at: indexPath)
+//            calorieEntryController.deleteCalorieEntry(calorieEntry: calorieEntry)
             tableView.deleteRows(at: [indexPath], with: .fade)
+//            updateViews()
         }
     }
 
@@ -147,16 +151,4 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         try! frc.performFetch()
         return frc
     }()
-    
-    // MARK: - Date Formatter
-    
-    struct DateFormat {
-        static var dateFormatter: DateFormatter {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .short
-            dateFormatter.timeStyle = .short
-            return dateFormatter
-        }
-        let entryDate: Date = Date()
-    }
 }
