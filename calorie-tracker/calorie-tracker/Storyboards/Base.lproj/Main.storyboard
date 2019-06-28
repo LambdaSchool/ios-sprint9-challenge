@@ -49,6 +49,9 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="42.5" id="xRD-Zs-Qtr"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -61,9 +64,11 @@
                                         </view>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="eye-Wm-E0t" firstAttribute="centerY" secondItem="gaG-0g-vCs" secondAttribute="centerY" id="Geo-wE-5sc"/>
                                         <constraint firstItem="eye-Wm-E0t" firstAttribute="leading" secondItem="gaG-0g-vCs" secondAttribute="leading" id="cmJ-Yg-G78"/>
                                         <constraint firstItem="eye-Wm-E0t" firstAttribute="top" secondItem="gaG-0g-vCs" secondAttribute="top" id="h3b-sA-Hti"/>
                                         <constraint firstAttribute="bottom" secondItem="eye-Wm-E0t" secondAttribute="bottom" id="irY-bM-4pw"/>
+                                        <constraint firstItem="eye-Wm-E0t" firstAttribute="centerX" secondItem="gaG-0g-vCs" secondAttribute="centerX" id="knA-P9-667"/>
                                         <constraint firstAttribute="trailing" secondItem="eye-Wm-E0t" secondAttribute="trailing" id="s0O-Cm-gfW"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -79,6 +84,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="LFE-81-GEW"/>
+                    <connections>
+                        <outlet property="chart" destination="Y2j-f3-y9z" id="vJh-CD-XzL"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sdk-Ge-Ixe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
