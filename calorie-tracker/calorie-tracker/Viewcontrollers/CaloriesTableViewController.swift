@@ -15,7 +15,16 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
         super.viewDidLoad()
 		rightBarButtonItem()
 		chart.delegate = self
+		
+		
+
 	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+			print(fetchResultController.fetchedObjects?.count)
+	}
+	
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return fetchResultController.fetchedObjects?.count ?? 0
@@ -25,15 +34,23 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieTableViewCell", for: indexPath) as? CalorieTableViewCell else { return UITableViewCell()}
 		
-		cell.calorieLabel?.text = "\(indexPath.row)"
+		if let tracked =  fetchResultController.fetchedObjects?[indexPath.row] {
+			cell.calorieLabel?.text = "Calories: \(tracked.caloriesCount!)"
+			
+			let formated = DateFormatter()
+			formated.dateStyle = .full
+//			formated.dateFormat = "yyyy-MM-dd  HH:mm a"
+			let dateString = formated.string(from: tracked.date!)
+			
+			cell.dateLabel?.text = dateString
+		}
 		return cell
 	}
 	
 	private func rightBarButtonItem() {
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCalorie))
 	}
-	
-	// MARK: get Calories
+
 	@objc func addCalorie() {
 		let alertController = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of Calories in the field", preferredStyle: .alert)
 		alertController.addTextField()
@@ -41,11 +58,20 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 		let cancel = UIAlertAction(title: "Cancel", style: .cancel)
 		
 		let submit = UIAlertAction(title: "Submit", style: .default, handler: { _ in
-			let str = alertController.textFields?[0].text
-			
-			
-			
-			print(str!)
+			if let caloriesCount = alertController.textFields?[0].text {
+				guard let _ = Int(caloriesCount) else {
+					//send error
+					return
+				}
+				CoreDataStack.shared.mainContext.performAndWait {
+					let _ = Track(caloriesCount: caloriesCount)
+					try? CoreDataStack.shared.save(context: CoreDataStack.shared.mainContext)
+				}
+				
+				DispatchQueue.main.async {
+					self.tableView.reloadData()
+				}
+			}
 		})
 		
 		[cancel, submit].forEach { alertController.addAction($0) }
