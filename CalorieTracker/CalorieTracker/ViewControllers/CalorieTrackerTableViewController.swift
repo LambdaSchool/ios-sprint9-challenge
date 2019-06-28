@@ -10,6 +10,7 @@ import UIKit
 
 class CalorieTrackerTableViewController: UITableViewController {
 
+    // MARK: - View states
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,27 +21,26 @@ class CalorieTrackerTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieEntryCell", for: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = "Calories: 800"
+        cell.detailTextLabel?.text = formattedDate.string(from: Date())
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -76,15 +76,19 @@ class CalorieTrackerTableViewController: UITableViewController {
         return true
     }
     */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    
+    // MARK: Outlets
+    @IBOutlet weak var chartView: UIView!
+    
+    // MARK: - Properties
+    // Date formatter
+    var formattedDate: DateFormatter {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "MMM dd, yyyy 'at' h:mm a"
+        return dateformatter
     }
-    */
+    
+    
 
 }
