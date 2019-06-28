@@ -12,10 +12,20 @@ import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
+    init() {
+        let chartFrame = CGRect(x: 0, y: 0, width: chartView.frame.width, height: chartView.frame.height)
+        let chart = Chart(frame: chartFrame)
+        chartView.addSubview(chart)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - View states
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Create notification
         NotificationCenter.default.addObserver(self, selector: #selector(updateCalorieChart), name: .updateCalorieChart, object: nil)
         
@@ -41,6 +51,8 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
                 let fieldText = caloriesInputField.text else { return }
                 let caloriePoint = Int16(fieldText) ?? 0
             self.calorieDataController.addCalorieDataPoint(newCalories: caloriePoint)
+            
+            NotificationCenter.default.post(name: .updateCalorieChart, object: nil)
             }
 
         
@@ -55,10 +67,6 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
     
     // MARK: - Update Calorie Chart
     @objc func updateCalorieChart() {
-        let chartFrame = CGRect(x: 0, y: 0, width: chartView.frame.width, height: chartView.frame.height)
-        let chart = Chart(frame: chartFrame)
-        chartView.addSubview(chart)
-    
         guard let allCaloriePoints = fetchedResultsController.fetchedObjects?.compactMap({ Double($0.caloriesRecorded) }) else { return }
         let series = ChartSeries(allCaloriePoints)
         chart.add(series)
