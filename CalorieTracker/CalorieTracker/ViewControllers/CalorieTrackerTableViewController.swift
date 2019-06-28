@@ -8,24 +8,26 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
     // MARK: - View states
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Implement the chart
+        defineChart()
     }
 
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+         return fetchedResultsController.sections?.count ?? 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,7 +69,8 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
     }
     
     // Delete changes
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int,
+                      for type: NSFetchedResultsChangeType) {
         switch type {
         case .insert:
             tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
@@ -94,9 +97,21 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         return frc
     }()
     
-    
-    // MARK: Outlets
+     // MARK: SwiftChart View Configuration
+    // UIView outlet for SwiftChart Chart
     @IBOutlet weak var chartView: UIView!
+    
+    // Define chart
+    private func defineChart() {
+        let chartFrame = CGRect(x: 0, y: 0, width: chartView.frame.width, height: chartView.frame.height)
+        let chart = Chart(frame: chartFrame)
+        chartView.addSubview(chart)
+        let series = ChartSeries([0, 6, 2, 8, 4, 7, 3, 10, 8])
+        chart.add(series)
+    }
+
+
+    
     
     // MARK: - Properties
     // Date formatter
@@ -106,6 +121,7 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         return dateformatter
     }
     
+}
   
     /*
      // Override to support conditional editing of the table view.
@@ -145,4 +161,4 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
     
     
 
-}
+
