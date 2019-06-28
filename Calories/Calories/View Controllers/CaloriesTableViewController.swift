@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreData
+import SwiftChart
 
 class CaloriesTableViewController: UITableViewController {
 
@@ -47,6 +49,35 @@ class CaloriesTableViewController: UITableViewController {
             
         }
     }
+    
+    // MARK: - Alert Controller
+    func showAlertController() {
+        let alertController = UIAlertController(title: "Add Calories", message: "Enter the amount of calories", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Submit", style: .default) { (_) in
+            let calories = alertController.textFields?[0].text
+            let caloriesDouble = Double(calories ?? "0")
+            self.caloriesController.createCalories(calories: caloriesDouble!, date: Date())
+            NotificationCenter.default.post(name: .showChartDataChanged, object: self)
+            self.tableView.reloadData()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Calories:"
+        }
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: - IBActions
+    @IBAction func addButtonTapped(_ sender: Any) {
+        showAlertController()
+    }
+    
+    // MARK: - IBOUtlets
+    @IBOutlet weak var chartView: Chart!
     
     // MARK: - Properties
     var caloriesController = CaloriesController()
