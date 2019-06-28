@@ -21,7 +21,7 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 		super.viewWillAppear(animated)
 		caloriTrackerController.fetchTracks()
 		
-		addChartData()
+		
 	}
 	
 
@@ -72,6 +72,7 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 	@objc func deleteAllCalories() {
 		caloriTrackerController.deleteAll()
 		tableView.reloadData()
+		addChartData()
 	}
 	
 	private func submitCalories(_ caloriesCount: String) {
@@ -95,7 +96,11 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 	
 	
 	let caloriTrackerController = CalorieTrackerController()
-	@IBOutlet var chartView: Chart!
+	@IBOutlet var chartView: Chart! {
+		didSet {
+			addChartData()
+		}
+	}
 }
 
 extension CaloriesTableViewController {
