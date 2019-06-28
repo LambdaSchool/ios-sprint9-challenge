@@ -53,6 +53,7 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 	
 	private func rightBarButtonItem() {
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCalorie))
+		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteAllCalories))
 	}
 
 	@objc func addCalorie() {
@@ -72,6 +73,9 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 		[cancel, submit].forEach { alertController.addAction($0) }
 		
 		present(alertController, animated:  true)
+	}
+	@objc func deleteAllCalories() {
+		caloriTrackerController.deleteAll()
 	}
 	
 	private func submitCalories(_ caloriesCount: String) {
