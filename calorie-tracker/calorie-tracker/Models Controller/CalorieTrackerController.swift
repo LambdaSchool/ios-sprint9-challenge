@@ -59,14 +59,27 @@ class CalorieTrackerController {
 	
 	init(shared: CoreDataStack = CoreDataStack.shared) {
 		self.shared = shared
-//		deleteAll()
 	}
 	
-//	var fetchResultController: NSFetchedResultsController<Track> {
-//		let fetchRequest: NSFetchRequest<Track> = Track.fetchRequest()
-//		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
-//		return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.shared.mainContext, sectionNameKeyPath: nil, cacheName: nil)
-//	}
+	var countArr: [Double] {
+		var arr: [Double] = []
+		for i in 0...trackedCalories.count{
+			arr.append(Double(i))
+		}
+		return arr
+	}
+	
+	var getYLabels: [Double] {
+		var big: [Double] = [0]
+		for t in trackedCalories {
+			guard let i = Int(t.caloriesCount!) else { return big}
+			if  Double(i) > big.first! { big.append( Double(i)) }
+		}
+		
+		return big
+	}
+	
+	
 	
 	private let shared: CoreDataStack
 	private (set) var trackedCalories: [Track] = []

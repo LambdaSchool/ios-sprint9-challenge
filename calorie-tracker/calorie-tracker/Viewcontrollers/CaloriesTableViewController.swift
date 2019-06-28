@@ -20,14 +20,8 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		caloriTrackerController.fetchTracks()
-		chartView.delegate = self
 		
-		chartView.xLabels = [0]
-		chartView.yLabels = [0]
-		
-		chartView.add(ChartSeries(data: [(x: 0, y: 0)]))
-		
-		
+		addChartData()
 	}
 	
 
@@ -118,17 +112,13 @@ extension CaloriesTableViewController {
 	
 	
 	func addChartData() {
-		chartView = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+		chartView.delegate = self
 		
-		chartView = Chart()
-		let series = ChartSeries([0, 6, 2, 8, 4, 7, 3, 10, 8])
-//		series.color = ChartColors.greenColor()
-		chartView.add(series)
+		chartView.xLabels = caloriTrackerController.countArr
+		chartView.yLabels = caloriTrackerController.getYLabels
+		
+		chartView.add(ChartSeries(data: [(x: 0, y: 0)]))
 		
 	}
-	
-//	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-//		super.viewWillTransition(to: size, with: coordinator)
-//		chartView.setNeedsLayout()
-//	}
+
 }
