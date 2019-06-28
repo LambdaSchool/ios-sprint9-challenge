@@ -40,4 +40,15 @@ class CaloriesController {
         newCalories.date = date
         saveToPersistentStore()
     }
+    
+    func updateCalories(calorie: Calories, calories: Double) {
+        calorie.calories = calories
+        calorie.date = Date.init()
+        saveToPersistentStore()
+    }
+    
+    func deleteCalories(calories: Calories) {
+        CoreDataStack.shared.mainContext.delete(calories)
+        saveToPersistentStore()
+    }
 }
