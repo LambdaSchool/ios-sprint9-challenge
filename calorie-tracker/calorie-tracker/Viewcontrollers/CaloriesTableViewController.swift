@@ -14,15 +14,16 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
     override func viewDidLoad() {
         super.viewDidLoad()
 		rightBarButtonItem()
+		fetchResultController.delegate = self
 		chart.delegate = self
 		
-		
+		//print(fetchResultController.fetchedObjects!.count)
 
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-			print(fetchResultController.fetchedObjects?.count)
+		
 	}
 	
 
@@ -63,15 +64,17 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 					//send error
 					return
 				}
+				
 				CoreDataStack.shared.mainContext.performAndWait {
 					let _ = Track(caloriesCount: caloriesCount)
 					try? CoreDataStack.shared.save(context: CoreDataStack.shared.mainContext)
+					DispatchQueue.main.async {
+						self.tableView.reloadData()
+					}
 				}
 				
-				DispatchQueue.main.async {
-					self.tableView.reloadData()
-				}
 			}
+
 		})
 		
 		[cancel, submit].forEach { alertController.addAction($0) }
@@ -82,13 +85,13 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 	let caloriTrackerController = CalorieTrackerController()
 	@IBOutlet var chart: Chart!
 	
-	lazy var fetchResultController: NSFetchedResultsController<Track> = {
+	var fetchResultController: NSFetchedResultsController<Track> = {
 		
 		let fetchRequest: NSFetchRequest<Track> = Track.fetchRequest()
-		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+		fetchRequest.sortDescriptors =  []//[NSSortDescriptor(key: "date", ascending: true)]
 		
 		let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.shared.mainContext, sectionNameKeyPath: nil, cacheName: nil)
-		fetchResultController.delegate = self
+		
 		
 		do {
 			try fetchResultController.performFetch()
@@ -99,6 +102,7 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 		
 		return fetchResultController
 	}()
+	
 	
 }
 
