@@ -38,8 +38,9 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 		cell.calorieLabel?.text = "Calories: \(tracked.caloriesCount!)"
 			
 		let formated = DateFormatter()
-		formated.dateStyle = .full
+//		formated.dateStyle = .full
 //		formated.dateFormat = "yyyy-MM-dd  HH:mm a"
+		formated.dateFormat = "MMM dd, yyyy 'at' HH:mm a"
 		let dateString = formated.string(from: tracked.date!)
 			
 		cell.dateLabel?.text = dateString
@@ -93,7 +94,6 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 		CoreDataStack.shared.mainContext.performAndWait {
 			let track = Track(caloriesCount: caloriesCount)
 			try? caloriTrackerController.save(track)
-
 		}
 		
 		NotificationCenter.default.post(name: .caloriesAdded, object: nil)
@@ -111,21 +111,17 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 
 extension CaloriesTableViewController {
 	func didTouchChart(_ chart: Chart, indexes: [Int?], x: Double, left: CGFloat) {
-		
 	}
 	
 	func didFinishTouchingChart(_ chart: Chart) {
-		
 	}
 	
 	func didEndTouchingChart(_ chart: Chart) {
-		
 	}
 	
 	
 	func addChartData() {
 		chartView.delegate = self
-		
 		chartView.xLabels = caloriTrackerController.getXLabels
 		chartView.yLabels = caloriTrackerController.getYLabels
 		let series = ChartSeries(data: caloriTrackerController.getData)
