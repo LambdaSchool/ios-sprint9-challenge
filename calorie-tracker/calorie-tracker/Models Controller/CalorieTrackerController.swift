@@ -12,5 +12,9 @@ class CalorieTrackerController {
 	
 	
 	
+	init (tracked: Track = Track()) {
+		self.tracked = tracked
+	}
 	
-}
+	private let tracked: Track
+} 
