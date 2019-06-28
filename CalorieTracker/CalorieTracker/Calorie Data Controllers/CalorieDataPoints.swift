@@ -9,13 +9,13 @@
 import Foundation
 import CoreData
 
-struct CalorieDataPoints {
-    var  caloriesRecorded: Int16
-    var dateRecorded: Date
+extension Calories {
     
-    init(caloriesRecorded: Int16, dateRecorded: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    convenience init(caloriesRecorded: Int, dateRecorded: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
-        self.caloriesRecorded = caloriesRecorded
+        self.init(context: context)
+        
+        self.caloriesRecorded = Int16(caloriesRecorded)
         self.dateRecorded = dateRecorded
     }
     

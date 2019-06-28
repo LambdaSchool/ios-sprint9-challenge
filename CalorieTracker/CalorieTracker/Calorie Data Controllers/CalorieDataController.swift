@@ -13,70 +13,20 @@ import CoreData
 
 class CalorieDataController {
     
-    var caloriePoint: Int16 = 0
-    
-//    // Create calorie input box
-//    func createInputDialog() {
-//        let inputDialog = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
-//        
-//        // Placeholder text
-//        inputDialog.addTextField { (caloriesInput) in caloriesInput.placeholder = "Calories"}
-//        
-//        // Dialog submit action
-//        let submitAction = UIAlertAction(title: "Submit", style: .default) { ( _ ) in
-//            // Make sure there is a text field
-//            if let caloriesInputField = inputDialog.textFields?[0] {
-//                let fieldText = caloriesInputField.text
-//                let caloriePoint = Int16(fieldText ?? "0")
-//            }
-//        }
-//        
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
-//        
-//        inputDialog.addAction(submitAction)
-//        inputDialog.addAction(cancelAction)
-//        
-//        // Present the dialog box
-//        present(inputDialog, animated: true, completion: nil)
-//    }
+    func addCalorieDataPoint(newCalories: Int16) {
+        let newCalorieAmount = Calories(caloriesRecorded: Int(newCalories))
+        calorieData.append(newCalorieAmount)
         
-    
-    func see() {
-        let alertController = UIAlertController(title: "Email?", message: "Please input your email:", preferredStyle: .alert)
-        
-        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
-            guard let textFields = alertController.textFields,
-                textFields.count > 0 else {
-                    // Could not find textfield
-                    return
-            }
-            
-            let field = textFields[0]
-            // store your data
-            UserDefaults.standard.set(field.text, forKey: "userEmail")
-            UserDefaults.standard.synchronize()
+        let moc = CoreDataStack.shared.mainContext
+        do {
+            try moc.save()
+        } catch {
+            NSLog("Unable to save the calorie data point \(error)")
         }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
-        
-        alertController.addTextField { (textField) in
-            textField.placeholder = "Email"
-        }
-        
-        alertController.addAction(confirmAction)
-        alertController.addAction(cancelAction)
-        
-        
     }
     
-    
-    
-    
-    func getNewDataPoints() {
-        
-        
-    }
-    
+    // MARK: - Properties
+    private var calorieData: [Calories] = []
 }
 
 

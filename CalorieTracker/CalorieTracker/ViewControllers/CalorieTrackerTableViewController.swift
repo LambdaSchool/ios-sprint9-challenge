@@ -11,16 +11,20 @@ import CoreData
 import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
-
+    
     // MARK: - View states
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Implement the chart
-        defineChart()
-        
+
         // Create notification
         NotificationCenter.default.addObserver(self, selector: #selector(updateCalorieChart), name: .updateCalorieChart, object: nil)
+        
+        updateCalorieChart()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     // Add Calorie data action
@@ -33,11 +37,12 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         // Dialog submit action
         let submitAction = UIAlertAction(title: "Submit", style: .default) { ( _ ) in
             // Make sure there is a text field
-            if let caloriesInputField = inputDialog.textFields?[0] {
-                let fieldText = caloriesInputField.text
-                let caloriePoint = Int16(fieldText ?? "0")
+            guard let caloriesInputField = inputDialog.textFields?[0],
+                let fieldText = caloriesInputField.text else { return }
+                let caloriePoint = Int16(fieldText) ?? 0
+            self.calorieDataController.addCalorieDataPoint(newCalories: caloriePoint)
             }
-        }
+
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
         
@@ -45,6 +50,20 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         inputDialog.addAction(cancelAction)
         
          self.present(inputDialog, animated: true, completion: nil)
+    }
+    
+    
+    // MARK: - Update Calorie Chart
+    @objc func updateCalorieChart() {
+        let chartFrame = CGRect(x: 0, y: 0, width: chartView.frame.width, height: chartView.frame.height)
+        let chart = Chart(frame: chartFrame)
+        chartView.addSubview(chart)
+    
+        guard let allCaloriePoints = fetchedResultsController.fetchedObjects?.compactMap({ Double($0.caloriesRecorded) }) else { return }
+        let series = ChartSeries(allCaloriePoints)
+        chart.add(series)
+        
+        //chart.add(allCaloriePoints)
     }
     
     
@@ -59,9 +78,11 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieEntryCell", for: indexPath)
-
-        cell.textLabel?.text = "Calories: 800"
-        cell.detailTextLabel?.text = formattedDate.string(from: Date())
+        
+        let calorieData = fetchedResultsController.object(at: indexPath)
+        
+        cell.textLabel?.text = "Calories: \(calorieData.caloriesRecorded)"
+        cell.detailTextLabel?.text = formattedDate.string(from: calorieData.dateRecorded ?? Date())
 
         return cell
     }
@@ -127,15 +148,6 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
      // MARK: SwiftChart View Configuration
     // UIView outlet for SwiftChart Chart
     @IBOutlet weak var chartView: UIView!
-    
-    // Define chart
-    private func defineChart() {
-        let chartFrame = CGRect(x: 0, y: 0, width: chartView.frame.width, height: chartView.frame.height)
-        let chart = Chart(frame: chartFrame)
-        chartView.addSubview(chart)
-        let series = ChartSeries([0, 6, 2, 8, 4, 7, 3, 10, 8])
-        chart.add(series)
-    }
 
     // MARK: - Properties
     // Date formatter
@@ -145,10 +157,7 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         return dateformatter
     }
     
-    // MARK: - Update Calorie Chart
-    @objc func updateCalorieChart() {
-        
-    }
+    let calorieDataController = CalorieDataController()
     
 }
   
