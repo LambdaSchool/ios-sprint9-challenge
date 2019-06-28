@@ -33,7 +33,6 @@ class CalorieTrackerController {
 		}
 	}
 	
-	
 	func deleteAll () {
 		let context = shared.mainContext
 		let fetchRequest: NSFetchRequest<Track> = Track.fetchRequest()
@@ -79,6 +78,17 @@ class CalorieTrackerController {
 		return [0, big/2,big]
 	}
 	
+	var getData: [(x: Double, y: Double)] {
+		var data: [(x: Double, y: Double)] = []
+		
+		for (i, calories) in trackedCalories.enumerated() {
+			if let y = Double(calories.caloriesCount!) {
+				data.append((x: Double(i), y: y))
+			}
+		}
+		
+		return data
+	}
 	
 	
 	

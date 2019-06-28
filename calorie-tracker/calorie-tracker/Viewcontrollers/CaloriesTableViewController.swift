@@ -116,9 +116,10 @@ extension CaloriesTableViewController {
 		
 		chartView.xLabels = caloriTrackerController.getXLabels
 		chartView.yLabels = caloriTrackerController.getYLabels
+		let series = ChartSeries(data: caloriTrackerController.getData)
+		series.area = true
 		
-		chartView.add(ChartSeries(data: [(x: 0, y: 0)]))
-		
+		chartView.add(series)
 	}
 
 }
