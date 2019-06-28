@@ -12,9 +12,14 @@ class CalorieTrackerController {
 	
 	
 	
-	init (tracked: Track = Track()) {
-		self.tracked = tracked
-	}
-	
-	private let tracked: Track
-} 
+//	func submitCalorieToTrack(calories count: Int) {
+//		let calorie = Track.Calorie(caloriesCount: count, date: Date())
+//		tracked.caloriesList.append(calorie)
+//	}
+//
+//	init (tracked: Track = Track()) {
+//		self.tracked = tracked
+//	}
+//
+//	private (set) var tracked: Track
+}

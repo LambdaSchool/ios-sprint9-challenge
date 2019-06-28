@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct Track {
+struct TrackRepresentation {
 	struct Calorie: Codable {
 		let caloriesCount: Int
-		let date: String
+		let date: Date
 	}
 	
 	init (id: String = UUID().uuidString){
@@ -19,6 +19,7 @@ struct Track {
 	}
 	
 	let id: String
-	var trackedCaloried: [Calorie] = []
+	var caloriesList: [Calorie] = []
 }
+
 
