@@ -49,7 +49,7 @@ class CalorieTableViewController: UITableViewController {
         
         var calories: UITextField!
         
-        let addEntryAlert = UIAlertController(title: "Add Caloie Intake", message: "Enter the amount of calories in the field.", preferredStyle: .alert)
+        let addEntryAlert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field.", preferredStyle: .alert)
         
         addEntryAlert.addTextField { (textField) in
             textField.placeholder = "Calories:"
