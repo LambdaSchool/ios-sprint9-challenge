@@ -88,6 +88,7 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 		
 		DispatchQueue.main.async {
 			self.tableView.reloadData()
+			self.addChartData()
 		}
 	}
 	
@@ -118,7 +119,6 @@ extension CaloriesTableViewController {
 		chartView.yLabels = caloriTrackerController.getYLabels
 		let series = ChartSeries(data: caloriTrackerController.getData)
 		series.area = true
-		
 		chartView.add(series)
 	}
 
