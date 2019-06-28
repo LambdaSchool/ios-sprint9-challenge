@@ -62,7 +62,7 @@ class CalorieTrackerController {
 	
 	var getXLabels: [Double] {
 		var arr: [Double] = []
-		for i in 1...trackedCalories.count{
+		for i in 1...trackedCalories.count - 1 {
 			arr.append(Double(i))
 		}
 		return arr
@@ -89,8 +89,6 @@ class CalorieTrackerController {
 		
 		return data
 	}
-	
-	
 	
 	private let shared: CoreDataStack
 	private (set) var trackedCalories: [Track] = []
