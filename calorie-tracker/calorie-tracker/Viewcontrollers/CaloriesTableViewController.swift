@@ -17,14 +17,14 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 //		fetchResultController.delegate = self
 		chart.delegate = self
 		
-		//print(fetchResultController.fetchedObjects!.count)
-		print(caloriTrackerController.fetchTracks().count)
-
+		
+		caloriTrackerController.fetchTracks()
+		print(caloriTrackerController.trackedCalories.count)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		
+		caloriTrackerController.fetchTracks()
 	}
 	
 
@@ -93,26 +93,6 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 	
 	let caloriTrackerController = CalorieTrackerController()
 	@IBOutlet var chart: Chart!
-	
-//	var fetchResultController: NSFetchedResultsController<Track> = {
-//
-//		let fetchRequest: NSFetchRequest<Track> = Track.fetchRequest()
-//		fetchRequest.sortDescriptors =  []//[NSSortDescriptor(key: "date", ascending: true)]
-//
-//		let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.shared.mainContext, sectionNameKeyPath: nil, cacheName: nil)
-//
-//
-//		do {
-//			try fetchResultController.performFetch()
-//		} catch {
-//			NSLog("Error performing initial fetch: \(error)")
-//		}
-//
-//
-//		return fetchResultController
-//	}()
-	
-	
 }
 
 extension CaloriesTableViewController: ChartDelegate {

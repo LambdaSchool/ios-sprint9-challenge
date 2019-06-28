@@ -16,29 +16,41 @@ class CalorieTrackerController {
 		trackedCalories.append(track)
 	}
 	
-	func fetchTracks() -> [Track] {
-		let fetchRequest: NSFetchRequest<Track> = Track.fetchRequest()
-		
-		var result: [Track] =  []
+	func fetchTracks() {
 		let context = shared.mainContext
+		let fetchRequest: NSFetchRequest<Track> = Track.fetchRequest()
+		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+		let fetchResultController =  NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.shared.mainContext, sectionNameKeyPath: nil, cacheName: nil)
 		
 		context.performAndWait {
 			do {
-				result = try context.fetch(fetchRequest)
-				print(result)
+				try fetchResultController.performFetch()
+				trackedCalories = fetchResultController.fetchedObjects ??  []
 				
 			} catch {
 				NSLog("Error fetching results from store: \(error)")
 			}
 		}
-		return result
 	}
 	
 	
 	func deleteAll () {
-		let tracks = fetchTracks()
-		for track in tracks {
-			shared.mainContext.delete(track)
+		let context = shared.mainContext
+		let fetchRequest: NSFetchRequest<Track> = Track.fetchRequest()
+		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+		let fetchResultController =  NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.shared.mainContext, sectionNameKeyPath: nil, cacheName: nil)
+		
+		context.performAndWait {
+			do {
+				try fetchResultController.performFetch()
+				trackedCalories = fetchResultController.fetchedObjects ??  []
+				for track in trackedCalories {
+					context.delete(track)
+					trackedCalories = []
+				}
+			} catch {
+				NSLog("Error fetching results from store: \(error)")
+			}
 		}
 	}
 	
@@ -46,8 +58,14 @@ class CalorieTrackerController {
 	
 	init(shared: CoreDataStack = CoreDataStack.shared) {
 		self.shared = shared
-		trackedCalories = fetchTracks()
+		deleteAll()
 	}
+	
+//	var fetchResultController: NSFetchedResultsController<Track> {
+//		let fetchRequest: NSFetchRequest<Track> = Track.fetchRequest()
+//		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+//		return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.shared.mainContext, sectionNameKeyPath: nil, cacheName: nil)
+//	}
 	
 	private let shared: CoreDataStack
 	private (set) var trackedCalories: [Track] = []
