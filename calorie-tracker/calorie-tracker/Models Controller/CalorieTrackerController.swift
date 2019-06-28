@@ -15,9 +15,7 @@ class CalorieTrackerController {
 		try shared.save(context: shared.mainContext)
 	}
 	
-	
-	
-	func deleteAll () {
+	func fetchTracks() -> [Track] {
 		let fetchRequest: NSFetchRequest<Track> = Track.fetchRequest()
 		
 		var result: [Track] =  []
@@ -26,12 +24,22 @@ class CalorieTrackerController {
 		context.performAndWait {
 			do {
 				result = try context.fetch(fetchRequest)
-				print(result.count)
+				print(result)
 				
 			} catch {
 				NSLog("Error fetching results from store: \(error)")
 			}
 		}
+		return result
+	}
+	
+	
+	func deleteAll () {
+		let tracks = fetchTracks()
+		for track in tracks {
+			shared.mainContext.delete(track)
+		}
+		
 		
 	}
 	

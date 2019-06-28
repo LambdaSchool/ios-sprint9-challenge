@@ -18,6 +18,7 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 		chart.delegate = self
 		
 		//print(fetchResultController.fetchedObjects!.count)
+		print(caloriTrackerController.fetchTracks().count)
 
 	}
 	
