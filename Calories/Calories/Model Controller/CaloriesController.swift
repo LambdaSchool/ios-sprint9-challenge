@@ -33,4 +33,11 @@ class CaloriesController {
         }
         return calories
     }
+    
+    func createCalories(calories: Double, date: Date) {
+        let newCalories = Calories(context: CoreDataStack.shared.mainContext)
+        newCalories.calories = calories
+        newCalories.date = date
+        saveToPersistentStore()
+    }
 }
