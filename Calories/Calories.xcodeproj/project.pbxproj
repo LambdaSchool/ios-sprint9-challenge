@@ -13,6 +13,7 @@
 		EFCC501322C6648E00D00D2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFCC501222C6648E00D00D2F /* Assets.xcassets */; };
 		EFCC501622C6648E00D00D2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFCC501422C6648E00D00D2F /* LaunchScreen.storyboard */; };
 		EFCC502422C666A800D00D2F /* Calories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFCC502222C666A800D00D2F /* Calories.xcdatamodeld */; };
+		EFCC502622C6676000D00D2F /* CaloriesRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC502522C6676000D00D2F /* CaloriesRepresentation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		EFCC501522C6648E00D00D2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EFCC501722C6648E00D00D2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFCC502322C666A800D00D2F /* Calories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calories.xcdatamodel; sourceTree = "<group>"; };
+		EFCC502522C6676000D00D2F /* CaloriesRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesRepresentation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		EFCC501F22C665CB00D00D2F /* Model  */ = {
 			isa = PBXGroup;
 			children = (
+				EFCC502522C6676000D00D2F /* CaloriesRepresentation.swift */,
 			);
 			path = "Model ";
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFCC502622C6676000D00D2F /* CaloriesRepresentation.swift in Sources */,
 				EFCC500C22C6648D00D00D2F /* AppDelegate.swift in Sources */,
 				EFCC502422C666A800D00D2F /* Calories.xcdatamodeld in Sources */,
 			);
