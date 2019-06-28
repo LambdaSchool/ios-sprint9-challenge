@@ -11,6 +11,7 @@ import CoreData
 
 class CaloriesController {
     
+    // MARK: - Save and Load Persistent Store
     func saveToPersistentStore() {
         let moc = CoreDataStack.shared.mainContext
         
@@ -34,6 +35,7 @@ class CaloriesController {
         return calories
     }
     
+    // MARK: - CRUD
     func createCalories(calories: Double, date: Date) {
         let newCalories = Calories(context: CoreDataStack.shared.mainContext)
         newCalories.calories = calories
@@ -52,6 +54,7 @@ class CaloriesController {
         saveToPersistentStore()
     }
     
+    // MARK: - fetchPersistentStore
     func fetchPersistentStore(identifier: String, context: NSManagedObjectContext) -> Calories? {
         let request: NSFetchRequest<Calories> = Calories.fetchRequest()
         let predicate = NSPredicate(format: "identifier == %@", identifier)

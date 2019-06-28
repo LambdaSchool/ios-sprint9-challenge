@@ -18,6 +18,7 @@
 		EFCC502A22C66A1200D00D2F /* Calories+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC502922C66A1200D00D2F /* Calories+Convenience.swift */; };
 		EFCC503022C66C4C00D00D2F /* DateFormatterForCalories.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC502F22C66C4C00D00D2F /* DateFormatterForCalories.swift */; };
 		EFCC503222C66F3600D00D2F /* CaloriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC503122C66F3600D00D2F /* CaloriesController.swift */; };
+		EFCC503422C6771900D00D2F /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC503322C6771900D00D2F /* Notifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		EFCC502922C66A1200D00D2F /* Calories+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calories+Convenience.swift"; sourceTree = "<group>"; };
 		EFCC502F22C66C4C00D00D2F /* DateFormatterForCalories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterForCalories.swift; sourceTree = "<group>"; };
 		EFCC503122C66F3600D00D2F /* CaloriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesController.swift; sourceTree = "<group>"; };
+		EFCC503322C6771900D00D2F /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		EFCC500A22C6648D00D00D2F /* Calories */ = {
 			isa = PBXGroup;
 			children = (
+				EFCC503322C6771900D00D2F /* Notifications.swift */,
 				EFCC502222C666A800D00D2F /* Calories.xcdatamodeld */,
 				EFCC501F22C665CB00D00D2F /* Model  */,
 				EFCC502022C665D800D00D2F /* Model Controller */,
@@ -258,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFCC503422C6771900D00D2F /* Notifications.swift in Sources */,
 				EFCC502622C6676000D00D2F /* CaloriesRepresentation.swift in Sources */,
 				EFCC500C22C6648D00D00D2F /* AppDelegate.swift in Sources */,
 				EFCC502422C666A800D00D2F /* Calories.xcdatamodeld in Sources */,
