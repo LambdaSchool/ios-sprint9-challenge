@@ -17,6 +17,7 @@
 		EFCC502822C6697F00D00D2F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC502722C6697F00D00D2F /* CoreDataStack.swift */; };
 		EFCC502A22C66A1200D00D2F /* Calories+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC502922C66A1200D00D2F /* Calories+Convenience.swift */; };
 		EFCC503022C66C4C00D00D2F /* DateFormatterForCalories.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC502F22C66C4C00D00D2F /* DateFormatterForCalories.swift */; };
+		EFCC503222C66F3600D00D2F /* CaloriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC503122C66F3600D00D2F /* CaloriesController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		EFCC502722C6697F00D00D2F /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		EFCC502922C66A1200D00D2F /* Calories+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calories+Convenience.swift"; sourceTree = "<group>"; };
 		EFCC502F22C66C4C00D00D2F /* DateFormatterForCalories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterForCalories.swift; sourceTree = "<group>"; };
+		EFCC503122C66F3600D00D2F /* CaloriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 		EFCC502022C665D800D00D2F /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EFCC503122C66F3600D00D2F /* CaloriesController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				EFCC500C22C6648D00D00D2F /* AppDelegate.swift in Sources */,
 				EFCC502422C666A800D00D2F /* Calories.xcdatamodeld in Sources */,
 				EFCC502822C6697F00D00D2F /* CoreDataStack.swift in Sources */,
+				EFCC503222C66F3600D00D2F /* CaloriesController.swift in Sources */,
 				EFCC503022C66C4C00D00D2F /* DateFormatterForCalories.swift in Sources */,
 				EFCC502A22C66A1200D00D2F /* Calories+Convenience.swift in Sources */,
 			);
