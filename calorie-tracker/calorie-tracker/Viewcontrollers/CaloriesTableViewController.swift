@@ -13,19 +13,20 @@ import SwiftChart
 class CaloriesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, ChartDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
-		chartView.delegate = self
-		let series = ChartSeries([1,2,3,4,5,6,])
-		chartView.add(series)
-		
-		
-		rightBarButtonItem()
-//		addChartData()
+		barButtonItems()
 	
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		caloriTrackerController.fetchTracks()
+		chartView.delegate = self
+		
+		chartView.xLabels = [0]
+		chartView.yLabels = [0]
+		
+		chartView.add(ChartSeries(data: [(x: 0, y: 0)]))
+		
 		
 	}
 	
@@ -51,7 +52,7 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 		return cell
 	}
 	
-	private func rightBarButtonItem() {
+	private func barButtonItems() {
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCalorie))
 		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteAllCalories))
 	}
@@ -126,8 +127,8 @@ extension CaloriesTableViewController {
 		
 	}
 	
-	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-		super.viewWillTransition(to: size, with: coordinator)
-		chartView.setNeedsLayout()
-	}
+//	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+//		super.viewWillTransition(to: size, with: coordinator)
+//		chartView.setNeedsLayout()
+//	}
 }
