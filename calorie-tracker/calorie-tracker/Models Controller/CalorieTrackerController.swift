@@ -58,7 +58,7 @@ class CalorieTrackerController {
 	
 	init(shared: CoreDataStack = CoreDataStack.shared) {
 		self.shared = shared
-		deleteAll()
+//		deleteAll()
 	}
 	
 //	var fetchResultController: NSFetchedResultsController<Track> {

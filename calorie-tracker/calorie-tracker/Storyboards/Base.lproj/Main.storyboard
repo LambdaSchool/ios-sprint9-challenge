@@ -20,7 +20,6 @@
                         <view key="tableHeaderView" contentMode="scaleToFill" id="Y2j-f3-y9z" customClass="Chart" customModule="SwiftChart">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="230"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.96862745100000003" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieTableViewCell" rowHeight="43" id="qfS-4r-6oF" customClass="CalorieTableViewCell" customModule="calorie_tracker" customModuleProvider="target">
@@ -85,7 +84,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="LFE-81-GEW"/>
                     <connections>
-                        <outlet property="chart" destination="Y2j-f3-y9z" id="vJh-CD-XzL"/>
+                        <outlet property="chartView" destination="Y2j-f3-y9z" id="vJh-CD-XzL"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sdk-Ge-Ixe" userLabel="First Responder" sceneMemberID="firstResponder"/>

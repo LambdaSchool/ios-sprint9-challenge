@@ -10,21 +10,23 @@ import UIKit
 import CoreData
 import SwiftChart
 
-class CaloriesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class CaloriesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, ChartDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
+		chartView.delegate = self
+		let series = ChartSeries([1,2,3,4,5,6,])
+		chartView.add(series)
+		
+		
 		rightBarButtonItem()
-//		fetchResultController.delegate = self
-		chart.delegate = self
-		
-		
-		caloriTrackerController.fetchTracks()
-		print(caloriTrackerController.trackedCalories.count)
+//		addChartData()
+	
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		caloriTrackerController.fetchTracks()
+		
 	}
 	
 
@@ -92,10 +94,10 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 	
 	
 	let caloriTrackerController = CalorieTrackerController()
-	@IBOutlet var chart: Chart!
+	@IBOutlet var chartView: Chart!
 }
 
-extension CaloriesTableViewController: ChartDelegate {
+extension CaloriesTableViewController {
 	func didTouchChart(_ chart: Chart, indexes: [Int?], x: Double, left: CGFloat) {
 		
 	}
@@ -109,4 +111,18 @@ extension CaloriesTableViewController: ChartDelegate {
 	}
 	
 	
+	func addChartData() {
+		chartView = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+		
+		chartView = Chart()
+		let series = ChartSeries([0, 6, 2, 8, 4, 7, 3, 10, 8])
+//		series.color = ChartColors.greenColor()
+		chartView.add(series)
+		
+	}
+	
+	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+		super.viewWillTransition(to: size, with: coordinator)
+		chartView.setNeedsLayout()
+	}
 }
