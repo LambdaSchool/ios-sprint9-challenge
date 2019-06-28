@@ -39,14 +39,15 @@ class CalorieTrackerController {
 		for track in tracks {
 			shared.mainContext.delete(track)
 		}
-		
-		
 	}
+	
+	
 	
 	init(shared: CoreDataStack = CoreDataStack.shared) {
 		self.shared = shared
-		deleteAll()
+		trackedCalories = fetchTracks()
 	}
 	
 	private let shared: CoreDataStack
+	private (set) var trackedCalories: [Track] = []
 }

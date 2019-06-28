@@ -14,7 +14,7 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
     override func viewDidLoad() {
         super.viewDidLoad()
 		rightBarButtonItem()
-		fetchResultController.delegate = self
+//		fetchResultController.delegate = self
 		chart.delegate = self
 		
 		//print(fetchResultController.fetchedObjects!.count)
@@ -29,23 +29,23 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 	
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return fetchResultController.fetchedObjects?.count ?? 0
+		return caloriTrackerController.trackedCalories.count
 	}
 	
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieTableViewCell", for: indexPath) as? CalorieTableViewCell else { return UITableViewCell()}
 		
-		if let tracked =  fetchResultController.fetchedObjects?[indexPath.row] {
-			cell.calorieLabel?.text = "Calories: \(tracked.caloriesCount!)"
+		 let tracked =  caloriTrackerController.trackedCalories[indexPath.row]
+		cell.calorieLabel?.text = "Calories: \(tracked.caloriesCount!)"
 			
-			let formated = DateFormatter()
-			formated.dateStyle = .full
-//			formated.dateFormat = "yyyy-MM-dd  HH:mm a"
-			let dateString = formated.string(from: tracked.date!)
+		let formated = DateFormatter()
+		formated.dateStyle = .full
+//		formated.dateFormat = "yyyy-MM-dd  HH:mm a"
+		let dateString = formated.string(from: tracked.date!)
 			
-			cell.dateLabel?.text = dateString
-		}
+		cell.dateLabel?.text = dateString
+		
 		return cell
 	}
 	
@@ -59,23 +59,12 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 		
 		let cancel = UIAlertAction(title: "Cancel", style: .cancel)
 		
-		let submit = UIAlertAction(title: "Submit", style: .default, handler: { _ in
+		let submit = UIAlertAction(title: "Submit", style: .default, handler: { [unowned alertController] _ in
 			if let caloriesCount = alertController.textFields?[0].text {
-				guard let _ = Int(caloriesCount) else {
-					//send error
-					return
+				DispatchQueue.main.async {
+					self.submitCalories(caloriesCount)
 				}
-				
-				CoreDataStack.shared.mainContext.performAndWait {
-					let _ = Track(caloriesCount: caloriesCount)
-					try? CoreDataStack.shared.save(context: CoreDataStack.shared.mainContext)
-					DispatchQueue.main.async {
-						self.tableView.reloadData()
-					}
-				}
-				
 			}
-
 		})
 		
 		[cancel, submit].forEach { alertController.addAction($0) }
@@ -83,26 +72,43 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 		present(alertController, animated:  true)
 	}
 	
+	private func submitCalories(_ caloriesCount: String) {
+		guard let _ = Int(caloriesCount) else {
+			//send error
+			return
+		}
+		
+		CoreDataStack.shared.mainContext.performAndWait {
+			let _ = Track(caloriesCount: caloriesCount)
+			try? caloriTrackerController.save()
+		}
+		DispatchQueue.main.async {
+			self.tableView.reloadData()
+		}
+	}
+	
+	
+	
 	let caloriTrackerController = CalorieTrackerController()
 	@IBOutlet var chart: Chart!
 	
-	var fetchResultController: NSFetchedResultsController<Track> = {
-		
-		let fetchRequest: NSFetchRequest<Track> = Track.fetchRequest()
-		fetchRequest.sortDescriptors =  []//[NSSortDescriptor(key: "date", ascending: true)]
-		
-		let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.shared.mainContext, sectionNameKeyPath: nil, cacheName: nil)
-		
-		
-		do {
-			try fetchResultController.performFetch()
-		} catch {
-			NSLog("Error performing initial fetch: \(error)")
-		}
-		
-		
-		return fetchResultController
-	}()
+//	var fetchResultController: NSFetchedResultsController<Track> = {
+//
+//		let fetchRequest: NSFetchRequest<Track> = Track.fetchRequest()
+//		fetchRequest.sortDescriptors =  []//[NSSortDescriptor(key: "date", ascending: true)]
+//
+//		let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.shared.mainContext, sectionNameKeyPath: nil, cacheName: nil)
+//
+//
+//		do {
+//			try fetchResultController.performFetch()
+//		} catch {
+//			NSLog("Error performing initial fetch: \(error)")
+//		}
+//
+//
+//		return fetchResultController
+//	}()
 	
 	
 }
