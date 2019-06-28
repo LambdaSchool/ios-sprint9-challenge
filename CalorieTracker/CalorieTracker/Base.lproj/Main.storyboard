@@ -1,24 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="75u-AD-IxL">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Calorie Tracker View Controller-->
+        <scene sceneID="3fc-3k-SUw">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="wrH-Jh-BRd" customClass="CalorieTrackerViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vt5-XO-NPr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nSa-j9-AgU">
+                                <rect key="frame" x="0.0" y="364" width="414" height="498"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CalorieCell" id="g3Y-p2-OhI">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g3Y-p2-OhI" id="DFa-0T-nnw">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cvz-HH-0I5" customClass="Chart" customModule="SwiftChart">
+                                <rect key="frame" x="0.0" y="88" width="414" height="276"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7Vs-79-ygq" firstAttribute="trailing" secondItem="nSa-j9-AgU" secondAttribute="trailing" id="2U2-LQ-bY7"/>
+                            <constraint firstItem="Cvz-HH-0I5" firstAttribute="top" secondItem="7Vs-79-ygq" secondAttribute="top" id="EnW-A3-zn6"/>
+                            <constraint firstItem="7Vs-79-ygq" firstAttribute="trailing" secondItem="Cvz-HH-0I5" secondAttribute="trailing" id="HGP-QW-mcR"/>
+                            <constraint firstItem="nSa-j9-AgU" firstAttribute="leading" secondItem="7Vs-79-ygq" secondAttribute="leading" id="Hhx-pG-YJY"/>
+                            <constraint firstItem="nSa-j9-AgU" firstAttribute="height" secondItem="vt5-XO-NPr" secondAttribute="height" multiplier="5:9" id="JuP-N1-ZvU"/>
+                            <constraint firstItem="Cvz-HH-0I5" firstAttribute="leading" secondItem="7Vs-79-ygq" secondAttribute="leading" id="WPM-IG-uFH"/>
+                            <constraint firstItem="nSa-j9-AgU" firstAttribute="top" secondItem="Cvz-HH-0I5" secondAttribute="bottom" id="jUx-q6-bTe"/>
+                            <constraint firstItem="7Vs-79-ygq" firstAttribute="bottom" secondItem="nSa-j9-AgU" secondAttribute="bottom" id="wAv-vJ-0Le"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7Vs-79-ygq"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Uvu-qi-lTa"/>
+                    <connections>
+                        <outlet property="chartView" destination="Cvz-HH-0I5" id="Aee-Tz-TTI"/>
+                        <outlet property="tableView" destination="nSa-j9-AgU" id="XnL-j6-SLK"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6IM-VF-Uuo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1160.8695652173915" y="107.8125"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yQR-dS-cCB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="75u-AD-IxL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GQt-40-tPI">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wrH-Jh-BRd" kind="relationship" relationship="rootViewController" id="b6e-1I-bB8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kRP-dp-iCU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="250.72463768115944" y="107.8125"/>
         </scene>
     </scenes>
 </document>
