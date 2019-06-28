@@ -32,14 +32,11 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 	
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieTableViewCell", for: indexPath) as? CalorieTableViewCell else { return UITableViewCell()}
-		
-		 let tracked =  caloriTrackerController.trackedCalories[indexPath.row]
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieTableViewCell", for: indexPath) as? CalorieTableViewCell else { return UITableViewCell() }
+		let tracked =  caloriTrackerController.trackedCalories[indexPath.row]
 		cell.calorieLabel?.text = "Calories: \(tracked.caloriesCount!)"
 			
 		let formated = DateFormatter()
-//		formated.dateStyle = .full
-//		formated.dateFormat = "yyyy-MM-dd  HH:mm a"
 		formated.dateFormat = "MMM dd, yyyy 'at' HH:mm a"
 		let dateString = formated.string(from: tracked.date!)
 			
@@ -52,7 +49,7 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCalorie))
 		
 		// MARK: Remove only for testing
-		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteAllCalories))
+		//navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteAllCalories))
 	}
 
 	@objc func refresh() {

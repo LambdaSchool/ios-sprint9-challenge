@@ -70,13 +70,15 @@ class CalorieTrackerController {
 	}
 	
 	var getYLabels: [Double] {
+		guard !trackedCalories.isEmpty else  { return [0] }
 		var big: Double = 0
+		let first: Double = Double(trackedCalories[0].caloriesCount!)!
 		for t in trackedCalories {
 			guard let i = Int(t.caloriesCount!) else { return [0]}
 			if  Double(i) > big { big = Double(i) }
 		}
 		
-		return [0, big/2, big]
+		return [first, big/2, big]
 	}
 	
 	var getData: [(x: Double, y: Double)] {
