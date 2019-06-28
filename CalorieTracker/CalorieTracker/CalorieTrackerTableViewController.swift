@@ -42,7 +42,6 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         let series = ChartSeries(refactoredData)
         series.area = true
         chart.add(series)
-        chart.backgroundColor = .black
         chart.highlightLineColor = .green
         chart.axesColor = .green
         chart.setNeedsDisplay()
@@ -141,7 +140,7 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
     let calorieEntryController = CalorieEntryController()
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieEntry> = {
         let fetchedRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
-        fetchedRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+        fetchedRequest.sortDescriptors = [NSSortDescriptor(key: "entryDate", ascending: true)]
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchedRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
         frc.delegate = self
