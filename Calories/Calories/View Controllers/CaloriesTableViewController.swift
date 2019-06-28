@@ -11,22 +11,22 @@ import CoreData
 import SwiftChart
 
 class CaloriesTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return caloriesController.calories.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "caloriesCell", for: indexPath)
-
+        
         let calories = caloriesController.calories[indexPath.row]
         
         cell.textLabel?.text = "Calories: \(calories.calories)"
@@ -34,7 +34,7 @@ class CaloriesTableViewController: UITableViewController {
         if calories.formattedDate != nil {
             cell.detailTextLabel?.text = "\(calories.formattedDate!)"
         }
-
+        
         return cell
     }
     
@@ -71,6 +71,30 @@ class CaloriesTableViewController: UITableViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    func updateChartView() {
+        for calories in caloriesController.calories {
+            guard let calories = calories as? Calories else { return }
+            data.append((data.count, Double(calories.calories)))
+        }
+        
+        let series = ChartSeries(data: data)
+        series.area = true
+        series.color = ChartColors.blueColor()
+        chartView.add(series)
+        chartView.setNeedsDisplay()
+    }
+    
+    lazy var fetchedResultsController: NSFetchedResultsController<Calories> = {
+        let fetchRequest: NSFetchRequest<Calories> = Calories.fetchRequest()
+        fetchRequest.sortDescriptors = [ NSSortDescriptor(key: "date", ascending: true) ]
+        
+        let moc = CoreDataStack.shared.mainContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+        frc.delegate = self
+        try? frc.performFetch()
+        return frc
+    }()
+    
     // MARK: - IBActions
     @IBAction func addButtonTapped(_ sender: Any) {
         showAlertController()
@@ -81,4 +105,10 @@ class CaloriesTableViewController: UITableViewController {
     
     // MARK: - Properties
     var caloriesController = CaloriesController()
+    var calorieValues: [Double] = []
+    private var data: [(Int, Double)] = [(0, 0.0)]
+}
+
+extension CaloriesTableViewController: NSFetchedResultsControllerDelegate {
+    
 }
