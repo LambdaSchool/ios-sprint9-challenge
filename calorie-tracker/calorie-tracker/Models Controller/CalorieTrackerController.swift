@@ -52,6 +52,7 @@ class CalorieTrackerController {
 				NSLog("Error fetching results from store: \(error)")
 			}
 		}
+		try? shared.mainContext.save()
 	}
 	
 	

@@ -76,6 +76,7 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 	}
 	@objc func deleteAllCalories() {
 		caloriTrackerController.deleteAll()
+		tableView.reloadData()
 	}
 	
 	private func submitCalories(_ caloriesCount: String) {
