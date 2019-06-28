@@ -15,4 +15,9 @@ extension Calories {
         self.calories = calories
         self.date = date
     }
+    
+    var formattedDate: String? {
+        guard let date = date else { return nil }
+        return DateFormatterForCalories.dateFormatter.string(from: date)
+    }
 }
