@@ -1,16 +1,24 @@
 PODS:
+  - NotchyAlert (1.0)
+  - Notie (1.0.4)
   - SwiftChart (1.0.1)
 
 DEPENDENCIES:
+  - NotchyAlert
+  - Notie
   - SwiftChart
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - NotchyAlert
+    - Notie
     - SwiftChart
 
 SPEC CHECKSUMS:
+  NotchyAlert: 2e5f0acfeff794c673f14538c2a0b01095145d72
+  Notie: 1acc7a2dd65b7ddbecd0d7bff0f71ef83df11caf
   SwiftChart: ba767a678d568a5ee22d419e146a0582865e1aff
 
-PODFILE CHECKSUM: 9fe2e6f6419e62be516117d9ea974eec49453940
+PODFILE CHECKSUM: e5d306778f54970b1be83bd6ef6557fa8314c4b9
 
 COCOAPODS: 1.7.1

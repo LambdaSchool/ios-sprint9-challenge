@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftChart
+import NotchyAlert
 
 class CalorieTableViewController: UITableViewController {
 
@@ -34,6 +35,7 @@ class CalorieTableViewController: UITableViewController {
     }
     @IBAction func addButtonPressed(_ sender: Any) {
         alertWithTF()
+
     }
     // MARK: - Table view data source
 
@@ -67,6 +69,8 @@ class CalorieTableViewController: UITableViewController {
 
 
     func alertWithTF() {
+        let confirm = NotchyAlert(title: "Calorie Tracker", description: "Calories added to the chart", image: UIImage(named: "Confirmation"))
+        let cancelNotch = NotchyAlert(title: "Calerie Tracker", description: "Calories were not added", image: UIImage(named: "Cancel"))
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the text field", preferredStyle: UIAlertController.Style.alert)
         let submit = UIAlertAction(title: "Submit", style: .default) { (alertAction) in
             let textField = alert.textFields![0] as UITextField
@@ -74,10 +78,12 @@ class CalorieTableViewController: UITableViewController {
                 guard let caloriesText = textField.text,
                     let calories = Int(caloriesText) else { return }
                 self.mealController.createMeal(calories: calories)
+                confirm.presentNotchy(in: self.view, duration: 1, bounce: true)
             }
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (alertAction) in
             self.dismiss(animated: true, completion: nil)
+            cancelNotch.presentNotchy(in: self.view, duration: 1)
         }
 
         alert.addTextField { (textField) in
