@@ -14,6 +14,7 @@
 		E8D3350422C664A4000C8463 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8D3350222C664A4000C8463 /* LaunchScreen.storyboard */; };
 		E8D3350E22C66853000C8463 /* CaloriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3350D22C66853000C8463 /* CaloriesTableViewController.swift */; };
 		E8D3351122C66941000C8463 /* CalorieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3351022C66941000C8463 /* CalorieTableViewCell.swift */; };
+		E8D3351322C66DD4000C8463 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3351222C66DD4000C8463 /* Track.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E8D3350522C664A4000C8463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8D3350D22C66853000C8463 /* CaloriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesTableViewController.swift; sourceTree = "<group>"; };
 		E8D3351022C66941000C8463 /* CalorieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewCell.swift; sourceTree = "<group>"; };
+		E8D3351222C66DD4000C8463 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				E8D334F922C664A3000C8463 /* AppDelegate.swift */,
+				E8D3351222C66DD4000C8463 /* Track.swift */,
 				E8D3350F22C66858000C8463 /* Viewcontrollers */,
 				E8D3350B22C664FA000C8463 /* Storyboards */,
 				E8D3350C22C666F8000C8463 /* Resources */,
@@ -238,6 +241,7 @@
 				E8D334FA22C664A3000C8463 /* AppDelegate.swift in Sources */,
 				E8D3350E22C66853000C8463 /* CaloriesTableViewController.swift in Sources */,
 				E8D3351122C66941000C8463 /* CalorieTableViewCell.swift in Sources */,
+				E8D3351322C66DD4000C8463 /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
