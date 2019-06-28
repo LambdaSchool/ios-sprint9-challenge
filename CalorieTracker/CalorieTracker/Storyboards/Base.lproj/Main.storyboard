@@ -68,6 +68,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Calorie Tracker" largeTitleDisplayMode="always" id="jRD-3H-L81">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="c5S-Am-hcT">
+                            <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="addButtonPressed:" destination="JkU-Gl-huI" id="Rf4-0p-y6W"/>
                             </connections>
