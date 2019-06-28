@@ -18,6 +18,9 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         
         // Implement the chart
         defineChart()
+        
+        // Create notification
+        NotificationCenter.default.addObserver(self, #selector(updateCalorieChart), name: .updateCalorieChart, object: nil)
     }
 
     
@@ -110,15 +113,17 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         chart.add(series)
     }
 
-
-    
-    
     // MARK: - Properties
     // Date formatter
     var formattedDate: DateFormatter {
         let dateformatter = DateFormatter()
         dateformatter.dateFormat = "MMM dd, yyyy 'at' h:mm a"
         return dateformatter
+    }
+    
+    // MARK: - Update Calorie Chart
+    @objc func updateCalorieChart() {
+        
     }
     
 }
