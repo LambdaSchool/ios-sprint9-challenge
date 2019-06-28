@@ -23,13 +23,54 @@
                             <color key="backgroundColor" red="0.96862745100000003" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieEntryCell" rowHeight="62" id="qfS-4r-6oF">
-                                <rect key="frame" x="0.0" y="258" width="414" height="62"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieTableViewCell" rowHeight="43" id="qfS-4r-6oF" customClass="CalorieTableViewCell" customModule="calorie_tracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="258" width="414" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qfS-4r-6oF" id="gaG-0g-vCs">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="61.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="42.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eye-Wm-E0t">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="42.5"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="qOQ-GD-dwz">
+                                                    <rect key="frame" x="8" y="0.0" width="398" height="42.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Calories: 100000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4O9-Mt-Cuz">
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="42.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sep 21, 2018 at 1:59:11 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bdf-Ur-W0c">
+                                                            <rect key="frame" x="193" y="0.0" width="205" height="42.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="qOQ-GD-dwz" firstAttribute="top" secondItem="eye-Wm-E0t" secondAttribute="top" id="6IN-up-W7K"/>
+                                                <constraint firstItem="qOQ-GD-dwz" firstAttribute="leading" secondItem="eye-Wm-E0t" secondAttribute="leading" constant="8" id="LbQ-MR-Ybv"/>
+                                                <constraint firstAttribute="trailing" secondItem="qOQ-GD-dwz" secondAttribute="trailing" constant="8" id="cln-Nw-uNg"/>
+                                                <constraint firstAttribute="bottom" secondItem="qOQ-GD-dwz" secondAttribute="bottom" id="kbG-3u-09I"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="eye-Wm-E0t" firstAttribute="leading" secondItem="gaG-0g-vCs" secondAttribute="leading" id="cmJ-Yg-G78"/>
+                                        <constraint firstItem="eye-Wm-E0t" firstAttribute="top" secondItem="gaG-0g-vCs" secondAttribute="top" id="h3b-sA-Hti"/>
+                                        <constraint firstAttribute="bottom" secondItem="eye-Wm-E0t" secondAttribute="bottom" id="irY-bM-4pw"/>
+                                        <constraint firstAttribute="trailing" secondItem="eye-Wm-E0t" secondAttribute="trailing" id="s0O-Cm-gfW"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="calorieLabel" destination="4O9-Mt-Cuz" id="FIe-64-WSh"/>
+                                    <outlet property="dateLabel" destination="Bdf-Ur-W0c" id="eNU-rT-8ho"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

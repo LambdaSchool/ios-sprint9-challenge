@@ -13,6 +13,7 @@
 		E8D3350122C664A4000C8463 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8D3350022C664A4000C8463 /* Assets.xcassets */; };
 		E8D3350422C664A4000C8463 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8D3350222C664A4000C8463 /* LaunchScreen.storyboard */; };
 		E8D3350E22C66853000C8463 /* CaloriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3350D22C66853000C8463 /* CaloriesTableViewController.swift */; };
+		E8D3351122C66941000C8463 /* CalorieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3351022C66941000C8463 /* CalorieTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E8D3350322C664A4000C8463 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8D3350522C664A4000C8463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8D3350D22C66853000C8463 /* CaloriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesTableViewController.swift; sourceTree = "<group>"; };
+		E8D3351022C66941000C8463 /* CalorieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				E8D3350D22C66853000C8463 /* CaloriesTableViewController.swift */,
+				E8D3351022C66941000C8463 /* CalorieTableViewCell.swift */,
 			);
 			path = Viewcontrollers;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			files = (
 				E8D334FA22C664A3000C8463 /* AppDelegate.swift in Sources */,
 				E8D3350E22C66853000C8463 /* CaloriesTableViewController.swift in Sources */,
+				E8D3351122C66941000C8463 /* CalorieTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
