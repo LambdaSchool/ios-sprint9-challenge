@@ -49,7 +49,7 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCalorie))
 		
 		// MARK: Remove only for testing
-		//navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteAllCalories))
+		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteAllCalories))
 	}
 
 	@objc func refresh() {
@@ -123,6 +123,7 @@ extension CaloriesTableViewController {
 		chartView.yLabels = caloriTrackerController.getYLabels
 		let series = ChartSeries(data: caloriTrackerController.getData)
 		series.area = true
+		chartView.removeAllSeries()
 		chartView.add(series)
 	}
 
