@@ -11,7 +11,8 @@ import CoreData
 import SwiftChart
 
 class CalorieTrackerViewController: UIViewController {
-
+    
+    //MARK: Properties
     let calorieController = CalorieController()
     lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
         let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
@@ -22,6 +23,28 @@ class CalorieTrackerViewController: UIViewController {
         return frc
     }()
     
+    
+    //MARK: IBOutlets
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var viewForChart: Chart!
+    
+    //MARK: IBActions
+    @IBAction func addCalories(_ sender: UIBarButtonItem) {
+        popUpToAddCalories()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addChart()
+        tableView.delegate = self
+        tableView.dataSource = self
+        title = "Calorie Tracker"
+        
+        //NoficicationCenter -Observer
+        NotificationCenter.default.addObserver(self, selector: #selector(updateChart(_:)), name: .shouldUpdateChart, object: nil) //nil means observe ALL instances from notificationCenter
+    }
+    
+    //MARK: MY Functions
     func addChart(){
         let calInts = fetchedResultsController.fetchedObjects?.compactMap { Int($0.amount ?? "did not work") }
         guard let unwrappedInts = calInts else { print("Error unwrapping string to Int: \(#line)"); return }
@@ -38,36 +61,15 @@ class CalorieTrackerViewController: UIViewController {
         chartDoubleSeries.area = true
         chartDoubleSeries.line = true
         viewForChart.becomeFirstResponder()
-//        viewForChart.isFirstResponder
         viewForChart.add(chartDoubleSeries)
     }
     
-    
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var viewForChart: Chart!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        addChart()
-        tableView.delegate = self
-        tableView.dataSource = self
-        title = "Calorie Tracker"
-        
-        //NoficicationCenter -Observer
-        NotificationCenter.default.addObserver(self, selector: #selector(updateChart(_:)), name: .shouldUpdateChart, object: nil) //nil means observe ALL instances from notificationCenter
-    }
-    
-    //ADD Selector function to actually update chart
+    //Selector Function - update chart
     @objc func updateChart(_ notification: Notification){
-//        print("Notification: \(notification)")
-//        if viewForChart.isFirstResponder{
-//            viewForChart.reloadInputViews()
-//        } else {
-//            print("someshit")
-//        }
         addChart()
     }
-
+    
+    //alert window
     func popUpToAddCalories(){
         let alert = UIAlertController(title: "Add Calorie Intake.", message: "Enter the amount of calories in the text field", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -80,23 +82,25 @@ class CalorieTrackerViewController: UIViewController {
         })
         
         let okAction = UIAlertAction(title: "Submit", style: .default) { (_) in
-            //TODO: ADD WHAT'S IN THE TEXT TO THE TABLEVIEW
+            //make sure there is text in the textfield
             guard let amountString = myTextField.text, !amountString.isEmpty else { print("Error unwrapping alert textfield.") ; return }
-            self.calorieController.addCalorie(with: amountString)
+            
+            //make sure text can convert to an int
+            guard let amountInt = Int(amountString) else { print("can't make an int out of string") ; return }
+            
+            //turn int back into string
+            self.calorieController.addCalorie(with: String(amountInt))
+            
             //NOTIFICATION: Post notification to notification center
             NotificationCenter.default.post(name: .shouldUpdateChart, object: nil)
-            
         }
+        
         alert.addAction(okAction)
         present(alert, animated: true)
     }
-    
-    @IBAction func addCalories(_ sender: UIBarButtonItem) {
-        popUpToAddCalories()
-    }
 }
 
-
+//MARK: NSFetchedResultsControllerDelegate - Methods
 extension CalorieTrackerViewController: NSFetchedResultsControllerDelegate {
     //MARK: - NSFRC DELEGATE METHODS
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -146,7 +150,7 @@ extension CalorieTrackerViewController: NSFetchedResultsControllerDelegate {
     }
 }
 
-
+//  MARK: TableViewDelegate & TableViewDataSource Methods
 extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fetchedResultsController.fetchedObjects?.count ?? 0
@@ -159,10 +163,9 @@ extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSour
         guard let stringAmount = calorie.amount else { return UITableViewCell() }
         let calorieString = "Calories: \(stringAmount)"
         cell.textLabel?.text = calorieString
-        print("CaloriesDate: \(calorie.date)")
         
         guard let calDate = calorie.date else { print("Error unwrapping date in cellForAtRow"); return UITableViewCell() }
-        print("we in here.")
+       
         let formatter = DateFormatter()
         formatter.timeStyle = .medium
         formatter.dateStyle = .medium
