@@ -29,9 +29,7 @@ class CalorieTrackerViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
 
-    
     func popUpToAddCalories(){
         let alert = UIAlertController(title: "Add Calorie Intake.", message: "Enter the amount of calories in the text field", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -134,6 +132,8 @@ extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSour
         
         return cell
     }
-    
+}
+
+extension CalorieTrackerViewController {
     
 }
