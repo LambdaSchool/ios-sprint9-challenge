@@ -11,13 +11,13 @@ import CoreData
 
 class CalorieController {
     
-    init(){
-        calories = loadFromPersistentStore()
-    }
+//    init(){
+//        calories = loadFromPersistentStore()
+//    }
     
     var calories: [Calorie] = []
     
-    func addCalorie(with amount: Int){
+    func addCalorie(with amount: String){
         let calorie = Calorie(amount: amount)
         calories.append(calorie)
         saveToPersistentStore()
@@ -33,16 +33,16 @@ class CalorieController {
         }
     }
     
-    func loadFromPersistentStore() -> [Calorie] {
-        let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
-        let moc = CoreDataStack.shared.mainContext
-        
-        do {
-           let results =  try moc.fetch(fetchRequest)
-            return results
-        } catch  {
-            print("Error trying to load calories from persistent store: \(error.localizedDescription), a better description: \(error)")
-            return []
-        }
-    }
+//    func loadFromPersistentStore() -> [Calorie] {
+//        let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
+//        let moc = CoreDataStack.shared.mainContext
+//        
+//        do {
+//           let results =  try moc.fetch(fetchRequest)
+//            return results
+//        } catch  {
+//            print("Error trying to load calories from persistent store: \(error.localizedDescription), a better description: \(error)")
+//            return []
+//        }
+//    }
 }
