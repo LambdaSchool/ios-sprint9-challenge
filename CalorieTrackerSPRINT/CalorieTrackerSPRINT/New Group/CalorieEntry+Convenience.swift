@@ -11,12 +11,14 @@ import CoreData
 
 extension CalorieEntry { // if you get to stretch goals you'll need to make this Codable
     
-    convenience init(calorie: Int16, timestamp: Date = Date() context: NSManagedObjectContext = CoreDataStack.shared.maincontext) {
+    convenience init(calorie: Int16, timestamp: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.maincontext) {
         
         self.init(context: context)   // need to study this statement better, weird structure
         self.calorie = calorie
         self.timestamp = timestamp
     }
-    
+    var calorieEntry: CalorieEntry? {
+        guard let 
+    }
     // really don't think I need a CalorieEntryRepresentation, bc I'm not using Firebase (yet, see strech)
 }
