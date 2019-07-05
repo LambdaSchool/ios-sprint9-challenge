@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Calorie Tracker View Controller-->
         <scene sceneID="VNd-hs-d5N">
             <objects>
-                <viewController id="WwY-OH-EgJ" sceneMemberID="viewController">
+                <viewController id="WwY-OH-EgJ" customClass="CalorieTrackerViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1hE-wm-9sN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,8 +43,15 @@
                         <viewLayoutGuide key="safeArea" id="39v-4a-n4Y"/>
                     </view>
                     <navigationItem key="navigationItem" id="44t-l5-7bP">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="j8C-Z3-xp1"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="j8C-Z3-xp1">
+                            <connections>
+                                <action selector="addCalories:" destination="WwY-OH-EgJ" id="R9A-Ds-uLK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="myTableView" destination="8k1-lM-JG9" id="RFz-fx-TsE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9X-QC-hSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -66,7 +73,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y0I-55-0pY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-88.405797101449281" y="127.90178571428571"/>
+            <point key="canvasLocation" x="112" y="128"/>
         </scene>
     </scenes>
 </document>
