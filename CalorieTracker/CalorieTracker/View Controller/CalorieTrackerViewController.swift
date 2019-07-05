@@ -55,12 +55,10 @@ class CalorieTrackerViewController: UIViewController {
             coordinatArray.append((x: x, y: y))
             x += Double(1)
         }
-        viewForChart.frame(forAlignmentRect: CGRect(x: 0, y: 0, width: 300, height: 300))
         viewForChart.gridColor = .blue
         let chartDoubleSeries = ChartSeries(data: coordinatArray)
         chartDoubleSeries.area = true
         chartDoubleSeries.line = true
-        viewForChart.becomeFirstResponder()
         viewForChart.add(chartDoubleSeries)
     }
     
