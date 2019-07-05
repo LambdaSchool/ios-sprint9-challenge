@@ -11,6 +11,7 @@ import UIKit
 class CalorieTrackerViewController: UIViewController {
 
     @IBOutlet weak var myTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

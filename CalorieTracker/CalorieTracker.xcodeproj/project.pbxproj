@@ -12,6 +12,7 @@
 		1B44AE6322CFA33600CBDC55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B44AE6222CFA33600CBDC55 /* Assets.xcassets */; };
 		1B44AE6622CFA33600CBDC55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B44AE6422CFA33600CBDC55 /* LaunchScreen.storyboard */; };
 		1B44AE6E22CFA59700CBDC55 /* CalorieTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B44AE6D22CFA59700CBDC55 /* CalorieTrackerViewController.swift */; };
+		1B44AE7122CFA92500CBDC55 /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B44AE7022CFA92500CBDC55 /* CalorieController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		1B44AE6522CFA33600CBDC55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B44AE6722CFA33600CBDC55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B44AE6D22CFA59700CBDC55 /* CalorieTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerViewController.swift; sourceTree = "<group>"; };
+		1B44AE7022CFA92500CBDC55 /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				1B44AE6222CFA33600CBDC55 /* Assets.xcassets */,
 				1B44AE6422CFA33600CBDC55 /* LaunchScreen.storyboard */,
 				1B44AE6722CFA33600CBDC55 /* Info.plist */,
+				1B44AE7022CFA92500CBDC55 /* CalorieController.swift */,
 			);
 			path = CalorieTracker;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			files = (
 				1B44AE5C22CFA33500CBDC55 /* AppDelegate.swift in Sources */,
 				1B44AE6E22CFA59700CBDC55 /* CalorieTrackerViewController.swift in Sources */,
+				1B44AE7122CFA92500CBDC55 /* CalorieController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
