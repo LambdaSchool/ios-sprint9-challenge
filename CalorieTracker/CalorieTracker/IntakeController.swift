@@ -8,15 +8,36 @@
 
 import Foundation
 import CoreData
+import SwiftChart
 
 class IntakeController {
     
+    var intakes: [Intake] = []
+    var calories: [Double] = []
     
+    func getCaloriesFromIntakes(intakes: [Intake]) {
+        for intake in intakes {
+            calories.append(intake.calories)
+        }
+    }
     
+    func fetchAllIntakes() {
+       
+        let intakesFetch = NSFetchRequest<Intake>(entityName: "Intake")
+        
+        do {
+            let moc = CoreDataStack.shared.mainContext
+            let fetchedIntakes = try moc.fetch(intakesFetch)
+            intakes = fetchedIntakes
+        } catch {
+            fatalError("Failed to fetch intakes: \(error)")
+        }
+        
+        getCaloriesFromIntakes(intakes: intakes)
+
+    }
     
-    
-    
-    func createIntake(with calories: Int32, timeStamp: Date = Date()) {
+    func createIntake(with calories: Double, timeStamp: Date = Date()) {
         var _ = Intake(calories: calories, timeStamp: timeStamp)
     }
     

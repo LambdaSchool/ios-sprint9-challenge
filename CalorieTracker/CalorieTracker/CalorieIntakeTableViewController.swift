@@ -11,19 +11,49 @@ import CoreData
 import SwiftChart
 
 class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        let data = [
+            (x: 0, y: 0.0),
+            (x: 1, y: 3.0),
+            (x: 4, y: 5.0),
+            (x: 5, y: 2.0)
+        ]
+        let series = ChartSeries(data: data)
+        chart.add(series)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(_:)), name: .intakeAdded, object: nil)
     }
     
-//    var intakes: [Intake] {
-//        //load from persistent store
-//    }
-//    let series = ChartSeries()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+//        let chart = Chart()
+//        let series = ChartSeries(intakeController.calories)
+//        series.area = true
+//        series.color = ChartColors.blueColor()
+//        chart.add(series)
+        
+//        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(_:)), name: .intakeAdded, object: nil)
+    }
+    
+
+    //Chart stuff
+    
+    //clear chart
+    //remove all series
+    //updatechartviews
+    //set new series using calories from IntakeController.calories
+    
     
     
     @objc func refreshViews(_ notification: Notification) {
+        chart.removeAllSeries()
+        intakeController.fetchAllIntakes()
+        let series = ChartSeries(intakeController.calories)
+        chart.add(series)
         tableView?.reloadData()
     }
     
@@ -37,7 +67,7 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
             guard let answer = alert.textFields?[0] else { return }
             //do something with "answer" here
             //create an intake and save it to core data.
-            let calories = Int32(answer.text ?? "0")
+            let calories = Double(answer.text ?? "0")
             self.intakeController.createIntake(with: calories ?? 0)
             do {
                 try self.intakeController.saveToPersistentStore()
@@ -131,6 +161,7 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
     
     // MARK: - Properties
     var intakeController = IntakeController()
+    var chart = Chart(frame: CGRect.zero)
     
     lazy var fetchedResultsController: NSFetchedResultsController<Intake> = {
         let fetchRequest: NSFetchRequest<Intake> = Intake.fetchRequest()

@@ -8,9 +8,10 @@
 
 import Foundation
 import CoreData
+import SwiftChart
 
 extension Intake {
-    convenience init(calories: Int32, timeStamp: Date, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    convenience init(calories: Double, timeStamp: Date, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.calories = calories
         self.timeStamp = timeStamp

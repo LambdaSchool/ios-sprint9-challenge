@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import SwiftChart
+import CoreData
+
 
 extension NSNotification.Name {
     static let intakeAdded = NSNotification.Name("IntakeAdded")
