@@ -10,6 +10,8 @@ import UIKit
 
 class CalorieTrackerViewController: UIViewController {
 
+    let calorieController = CalorieController()
+    
     @IBOutlet weak var myTableView: UITableView!
     
     override func viewDidLoad() {
@@ -27,6 +29,8 @@ class CalorieTrackerViewController: UIViewController {
         alert.addTextField(configurationHandler: { (textField) in
             textField.placeholder = "Add Calories"
             myTextField = textField
+            guard let amountString = myTextField.text, !amountString.isEmpty, let amount = Int(amountString)  else { print("Error unwrapping alert textfield.") ; return }
+            self.calorieController.addCalorie(with: amount)
         })
         
         let okAction = UIAlertAction(title: "Submit", style: .default) { (_) in
