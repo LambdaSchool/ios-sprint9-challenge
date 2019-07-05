@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
@@ -16,6 +17,13 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
 
     }
     
+//    var intakes: [Intake] {
+//        //load from persistent store
+//    }
+    
+   
+//    let series = ChartSeries()
+    
     @IBAction func addIntakeButtonTapped(_ sender: Any) {
         //alert popup with a text field.
         //User enters calories
@@ -23,8 +31,18 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field.", preferredStyle: .alert)
         alert.addTextField()
         let submit = UIAlertAction(title: "Submit", style: .default) { [unowned alert] _ in
-            let answer = alert.textFields![0]
+            guard let answer = alert.textFields?[0] else { return }
             //do something with "answer" here
+            //create an intake and save it to core data.
+            let calories = Int32(answer.text ?? "0")
+            let intake = Intake(calories: calories ?? 0, timeStamp: Date())
+            do {
+                let moc = CoreDataStack.shared.mainContext
+                try moc.save()
+            } catch {
+                NSLog("Error saving managed object context: \(error)")
+            }
+            
         }
         alert.addAction(submit)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
