@@ -68,7 +68,7 @@
 				1B44AE6222CFA33600CBDC55 /* Assets.xcassets */,
 				1B44AE6422CFA33600CBDC55 /* LaunchScreen.storyboard */,
 				1B44AE6722CFA33600CBDC55 /* Info.plist */,
-				1B44AE7022CFA92500CBDC55 /* CalorieController.swift */,
+				1B44AE7A22CFAB2000CBDC55 /* Model Controller */,
 				1B44AE7522CFA9DD00CBDC55 /* Core Data Folder */,
 			);
 			path = CalorieTracker;
@@ -90,6 +90,14 @@
 				1B44AE7822CFAA4300CBDC55 /* Calorie+Convenience.swift */,
 			);
 			path = "Core Data Folder";
+			sourceTree = "<group>";
+		};
+		1B44AE7A22CFAB2000CBDC55 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1B44AE7022CFA92500CBDC55 /* CalorieController.swift */,
+			);
+			path = "Model Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
