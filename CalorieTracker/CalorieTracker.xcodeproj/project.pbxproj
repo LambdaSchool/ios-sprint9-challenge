@@ -15,6 +15,7 @@
 		1B44AE7122CFA92500CBDC55 /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B44AE7022CFA92500CBDC55 /* CalorieController.swift */; };
 		1B44AE7422CFA97000CBDC55 /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B44AE7222CFA97000CBDC55 /* CalorieTracker.xcdatamodeld */; };
 		1B44AE7722CFA9EF00CBDC55 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B44AE7622CFA9EF00CBDC55 /* CoreDataStack.swift */; };
+		1B44AE7922CFAA4300CBDC55 /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B44AE7822CFAA4300CBDC55 /* Calorie+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		1B44AE7022CFA92500CBDC55 /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
 		1B44AE7322CFA97000CBDC55 /* CalorieTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieTracker.xcdatamodel; sourceTree = "<group>"; };
 		1B44AE7622CFA9EF00CBDC55 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		1B44AE7822CFAA4300CBDC55 /* Calorie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				1B44AE7222CFA97000CBDC55 /* CalorieTracker.xcdatamodeld */,
 				1B44AE7622CFA9EF00CBDC55 /* CoreDataStack.swift */,
+				1B44AE7822CFAA4300CBDC55 /* Calorie+Convenience.swift */,
 			);
 			path = "Core Data Folder";
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B44AE7722CFA9EF00CBDC55 /* CoreDataStack.swift in Sources */,
+				1B44AE7922CFAA4300CBDC55 /* Calorie+Convenience.swift in Sources */,
 				1B44AE5C22CFA33500CBDC55 /* AppDelegate.swift in Sources */,
 				1B44AE6E22CFA59700CBDC55 /* CalorieTrackerViewController.swift in Sources */,
 				1B44AE7422CFA97000CBDC55 /* CalorieTracker.xcdatamodeld in Sources */,
