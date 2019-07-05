@@ -14,6 +14,7 @@
 		FCFFC19522CF9F6F00F8BF62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCFFC19322CF9F6F00F8BF62 /* LaunchScreen.storyboard */; };
 		FCFFC19D22CFA08800F8BF62 /* CalorieChartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFC19C22CFA08800F8BF62 /* CalorieChartTableViewController.swift */; };
 		FCFFC1A022CFB46800F8BF62 /* CalorieTrackerSPRINT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCFFC19E22CFB46800F8BF62 /* CalorieTrackerSPRINT.xcdatamodeld */; };
+		FCFFC1A222CFB89200F8BF62 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFC1A122CFB89200F8BF62 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		FCFFC19622CF9F6F00F8BF62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCFFC19C22CFA08800F8BF62 /* CalorieChartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieChartTableViewController.swift; sourceTree = "<group>"; };
 		FCFFC19F22CFB46800F8BF62 /* CalorieTrackerSPRINT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieTrackerSPRINT.xcdatamodel; sourceTree = "<group>"; };
+		FCFFC1A122CFB89200F8BF62 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				FCFFC18E22CF9F6E00F8BF62 /* Main.storyboard */,
 				FCFFC19C22CFA08800F8BF62 /* CalorieChartTableViewController.swift */,
 				FCFFC19E22CFB46800F8BF62 /* CalorieTrackerSPRINT.xcdatamodeld */,
+				FCFFC1A122CFB89200F8BF62 /* CoreDataStack.swift */,
 				FCFFC19122CF9F6F00F8BF62 /* Assets.xcassets */,
 				FCFFC19322CF9F6F00F8BF62 /* LaunchScreen.storyboard */,
 				FCFFC19622CF9F6F00F8BF62 /* Info.plist */,
@@ -209,6 +212,7 @@
 				FCFFC19D22CFA08800F8BF62 /* CalorieChartTableViewController.swift in Sources */,
 				FCFFC18B22CF9F6E00F8BF62 /* AppDelegate.swift in Sources */,
 				FCFFC1A022CFB46800F8BF62 /* CalorieTrackerSPRINT.xcdatamodeld in Sources */,
+				FCFFC1A222CFB89200F8BF62 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
