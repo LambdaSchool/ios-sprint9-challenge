@@ -15,6 +15,8 @@
 		FCFFC19D22CFA08800F8BF62 /* CalorieChartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFC19C22CFA08800F8BF62 /* CalorieChartTableViewController.swift */; };
 		FCFFC1A022CFB46800F8BF62 /* CalorieTrackerSPRINT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCFFC19E22CFB46800F8BF62 /* CalorieTrackerSPRINT.xcdatamodeld */; };
 		FCFFC1A222CFB89200F8BF62 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFC1A122CFB89200F8BF62 /* CoreDataStack.swift */; };
+		FCFFC1A722CFC0BE00F8BF62 /* CalorieEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFC1A622CFC0BE00F8BF62 /* CalorieEntry+Convenience.swift */; };
+		FCFFC1A922CFC22B00F8BF62 /* CalorieEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFC1A822CFC22B00F8BF62 /* CalorieEntryController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +31,9 @@
 		FCFFC19622CF9F6F00F8BF62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCFFC19C22CFA08800F8BF62 /* CalorieChartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieChartTableViewController.swift; sourceTree = "<group>"; };
 		FCFFC19F22CFB46800F8BF62 /* CalorieTrackerSPRINT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieTrackerSPRINT.xcdatamodel; sourceTree = "<group>"; };
-		FCFFC1A122CFB89200F8BF62 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		FCFFC1A122CFB89200F8BF62 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = ../CoreDataStack.swift; sourceTree = "<group>"; };
+		FCFFC1A622CFC0BE00F8BF62 /* CalorieEntry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieEntry+Convenience.swift"; sourceTree = "<group>"; };
+		FCFFC1A822CFC22B00F8BF62 /* CalorieEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieEntryController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,13 +89,23 @@
 				FCFFC18A22CF9F6E00F8BF62 /* AppDelegate.swift */,
 				FCFFC18E22CF9F6E00F8BF62 /* Main.storyboard */,
 				FCFFC19C22CFA08800F8BF62 /* CalorieChartTableViewController.swift */,
-				FCFFC19E22CFB46800F8BF62 /* CalorieTrackerSPRINT.xcdatamodeld */,
-				FCFFC1A122CFB89200F8BF62 /* CoreDataStack.swift */,
+				FCFFC1A322CFBC6100F8BF62 /* New Group */,
 				FCFFC19122CF9F6F00F8BF62 /* Assets.xcassets */,
 				FCFFC19322CF9F6F00F8BF62 /* LaunchScreen.storyboard */,
 				FCFFC19622CF9F6F00F8BF62 /* Info.plist */,
 			);
 			path = CalorieTrackerSPRINT;
+			sourceTree = "<group>";
+		};
+		FCFFC1A322CFBC6100F8BF62 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				FCFFC19E22CFB46800F8BF62 /* CalorieTrackerSPRINT.xcdatamodeld */,
+				FCFFC1A122CFB89200F8BF62 /* CoreDataStack.swift */,
+				FCFFC1A622CFC0BE00F8BF62 /* CalorieEntry+Convenience.swift */,
+				FCFFC1A822CFC22B00F8BF62 /* CalorieEntryController.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,7 +223,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFFC1A922CFC22B00F8BF62 /* CalorieEntryController.swift in Sources */,
 				FCFFC19D22CFA08800F8BF62 /* CalorieChartTableViewController.swift in Sources */,
+				FCFFC1A722CFC0BE00F8BF62 /* CalorieEntry+Convenience.swift in Sources */,
 				FCFFC18B22CF9F6E00F8BF62 /* AppDelegate.swift in Sources */,
 				FCFFC1A022CFB46800F8BF62 /* CalorieTrackerSPRINT.xcdatamodeld in Sources */,
 				FCFFC1A222CFB89200F8BF62 /* CoreDataStack.swift in Sources */,
@@ -422,7 +438,8 @@
 				FCFFC19F22CFB46800F8BF62 /* CalorieTrackerSPRINT.xcdatamodel */,
 			);
 			currentVersion = FCFFC19F22CFB46800F8BF62 /* CalorieTrackerSPRINT.xcdatamodel */;
-			path = CalorieTrackerSPRINT.xcdatamodeld;
+			name = CalorieTrackerSPRINT.xcdatamodeld;
+			path = ../CalorieTrackerSPRINT.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
