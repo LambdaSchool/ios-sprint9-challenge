@@ -8,24 +8,50 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class CalorieTrackerViewController: UIViewController {
 
     let calorieController = CalorieController()
     lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
         let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "amount", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.shared.mainContext, sectionNameKeyPath: nil, cacheName: nil)
         frc.delegate = self
         try? frc.performFetch()
         return frc
     }()
     
+    func addChart(){
+        let calInts = fetchedResultsController.fetchedObjects?.compactMap { Int($0.amount ?? "did not work") }
+        guard let unwrappedInts = calInts else { print("Error unwrapping string to Int: \(#line)"); return }
+        let intsToDouble = unwrappedInts.compactMap { Double($0) }
+//        let chartSeries = ChartSeries(intsToDouble)
+        var coordinatArray = [(x: Double, y: Double)]()
+        var x = Double(0)
+        for y in intsToDouble {
+            coordinatArray.append((x: x, y: y))
+            x += Double(1)
+        }
+        viewForChart.frame(forAlignmentRect: CGRect(x: 0, y: 0, width: 300, height: 300))
+        viewForChart.gridColor = .blue
+//        viewForChart.area = true
+        let chartDoubleSeries = ChartSeries(data: coordinatArray)
+        chartDoubleSeries.area = true
+        chartDoubleSeries.line = true
+        viewForChart.add(chartDoubleSeries)
+        viewForChart.isFirstResponder
+    }
+    
+    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var viewForChart: Chart!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addChart()
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -45,7 +71,7 @@ class CalorieTrackerViewController: UIViewController {
             //TODO: ADD WHAT'S IN THE TEXT TO THE TABLEVIEW
             guard let amountString = myTextField.text, !amountString.isEmpty else { print("Error unwrapping alert textfield.") ; return }
             self.calorieController.addCalorie(with: amountString)
-            self.tableView.reloadData()
+            self.viewForChart.reloadInputViews()
         }
         alert.addAction(okAction)
         present(alert, animated: true)
@@ -129,11 +155,7 @@ extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSour
         let x = formatter.string(from: calDate)
         print("\(x)")
         cell.detailTextLabel?.text = formatter.string(from: calDate)
-        
         return cell
     }
 }
 
-extension CalorieTrackerViewController {
-    
-}
