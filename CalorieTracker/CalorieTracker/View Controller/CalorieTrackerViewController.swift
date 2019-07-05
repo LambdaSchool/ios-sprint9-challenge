@@ -16,8 +16,9 @@ class CalorieTrackerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        myTableView.delegate = self
+        myTableView.dataSource = self
     }
     
     func popUpToAddCalories(){
@@ -43,4 +44,29 @@ class CalorieTrackerViewController: UIViewController {
     @IBAction func addCalories(_ sender: UIBarButtonItem) {
         popUpToAddCalories()
     }
+}
+
+extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return calorieController.calories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
+        
+        let calorie = calorieController.calories[indexPath.row]
+        let calorieString = String(calorie.amount)
+        cell.textLabel?.text = calorieString
+        
+        guard let calDate = calorie.date else { print("Error unwrapping date in cellForAtRow"); return UITableViewCell() }
+        
+        let formatter = DateFormatter()
+        formatter.timeStyle = .medium
+        formatter.dateStyle = .medium
+        cell.detailTextLabel?.text = formatter.string(from: calDate)
+        
+        return cell
+    }
+    
+    
 }
