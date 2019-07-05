@@ -39,7 +39,7 @@ class CoreDataStack {
         return container
     }()
     
-    var maincontext: NSManagedObjectContext {
+    var mainContext: NSManagedObjectContext {
         return container.viewContext
     }
 }

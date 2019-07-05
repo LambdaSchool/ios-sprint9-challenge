@@ -18,7 +18,10 @@ extension CalorieEntry { // if you get to stretch goals you'll need to make this
         self.timestamp = timestamp
     }
     var calorieEntry: CalorieEntry? {
-        guard let 
+        guard let calorie = calorie else { return nil }
+        
+        return CalorieEntry(calorie: calorie)
     }
+    
     // really don't think I need a CalorieEntryRepresentation, bc I'm not using Firebase (yet, see strech)
 }

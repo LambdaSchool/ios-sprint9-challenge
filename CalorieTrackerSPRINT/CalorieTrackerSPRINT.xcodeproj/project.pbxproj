@@ -100,10 +100,10 @@
 		FCFFC1A322CFBC6100F8BF62 /* New Group */ = {
 			isa = PBXGroup;
 			children = (
-				FCFFC19E22CFB46800F8BF62 /* CalorieTrackerSPRINT.xcdatamodeld */,
-				FCFFC1A122CFB89200F8BF62 /* CoreDataStack.swift */,
-				FCFFC1A622CFC0BE00F8BF62 /* CalorieEntry+Convenience.swift */,
 				FCFFC1A822CFC22B00F8BF62 /* CalorieEntryController.swift */,
+				FCFFC1A622CFC0BE00F8BF62 /* CalorieEntry+Convenience.swift */,
+				FCFFC1A122CFB89200F8BF62 /* CoreDataStack.swift */,
+				FCFFC19E22CFB46800F8BF62 /* CalorieTrackerSPRINT.xcdatamodeld */,
 			);
 			path = "New Group";
 			sourceTree = "<group>";

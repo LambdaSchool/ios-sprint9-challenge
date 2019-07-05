@@ -13,5 +13,15 @@ class CalorieEntryController {
     
     typealias CompletionHandlerStandard = (Error?) -> Void
     
+    func addUserEnteredData(calorieEntry: CalorieEntry) {
+        
+        print("Appending the user-entered daily calorie count to model array")
+    }
+    
+    
+    
+    var calorieEntry = CalorieEntry()
+    var calories: [CalorieEntry.calorie] = []   // can i get away with just CalorieEntry as the type?
+    
 
 }
