@@ -20,6 +20,18 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
         //alert popup with a text field.
         //User enters calories
         //create new calorie intake
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field.", preferredStyle: .alert)
+        alert.addTextField()
+        let submit = UIAlertAction(title: "Submit", style: .default) { [unowned alert] _ in
+            let answer = alert.textFields![0]
+            //do something with "answer" here
+        }
+        alert.addAction(submit)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            self.dismiss(animated: true)
+        }))
+        
+        present(alert, animated: true)
     }
     
 
