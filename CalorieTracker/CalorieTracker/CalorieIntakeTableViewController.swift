@@ -14,15 +14,18 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(_:)), name: .intakeAdded, object: nil)
     }
     
 //    var intakes: [Intake] {
 //        //load from persistent store
 //    }
-    
-   
 //    let series = ChartSeries()
+    
+    
+    @objc func refreshViews(_ notification: Notification) {
+        tableView?.reloadData()
+    }
     
     @IBAction func addIntakeButtonTapped(_ sender: Any) {
         //alert popup with a text field.
@@ -35,14 +38,15 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
             //do something with "answer" here
             //create an intake and save it to core data.
             let calories = Int32(answer.text ?? "0")
-            let intake = Intake(calories: calories ?? 0, timeStamp: Date())
+            self.intakeController.createIntake(with: calories ?? 0)
             do {
-                let moc = CoreDataStack.shared.mainContext
-                try moc.save()
+                try self.intakeController.saveToPersistentStore()
             } catch {
                 NSLog("Error saving managed object context: \(error)")
             }
             
+            NotificationCenter.default.post(name: .intakeAdded, object: self)
+
         }
         alert.addAction(submit)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
@@ -50,6 +54,7 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
         }))
         
         present(alert, animated: true)
+        
     }
     
 
@@ -125,6 +130,7 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
 
     
     // MARK: - Properties
+    var intakeController = IntakeController()
     
     lazy var fetchedResultsController: NSFetchedResultsController<Intake> = {
         let fetchRequest: NSFetchRequest<Intake> = Intake.fetchRequest()
