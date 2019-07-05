@@ -76,7 +76,7 @@
 				1B44AE7B22CFAD6500CBDC55 /* Resources */,
 				1B44AE7A22CFAB2000CBDC55 /* Model Controller */,
 				1B44AE7522CFA9DD00CBDC55 /* Core Data Folder */,
-				1B44AE7D22CFDED700CBDC55 /* Notification.swift */,
+				1B44AE7F22CFDF4100CBDC55 /* Helper */,
 			);
 			path = CalorieTracker;
 			sourceTree = "<group>";
@@ -124,6 +124,14 @@
 				1B44AE5F22CFA33500CBDC55 /* Main.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		1B44AE7F22CFDF4100CBDC55 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				1B44AE7D22CFDED700CBDC55 /* Notification.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		A15E768CEB3D5583740EEC6C /* Pods */ = {

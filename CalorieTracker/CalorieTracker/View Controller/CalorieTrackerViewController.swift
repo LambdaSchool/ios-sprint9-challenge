@@ -37,6 +37,8 @@ class CalorieTrackerViewController: UIViewController {
         let chartDoubleSeries = ChartSeries(data: coordinatArray)
         chartDoubleSeries.area = true
         chartDoubleSeries.line = true
+        viewForChart.becomeFirstResponder()
+//        viewForChart.isFirstResponder
         viewForChart.add(chartDoubleSeries)
     }
     
@@ -46,14 +48,24 @@ class CalorieTrackerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         addChart()
         tableView.delegate = self
         tableView.dataSource = self
         title = "Calorie Tracker"
         
         //NoficicationCenter -Observer
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateChart(_:)), name: .shouldUpdateChart, object: nil) //nil means observe ALL instances from notificationCenter
+    }
+    
+    //ADD Selector function to actually update chart
+    @objc func updateChart(_ notification: Notification){
+//        print("Notification: \(notification)")
+//        if viewForChart.isFirstResponder{
+//            viewForChart.reloadInputViews()
+//        } else {
+//            print("someshit")
+//        }
+        addChart()
     }
 
     func popUpToAddCalories(){
@@ -71,9 +83,9 @@ class CalorieTrackerViewController: UIViewController {
             //TODO: ADD WHAT'S IN THE TEXT TO THE TABLEVIEW
             guard let amountString = myTextField.text, !amountString.isEmpty else { print("Error unwrapping alert textfield.") ; return }
             self.calorieController.addCalorie(with: amountString)
+            //NOTIFICATION: Post notification to notification center
+            NotificationCenter.default.post(name: .shouldUpdateChart, object: nil)
             
-            //NOTIFICATION:
-            NotificationCenter.default.post(name: <#T##NSNotification.Name#>, object: self)
         }
         alert.addAction(okAction)
         present(alert, animated: true)
