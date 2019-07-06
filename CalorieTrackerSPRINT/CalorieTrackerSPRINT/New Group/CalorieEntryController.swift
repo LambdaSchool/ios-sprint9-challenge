@@ -13,13 +13,16 @@ class CalorieEntryController {
     
     typealias CompletionHandlerStandard = (Error?) -> Void
     
-    func addUserEnteredData(calorieEntry: CalorieEntry) {
+    func addUserEnteredData(calorie: Double) {
         
         //append calorie integer to calories array to show in the chart
         
+        let newEntry = CalorieEntry(calorie: calorie)
+        calories.append(calorie)
         
         
-        // Save to Core Data0
+        
+        // Save timestamped calorieEntry to Core Data0
         // this saves our data, but should i call calorieEntryController instead of doing it here?
         do {
             let moc = CoreDataStack.shared.mainContext
@@ -36,10 +39,7 @@ class CalorieEntryController {
         // not sure i really need this at all, as calorie array is already in tableView if I want it.
     }
     
-    var calories = {
-        
-        
-    }
+    var calories: [Double] = []
     
     
     

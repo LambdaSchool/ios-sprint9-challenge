@@ -12,18 +12,24 @@ import CoreData
 
 class CalorieChartTableViewController: UITableViewController {
     
-    // requires notification center to call a function to update the chart
+     //requires notification center to call a function to update the chart
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // load the chart empty instance? or just let it run blank for now bc first time thru there will be no chart so prefer viewWillAppear
+        let data = calorieEntryController.calories
+        let series = ChartSeries(data)
         chart.add(series)
-        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        let data = calorieEntryController.calories
+        let series = ChartSeries(data)
+        chart.add(series)
         
         // not sure if chart stuff will need to be here, but probably bc this gets called before the viewLoads, and the chart might not show up if you don't put it here
         
@@ -54,33 +60,39 @@ class CalorieChartTableViewController: UITableViewController {
     
     func enterHandler(alert: UIAlertAction!) {
         
-        // Make sure User entered safe data, then add/append the entry to model, and save the model in CoreDataStack
-        guard let calorie = Int16(calorieTextField!.text!) /*, !calorie.isEmpty*/ else {return}
+        // Make sure User entered safe Integer data
+        guard let calorie = Double(calorieTextField!.text!) else {return}
         
-        calorieEntry.calorie = calorie
-        calorieEntryController.addUserEnteredData(calorieEntry: calorieEntry)
+        // create an array with the new calorieEntry (tested SAT the alertcontroller gets good data)
+        calorieEntryController.addUserEnteredData(calorie: calorie)
 
         // display in TableView (from calorie entries array)
+        tableView.reloadData()
+        
+        let data = calorieEntryController.calories
+        let series = ChartSeries(data)
+        chart.add(series)
         
         // concurrency: due to size of project, not necessarily needed, but if any task is cpu intense it would be pulling the calorie entries data from Core Data to display on the chart
-        tableView.reloadData()
+        
     }
     
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0 //calorieEntryController.calories().count
+        return calorieEntryController.calories.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CaloriesCell", for: indexPath)
 
         // Configuration: Calories on left; timestamp on right
-        
-        cell.detailTextLabel?.text = "date" //calorieEntryController.timestamp[indexPath.row]
-        cell.textLabel?.text = "7" //calorieEntryController.calories[indexPath.row]
+        let calorieCell = calorieEntryController.calories[indexPath.row]
+        cell.textLabel?.text = "Calories: \(String(describing: calorieCell))"
+        // will need to access calorieEntry.timestamp
+        //cell.detailTextLabel?.text = String(calorieCell)
 
         return cell
     }
@@ -89,8 +101,6 @@ class CalorieChartTableViewController: UITableViewController {
     
     
     @IBOutlet weak var chart: Chart!
-    
-    var calories = [3, 1, 2]
     
     // loop thru calories, should be a tuple of calorie x and index y
     
@@ -106,12 +116,15 @@ class CalorieChartTableViewController: UITableViewController {
     
     //let series = ChartSeries(data: data)
     
-    let series = ChartSeries([3, 1, 3])
     
     var calorieEntry = CalorieEntry()
     
     var calorieTextField: UITextField?
     
-    var calorieEntryController = CalorieEntryController()
+    var calorieEntryController = CalorieEntryController() {
+        didSet {
+            viewWillAppear(true)
+        }
+    }
 
 }

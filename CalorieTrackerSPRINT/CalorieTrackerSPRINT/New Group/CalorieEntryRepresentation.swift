@@ -12,7 +12,7 @@ import Foundation
 
 class CalorieEntryRepresentation: Codable {
     
-    var calorie: Int16
+    var calorie: Double
     var timestamp: Date
     
 }
