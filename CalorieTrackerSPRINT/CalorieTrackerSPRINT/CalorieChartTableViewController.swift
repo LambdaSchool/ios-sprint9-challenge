@@ -10,12 +10,15 @@ import UIKit
 import SwiftChart
 import CoreData
 
-class CalorieChartTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class CalorieChartTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UIPopoverPresentationControllerDelegate {
     
      //requires notification center to call a function to update the chart
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Add an observer for Notification
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(_:)), name: .calorieEntryChanged, object: nil)
         
         let moc = CoreDataStack.shared.mainContext
         var data: [Double] = []
@@ -32,8 +35,9 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
         chart.add(series)
     }
     
-    @IBAction func refreshTable(_ sender: Any) {
-        self.refreshControl?.endRefreshing()
+    @objc func refreshViews(_ notification: Notification) {
+        print("notification: \(notification)")
+        tableView?.reloadData()
     }
     
     

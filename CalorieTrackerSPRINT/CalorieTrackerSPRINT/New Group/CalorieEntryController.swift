@@ -52,7 +52,11 @@ class CalorieEntryController {
     
     
     
-    var calorieEntry = CalorieEntry()
+    var calorieEntry = CalorieEntry() {
+        didSet {
+            NotificationCenter.default.post(name: .calorieEntryChanged, object: self)
+        }
+    }
     //var calories: [CalorieEntry.calorie] = []   // can i get away with just CalorieEntry as the type?
     
 
