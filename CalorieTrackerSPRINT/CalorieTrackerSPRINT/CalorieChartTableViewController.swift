@@ -8,12 +8,17 @@
 
 import UIKit
 import SwiftChart
+import CoreData
 
 class CalorieChartTableViewController: UITableViewController {
+    
+    // requires notification center to call a function to update the chart
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // load the chart empty instance? or just let it run blank for now bc first time thru there will be no chart so prefer viewWillAppear
+        chart.add(series)
         
     }
     
@@ -22,7 +27,6 @@ class CalorieChartTableViewController: UITableViewController {
         
         // not sure if chart stuff will need to be here, but probably bc this gets called before the viewLoads, and the chart might not show up if you don't put it here
         
-        chart.add(series)
     }
     
     @IBAction func AddCalorieDatapoint(_ sender: Any) {
@@ -36,7 +40,11 @@ class CalorieChartTableViewController: UITableViewController {
         let enterAction = UIAlertAction(title: "ENTER", style: .default, handler: self.enterHandler)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
+        alertController.addAction(enterAction)
+        alertController.addAction(cancelAction)
         
+        self.present(alertController, animated: true)
+    
     }
     
     func calorieTextField(textField: UITextField!) {
@@ -47,20 +55,11 @@ class CalorieChartTableViewController: UITableViewController {
     func enterHandler(alert: UIAlertAction!) {
         
         // Make sure User entered safe data, then add/append the entry to model, and save the model in CoreDataStack
-        guard let calorie = calorieTextField?.text, !calorie.isEmpty else {return}
+        guard let calorie = Int16(calorieTextField!.text!) /*, !calorie.isEmpty*/ else {return}
         
+        calorieEntry.calorie = calorie
         calorieEntryController.addUserEnteredData(calorieEntry: calorieEntry)
 
-        
-        // Save to Core Data
-        // this saves our data, but should i call calorieEntryController instead of doing it here?
-        do {
-            let moc = CoreDataStack.shared.mainContext
-            try moc.save()
-        } catch {
-            NSLog("Error saving managed object context: \(error)")
-        }
-        
         // display in TableView (from calorie entries array)
         
         // concurrency: due to size of project, not necessarily needed, but if any task is cpu intense it would be pulling the calorie entries data from Core Data to display on the chart
@@ -71,7 +70,7 @@ class CalorieChartTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return CalorieEntryController.calories.count
+        return 0 //calorieEntryController.calories().count
     }
 
     
@@ -79,22 +78,40 @@ class CalorieChartTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
 
         // Configuration: Calories on left; timestamp on right
-        cell.detailTextLabel?.text = calorieEntryController.timestamp[indexPath.row]
-        cell.textLabel?.text = calorieEntryController.calories[indexPath.row]
+        
+        cell.detailTextLabel?.text = "date" //calorieEntryController.timestamp[indexPath.row]
+        cell.textLabel?.text = "7" //calorieEntryController.calories[indexPath.row]
 
         return cell
     }
     
     //MARK: Properties
     
-    let chart = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+    
+    @IBOutlet weak var chart: Chart!
+    
+    var calories = [3, 1, 2]
+    
+    // loop thru calories, should be a tuple of calorie x and index y
+    
+    // let data = [
+//    (x: 0, y: 0),
+//    (x: 1, y: 3.1),
+//    (x: 4, y: 2),
+//    (x: 5, y: 4.2),
+//    (x: 7, y: 5),
+//    (x: 9, y: 9),
+//    (x: 10, y: 8)
+//    ]
+    
+    //let series = ChartSeries(data: data)
+    
+    let series = ChartSeries([3, 1, 3])
+    
     var calorieEntry = CalorieEntry()
-    var calories: [CalorieEntry] = []
-    let series = ChartSeries(calories)
     
     var calorieTextField: UITextField?
     
     var calorieEntryController = CalorieEntryController()
-
 
 }

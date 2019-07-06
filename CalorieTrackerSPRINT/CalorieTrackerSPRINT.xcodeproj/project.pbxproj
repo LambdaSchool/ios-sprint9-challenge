@@ -17,6 +17,7 @@
 		FCFFC1A222CFB89200F8BF62 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFC1A122CFB89200F8BF62 /* CoreDataStack.swift */; };
 		FCFFC1A722CFC0BE00F8BF62 /* CalorieEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFC1A622CFC0BE00F8BF62 /* CalorieEntry+Convenience.swift */; };
 		FCFFC1A922CFC22B00F8BF62 /* CalorieEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFC1A822CFC22B00F8BF62 /* CalorieEntryController.swift */; };
+		FCFFC1AB22CFE99A00F8BF62 /* CalorieEntryRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFC1AA22CFE99A00F8BF62 /* CalorieEntryRepresentation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		FCFFC1A122CFB89200F8BF62 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = ../CoreDataStack.swift; sourceTree = "<group>"; };
 		FCFFC1A622CFC0BE00F8BF62 /* CalorieEntry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieEntry+Convenience.swift"; sourceTree = "<group>"; };
 		FCFFC1A822CFC22B00F8BF62 /* CalorieEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieEntryController.swift; sourceTree = "<group>"; };
+		FCFFC1AA22CFE99A00F8BF62 /* CalorieEntryRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieEntryRepresentation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				FCFFC1A622CFC0BE00F8BF62 /* CalorieEntry+Convenience.swift */,
 				FCFFC1A122CFB89200F8BF62 /* CoreDataStack.swift */,
 				FCFFC19E22CFB46800F8BF62 /* CalorieTrackerSPRINT.xcdatamodeld */,
+				FCFFC1AA22CFE99A00F8BF62 /* CalorieEntryRepresentation.swift */,
 			);
 			path = "New Group";
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFFC1AB22CFE99A00F8BF62 /* CalorieEntryRepresentation.swift in Sources */,
 				FCFFC1A922CFC22B00F8BF62 /* CalorieEntryController.swift in Sources */,
 				FCFFC19D22CFA08800F8BF62 /* CalorieChartTableViewController.swift in Sources */,
 				FCFFC1A722CFC0BE00F8BF62 /* CalorieEntry+Convenience.swift in Sources */,
