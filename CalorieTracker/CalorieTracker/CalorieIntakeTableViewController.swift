@@ -14,29 +14,15 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        let data = [
-            (x: 0, y: 0.0),
-            (x: 1, y: 3.0),
-            (x: 4, y: 5.0),
-            (x: 5, y: 2.0)
-        ]
-        let series = ChartSeries(data: data)
-        chart.add(series)
+        
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(_:)), name: .intakeAdded, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-//        let chart = Chart()
-//        let series = ChartSeries(intakeController.calories)
-//        series.area = true
-//        series.color = ChartColors.blueColor()
-//        chart.add(series)
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(_:)), name: .intakeAdded, object: nil)
+        updateViews()
     }
     
 
@@ -50,11 +36,17 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
     
     
     @objc func refreshViews(_ notification: Notification) {
+       updateViews()
+    }
+    
+    func updateViews() {
+        
         chart.removeAllSeries()
         intakeController.fetchAllIntakes()
         let series = ChartSeries(intakeController.calories)
         chart.add(series)
         tableView?.reloadData()
+        
     }
     
     @IBAction func addIntakeButtonTapped(_ sender: Any) {
@@ -161,7 +153,9 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
     
     // MARK: - Properties
     var intakeController = IntakeController()
-    var chart = Chart(frame: CGRect.zero)
+    
+    @IBOutlet weak var chart: Chart!
+    
     
     lazy var fetchedResultsController: NSFetchedResultsController<Intake> = {
         let fetchRequest: NSFetchRequest<Intake> = Intake.fetchRequest()
