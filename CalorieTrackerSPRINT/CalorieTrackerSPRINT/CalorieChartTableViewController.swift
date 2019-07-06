@@ -16,12 +16,20 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let moc = CoreDataStack.shared.mainContext
+        var data: [Double] = []
+        if let calorieEntries = calorieEntryController.fetchCalorieArray(in: moc) {
+            
+            for eachEntry in calorieEntries {
+                data.append(eachEntry.calorie)
+            }
+        }
 
         // load the chart empty instance? or just let it run blank for now bc first time thru there will be no chart so prefer viewWillAppear
-        let data = calorieEntryController.calories
+        
         let series = ChartSeries(data)
         chart.add(series)
-
     }
     
     @IBAction func refreshTable(_ sender: Any) {

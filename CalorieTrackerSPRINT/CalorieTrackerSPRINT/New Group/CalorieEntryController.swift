@@ -32,9 +32,20 @@ class CalorieEntryController {
         }
     }
     
-    func fetchCalorieArray() {
+    func fetchCalorieArray(in context: NSManagedObjectContext) -> [CalorieEntry]? {
+        let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
         
-        // not sure i really need this at all, as calorie array is already available via 
+        var result: [CalorieEntry]? = []
+        
+        context.performAndWait {
+            do {
+                result = try context.fetch(fetchRequest)
+            } catch {
+                NSLog("Error fetching calorieEntries \(error)")
+            }
+        }
+        return result
+        
     }
     
     var calories: [Double] = []
