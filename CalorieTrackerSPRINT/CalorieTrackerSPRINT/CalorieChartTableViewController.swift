@@ -10,7 +10,7 @@ import UIKit
 import SwiftChart
 import CoreData
 
-class CalorieChartTableViewController: UITableViewController {
+class CalorieChartTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
      //requires notification center to call a function to update the chart
 
@@ -24,16 +24,6 @@ class CalorieChartTableViewController: UITableViewController {
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        let data = calorieEntryController.calories
-        let series = ChartSeries(data)
-        chart.add(series)
-        
-        // not sure if chart stuff will need to be here, but probably bc this gets called before the viewLoads, and the chart might not show up if you don't put it here
-        
-    }
     
     @IBAction func AddCalorieDatapoint(_ sender: Any) {
         
@@ -77,6 +67,48 @@ class CalorieChartTableViewController: UITableViewController {
         
     }
     
+    //MARK: - NSFetchedResultsControllerDelegate methods
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
+        case .delete:
+            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
+        default:
+            break
+        }
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            guard let newIndexPath = newIndexPath else {return}
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        case .update:
+            guard let indexPath = indexPath else {return}
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        case .move:
+            guard let oldIndexPath = indexPath,
+                let newIndexPath = newIndexPath else {return}
+            tableView.deleteRows(at: [oldIndexPath], with: .automatic)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        case .delete:
+            guard let indexPath = indexPath else {return}
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        default:
+            break
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,6 +123,8 @@ class CalorieChartTableViewController: UITableViewController {
         // Configuration: Calories on left; timestamp on right
         let calorieCell = calorieEntryController.calories[indexPath.row]
         cell.textLabel?.text = "Calories: \(String(describing: calorieCell))"
+        
+        
         // will need to access calorieEntry.timestamp
         //cell.detailTextLabel?.text = String(calorieCell)
 
@@ -99,32 +133,27 @@ class CalorieChartTableViewController: UITableViewController {
     
     //MARK: Properties
     
+    lazy var fetchedResultsController: NSFetchedResultsController<CalorieEntry> = {
+        let fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
+        
+        let moc = CoreDataStack.shared.mainContext
+        
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "timestamp", cacheName: nil)
+        frc.delegate = self
+        try! frc.performFetch()
+        return frc
+        
+    }
+    
     
     @IBOutlet weak var chart: Chart!
     
-    // loop thru calories, should be a tuple of calorie x and index y
-    
-    // let data = [
-//    (x: 0, y: 0),
-//    (x: 1, y: 3.1),
-//    (x: 4, y: 2),
-//    (x: 5, y: 4.2),
-//    (x: 7, y: 5),
-//    (x: 9, y: 9),
-//    (x: 10, y: 8)
-//    ]
-    
-    //let series = ChartSeries(data: data)
-    
+    //let series = ChartSeries(data: data)  this is an example of what ChartSeries wants, but it will assign the index of an array to the x-value automatically, so it's not required to create a tuple
     
     var calorieEntry = CalorieEntry()
     
     var calorieTextField: UITextField?
     
-    var calorieEntryController = CalorieEntryController() {
-        didSet {
-            viewWillAppear(true)
-        }
-    }
+    var calorieEntryController = CalorieEntryController()
 
 }

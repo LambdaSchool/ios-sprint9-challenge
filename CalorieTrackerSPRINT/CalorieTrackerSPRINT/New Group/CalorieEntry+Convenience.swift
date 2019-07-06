@@ -18,6 +18,13 @@ extension CalorieEntry { // if you get to stretch goals you'll need to make this
         self.timestamp = timestamp
     }
     
+    
+    
+    
+    
+    
+    
+    
 //    var calorieEntry: CalorieEntry? {
 //
 //        // I changed calorie to not be optional, so might not need this unless shifting back

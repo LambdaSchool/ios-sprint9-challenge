@@ -30,13 +30,11 @@ class CalorieEntryController {
         } catch {
             NSLog("Error saving managed object context: \(error)")
         }
-        
-        print("Appending the user-entered daily calorie count to model array")
     }
     
     func fetchCalorieArray() {
         
-        // not sure i really need this at all, as calorie array is already in tableView if I want it.
+        // not sure i really need this at all, as calorie array is already available via 
     }
     
     var calories: [Double] = []
