@@ -24,6 +24,10 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
 
     }
     
+    @IBAction func refreshTable(_ sender: Any) {
+        self.refreshControl?.endRefreshing()
+    }
+    
     
     @IBAction func AddCalorieDatapoint(_ sender: Any) {
         
@@ -110,40 +114,62 @@ class CalorieChartTableViewController: UITableViewController, NSFetchedResultsCo
     }
     
     // MARK: - Table view data source
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchedResultsController.sections?.count ?? 1
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return calorieEntryController.calories.count
+        //return calorieEntryController.calories.count
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CaloriesCell", for: indexPath)
+        
+        let calorieEntry = fetchedResultsController.object(at: indexPath)
+        let calorieCell = calorieEntry.calorie
+        let timestampCell = calorieEntry.timestamp
 
         // Configuration: Calories on left; timestamp on right
-        let calorieCell = calorieEntryController.calories[indexPath.row]
+        //let calorieCell = calorieEntryController.calories[indexPath.row]
         cell.textLabel?.text = "Calories: \(String(describing: calorieCell))"
         
         
         // will need to access calorieEntry.timestamp
-        //cell.detailTextLabel?.text = String(calorieCell)
+        cell.detailTextLabel?.text = stringFromDate(date: timestampCell!)
 
         return cell
     }
     
     //MARK: Properties
     
+    
+    private func stringFromDate(date: Date) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+    
+        return dateFormatter.string(from: date)
+    }
+    
+    
+    
+    
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieEntry> = {
-        let fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
+        let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
         
         let moc = CoreDataStack.shared.mainContext
         
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "timestamp", cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
         frc.delegate = self
         try! frc.performFetch()
         return frc
         
-    }
+    }()
     
     
     @IBOutlet weak var chart: Chart!
