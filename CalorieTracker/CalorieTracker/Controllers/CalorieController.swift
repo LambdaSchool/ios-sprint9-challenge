@@ -15,11 +15,12 @@ class CalorieController {
         let _ = CaloriesEntry(amount: amountDouble)
         
         saveToPersistentStore()
+        NotificationCenter.default.post(name: .calorieEntryAdded, object: nil)
     }
     
     
     func saveToPersistentStore() {
-        let moc = CoreDataStack.shared.container.newBackgroundContext()
+        let moc = CoreDataStack.shared.mainContext
         
         moc.perform {
             do {
@@ -29,4 +30,8 @@ class CalorieController {
             }
         }
     }
+}
+
+extension NSNotification.Name {
+    static let calorieEntryAdded = NSNotification.Name("calorieEntryAdded")
 }
