@@ -8,10 +8,32 @@
 
 import UIKit
 import SwiftChart
+import CoreData
 
-class CalorieTrackerTableViewController: UITableViewController {
+class CalorieTrackerTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+    
+    lazy var fetchedResultsController: NSFetchedResultsController<CaloriesEntry> = {
+        let fetchRequest: NSFetchRequest<CaloriesEntry> = CaloriesEntry.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
+        
+        let moc = CoreDataStack.shared.mainContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "timestamp", cacheName: nil)
+        
+        frc.delegate = self
+        
+        try! frc.performFetch()
+        
+        return frc
+    }()
 
     let calorieController = CalorieController()
+    
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .medium
+        return formatter
+    }
     
     @IBOutlet weak var calorieChart: Chart!
     
@@ -39,28 +61,23 @@ class CalorieTrackerTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return fetchedResultsController.fetchedObjects?.count ?? 0
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
+
+        let calorieEntry = fetchedResultsController.object(at: indexPath)
+        
+        guard let amount = calorieEntry.amount, let timestamp = calorieEntry.timestamp else {
+            return UITableViewCell() }
+        
+        cell.textLabel?.text = "Calories: \(amount)"
+        cell.detailTextLabel?.text = dateFormatter.string(from: timestamp)
 
         return cell
     }
-    */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
