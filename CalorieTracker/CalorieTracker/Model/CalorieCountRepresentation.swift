@@ -14,7 +14,7 @@ struct CalorieCountRepresentation: Codable, Equatable {
 }
 
 func == (lhs: CalorieCountRepresentation, rhs: CalorieCount) -> Bool {
-    return lhs.date == rhs.date && lhs.intakeNumber = rhs.intakeNumber
+    return lhs.date == rhs.date && lhs.intakeNumber == rhs.intakeNumber
 }
 
 func == (lhs: CalorieCount, rhs: CalorieCountRepresentation) -> Bool {

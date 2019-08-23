@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 
-class TrackedCaloriesTableView: UITableView {
+class TrackedCaloriesTableView: UITableView, NSFetchedResultsControllerDelegate {
+    
+    var frc: NSFetchedResultsController<CalorieCount>?
     
 
     /*

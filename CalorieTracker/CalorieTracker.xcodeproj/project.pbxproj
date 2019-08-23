@@ -90,6 +90,7 @@
 		6FF526882310382700781A09 /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
+				6FF526AD23104FAD00781A09 /* Model Controller */,
 				6FF526AA23103F6000781A09 /* Views */,
 				6FF526A723103E9F00781A09 /* View Controllers */,
 				6FF5269E2310383600781A09 /* Model */,
@@ -106,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				6FF526902310382700781A09 /* CalorieTracker.xcdatamodeld */,
-				6FF526AB2310438E00781A09 /* CalorieCountController.swift */,
 				6FF5269F23103B6F00781A09 /* CalorieCount+Convenience.swift */,
 				6FF526A123103BAB00781A09 /* CoreDataStack.swift */,
 				6FF526A323103C1000781A09 /* CalorieCountRepresentation.swift */,
@@ -128,6 +128,14 @@
 				6FF526A823103F5B00781A09 /* TrackedCaloriesTableView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		6FF526AD23104FAD00781A09 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6FF526AB2310438E00781A09 /* CalorieCountController.swift */,
+			);
+			path = "Model Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
