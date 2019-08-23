@@ -15,6 +15,7 @@
 		660E331323103B7F0080126E /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 660E331123103B7F0080126E /* CalorieTracker.xcdatamodeld */; };
 		660E331523103C120080126E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660E331423103C120080126E /* CoreDataStack.swift */; };
 		660E331823103C610080126E /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660E331723103C610080126E /* CalorieController.swift */; };
+		660E331B23103DCE0080126E /* CaloriesEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660E331A23103DCE0080126E /* CaloriesEntry+Convenience.swift */; };
 		B8B3E3BD52444E50A6514D66 /* Pods_CalorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A601B13B32ADE4544DC17FA0 /* Pods_CalorieTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		660E331223103B7F0080126E /* CalorieTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieTracker.xcdatamodel; sourceTree = "<group>"; };
 		660E331423103C120080126E /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		660E331723103C610080126E /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
+		660E331A23103DCE0080126E /* CaloriesEntry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CaloriesEntry+Convenience.swift"; sourceTree = "<group>"; };
 		A601B13B32ADE4544DC17FA0 /* Pods_CalorieTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,7 @@
 		660E331623103C4D0080126E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				660E331A23103DCE0080126E /* CaloriesEntry+Convenience.swift */,
 				660E331423103C120080126E /* CoreDataStack.swift */,
 				660E331123103B7F0080126E /* CalorieTracker.xcdatamodeld */,
 			);
@@ -244,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				660E331B23103DCE0080126E /* CaloriesEntry+Convenience.swift in Sources */,
 				660E330E23103A1A0080126E /* CalorieTrackerTableViewController.swift in Sources */,
 				660E32FC2310383F0080126E /* AppDelegate.swift in Sources */,
 				660E331323103B7F0080126E /* CalorieTracker.xcdatamodeld in Sources */,

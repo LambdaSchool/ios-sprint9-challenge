@@ -7,7 +7,23 @@
 //
 
 import Foundation
+import CoreData
 
 class CalorieController {
+    func createCaloriesEntry(amount: String) {
+        
+    }
     
+    
+    func saveToPersistentStore() {
+        let moc = CoreDataStack.shared.container.newBackgroundContext()
+        
+        moc.perform {
+            do {
+                try moc.save()
+            } catch {
+                NSLog("Error saving managed object context: \(error)")
+            }
+        }
+    }
 }
