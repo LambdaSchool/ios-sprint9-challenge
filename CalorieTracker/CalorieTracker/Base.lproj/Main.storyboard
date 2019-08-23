@@ -13,22 +13,18 @@
         <!--Calorie Tracker-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CalorieTrackerViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gUT-NY-xRL">
-                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gUT-NY-xRL">
+                                <rect key="frame" x="0.0" y="404" width="414" height="458"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="0NX-xF-rM6" customClass="Chart" customModule="SwiftChart">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="264"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ESH-Iu-X4j" detailTextLabel="nis-9d-cMq" style="IBUITableViewCellStyleValue1" id="b9c-dA-b9v">
-                                        <rect key="frame" x="0.0" y="292" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b9c-dA-b9v" id="wJY-a8-snU">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -53,19 +49,29 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0NX-xF-rM6" customClass="Chart" customModule="SwiftChart">
+                                <rect key="frame" x="0.0" y="140" width="414" height="250"/>
+                                <color key="backgroundColor" red="0.13505540460000001" green="0.51922058760000001" blue="0.70247065360000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="DPY-A1-b7X"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="gUT-NY-xRL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="f11-Pg-glk"/>
-                            <constraint firstItem="gUT-NY-xRL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="m8h-IH-op1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gUT-NY-xRL" secondAttribute="bottom" id="r0D-v8-2II"/>
-                            <constraint firstItem="gUT-NY-xRL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="xQK-Au-jjc"/>
+                            <constraint firstItem="0NX-xF-rM6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fDr-4F-Vdq"/>
+                            <constraint firstItem="0NX-xF-rM6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gEQ-eV-aO1"/>
+                            <constraint firstItem="0NX-xF-rM6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="uef-cF-NAF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="aB2-nJ-bqx">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Urx-ZG-8JV"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="calorieChart" destination="0NX-xF-rM6" id="49u-nY-Sbn"/>
+                        <outlet property="calorieTableView" destination="gUT-NY-xRL" id="LA7-Yy-Aib"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
