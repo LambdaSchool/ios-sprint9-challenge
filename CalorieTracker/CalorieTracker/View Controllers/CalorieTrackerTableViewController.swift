@@ -73,6 +73,7 @@ class CalorieTrackerTableViewController: UITableViewController {
         }
         
         let chartSeries = ChartSeries(amounts)
+        chartSeries.area = true
         calorieChart.add(chartSeries)
     }
     
