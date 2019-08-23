@@ -7,4 +7,5 @@ target 'CalorieTracker' do
 
   # Pods for CalorieTracker
   pod "SwiftChart"
+  pod "SAConfettiView"
 end

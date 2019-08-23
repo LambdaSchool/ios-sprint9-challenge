@@ -9,6 +9,7 @@
 import UIKit
 import SwiftChart
 import CoreData
+import SAConfettiView
 
 class CalorieTrackerTableViewController: UITableViewController {
     
@@ -27,6 +28,7 @@ class CalorieTrackerTableViewController: UITableViewController {
     }()
 
     let calorieController = CalorieController()
+    let confetti: SAConfettiView = SAConfettiView()
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -40,13 +42,19 @@ class CalorieTrackerTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpChart()
+        confetti.frame = self.view.bounds
+        confetti.intensity = 0.8
+        self.view.addSubview(confetti)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(calorieEntryAdded(notification:)), name: .calorieEntryAdded, object: nil)
-
+        setUpChart()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(calorieEntryAdded(notification:)),
+                                               name: .calorieEntryAdded,
+                                               object: nil)
     }
 
     @IBAction func addCalories(_ sender: Any) {
+        confetti.stopConfetti()
         presentCalorieInput()
     }
     
@@ -76,6 +84,12 @@ class CalorieTrackerTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { [weak alert] (_) in
             if let amount = alert?.textFields![0].text {
                 self.calorieController.createCaloriesEntry(amount: amount)
+                
+                if let amountDouble = Double(amount), amountDouble <= 300 {
+                    DispatchQueue.main.async {
+                        self.confetti.startConfetti()
+                    }
+                }
             }
         }))
         
