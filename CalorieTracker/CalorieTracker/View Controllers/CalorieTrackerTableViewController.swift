@@ -69,6 +69,8 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
                 self.calorieController.createCaloriesEntry(amount: amount)
             }
         }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Table view data source
