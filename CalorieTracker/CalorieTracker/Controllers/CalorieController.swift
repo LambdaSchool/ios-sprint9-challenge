@@ -15,9 +15,7 @@ class CalorieController {
         let _ = CaloriesEntry(amount: amountDouble)
         
         saveToPersistentStore()
-        NotificationCenter.default.post(name: .calorieEntryAdded, object: nil)
     }
-    
     
     func saveToPersistentStore() {
         let moc = CoreDataStack.shared.mainContext
@@ -25,6 +23,7 @@ class CalorieController {
         moc.perform {
             do {
                 try moc.save()
+                NotificationCenter.default.post(name: .calorieEntryAdded, object: nil)
             } catch {
                 NSLog("Error saving managed object context: \(error)")
             }

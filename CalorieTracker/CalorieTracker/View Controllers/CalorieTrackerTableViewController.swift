@@ -51,7 +51,7 @@ class CalorieTrackerTableViewController: UITableViewController {
     }
     
     @objc func calorieEntryAdded(notification: NSNotification) {
-        
+        try? fetchedResultsController.performFetch()
         setUpChart()
     }
     
