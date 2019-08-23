@@ -46,6 +46,19 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         presentCalorieInput()
     }
     
+    private func setUpChart() {
+        var amounts: [Double] = []
+        
+        guard let calorieEntries = fetchedResultsController.fetchedObjects else { return }
+
+        for entry in calorieEntries {
+            amounts.append(entry.amount)
+        }
+        
+        let chartSeries = ChartSeries(amounts)
+        calorieChart.add(chartSeries)
+    }
+    
     private func presentCalorieInput() {
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
         
@@ -70,10 +83,10 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
 
         let calorieEntry = fetchedResultsController.object(at: indexPath)
         
-        guard let amount = calorieEntry.amount, let timestamp = calorieEntry.timestamp else {
+        guard let timestamp = calorieEntry.timestamp else {
             return UITableViewCell() }
         
-        cell.textLabel?.text = "Calories: \(amount)"
+        cell.textLabel?.text = "Calories: \(calorieEntry.amount)"
         cell.detailTextLabel?.text = dateFormatter.string(from: timestamp)
 
         return cell
