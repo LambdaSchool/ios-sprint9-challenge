@@ -11,7 +11,7 @@ import CoreData
 
 extension CalorieCount {
     
-    @discardableResult convenience init(intakeNumber: String, date: Date? = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    convenience init(intakeNumber: Double, date: Date? = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         self.init(context: context)
         
@@ -19,16 +19,19 @@ extension CalorieCount {
         self.date = date
     }
     
-    @discardableResult convenience init?(calorieCountRepresentation: CalorieCountRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
-        
-        self.init(context: context)
-        
-        self.intakeNumber = calorieCountRepresentation.intakeNumber
-        self.date = calorieCountRepresentation.date
-    }
-    
-    var calorieCountRepresentation: CalorieCountRepresentation {
-        return CalorieCountRepresentation(intakeNumber: intakeNumber, date: date)
-    }
+//    @discardableResult convenience init?(calorieCountRepresentation: CalorieCountRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+//
+//        self.init(context: context)
+////        if let intake = calorieCountRepresentation.intakeNumber {
+//
+//            self.intakeNumber = intakeNumber
+//            self.date = calorieCountRepresentation.date
+//
+////        }
+//    }
+//
+//    var calorieCountRepresentation: CalorieCountRepresentation {
+//        return CalorieCountRepresentation(intakeNumber: intakeNumber, date: date)
+//    }
     
 }

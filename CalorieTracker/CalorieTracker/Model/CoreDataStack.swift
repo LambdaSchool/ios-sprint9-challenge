@@ -10,9 +10,7 @@ import Foundation
 import CoreData
 
 class CoreDataStack {
-    
     static let shared = CoreDataStack()
-    
     func save(context: NSManagedObjectContext = CoreDataStack.shared.mainContext) throws {
         var error: Error?
         

@@ -9,7 +9,7 @@
 import Foundation
 
 struct CalorieCountRepresentation: Codable, Equatable {
-    var intakeNumber: String?
+    var intakeNumber: Double?
     var date: Date?
 }
 

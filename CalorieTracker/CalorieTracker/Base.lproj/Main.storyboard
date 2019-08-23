@@ -47,6 +47,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="J8w-gb-H4h"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="jtP-RS-BiX"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0NX-xF-rM6" customClass="Chart" customModule="SwiftChart">
                                 <rect key="frame" x="0.0" y="140" width="414" height="250"/>
@@ -77,7 +81,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="calorieChart" destination="0NX-xF-rM6" id="49u-nY-Sbn"/>
-                        <outlet property="calorieTableView" destination="gUT-NY-xRL" id="LA7-Yy-Aib"/>
+                        <outlet property="calorieTableView" destination="gUT-NY-xRL" id="QJ0-np-MV4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
