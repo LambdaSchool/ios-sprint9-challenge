@@ -11,7 +11,9 @@ import CoreData
 
 class CalorieController {
     func createCaloriesEntry(amount: String) {
+        let _ = CaloriesEntry(amount: amount)
         
+        saveToPersistentStore()
     }
     
     

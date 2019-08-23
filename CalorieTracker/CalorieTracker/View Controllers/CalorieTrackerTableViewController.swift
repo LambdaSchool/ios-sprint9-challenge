@@ -11,6 +11,8 @@ import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController {
 
+    let calorieController = CalorieController()
+    
     @IBOutlet weak var calorieChart: Chart!
     
     override func viewDidLoad() {
@@ -19,7 +21,21 @@ class CalorieTrackerTableViewController: UITableViewController {
     }
 
     @IBAction func addCalories(_ sender: Any) {
+        presentCalorieInput()
     }
+    
+    private func presentCalorieInput() {
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+        
+        alert.addTextField(configurationHandler: nil)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { [weak alert] (_) in
+            if let amount = alert?.textFields![0].text {
+                self.calorieController.createCaloriesEntry(amount: amount)
+            }
+        }))
+    }
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
