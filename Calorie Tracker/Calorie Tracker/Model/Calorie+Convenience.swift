@@ -16,4 +16,13 @@ extension Calorie {
         self.calories = calories
         self.created = created
     }
+    
+    var date: String {
+        guard let created = self.created else { return "" }
+        
+        let df = DateFormatter()
+        df.dateFormat = "MMM d Y 'at' h:mm a"
+        let date = df.string(from: created)
+        return date
+    }
 }

@@ -22,6 +22,17 @@ class CalorieController {
         }
     }
     
+    func deleteCalorie(withCalorie calorie: Calorie) {
+        let moc = CoreDataStack.shared.mainContext
+        moc.delete(calorie)
+        
+        do {
+            try self.saveToPersistantStore()
+        } catch {
+            NSLog("Error saving after delete method")
+        }
+    }
+    
     func saveToPersistantStore() throws {
         let moc = CoreDataStack.shared.mainContext
         try moc.save()

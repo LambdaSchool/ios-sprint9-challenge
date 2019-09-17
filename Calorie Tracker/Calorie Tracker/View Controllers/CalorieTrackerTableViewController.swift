@@ -7,13 +7,27 @@
 //
 
 import UIKit
+import CoreData
 import SwiftChart
 
 extension Notification.Name {
     static var updateChart = Notification.Name("updateChart")
 }
 
-class CalorieTrackerTableViewController: UITableViewController {
+class CalorieTrackerTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+    
+    lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
+        let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "created", ascending: true), NSSortDescriptor(key: "created", ascending: true)]
+        
+        let moc = CoreDataStack.shared.mainContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+        
+        frc.delegate = self
+        
+        try! frc.performFetch()
+        return frc
+    }()
 
     @IBOutlet var ChartUIView: UIView!
     
@@ -26,52 +40,55 @@ class CalorieTrackerTableViewController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateChart(notification:)), name: .updateChart, object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     @objc func updateChart(notification: Notification) {
-//        let chart = Chart(frame: CGRect(x: 0, y: 0, width: 400, height: 250))
-//        // Create a new series specifying x and y values
-//        let data = [
-//            (x: 0, y: 0),
-//            (x: 1, y: 3.1),
-//            (x: 4, y: 2),
-//            (x: 5, y: 4.2),
-//            (x: 7, y: 5),
-//            (x: 9, y: 9),
-//            (x: 10, y: 8)
-//        ]
-//        let series = ChartSeries(data: data)
-//        chart.add(series)
-//        self.ChartUIView.addSubview(chart)
+        let chart = Chart(frame: CGRect(x: 0, y: 0, width: 400, height: 250))
+        var data: [Double] = []
+        for calorie in fetchedResultsController.fetchedObjects! {
+            print(calorie)
+            data.append(Double(calorie.calories!) as! Double)
+        }
+        let series = ChartSeries(data)
+        chart.add(series)
+        self.view.subviews.forEach({ $0.removeFromSuperview() })
+        self.ChartUIView.addSubview(chart)
     }
 
     // MARK: - Table view data source
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return self.fetchedResultsController.sections?.count ?? 1
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.calorieController.calories.count
+        return self.fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
 
-        let calorie = self.calorieController.calories[indexPath.row]
+        let calorie = self.fetchedResultsController.object(at: indexPath)
         cell.textLabel?.text = "Calories: \(calorie.calories ?? "0")"
         
-        cell.detailTextLabel?.text = "\(calorie.created ?? Date())"
+        cell.detailTextLabel?.text = calorie.date
 
         return cell
     }
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            if editingStyle == .delete {
+                let calorie = self.fetchedResultsController.object(at: indexPath)
+                self.calorieController.deleteCalorie(withCalorie: calorie)
+                self.tableView.reloadData()
+            }
+        }
     }
-    */
-    
+ 
     @IBAction func AddCalorieButtonTapped(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
         alertController.addTextField { (textField : UITextField!) -> Void in
