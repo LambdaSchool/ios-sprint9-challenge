@@ -32,7 +32,6 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
     @IBOutlet var ChartUIView: UIView!
     
     let calorieController = CalorieController()
-    let chart = Chart(frame: CGRect(x: 0, y: 0, width: 400, height: 250))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,20 +39,22 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         NotificationCenter.default.addObserver(self, selector: #selector(updateChart(notification:)), name: .updateChart, object: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        NotificationCenter.default.post(name: .updateChart, object: self)
     }
     
     @objc func updateChart(notification: Notification) {
-        let chart = Chart(frame: CGRect(x: 0, y: 0, width: 400, height: 250))
+        let chart = Chart(frame: ChartUIView.frame)
         var data: [Double] = []
         for calorie in fetchedResultsController.fetchedObjects! {
-            print(calorie)
+            print(calorie.calories)
             data.append(Double(calorie.calories!) as! Double)
         }
         let series = ChartSeries(data)
+        series.area = true
         chart.add(series)
-        self.view.subviews.forEach({ $0.removeFromSuperview() })
+        self.ChartUIView.subviews.forEach({ $0.removeFromSuperview() })
         self.ChartUIView.addSubview(chart)
     }
 
@@ -86,6 +87,49 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
                 self.calorieController.deleteCalorie(withCalorie: calorie)
                 self.tableView.reloadData()
             }
+        }
+    }
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.endUpdates()
+    }
+    
+    // Sections
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
+        case .delete:
+            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
+        default:
+            break
+        }
+    }
+    
+    // Rows
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            guard let newIndexPath = newIndexPath else { return }
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        case .update:
+            guard let indexPath = indexPath else { return }
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        case .move:
+            guard let oldIndexPath = indexPath,
+                let newIndexPath = newIndexPath else { return }
+            
+            tableView.deleteRows(at: [oldIndexPath], with: .automatic)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        case .delete:
+            guard let indexPath = indexPath else { return }
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        default:
+            break
         }
     }
  
