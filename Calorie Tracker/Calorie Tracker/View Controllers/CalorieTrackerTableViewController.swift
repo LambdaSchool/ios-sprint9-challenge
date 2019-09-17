@@ -55,7 +55,7 @@ class CalorieTrackerTableViewController: UITableViewController {
         let calorie = self.calorieController.calories[indexPath.row]
         cell.textLabel?.text = "Calories: \(calorie.calories ?? "0")"
         
-        cell.detailTextLabel?.text = calorie.created
+        cell.detailTextLabel?.text = "\(calorie.created ?? Date())"
 
         return cell
     }
