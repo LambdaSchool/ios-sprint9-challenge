@@ -14,6 +14,10 @@
 		B5CB030D233525AC00CB0349 /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5CB030B233525AC00CB0349 /* CalorieTracker.xcdatamodeld */; };
 		B5CB030F233525AF00CB0349 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CB030E233525AF00CB0349 /* Assets.xcassets */; };
 		B5CB0312233525AF00CB0349 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5CB0310233525AF00CB0349 /* LaunchScreen.storyboard */; };
+		B5CB0322233530C400CB0349 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CB0321233530C400CB0349 /* CoreDataStack.swift */; };
+		B5CB03242335318500CB0349 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CB03232335318500CB0349 /* Extensions.swift */; };
+		B5CB032A233537A700CB0349 /* IntakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CB0329233537A700CB0349 /* IntakeController.swift */; };
+		B5CB032C2335442400CB0349 /* Intake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CB032B2335442400CB0349 /* Intake.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		B5CB030E233525AF00CB0349 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5CB0311233525AF00CB0349 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5CB0313233525B000CB0349 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5CB0321233530C400CB0349 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		B5CB03232335318500CB0349 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B5CB0329233537A700CB0349 /* IntakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeController.swift; sourceTree = "<group>"; };
+		B5CB032B2335442400CB0349 /* Intake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intake.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +102,7 @@
 		B5CB031A233525E000CB0349 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B5CB0329233537A700CB0349 /* IntakeController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -101,6 +110,7 @@
 		B5CB031B233525E000CB0349 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B5CB03232335318500CB0349 /* Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -143,6 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				B5CB030B233525AC00CB0349 /* CalorieTracker.xcdatamodeld */,
+				B5CB0321233530C400CB0349 /* CoreDataStack.swift */,
+				B5CB032B2335442400CB0349 /* Intake.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -267,9 +279,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5CB032A233537A700CB0349 /* IntakeController.swift in Sources */,
+				B5CB03242335318500CB0349 /* Extensions.swift in Sources */,
 				B5CB0307233525AC00CB0349 /* TrackerVC.swift in Sources */,
 				B5CB0305233525AC00CB0349 /* AppDelegate.swift in Sources */,
 				B5CB030D233525AC00CB0349 /* CalorieTracker.xcdatamodeld in Sources */,
+				B5CB0322233530C400CB0349 /* CoreDataStack.swift in Sources */,
+				B5CB032C2335442400CB0349 /* Intake.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
