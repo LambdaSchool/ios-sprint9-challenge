@@ -33,8 +33,9 @@ class ViewController: UIViewController {
         return dateFormatter
     }
     let calorieController = CalorieController()
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var chart: Chart!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var chart: Chart!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -58,7 +59,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
-        guard let calorie = fetchedResultsController.fetchedObjects?[indexPath.row] else {fatalError("no calorie load")}
+        guard let calorie = fetchedResultsController.fetchedObjects?[indexPath.row] else { fatalError("no calorie load") }
         cell.textLabel?.text = "Calorie: \(calorie.count)"
         cell.detailTextLabel?.text = "\(dateFormatter.string(from: calorie.date ?? Date()))"
         return cell
@@ -72,7 +73,11 @@ extension ViewController: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange anObject: Any,
+                    at indexPath: IndexPath?,
+                    for type: NSFetchedResultsChangeType,
+                    newIndexPath: IndexPath?) {
         switch type {
         case .insert:
             guard let newIndexPath = newIndexPath else {
