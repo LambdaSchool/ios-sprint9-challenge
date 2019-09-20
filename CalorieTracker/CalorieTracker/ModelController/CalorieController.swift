@@ -11,14 +11,11 @@ import CoreData
 
 class CalorieController {
     func createCalorie(count: Double, date: Date = Date()) {
-        let _ = Calorie(count: count, date: date)
+        _ = Calorie(count: count, date: date)
         saveToPersistence()
     }
-    
-    
-    
     func saveToPersistence() {
-        do{
+        do {
             try CoreDataStack.shared.mainContext.save()
         } catch {
             print("saving error: \(error)")
