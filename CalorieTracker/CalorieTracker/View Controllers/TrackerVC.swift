@@ -18,6 +18,8 @@ class TrackerVC: UIViewController {
 	
 	//MARK: - Properties
 	
+	let intakeController = IntakeController()
+	
 	lazy var fetchResultsController: NSFetchedResultsController<Intake> = {
 		let fetchRequest: NSFetchRequest<Intake> = Intake.fetchRequest()
 		
@@ -26,7 +28,7 @@ class TrackerVC: UIViewController {
 		
 		let fetchControl = NSFetchedResultsController(fetchRequest: fetchRequest,
 													  managedObjectContext: CoreDataStack.shared.mainContext,
-													  sectionNameKeyPath: "timestamp",
+													  sectionNameKeyPath: "user",
 													  cacheName: nil)
 		
 		fetchControl.delegate = self
@@ -45,18 +47,68 @@ class TrackerVC: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		tableView.dataSource = self
 		
+		title = "Calorie Tracker"
 	}
 	
 	//MARK: - IBActions
 	
 	@IBAction func addIntakeBtnTapped(_ sender: Any) {
+		let intakeAlert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories", preferredStyle: .alert)
+		intakeAlert.addTextField(configurationHandler: nil)
+		
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+		let submitAction = UIAlertAction(title: "Submit", style: .default) { (_) in
+			guard let calories = self.readCaloriesfrom(textfield: intakeAlert.textFields?.first) else { return }
+			self.intakeController.createIntake(calories: calories) {
+				DispatchQueue.main.async {
+					self.tableView.reloadData()
+				}
+			}
+		}
+		
+		intakeAlert.addAction(cancelAction)
+		intakeAlert.addAction(submitAction)
+		present(intakeAlert, animated: true, completion: nil)
 	}
 	
 	//MARK: - Helpers
 	
+	private func readCaloriesfrom(textfield: UITextField?) -> Double? {
+		guard let input = textfield?.optionalText else { return nil }
+		if let calories = Double(input), calories >= 0 {
+			return calories
+		}
+		
+		return nil
+	}
+}
+
+//MARK: - TableView Datasource
+
+extension TrackerVC: UITableViewDataSource {
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return fetchResultsController.sections?.count ?? 0
+	}
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return fetchResultsController.sections?[section].numberOfObjects ?? 0
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "IntakeCell", for: indexPath)
+		let intake = fetchResultsController.object(at: indexPath)
+		
+		cell.textLabel?.text = "Calories: \(Int(intake.calories))"
+		cell.detailTextLabel?.text = "\(intake.timestamp!)"
+		
+		return cell
+	}
+	
 	
 }
+
+//MARK: - Fetched Results Delegate
 
 extension TrackerVC:  NSFetchedResultsControllerDelegate {
 	func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

@@ -6,8 +6,15 @@
 //  Copyright © 2019 Lambda. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension String {
 	static let calorieTrackerKey = "CalorieTracker"
+}
+
+extension UITextField {
+	var optionalText: String? {
+		let trimmedText = self.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+		return (trimmedText ?? "").isEmpty ? nil : trimmedText
+	}
 }

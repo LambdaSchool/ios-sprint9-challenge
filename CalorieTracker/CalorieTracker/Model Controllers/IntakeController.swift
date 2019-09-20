@@ -12,12 +12,13 @@ class IntakeController {
 	
 	//MARK: - Create
 	
-	func createIntake(calories: Double) {
+	func createIntake(calories: Double, completion: @escaping () -> Void) {
 		CoreDataStack.shared.mainContext.performAndWait {
 			let newIntake = Intake(calories: calories)
 			
 			do {
 				try CoreDataStack.shared.save()
+				print("Intake Saved!")
 			} catch {
 				NSLog("Error saving context when creating a new task")
 			}
