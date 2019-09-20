@@ -17,7 +17,8 @@
 		75D2E0EF2335330600A345B6 /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D2E0EE2335330600A345B6 /* CalorieController.swift */; };
 		75D2E0F22335336B00A345B6 /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D2E0F12335336B00A345B6 /* Calorie+Convenience.swift */; };
 		75D2E0F423353C3A00A345B6 /* NSNotification+key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D2E0F323353C3A00A345B6 /* NSNotification+key.swift */; };
-		75D2E0F723353FB500A345B6 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 75D2E0F623353FB500A345B6 /* .swiftlint.yml */; };
+		75D2E0FA2335812100A345B6 /* autocorrect.yml in Resources */ = {isa = PBXBuildFile; fileRef = 75D2E0F82335812000A345B6 /* autocorrect.yml */; };
+		75D2E0FF2335820600A345B6 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 75D2E0FE2335820600A345B6 /* .swiftlint.yml */; };
 		ABB9243C7255A7D4F1A7251E /* Pods_CalorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8712DB35B8038D08B6CC52AF /* Pods_CalorieTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +36,8 @@
 		75D2E0EE2335330600A345B6 /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
 		75D2E0F12335336B00A345B6 /* Calorie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience.swift"; sourceTree = "<group>"; };
 		75D2E0F323353C3A00A345B6 /* NSNotification+key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification+key.swift"; sourceTree = "<group>"; };
-		75D2E0F623353FB500A345B6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		75D2E0F82335812000A345B6 /* autocorrect.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = autocorrect.yml; sourceTree = "<group>"; };
+		75D2E0FE2335820600A345B6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		8712DB35B8038D08B6CC52AF /* Pods_CalorieTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F381D6F2654C0B2EA5148A92 /* Pods-CalorieTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.release.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,7 +65,8 @@
 		759C652F23352B6400B3B000 = {
 			isa = PBXGroup;
 			children = (
-				75D2E0F623353FB500A345B6 /* .swiftlint.yml */,
+				75D2E0FE2335820600A345B6 /* .swiftlint.yml */,
+				75D2E0F82335812000A345B6 /* autocorrect.yml */,
 				759C653A23352B6400B3B000 /* CalorieTracker */,
 				759C653923352B6400B3B000 /* Products */,
 				A65A497C89B9004C9DC87961 /* Pods */,
@@ -183,9 +186,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75D2E0F723353FB500A345B6 /* .swiftlint.yml in Resources */,
+				75D2E0FF2335820600A345B6 /* .swiftlint.yml in Resources */,
 				759C654923352B6600B3B000 /* LaunchScreen.storyboard in Resources */,
 				759C654623352B6600B3B000 /* Assets.xcassets in Resources */,
+				75D2E0FA2335812100A345B6 /* autocorrect.yml in Resources */,
 				759C654123352B6400B3B000 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
