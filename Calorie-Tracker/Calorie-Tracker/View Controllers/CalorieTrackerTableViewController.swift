@@ -11,6 +11,8 @@ import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController {
 
+	var addedCalorieEntries: [CalorieEntry] = []
+
 	@IBOutlet weak var chartView: UIView!
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,11 @@ class CalorieTrackerTableViewController: UITableViewController {
 		[saveAction, canceAction].forEach { alertAddCalories.addAction($0)}
 		present(alertAddCalories, animated: true, completion: nil)
 
+	}
+
+	private func sortedCalories() -> [CalorieEntry] {
+		let sortedCalories = addedCalorieEntries.sorted { $0.dateAdded > $1.dateAdded }
+		return sortedCalories
 	}
 
 	// MARK: - Table view data source
