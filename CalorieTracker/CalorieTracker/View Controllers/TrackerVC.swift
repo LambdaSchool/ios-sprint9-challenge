@@ -35,7 +35,7 @@ class TrackerVC: UIViewController {
 		
 		let fetchControl = NSFetchedResultsController(fetchRequest: fetchRequest,
 													  managedObjectContext: CoreDataStack.shared.mainContext,
-													  sectionNameKeyPath: nil,
+													  sectionNameKeyPath: "user",
 													  cacheName: nil)
 		
 		fetchControl.delegate = self
@@ -125,6 +125,11 @@ extension TrackerVC: UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return fetchResultsController.sections?.count ?? 0
 	}
+	
+	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		return fetchResultsController.sections?[section].name
+	}
+	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return fetchResultsController.sections?[section].numberOfObjects ?? 0
 	}

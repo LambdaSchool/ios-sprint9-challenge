@@ -36,6 +36,7 @@
 		B5CB03232335318500CB0349 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B5CB0329233537A700CB0349 /* IntakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeController.swift; sourceTree = "<group>"; };
 		B5CB032B2335442400CB0349 /* Intake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intake.swift; sourceTree = "<group>"; };
+		B5CB032E23358E8600CB0349 /* CalorieTracker 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CalorieTracker 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -511,9 +512,10 @@
 		B5CB030B233525AC00CB0349 /* CalorieTracker.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				B5CB032E23358E8600CB0349 /* CalorieTracker 2.xcdatamodel */,
 				B5CB030C233525AC00CB0349 /* CalorieTracker.xcdatamodel */,
 			);
-			currentVersion = B5CB030C233525AC00CB0349 /* CalorieTracker.xcdatamodel */;
+			currentVersion = B5CB032E23358E8600CB0349 /* CalorieTracker 2.xcdatamodel */;
 			path = CalorieTracker.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
