@@ -44,6 +44,8 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         
         loadChart()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(loadChart), name: .newCaloriesAdded, object: nil)
         // Do any additional setup after loading the view.
     }
 
@@ -123,7 +125,7 @@ extension ViewController {
             guard let calorieCountInt = Double(alertController.textFields?[0].text ?? "") else { return }
             calorieCount = calorieCountInt
             self.calorieController.createCalorie(count: calorieCount)
-            //NotificationCenter.default.post(Notification(name: .newCaloriesAdded))
+            NotificationCenter.default.post(Notification(name: .newCaloriesAdded))
         }
         let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
         
@@ -136,7 +138,7 @@ extension ViewController {
 }
 
 extension ViewController {
-    func loadChart() {
+    @objc func loadChart() {
         
         let calories = fetchedResultsController.fetchedObjects ?? []
         var calorieCounts : [Double] = []
