@@ -12,7 +12,7 @@ import CoreData
 class CalorieController {
 
 	private func sendCalorieHasBeenAddedNotification() {
-		let notification = Notification.init(name: .calorieHasBeenAdded)
+		let notification = Notification(name: .calorieHasBeenAdded)
 		NotificationCenter.default.post(notification)
 	}
 

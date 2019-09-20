@@ -48,8 +48,7 @@ class CalorieTrackerTableViewController: UITableViewController {
         super.viewDidLoad()
 		tableView.tableFooterView = UIView()
 
-		NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(notification:)),
-											   name: .calorieHasBeenAdded, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(notification:)), name: .calorieHasBeenAdded, object: nil)
 		addSeriesToChart()
     }
 
@@ -65,6 +64,7 @@ class CalorieTrackerTableViewController: UITableViewController {
 		let saveAction = UIAlertAction(title: "Add", style: .default) { _ in
 			guard let amount = alertAddCalories.textFields?.first?.text else { return }
 			self.calorieController.createCalorieEntry(amount: amount)
+			self.addSeriesToChart()
 		}
 		
 		let canceAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -116,6 +116,7 @@ class CalorieTrackerTableViewController: UITableViewController {
         if editingStyle == .delete {
             let calorieEntry = fetchedResultsController.object(at: indexPath)
             calorieController.deleteCalorieEntry(calorieEntry: calorieEntry)
+			addSeriesToChart()
         }
     }
 }
@@ -129,8 +130,10 @@ extension CalorieTrackerTableViewController: NSFetchedResultsControllerDelegate 
 		tableView.endUpdates()
 	}
 
-	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
-					didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange sectionInfo: NSFetchedResultsSectionInfo,
+                    atSectionIndex sectionIndex: Int,
+                    for type: NSFetchedResultsChangeType) {
 
 		let sectionIndexSet = IndexSet(integer: sectionIndex)
 
@@ -144,7 +147,11 @@ extension CalorieTrackerTableViewController: NSFetchedResultsControllerDelegate 
 		}
 	}
 
-	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange anObject: Any,
+                    at indexPath: IndexPath?,
+                    for type: NSFetchedResultsChangeType,
+                    newIndexPath: IndexPath?) {
 
 		switch type {
 		case .delete:
@@ -161,7 +168,7 @@ extension CalorieTrackerTableViewController: NSFetchedResultsControllerDelegate 
 			guard let indexPath = indexPath else { return }
 			tableView.reloadRows(at: [indexPath], with: .automatic)
 		default:
-			fatalError()
+			fatalError("Did not exhaust `type` options")
 		}
 	}
 }
