@@ -13,7 +13,7 @@ class CoreDataStack {
 	static let shared = CoreDataStack()
 	
 	lazy var container: NSPersistentContainer = {
-		let container = NSPersistentContainer(name: .calorieTrackerKey)
+		let container = NSPersistentContainer(name: .calorieTrackerModel)
 		
 		container.viewContext.automaticallyMergesChangesFromParent = true
 		container.loadPersistentStores(completionHandler: { (_, error) in

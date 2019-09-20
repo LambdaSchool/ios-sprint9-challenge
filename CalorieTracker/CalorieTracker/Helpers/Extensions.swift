@@ -9,7 +9,11 @@
 import UIKit
 
 extension String {
-	static let calorieTrackerKey = "CalorieTracker"
+	static let calorieTrackerModel = "CalorieTracker"
+}
+
+extension Notification.Name {
+	static let intakesFetched = Notification.Name("IntakesFetched")
 }
 
 extension UITextField {

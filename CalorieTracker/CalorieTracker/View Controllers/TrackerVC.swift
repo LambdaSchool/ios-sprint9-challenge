@@ -50,6 +50,12 @@ class TrackerVC: UIViewController {
 		tableView.dataSource = self
 		
 		title = "Calorie Tracker"
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(notification:)), name: .intakesFetched, object: nil)
+	}
+	
+	deinit {
+		NotificationCenter.default.removeObserver(self, name: .intakesFetched, object: nil)
 	}
 	
 	//MARK: - IBActions
@@ -61,11 +67,7 @@ class TrackerVC: UIViewController {
 		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
 		let submitAction = UIAlertAction(title: "Submit", style: .default) { (_) in
 			guard let calories = self.readCaloriesfrom(textfield: intakeAlert.textFields?.first) else { return }
-			self.intakeController.createIntake(calories: calories) {
-				DispatchQueue.main.async {
-					self.tableView.reloadData()
-				}
-			}
+			self.intakeController.createIntake(calories: calories)
 		}
 		
 		intakeAlert.addAction(cancelAction)
@@ -82,6 +84,10 @@ class TrackerVC: UIViewController {
 		}
 		
 		return nil
+	}
+	
+	@objc func refreshViews(notification: Notification) {
+		tableView.reloadData()
 	}
 }
 
