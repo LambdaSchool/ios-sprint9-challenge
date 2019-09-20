@@ -7,105 +7,161 @@
 //
 
 import UIKit
+import CoreData
 import SwiftChart
+
+var dateFormatter: DateFormatter = {
+	let formatter = DateFormatter()
+	formatter.dateStyle = .long
+	formatter.timeStyle = .short
+	return formatter
+}()
 
 class CalorieTrackerTableViewController: UITableViewController {
 
-	var addedCalorieEntries: [CalorieEntry] = []
+	// MARK: - Properties & Outlets
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .lightContent
+	}
 
-	@IBOutlet weak var chartView: UIView!
+	let calorieController = CalorieController()
+
+	lazy var fetchedResultsController: NSFetchedResultsController<CalorieEntry> = {
+		let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
+		let dateDescriptor = NSSortDescriptor(key: "dateAdded", ascending: false)
+		fetchRequest.sortDescriptors = [dateDescriptor]
+		let moc = CoreDataStack.shared.mainContext
+		let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+		frc.delegate = self
+		do {
+			try frc.performFetch()
+		} catch {
+			fatalError("Error performing fetch for frc: \(error)")
+		}
+		return frc
+	}()
+
+	@IBOutlet private weak var chartView: Chart!
+
+	// MARK: - Lifecycle
 	override func viewDidLoad() {
         super.viewDidLoad()
+		tableView.tableFooterView = UIView()
 
+		NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(notification:)),
+											   name: .calorieHasBeenAdded, object: nil)
+		addSeriesToChart()
     }
 
+
+	// MARK: - IBActions
 	@IBAction func addCaloriesButtonTapped(_ sender: UIBarButtonItem) {
-		let alertAddCalories = UIAlertController(title: "Add Calorie Intake",
-												 message: "Enter the amount of calories in the field below",
-												 preferredStyle: .alert)
-		alertAddCalories.addTextField { (calorieTextField) in
+		let alertAddCalories = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field below", preferredStyle: .alert)
+		alertAddCalories.addTextField { calorieTextField in
 			calorieTextField.placeholder = "Calorie Amount"
 			calorieTextField.keyboardType = .numberPad
 		}
 
-		let saveAction = UIAlertAction(title: "Add", style: .default) { (_) in
+		let saveAction = UIAlertAction(title: "Add", style: .default) { _ in
+			guard let amount = alertAddCalories.textFields?.first?.text else { return }
+			self.calorieController.createCalorieEntry(amount: amount)
+		}
+		
+		let canceAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+		[saveAction, canceAction].forEach { alertAddCalories.addAction($0) }
+		present(alertAddCalories, animated: true, completion: nil)
+	}
 
+
+	// MARK: - Helper Methods
+	func addSeriesToChart() {
+		var calorieAmounts: [Double] = []
+
+		for entry in calorieController.loadFromPersistentStore() {
+			calorieAmounts.append(Double(entry.amount))
 		}
 
-		let canceAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-		[saveAction, canceAction].forEach { alertAddCalories.addAction($0)}
-		present(alertAddCalories, animated: true, completion: nil)
-
+		let series = ChartSeries(calorieAmounts)
+		chartView.add(series)
 	}
 
-	private func sortedCalories() -> [CalorieEntry] {
-		let sortedCalories = addedCalorieEntries.sorted { $0.dateAdded > $1.dateAdded }
-		return sortedCalories
+	@objc func refreshViews(notification: Notification) {
+		self.tableView.reloadData()
 	}
+
 
 	// MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-
-        return 1
+        return fetchedResultsController.sections?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CaloriesCell", for: indexPath)
 
-        // Configure the cell...
+		let calorieEntry = fetchedResultsController.object(at: indexPath)
+		guard let date = calorieEntry.dateAdded else { return UITableViewCell() }
+
+		cell.textLabel?.text = "\(calorieEntry.amount)"
+		cell.detailTextLabel?.text = dateFormatter.string(from: date)
 
         return cell
     }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            let calorieEntry = fetchedResultsController.object(at: indexPath)
+            calorieController.deleteCalorieEntry(calorieEntry: calorieEntry)
+        }
     }
-    */
+}
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+extension CalorieTrackerTableViewController: NSFetchedResultsControllerDelegate {
+	func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+		tableView.beginUpdates()
+	}
 
-    }
-    */
+	func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+		tableView.endUpdates()
+	}
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
+	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+					didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
 
-    /*
-    // MARK: - Navigation
+		let sectionIndexSet = IndexSet(integer: sectionIndex)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+		switch type {
+		case .insert:
+			tableView.insertSections(sectionIndexSet, with: .automatic)
+		case .delete:
+			tableView.deleteSections(sectionIndexSet, with: .automatic)
+		default:
+			break
+		}
+	}
 
+	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+
+		switch type {
+		case .delete:
+			guard let indexPath = indexPath else { return }
+			tableView.deleteRows(at: [indexPath], with: .fade)
+		case .insert:
+			guard let indexPath = indexPath else { return }
+			tableView.insertRows(at: [indexPath], with: .fade)
+		case .move:
+			guard let indexPath = indexPath,
+			 	let newIndexPath = newIndexPath else { return }
+			tableView.moveRow(at: indexPath, to: newIndexPath)
+		case .update:
+			guard let indexPath = indexPath else { return }
+			tableView.reloadRows(at: [indexPath], with: .automatic)
+		default:
+			fatalError()
+		}
+	}
 }

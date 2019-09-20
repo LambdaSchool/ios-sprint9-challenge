@@ -12,11 +12,12 @@ import CoreData
 class CoreDataStack {
 
 	private init() {}
+
 	static let shared = CoreDataStack()
 
 	lazy var container: NSPersistentContainer = {
-		let container = NSPersistentContainer(name: "CalorieEntry")
-		container.loadPersistentStores(completionHandler: { (_, error) in
+		let container = NSPersistentContainer(name: "CalorieTracker")
+		container.loadPersistentStores(completionHandler: { _, error in
 			if let error = error {
 				fatalError("Failed to load persistent store(s): \(error)")
 			}

@@ -17,14 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="ODF-JA-cKy">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="186"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="ODF-JA-cKy" customClass="Chart" customModule="SwiftChart">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CaloriesCell" textLabel="xjn-mm-LPK" detailTextLabel="Uhj-Qe-Zih" style="IBUITableViewCellStyleSubtitle" id="8PJ-Jr-TFV">
-                                <rect key="frame" x="0.0" y="214" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="208" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8PJ-Jr-TFV" id="FuD-hS-AtB">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
@@ -78,6 +78,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.76162312733917803" green="1" blue="0.42613419057160862" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.30926127976182405" green="0.14928475778943451" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.76162312730000004" green="1" blue="0.42613419060000002" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" red="0.76162312730000004" green="1" blue="0.42613419060000002" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
