@@ -92,7 +92,7 @@ class CalorieTrackerTableViewController: UITableViewController {
 
 	// MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return fetchedResultsController.sections?.count ?? 0
+        return fetchedResultsController.sections?.count ?? 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -151,8 +151,8 @@ extension CalorieTrackerTableViewController: NSFetchedResultsControllerDelegate 
 			guard let indexPath = indexPath else { return }
 			tableView.deleteRows(at: [indexPath], with: .fade)
 		case .insert:
-			guard let indexPath = indexPath else { return }
-			tableView.insertRows(at: [indexPath], with: .fade)
+			guard let newIndexPath = newIndexPath else { return }
+			tableView.insertRows(at: [newIndexPath], with: .fade)
 		case .move:
 			guard let indexPath = indexPath,
 			 	let newIndexPath = newIndexPath else { return }
