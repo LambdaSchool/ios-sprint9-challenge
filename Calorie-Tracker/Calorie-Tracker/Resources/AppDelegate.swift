@@ -5,6 +5,7 @@
 //  Created by Marlon Raskin on 9/20/19.
 //  Copyright © 2019 Marlon Raskin. All rights reserved.
 //
+// swiftlint:disable line_length
 
 import UIKit
 
@@ -12,7 +13,6 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
@@ -41,6 +41,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 	}
 
-
 }
-
