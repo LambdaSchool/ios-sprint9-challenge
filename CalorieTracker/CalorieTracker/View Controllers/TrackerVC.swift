@@ -20,6 +20,7 @@ class TrackerVC: UIViewController {
 	// MARK: - Properties
 	
 	let intakeController = IntakeController()
+	var sectionColors = [UIColor]()
 	var dateFormatter: DateFormatter {
 		let formatter = DateFormatter()
 		formatter.dateStyle = .medium
@@ -55,6 +56,7 @@ class TrackerVC: UIViewController {
 		super.viewDidLoad()
 		
 		tableView.dataSource = self
+		tableView.delegate = self
 		
 		title = "Calorie Tracker"
 		
@@ -102,15 +104,26 @@ class TrackerVC: UIViewController {
 	}
 	
 	private func updateGraph() {
-		var data = [0.0]
-		fetchResultsController.fetchedObjects?.reversed().forEach({ intake in
-			data.append(intake.calories)
-		})
-		let series = ChartSeries(data)
-		series.area = true
+		var seriesOfSeries = [ChartSeries]()
+		var tempColors = [UIColor]()
 		
+		fetchResultsController.sections?.forEach({ section in
+			var data = [0.0]
+			section.objects?.reversed().forEach({ object in
+				guard let intake = object as? Intake else { return }
+				data.append(intake.calories)
+			})
+			let series = ChartSeries(data)
+			let lineColor = UIColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1)
+			series.color = lineColor
+			tempColors.append(lineColor)
+			
+			seriesOfSeries.append(series)
+		})
+		
+		sectionColors = tempColors
 		graphView.removeAllSeries()
-		graphView.add(series)
+		graphView.add(seriesOfSeries)
 	}
 	
 	@objc func refreshViews(notification: Notification) {
@@ -121,13 +134,18 @@ class TrackerVC: UIViewController {
 
 // MARK: - TableView Datasource
 
-extension TrackerVC: UITableViewDataSource {
+extension TrackerVC: UITableViewDataSource, UITableViewDelegate {
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return fetchResultsController.sections?.count ?? 0
 	}
 	
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		return fetchResultsController.sections?[section].name
+		let section = fetchResultsController.sections?[section]
+		let intakes = section?.objects as? [Intake]
+		if let section = section, let calories = intakes?.compactMap({ $0.calories }).reduce(0, +) {
+			return "\(section.name) ~ \(Int(calories))"
+		}
+		return section?.name
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -144,7 +162,11 @@ extension TrackerVC: UITableViewDataSource {
 		return cell
 	}
 	
-	
+	func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+		let header = view as? UITableViewHeaderFooterView
+		header?.tintColor = sectionColors[section]
+		header?.textLabel?.textColor = UIColor.white
+	}
 }
 
 // MARK: - Fetched Results Delegate
