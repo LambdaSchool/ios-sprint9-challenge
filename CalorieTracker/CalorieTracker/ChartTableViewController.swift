@@ -33,7 +33,19 @@ class ChartTableViewController: UITableViewController {
 
     @IBAction func addCalorieIntakeTapped(_ sender: UIBarButtonItem) {
         
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+        alert.addTextField { (textfield) in
+            textfield.placeholder = "Calories"
+        }
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { (submitAction) in
+            
+        }
         
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(submitAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
