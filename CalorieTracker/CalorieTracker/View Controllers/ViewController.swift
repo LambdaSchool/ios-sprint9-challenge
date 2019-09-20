@@ -10,13 +10,13 @@ import UIKit
 
 class TrackerVC: UIViewController {
 
-	//MARK: - IBOutlets
+	// MARK: - IBOutlets
 	
 	
-	//MARK: - Properties
+	// MARK: - Properties
 	
 	
-	//MARK: - Life Cycle
+	// MARK: - Life Cycle
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -24,11 +24,10 @@ class TrackerVC: UIViewController {
 		
 	}
 	
-	//MARK: - IBActions
+	// MARK: - IBActions
 	
 	
-	//MARK: - Helpers
+	// MARK: - Helpers
 	
 	
 }
-

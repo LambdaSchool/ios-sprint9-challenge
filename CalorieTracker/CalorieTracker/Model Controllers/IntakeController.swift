@@ -10,11 +10,11 @@ import Foundation
 
 class IntakeController {
 	
-	//MARK: - Create
+	// MARK: - Create
 	
 	func createIntake(calories: Double) {
 		CoreDataStack.shared.mainContext.performAndWait {
-			let _ = Intake(calories: calories)
+			_ = Intake(calories: calories)
 			
 			do {
 				try CoreDataStack.shared.save()
@@ -31,13 +31,13 @@ class IntakeController {
 		NotificationCenter.default.post(notification)
 	}
 	
-	//MARK: - Read
+	// MARK: - Read
 	
 	
-	//MARK: - Update
+	// MARK: - Update
 	
 	
-	//MARK: - Delete
+	// MARK: - Delete
 	
 	
 }

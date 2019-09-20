@@ -12,12 +12,12 @@ import SwiftChart
 
 class TrackerVC: UIViewController {
 
-	//MARK: - IBOutlets
+	// MARK: - IBOutlets
 	
-	@IBOutlet weak var graphView: Chart!
-	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet private weak var graphView: Chart!
+	@IBOutlet private weak var tableView: UITableView!
 	
-	//MARK: - Properties
+	// MARK: - Properties
 	
 	let intakeController = IntakeController()
 	
@@ -43,7 +43,7 @@ class TrackerVC: UIViewController {
 		return fetchControl
 	}()
 	
-	//MARK: - Life Cycle
+	// MARK: - Life Cycle
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -52,7 +52,9 @@ class TrackerVC: UIViewController {
 		
 		title = "Calorie Tracker"
 		
-		NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(notification:)), name: .intakesFetched, object: nil)
+		NotificationCenter.default.addObserver(self,
+											   selector: #selector(refreshViews(notification:)),
+											   name: .intakesFetched, object: nil)
 		updateGraph()
 	}
 	
@@ -60,14 +62,14 @@ class TrackerVC: UIViewController {
 		NotificationCenter.default.removeObserver(self, name: .intakesFetched, object: nil)
 	}
 	
-	//MARK: - IBActions
+	// MARK: - IBActions
 	
 	@IBAction func addIntakeBtnTapped(_ sender: Any) {
 		let intakeAlert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories", preferredStyle: .alert)
 		intakeAlert.addTextField(configurationHandler: nil)
 		
 		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-		let submitAction = UIAlertAction(title: "Submit", style: .default) { (_) in
+		let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
 			guard let calories = self.readCaloriesfrom(textfield: intakeAlert.textFields?.first) else { return }
 			self.intakeController.createIntake(calories: calories)
 		}
@@ -77,7 +79,7 @@ class TrackerVC: UIViewController {
 		present(intakeAlert, animated: true, completion: nil)
 	}
 	
-	//MARK: - Helpers
+	// MARK: - Helpers
 	
 	private func readCaloriesfrom(textfield: UITextField?) -> Double? {
 		guard let input = textfield?.optionalText else { return nil }
@@ -90,7 +92,7 @@ class TrackerVC: UIViewController {
 	
 	private func updateGraph() {
 		var data = [0.0]
-		fetchResultsController.fetchedObjects?.reversed().forEach({ (intake) in
+		fetchResultsController.fetchedObjects?.reversed().forEach({ intake in
 			data.append(intake.calories)
 		})
 		let series = ChartSeries(data)
@@ -106,7 +108,7 @@ class TrackerVC: UIViewController {
 	}
 }
 
-//MARK: - TableView Datasource
+// MARK: - TableView Datasource
 
 extension TrackerVC: UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
@@ -129,9 +131,9 @@ extension TrackerVC: UITableViewDataSource {
 	
 }
 
-//MARK: - Fetched Results Delegate
+// MARK: - Fetched Results Delegate
 
-extension TrackerVC:  NSFetchedResultsControllerDelegate {
+extension TrackerVC: NSFetchedResultsControllerDelegate {
 	func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 		tableView.beginUpdates()
 	}
@@ -155,10 +157,11 @@ extension TrackerVC:  NSFetchedResultsControllerDelegate {
 			guard let indexPath = indexPath else { return }
 			tableView.reloadRows(at: [indexPath], with: .automatic)
 		@unknown default:
-			fatalError()
+			fatalError("FetchedResulController bugged out")
 		}
 	}
 	
+	// swiftlint:disable:next line_length
 	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
 		let sectionIndexSet = IndexSet(integer: sectionIndex)
 		switch type {
