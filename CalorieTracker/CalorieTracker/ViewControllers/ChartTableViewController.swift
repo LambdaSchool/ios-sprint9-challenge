@@ -59,7 +59,8 @@ class ChartTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CaloriesCell", for: indexPath) as? CaloriesTableViewCell else {return UITableViewCell()}
-        let userCalories = fetchedRC.object(at: indexPath)
+        let user = fetchedRC.object(at: indexPath)
+        cell.user = user
         return cell
     }
     

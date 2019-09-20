@@ -19,7 +19,11 @@ class CaloriesTableViewCell: UITableViewCell {
     }
     
     func updateViews() {
-        
+        caloriesLabel.text = user?.calories
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM-d, h:mm-a"
+        guard let date = user?.timestamp else {return}
+        dateAndTimeLabel.text = dateFormatter.string(from: date)
     }
     
     
