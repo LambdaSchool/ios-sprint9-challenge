@@ -28,13 +28,17 @@ class ChartTableViewController: UITableViewController {
         }
         return frc
     }()
+    
+    var chart: Chart?
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
         chartSetup()
-
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshChart(notification:)), name: .calorieEntryCreated, object: nil)
     }
     @IBAction func addCalorieIntakeTapped(_ sender: UIBarButtonItem) {
-        addCaloriesAlertViewSetup()
+        alertViewSetup()
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -53,35 +57,46 @@ class ChartTableViewController: UITableViewController {
         cell.user = user
         return cell
     }
-    
     private func caloriesEntryCreatedNotificationPost() {NotificationCenter.default.post(.init(name: .calorieEntryCreated))}
     
-    private func addCaloriesAlertViewSetup() {
+    private func alertViewSetup() {
+        //create ui alert
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+        //add a textfield
         alert.addTextField { (textfield) in
             textfield.placeholder = "Calories"}
+        //add a submit action to the alert controller with a closure to do the following:
+        //1) Add calories to the user in core data
+        //2) Post a notification to the Notification Center, so an updated chart can be made
+        //3) Reload the tableview
         let submitAction = UIAlertAction(title: "Submit", style: .default) { (submitAction) in
             let textField = alert.textFields![0]
-            guard  let calories = textField.text else {return}
-        self.calorieController.addCaloriesToUser(calories: calories, timeStamp: Date())
-            self.tableView.reloadData()}
+            guard  let caloriesString = textField.text,
+                let calories = Double(caloriesString) else {return}
+            let time = Date()
+            self.calorieController.addCaloriesToUser(calories: calories, timeStamp: time)
+            self.caloriesEntryCreatedNotificationPost()}
+        //Cancel action
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(submitAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
     
-    @objc func chartSetup(calories: String, dateAndTime: Date) {
-        let chart = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-       //turn the calories and date and time into appropriate formats for the data
-        //make sure it increases may need another func where the tuple is created and appended.
-        let data = [
-            (x: 0, y: 0)
-        
-        
-        ]
-        let series = ChartSeries(data: data)
-        
+    @objc func refreshChart(notification: Notification) {
+        chartSetup()
+    }
+     func chartSetup() {
+        chart?.removeFromSuperview()
+         chart = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+         guard let chart = chart else {return}
+        guard let calorieEntries = fetchedRC.fetchedObjects else {return}
+         var data: [Double] = []
+        for calorieEntry in calorieEntries {
+            let calories = calorieEntry.calories
+            data.append(calories)
+        }
+        let series = ChartSeries(data)
         chart.add(series)
         chartView.addSubview(chart)
         chart.translatesAutoresizingMaskIntoConstraints = false
@@ -91,10 +106,7 @@ class ChartTableViewController: UITableViewController {
         let bottomConstraint = chart.bottomAnchor.constraint(equalTo: chartView.bottomAnchor, constant: 5)
         NSLayoutConstraint.activate([topConstraint, leadingConstraint, trailingConstraint, bottomConstraint])
     }
-    
 }
 
 extension ChartTableViewController: NSFetchedResultsControllerDelegate {
-    
-    
 }

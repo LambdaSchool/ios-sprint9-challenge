@@ -21,13 +21,13 @@ class CalorieController {
         }
     }
     
-    func addCaloriesToUser(calories: String, timeStamp: Date) {
+    func addCaloriesToUser(calories: Double, timeStamp: Date) {
         
         var dietLevel: String?
-        guard let intCalories = Int(calories) else {return}
-        if intCalories >= 3000 {
+        
+        if calories >= 3000 {
             dietLevel = "Danger Zone"
-        } else if intCalories < 3000 && intCalories >= 1500 {
+        } else if calories < 3000 && calories >= 1500 {
             dietLevel = "Sweet Spot"
         } else {
             dietLevel = "Calorie Intake Too Low"
