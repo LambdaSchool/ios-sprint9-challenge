@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class ViewController: UIViewController {
     
@@ -33,12 +34,16 @@ class ViewController: UIViewController {
     
     let calorieController = CalorieController()
     
+    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var chart: Chart!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        loadChart()
         // Do any additional setup after loading the view.
     }
 
@@ -118,6 +123,7 @@ extension ViewController {
             guard let calorieCountInt = Double(alertController.textFields?[0].text ?? "") else { return }
             calorieCount = calorieCountInt
             self.calorieController.createCalorie(count: calorieCount)
+            //NotificationCenter.default.post(Notification(name: .newCaloriesAdded))
         }
         let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
         
@@ -126,5 +132,19 @@ extension ViewController {
         
         self.present(alertController, animated: true)
         
+    }
+}
+
+extension ViewController {
+    func loadChart() {
+        
+        let calories = fetchedResultsController.fetchedObjects ?? []
+        var calorieCounts : [Double] = []
+        for calorie in calories {
+            calorieCounts.append(calorie.count)
+        }
+        let series = ChartSeries(calorieCounts.reversed())
+        series.color = ChartColors.greenColor()
+        chart.add(series)
     }
 }
