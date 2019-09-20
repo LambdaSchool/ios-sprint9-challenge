@@ -18,6 +18,7 @@
 		EF040DA82335409F004C5B78 /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF040DA72335409F004C5B78 /* CalorieController.swift */; };
 		EF040DAC233540CB004C5B78 /* User.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF040DAA233540CB004C5B78 /* User.xcdatamodeld */; };
 		EF040DAE23354355004C5B78 /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF040DAD23354355004C5B78 /* User+Convenience.swift */; };
+		EF040DB023355AA0004C5B78 /* NSNotification+CalorieEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF040DAF23355AA0004C5B78 /* NSNotification+CalorieEntry.swift */; };
 		F2E287BA004D38C803612B32 /* Pods_CalorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2582C997EA2894856875D967 /* Pods_CalorieTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		EF040DA72335409F004C5B78 /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
 		EF040DAB233540CB004C5B78 /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
 		EF040DAD23354355004C5B78 /* User+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Convenience.swift"; sourceTree = "<group>"; };
+		EF040DAF23355AA0004C5B78 /* NSNotification+CalorieEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification+CalorieEntry.swift"; sourceTree = "<group>"; };
 		F9293FB3CF2B37DFF608B14E /* Pods-CalorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.debug.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				EF040D83233524EB004C5B78 /* AppDelegate.swift */,
+				EF040DAF23355AA0004C5B78 /* NSNotification+CalorieEntry.swift */,
 				EF040DA9233540AB004C5B78 /* ModelController */,
 				EF040DA62335408A004C5B78 /* Models */,
 				EF040D87233524EB004C5B78 /* Main.storyboard */,
@@ -272,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF040DB023355AA0004C5B78 /* NSNotification+CalorieEntry.swift in Sources */,
 				EF040DAC233540CB004C5B78 /* User.xcdatamodeld in Sources */,
 				EF040DA123353FE0004C5B78 /* CaloriesTableViewCell.swift in Sources */,
 				EF040D9F233537F0004C5B78 /* ChartTableViewController.swift in Sources */,

@@ -5,6 +5,7 @@ disabled_rules:
 - control_statement
 - line_length
 - identifier_name
+
 excluded:
 - Carthage
 - Pods

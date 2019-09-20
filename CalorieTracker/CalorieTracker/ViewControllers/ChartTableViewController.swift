@@ -13,34 +13,26 @@ import CoreData
 class ChartTableViewController: UITableViewController {
 
     @IBOutlet var chartView: UIView!
-    
     let calorieController = CalorieController()
-    
     lazy var fetchedRC: NSFetchedResultsController<User> = {
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
-        let moodSortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "dietLevel", ascending: true)
+        let moodSortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "dietLevel", ascending:  false)
         fetchRequest.sortDescriptors = [moodSortDescriptor]
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "dietLevel", cacheName: nil)
         frc.delegate = self
         do {
             try frc.performFetch()
-        }catch {
+        } catch {
             fatalError()
         }
         return frc
     }()
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         chartSetup()
 
     }
-    
-    
     @IBAction func addCalorieIntakeTapped(_ sender: UIBarButtonItem) {
         addCaloriesAlertViewSetup()
     }
@@ -48,15 +40,12 @@ class ChartTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
          return fetchedRC.sections?[section].name.capitalized
     }
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedRC.sections?.count ?? 0
     }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return fetchedRC.sections?[section].numberOfObjects ?? 0
     }
-
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CaloriesCell", for: indexPath) as? CaloriesTableViewCell else {return UITableViewCell()}
@@ -65,30 +54,34 @@ class ChartTableViewController: UITableViewController {
         return cell
     }
     
+    private func caloriesEntryCreatedNotificationPost() {NotificationCenter.default.post(.init(name: .calorieEntryCreated))}
     
     private func addCaloriesAlertViewSetup() {
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
-        
         alert.addTextField { (textfield) in
-            textfield.placeholder = "Calories"
-          
-        }
+            textfield.placeholder = "Calories"}
         let submitAction = UIAlertAction(title: "Submit", style: .default) { (submitAction) in
-          
             let textField = alert.textFields![0]
             guard  let calories = textField.text else {return}
         self.calorieController.addCaloriesToUser(calories: calories, timeStamp: Date())
-            self.tableView.reloadData()
-        }
+            self.tableView.reloadData()}
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(submitAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
     
-    private func chartSetup() {
+    @objc func chartSetup(calories: String, dateAndTime: Date) {
         let chart = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-        let series = ChartSeries([0, 6.5, 2, 8, 4.1, 7, -3.1, 10, 8])
+       //turn the calories and date and time into appropriate formats for the data
+        //make sure it increases may need another func where the tuple is created and appended.
+        let data = [
+            (x: 0, y: 0)
+        
+        
+        ]
+        let series = ChartSeries(data: data)
+        
         chart.add(series)
         chartView.addSubview(chart)
         chart.translatesAutoresizingMaskIntoConstraints = false
@@ -98,6 +91,7 @@ class ChartTableViewController: UITableViewController {
         let bottomConstraint = chart.bottomAnchor.constraint(equalTo: chartView.bottomAnchor, constant: 5)
         NSLayoutConstraint.activate([topConstraint, leadingConstraint, trailingConstraint, bottomConstraint])
     }
+    
 }
 
 extension ChartTableViewController: NSFetchedResultsControllerDelegate {
