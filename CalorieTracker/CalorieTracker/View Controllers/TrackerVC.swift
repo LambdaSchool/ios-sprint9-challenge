@@ -8,12 +8,13 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class TrackerVC: UIViewController {
 
 	//MARK: - IBOutlets
 	
-	@IBOutlet weak var graphView: UIView!
+	@IBOutlet weak var graphView: Chart!
 	@IBOutlet weak var tableView: UITableView!
 	
 	//MARK: - Properties
@@ -28,7 +29,7 @@ class TrackerVC: UIViewController {
 		
 		let fetchControl = NSFetchedResultsController(fetchRequest: fetchRequest,
 													  managedObjectContext: CoreDataStack.shared.mainContext,
-													  sectionNameKeyPath: "user",
+													  sectionNameKeyPath: nil,
 													  cacheName: nil)
 		
 		fetchControl.delegate = self
@@ -52,6 +53,7 @@ class TrackerVC: UIViewController {
 		title = "Calorie Tracker"
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(notification:)), name: .intakesFetched, object: nil)
+		updateGraph()
 	}
 	
 	deinit {
@@ -86,7 +88,20 @@ class TrackerVC: UIViewController {
 		return nil
 	}
 	
+	private func updateGraph() {
+		var data = [0.0]
+		fetchResultsController.fetchedObjects?.reversed().forEach({ (intake) in
+			data.append(intake.calories)
+		})
+		let series = ChartSeries(data)
+		series.area = true
+		
+		graphView.removeAllSeries()
+		graphView.add(series)
+	}
+	
 	@objc func refreshViews(notification: Notification) {
+		updateGraph()
 		tableView.reloadData()
 	}
 }

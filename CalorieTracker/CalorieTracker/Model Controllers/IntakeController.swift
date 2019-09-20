@@ -14,7 +14,7 @@ class IntakeController {
 	
 	func createIntake(calories: Double) {
 		CoreDataStack.shared.mainContext.performAndWait {
-			let newIntake = Intake(calories: calories)
+			let _ = Intake(calories: calories)
 			
 			do {
 				try CoreDataStack.shared.save()
