@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		33D561DB076EAEBE93009F64 /* Pods_CalorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961FB572356B278DAC842308 /* Pods_CalorieTracker.framework */; };
 		B5CB0305233525AC00CB0349 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CB0304233525AC00CB0349 /* AppDelegate.swift */; };
-		B5CB0307233525AC00CB0349 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CB0306233525AC00CB0349 /* ViewController.swift */; };
+		B5CB0307233525AC00CB0349 /* TrackerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CB0306233525AC00CB0349 /* TrackerVC.swift */; };
 		B5CB030A233525AC00CB0349 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5CB0308233525AC00CB0349 /* Main.storyboard */; };
 		B5CB030D233525AC00CB0349 /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5CB030B233525AC00CB0349 /* CalorieTracker.xcdatamodeld */; };
 		B5CB030F233525AF00CB0349 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CB030E233525AF00CB0349 /* Assets.xcassets */; };
@@ -22,7 +22,7 @@
 		961FB572356B278DAC842308 /* Pods_CalorieTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5CB0301233525AC00CB0349 /* CalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5CB0304233525AC00CB0349 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B5CB0306233525AC00CB0349 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B5CB0306233525AC00CB0349 /* TrackerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerVC.swift; sourceTree = "<group>"; };
 		B5CB0309233525AC00CB0349 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B5CB030C233525AC00CB0349 /* CalorieTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieTracker.xcdatamodel; sourceTree = "<group>"; };
 		B5CB030E233525AF00CB0349 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 		B5CB031C233525E000CB0349 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B5CB0306233525AC00CB0349 /* ViewController.swift */,
+				B5CB0306233525AC00CB0349 /* TrackerVC.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -267,7 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5CB0307233525AC00CB0349 /* ViewController.swift in Sources */,
+				B5CB0307233525AC00CB0349 /* TrackerVC.swift in Sources */,
 				B5CB0305233525AC00CB0349 /* AppDelegate.swift in Sources */,
 				B5CB030D233525AC00CB0349 /* CalorieTracker.xcdatamodeld in Sources */,
 			);
@@ -419,7 +419,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PD94K2S3RY;
 				INFOPLIST_FILE = "$(SRCROOT)/CalorieTracker/Resources/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lambda.CalorieTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -435,7 +438,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PD94K2S3RY;
 				INFOPLIST_FILE = "$(SRCROOT)/CalorieTracker/Resources/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lambda.CalorieTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
