@@ -20,6 +20,12 @@ class TrackerVC: UIViewController {
 	// MARK: - Properties
 	
 	let intakeController = IntakeController()
+	var dateFormatter: DateFormatter {
+		let formatter = DateFormatter()
+		formatter.dateStyle = .medium
+		formatter.timeStyle = .short
+		return formatter
+	}
 	
 	lazy var fetchResultsController: NSFetchedResultsController<Intake> = {
 		let fetchRequest: NSFetchRequest<Intake> = Intake.fetchRequest()
@@ -123,7 +129,7 @@ extension TrackerVC: UITableViewDataSource {
 		let intake = fetchResultsController.object(at: indexPath)
 		
 		cell.textLabel?.text = "Calories: \(Int(intake.calories))"
-		cell.detailTextLabel?.text = "\(intake.timestamp!)"
+		cell.detailTextLabel?.text = dateFormatter.string(from: intake.timestamp!)
 		
 		return cell
 	}
