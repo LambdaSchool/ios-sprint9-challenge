@@ -75,6 +75,7 @@ class CalorieTrackerTableViewController: UITableViewController {
 
 	// MARK: - Helper Methods
 	func addSeriesToChart() {
+		chartView.removeAllSeries()
 		var calorieAmounts: [Double] = []
 
 		for entry in calorieController.loadFromPersistentStore() {
@@ -84,6 +85,7 @@ class CalorieTrackerTableViewController: UITableViewController {
 		let series = ChartSeries(calorieAmounts)
 		chartView.add(series)
 	}
+
 
 	@objc func refreshViews(notification: Notification) {
 		self.tableView.reloadData()
