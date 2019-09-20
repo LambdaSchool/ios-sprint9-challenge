@@ -129,6 +129,7 @@ extension ViewController {
             calorieCounts.append(calorie.count)
         }
         let series = ChartSeries(calorieCounts)
+        chart.series = []
         series.color = ChartColors.greenColor()
         series.area = true
         chart.add(series)
