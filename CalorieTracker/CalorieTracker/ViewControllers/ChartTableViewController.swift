@@ -28,13 +28,9 @@ class ChartTableViewController: UITableViewController {
         }
         return frc
     }()
-    
     var chart: Chart?
-    
     override func viewDidLoad() {
-        
         chartSetup()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(refreshChart(notification:)), name: .calorieEntryCreated, object: nil)
     }
     @IBAction func addCalorieIntakeTapped(_ sender: UIBarButtonItem) {
@@ -58,7 +54,6 @@ class ChartTableViewController: UITableViewController {
         return cell
     }
     private func caloriesEntryCreatedNotificationPost() {NotificationCenter.default.post(.init(name: .calorieEntryCreated))}
-    
     private func alertViewSetup() {
         //create ui alert
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
@@ -71,7 +66,7 @@ class ChartTableViewController: UITableViewController {
         //3) Reload the tableview
         let submitAction = UIAlertAction(title: "Submit", style: .default) { (submitAction) in
             let textField = alert.textFields![0]
-            guard  let caloriesString = textField.text,
+            guard  let caloriesString = textField.text, caloriesString != "",
                 let calories = Double(caloriesString) else {return}
             let time = Date()
             self.calorieController.addCaloriesToUser(calories: calories, timeStamp: time)
@@ -82,7 +77,6 @@ class ChartTableViewController: UITableViewController {
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
-    
     @objc func refreshChart(notification: Notification) {
         chartSetup()
     }
@@ -109,4 +103,42 @@ class ChartTableViewController: UITableViewController {
 }
 
 extension ChartTableViewController: NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            guard let newIndexPath = newIndexPath else {return}
+            tableView.insertRows(at: [newIndexPath], with: .fade)
+        case .delete:
+            guard let indexPath = indexPath else {return}
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        case .move:
+            guard let indexPath = indexPath, let newIndexPath = newIndexPath else {return}
+            tableView.moveRow(at: indexPath, to: newIndexPath)
+        case .update:
+            guard let indexPath = indexPath else {return}
+            tableView.reloadRows(at: [indexPath], with: .fade)
+        @unknown default:
+            fatalError()
+        }
+    }
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        let sectionnIndexSet = IndexSet(integer: sectionIndex)
+        switch type {
+        case .insert:
+            tableView.insertSections(sectionnIndexSet, with: .fade)
+        case .delete:
+            tableView.deleteSections(sectionnIndexSet, with: .fade)
+            
+        default:
+            break
+        }
+    }
 }
+
+
