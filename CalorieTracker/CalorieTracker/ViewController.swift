@@ -125,11 +125,12 @@ extension ViewController {
     @objc func loadChart() {
         let calories = fetchedResultsController.fetchedObjects ?? []
         var calorieCounts: [Double] = []
-        for calorie in calories {
+        for calorie in calories.reversed() {
             calorieCounts.append(calorie.count)
         }
-        let series = ChartSeries(calorieCounts.reversed())
+        let series = ChartSeries(calorieCounts)
         series.color = ChartColors.greenColor()
+        series.area = true
         chart.add(series)
     }
 }
