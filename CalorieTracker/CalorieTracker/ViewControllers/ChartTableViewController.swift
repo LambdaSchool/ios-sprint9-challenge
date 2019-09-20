@@ -14,6 +14,7 @@ class ChartTableViewController: UITableViewController {
 
     @IBOutlet var chartView: UIView!
     
+    let calorieController = CalorieController()
     
     lazy var fetchedRC: NSFetchedResultsController<User> = {
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
@@ -67,10 +68,17 @@ class ChartTableViewController: UITableViewController {
     
     private func addCaloriesAlertViewSetup() {
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+        
         alert.addTextField { (textfield) in
             textfield.placeholder = "Calories"
+          
         }
         let submitAction = UIAlertAction(title: "Submit", style: .default) { (submitAction) in
+          
+            let textField = alert.textFields![0]
+            guard  let calories = textField.text else {return}
+        self.calorieController.addCaloriesToUser(calories: calories, timeStamp: Date())
+            self.tableView.reloadData()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(submitAction)
