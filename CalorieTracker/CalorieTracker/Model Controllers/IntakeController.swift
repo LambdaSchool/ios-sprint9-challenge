@@ -12,9 +12,9 @@ class IntakeController {
 	
 	// MARK: - Create
 	
-	func createIntake(calories: Double) {
+	func createIntake(user: String, calories: Double) {
 		CoreDataStack.shared.mainContext.performAndWait {
-			_ = Intake(calories: calories)
+			_ = Intake(user: user, calories: calories)
 			
 			do {
 				try CoreDataStack.shared.save()

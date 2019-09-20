@@ -10,9 +10,10 @@ import Foundation
 import CoreData
 
 extension Intake {
-	convenience init(calories: Double, timestamp: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+	convenience init(user: String, calories: Double, timestamp: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
 		self.init(context: context)
 		
+		self.user = user
 		self.calories = calories
 		self.timestamp = timestamp
 	}

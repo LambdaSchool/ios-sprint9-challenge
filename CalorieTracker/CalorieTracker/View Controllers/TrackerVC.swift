@@ -71,13 +71,18 @@ class TrackerVC: UIViewController {
 	// MARK: - IBActions
 	
 	@IBAction func addIntakeBtnTapped(_ sender: Any) {
-		let intakeAlert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories", preferredStyle: .alert)
-		intakeAlert.addTextField(configurationHandler: nil)
+		let intakeAlert = UIAlertController(title: "Add Calorie Intake", message: nil, preferredStyle: .alert)
+		intakeAlert.addTextField { textfield in
+			textfield.placeholder = "Name"
+		}
+		intakeAlert.addTextField { textfield in
+			textfield.placeholder = "Calories"
+		}
 		
 		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
 		let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
-			guard let calories = self.readCaloriesfrom(textfield: intakeAlert.textFields?.first) else { return }
-			self.intakeController.createIntake(calories: calories)
+			guard let user = intakeAlert.textFields?[0].optionalText, let calories = self.readCaloriesfrom(textfield: intakeAlert.textFields?[1]) else { return }
+			self.intakeController.createIntake(user: user, calories: calories)
 		}
 		
 		intakeAlert.addAction(cancelAction)
