@@ -31,6 +31,8 @@ class ViewController: UIViewController {
         return dateFormatter
     }
     
+    let calorieController = CalorieController()
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -40,7 +42,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func addButtonTapped(_ sender: Any) {
+        showAlert()
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -101,5 +106,25 @@ extension ViewController: NSFetchedResultsControllerDelegate {
         default:
             break
         }
+    }
+}
+
+extension ViewController {
+    func showAlert() {
+        let alertController = UIAlertController(title: "Enter new Calorie Entry", message: nil, preferredStyle: .alert)
+        var calorieCount = 0.0
+        alertController.addTextField(configurationHandler: nil)
+        let action = UIAlertAction(title: "Submit", style: .default) { (action) in
+            guard let calorieCountInt = Double(alertController.textFields?[0].text ?? "") else { return }
+            calorieCount = calorieCountInt
+            self.calorieController.createCalorie(count: calorieCount)
+        }
+        let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(action)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true)
+        
     }
 }
