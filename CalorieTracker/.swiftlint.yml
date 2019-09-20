@@ -1,0 +1,13 @@
+
+disabled_rules:
+- colon
+- comma
+- control_statement
+- line_length
+- identifier_name
+excluded:
+- Carthage
+- Pods
+- Source/ExcludedFolder
+- Source/ExcludedFile.swift
+- Source/*/ExcludedFile.swift # Exclude files with a wildcard
