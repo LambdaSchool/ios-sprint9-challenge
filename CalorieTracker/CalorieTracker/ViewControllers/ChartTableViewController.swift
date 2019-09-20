@@ -12,6 +12,8 @@ import SwiftChart
 class ChartTableViewController: UITableViewController {
 
     @IBOutlet var chartView: UIView!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         chartSetup()
@@ -32,19 +34,16 @@ class ChartTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     @IBAction func addCalorieIntakeTapped(_ sender: UIBarButtonItem) {
-        
+        //put all of this in a private func
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
         alert.addTextField { (textfield) in
             textfield.placeholder = "Calories"
         }
         let submitAction = UIAlertAction(title: "Submit", style: .default) { (submitAction) in
-            
         }
-        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(submitAction)
         alert.addAction(cancelAction)
-        
         present(alert, animated: true, completion: nil)
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
