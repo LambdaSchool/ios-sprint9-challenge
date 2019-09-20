@@ -11,9 +11,10 @@ import CoreData
 
 extension User {
     
-    convenience init(calories: String, timestamp: Date, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    convenience init(calories: String, timestamp: Date, dietLevel: String, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.calories = calories
         self.timestamp = timestamp
+        self.dietLevel = dietLevel
     }
 }

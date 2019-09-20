@@ -11,4 +11,16 @@ import UIKit
 class CaloriesTableViewCell: UITableViewCell {
     @IBOutlet var caloriesLabel: UILabel!
     @IBOutlet var dateAndTimeLabel: UILabel!
+    
+    var user: User? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    func updateViews() {
+        
+    }
+    
+    
 }

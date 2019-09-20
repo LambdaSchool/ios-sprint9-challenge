@@ -21,10 +21,20 @@ class CalorieController {
         }
     }
     
-    func addCaloriesToUser(calories: String, timeStamp: Date) -> User {
-        let addedCaloriesToUser = User(calories: calories, timestamp: timeStamp)
+    func addCaloriesToUser(calories: String, timeStamp: Date) {
+        
+        var dietLevel: String?
+        guard let intCalories = Int(calories) else {return}
+        if intCalories >= 3000 {
+            dietLevel = "Danger Zone"
+        } else if intCalories < 3000 && intCalories >= 1500 {
+            dietLevel = "Sweet Spot"
+        } else {
+            dietLevel = "Calorie Intake Too Low"
+        }
+        guard let dietProgress = dietLevel else {return}
+        _ = User(calories: calories, timestamp: timeStamp, dietLevel: dietProgress)
         saveToPersistentStore()
-        return addedCaloriesToUser
     }
     
 }
