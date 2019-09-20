@@ -7,3 +7,11 @@
 //
 
 import Foundation
+import CoreData
+
+class CalorieController {
+    
+//    func addCalories(calories: String, timeStamp: String) -> User {
+//    }
+    
+}

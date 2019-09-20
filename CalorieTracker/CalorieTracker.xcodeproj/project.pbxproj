@@ -17,6 +17,7 @@
 		EF040DA52335407D004C5B78 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF040DA42335407D004C5B78 /* CoreDataStack.swift */; };
 		EF040DA82335409F004C5B78 /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF040DA72335409F004C5B78 /* CalorieController.swift */; };
 		EF040DAC233540CB004C5B78 /* User.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF040DAA233540CB004C5B78 /* User.xcdatamodeld */; };
+		EF040DAE23354355004C5B78 /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF040DAD23354355004C5B78 /* User+Convenience.swift */; };
 		F2E287BA004D38C803612B32 /* Pods_CalorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2582C997EA2894856875D967 /* Pods_CalorieTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		EF040DA42335407D004C5B78 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		EF040DA72335409F004C5B78 /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
 		EF040DAB233540CB004C5B78 /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
+		EF040DAD23354355004C5B78 /* User+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Convenience.swift"; sourceTree = "<group>"; };
 		F9293FB3CF2B37DFF608B14E /* Pods-CalorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.debug.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				EF040DA42335407D004C5B78 /* CoreDataStack.swift */,
+				EF040DAD23354355004C5B78 /* User+Convenience.swift */,
 				EF040DAA233540CB004C5B78 /* User.xcdatamodeld */,
 			);
 			path = Models;
@@ -275,6 +278,7 @@
 				EF040D84233524EB004C5B78 /* AppDelegate.swift in Sources */,
 				EF040DA52335407D004C5B78 /* CoreDataStack.swift in Sources */,
 				EF040DA82335409F004C5B78 /* CalorieController.swift in Sources */,
+				EF040DAE23354355004C5B78 /* User+Convenience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
