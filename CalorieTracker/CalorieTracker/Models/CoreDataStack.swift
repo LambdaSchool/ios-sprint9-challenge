@@ -10,7 +10,9 @@ import Foundation
 import CoreData
 
 class CoreDataStack {
+    
     static let shared = CoreDataStack()
+    
     func saveContext(context: NSManagedObjectContext) throws {
         context.performAndWait {
             do {
@@ -20,7 +22,6 @@ class CoreDataStack {
             }
         }
     }
-    
     lazy var container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "User")
         container.loadPersistentStores(completionHandler: { (_, error) in

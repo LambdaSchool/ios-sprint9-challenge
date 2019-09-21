@@ -53,15 +53,12 @@ class ChartTableViewController: UITableViewController {
         cell.user = user
         return cell
     }
-    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let caloriesEntry = fetchedRC.object(at: indexPath)
             calorieController.deleteCalorieEntry(calorieEntry: caloriesEntry)
         }
     }
-    
-    
     private func caloriesEntryCreatedNotificationPost() {NotificationCenter.default.post(.init(name: .calorieEntryCreated))}
     private func alertViewSetup() {
         //create ui alert
@@ -136,6 +133,7 @@ extension ChartTableViewController: NSFetchedResultsControllerDelegate {
             fatalError()
         }
     }
+    
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         let sectionnIndexSet = IndexSet(integer: sectionIndex)
         switch type {
@@ -143,11 +141,8 @@ extension ChartTableViewController: NSFetchedResultsControllerDelegate {
             tableView.insertSections(sectionnIndexSet, with: .fade)
         case .delete:
             tableView.deleteSections(sectionnIndexSet, with: .fade)
-            
         default:
             break
         }
     }
 }
-
-

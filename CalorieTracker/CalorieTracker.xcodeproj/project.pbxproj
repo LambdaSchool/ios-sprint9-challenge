@@ -19,6 +19,7 @@
 		EF040DAC233540CB004C5B78 /* User.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF040DAA233540CB004C5B78 /* User.xcdatamodeld */; };
 		EF040DAE23354355004C5B78 /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF040DAD23354355004C5B78 /* User+Convenience.swift */; };
 		EF040DB023355AA0004C5B78 /* NSNotification+CalorieEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF040DAF23355AA0004C5B78 /* NSNotification+CalorieEntry.swift */; };
+		EF040DB22336E994004C5B78 /* autocorrect.yml in Resources */ = {isa = PBXBuildFile; fileRef = EF040DB12336E994004C5B78 /* autocorrect.yml */; };
 		F2E287BA004D38C803612B32 /* Pods_CalorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2582C997EA2894856875D967 /* Pods_CalorieTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		EF040DAB233540CB004C5B78 /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
 		EF040DAD23354355004C5B78 /* User+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Convenience.swift"; sourceTree = "<group>"; };
 		EF040DAF23355AA0004C5B78 /* NSNotification+CalorieEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification+CalorieEntry.swift"; sourceTree = "<group>"; };
+		EF040DB12336E994004C5B78 /* autocorrect.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = autocorrect.yml; path = "../../../../Downloads/SwiftLint-LambdaSchool/autocorrect.yml"; sourceTree = "<group>"; };
 		F9293FB3CF2B37DFF608B14E /* Pods-CalorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.debug.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				EF040D98233532E0004C5B78 /* .swiftlint.yml */,
+				EF040DB12336E994004C5B78 /* autocorrect.yml */,
 				EF040D82233524EB004C5B78 /* CalorieTracker */,
 				EF040D81233524EB004C5B78 /* Products */,
 				FA62C84A8957C7F102C44F70 /* Pods */,
@@ -202,6 +205,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF040DB22336E994004C5B78 /* autocorrect.yml in Resources */,
 				EF040D99233532E0004C5B78 /* .swiftlint.yml in Resources */,
 				EF040D8E2335250F004C5B78 /* LaunchScreen.storyboard in Resources */,
 				EF040D8B2335250F004C5B78 /* Assets.xcassets in Resources */,

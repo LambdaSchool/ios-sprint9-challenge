@@ -10,7 +10,6 @@ import Foundation
 import CoreData
 
 extension User {
-    
     convenience init(calories: Double, timestamp: Date, dietLevel: String, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.calories = calories
