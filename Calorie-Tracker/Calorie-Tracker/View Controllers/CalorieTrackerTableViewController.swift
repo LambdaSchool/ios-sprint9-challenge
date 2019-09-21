@@ -47,7 +47,6 @@ class CalorieTrackerTableViewController: UITableViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		tableView.tableFooterView = UIView()
-
 		NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(notification:)), name: .calorieHasBeenAdded, object: nil)
 		addSeriesToChart()
     }
@@ -83,6 +82,8 @@ class CalorieTrackerTableViewController: UITableViewController {
 		}
 
 		let series = ChartSeries(calorieAmounts)
+		series.area = true
+		series.color = #colorLiteral(red: 0.6254632995, green: 0.8229857427, blue: 0.3541799364, alpha: 0.8470588235)
 		chartView.add(series)
 	}
 
