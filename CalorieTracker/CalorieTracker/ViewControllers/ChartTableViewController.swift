@@ -17,7 +17,8 @@ class ChartTableViewController: UITableViewController {
     lazy var fetchedRC: NSFetchedResultsController<User> = {
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
         let moodSortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "dietLevel", ascending:  false)
-        fetchRequest.sortDescriptors = [moodSortDescriptor]
+        let dateSortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "timestamp", ascending:  false)
+        fetchRequest.sortDescriptors = [dateSortDescriptor,moodSortDescriptor]
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "dietLevel", cacheName: nil)
         frc.delegate = self
