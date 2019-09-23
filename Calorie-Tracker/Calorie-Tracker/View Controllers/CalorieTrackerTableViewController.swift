@@ -89,6 +89,7 @@ class CalorieTrackerTableViewController: UITableViewController {
 
 
 	@objc func refreshViews(notification: Notification) {
+		addSeriesToChart()
 		self.tableView.reloadData()
 	}
 
