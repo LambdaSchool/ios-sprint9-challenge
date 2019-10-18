@@ -36,7 +36,7 @@ class CalorieChartViewController: UIViewController {
     // MARK: - IBActions & Methods
     
     func setUpChart() {
-        //chartView = Chart(frame: CGRect(x: <#T##Int#>, y: <#T##Int#>, width: <#T##Int#>, height: <#T##Int#>))
+        
         let series = ChartSeries([0, 6.5, 2, 8, 4.1, 7, -3.1, 10, 8])
         series.area = true
         chartView.add(series)
@@ -94,3 +94,5 @@ extension CalorieChartViewController: UITableViewDelegate, UITableViewDataSource
         return cell
     }
 }
+
+

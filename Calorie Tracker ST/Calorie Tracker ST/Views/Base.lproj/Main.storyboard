@@ -49,7 +49,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="0xf-Eq-7rt"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58o-tY-VSm">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58o-tY-VSm" customClass="Chart" customModule="SwiftChart">
                                 <rect key="frame" x="0.0" y="88" width="414" height="350"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -78,7 +78,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="chartView" destination="58o-tY-VSm" id="m1t-bq-KHE"/>
+                        <outlet property="chartView" destination="58o-tY-VSm" id="6Lg-Hg-Rgu"/>
                         <outlet property="tableView" destination="R8b-Yt-g2e" id="7u8-aJ-BZQ"/>
                     </connections>
                 </viewController>
