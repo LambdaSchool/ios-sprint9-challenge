@@ -8,8 +8,10 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class CalorieTrackerViewController: UIViewController, UITableViewDelegate {
+    
      // MARK: - Properties
     lazy var fetchResultsController: NSFetchedResultsController<Calorie> = {
         let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
@@ -26,17 +28,20 @@ class CalorieTrackerViewController: UIViewController, UITableViewDelegate {
         }
         return frc
     }()
+    
     // MARK: - Outlets
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var chartView: Chart!
+    
     // MARK: - Actions
     @IBAction func addCalorieButton(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Add a calorie", message: nil, preferredStyle: .alert)
         var calorieIntakeTextField: UITextField!
-        alert.addTextField { (textfield) in
+        alert.addTextField { textfield in
             textfield.placeholder = "Calories:"
             calorieIntakeTextField = textfield
         }
-        let submitAction = UIAlertAction(title: "Submit", style: .default) { (_) in
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
             DispatchQueue.main.async {
                 do {
                     let intake = calorieIntakeTextField.text ?? "0"
@@ -52,11 +57,24 @@ class CalorieTrackerViewController: UIViewController, UITableViewDelegate {
         alert.addAction(submitAction)
         present(alert, animated: true, completion: nil)
     }
+    
     // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        let data = [
+          (x: 0, y: 0),
+          (x: 1, y: 3.1),
+          (x: 4, y: 2),
+          (x: 5, y: 4.2),
+          (x: 7, y: 5),
+          (x: 9, y: 9),
+          (x: 10, y: 8)
+        ]
+        let series = ChartSeries(data: data)
+        chartView.add(series)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

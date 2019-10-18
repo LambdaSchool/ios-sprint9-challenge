@@ -10,8 +10,7 @@ import Foundation
 import CoreData
 
 extension Calorie {
-    convenience init(identifier: UUID = UUID(), intake: Int16,
-                     timestamp: Date = Date(), context: NSManagedObjectContext) {
+    convenience init(intake: Int16, context: NSManagedObjectContext, identifier: UUID = UUID(), timestamp: Date = Date()) {
         self.init(context: context)
         self.identifier = identifier
         self.intake = intake
