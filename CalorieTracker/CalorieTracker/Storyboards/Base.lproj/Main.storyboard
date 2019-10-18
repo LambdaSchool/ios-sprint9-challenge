@@ -22,7 +22,7 @@
                                     <constraint firstAttribute="height" constant="250" id="Q8e-Tz-578"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="19o-zv-To8" customClass="CalorieTrackerTableView" customModule="CalorieTracker" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="19o-zv-To8">
                                 <rect key="frame" x="0.0" y="338" width="414" height="524"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -50,8 +50,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="intakeLabel" destination="3Pl-dl-AOO" id="eYs-XG-lVV"/>
                                             <outlet property="timestampLabel" destination="d03-mZ-9ac" id="VdC-Vy-1ev"/>
-                                            <outlet property="titleLabel" destination="3Pl-dl-AOO" id="lez-v8-yb0"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

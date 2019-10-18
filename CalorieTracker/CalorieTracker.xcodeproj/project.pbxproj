@@ -19,7 +19,6 @@
 		777C2A00235A15D700913BA4 /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C29FF235A15D700913BA4 /* Calorie+Convenience.swift */; };
 		777C2A02235A18BC00913BA4 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C2A01235A18BC00913BA4 /* DateFormatter.swift */; };
 		777C2A08235A269400913BA4 /* CalorieTrackerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C2A07235A269400913BA4 /* CalorieTrackerTableViewCell.swift */; };
-		777C2A0A235A2AC000913BA4 /* CalorieTrackerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C2A09235A2AC000913BA4 /* CalorieTrackerTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +36,6 @@
 		777C29FF235A15D700913BA4 /* Calorie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience.swift"; sourceTree = "<group>"; };
 		777C2A01235A18BC00913BA4 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		777C2A07235A269400913BA4 /* CalorieTrackerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerTableViewCell.swift; sourceTree = "<group>"; };
-		777C2A09235A2AC000913BA4 /* CalorieTrackerTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				777C29ED235A101D00913BA4 /* CalorieTrackerViewController.swift */,
-				777C2A09235A2AC000913BA4 /* CalorieTrackerTableView.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -232,7 +229,6 @@
 				777C29EE235A101D00913BA4 /* CalorieTrackerViewController.swift in Sources */,
 				777C2A08235A269400913BA4 /* CalorieTrackerTableViewCell.swift in Sources */,
 				777C29D6235A0FA900913BA4 /* SceneDelegate.swift in Sources */,
-				777C2A0A235A2AC000913BA4 /* CalorieTrackerTableView.swift in Sources */,
 				777C2A02235A18BC00913BA4 /* DateFormatter.swift in Sources */,
 				777C2A00235A15D700913BA4 /* Calorie+Convenience.swift in Sources */,
 				777C29F2235A10AE00913BA4 /* CalorieTrackerChartView.swift in Sources */,
