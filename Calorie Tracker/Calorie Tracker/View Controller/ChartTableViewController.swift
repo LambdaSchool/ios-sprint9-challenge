@@ -19,7 +19,7 @@ let dateFormatter: DateFormatter = {
 
 class ChartTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     let controller = CalorieController()
     let chart = Chart()
@@ -75,7 +75,18 @@ class ChartTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func addTapped(_ sender: Any) {
-        
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories:", preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.text = ""
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] _ in
+            guard let alert = alert,
+                let textFields = alert.textFields,
+                let text = textFields[0].text else { return }
+            
+            print("Text field: \(text)")
+        }))
+        present(alert, animated: true, completion: nil)
     }
     
     /*
