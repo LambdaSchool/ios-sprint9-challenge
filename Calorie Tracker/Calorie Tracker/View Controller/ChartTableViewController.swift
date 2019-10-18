@@ -91,7 +91,8 @@ class ChartTableViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
         
-        guard let cals = fetchedResultsController.fetchedObjects else { return UITableViewCell() }
+        guard var cals = fetchedResultsController.fetchedObjects else { return UITableViewCell() }
+        cals.reverse()
         let calorie = cals[indexPath.row]
         
         cell.textLabel?.text = "\(calorie.calories)"
