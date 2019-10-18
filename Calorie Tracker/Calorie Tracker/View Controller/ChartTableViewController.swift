@@ -23,7 +23,6 @@ class ChartTableViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet private weak var tableView: UITableView!
     
     let controller = CalorieController()
-    var calories: [Calorie] = []
     
     lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = frcRefetch()
     
@@ -53,7 +52,6 @@ class ChartTableViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView?.reloadData()
         
         guard let fetchedCalories = fetchedResultsController.fetchedObjects else { return }
-        calories = fetchedCalories
         var cals: [Double] = []
         for i in fetchedCalories {
             cals.append(i.calories)
@@ -86,12 +84,15 @@ class ChartTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return calories.count
+        guard let cals = fetchedResultsController.fetchedObjects else { return 0 }
+        return cals.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
-        let calorie = calories[indexPath.row]
+        
+        guard var cals = fetchedResultsController.fetchedObjects else { return UITableViewCell() }
+        let calorie = cals[indexPath.row]
         
         cell.textLabel?.text = "\(calorie.calories)"
         cell.detailTextLabel?.text = "\(dateFormatter.string(from: calorie.timestamp ?? Date()))"
