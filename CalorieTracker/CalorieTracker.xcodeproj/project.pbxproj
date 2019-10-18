@@ -15,6 +15,10 @@
 		777C29EE235A101D00913BA4 /* CalorieTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C29ED235A101D00913BA4 /* CalorieTrackerViewController.swift */; };
 		777C29F2235A10AE00913BA4 /* CalorieTrackerChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C29F1235A10AE00913BA4 /* CalorieTrackerChartView.swift */; };
 		777C29F4235A10F200913BA4 /* CalorieTrackerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C29F3235A10F200913BA4 /* CalorieTrackerTableView.swift */; };
+		777C29FA235A14B800913BA4 /* Calories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 777C29F8235A14B800913BA4 /* Calories.xcdatamodeld */; };
+		777C29FC235A150C00913BA4 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C29FB235A150C00913BA4 /* CoreDataStack.swift */; };
+		777C2A00235A15D700913BA4 /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C29FF235A15D700913BA4 /* Calorie+Convenience.swift */; };
+		777C2A02235A18BC00913BA4 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C2A01235A18BC00913BA4 /* DateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		777C29ED235A101D00913BA4 /* CalorieTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerViewController.swift; sourceTree = "<group>"; };
 		777C29F1235A10AE00913BA4 /* CalorieTrackerChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerChartView.swift; sourceTree = "<group>"; };
 		777C29F3235A10F200913BA4 /* CalorieTrackerTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerTableView.swift; sourceTree = "<group>"; };
+		777C29F9235A14B800913BA4 /* Calories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calories.xcdatamodel; sourceTree = "<group>"; };
+		777C29FB235A150C00913BA4 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		777C29FF235A15D700913BA4 /* Calorie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience.swift"; sourceTree = "<group>"; };
+		777C2A01235A18BC00913BA4 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,9 @@
 		777C29EA235A0FCC00913BA4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				777C29FF235A15D700913BA4 /* Calorie+Convenience.swift */,
+				777C29F8235A14B800913BA4 /* Calories.xcdatamodeld */,
+				777C29FB235A150C00913BA4 /* CoreDataStack.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -117,6 +128,7 @@
 				777C29D5235A0FA900913BA4 /* SceneDelegate.swift */,
 				777C29DC235A0FA900913BA4 /* Assets.xcassets */,
 				777C29E1235A0FA900913BA4 /* Info.plist */,
+				777C2A01235A18BC00913BA4 /* DateFormatter.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -131,6 +143,7 @@
 				777C29CC235A0FA900913BA4 /* Sources */,
 				777C29CD235A0FA900913BA4 /* Frameworks */,
 				777C29CE235A0FA900913BA4 /* Resources */,
+				777C29F5235A11C500913BA4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -187,6 +200,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		777C29F5235A11C500913BA4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		777C29CC235A0FA900913BA4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -195,8 +228,12 @@
 				777C29D4235A0FA900913BA4 /* AppDelegate.swift in Sources */,
 				777C29EE235A101D00913BA4 /* CalorieTrackerViewController.swift in Sources */,
 				777C29D6235A0FA900913BA4 /* SceneDelegate.swift in Sources */,
+				777C2A02235A18BC00913BA4 /* DateFormatter.swift in Sources */,
+				777C2A00235A15D700913BA4 /* Calorie+Convenience.swift in Sources */,
 				777C29F2235A10AE00913BA4 /* CalorieTrackerChartView.swift in Sources */,
 				777C29F4235A10F200913BA4 /* CalorieTrackerTableView.swift in Sources */,
+				777C29FA235A14B800913BA4 /* Calories.xcdatamodeld in Sources */,
+				777C29FC235A150C00913BA4 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +431,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		777C29F8235A14B800913BA4 /* Calories.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				777C29F9235A14B800913BA4 /* Calories.xcdatamodel */,
+			);
+			currentVersion = 777C29F9235A14B800913BA4 /* Calories.xcdatamodel */;
+			path = Calories.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 777C29C8235A0FA800913BA4 /* Project object */;
 }
