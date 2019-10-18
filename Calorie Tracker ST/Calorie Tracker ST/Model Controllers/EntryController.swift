@@ -10,13 +10,13 @@ import Foundation
 import CoreData
 
 class EntryController {
-    
-    //MARK: - Properties
-    
+
+    // MARK: - Properties
+
     static var entries: [Entry] = []
-    
-    //MARK: - Create
-    
+
+    // MARK: - Create
+
     func createEntry(calorieCount: Int, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         context.performAndWait {
             let convertedInt = Int32(calorieCount)
@@ -30,15 +30,15 @@ class EntryController {
             }
         }
     }
-    
-    //MARK: - Update
-    
+
+    // MARK: - Update
+
     func updateEntry(entry: Entry, calorieCount: Int, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         context.performAndWait {
             let convertedInt = Int32(calorieCount)
             entry.calories = convertedInt
             entry.dateEntered = Date()
-            
+
             do {
                 try CoreDataStack.shared.save(context: context)
                 NotificationCenter.default.post(name: .entriesUpdated, object: self)
@@ -47,9 +47,9 @@ class EntryController {
             }
         }
     }
-    
-    //MARK: - Delete
-    
+
+    // MARK: - Delete
+
     func deleteEntry(entry: Entry, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         context.performAndWait {
             context.delete(entry)

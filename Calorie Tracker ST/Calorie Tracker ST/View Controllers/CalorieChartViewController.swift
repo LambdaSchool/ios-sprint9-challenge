@@ -9,24 +9,33 @@
 import UIKit
 
 class CalorieChartViewController: UIViewController {
-    
+
     // MARK: - IBOutlets & Properties
 
     @IBOutlet weak var tableView: UITableView!
-    
+
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM-dd-yy, h:mm a"
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         return formatter
     }
-    
+
     // MARK: - View LifeCycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+        tableView.reloadData()
+    }
+    
+    // MARK: - IBActions & Methods
+    
+    func observeEntriesUpdate() {
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews), name: .entriesUpdated, object: nil)
+    }
+    
+    @objc func refreshViews() {
+        tableView.reloadData()
     }
 }
 
@@ -36,11 +45,11 @@ extension CalorieChartViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return EntryController.entries.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath)
         let entry = EntryController.entries[indexPath.row]
-        
+
         cell.textLabel?.text = "Calories: \(entry.calories)"
         if let date = entry.dateEntered {
             let dateString = "\(date)"
