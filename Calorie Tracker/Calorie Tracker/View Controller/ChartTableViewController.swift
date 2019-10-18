@@ -8,13 +8,36 @@
 
 import UIKit
 import SwiftChart
+import CoreData
 
-class ChartTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.timeStyle = .short
+    formatter.dateStyle = .short
+    return formatter
+}()
+
+class ChartTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
-    
+    let controller = CalorieController()
     let chart = Chart()
+    
+    lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
+        let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true),
+        NSSortDescriptor(key: "calories", ascending: true)]
+        
+        let moc = CoreDataStack.shared.mainContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "timestamp", cacheName: nil)
+        
+        frc.delegate = self
+        
+        try! frc.performFetch()
+        
+        return frc
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +49,11 @@ class ChartTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     private func setupViews() {
-        tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        chart.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        chart.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        view.addSubview(chart)
+        
+        chart.leadingAnchor.constraint(equalTo: tableView.leadingAnchor, constant: 20).isActive = true
+        chart.trailingAnchor.constraint(equalTo: tableView.trailingAnchor, constant: -20).isActive = true
+        chart.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         chart.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -10).isActive = true
         let series = ChartSeries([0, 6, 2, 8, 4, 7, 3, 10, 8])
         series.color = ChartColors.greenColor()
@@ -37,13 +62,16 @@ class ChartTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
         
+        let calorie = fetchedResultsController.object(at: indexPath)
         
+        cell.textLabel?.text = "\(calorie.calories)"
+        cell.detailTextLabel?.text = "\(dateFormatter.string(from: calorie.timestamp ?? Date()))"
         
         return cell
     }
