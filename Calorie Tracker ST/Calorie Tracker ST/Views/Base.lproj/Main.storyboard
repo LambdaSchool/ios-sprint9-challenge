@@ -15,16 +15,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R8b-Yt-g2e">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R8b-Yt-g2e">
                                 <rect key="frame" x="0.0" y="446" width="414" height="450"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EntryCell" textLabel="g8H-ID-RY5" detailTextLabel="RyL-M1-Lbz" style="IBUITableViewCellStyleValue1" id="bl2-8f-95g">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bl2-8f-95g" id="pfd-dw-xdW">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g8H-ID-RY5">
@@ -50,14 +49,36 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="0xf-Eq-7rt"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58o-tY-VSm">
+                                <rect key="frame" x="0.0" y="88" width="414" height="350"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="Hmx-Iz-OCW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="R8b-Yt-g2e" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Opr-a9-SCa"/>
+                            <constraint firstItem="R8b-Yt-g2e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Vdb-4Q-fQh"/>
+                            <constraint firstItem="58o-tY-VSm" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eIP-7b-9zu"/>
+                            <constraint firstItem="R8b-Yt-g2e" firstAttribute="top" secondItem="58o-tY-VSm" secondAttribute="bottom" constant="8" id="gvN-tK-8X9"/>
+                            <constraint firstItem="58o-tY-VSm" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="88" id="hXD-Ke-RnY"/>
+                            <constraint firstItem="58o-tY-VSm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ngZ-LF-k1n"/>
+                            <constraint firstAttribute="bottom" secondItem="R8b-Yt-g2e" secondAttribute="bottom" id="yER-9O-h5y"/>
+                            <constraint firstItem="R8b-Yt-g2e" firstAttribute="top" secondItem="58o-tY-VSm" secondAttribute="bottom" constant="8" id="zd7-Fk-Cxx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="zyp-hU-2zD">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tA6-Uz-Y8X"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tA6-Uz-Y8X">
+                            <connections>
+                                <action selector="addEntryTapped:" destination="BYZ-38-t0r" id="WSs-Yh-nPJ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="chartView" destination="58o-tY-VSm" id="m1t-bq-KHE"/>
                         <outlet property="tableView" destination="R8b-Yt-g2e" id="7u8-aJ-BZQ"/>
                     </connections>
                 </viewController>

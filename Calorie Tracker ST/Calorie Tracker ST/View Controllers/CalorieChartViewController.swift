@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import SwiftChart
 
 class CalorieChartViewController: UIViewController {
 
     // MARK: - IBOutlets & Properties
 
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var chartView: Chart!
+    
+    let entryController = EntryController()
+    
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM-dd-yy, h:mm a"
@@ -26,9 +30,17 @@ class CalorieChartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
+        setUpChart()
     }
     
     // MARK: - IBActions & Methods
+    
+    func setUpChart() {
+        //chartView = Chart(frame: CGRect(x: <#T##Int#>, y: <#T##Int#>, width: <#T##Int#>, height: <#T##Int#>))
+        let series = ChartSeries([0, 6.5, 2, 8, 4.1, 7, -3.1, 10, 8])
+        series.area = true
+        chartView.add(series)
+    }
     
     func observeEntriesUpdate() {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshViews), name: .entriesUpdated, object: nil)
@@ -37,6 +49,29 @@ class CalorieChartViewController: UIViewController {
     @objc func refreshViews() {
         tableView.reloadData()
     }
+    
+    @IBAction func addEntryTapped(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+        
+        var entryTextField: UITextField?
+        
+        alert.addTextField { (setTextField) in
+            setTextField.placeholder = "Enter Calories"
+             entryTextField = setTextField
+        }
+        
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { (_) in
+            
+            guard let calories = entryTextField!.text,
+                  let calorieInt = Int(calories) else { return }
+            
+            self.entryController.createEntry(calorieCount: calorieInt)
+        }
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(submitAction)
+    }
+    
 }
 
 // MARK: - Extensions
