@@ -13,6 +13,8 @@
 		FB1486A2235A0D2C00F3F99E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB1486A0235A0D2C00F3F99E /* Main.storyboard */; };
 		FB1486A4235A0D3200F3F99E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB1486A3235A0D3200F3F99E /* Assets.xcassets */; };
 		FB1486A7235A0D3200F3F99E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB1486A5235A0D3200F3F99E /* LaunchScreen.storyboard */; };
+		FB1486F9235A19D900F3F99E /* SwiftChartFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB1486F6235A141C00F3F99E /* SwiftChartFramework.framework */; };
+		FB1486FA235A19D900F3F99E /* SwiftChartFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB1486F6235A141C00F3F99E /* SwiftChartFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FB1486FA235A19D900F3F99E /* SwiftChartFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB1486F9235A19D900F3F99E /* SwiftChartFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
