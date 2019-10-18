@@ -19,29 +19,13 @@ let dateFormatter: DateFormatter = {
 
 class ChartTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
+    @IBOutlet private weak var chart: Chart!
     @IBOutlet private weak var tableView: UITableView!
     
     let controller = CalorieController()
-    let chart = Chart()
+    var calories: [Calorie] = []
     
-        lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
-            let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
-            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true),
-                                            NSSortDescriptor(key: "calories", ascending: true)]
-    
-            let moc = CoreDataStack.shared.mainContext
-            let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "timestamp", cacheName: nil)
-    
-            frc.delegate = self
-            
-            do {
-                try frc.performFetch()
-            } catch {
-                NSLog("Problem fetching entities from CoreData: \(error)")
-            }
-    
-            return frc
-        }()
+    lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = frcRefetch()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,41 +33,65 @@ class ChartTableViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.dataSource = self
         tableView.delegate = self
         
-        setupViews()
+        updateViews()
         
-        self.observeShouldUpdateTable()
+        self.observeShouldUpdateViews()
     }
     
-    private func observeShouldUpdateTable() {
-        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(notification:)), name: .calorieAdded, object: nil)
+    private func observeShouldUpdateViews() {
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(_:)), name: .didAddCalorie, object: nil)
     }
     
     @objc
-    private func refreshViews(notification: Notification) {
-        tableView.reloadData()
+    private func refreshViews(_ notification: Notification) {
+        updateViews()
     }
     
-    private func setupViews() {
-        view.addSubview(chart)
+    private func updateViews() {
+        fetchedResultsController = frcRefetch()
         
-        chart.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        chart.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        chart.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
-        chart.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -10).isActive = true
+        tableView?.reloadData()
         
+        guard let fetchedCalories = fetchedResultsController.fetchedObjects else { return }
+        calories = fetchedCalories
+        var cals: [Double] = []
+        for i in fetchedCalories {
+            cals.append(i.calories)
+        }
         
-        let series = ChartSeries([0, 6, 2, 8, 4, 7, 3, 10, 8])
+        let series = ChartSeries(cals)
         series.color = ChartColors.greenColor()
+        chart.removeAllSeries()
         chart.add(series)
+        
+    }
+    
+    private func frcRefetch() -> NSFetchedResultsController<Calorie> {
+            let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true),
+                                            NSSortDescriptor(key: "calories", ascending: true)]
+        
+            let moc = CoreDataStack.shared.mainContext
+            let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "timestamp", cacheName: nil)
+        
+            frc.delegate = self
+                
+            do {
+                try frc.performFetch()
+            } catch {
+                NSLog("Problem fetching entities from CoreData: \(error)")
+            }
+    
+            return frc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        return calories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
-        let calorie = fetchedResultsController.object(at: indexPath)
+        let calorie = calories[indexPath.row]
         
         cell.textLabel?.text = "\(calorie.calories)"
         cell.detailTextLabel?.text = "\(dateFormatter.string(from: calorie.timestamp ?? Date()))"

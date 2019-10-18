@@ -11,10 +11,10 @@ import CoreData
 
 class CalorieController {
     func createCalorie(with calories: Double) {
-        _ = Calorie(calories: calories)
+        let cal = Calorie(calories: calories)
         saveToPersistentStore()
         
-        NotificationCenter.default.post(name: .calorieAdded, object: self)
+        NotificationCenter.default.post(name: .didAddCalorie, object: nil)
     }
     
     func update(calorie: Calorie, with calories: Double) {

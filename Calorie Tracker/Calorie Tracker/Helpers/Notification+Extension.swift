@@ -9,5 +9,5 @@
 import Foundation
 
 extension Notification.Name {
-    static var calorieAdded = Notification.Name("calorieAdded")
+    static var didAddCalorie = Notification.Name("calorieAdded")
 }
