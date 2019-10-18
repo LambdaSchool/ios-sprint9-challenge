@@ -10,14 +10,13 @@ import Foundation
 import CoreData
 
 class CalorieController {
-    func createCalorie(with calories: Int) {
-        let cals = Int16(calories)
-        let calorie = Calorie(calories: cals)
+    func createCalorie(with calories: Double) {
+        let _ = Calorie(calories: calories)
         saveToPersistentStore()
     }
     
-    func update(calorie: Calorie, with calories: Int) {
-        calorie.calories = Int16(calories)
+    func update(calorie: Calorie, with calories: Double) {
+        calorie.calories = calories
         
         saveToPersistentStore()
     }

@@ -58,7 +58,6 @@ class ChartTableViewController: UIViewController, UITableViewDelegate, UITableVi
         let series = ChartSeries([0, 6, 2, 8, 4, 7, 3, 10, 8])
         series.color = ChartColors.greenColor()
         chart.add(series)
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,7 +66,6 @@ class ChartTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
-        
         let calorie = fetchedResultsController.object(at: indexPath)
         
         cell.textLabel?.text = "\(calorie.calories)"
