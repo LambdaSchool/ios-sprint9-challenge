@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 extension Calorie {
-    convenience init(calories: Int16, context: NSManagedObjectContext) {
+    convenience init(calories: Int16, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         
         self.calories = calories
