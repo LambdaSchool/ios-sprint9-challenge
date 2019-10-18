@@ -13,7 +13,33 @@
 		FB1486A2235A0D2C00F3F99E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB1486A0235A0D2C00F3F99E /* Main.storyboard */; };
 		FB1486A4235A0D3200F3F99E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB1486A3235A0D3200F3F99E /* Assets.xcassets */; };
 		FB1486A7235A0D3200F3F99E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB1486A5235A0D3200F3F99E /* LaunchScreen.storyboard */; };
+		FB1486CD235A0F9F00F3F99E /* SwiftChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB1486CB235A0F8800F3F99E /* SwiftChart.framework */; };
+		FB1486CE235A0F9F00F3F99E /* SwiftChart.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB1486CB235A0F8800F3F99E /* SwiftChart.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB1486CA235A0F8800F3F99E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB1486C6235A0F8800F3F99E /* SwiftChart.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FB1486B9235A0ECA00F3F99E;
+			remoteInfo = SwiftChart;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FB1486CF235A0F9F00F3F99E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FB1486CE235A0F9F00F3F99E /* SwiftChart.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		FB148697235A0D2C00F3F99E /* CalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +50,7 @@
 		FB1486A3235A0D3200F3F99E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB1486A6235A0D3200F3F99E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB1486A8235A0D3200F3F99E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB1486C6235A0F8800F3F99E /* SwiftChart.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftChart.xcodeproj; path = ../../SwiftChart/SwiftChart/SwiftChart.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB1486CD235A0F9F00F3F99E /* SwiftChart.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +70,7 @@
 			children = (
 				FB148699235A0D2C00F3F99E /* CalorieTracker */,
 				FB148698235A0D2C00F3F99E /* Products */,
+				FB1486CC235A0F9F00F3F99E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +92,24 @@
 				FB1486A3235A0D3200F3F99E /* Assets.xcassets */,
 				FB1486A5235A0D3200F3F99E /* LaunchScreen.storyboard */,
 				FB1486A8235A0D3200F3F99E /* Info.plist */,
+				FB1486C6235A0F8800F3F99E /* SwiftChart.xcodeproj */,
 			);
 			path = CalorieTracker;
+			sourceTree = "<group>";
+		};
+		FB1486C7235A0F8800F3F99E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB1486CB235A0F8800F3F99E /* SwiftChart.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB1486CC235A0F9F00F3F99E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,6 +123,7 @@
 				FB148694235A0D2C00F3F99E /* Frameworks */,
 				FB148695235A0D2C00F3F99E /* Resources */,
 				FB1486AE235A0D4D00F3F99E /* ShellScript */,
+				FB1486CF235A0F9F00F3F99E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -114,12 +160,28 @@
 			mainGroup = FB14868E235A0D2C00F3F99E;
 			productRefGroup = FB148698235A0D2C00F3F99E /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FB1486C7235A0F8800F3F99E /* Products */;
+					ProjectRef = FB1486C6235A0F8800F3F99E /* SwiftChart.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				FB148696235A0D2C00F3F99E /* CalorieTracker */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		FB1486CB235A0F8800F3F99E /* SwiftChart.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftChart.framework;
+			remoteRef = FB1486CA235A0F8800F3F99E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FB148695235A0D2C00F3F99E /* Resources */ = {
