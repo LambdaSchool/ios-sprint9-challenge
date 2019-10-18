@@ -13,18 +13,30 @@ class EntryController {
 
     // MARK: - Properties
 
-    static var entries: [Entry] = []
+    var entries: [Entry] {
+        let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "dateEntered", ascending: true)]
+        
+        let moc = CoreDataStack.shared.mainContext
+        
+        do{
+            return try moc.fetch(fetchRequest)
+        } catch {
+            NSLog("Error fetching entries:\(error)")
+            return []
+        }
+    }
 
     // MARK: - Create
 
     func createEntry(calorieCount: Int, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         context.performAndWait {
             let convertedInt = Int32(calorieCount)
-            let newEntry = Entry(calories: convertedInt, dateEntered: Date())
-            EntryController.entries.append(newEntry)
+            Entry(calories: convertedInt, dateEntered: Date())
+            
             do {
                 try CoreDataStack.shared.save(context: context)
-                NotificationCenter.default.post(name: .entriesUpdated, object: self)
+                NotificationCenter.default.post(name: .entriesUpdated, object: nil)
             } catch {
                 NSLog("Error saving context when creating new Entry:\(error)")
             }

@@ -32,7 +32,7 @@ class CoreDataStack {
     lazy var container: NSPersistentContainer = {
 
         // Give the container the name of your data model file
-        let container = NSPersistentContainer(name: "Calorie Tracker ST")
+        let container = NSPersistentContainer(name: "Calorie_Tracker_ST")
 
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error {
