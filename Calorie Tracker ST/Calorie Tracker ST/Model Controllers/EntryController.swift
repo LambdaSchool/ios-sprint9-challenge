@@ -9,15 +9,19 @@
 import Foundation
 import CoreData
 
-class entryController {
+class EntryController {
     
-    var entries: [Entry] = []
+    //MARK: - Properties
+    
+    static var entries: [Entry] = []
+    
+    //MARK: - Create
     
     func createEntry(calorieCount: Int, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         context.performAndWait {
             let convertedInt = Int32(calorieCount)
             let newEntry = Entry(calories: convertedInt, dateEntered: Date())
-            entries.append(newEntry)
+            EntryController.entries.append(newEntry)
             do {
                 try CoreDataStack.shared.save(context: context)
                 NotificationCenter.default.post(name: .entriesUpdated, object: self)
@@ -26,6 +30,8 @@ class entryController {
             }
         }
     }
+    
+    //MARK: - Update
     
     func updateEntry(entry: Entry, calorieCount: Int, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         context.performAndWait {
@@ -42,6 +48,8 @@ class entryController {
         }
     }
     
+    //MARK: - Delete
+    
     func deleteEntry(entry: Entry, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         context.performAndWait {
             context.delete(entry)
@@ -53,6 +61,4 @@ class entryController {
             }
         }
     }
-    
-    
 }
