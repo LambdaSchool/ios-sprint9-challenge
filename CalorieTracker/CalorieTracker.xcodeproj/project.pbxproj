@@ -14,11 +14,12 @@
 		777C29E0235A0FA900913BA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 777C29DE235A0FA900913BA4 /* LaunchScreen.storyboard */; };
 		777C29EE235A101D00913BA4 /* CalorieTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C29ED235A101D00913BA4 /* CalorieTrackerViewController.swift */; };
 		777C29F2235A10AE00913BA4 /* CalorieTrackerChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C29F1235A10AE00913BA4 /* CalorieTrackerChartView.swift */; };
-		777C29F4235A10F200913BA4 /* CalorieTrackerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C29F3235A10F200913BA4 /* CalorieTrackerTableView.swift */; };
 		777C29FA235A14B800913BA4 /* Calories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 777C29F8235A14B800913BA4 /* Calories.xcdatamodeld */; };
 		777C29FC235A150C00913BA4 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C29FB235A150C00913BA4 /* CoreDataStack.swift */; };
 		777C2A00235A15D700913BA4 /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C29FF235A15D700913BA4 /* Calorie+Convenience.swift */; };
 		777C2A02235A18BC00913BA4 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C2A01235A18BC00913BA4 /* DateFormatter.swift */; };
+		777C2A08235A269400913BA4 /* CalorieTrackerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C2A07235A269400913BA4 /* CalorieTrackerTableViewCell.swift */; };
+		777C2A0A235A2AC000913BA4 /* CalorieTrackerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C2A09235A2AC000913BA4 /* CalorieTrackerTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,11 +32,12 @@
 		777C29E1235A0FA900913BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		777C29ED235A101D00913BA4 /* CalorieTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerViewController.swift; sourceTree = "<group>"; };
 		777C29F1235A10AE00913BA4 /* CalorieTrackerChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerChartView.swift; sourceTree = "<group>"; };
-		777C29F3235A10F200913BA4 /* CalorieTrackerTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerTableView.swift; sourceTree = "<group>"; };
 		777C29F9235A14B800913BA4 /* Calories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calories.xcdatamodel; sourceTree = "<group>"; };
 		777C29FB235A150C00913BA4 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		777C29FF235A15D700913BA4 /* Calorie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience.swift"; sourceTree = "<group>"; };
 		777C2A01235A18BC00913BA4 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		777C2A07235A269400913BA4 /* CalorieTrackerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerTableViewCell.swift; sourceTree = "<group>"; };
+		777C2A09235A2AC000913BA4 /* CalorieTrackerTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				777C29F1235A10AE00913BA4 /* CalorieTrackerChartView.swift */,
-				777C29F3235A10F200913BA4 /* CalorieTrackerTableView.swift */,
+				777C2A07235A269400913BA4 /* CalorieTrackerTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				777C29ED235A101D00913BA4 /* CalorieTrackerViewController.swift */,
+				777C2A09235A2AC000913BA4 /* CalorieTrackerTableView.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -124,10 +127,10 @@
 		777C29EC235A0FE100913BA4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				777C29E1235A0FA900913BA4 /* Info.plist */,
 				777C29D3235A0FA900913BA4 /* AppDelegate.swift */,
 				777C29D5235A0FA900913BA4 /* SceneDelegate.swift */,
 				777C29DC235A0FA900913BA4 /* Assets.xcassets */,
-				777C29E1235A0FA900913BA4 /* Info.plist */,
 				777C2A01235A18BC00913BA4 /* DateFormatter.swift */,
 			);
 			path = Resources;
@@ -227,11 +230,12 @@
 			files = (
 				777C29D4235A0FA900913BA4 /* AppDelegate.swift in Sources */,
 				777C29EE235A101D00913BA4 /* CalorieTrackerViewController.swift in Sources */,
+				777C2A08235A269400913BA4 /* CalorieTrackerTableViewCell.swift in Sources */,
 				777C29D6235A0FA900913BA4 /* SceneDelegate.swift in Sources */,
+				777C2A0A235A2AC000913BA4 /* CalorieTrackerTableView.swift in Sources */,
 				777C2A02235A18BC00913BA4 /* DateFormatter.swift in Sources */,
 				777C2A00235A15D700913BA4 /* Calorie+Convenience.swift in Sources */,
 				777C29F2235A10AE00913BA4 /* CalorieTrackerChartView.swift in Sources */,
-				777C29F4235A10F200913BA4 /* CalorieTrackerTableView.swift in Sources */,
 				777C29FA235A14B800913BA4 /* Calories.xcdatamodeld in Sources */,
 				777C29FC235A150C00913BA4 /* CoreDataStack.swift in Sources */,
 			);
@@ -379,7 +383,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 63GJL7X8L2;
-				INFOPLIST_FILE = CalorieTracker/Info.plist;
+				INFOPLIST_FILE = CalorieTracker/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -397,7 +401,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 63GJL7X8L2;
-				INFOPLIST_FILE = CalorieTracker/Info.plist;
+				INFOPLIST_FILE = CalorieTracker/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
