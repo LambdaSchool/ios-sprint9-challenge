@@ -17,6 +17,10 @@
 		FB1486FF235A1D7900F3F99E /* Pods_CalorieTracker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85349311E0C806D11222873E /* Pods_CalorieTracker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FB58008F235A1EC2005630F6 /* CalorieData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB58008D235A1EC2005630F6 /* CalorieData.xcdatamodeld */; };
 		FB580091235A1F84005630F6 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB580090235A1F84005630F6 /* CoreDataStack.swift */; };
+		FB580094235A207C005630F6 /* CalorieDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB580093235A207C005630F6 /* CalorieDataController.swift */; };
+		FB580097235A221A005630F6 /* Calories+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB580096235A221A005630F6 /* Calories+Convenience.swift */; };
+		FB580099235A245A005630F6 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB580098235A245A005630F6 /* Notification+Extension.swift */; };
+		FB58009B235A2746005630F6 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB58009A235A2746005630F6 /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +62,10 @@
 		FB1486E7235A11BF00F3F99E /* SwiftChartFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftChartFramework.xcodeproj; path = ../SwiftChartFramework/SwiftChartFramework.xcodeproj; sourceTree = "<group>"; };
 		FB58008E235A1EC2005630F6 /* CalorieData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieData.xcdatamodel; sourceTree = "<group>"; };
 		FB580090235A1F84005630F6 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		FB580093235A207C005630F6 /* CalorieDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieDataController.swift; sourceTree = "<group>"; };
+		FB580096235A221A005630F6 /* Calories+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Calories+Convenience.swift"; path = "CalorieTracker/Model Controller/Calories+Convenience.swift"; sourceTree = SOURCE_ROOT; };
+		FB580098235A245A005630F6 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Notification+Extension.swift"; path = "CalorieTracker/Model Controller/Notification+Extension.swift"; sourceTree = SOURCE_ROOT; };
+		FB58009A235A2746005630F6 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Date+Extension.swift"; path = "CalorieTracker/Model Controller/Date+Extension.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,8 @@
 		FB148699235A0D2C00F3F99E /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
+				FB580095235A21F1005630F6 /* Convenience  */,
+				FB580092235A205C005630F6 /* Model Controller */,
 				FB58008B235A1E91005630F6 /* Model */,
 				FB1486F1235A139300F3F99E /* Resources */,
 				FB1486F0235A138200F3F99E /* View Controllers */,
@@ -164,6 +174,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		FB580092235A205C005630F6 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FB580093235A207C005630F6 /* CalorieDataController.swift */,
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		FB580095235A21F1005630F6 /* Convenience  */ = {
+			isa = PBXGroup;
+			children = (
+				FB580096235A221A005630F6 /* Calories+Convenience.swift */,
+				FB580098235A245A005630F6 /* Notification+Extension.swift */,
+				FB58009A235A2746005630F6 /* Date+Extension.swift */,
+			);
+			path = "Convenience ";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -175,7 +203,6 @@
 				FB148693235A0D2C00F3F99E /* Sources */,
 				FB148694235A0D2C00F3F99E /* Frameworks */,
 				FB148695235A0D2C00F3F99E /* Resources */,
-				FB1486AE235A0D4D00F3F99E /* ShellScript */,
 				6711603EE50A41C55080614F /* [CP] Embed Pods Frameworks */,
 				FB148700235A1D7900F3F99E /* Embed Frameworks */,
 			);
@@ -290,23 +317,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FB1486AE235A0D4D00F3F99E /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfiworkspace to insert its path.\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -315,10 +325,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB580091235A1F84005630F6 /* CoreDataStack.swift in Sources */,
+				FB580097235A221A005630F6 /* Calories+Convenience.swift in Sources */,
 				FB14869F235A0D2C00F3F99E /* ViewController.swift in Sources */,
 				FB58008F235A1EC2005630F6 /* CalorieData.xcdatamodeld in Sources */,
 				FB14869B235A0D2C00F3F99E /* AppDelegate.swift in Sources */,
 				FB14869D235A0D2C00F3F99E /* SceneDelegate.swift in Sources */,
+				FB580099235A245A005630F6 /* Notification+Extension.swift in Sources */,
+				FB580094235A207C005630F6 /* CalorieDataController.swift in Sources */,
+				FB58009B235A2746005630F6 /* Date+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
