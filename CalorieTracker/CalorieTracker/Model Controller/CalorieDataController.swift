@@ -10,8 +10,11 @@ import Foundation
 import CoreData
 
 class CalorieDataController {
-    let context = CoreDataStack.shared.mainContext
     private(set) var calorieData: [Calories] = []
+    
+    init() {
+        
+    }
     
     @discardableResult func addCount (_ count: Int, _ date: Date = Date()) -> Calories {
         let calories = Calories(count)

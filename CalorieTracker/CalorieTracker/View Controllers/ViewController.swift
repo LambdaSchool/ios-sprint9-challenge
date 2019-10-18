@@ -27,6 +27,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         tableView.dataSource = self
         tableView.delegate = self
+        chartView.add(series)
         self.observeDataChanged()
     }
     
@@ -41,8 +42,6 @@ class ViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func addtapped(_ sender: Any) {
-        //TODO: Open alert window to get number and call controller to add
-        
      let alert = UIAlertController(title: "New Calories", message: "Enter calorie count", preferredStyle: .alert)
            alert.addTextField { textField in
                textField.text = ""
