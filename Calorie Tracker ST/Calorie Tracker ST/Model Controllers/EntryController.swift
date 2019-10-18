@@ -16,10 +16,10 @@ class EntryController {
     var entries: [Entry] {
         let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "dateEntered", ascending: true)]
-        
+
         let moc = CoreDataStack.shared.mainContext
-        
-        do{
+
+        do {
             return try moc.fetch(fetchRequest)
         } catch {
             NSLog("Error fetching entries:\(error)")
@@ -33,7 +33,7 @@ class EntryController {
         context.performAndWait {
             let convertedInt = Int32(calorieCount)
             Entry(calories: convertedInt, dateEntered: Date())
-            
+
             do {
                 try CoreDataStack.shared.save(context: context)
                 NotificationCenter.default.post(name: .entriesUpdated, object: nil)

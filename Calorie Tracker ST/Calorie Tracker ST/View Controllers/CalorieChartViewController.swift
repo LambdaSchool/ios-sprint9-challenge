@@ -19,9 +19,9 @@ class CalorieChartViewController: UIViewController {
     let entryController = EntryController()
 
     var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
+        let formatter        = DateFormatter()
         formatter.dateFormat = "MM-dd-yy, h:mm a"
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.timeZone   = TimeZone(secondsFromGMT: 0)
         return formatter
     }
 
@@ -37,17 +37,17 @@ class CalorieChartViewController: UIViewController {
 
     func setUpChart() {
         var doubleEntries: [Double] = []
-        
+
         for entry in entryController.entries {
             let double = Double(entry.calories)
             doubleEntries.append(double)
         }
 
-        let series = ChartSeries(doubleEntries)
+        let series   = ChartSeries(doubleEntries)
         series.color = ChartColors.darkGreenColor()
-        series.area = true
+        series.area  = true
         chartView.add(series)
-        
+
         observeEntriesUpdate()
     }
 
@@ -60,7 +60,7 @@ class CalorieChartViewController: UIViewController {
     }
 
     @IBAction func addEntryTapped(_ sender: UIBarButtonItem) {
-        
+
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
 
         alert.addTextField { (setTextField) in
@@ -80,9 +80,6 @@ class CalorieChartViewController: UIViewController {
 
         present(alert, animated: true, completion: nil)
     }
-    
-
-
 }
 
 // MARK: - Extensions
