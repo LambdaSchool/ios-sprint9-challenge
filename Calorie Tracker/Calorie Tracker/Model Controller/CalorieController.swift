@@ -13,6 +13,8 @@ class CalorieController {
     func createCalorie(with calories: Double) {
         _ = Calorie(calories: calories)
         saveToPersistentStore()
+        
+        NotificationCenter.default.post(name: .calorieAdded, object: self)
     }
     
     func update(calorie: Calorie, with calories: Double) {
