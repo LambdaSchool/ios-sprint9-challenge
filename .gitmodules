@@ -1,0 +1,3 @@
+[submodule "SwiftChart"]
+	path = SwiftChart
+	url = https://github.com/gpbl/SwiftChart.git
