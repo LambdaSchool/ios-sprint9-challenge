@@ -36,10 +36,11 @@ class ViewController: UIViewController {
     func observeDataChanged() {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(notification:)), name: .dataWasAdded, object: nil)
     }
+    
     @objc func refreshViews (notification: Notification) {
         tableView.reloadData()
         chartView.removeAllSeries()
-        chartView.add(self.series)
+        chartView.add(series)
     }
     
     // MARK: - IBActions
@@ -59,6 +60,8 @@ class ViewController: UIViewController {
            self.present(alert, animated: true, completion: nil)
     }
 }
+
+//MARK: - Extensions
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

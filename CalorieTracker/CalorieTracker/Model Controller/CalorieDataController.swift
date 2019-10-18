@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 class CalorieDataController {
-    private(set) var calorieData: [Calories] = []
+    private(set) var calorieData: [Calories]
     
     init() {
         let context = CoreDataStack.shared.mainContext
@@ -21,14 +21,15 @@ class CalorieDataController {
             self.calorieData = calories
         } catch {
             NSLog("Error fetching calories: \(error)")
+            calorieData = []
         }
     }
     
     @discardableResult func addCount (_ count: Int, _ date: Date = Date()) -> Calories {
         let calories = Calories(count)
-        NotificationCenter.default.post(name: .dataWasAdded, object: self)
         calorieData.append(calories)
         CoreDataStack.shared.save()
+        NotificationCenter.default.post(name: .dataWasAdded, object: self)
         return calories
     }
     
