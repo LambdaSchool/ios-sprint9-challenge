@@ -13,7 +13,15 @@ class CalorieDataController {
     private(set) var calorieData: [Calories] = []
     
     init() {
-        
+        let context = CoreDataStack.shared.mainContext
+        let fetchRequest: NSFetchRequest<Calories> = Calories.fetchRequest()
+        fetchRequest.predicate = NSPredicate(value: true)
+        do {
+            let calories = try context.fetch(fetchRequest)
+            self.calorieData = calories
+        } catch {
+            NSLog("Error fetching calories: \(error)")
+        }
     }
     
     @discardableResult func addCount (_ count: Int, _ date: Date = Date()) -> Calories {

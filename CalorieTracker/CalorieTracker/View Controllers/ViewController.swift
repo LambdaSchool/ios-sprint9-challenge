@@ -13,9 +13,11 @@ class ViewController: UIViewController {
 
     // MARK: - Private properties
     private var calorieDataController = CalorieDataController()
-    private lazy var series: ChartSeries = {
-        ChartSeries(calorieDataController.calorieData.compactMap { Double($0.calories) })
-    }()
+    private var series: ChartSeries {
+        let result = ChartSeries(calorieDataController.calorieData.compactMap { Double($0.calories) })
+        print (result)
+        return result
+    }
     
     // MARK: - IBOutlets
     @IBOutlet private weak var chartView: Chart!
