@@ -1,5 +1,5 @@
 //
-//  CalorieTrackerChartView.swift
+//  Chart.swift
 //  CalorieTracker
 //
 //  Created by Ciara Beitel on 10/18/19.
@@ -7,15 +7,24 @@
 //
 
 import UIKit
+import SwiftChart
 
-class CalorieTrackerChartView: UIView {
+class Chart: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+    let chart = Chart()
+    
+    let data = [
+      (x: 0, y: 0),
+      (x: 1, y: 3.1),
+      (x: 4, y: 2),
+      (x: 5, y: 4.2),
+      (x: 7, y: 5),
+      (x: 9, y: 9),
+      (x: 10, y: 8)
+    ]
+    
+    let series = ChartSeries(data: data)
+    
+    //chart.add(series)
 
 }

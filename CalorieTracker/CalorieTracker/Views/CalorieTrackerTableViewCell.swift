@@ -12,7 +12,8 @@ class CalorieTrackerTableViewCell: UITableViewCell {
     // MARK: - Outlets
 
     @IBOutlet weak var intakeLabel: UILabel!
-    @IBOutlet weak var timestampLabel: UILabel!
+    @IBOutlet
+    weak var timestampLabel: UILabel!
     // MARK: - Functions
 
     override func awakeFromNib() {

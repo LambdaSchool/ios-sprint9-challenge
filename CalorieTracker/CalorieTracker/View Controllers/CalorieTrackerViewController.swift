@@ -31,16 +31,17 @@ class CalorieTrackerViewController: UIViewController, UITableViewDelegate {
     
     // MARK: - Outlets
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet weak var chartView: Chart!
+    @IBOutlet private weak var chartView: Chart!
     
     // MARK: - Actions
     @IBAction func addCalorieButton(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Add a calorie", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
         var calorieIntakeTextField: UITextField!
         alert.addTextField { textfield in
             textfield.placeholder = "Calories:"
             calorieIntakeTextField = textfield
         }
+        
         let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
             DispatchQueue.main.async {
                 do {
@@ -48,12 +49,14 @@ class CalorieTrackerViewController: UIViewController, UITableViewDelegate {
                     let intakeInt = Int16(intake)
                     _ = Calorie(intake: intakeInt ?? 0, context: CoreDataStack.shared.mainContext)
                     try CoreDataStack.shared.mainContext.save()
-                    self.tableView.reloadData()
+                    
+                    NotificationCenter.default.post(name: Notification.Name("updateChart"), object: self)
                 } catch {
                     NSLog("Didn't save calorie.")
                 }
             }
         }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(submitAction)
         present(alert, animated: true, completion: nil)
     }
@@ -64,21 +67,30 @@ class CalorieTrackerViewController: UIViewController, UITableViewDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         
-        let data = [
-          (x: 0, y: 0),
-          (x: 1, y: 3.1),
-          (x: 4, y: 2),
-          (x: 5, y: 4.2),
-          (x: 7, y: 5),
-          (x: 9, y: 9),
-          (x: 10, y: 8)
-        ]
-        let series = ChartSeries(data: data)
+        self.observeCalorieAdded()
+        buildChart()
+    }
+    @objc func buildChart() {
+        let values = buildCaloriesChart()
+        let series = ChartSeries(values)
+        series.area = true
         chartView.add(series)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+    }
+    func observeCalorieAdded() {
+        NotificationCenter.default.addObserver(self, selector: #selector(buildChart), name: Notification.Name("updateChart"), object: nil)
+    }
+    func buildCaloriesChart() -> [Double] {
+        var calorieSeries: [Double] = []
+        guard let calories = fetchResultsController.fetchedObjects else { return [] }
+        for calorie in calories {
+            let calorieDouble = Double(calorie.intake)
+            calorieSeries.append(calorieDouble)
+        }
+        return calorieSeries
     }
 }
 
