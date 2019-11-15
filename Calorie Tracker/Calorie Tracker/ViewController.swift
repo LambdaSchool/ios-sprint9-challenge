@@ -67,6 +67,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @objc private func refreshViews() {
         if let dataPoints = fetchedResultsController.fetchedObjects?.compactMap({ Double($0.calories) }) {
             let series = ChartSeries(dataPoints)
+            chart.removeAllSeries()
             chart.add(series)
         }
     }
@@ -93,6 +94,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if editingStyle == .delete {
             let entry = fetchedResultsController.object(at: indexPath)
             entryController.delete(entry: entry, context: CoreDataStack.shared.mainContext)
+            NotificationCenter.default.post(name: .dataUpdated, object: self)
         }
     }
     
