@@ -11,41 +11,88 @@ import SwiftChart
 
 class CaloriesTableViewController: UITableViewController {
     
-    let caloriesChart = CaloriesChart()
+    //MARK: Properties
+    var newCalorie = ""
     
-    @IBOutlet weak var chartView: UIView!
+    @IBOutlet weak var chartView: Chart!
+    
+    var series = ChartSeries([0, 6, 9, 4, 5, 6, 7, 8, 3, 5])
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        chartView = caloriesChart
-//        chartView.
+        updateChart()
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
     }
 
+    @IBAction func addIntakeButtonTapped(_ sender: UIBarButtonItem) {
+        
+        let alert = UIAlertController(title: "New Calorie", message: "Enter New Calorie Amount", preferredStyle: .alert)
+        
+        let calorieAction = UIAlertAction(title: "Done", style: .default, handler: { (action) -> Void in
+            
+            // Getting textfield's text
+            let amountTxt = alert.textFields![0]
+            self.newCalorie = amountTxt.text ?? ""
+            
+        })
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { ( action) -> Void in })
+        
+        alert.addTextField(configurationHandler: { (textField: UITextField) in
+            textField.placeholder = "Enter Calorie"
+            textField.keyboardType = .default
+        })
+        
+        alert.addAction(calorieAction)
+        alert.addAction(cancel)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+//
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
 
         // Configure the cell...
 
         return cell
     }
-    */
+    
+    
+    
+    
+    func updateChart() {
+        series.color = ChartColors.greenColor()
+        chartView.add(series)
+        
+    }
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -82,14 +129,5 @@ class CaloriesTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
