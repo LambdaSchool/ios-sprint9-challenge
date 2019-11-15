@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CaloriesViewController.swift
 //  Calorie Tracker
 //
 //  Created by Isaac Lyons on 11/15/19.
@@ -10,7 +10,7 @@ import UIKit
 import SwiftChart
 import CoreData
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CaloriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: Outlets
     
@@ -130,7 +130,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 // MARK: Fetched Results Controller Delegate
 
-extension ViewController: NSFetchedResultsControllerDelegate {
+extension CaloriesViewController: NSFetchedResultsControllerDelegate {
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
