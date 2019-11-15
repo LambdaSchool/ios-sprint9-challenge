@@ -72,7 +72,7 @@
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="q7o-by-SeM">
                         <barButtonItem key="leftBarButtonItem" image="person.2.fill" catalog="system" id="XSO-um-AQZ">
                             <connections>
-                                <segue destination="GGA-Di-QHZ" kind="presentation" id="9a4-RO-LVv"/>
+                                <segue destination="GGA-Di-QHZ" kind="presentation" identifier="modalShowUsersList" id="9a4-RO-LVv"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="unW-32-rsR">

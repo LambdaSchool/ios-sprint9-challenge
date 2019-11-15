@@ -10,8 +10,8 @@ import CoreData
 
 class EntryController {
     
-    func create(entryWithCalories calories: Int16, context: NSManagedObjectContext) {
-        Entry(calories: calories, context: context)
+    func create(entryWithCalories calories: Int16, user: User, context: NSManagedObjectContext) {
+        Entry(calories: calories, user: user, context: context)
         CoreDataStack.shared.save(context: context)
     }
     

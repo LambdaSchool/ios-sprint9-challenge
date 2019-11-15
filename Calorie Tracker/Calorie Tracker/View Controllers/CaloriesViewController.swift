@@ -20,7 +20,13 @@ class CaloriesViewController: UIViewController, UITableViewDelegate, UITableView
     // MARK: Properties
     
     let entryController = EntryController()
-    var user: User?
+    var user: User? {
+        didSet {
+            fetchedResultsController = newFRC()
+            refreshViews()
+            tableView.reloadData()
+        }
+    }
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
@@ -36,6 +42,10 @@ class CaloriesViewController: UIViewController, UITableViewDelegate, UITableView
         
         addObservers()
         refreshViews()
+        
+        if user == nil {
+            performSegue(withIdentifier: "modalShowUsersList", sender: self)
+        }
     }
     
     // MARK: Private
@@ -48,6 +58,8 @@ class CaloriesViewController: UIViewController, UITableViewDelegate, UITableView
         fetchRequest.sortDescriptors = [
             NSSortDescriptor(key: "date", ascending: true)
         ]
+        
+        fetchRequest.predicate = NSPredicate(format: "user == %@", user)
         
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
                                              managedObjectContext: CoreDataStack.shared.mainContext,
@@ -120,9 +132,10 @@ class CaloriesViewController: UIViewController, UITableViewDelegate, UITableView
         
         let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
             guard let caloriesString = alertController.textFields?[0].text,
-                let calories = Int16(caloriesString) else { return }
+                let calories = Int16(caloriesString),
+                let user = self.user else { return }
             
-            self.entryController.create(entryWithCalories: calories, context: CoreDataStack.shared.mainContext)
+            self.entryController.create(entryWithCalories: calories, user: user, context: CoreDataStack.shared.mainContext)
             
             NotificationCenter.default.post(name: .dataUpdated, object: self)
         }

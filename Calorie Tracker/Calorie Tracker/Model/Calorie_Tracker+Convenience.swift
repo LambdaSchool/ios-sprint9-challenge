@@ -9,9 +9,10 @@
 import CoreData
 
 extension Entry {
-    @discardableResult convenience init(calories: Int16, context: NSManagedObjectContext, date: Date = Date()) {
+    @discardableResult convenience init(calories: Int16, user: User, context: NSManagedObjectContext, date: Date = Date()) {
         self.init(context: context)
         self.calories = calories
+        self.user = user
         self.date = date
     }
 }
