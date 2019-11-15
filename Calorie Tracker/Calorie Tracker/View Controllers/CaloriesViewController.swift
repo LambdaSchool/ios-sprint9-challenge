@@ -20,6 +20,7 @@ class CaloriesViewController: UIViewController, UITableViewDelegate, UITableView
     // MARK: Properties
     
     let entryController = EntryController()
+    var user: User?
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
@@ -28,7 +29,20 @@ class CaloriesViewController: UIViewController, UITableViewDelegate, UITableView
         return dateFormatter
     }()
     
-    lazy var fetchedResultsController: NSFetchedResultsController<Entry> = {
+    lazy var fetchedResultsController: NSFetchedResultsController<Entry>? = newFRC()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        addObservers()
+        refreshViews()
+    }
+    
+    // MARK: Private
+    
+    private func newFRC() -> NSFetchedResultsController<Entry>? {
+        guard let user = user else { return nil }
+        
         let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
         
         fetchRequest.sortDescriptors = [
@@ -49,42 +63,42 @@ class CaloriesViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         return frc
-    }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        addObservers()
-        refreshViews()
     }
-    
-    // MARK: Private
     
     private func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshViews), name: .dataUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setUser(notification:)), name: .setUser, object: nil)
     }
     
     @objc private func refreshViews() {
-        if let dataPoints = fetchedResultsController.fetchedObjects?.compactMap({ Double($0.calories) }) {
+        if let dataPoints = fetchedResultsController?.fetchedObjects?.compactMap({ Double($0.calories) }) {
             let series = ChartSeries(dataPoints)
             chart.removeAllSeries()
             chart.add(series)
         }
     }
     
+    @objc private func setUser(notification: Notification) {
+        guard let userInfo = notification.userInfo,
+            let user: User = userInfo["user"] as? User else { return }
+        
+        self.user = user
+    }
+    
     // MARK: Table View Data Source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        fetchedResultsController.fetchedObjects?.count ?? 0
+        fetchedResultsController?.fetchedObjects?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath)
         
-        let entry = fetchedResultsController.object(at: indexPath)
-        cell.textLabel?.text = "Calories: \(entry.calories)"
-        if let date = entry.date {
-            cell.detailTextLabel?.text = dateFormatter.string(from: date)
+        if let entry = fetchedResultsController?.object(at: indexPath) {
+            cell.textLabel?.text = "Calories: \(entry.calories)"
+            if let date = entry.date {
+                cell.detailTextLabel?.text = dateFormatter.string(from: date)
+            }
         }
         
         return cell
@@ -92,16 +106,16 @@ class CaloriesViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let entry = fetchedResultsController.object(at: indexPath)
-            entryController.delete(entry: entry, context: CoreDataStack.shared.mainContext)
-            NotificationCenter.default.post(name: .dataUpdated, object: self)
+            if let entry = fetchedResultsController?.object(at: indexPath) {
+                entryController.delete(entry: entry, context: CoreDataStack.shared.mainContext)
+                NotificationCenter.default.post(name: .dataUpdated, object: self)
+            }
         }
     }
     
     // MARK: Actions
 
     @IBAction func addEntry(_ sender: UIButton) {
-        
         let alertController = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories", preferredStyle: .alert)
         
         let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in

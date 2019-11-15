@@ -19,6 +19,7 @@
 		598B7FD1237F0D4C00C465E9 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598B7FD0237F0D4C00C465E9 /* EntryController.swift */; };
 		598B7FD5237F175C00C465E9 /* Notification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598B7FD4237F175C00C465E9 /* Notification+Names.swift */; };
 		598B7FD8237F1C1800C465E9 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598B7FD7237F1C1800C465E9 /* UsersTableViewController.swift */; };
+		598B7FDA237F1DFB00C465E9 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598B7FD9237F1DFB00C465E9 /* UserController.swift */; };
 		FE12AF7F9E7A38D5FB7ADC2B /* Pods_Calorie_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF134630CC269B44FDA6322F /* Pods_Calorie_Tracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		598B7FD0237F0D4C00C465E9 /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 		598B7FD4237F175C00C465E9 /* Notification+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Names.swift"; sourceTree = "<group>"; };
 		598B7FD7237F1C1800C465E9 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		598B7FD9237F1DFB00C465E9 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		EF134630CC269B44FDA6322F /* Pods_Calorie_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calorie_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				598B7FD0237F0D4C00C465E9 /* EntryController.swift */,
+				598B7FD9237F1DFB00C465E9 /* UserController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			files = (
 				598B7FCC237F0C9700C465E9 /* Calorie_Tracker+Convenience.swift in Sources */,
 				598B7FD5237F175C00C465E9 /* Notification+Names.swift in Sources */,
+				598B7FDA237F1DFB00C465E9 /* UserController.swift in Sources */,
 				598B7FD8237F1C1800C465E9 /* UsersTableViewController.swift in Sources */,
 				598B7FB7237F060B00C465E9 /* CaloriesViewController.swift in Sources */,
 				598B7FD1237F0D4C00C465E9 /* EntryController.swift in Sources */,
@@ -420,6 +424,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A4525544Q4;
 				INFOPLIST_FILE = "Calorie Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -438,6 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A4525544Q4;
 				INFOPLIST_FILE = "Calorie Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
