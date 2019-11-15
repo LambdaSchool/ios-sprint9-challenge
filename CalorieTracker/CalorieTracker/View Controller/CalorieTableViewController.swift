@@ -118,7 +118,8 @@ class CalorieTableViewController: UITableViewController {
         alert.addTextField { (textField) in
             textField.placeholder = "calories"
         }
-
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
         alert.addAction(UIAlertAction(title: "Sumbit", style: .default, handler: { [weak alert] (_) in
             if let textField = alert?.textFields![0], let calorieString = textField.text, let calorie = Int16(calorieString) {
                 
