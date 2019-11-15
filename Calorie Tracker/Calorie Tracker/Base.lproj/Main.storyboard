@@ -49,7 +49,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="G5M-fa-lyV"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLz-Ob-712">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLz-Ob-712" customClass="Chart" customModule="SwiftChart">
                                 <rect key="frame" x="0.0" y="88" width="414" height="221"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>

@@ -53,6 +53,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let dataPoints = fetchedResultsController.fetchedObjects?.compactMap({ Double($0.calories) }) {
+            let series = ChartSeries(dataPoints)
+            chart.add(series)
+        }
     }
     
     // MARK: Table View Data Source
