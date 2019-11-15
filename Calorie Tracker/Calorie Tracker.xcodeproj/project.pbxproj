@@ -17,6 +17,7 @@
 		598B7FCC237F0C9700C465E9 /* Calorie_Tracker+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598B7FCB237F0C9700C465E9 /* Calorie_Tracker+Convenience.swift */; };
 		598B7FCE237F0CF800C465E9 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598B7FCD237F0CF800C465E9 /* CoreDataStack.swift */; };
 		598B7FD1237F0D4C00C465E9 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598B7FD0237F0D4C00C465E9 /* EntryController.swift */; };
+		598B7FD5237F175C00C465E9 /* Notification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598B7FD4237F175C00C465E9 /* Notification+Names.swift */; };
 		FE12AF7F9E7A38D5FB7ADC2B /* Pods_Calorie_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF134630CC269B44FDA6322F /* Pods_Calorie_Tracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		598B7FCB237F0C9700C465E9 /* Calorie_Tracker+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie_Tracker+Convenience.swift"; sourceTree = "<group>"; };
 		598B7FCD237F0CF800C465E9 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		598B7FD0237F0D4C00C465E9 /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
+		598B7FD4237F175C00C465E9 /* Notification+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Names.swift"; sourceTree = "<group>"; };
 		EF134630CC269B44FDA6322F /* Pods_Calorie_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calorie_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 				598B7FBB237F060B00C465E9 /* Calorie_Tracker.xcdatamodeld */,
 				598B7FCB237F0C9700C465E9 /* Calorie_Tracker+Convenience.swift */,
 				598B7FCD237F0CF800C465E9 /* CoreDataStack.swift */,
+				598B7FD4237F175C00C465E9 /* Notification+Names.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				598B7FCC237F0C9700C465E9 /* Calorie_Tracker+Convenience.swift in Sources */,
+				598B7FD5237F175C00C465E9 /* Notification+Names.swift in Sources */,
 				598B7FB7237F060B00C465E9 /* ViewController.swift in Sources */,
 				598B7FD1237F0D4C00C465E9 /* EntryController.swift in Sources */,
 				598B7FB3237F060B00C465E9 /* AppDelegate.swift in Sources */,

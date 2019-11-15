@@ -54,6 +54,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addObservers()
+        refreshViews()
+    }
+    
+    // MARK: Private
+    
+    private func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews), name: .dataUpdated, object: nil)
+    }
+    
+    @objc private func refreshViews() {
         if let dataPoints = fetchedResultsController.fetchedObjects?.compactMap({ Double($0.calories) }) {
             let series = ChartSeries(dataPoints)
             chart.add(series)
@@ -96,6 +107,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let calories = Int16(caloriesString) else { return }
             
             self.entryController.create(entryWithCalories: calories, context: CoreDataStack.shared.mainContext)
+            
+            NotificationCenter.default.post(name: .dataUpdated, object: self)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
