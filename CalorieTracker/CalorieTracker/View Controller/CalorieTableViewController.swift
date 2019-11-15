@@ -8,10 +8,29 @@
 
 import UIKit
 import SwiftChart
+import CoreData
 
 class CalorieTableViewController: UITableViewController {
 
     let chart = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+    let calorieController = CalorieController()
+    
+    lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
+       
+        let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+        
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.shared.mainContext, sectionNameKeyPath: "date", cacheName: nil)
+        frc.delegate = self
+        
+        do {
+            try frc.performFetch()
+        } catch {
+            fatalError("Error performing fetch for frc: \(error)")
+        }
+        return frc
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,5 +105,9 @@ class CalorieTableViewController: UITableViewController {
     */
     @IBAction func addButtonTabbed(_ sender: Any) {
     }
+    
+}
+
+extension CalorieTableViewController: NSFetchedResultsControllerDelegate {
     
 }

@@ -9,7 +9,9 @@
 import Foundation
 import CoreData
 
-func createCalorie(calorie: Int16, date: Date, context: NSManagedObjectContext) {
-    Calorie(calorie: calorie, date: date, context: context)
-    CoreDataStack.shared.save(context: context)
+class CalorieController {
+    func createCalorie(calorie: Int16, date: Date, context: NSManagedObjectContext) {
+        Calorie(calorie: calorie, date: date, context: context)
+        CoreDataStack.shared.save(context: context)
+    }
 }
