@@ -28,6 +28,7 @@ class AddEntryViewController: UIViewController {
         entryController?.createEntry(with: Double(calories)!)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "chartSeriesChanged"), object: self)
         dismiss(animated: true, completion: nil)
+        self.navigationController!.popToRootViewController(animated: true)
     }
     /*
     // MARK: - Navigation
