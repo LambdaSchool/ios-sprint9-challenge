@@ -70,6 +70,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="q7o-by-SeM">
+                        <barButtonItem key="leftBarButtonItem" image="person.2.fill" catalog="system" id="XSO-um-AQZ">
+                            <connections>
+                                <segue destination="GGA-Di-QHZ" kind="presentation" id="9a4-RO-LVv"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="unW-32-rsR">
                             <connections>
                                 <action selector="addEntry:" destination="BYZ-38-t0r" id="LKY-zX-FV7"/>
@@ -84,6 +89,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="138.61607142857142"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="fAg-hg-Z84">
+            <objects>
+                <tableViewController id="GGA-Di-QHZ" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="HFJ-Od-pzq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="P2N-kA-JCg">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFp-mu-ATY">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <state key="normal" title="Compare All Users"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="LFp-mu-ATY" secondAttribute="trailing" id="Mm4-el-UPx"/>
+                                <constraint firstAttribute="bottom" secondItem="LFp-mu-ATY" secondAttribute="bottom" id="g5r-e1-moq"/>
+                                <constraint firstItem="LFp-mu-ATY" firstAttribute="top" secondItem="P2N-kA-JCg" secondAttribute="top" id="gGZ-zd-MQT"/>
+                                <constraint firstItem="LFp-mu-ATY" firstAttribute="leading" secondItem="P2N-kA-JCg" secondAttribute="leading" id="ona-ay-tQr"/>
+                            </constraints>
+                        </view>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="onJ-sG-qXV">
+                            <rect key="frame" x="0.0" y="143.5" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Hp-AQ-9bI">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <state key="normal" title="Add User"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="7Hp-AQ-9bI" secondAttribute="bottom" id="cQY-LG-6eE"/>
+                                <constraint firstAttribute="trailing" secondItem="7Hp-AQ-9bI" secondAttribute="trailing" id="lYf-7t-tvX"/>
+                                <constraint firstItem="7Hp-AQ-9bI" firstAttribute="top" secondItem="onJ-sG-qXV" secondAttribute="top" id="vgx-LW-8aQ"/>
+                                <constraint firstItem="7Hp-AQ-9bI" firstAttribute="leading" secondItem="onJ-sG-qXV" secondAttribute="leading" id="zia-Rh-G77"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="6sY-nP-ViJ" style="IBUITableViewCellStyleDefault" id="DyT-TV-xze">
+                                <rect key="frame" x="0.0" y="72" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DyT-TV-xze" id="RbU-Ln-eDO">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6sY-nP-ViJ">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="GGA-Di-QHZ" id="UtA-5g-8XQ"/>
+                            <outlet property="delegate" destination="GGA-Di-QHZ" id="tpM-oT-6ca"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mzw-p0-vSR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1919" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="v5G-vI-875">
@@ -104,4 +180,7 @@
             <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="person.2.fill" catalog="system" width="64" height="40"/>
+    </resources>
 </document>
