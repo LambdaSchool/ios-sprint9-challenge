@@ -11,4 +11,5 @@ import Foundation
 extension Notification.Name {
     static var dataUpdated = Notification.Name("dataUpdated")
     static var setUser = Notification.Name("setUser")
+    static var showAllUsers = Notification.Name("showAllUsers")
 }

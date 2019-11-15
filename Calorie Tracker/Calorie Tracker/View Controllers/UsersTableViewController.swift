@@ -96,6 +96,8 @@ class UsersTableViewController: UITableViewController {
     // MARK: Actions
     
     @IBAction func compareAllUsers(_ sender: UIButton) {
+        NotificationCenter.default.post(name: .showAllUsers, object: self)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func addUser(_ sender: UIButton) {

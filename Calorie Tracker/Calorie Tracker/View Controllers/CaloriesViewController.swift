@@ -16,6 +16,7 @@ class CaloriesViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet private weak var chart: Chart!
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var addButton: UIBarButtonItem!
     
     // MARK: Properties
     
@@ -44,26 +45,30 @@ class CaloriesViewController: UIViewController, UITableViewDelegate, UITableView
         refreshViews()
         
         if user == nil {
+            addButton.isEnabled = false
             performSegue(withIdentifier: "modalShowUsersList", sender: self)
         }
     }
     
     // MARK: Private
     
-    private func newFRC() -> NSFetchedResultsController<Entry>? {
-        guard let user = user else { return nil }
-        
+    private func newFRC(allUsers: Bool = false) -> NSFetchedResultsController<Entry>? {
         let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
         
         fetchRequest.sortDescriptors = [
+            NSSortDescriptor(key: "user.name", ascending: true),
             NSSortDescriptor(key: "date", ascending: true)
         ]
         
-        fetchRequest.predicate = NSPredicate(format: "user == %@", user)
+        if let user = user {
+            fetchRequest.predicate = NSPredicate(format: "user == %@", user)
+        } else if !allUsers {
+            return nil
+        }
         
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
                                              managedObjectContext: CoreDataStack.shared.mainContext,
-                                             sectionNameKeyPath: nil,
+                                             sectionNameKeyPath: "user.name",
                                              cacheName: nil)
         
         frc.delegate = self
@@ -80,6 +85,7 @@ class CaloriesViewController: UIViewController, UITableViewDelegate, UITableView
     private func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshViews), name: .dataUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setUser(notification:)), name: .setUser, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(compareAllUsers), name: .showAllUsers, object: nil)
     }
     
     @objc private func refreshViews() {
@@ -95,19 +101,39 @@ class CaloriesViewController: UIViewController, UITableViewDelegate, UITableView
             let user: User = userInfo["user"] as? User else { return }
         
         self.user = user
+        addButton.isEnabled = true
+    }
+    
+    @objc private func compareAllUsers() {
+        user = nil
+        fetchedResultsController = newFRC(allUsers: true)
+        refreshViews()
+        tableView.reloadData()
+        addButton.isEnabled = false
     }
     
     // MARK: Table View Data Source
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchedResultsController?.sectionIndexTitles.count ?? 0
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        fetchedResultsController?.fetchedObjects?.count ?? 0
+        return fetchedResultsController?.sections?[section].numberOfObjects ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath)
         
         if let entry = fetchedResultsController?.object(at: indexPath) {
-            cell.textLabel?.text = "Calories: \(entry.calories)"
+            if user != nil {
+                cell.textLabel?.text = "Calories: \(entry.calories)"
+            } else {
+                if let userName = entry.user?.name {
+                    cell.textLabel?.text = "\(userName): \(entry.calories)"
+                }
+            }
+
             if let date = entry.date {
                 cell.detailTextLabel?.text = dateFormatter.string(from: date)
             }
