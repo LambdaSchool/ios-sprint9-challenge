@@ -105,7 +105,6 @@ class CalorieTrackerTableViewController: UITableViewController {
         if editingStyle == .delete {
             let entry = fetch.object(at: indexPath)
             entryController.delete(entry: entry)
-            tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
