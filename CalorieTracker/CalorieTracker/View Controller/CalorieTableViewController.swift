@@ -7,17 +7,15 @@
 //
 
 import UIKit
+import SwiftChart
 
 class CalorieTableViewController: UITableViewController {
 
+    let chart = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
