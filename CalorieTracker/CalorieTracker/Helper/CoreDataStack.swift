@@ -17,7 +17,6 @@ class CoreDataStack {
     
     // lazy doesn't initialize upone class initialization, it is only called when needed
     lazy var container: NSPersistentContainer = {
-        
         let container = NSPersistentContainer(name: "Entry")
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error {
@@ -37,9 +36,7 @@ class CoreDataStack {
     }
     
     func save() {
-        
         let context = CoreDataStack.shared.mainContext
-        
         context.performAndWait {
             do {
                 try context.save()

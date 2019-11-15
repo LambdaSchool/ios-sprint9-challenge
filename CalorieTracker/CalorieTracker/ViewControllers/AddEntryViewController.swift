@@ -9,7 +9,6 @@
 import UIKit
 
 class AddEntryViewController: UIViewController {
-    
     var entryController: EntryController?
     
     @IBOutlet weak var caloriesTextField: UITextField!
@@ -20,13 +19,10 @@ class AddEntryViewController: UIViewController {
         super.viewDidLoad()
 
     }
-    
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        
         guard let calories = caloriesTextField.text,
             !calories.isEmpty else { return }
         
@@ -34,8 +30,6 @@ class AddEntryViewController: UIViewController {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "chartSeriesChanged"), object: self)
         dismiss(animated: true, completion: nil)
     }
-    
-
     /*
     // MARK: - Navigation
 

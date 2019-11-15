@@ -12,13 +12,12 @@ import CoreData
 
 class CalorieTrackerTableViewController: UITableViewController {
     
-    @IBOutlet weak var AddBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var addBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var chartView: UIView!
     
     var series = [Double]()
     
     let entryController = EntryController()
-    
     var chart = Chart() {
         didSet {
             setViews()
@@ -49,34 +48,26 @@ class CalorieTrackerTableViewController: UITableViewController {
         self.observeChartSeriesChanged()
 
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setViews()
     }
-    
     @objc private func refreshViews(notification: Notification) {
         setViews()
     }
-    
     private func observeChartSeriesChanged() {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshViews), name: NSNotification.Name(rawValue: "chartSeriesChanged"), object: nil)
     }
-    
     private func setViews() {
-        
         let mapResult = fetch.fetchedObjects.map { (value) in
             value.map { (entry) in
                 entry.calories
             }
         }
-        
         if let seriesValues = mapResult {
             series = seriesValues
         }
-        
         chart.add(ChartSeries(series))
-        
         let rect = CGRect(x: 0, y: 0, width: 414, height: 275)
         chart.frame = rect
         chartView.addSubview(chart)
@@ -89,17 +80,14 @@ class CalorieTrackerTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return fetch.sections?[section].numberOfObjects ?? 0
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath)
 
         let entry = fetch.object(at: indexPath)
         cell.textLabel?.text = String(entry.calories)
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d, h:mm a"
         dateFormatter.timeZone = .current
@@ -108,8 +96,6 @@ class CalorieTrackerTableViewController: UITableViewController {
 
         return cell
     }
-    
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -118,7 +104,6 @@ class CalorieTrackerTableViewController: UITableViewController {
     }
     */
 
-    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -143,23 +128,19 @@ class CalorieTrackerTableViewController: UITableViewController {
                 ppc?.sourceRect = button.bounds
                 ppc?.backgroundColor = .black
             }
-            ppc?.delegate = (self as? UIPopoverControllerDelegate as! UIPopoverPresentationControllerDelegate)
+            ppc?.delegate = (self as? UIPopoverControllerDelegate as? UIPopoverPresentationControllerDelegate)
         }
     }
 }
 
 extension CalorieTrackerTableViewController: NSFetchedResultsControllerDelegate {
-    
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
-    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
-    
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        
         switch type {
         case .insert:
             guard let newIndexPath = newIndexPath else {return}
@@ -178,9 +159,7 @@ extension CalorieTrackerTableViewController: NSFetchedResultsControllerDelegate 
             return
         }
     }
-    
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        
         let set = IndexSet(integer: sectionIndex)
         switch type {
         case .insert:
