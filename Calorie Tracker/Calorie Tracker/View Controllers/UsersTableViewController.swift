@@ -33,7 +33,7 @@ class UsersTableViewController: UITableViewController {
         do {
             try frc.performFetch()
         } catch {
-            fatalError("Error performing fetch for entries frc: \(error)")
+            fatalError("Error performing fetch for users frc: \(error)")
         }
         
         return frc

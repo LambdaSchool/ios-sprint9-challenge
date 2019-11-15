@@ -37,6 +37,28 @@ class CaloriesViewController: UIViewController, UITableViewDelegate, UITableView
     }()
     
     lazy var fetchedResultsController: NSFetchedResultsController<Entry>? = newFRC()
+    lazy var usersFRC: NSFetchedResultsController<User> = {
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(key: "name", ascending: true)
+        ]
+        
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                             managedObjectContext: CoreDataStack.shared.mainContext,
+                                             sectionNameKeyPath: nil,
+                                             cacheName: nil)
+        
+        frc.delegate = self
+        
+        do {
+            try frc.performFetch()
+        } catch {
+            fatalError("Error performing fetch for users frc: \(error)")
+        }
+        
+        return frc
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,10 +111,31 @@ class CaloriesViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @objc private func refreshViews() {
-        if let dataPoints = fetchedResultsController?.fetchedObjects?.compactMap({ Double($0.calories) }) {
-            let series = ChartSeries(dataPoints)
-            chart.removeAllSeries()
-            chart.add(series)
+        guard let frc = fetchedResultsController else { return }
+        
+        if user != nil {
+            if let dataPoints = frc.fetchedObjects?.compactMap({ Double($0.calories) }) {
+                let series = ChartSeries(dataPoints)
+                chart.removeAllSeries()
+                chart.add(series)
+            }
+        } else {
+            if let users = usersFRC.fetchedObjects {
+                var dataPoints: [User: [Double]] = [:]
+                
+                for user in users {
+                    if let userEntries = frc.fetchedObjects?.filter({ $0.user == user }) {
+                        let userDataPoints = userEntries.compactMap({ Double($0.calories) })
+                        dataPoints[user] = userDataPoints
+                    }
+                }
+                
+                chart.removeAllSeries()
+                for dataPointSet in dataPoints {
+                    let series = ChartSeries(dataPointSet.value)
+                    chart.add(series)
+                }
+            }
         }
     }
     
