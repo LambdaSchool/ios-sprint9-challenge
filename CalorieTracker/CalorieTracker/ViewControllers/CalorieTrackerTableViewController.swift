@@ -60,7 +60,7 @@ class CalorieTrackerTableViewController: UITableViewController {
     }
     
     private func observeChartSeriesChanged() {
-        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews), name: "chartSeriesChanged", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews), name: NSNotification.Name(rawValue: "chartSeriesChanged"), object: nil)
     }
     
     private func setViews() {
@@ -103,7 +103,7 @@ class CalorieTrackerTableViewController: UITableViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d, h:mm a"
         dateFormatter.timeZone = .current
-        let date = dateFormatter.string(from: entry.date)
+        let date = dateFormatter.string(from: entry.date!)
         cell.detailTextLabel?.text = date
 
         return cell
@@ -143,7 +143,7 @@ class CalorieTrackerTableViewController: UITableViewController {
                 ppc?.sourceRect = button.bounds
                 ppc?.backgroundColor = .black
             }
-            ppc?.delegate = self as? UIPopoverControllerDelegate
+            ppc?.delegate = (self as? UIPopoverControllerDelegate as! UIPopoverPresentationControllerDelegate)
         }
     }
 }
