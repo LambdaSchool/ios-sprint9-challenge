@@ -6,6 +6,7 @@
 //
 
 import UIKit
+// swiftlint:disable all
 
 public protocol ChartDelegate: class {
 

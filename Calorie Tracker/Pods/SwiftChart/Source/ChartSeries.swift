@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// swiftlint:disable all
 /**
 The `ChartSeries` class create a chart series and configure its appearance and behavior.
 */
