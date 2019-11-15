@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import SwiftChart
 
 class ViewController: UIViewController {
-
+    
+    //MARK: Outlets
+    
+    @IBOutlet weak var chart: Chart!
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
