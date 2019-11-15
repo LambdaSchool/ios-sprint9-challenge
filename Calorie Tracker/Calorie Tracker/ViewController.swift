@@ -73,6 +73,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let entry = fetchedResultsController.object(at: indexPath)
+            entryController.delete(entry: entry, context: CoreDataStack.shared.mainContext)
+        }
+    }
+    
     // MARK: Actions
 
     @IBAction func addEntry(_ sender: UIButton) {
