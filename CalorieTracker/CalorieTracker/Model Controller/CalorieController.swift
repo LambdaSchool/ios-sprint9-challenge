@@ -14,4 +14,11 @@ class CalorieController {
         Calorie(calorie: calorie, date: date, context: context)
         CoreDataStack.shared.save(context: context)
     }
+    
+    func deleteCalorie(calorie: Calorie, context: NSManagedObjectContext) {
+        context.performAndWait {
+            context.delete(calorie)
+            CoreDataStack.shared.save(context: context)
+        }
+    }
 }

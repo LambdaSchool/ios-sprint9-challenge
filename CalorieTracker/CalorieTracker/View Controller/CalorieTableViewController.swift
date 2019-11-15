@@ -15,7 +15,6 @@ class CalorieTableViewController: UITableViewController {
     @IBOutlet weak var chartView: Chart!
     
     var chart: Chart?
-//    var series: ChartSeries?
     var datas: [Double] = []
     
     let calorieController = CalorieController()
@@ -58,6 +57,7 @@ class CalorieTableViewController: UITableViewController {
     
     private func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateSeries), name: Notification.Name("newCalorieAdded"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateSeries), name: Notification.Name("calorieDeleted"), object: nil)
     }
     
     // MARK: - Charts
@@ -71,8 +71,9 @@ class CalorieTableViewController: UITableViewController {
     @objc private func updateSeries() {
         guard let chart = chart else { return }
         let series = ChartSeries(datas)
+        series.area = true
+        chart.removeAllSeries()
         chart.add(series)
-        chart.reloadInputViews()
         tableView.reloadData()
     }
 
@@ -96,6 +97,18 @@ class CalorieTableViewController: UITableViewController {
         cell.detailTextLabel?.text = dateFormatter.string(from: date)
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            calorieController.deleteCalorie(calorie: fetchedResultsController.object(at: indexPath), context: CoreDataStack.shared.mainContext)
+            
+            // update chart
+            if let calories = fetchedResultsController.fetchedObjects {
+                datas = calories.map ({ Double($0.calorie) })
+            }
+            NotificationCenter.default.post(name: Notification.Name("calorieDeleted"), object: self)
+        }
     }
 
 
