@@ -3,14 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		809E4DF30735673A8DCC8682 /* Pods_Calorie_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5A28B99690C47E6B6F7537 /* Pods_Calorie_Tracker.framework */; };
 		FA8069DF237F0277003907EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8069DE237F0277003907EE /* AppDelegate.swift */; };
 		FA8069E1237F0277003907EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8069E0237F0277003907EE /* SceneDelegate.swift */; };
-		FA8069E3237F0277003907EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8069E2237F0277003907EE /* ViewController.swift */; };
 		FA8069E6237F0277003907EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8069E4237F0277003907EE /* Main.storyboard */; };
 		FA8069E8237F027B003907EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8069E7237F027B003907EE /* Assets.xcassets */; };
 		FA8069EB237F027B003907EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8069E9237F027B003907EE /* LaunchScreen.storyboard */; };
@@ -22,7 +21,6 @@
 		FA8069DB237F0277003907EE /* Calorie Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calorie Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8069DE237F0277003907EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA8069E0237F0277003907EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FA8069E2237F0277003907EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA8069E5237F0277003907EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA8069E7237F027B003907EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA8069EA237F027B003907EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,13 +54,15 @@
 				1274517C32E66ABA4C0EAF98 /* Pods-Calorie Tracker.debug.xcconfig */,
 				FAAC706275CBF962810D11B7 /* Pods-Calorie Tracker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		FA8069D2237F0277003907EE = {
 			isa = PBXGroup;
 			children = (
+				FA8069F4237F0D9A003907EE /* ViewControllers */,
+				FA8069F3237F0D91003907EE /* Views */,
+				FA8069F2237F0D81003907EE /* Storyboards */,
 				FA8069DD237F0277003907EE /* Calorie Tracker */,
 				FA8069DC237F0277003907EE /* Products */,
 				7634E156016FC3009C4B8745 /* Pods */,
@@ -83,13 +83,33 @@
 			children = (
 				FA8069DE237F0277003907EE /* AppDelegate.swift */,
 				FA8069E0237F0277003907EE /* SceneDelegate.swift */,
-				FA8069E2237F0277003907EE /* ViewController.swift */,
-				FA8069E4237F0277003907EE /* Main.storyboard */,
 				FA8069E7237F027B003907EE /* Assets.xcassets */,
-				FA8069E9237F027B003907EE /* LaunchScreen.storyboard */,
 				FA8069EC237F027B003907EE /* Info.plist */,
 			);
 			path = "Calorie Tracker";
+			sourceTree = "<group>";
+		};
+		FA8069F2237F0D81003907EE /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FA8069E4237F0277003907EE /* Main.storyboard */,
+				FA8069E9237F027B003907EE /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FA8069F3237F0D91003907EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FA8069F4237F0D9A003907EE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,7 +227,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA8069E3237F0277003907EE /* ViewController.swift in Sources */,
 				FA8069DF237F0277003907EE /* AppDelegate.swift in Sources */,
 				FA8069E1237F0277003907EE /* SceneDelegate.swift in Sources */,
 			);
