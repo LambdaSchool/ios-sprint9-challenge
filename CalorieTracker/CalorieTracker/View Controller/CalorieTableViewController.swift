@@ -12,8 +12,14 @@ import CoreData
 
 class CalorieTableViewController: UITableViewController {
 
-    let chart = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+    @IBOutlet weak var chartView: Chart!
+    
+    var chart: Chart?
+//    var series: ChartSeries?
+    var datas: [Double] = []
+    
     let calorieController = CalorieController()
+    
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -41,7 +47,33 @@ class CalorieTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let calories = fetchedResultsController.fetchedObjects {
+            datas = calories.map ({ Double($0.calorie) })
+        }
+        initChart()
+        updateSeries()
 
+        addObservers()
+    }
+    
+    private func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateSeries), name: Notification.Name("newCalorieAdded"), object: nil)
+    }
+    
+    // MARK: - Charts
+    private func initChart() {
+        let chartFrame = chartView.frame
+        chart = Chart(frame: chartFrame)
+        guard let chart = chart else { return }
+        self.view.addSubview(chart)
+    }
+
+    @objc private func updateSeries() {
+        guard let chart = chart else { return }
+        let series = ChartSeries(datas)
+        chart.add(series)
+        chart.reloadInputViews()
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -68,6 +100,22 @@ class CalorieTableViewController: UITableViewController {
 
 
     @IBAction func addButtonTabbed(_ sender: Any) {
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories", preferredStyle: .alert)
+
+        alert.addTextField { (textField) in
+            textField.placeholder = "calories"
+        }
+
+        alert.addAction(UIAlertAction(title: "Sumbit", style: .default, handler: { [weak alert] (_) in
+            if let textField = alert?.textFields![0], let calorieString = textField.text, let calorie = Int16(calorieString) {
+                
+                self.calorieController.createCalorie(calorie: calorie, date: Date(), context: CoreDataStack.shared.mainContext)
+                self.datas.append(Double(calorie))
+                NotificationCenter.default.post(name: Notification.Name("newCalorieAdded"), object: self)
+            }
+        }))
+
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
