@@ -9,7 +9,7 @@
         <!--Calorie Tracker-->
         <scene sceneID="dsE-Uu-AUb">
             <objects>
-                <tableViewController id="ktP-QD-oWW" sceneMemberID="viewController">
+                <tableViewController id="ktP-QD-oWW" customClass="CaloriesTableViewController" customModule="Calorie_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="atp-eY-hPF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,6 +37,9 @@
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="oTZ-0O-Dag">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="web-ID-w27"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chartView" destination="EMP-DY-Z3F" id="n3J-j0-aRk"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EbY-mv-fUM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

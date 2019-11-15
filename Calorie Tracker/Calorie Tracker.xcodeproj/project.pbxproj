@@ -13,6 +13,13 @@
 		FA8069E6237F0277003907EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8069E4237F0277003907EE /* Main.storyboard */; };
 		FA8069E8237F027B003907EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8069E7237F027B003907EE /* Assets.xcassets */; };
 		FA8069EB237F027B003907EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8069E9237F027B003907EE /* LaunchScreen.storyboard */; };
+		FA8069F6237F109F003907EE /* CaloriesChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8069F5237F109F003907EE /* CaloriesChart.swift */; };
+		FA8069FA237F14B7003907EE /* CaloriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8069F9237F14B7003907EE /* CaloriesTableViewController.swift */; };
+		FA8069FE237F1954003907EE /* CaloriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8069FD237F1954003907EE /* CaloriesController.swift */; };
+		FA806A00237F1ABD003907EE /* CaloriesRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8069FF237F1ABD003907EE /* CaloriesRepresentation.swift */; };
+		FA806A05237F2D38003907EE /* Intake.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA806A03237F2D38003907EE /* Intake.xcdatamodeld */; };
+		FA806A07237F2DB2003907EE /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA806A06237F2DB2003907EE /* CoreDataStack.swift */; };
+		FA806A09237F2DEB003907EE /* Intake+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA806A08237F2DEB003907EE /* Intake+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +32,13 @@
 		FA8069E7237F027B003907EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA8069EA237F027B003907EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA8069EC237F027B003907EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA8069F5237F109F003907EE /* CaloriesChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesChart.swift; sourceTree = "<group>"; };
+		FA8069F9237F14B7003907EE /* CaloriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesTableViewController.swift; sourceTree = "<group>"; };
+		FA8069FD237F1954003907EE /* CaloriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesController.swift; sourceTree = "<group>"; };
+		FA8069FF237F1ABD003907EE /* CaloriesRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesRepresentation.swift; sourceTree = "<group>"; };
+		FA806A04237F2D38003907EE /* Intake.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Intake.xcdatamodel; sourceTree = "<group>"; };
+		FA806A06237F2DB2003907EE /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		FA806A08237F2DEB003907EE /* Intake+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Intake+Convenience.swift"; sourceTree = "<group>"; };
 		FAAC706275CBF962810D11B7 /* Pods-Calorie Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calorie Tracker.release.xcconfig"; path = "Target Support Files/Pods-Calorie Tracker/Pods-Calorie Tracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +76,8 @@
 			children = (
 				FA8069F4237F0D9A003907EE /* ViewControllers */,
 				FA8069F3237F0D91003907EE /* Views */,
+				FA8069FC237F191C003907EE /* Model Controllers */,
+				FA8069FB237F1914003907EE /* Model */,
 				FA8069F2237F0D81003907EE /* Storyboards */,
 				FA8069DD237F0277003907EE /* Calorie Tracker */,
 				FA8069DC237F0277003907EE /* Products */,
@@ -101,6 +117,7 @@
 		FA8069F3237F0D91003907EE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FA8069F5237F109F003907EE /* CaloriesChart.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -108,8 +125,28 @@
 		FA8069F4237F0D9A003907EE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA8069F9237F14B7003907EE /* CaloriesTableViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FA8069FB237F1914003907EE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA8069FF237F1ABD003907EE /* CaloriesRepresentation.swift */,
+				FA806A03237F2D38003907EE /* Intake.xcdatamodeld */,
+				FA806A06237F2DB2003907EE /* CoreDataStack.swift */,
+				FA806A08237F2DEB003907EE /* Intake+Convenience.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA8069FC237F191C003907EE /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA8069FD237F1954003907EE /* CaloriesController.swift */,
+			);
+			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,8 +264,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA806A00237F1ABD003907EE /* CaloriesRepresentation.swift in Sources */,
 				FA8069DF237F0277003907EE /* AppDelegate.swift in Sources */,
+				FA8069FA237F14B7003907EE /* CaloriesTableViewController.swift in Sources */,
+				FA8069F6237F109F003907EE /* CaloriesChart.swift in Sources */,
+				FA806A07237F2DB2003907EE /* CoreDataStack.swift in Sources */,
+				FA8069FE237F1954003907EE /* CaloriesController.swift in Sources */,
+				FA806A05237F2D38003907EE /* Intake.xcdatamodeld in Sources */,
 				FA8069E1237F0277003907EE /* SceneDelegate.swift in Sources */,
+				FA806A09237F2DEB003907EE /* Intake+Convenience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +470,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FA806A03237F2D38003907EE /* Intake.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FA806A04237F2D38003907EE /* Intake.xcdatamodel */,
+			);
+			currentVersion = FA806A04237F2D38003907EE /* Intake.xcdatamodel */;
+			path = Intake.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FA8069D3237F0277003907EE /* Project object */;
 }
