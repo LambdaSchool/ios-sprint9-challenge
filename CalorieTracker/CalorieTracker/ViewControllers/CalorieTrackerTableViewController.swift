@@ -1,4 +1,6 @@
 //
+// swiftlint:disable all
+// swiftlint:disable all
 //  CalorieTrackerTableViewController.swift
 //  CalorieTracker
 //
@@ -10,13 +12,11 @@ import UIKit
 import SwiftChart
 import CoreData
 
-class CalorieTrackerTableViewController: UITableViewController {
-    
+class CalorieTrackerTableViewController: UITableViewController {    
     @IBOutlet weak var addBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var chartView: UIView!
     
     var series = [Double]()
-    
     let entryController = EntryController()
     var chart = Chart() {
         didSet {
@@ -28,17 +28,14 @@ class CalorieTrackerTableViewController: UITableViewController {
         
         let request: NSFetchRequest<Entry> = Entry.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
-        
         let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataStack.shared.mainContext, sectionNameKeyPath: "date", cacheName: nil)
         
         frc.delegate = self
-        
         do {
             try frc.performFetch()
         } catch {
             fatalError("Error ferforming fetch for frc: \(error)")
         }
-        
         return frc
     }()
 
@@ -82,7 +79,6 @@ class CalorieTrackerTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fetch.sections?[section].numberOfObjects ?? 0
     }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath)
 

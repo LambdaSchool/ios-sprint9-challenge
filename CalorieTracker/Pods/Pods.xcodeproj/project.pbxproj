@@ -336,6 +336,7 @@
 			shellScript = "
 
 ";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 

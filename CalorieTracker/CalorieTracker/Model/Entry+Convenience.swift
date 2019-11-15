@@ -1,4 +1,5 @@
 //
+// swiftlint:disable all
 //  Entry+Convenience.swift
 //  CalorieTracker
 //

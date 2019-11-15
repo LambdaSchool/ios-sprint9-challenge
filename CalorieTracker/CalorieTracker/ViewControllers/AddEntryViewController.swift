@@ -1,4 +1,5 @@
 //
+// swiftlint:disable all
 //  AddEntryViewController.swift
 //  CalorieTracker
 //
@@ -10,7 +11,6 @@ import UIKit
 
 class AddEntryViewController: UIViewController {
     var entryController: EntryController?
-    
     @IBOutlet weak var caloriesTextField: UITextField!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
@@ -24,8 +24,7 @@ class AddEntryViewController: UIViewController {
     }
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         guard let calories = caloriesTextField.text,
-            !calories.isEmpty else { return }
-        
+            !calories.isEmpty else { return }        
         entryController?.createEntry(with: Double(calories)!)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "chartSeriesChanged"), object: self)
         dismiss(animated: true, completion: nil)

@@ -1,4 +1,5 @@
 //
+// swiftlint:disable all
 //  AppDelegate.swift
 //  CalorieTracker
 //

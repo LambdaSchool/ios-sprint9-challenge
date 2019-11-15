@@ -1,4 +1,5 @@
 //
+// swiftlint:disable all
 //  ChartSeries.swift
 //
 //  Created by Giampaolo Bellavite on 07/11/14.

@@ -1,4 +1,5 @@
 //
+// swiftlint:disable all
 //  CoreDataStack.swift
 //  CalorieTracker
 //
@@ -10,11 +11,8 @@ import Foundation
 import CoreData
 
 class CoreDataStack {
-    
     static let shared = CoreDataStack()
-    
     private init() { }
-    
     // lazy doesn't initialize upone class initialization, it is only called when needed
     lazy var container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Entry")
@@ -23,18 +21,14 @@ class CoreDataStack {
                 fatalError("Core sata was unable to load persistence stores: \(error)")
             }
         })
-        
         return container
     }()
-    
     var backgroundContext: NSManagedObjectContext {
         return container.newBackgroundContext()
     }
-    
     var mainContext: NSManagedObjectContext {
         return container.viewContext
-    }
-    
+    }    
     func save() {
         let context = CoreDataStack.shared.mainContext
         context.performAndWait {
