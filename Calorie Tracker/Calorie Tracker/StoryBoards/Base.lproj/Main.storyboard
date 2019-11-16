@@ -51,8 +51,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="m6I-Sx-iqF">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="klU-qK-sTE"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="klU-qK-sTE">
+                            <connections>
+                                <action selector="addLog:" destination="SD9-VU-TJr" id="fwd-8n-Lqb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chartView" destination="zsP-xI-NU4" id="2iv-GE-9sU"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iNg-tb-Pti" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

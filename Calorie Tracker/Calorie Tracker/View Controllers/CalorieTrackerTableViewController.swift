@@ -9,10 +9,21 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController {
     
+    // MARK: - Outlets
+    @IBOutlet weak var chartView: Chart!
+    
+    // MARK: - Properties
+    
+    var chart: Chart?
+    var data: [Double] = []
+    
     let calorieTrackerController = CalorieTrackerController()
+    
+    var logs: [String] = []
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -52,8 +63,61 @@ class CalorieTrackerTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let calories = fetchedResultsController.fetchedObjects {
+            data = calories.map({ Double($0.calorie!) }) as! [Double]
+        }
+        initChart()
+        refreshViews()
+        addObservers()
     }
+    
+    private func initChart() {
+        let chartFrame = chartView.frame
+        chart = Chart(frame: chartFrame)
+        guard let chart = chart else { return }
+        self.view.addSubview(chart)
+    }
+    
+    // MARK: - Actions
+    @IBAction func addLog(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+                
+        alert.addTextField { (textField) in
+            textField.placeholder = "Calories:"
+        }
+        
+        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak alert] (_) in
+            if let textField = alert?.textFields![0], let calorieLog = Int(textField.text!) {
+            
+            self.calorieTrackerController.createLog(with: String(calorieLog), date: Date(), context: CoreDataStack.shared.mainContext)
+                self.data.append(Double(calorieLog))
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LogAdded"), object: self)
+            }
+        }))
+            
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func addObservers() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(refreshViews),
+                                               name: NSNotification.Name(rawValue: "LogAdded"),
+                                               object: nil)
+    }
+    
+    @objc private func refreshViews() {
+        guard let chart = chart else { return }
+        let series = ChartSeries(data)
+        series.area = true
+        chart.removeAllSeries()
+        chart.add(series)
+        tableView.reloadData()
+    }
+    
+    
 
     // MARK: - Table view data source
 
@@ -61,11 +125,17 @@ class CalorieTrackerTableViewController: UITableViewController {
 
         return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchedResultsController.sections?.count ?? 0
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieLog", for: indexPath)
         
-        //cell.textLabel?.text = fetchedResultsController.object(at: indexPath)
+        let calorie = fetchedResultsController.object(at: indexPath).calorie
+        
+        cell.textLabel?.text = "Calories: \(String(describing: calorie))"
         cell.detailTextLabel?.text = dateFormatter.string(from: date)
         
         return cell

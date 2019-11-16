@@ -135,7 +135,7 @@ class CalorieTrackerController {
         }.resume()
     }
     
-    func createLog(with calorie: Int, date: Date, context: NSManagedObjectContext) {
+    func createLog(with calorie: String, date: Date, context: NSManagedObjectContext) {
         let log = CalorieTracker(date: date, calorie: calorie, context: context)
         CoreDataStack.shared.save(context: context)
         put(log: log)

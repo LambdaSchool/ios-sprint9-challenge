@@ -10,6 +10,6 @@ import Foundation
 
 struct CalorieTrackerRepresentation: Codable {
     let date: Date
-    let calorie: Int64
+    let calorie: String
     let identifier: UUID
 }
