@@ -10,7 +10,7 @@ import UIKit
 
 class CalorieTableViewCell: UITableViewCell {
     
-    private var intake: Intake?
+     var intake: Intake?
     
     //MARK: Outlets
     @IBOutlet weak var caloresLabelView: UILabel!

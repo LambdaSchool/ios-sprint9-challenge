@@ -12,22 +12,25 @@ import SwiftChart
 class CaloriesTableViewController: UITableViewController {
     
     //MARK: Properties
-    var newCalorie = ""
+    var newCalorieString = ""
+    let intakeController = IntakeController()
+    var series: ChartSeries = ChartSeries([0.0, 0.0])
     
     @IBOutlet weak var chartView: Chart!
     
-    var series = ChartSeries([0, 6, 9, 4, 5, 6, 7, 8, 3, 5])
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         updateChart()
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        intakeController.fetchAllIntakes()
+        tableView.reloadData()
         
     }
-
+    
+    //MARK: Add new Intake Alert
     @IBAction func addIntakeButtonTapped(_ sender: UIBarButtonItem) {
         
         let alert = UIAlertController(title: "New Calorie", message: "Enter New Calorie Amount", preferredStyle: .alert)
@@ -36,7 +39,13 @@ class CaloriesTableViewController: UITableViewController {
             
             // Getting textfield's text
             let amountTxt = alert.textFields![0]
-            self.newCalorie = amountTxt.text ?? ""
+            self.newCalorieString = amountTxt.text ?? ""
+            
+            self.intakeController.createIntake(calories: Int16(self.newCalorieString ?? "") ?? 0, context: CoreDataStack.shared.mainContext)
+            
+            
+            NotificationCenter.default.post(name: .newIntake, object: self)
+            self.updateViews()
             
         })
         let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { ( action) -> Void in })
@@ -53,6 +62,26 @@ class CaloriesTableViewController: UITableViewController {
         
     }
     
+    @objc func updateViews() {
+        let caloriesDouble = intakeController.intakes.compactMap { Double($0.calories) }
+        series = ChartSeries(caloriesDouble)
+        
+        tableView.reloadData()
+    }
+    
+    
+    func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .newIntake, object: nil)
+    }
+    
+//    @objc private func addNewIntake() {
+//
+//    }
+//
+    
+    
+    
+    
     // MARK: - Table view data source
 //
 //    override func numberOfSections(in tableView: UITableView) -> Int {
@@ -62,72 +91,26 @@ class CaloriesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return intakeController.intakes.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath) as? CalorieTableViewCell else { return UITableViewCell() }
+        
+        cell.intake = intakeController.intakes[indexPath.row]
 
-        // Configure the cell...
 
         return cell
     }
     
     
-    
-    
     func updateChart() {
+        
         series.color = ChartColors.greenColor()
         chartView.add(series)
         
     }
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
 
 }

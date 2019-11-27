@@ -15,8 +15,7 @@ class CoreDataStack {
     static let shared = CoreDataStack()
     
     // Set up a persistent container
-    
-    lazy var container: NSPersistentContainer = {
+        lazy var container: NSPersistentContainer = {
         
         let container = NSPersistentContainer(name: "Intake")
         container.loadPersistentStores { (_, error) in

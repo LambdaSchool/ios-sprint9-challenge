@@ -13,13 +13,12 @@ extension Intake {
     
     // This initializer sets up the Core Data (NSManagedObject) part of the Intake, then gives it the properties unique to an Intake entity.
     
-    @discardableResult convenience init(calories: Int16, date: Date = Date(), id: UUID = UUID(), context: NSManagedObjectContext) {
+    @discardableResult convenience init(calories: Int16, date: Date = Date(), context: NSManagedObjectContext) {
         
         // Calling the designated initializer
         self.init(context: context)
         
         self.calories = calories
         self.date = date
-        self.id = id
     }
 }

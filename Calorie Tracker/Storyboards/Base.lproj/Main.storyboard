@@ -14,19 +14,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="EMP-DY-Z3F">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="EMP-DY-Z3F" customClass="Chart" customModule="SwiftChart">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieCell" id="p5T-hD-rZ6">
-                                <rect key="frame" x="0.0" y="278" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieCell" id="p5T-hD-rZ6" customClass="CalorieTableViewCell" customModule="Calorie_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="278" width="414" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p5T-hD-rZ6" id="NQm-UV-3cw">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="p75-mz-V1I">
+                                            <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4HU-Jd-M4d">
+                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTh-5W-DZI">
+                                                    <rect key="frame" x="197" y="0.0" width="177" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="p75-mz-V1I" secondAttribute="trailing" id="A0R-5W-Sti"/>
+                                        <constraint firstItem="p75-mz-V1I" firstAttribute="top" secondItem="NQm-UV-3cw" secondAttribute="topMargin" id="BP4-es-igo"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="p75-mz-V1I" secondAttribute="bottom" id="BQg-dD-74Z"/>
+                                        <constraint firstItem="p75-mz-V1I" firstAttribute="leading" secondItem="NQm-UV-3cw" secondAttribute="leadingMargin" id="YWp-uc-0bq"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="caloresLabelView" destination="4HU-Jd-M4d" id="uOe-ax-jM9"/>
+                                    <outlet property="dateLabelView" destination="BTh-5W-DZI" id="GPb-iz-OnP"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -35,7 +64,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="oTZ-0O-Dag">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="web-ID-w27"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="web-ID-w27">
+                            <connections>
+                                <action selector="addIntakeButtonTapped:" destination="ktP-QD-oWW" id="Bgq-8r-DhI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="chartView" destination="EMP-DY-Z3F" id="n3J-j0-aRk"/>
