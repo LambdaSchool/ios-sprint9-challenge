@@ -103,6 +103,11 @@ class CaloriesTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let sectionInfo = intakeController.fetchedResultsController.sections?[section] else { return nil }
+        return sectionInfo.name.capitalized
+    }
+    
     
     func updateChart() {
         
