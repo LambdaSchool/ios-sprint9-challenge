@@ -8,20 +8,19 @@
 
 import UIKit
 import SwiftChart
+import CoreData
 
 class CaloriesTableViewController: UITableViewController {
     
-    //MARK: Properties
+    // MARK: Properties
     var newCalorieString = ""
     let intakeController = IntakeController()
     var series: ChartSeries = ChartSeries([0.0, 0.0])
     
     @IBOutlet weak var chartView: Chart!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         updateChart()
         
@@ -30,7 +29,7 @@ class CaloriesTableViewController: UITableViewController {
         
     }
     
-    //MARK: Add new Intake Alert
+    // MARK: Add new Intake Alert
     @IBAction func addIntakeButtonTapped(_ sender: UIBarButtonItem) {
         
         let alert = UIAlertController(title: "New Calorie", message: "Enter New Calorie Amount", preferredStyle: .alert)
