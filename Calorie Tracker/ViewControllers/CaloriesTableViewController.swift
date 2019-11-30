@@ -15,7 +15,7 @@ class CaloriesTableViewController: UITableViewController {
     // MARK: Properties
     var newCalorieString = ""
     let intakeController = IntakeController()
-    var series: ChartSeries = ChartSeries([0.0, 0.0])
+//    var series: ChartSeries = ChartSeries([0.0, 0.0])
     
     @IBOutlet weak var chartView: Chart!
     
@@ -23,8 +23,6 @@ class CaloriesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         updateChart()
-        
-//        intakeController.fetchAllIntakes()
         tableView.reloadData()
         
     }
@@ -40,10 +38,24 @@ class CaloriesTableViewController: UITableViewController {
             let amountTextField = alert.textFields![0]
             self.newCalorieString = amountTextField.text ?? ""
             
+            
+//            let _ = Intake(calories: Double(self.newCalorieString) as? Double)
+//
+//            do {
+//                let moc = CoreDataStack.shared.mainContext
+//                try moc.save()
+//                print("Intake saved")
+//            } catch {
+//                NSLog("Error saving new intake in CD : \(error)")
+//            }
+//
             self.intakeController.createIntake(calories: self.newCalorieString)
             
+            DispatchQueue.main.async {
+                self.updateViews()
+            }
+            
             NotificationCenter.default.post(name: .newIntake, object: self)
-            self.updateViews()
             
         })
         let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { ( action) -> Void in })
@@ -61,57 +73,61 @@ class CaloriesTableViewController: UITableViewController {
     }
     
     @objc func updateViews() {
-        let caloriesDouble = intakeController.fetchedResultsController.fetchedObjects?.compactMap({ Double($0.calories) })
+//        let caloriesDouble = intakeController.fetchedResultsController.fetchedObjects?.compactMap({ Double($0.calories) })
         
-        series = ChartSeries(caloriesDouble ?? [0.0, 0.0])
+//        series = ChartSeries(caloriesDouble ?? [0.0, 0.0])
+        updateChart()
         tableView.reloadData()
     }
-    
     
     func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .newIntake, object: nil)
     }
     
-//    @objc private func addNewIntake() {
-//
-//    }
-//
-    
-    
-    
-    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return intakeController.fetchedResultsController.sections?.count ?? 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return intakeController.fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath) as? CalorieTableViewCell else { return UITableViewCell() }
         
         cell.intake = intakeController.fetchedResultsController.object(at: indexPath)
-
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard let sectionInfo = intakeController.fetchedResultsController.sections?[section] else { return nil }
-        return sectionInfo.name.capitalized
+        return sectionInfo.name
     }
     
     
     func updateChart() {
         
-        series.color = ChartColors.greenColor()
-        chartView.add(series)
+        var seriesList = [0.0]
+        let caloriesDouble = intakeController.fetchedResultsController.fetchedObjects?.compactMap({ Double($0.calories) })
+        guard let caloriesList = caloriesDouble else { return }
         
+        for calorie in caloriesList {
+            seriesList.append(calorie)
+        }
+        
+        let series = ChartSeries(seriesList)
+        series.area = true
+        
+        series.color = ChartColors.greenColor()
+        chartView.removeAllSeries()
+        chartView.add(series)
+                
     }
     
     

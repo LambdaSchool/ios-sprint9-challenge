@@ -140,9 +140,7 @@
 			children = (
 				FA8069FF237F1ABD003907EE /* IntakeRepresentation.swift */,
 				FA806A03237F2D38003907EE /* Intake.xcdatamodeld */,
-				FA806A06237F2DB2003907EE /* CoreDataStack.swift */,
 				FA806A08237F2DEB003907EE /* Intake+Convenience.swift */,
-				FA806A0C237F6588003907EE /* TimeStampFormatter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				FA806A0F237F71F5003907EE /* Notifications.swift */,
+				FA806A0C237F6588003907EE /* TimeStampFormatter.swift */,
+				FA806A06237F2DB2003907EE /* CoreDataStack.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";

@@ -20,11 +20,11 @@ class IntakeController {
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
                                             managedObjectContext: moc,
-                                            sectionNameKeyPath: "name",
+                                            sectionNameKeyPath: "date",
                                             cacheName: nil)
                                             
-        frc.delegate = self as! NSFetchedResultsControllerDelegate
-        try! frc.performFetch()
+        frc.delegate = self as? NSFetchedResultsControllerDelegate
+        try? frc.performFetch()
         return frc
 
     }()
@@ -37,18 +37,19 @@ class IntakeController {
     
     func createIntake(calories: String) {
         
-        let caloriesInt16 = Int16(calories)
-        guard let caloriesIntake = caloriesInt16 else { return }
-        
+        let caloriesDouble = Double(calories)
+        guard let caloriesIntake = caloriesDouble else { return }
+
         let _ = Intake(calories: caloriesIntake)
-        
+
         do {
             let moc = CoreDataStack.shared.mainContext
             try moc.save()
+            print("Intake saved")
         } catch {
             NSLog("Error saving new intake in CD : \(error)")
         }
-        
+
 //        let newIntake = Intake(calories: calories, context: context)
 //        intakes.append(newIntake)
 //        CoreDataStack.shared.saveToPersistentStore()
@@ -56,12 +57,12 @@ class IntakeController {
     
     // Update
     
-    func updateIntake(intake: Intake, calories: Int16, date: Date = Date()) {
-        intake.calories = calories
-        intake.date = date
-        CoreDataStack.shared.saveToPersistentStore()
-    }
-    
+//    func updateIntake(intake: Intake, calories: Int16, date: Date = Date()) {
+//        intake.calories = calories
+//        intake.date = date
+//        CoreDataStack.shared.saveToPersistentStore()
+//    }
+//    
     // Delete
     
 //    func deleteIntake(intake: Intake, context: NSManagedObject) {

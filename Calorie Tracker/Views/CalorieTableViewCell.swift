@@ -12,15 +12,14 @@ class CalorieTableViewCell: UITableViewCell {
     
      var intake: Intake?
     
-    //MARK: Outlets
+    // MARK: Outlets
     @IBOutlet weak var caloresLabelView: UILabel!
     @IBOutlet weak var dateLabelView: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        updateViews()
     }
-    
     
     func updateViews() {
         guard let intake = intake else { return }
@@ -28,7 +27,7 @@ class CalorieTableViewCell: UITableViewCell {
         let date = TimestampFormatter.formatTimestamp(for: intake)
         
         caloresLabelView.text = "Calories: \(String(intake.calories))"
-        dateLabelView.text = date
+        dateLabelView.text = "Date: \(date)"
         
     }
     
@@ -40,3 +39,4 @@ class CalorieTableViewCell: UITableViewCell {
     }
 
 }
+
