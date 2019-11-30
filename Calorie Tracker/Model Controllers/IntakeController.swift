@@ -11,49 +11,25 @@ import CoreData
 
 class IntakeController {
     
-    var intakes: [Intake] = []
-    
-//    var intakes: [Intake] {
-//        let fetchRequest: NSFetchRequest<Intake> = Intake.fetchRequest()
-//        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
-//
-//        let moc = CoreDataStack.shared.mainContext
-//
-//        do{
-//            return try moc.fetch(fetchRequest)
-//        } catch {
-//            NSLog("Error fetching calories intake:\(error)")
-//            return []
-//        }
-//    }
-    
-    func fetchAllIntakes() {
-//        let fetchRequest: NSFetchRequest<Intake> = Intake.fetchRequest()
-//
-//        fetchRequest.predicate = NSPredicate(format: "calories IN %@", intakes)
-//
-//        let existingTasks = try context.fetch(fetchRequest)
+    lazy var fetchedResultsController: NSFetchedResultsController<Intake> = {
         
-        let context = CoreDataStack.shared.container.newBackgroundContext()
-        context.perform {
-            
+        let fetchRequest: NSFetchRequest<Intake> = Intake.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true),
+                                        NSSortDescriptor(key: "calories", ascending: true)]
         
-        do {
-            
-            let fetchRequest: NSFetchRequest<Intake> = Intake.fetchRequest()
-            
-            fetchRequest.predicate = NSPredicate(format: "calories IN %@", self.intakes)
-            
-            let existingTasks = try context.fetch(fetchRequest)
+        let moc = CoreDataStack.shared.mainContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                            managedObjectContext: moc,
+                                            sectionNameKeyPath: "name",
+                                            cacheName: nil)
+                                            
+        frc.delegate = self as! NSFetchedResultsControllerDelegate
+        try! frc.performFetch()
+        return frc
 
-        } catch {
-            NSLog("Error fetching tasks from persistent store: \(error)")
-        }
-//        }
+    }()
+    
 
-    }
-        
-    }
     
     // CRUD
     
