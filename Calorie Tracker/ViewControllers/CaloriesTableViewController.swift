@@ -24,7 +24,7 @@ class CaloriesTableViewController: UITableViewController {
         
         updateChart()
         
-        intakeController.fetchAllIntakes()
+//        intakeController.fetchAllIntakes()
         tableView.reloadData()
         
     }
@@ -62,6 +62,7 @@ class CaloriesTableViewController: UITableViewController {
     }
     
     @objc func updateViews() {
+//        let caloriesDouble = intakeController.fetchedResultsController.
         let caloriesDouble = intakeController.intakes.compactMap { Double($0.calories) }
         series = ChartSeries(caloriesDouble)
         
@@ -82,23 +83,22 @@ class CaloriesTableViewController: UITableViewController {
     
     
     // MARK: - Table view data source
-//
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return intakeController.fetchedResultsController.sections?.count ?? 1
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return intakeController.intakes.count
+        return intakeController.fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath) as? CalorieTableViewCell else { return UITableViewCell() }
         
-        cell.intake = intakeController.intakes[indexPath.row]
-
+        cell.intake = intakeController.fetchedResultsController.object(at: indexPath)
 
         return cell
     }
