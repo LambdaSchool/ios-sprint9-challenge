@@ -35,10 +35,23 @@ class IntakeController {
     
     // Create
     
-    func createIntake(calories: Int16, context: NSManagedObjectContext) {
-        let newIntake = Intake(calories: calories, context: context)
-        intakes.append(newIntake)
-        CoreDataStack.shared.saveToPersistentStore()
+    func createIntake(calories: String) {
+        
+        let caloriesInt16 = Int16(calories)
+        guard let caloriesIntake = caloriesInt16 else { return }
+        
+        let _ = Intake(calories: caloriesIntake)
+        
+        do {
+            let moc = CoreDataStack.shared.mainContext
+            try moc.save()
+        } catch {
+            NSLog("Error saving new intake in CD : \(error)")
+        }
+        
+//        let newIntake = Intake(calories: calories, context: context)
+//        intakes.append(newIntake)
+//        CoreDataStack.shared.saveToPersistentStore()
     }
     
     // Update

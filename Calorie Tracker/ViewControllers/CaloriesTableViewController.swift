@@ -37,11 +37,10 @@ class CaloriesTableViewController: UITableViewController {
         let calorieAction = UIAlertAction(title: "Done", style: .default, handler: { (action) -> Void in
             
             // Getting textfield's text
-            let amountTxt = alert.textFields![0]
-            self.newCalorieString = amountTxt.text ?? ""
+            let amountTextField = alert.textFields![0]
+            self.newCalorieString = amountTextField.text ?? ""
             
-            self.intakeController.createIntake(calories: Int16(self.newCalorieString ?? "") ?? 0, context: CoreDataStack.shared.mainContext)
-            
+            self.intakeController.createIntake(calories: self.newCalorieString)
             
             NotificationCenter.default.post(name: .newIntake, object: self)
             self.updateViews()
