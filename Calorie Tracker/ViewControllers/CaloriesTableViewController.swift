@@ -62,10 +62,9 @@ class CaloriesTableViewController: UITableViewController {
     }
     
     @objc func updateViews() {
-//        let caloriesDouble = intakeController.fetchedResultsController.
-        let caloriesDouble = intakeController.intakes.compactMap { Double($0.calories) }
-        series = ChartSeries(caloriesDouble)
+        let caloriesDouble = intakeController.fetchedResultsController.fetchedObjects?.compactMap({ Double($0.calories) })
         
+        series = ChartSeries(caloriesDouble ?? [0.0, 0.0])
         tableView.reloadData()
     }
     
