@@ -29,9 +29,7 @@ class CalorieTableViewCell: UITableViewCell {
         caloresLabelView.text = "Calories: \(String(intake.calories))"
         dateLabelView.text = "Date: \(intake.date)"
 //        dateLabelView.text = "Date: \(date)"
-
     }
-    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -40,4 +38,3 @@ class CalorieTableViewCell: UITableViewCell {
     }
 
 }
-

@@ -38,4 +38,7 @@ cyclomatic_complexity:
     warning: 15
     error: 25
 
+vertical_whitespace:
+    warning: 4
+
 reporter: "xcode"

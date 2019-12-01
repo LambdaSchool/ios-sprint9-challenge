@@ -29,9 +29,7 @@ class IntakeController {
         return frc
 
     }()
-    
 
-    
     // CRUD
     
     // Create
@@ -47,6 +45,7 @@ class IntakeController {
             let moc = CoreDataStack.shared.mainContext
             try moc.save()
             print("Intake saved")
+            NotificationCenter.default.post(name: .newIntake, object: self)
         } catch {
             NSLog("Error saving new intake in CD : \(error)")
         }
@@ -55,8 +54,6 @@ class IntakeController {
 //        intakes.append(newIntake)
 //        CoreDataStack.shared.saveToPersistentStore()
     }
-    
-    
     
     // Update
     
@@ -74,4 +71,3 @@ class IntakeController {
 //        context.validateForDelete(intake)
 //    }
 }
-

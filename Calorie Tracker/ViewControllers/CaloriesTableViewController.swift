@@ -22,6 +22,7 @@ class CaloriesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         updateViews()
+        tableView.delegate = self
     }
     
     // MARK: Add new Intake Alert
@@ -37,8 +38,9 @@ class CaloriesTableViewController: UITableViewController {
             
             self.intakeController.createIntake(calories: self.newCalorieString)
             
-            NotificationCenter.default.post(name: .newIntake, object: self)
-            
+//            NotificationCenter.default.post(name: .newIntake, object: self)
+            self.updateViews()
+//            self.addObserver()
         })
         let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { ( action) -> Void in })
         
@@ -55,7 +57,6 @@ class CaloriesTableViewController: UITableViewController {
     }
     
     @objc func updateViews() {
-//        addObserver()
         updateChart()
         tableView.reloadData()
     }
@@ -80,7 +81,6 @@ class CaloriesTableViewController: UITableViewController {
         series.color = ChartColors.greenColor()
         chartView.removeAllSeries()
         chartView.add(series)
-        
     }
     
     // MARK: - Table view data source
@@ -94,7 +94,6 @@ class CaloriesTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return intakeController.fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath) as? CalorieTableViewCell else { return UITableViewCell() }
