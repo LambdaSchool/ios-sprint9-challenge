@@ -25,6 +25,7 @@ class IntakeController {
                                             
         frc.delegate = self as? NSFetchedResultsControllerDelegate
         try? frc.performFetch()
+        
         return frc
 
     }()
@@ -54,6 +55,8 @@ class IntakeController {
 //        intakes.append(newIntake)
 //        CoreDataStack.shared.saveToPersistentStore()
     }
+    
+    
     
     // Update
     

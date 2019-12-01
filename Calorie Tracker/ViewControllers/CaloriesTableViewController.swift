@@ -15,7 +15,6 @@ class CaloriesTableViewController: UITableViewController {
     // MARK: Properties
     var newCalorieString = ""
     let intakeController = IntakeController()
-//    var series: ChartSeries = ChartSeries([0.0, 0.0])
     
     @IBOutlet weak var chartView: Chart!
     
@@ -23,7 +22,6 @@ class CaloriesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         updateViews()
-        
     }
     
     // MARK: Add new Intake Alert
@@ -57,7 +55,7 @@ class CaloriesTableViewController: UITableViewController {
     }
     
     @objc func updateViews() {
-        addObserver()
+//        addObserver()
         updateChart()
         tableView.reloadData()
     }
@@ -105,8 +103,8 @@ class CaloriesTableViewController: UITableViewController {
         let date = TimestampFormatter.formatTimestamp(for: intake)
         let intakeCalories = String(intakeController.fetchedResultsController.object(at: indexPath).calories)
         
-        cell.dateLabelView.text = "Date: \(date)"
-        cell.caloresLabelView.text = "Calories \(intakeCalories)"
+        cell.dateLabelView.text = date
+        cell.caloresLabelView.text = "Calories:  \(intakeCalories)"
         
         //        cell.intake = intakeController.fetchedResultsController.object(at: indexPath)
         return cell
