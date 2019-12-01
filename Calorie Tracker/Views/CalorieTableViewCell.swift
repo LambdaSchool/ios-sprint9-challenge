@@ -24,11 +24,12 @@ class CalorieTableViewCell: UITableViewCell {
     func updateViews() {
         guard let intake = intake else { return }
         
-        let date = TimestampFormatter.formatTimestamp(for: intake)
+//        let date = TimestampFormatter.formatTimestamp(for: intake)
         
         caloresLabelView.text = "Calories: \(String(intake.calories))"
-        dateLabelView.text = "Date: \(date)"
-        
+        dateLabelView.text = "Date: \(intake.date)"
+//        dateLabelView.text = "Date: \(date)"
+
     }
     
     
