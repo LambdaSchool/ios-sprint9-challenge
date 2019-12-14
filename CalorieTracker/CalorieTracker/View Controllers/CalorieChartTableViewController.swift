@@ -95,10 +95,11 @@ class CalorieChartTableViewController: UITableViewController {
     }
 
     @IBAction func addTapped(_ sender: Any) {
-        let alertController = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field below", preferredStyle: .alert)
         
         alertController.addTextField { (textField) in
             textField.placeholder = "Enter your calories here"
+            textField.keyboardType = .numberPad
         }
         
         alertController.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (action) in
