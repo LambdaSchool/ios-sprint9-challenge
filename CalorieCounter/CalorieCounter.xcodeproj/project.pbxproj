@@ -14,6 +14,7 @@
 		5D8B7E7323A54F400071D1E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D8B7E7223A54F400071D1E6 /* Assets.xcassets */; };
 		5D8B7E7623A54F400071D1E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D8B7E7423A54F400071D1E6 /* LaunchScreen.storyboard */; };
 		5DE5EFAB23A5597A00F03CBE /* CalorieCounter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5EFA923A5597A00F03CBE /* CalorieCounter.xcdatamodeld */; };
+		5DE5EFAD23A55A3400F03CBE /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5EFAC23A55A3400F03CBE /* CoreDataStack.swift */; };
 		E3DE67F070552F9045CAC646 /* Pods_CalorieCounter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D9337D1B7E69FF209194C7 /* Pods_CalorieCounter.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		5D8B7E7523A54F400071D1E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5D8B7E7723A54F400071D1E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DE5EFAA23A5597A00F03CBE /* CalorieCounter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieCounter.xcdatamodel; sourceTree = "<group>"; };
+		5DE5EFAC23A55A3400F03CBE /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		BD19420DEB3955359487BA7B /* Pods-CalorieCounter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieCounter.debug.xcconfig"; path = "Target Support Files/Pods-CalorieCounter/Pods-CalorieCounter.debug.xcconfig"; sourceTree = "<group>"; };
 		C9D9337D1B7E69FF209194C7 /* Pods_CalorieCounter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieCounter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB00A3D2146F58939C7B9CE9 /* Pods-CalorieCounter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieCounter.release.xcconfig"; path = "Target Support Files/Pods-CalorieCounter/Pods-CalorieCounter.release.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				5DE5EFA923A5597A00F03CBE /* CalorieCounter.xcdatamodeld */,
+				5DE5EFAC23A55A3400F03CBE /* CoreDataStack.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DE5EFAD23A55A3400F03CBE /* CoreDataStack.swift in Sources */,
 				5D8B7E6E23A54F3E0071D1E6 /* ViewController.swift in Sources */,
 				5D8B7E6A23A54F3E0071D1E6 /* AppDelegate.swift in Sources */,
 				5DE5EFAB23A5597A00F03CBE /* CalorieCounter.xcdatamodeld in Sources */,
