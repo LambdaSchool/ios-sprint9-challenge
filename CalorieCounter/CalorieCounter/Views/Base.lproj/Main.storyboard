@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Eu-0R-FTD">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Eu-0R-FTD" customClass="Chart" customModule="SwiftChart">
                                 <rect key="frame" x="0.0" y="140" width="414" height="232"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -60,8 +60,16 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="05V-fr-0kb">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="HgC-fR-PVg"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="HgC-fR-PVg">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="BYZ-38-t0r" id="SLA-Ji-dlb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="calorieChart" destination="9Eu-0R-FTD" id="10k-XZ-unL"/>
+                        <outlet property="tableView" destination="aAN-eI-epE" id="vJq-dR-cvR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

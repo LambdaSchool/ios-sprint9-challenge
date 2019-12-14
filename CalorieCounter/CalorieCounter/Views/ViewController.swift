@@ -7,15 +7,21 @@
 //
 
 import UIKit
+import SwiftChart
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var calorieChart: Chart!
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
 
+    @IBAction func addButtonTapped(_ sender: Any) {
+    }
 }
 
 extension ViewController: UITableViewDelegate {
