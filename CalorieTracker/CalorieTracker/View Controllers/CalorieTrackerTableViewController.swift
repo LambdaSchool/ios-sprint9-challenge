@@ -59,6 +59,22 @@ class CalorieTrackerTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let entry = fetchedResultsController.object(at: indexPath)
+            
+            let moc = CoreDataStack.shared.mainContext
+            moc.delete(entry)
+            do {
+                try moc.save()
+                tableView.reloadData()
+            } catch {
+                moc.reset()
+                print("Error saving managed object context: \(error)")
+            }
+        }
+    }
+    
     // MARK: - Actions
     
     @IBAction func addButtonTapped(_ sender: Any) {
