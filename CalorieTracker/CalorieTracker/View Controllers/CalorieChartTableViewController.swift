@@ -68,8 +68,12 @@ class CalorieChartTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieEntryCell", for: indexPath)
 
-        cell.textLabel?.text = calorieLogs[indexPath.row].calories
-        cell.detailTextLabel?.text = calorieLogs[indexPath.row].date?.description
+        cell.textLabel?.text = "Calories: \(calorieLogs[indexPath.row].calories!)"
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        cell.detailTextLabel?.text = "Date: \(formatter.string(from: calorieLogs[indexPath.row].date!))"
 
         return cell
     }
@@ -102,6 +106,5 @@ class CalorieChartTableViewController: UITableViewController {
         calorieNote.calories = text
         calorieNote.date = Date()
     }
-    
 
 }
