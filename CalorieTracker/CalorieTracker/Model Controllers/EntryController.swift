@@ -10,7 +10,6 @@ import Foundation
 
 class EntryController {
     
-    // Need to change this to an array of Entries.
     var entries: [Entry] = []
     
     func createEntry(with calories: String) {
