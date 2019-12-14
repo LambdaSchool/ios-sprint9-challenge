@@ -17,7 +17,7 @@ extension CalorieNote {
         return NSFetchRequest<CalorieNote>(entityName: "CalorieNote")
     }
 
-    @NSManaged public var date: Date?
-    @NSManaged public var calories: String?
+    @NSManaged public var date: Date
+    @NSManaged public var calories: String
 
 }

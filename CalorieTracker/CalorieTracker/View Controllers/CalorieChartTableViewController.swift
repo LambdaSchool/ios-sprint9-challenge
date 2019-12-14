@@ -29,10 +29,26 @@ class CalorieChartTableViewController: UITableViewController {
         }
         
         loadSavedData()
+        plotGraph()
+    }
+    
+    func plotGraph() {
+        var calorieCountSeries = [Double]()
+        
+        for log in calorieLogs {
+            calorieCountSeries.append(Double(log.calories)!)
+        }
+        
+        let series = ChartSeries(calorieCountSeries)
+        
+        series.color = ChartColors.greyColor()
+        series.area = true
+        chartView.add(series)
     }
     
     @objc func updateCalorieLog() {
         tableView.reloadData()
+        plotGraph()
     }
     
     func saveContext() {
@@ -47,7 +63,7 @@ class CalorieChartTableViewController: UITableViewController {
     
     func loadSavedData() {
         let request = CalorieNote.createFetchRequest()
-        let sort = NSSortDescriptor(key: "date", ascending: false)
+        let sort = NSSortDescriptor(key: "date", ascending: true)
         request.sortDescriptors = [sort]
         
         do {
@@ -68,12 +84,12 @@ class CalorieChartTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieEntryCell", for: indexPath)
 
-        cell.textLabel?.text = "Calories: \(calorieLogs[indexPath.row].calories!)"
+        cell.textLabel?.text = "Calories: \(calorieLogs[indexPath.row].calories)"
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
-        cell.detailTextLabel?.text = "Date: \(formatter.string(from: calorieLogs[indexPath.row].date!))"
+        cell.detailTextLabel?.text = "Date: \(formatter.string(from: calorieLogs[indexPath.row].date))"
 
         return cell
     }
@@ -92,12 +108,11 @@ class CalorieChartTableViewController: UITableViewController {
             self.configure(calorieNote: calorieNote, text: textFieldEntry!)
             
             self.calorieLogs.append(calorieNote)
+            
             NotificationCenter.default.post(name: .calorieLogChanged, object: nil)
             
             self.saveContext()
         }))
-        
-        
         
         self.present(alertController, animated: true, completion: nil)
     }
