@@ -10,7 +10,9 @@ import Foundation
 import CoreData
 
 class CalorieController {
-    func create(amount: Int, timestamp: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    func create(amount: Int,
+                timestamp: Date = Date(),
+                context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         _ = Calorie(amount: amount, timestamp: timestamp, context: context)
         context.perform {
             do {
@@ -22,8 +24,10 @@ class CalorieController {
             }
         }
     }
-    
-    func delete(calorie: Calorie, context: NSManagedObjectContext = CoreDataStack.shared.mainContext, completion: @escaping (Error?) -> Void = { _ in }) {
+
+    func delete(calorie: Calorie,
+                context: NSManagedObjectContext = CoreDataStack.shared.mainContext,
+                completion: @escaping (Error?) -> Void = { _ in }) {
         context.perform {
             do {
                 context.delete(calorie)
