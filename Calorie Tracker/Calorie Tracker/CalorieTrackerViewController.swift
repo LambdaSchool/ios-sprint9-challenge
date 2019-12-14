@@ -17,6 +17,8 @@ class CalorieTrackerViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews),
+                                               name: .newCalorieEntry, object: nil)
         calorieEntryController.fetchCalorieEntries { (_) in
             tableView.reloadData()
         }
@@ -29,22 +31,23 @@ class CalorieTrackerViewController: UIViewController {
             textField.placeholder = "Number of Calories"
         }
         let saveAction = UIAlertAction(title: "Save", style: .default) { (_) in
-            if let calorieString = alert.textFields![0].text {
+            guard let calorieString = alert.textFields![0].text, !calorieString.isEmpty else { return }
                 if let calories = Double(calorieString) {
                     self.calorieEntryController.createEntry(calories: calories)
-                    self.calorieEntryController.fetchCalorieEntries { (_) in
-                        self.tableView.reloadData()
-                    }
-//                    navigationController?.popViewController(animated: true)
+                    NotificationCenter.default.post(name: .newCalorieEntry, object: nil)
                 } else {
                     print("Please enter a valid number")
                 }
-            }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         alert.addAction(saveAction)
         self.present(alert, animated: true)
+    }
+    @objc func updateViews() {
+        calorieEntryController.fetchCalorieEntries { (_) in
+            tableView.reloadData()
+        }
     }
 }
 
