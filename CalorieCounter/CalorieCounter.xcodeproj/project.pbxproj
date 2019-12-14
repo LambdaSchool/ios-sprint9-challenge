@@ -15,6 +15,9 @@
 		5D8B7E7623A54F400071D1E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D8B7E7423A54F400071D1E6 /* LaunchScreen.storyboard */; };
 		5DE5EFAB23A5597A00F03CBE /* CalorieCounter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5EFA923A5597A00F03CBE /* CalorieCounter.xcdatamodeld */; };
 		5DE5EFAD23A55A3400F03CBE /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5EFAC23A55A3400F03CBE /* CoreDataStack.swift */; };
+		5DE5EFAF23A55B1900F03CBE /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5EFAE23A55B1900F03CBE /* CalorieController.swift */; };
+		5DE5EFB123A55C0000F03CBE /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5EFB023A55C0000F03CBE /* Calorie+Convenience.swift */; };
+		5DE5EFB323A55EFE00F03CBE /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5EFB223A55EFE00F03CBE /* Notifications.swift */; };
 		E3DE67F070552F9045CAC646 /* Pods_CalorieCounter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D9337D1B7E69FF209194C7 /* Pods_CalorieCounter.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +32,9 @@
 		5D8B7E7723A54F400071D1E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DE5EFAA23A5597A00F03CBE /* CalorieCounter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieCounter.xcdatamodel; sourceTree = "<group>"; };
 		5DE5EFAC23A55A3400F03CBE /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		5DE5EFAE23A55B1900F03CBE /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
+		5DE5EFB023A55C0000F03CBE /* Calorie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience.swift"; sourceTree = "<group>"; };
+		5DE5EFB223A55EFE00F03CBE /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		BD19420DEB3955359487BA7B /* Pods-CalorieCounter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieCounter.debug.xcconfig"; path = "Target Support Files/Pods-CalorieCounter/Pods-CalorieCounter.debug.xcconfig"; sourceTree = "<group>"; };
 		C9D9337D1B7E69FF209194C7 /* Pods_CalorieCounter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieCounter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB00A3D2146F58939C7B9CE9 /* Pods-CalorieCounter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieCounter.release.xcconfig"; path = "Target Support Files/Pods-CalorieCounter/Pods-CalorieCounter.release.xcconfig"; sourceTree = "<group>"; };
@@ -92,6 +98,7 @@
 			children = (
 				5DE5EFA923A5597A00F03CBE /* CalorieCounter.xcdatamodeld */,
 				5DE5EFAC23A55A3400F03CBE /* CoreDataStack.swift */,
+				5DE5EFB023A55C0000F03CBE /* Calorie+Convenience.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -108,6 +115,8 @@
 		5D8B7E7F23A551EF0071D1E6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5DE5EFAE23A55B1900F03CBE /* CalorieController.swift */,
+				5DE5EFB223A55EFE00F03CBE /* Notifications.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -236,11 +245,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DE5EFB323A55EFE00F03CBE /* Notifications.swift in Sources */,
+				5DE5EFB123A55C0000F03CBE /* Calorie+Convenience.swift in Sources */,
 				5DE5EFAD23A55A3400F03CBE /* CoreDataStack.swift in Sources */,
 				5D8B7E6E23A54F3E0071D1E6 /* ViewController.swift in Sources */,
 				5D8B7E6A23A54F3E0071D1E6 /* AppDelegate.swift in Sources */,
 				5DE5EFAB23A5597A00F03CBE /* CalorieCounter.xcdatamodeld in Sources */,
 				5D8B7E6C23A54F3E0071D1E6 /* SceneDelegate.swift in Sources */,
+				5DE5EFAF23A55B1900F03CBE /* CalorieController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
