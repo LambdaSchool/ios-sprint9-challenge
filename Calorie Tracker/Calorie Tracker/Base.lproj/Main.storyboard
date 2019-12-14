@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="398" width="414" height="464"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sfL-CN-bWA">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieCell" id="sfL-CN-bWA" customClass="CalorieTableViewCell" customModule="Calorie_Tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="37"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sfL-CN-bWA" id="TuJ-N4-mpy">
@@ -58,8 +58,16 @@
                                                 <constraint firstItem="G5e-d6-ZyD" firstAttribute="top" secondItem="TuJ-N4-mpy" secondAttribute="top" constant="8" id="r4a-vF-5iD"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="calories" destination="GBI-1h-KQT" id="dXI-Au-hJr"/>
+                                            <outlet property="timestamp" destination="uu4-Lr-WYy" id="pE0-TB-w4Z"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="uLs-dv-tah" id="NOI-Kb-5vI"/>
+                                    <outlet property="delegate" destination="uLs-dv-tah" id="4lJ-f7-KRN"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -75,8 +83,15 @@
                         <viewLayoutGuide key="safeArea" id="Yky-pm-WFv"/>
                     </view>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="25T-aW-0JA">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="DOh-7i-zCH"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="DOh-7i-zCH">
+                            <connections>
+                                <action selector="addCalorieEntryButtonTapped:" destination="uLs-dv-tah" id="7Pf-C3-60T"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="D7R-uM-bJO" id="YE1-SQ-5iw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dha-kG-x2F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

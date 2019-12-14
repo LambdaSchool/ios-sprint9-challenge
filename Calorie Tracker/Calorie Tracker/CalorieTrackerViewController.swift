@@ -10,30 +10,33 @@ import UIKit
 import CoreData
 
 class CalorieTrackerViewController: UIViewController {
-
+    @IBOutlet weak var tableView: UITableView!
+    let calorieEntryController = CalorieEntryController()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        calorieEntryController.fetchCalorieEntries { (_) in
+            tableView.reloadData()
+        }
     }
-
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addCalorieEntryButtonTapped(_ sender: Any) {
     }
-    */
-
 }
 
 extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return calorieEntryController.entries.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
+            as? CalorieTableViewCell else { return UITableViewCell() }
+        let entries = calorieEntryController.entries
+        for entry in entries {
+            cell.calories.text = "\(entry.calories)"
+            cell.timestamp.text = "\(entry.timestamp ?? Date())"
+        }
+        return cell
     }
 }
