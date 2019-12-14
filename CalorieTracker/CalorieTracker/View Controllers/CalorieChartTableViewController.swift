@@ -36,7 +36,7 @@ class CalorieChartTableViewController: UITableViewController {
         var calorieCountSeries = [Double]()
         
         for log in calorieLogs {
-            calorieCountSeries.append(Double(log.calories)!)
+            calorieCountSeries.append(Double(log.calories) ?? 0)
         }
         
         let series = ChartSeries(calorieCountSeries)
@@ -106,16 +106,16 @@ class CalorieChartTableViewController: UITableViewController {
             let textFieldEntry = alertController.textFields![0].text
             let calorieNote = CalorieNote(context: self.container.viewContext)
             
-            guard let _ = Double(textFieldEntry!) else {
-                
-                let ac = UIAlertController(title: "Whoops!", message: "That is not a valid number. Please try again.", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(ac, animated: true, completion: nil)
-                
-                return
-            }
+//            guard let _ = Double(textFieldEntry!) else {
+//
+//                let ac = UIAlertController(title: "Whoops!", message: "That is not a valid number. Please try again.", preferredStyle: .alert)
+//                ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//                self.present(ac, animated: true, completion: nil)
+//
+//                return
+//            }
             
-            self.configure(calorieNote: calorieNote, text: textFieldEntry!)
+            self.configure(calorieNote: calorieNote, text: Double(textFieldEntry!) ?? 0)
             
             self.calorieLogs.append(calorieNote)
             
@@ -127,8 +127,8 @@ class CalorieChartTableViewController: UITableViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func configure(calorieNote: CalorieNote, text: String) {
-        calorieNote.calories = text
+    func configure(calorieNote: CalorieNote, text: Double) {
+        calorieNote.calories = String(text)
         calorieNote.date = Date()
     }
 
