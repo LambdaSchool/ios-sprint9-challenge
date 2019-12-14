@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19C46a" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="CalorieNote" representedClassName="CalorieNote" syncable="YES" codeGenerationType="class">
+    <entity name="CalorieNote" representedClassName="CalorieNote" syncable="YES">
         <attribute name="calories" attributeType="String"/>
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
     </entity>

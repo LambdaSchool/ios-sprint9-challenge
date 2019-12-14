@@ -13,25 +13,50 @@ import CoreData
 class CalorieChartTableViewController: UITableViewController {
     
     @IBOutlet var chartView: Chart!
-    
-    var calorieLogs = [String]()
+    var calorieLogs = [CalorieNote]()
+    var container: NSPersistentContainer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateCalorieLog), name: .calorieLogChanged, object: nil)
         
-        var series = ChartSeries([])
-        
-        for item in calorieLogs {
-            series = ChartSeries([Double(item)!])
+        container = NSPersistentContainer(name: "CalorieTracker")
+        container.loadPersistentStores { (storeDescription, error) in
+            if let error = error {
+                print("Unresolved error loading the persistent stores \(error)")
+            }
         }
         
-        chartView.add(series)
+        loadSavedData()
     }
     
     @objc func updateCalorieLog() {
         tableView.reloadData()
+    }
+    
+    func saveContext() {
+        if container.viewContext.hasChanges {
+            do {
+                try container.viewContext.save()
+            } catch {
+                print("An error occurred while saving: \(error)")
+            }
+        }
+    }
+    
+    func loadSavedData() {
+        let request = CalorieNote.createFetchRequest()
+        let sort = NSSortDescriptor(key: "date", ascending: false)
+        request.sortDescriptors = [sort]
+        
+        do {
+            calorieLogs = try container.viewContext.fetch(request)
+            print("Got \(calorieLogs.count) logs")
+            tableView.reloadData()
+        } catch {
+            print("Fetch failed")
+        }
     }
 
     // MARK: - Table view data source
@@ -43,7 +68,8 @@ class CalorieChartTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieEntryCell", for: indexPath)
 
-        cell.textLabel?.text = calorieLogs[indexPath.row]
+        cell.textLabel?.text = calorieLogs[indexPath.row].calories
+        cell.detailTextLabel?.text = calorieLogs[indexPath.row].date?.description
 
         return cell
     }
@@ -57,11 +83,24 @@ class CalorieChartTableViewController: UITableViewController {
         
         alertController.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (action) in
             let textFieldEntry = alertController.textFields![0].text
-            self.calorieLogs.append(textFieldEntry!)
+            let calorieNote = CalorieNote(context: self.container.viewContext)
+            
+            self.configure(calorieNote: calorieNote, text: textFieldEntry!)
+            
+            self.calorieLogs.append(calorieNote)
             NotificationCenter.default.post(name: .calorieLogChanged, object: nil)
+            
+            self.saveContext()
         }))
         
+        
+        
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func configure(calorieNote: CalorieNote, text: String) {
+        calorieNote.calories = text
+        calorieNote.date = Date()
     }
     
 
