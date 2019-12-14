@@ -41,7 +41,7 @@ class CalorieChartTableViewController: UITableViewController {
         
         let series = ChartSeries(calorieCountSeries)
         
-        series.color = ChartColors.greyColor()
+        series.color = ChartColors.blueColor()
         series.area = true
         chartView.add(series)
     }
