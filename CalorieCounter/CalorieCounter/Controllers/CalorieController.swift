@@ -32,6 +32,7 @@ class CalorieController {
             do {
                 context.delete(calorie)
                 try CoreDataStack.shared.save(context: context)
+                NotificationCenter.default.post(name: .calorieListUpdated, object: nil)
             } catch {
                 print("Could not save after deleting: \(error)")
                 context.reset()
