@@ -22,9 +22,9 @@ class CalorieTrackerTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        return 0
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entryController.entries.count
@@ -35,9 +35,12 @@ class CalorieTrackerTableViewController: UITableViewController {
 
         let entry = entryController.entries[indexPath.row]
         
-        // Need to set these to the title and timestamp respectively.
-        cell.textLabel?.text = entry
-        cell.detailTextLabel?.text = entry
+        
+        if let calories = entry.calories {
+            cell.textLabel?.text = "Calories: \(calories)"
+        }
+       
+        cell.detailTextLabel?.text = entry.timestamp
         
         return cell
     }
@@ -52,8 +55,7 @@ class CalorieTrackerTableViewController: UITableViewController {
         }
 
         addEntryAlert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (action: UIAlertAction!) in
-            guard let text = addEntryAlert.textFields![0].text,
-            let calories = Int(text) else { return }
+            guard let calories = addEntryAlert.textFields![0].text else { return }
             
             self.entryController.createEntry(with: calories)
             addEntryAlert.dismiss(animated: true, completion: nil)

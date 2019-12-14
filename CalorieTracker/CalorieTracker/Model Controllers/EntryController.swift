@@ -11,9 +11,24 @@ import Foundation
 class EntryController {
     
     // Need to change this to an array of Entries.
-    var entries: [String] = []
+    var entries: [Entry] = []
     
-    func createEntry(with calories: Int) {
+    func createEntry(with calories: String) {
+        let currentDateTime = Date()
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .long
+        let timestamp = formatter.string(from: currentDateTime)
         
+        let entry = Entry(calories: calories, timestamp: timestamp)
+        entries.append(entry)
+        
+        let moc = CoreDataStack.shared.mainContext
+        
+        do {
+            try moc.save()
+        } catch {
+            print("Error saving Entry")
+        }
     }
 }
