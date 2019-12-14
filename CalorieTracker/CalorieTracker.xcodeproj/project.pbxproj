@@ -14,6 +14,7 @@
 		3792228A23A48B7B00F0D8AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3792228923A48B7B00F0D8AD /* Assets.xcassets */; };
 		3792228D23A48B7B00F0D8AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3792228B23A48B7B00F0D8AD /* LaunchScreen.storyboard */; };
 		3792229823A48C7C00F0D8AD /* CalorieTrackerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3792229723A48C7C00F0D8AD /* CalorieTrackerTableViewController.swift */; };
+		3792229C23A4908600F0D8AD /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3792229B23A4908600F0D8AD /* EntryController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3792228C23A48B7B00F0D8AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3792228E23A48B7B00F0D8AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3792229723A48C7C00F0D8AD /* CalorieTrackerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerTableViewController.swift; sourceTree = "<group>"; };
+		3792229B23A4908600F0D8AD /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				3792229923A48D1200F0D8AD /* Models */,
+				3792229A23A4906100F0D8AD /* Model Controllers */,
 				3792229523A48B9900F0D8AD /* View Controllers */,
 				3792229423A48B9700F0D8AD /* Storyboards */,
 				3792227D23A48B7900F0D8AD /* AppDelegate.swift */,
@@ -92,6 +95,14 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3792229A23A4906100F0D8AD /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3792229B23A4908600F0D8AD /* EntryController.swift */,
+			);
+			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +178,7 @@
 			files = (
 				3792229823A48C7C00F0D8AD /* CalorieTrackerTableViewController.swift in Sources */,
 				3792227E23A48B7900F0D8AD /* AppDelegate.swift in Sources */,
+				3792229C23A4908600F0D8AD /* EntryController.swift in Sources */,
 				3792228823A48B7900F0D8AD /* CalorieTracker.xcdatamodeld in Sources */,
 				3792228023A48B7900F0D8AD /* SceneDelegate.swift in Sources */,
 			);
