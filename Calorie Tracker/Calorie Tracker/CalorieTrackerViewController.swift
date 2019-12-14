@@ -58,8 +58,12 @@ extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSour
         let entries = calorieEntryController.entries
         let calories = entries[indexPath.row].calories
         let timestamp = entries[indexPath.row].timestamp
-        cell.calories.text = "\(calories)"
-        cell.timestamp.text = "\(timestamp ?? Date())"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy h:mm a"
+        if let timestamp = timestamp {
+            cell.calories.text = "\(calories)"
+            cell.timestamp.text = dateFormatter.string(from: timestamp)
+        }
         return cell
     }
 }
