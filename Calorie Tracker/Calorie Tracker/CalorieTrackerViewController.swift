@@ -8,9 +8,11 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class CalorieTrackerViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var chartView: Chart!
     let calorieEntryController = CalorieEntryController()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -19,9 +21,7 @@ class CalorieTrackerViewController: UIViewController {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews),
                                                name: .newCalorieEntry, object: nil)
-        calorieEntryController.fetchCalorieEntries { (_) in
-            tableView.reloadData()
-        }
+        updateViews()
     }
     @IBAction func addCalorieEntryButtonTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Add Calorie Entry",
@@ -47,6 +47,19 @@ class CalorieTrackerViewController: UIViewController {
     @objc func updateViews() {
         calorieEntryController.fetchCalorieEntries { (_) in
             tableView.reloadData()
+            let entries = calorieEntryController.entries
+            var entryCount: Double = 0
+            var data: [(x: Double, y: Double)] = []
+            for entry in entries {
+                let xValue = entryCount
+                let yValue = entry.calories
+                data.append((xValue, yValue))
+                entryCount += 1
+            }
+            let series = ChartSeries(data: data)
+            series.color = ChartColors.cyanColor()
+            series.area = true
+            chartView.add(series)
         }
     }
 }
@@ -64,7 +77,7 @@ extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSour
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d, yyyy h:mm a"
         if let timestamp = timestamp {
-            cell.calories.text = "\(calories)"
+            cell.calories.text = "Calories: \(calories)"
             cell.timestamp.text = dateFormatter.string(from: timestamp)
         }
         return cell

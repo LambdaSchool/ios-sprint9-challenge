@@ -5,6 +5,7 @@
 //  Created by Dillon P on 12/14/19.
 //  Copyright © 2019 Lambda iOSPT2. All rights reserved.
 //
+// swiftlint:disable all
 
 import UIKit
 

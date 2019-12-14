@@ -11,6 +11,7 @@ import CoreData
 
 class CalorieEntryController {
     var entries: [CalorieEntry] = []
+//    var chartData: [CalorieEntry : Int]
     func createEntry(calories: Double, timestamp: Date = Date()) {
         CalorieEntry(calories: calories, timestamp: timestamp)
         saveToPersistentStore()
