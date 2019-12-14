@@ -7,16 +7,16 @@
 //
 
 import UIKit
+import CoreData
 
 class CalorieTrackerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
-    
 
+    
     /*
     // MARK: - Navigation
 
@@ -27,4 +27,13 @@ class CalorieTrackerViewController: UIViewController {
     }
     */
 
+}
+
+extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
 }

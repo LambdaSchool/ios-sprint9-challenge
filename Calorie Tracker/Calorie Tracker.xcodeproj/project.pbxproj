@@ -11,6 +11,9 @@
 		9240443B23A57AB200C58C29 /* CalorieTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240443A23A57AB200C58C29 /* CalorieTrackerViewController.swift */; };
 		9240443E23A57B8D00C58C29 /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9240443C23A57B8D00C58C29 /* CalorieTracker.xcdatamodeld */; };
 		9240444023A57C5800C58C29 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240443F23A57C5800C58C29 /* CoreDataStack.swift */; };
+		9240444423A57DC700C58C29 /* CalorieEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240444323A57DC700C58C29 /* CalorieEntry+Convenience.swift */; };
+		9240444623A5837100C58C29 /* SwiftChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240444523A5837100C58C29 /* SwiftChartView.swift */; };
+		9240444823A5850000C58C29 /* CalorieEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240444723A5850000C58C29 /* CalorieEntryController.swift */; };
 		927AD89723A5699B00DE1F17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927AD89623A5699B00DE1F17 /* AppDelegate.swift */; };
 		927AD89923A5699B00DE1F17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927AD89823A5699B00DE1F17 /* SceneDelegate.swift */; };
 		927AD89E23A5699B00DE1F17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 927AD89C23A5699B00DE1F17 /* Main.storyboard */; };
@@ -25,6 +28,9 @@
 		9240443A23A57AB200C58C29 /* CalorieTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerViewController.swift; sourceTree = "<group>"; };
 		9240443D23A57B8D00C58C29 /* CalorieTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieTracker.xcdatamodel; sourceTree = "<group>"; };
 		9240443F23A57C5800C58C29 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		9240444323A57DC700C58C29 /* CalorieEntry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieEntry+Convenience.swift"; sourceTree = "<group>"; };
+		9240444523A5837100C58C29 /* SwiftChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftChartView.swift; sourceTree = "<group>"; };
+		9240444723A5850000C58C29 /* CalorieEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieEntryController.swift; sourceTree = "<group>"; };
 		927AD89323A5699B00DE1F17 /* Calorie Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calorie Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		927AD89623A5699B00DE1F17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		927AD89823A5699B00DE1F17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,7 +64,6 @@
 		927AD88A23A5699B00DE1F17 = {
 			isa = PBXGroup;
 			children = (
-				9240443C23A57B8D00C58C29 /* CalorieTracker.xcdatamodeld */,
 				927AD89523A5699B00DE1F17 /* Calorie Tracker */,
 				927AD89423A5699B00DE1F17 /* Products */,
 				52D63D7323C5121803BEA33D /* Pods */,
@@ -77,6 +82,7 @@
 		927AD89523A5699B00DE1F17 /* Calorie Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				9240443C23A57B8D00C58C29 /* CalorieTracker.xcdatamodeld */,
 				927AD89623A5699B00DE1F17 /* AppDelegate.swift */,
 				927AD89823A5699B00DE1F17 /* SceneDelegate.swift */,
 				927AD89C23A5699B00DE1F17 /* Main.storyboard */,
@@ -85,6 +91,9 @@
 				927AD8A423A5699C00DE1F17 /* Info.plist */,
 				9240443A23A57AB200C58C29 /* CalorieTrackerViewController.swift */,
 				9240443F23A57C5800C58C29 /* CoreDataStack.swift */,
+				9240444323A57DC700C58C29 /* CalorieEntry+Convenience.swift */,
+				9240444523A5837100C58C29 /* SwiftChartView.swift */,
+				9240444723A5850000C58C29 /* CalorieEntryController.swift */,
 			);
 			path = "Calorie Tracker";
 			sourceTree = "<group>";
@@ -232,6 +241,9 @@
 			files = (
 				9240444023A57C5800C58C29 /* CoreDataStack.swift in Sources */,
 				927AD89723A5699B00DE1F17 /* AppDelegate.swift in Sources */,
+				9240444423A57DC700C58C29 /* CalorieEntry+Convenience.swift in Sources */,
+				9240444623A5837100C58C29 /* SwiftChartView.swift in Sources */,
+				9240444823A5850000C58C29 /* CalorieEntryController.swift in Sources */,
 				9240443B23A57AB200C58C29 /* CalorieTrackerViewController.swift in Sources */,
 				9240443E23A57B8D00C58C29 /* CalorieTracker.xcdatamodeld in Sources */,
 				927AD89923A5699B00DE1F17 /* SceneDelegate.swift in Sources */,
