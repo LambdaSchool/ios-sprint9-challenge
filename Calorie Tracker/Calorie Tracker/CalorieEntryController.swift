@@ -10,14 +10,9 @@ import Foundation
 import CoreData
 
 class CalorieEntryController {
-    var entries: [CalorieEntry] = [] {
-        didSet {
-            saveToPersistentStore()
-        }
-    }
-    func createEntry(calories: Double, timestamp: Date) {
-        let newEntry = CalorieEntry(calories: calories, timestamp: timestamp)
-        entries.append(newEntry)
+    var entries: [CalorieEntry] = []
+    func createEntry(calories: Double, timestamp: Date = Date()) {
+        CalorieEntry(calories: calories, timestamp: timestamp)
         saveToPersistentStore()
     }
     func deleteAllEntries() {

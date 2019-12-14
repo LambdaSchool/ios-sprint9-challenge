@@ -22,6 +22,29 @@ class CalorieTrackerViewController: UIViewController {
         }
     }
     @IBAction func addCalorieEntryButtonTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Add Calorie Entry",
+                                      message: "Please enter the number of calories in the text field",
+                                      preferredStyle: .alert)
+        alert.addTextField { (textField: UITextField!) -> Void in
+            textField.placeholder = "Number of Calories"
+        }
+        let saveAction = UIAlertAction(title: "Save", style: .default) { (_) in
+            if let calorieString = alert.textFields![0].text {
+                if let calories = Double(calorieString) {
+                    self.calorieEntryController.createEntry(calories: calories)
+                    self.calorieEntryController.fetchCalorieEntries { (_) in
+                        self.tableView.reloadData()
+                    }
+//                    navigationController?.popViewController(animated: true)
+                } else {
+                    print("Please enter a valid number")
+                }
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        alert.addAction(saveAction)
+        self.present(alert, animated: true)
     }
 }
 
@@ -33,10 +56,10 @@ extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSour
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
             as? CalorieTableViewCell else { return UITableViewCell() }
         let entries = calorieEntryController.entries
-        for entry in entries {
-            cell.calories.text = "\(entry.calories)"
-            cell.timestamp.text = "\(entry.timestamp ?? Date())"
-        }
+        let calories = entries[indexPath.row].calories
+        let timestamp = entries[indexPath.row].timestamp
+        cell.calories.text = "\(calories)"
+        cell.timestamp.text = "\(timestamp ?? Date())"
         return cell
     }
 }
