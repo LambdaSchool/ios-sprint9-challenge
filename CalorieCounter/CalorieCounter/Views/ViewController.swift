@@ -38,10 +38,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .calorieListUpdated, object: nil)
+        updateViews()
     }
     
     @objc func updateViews() {
         tableView.reloadData()
+        guard let sections = fetchedResultsController.sections else { return }
+        calorieChart.removeAllSeries()
+        var seriesDbls: [Double] = []
+        for section in sections {
+            if let objects = section.objects as? [Calorie] {
+                for object in objects {
+                    seriesDbls.append(Double(object.amount))
+                }
+            }
+        }
+        calorieChart.add(ChartSeries(seriesDbls))
+        
     }
 
     @IBAction func addButtonTapped(_ sender: Any) {
