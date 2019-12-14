@@ -22,13 +22,5 @@ class EntryController {
         
         let entry = Entry(calories: calories, timestamp: timestamp)
         entries.append(entry)
-        
-        let moc = CoreDataStack.shared.mainContext
-        
-        do {
-            try moc.save()
-        } catch {
-            print("Error saving Entry")
-        }
     }
 }
