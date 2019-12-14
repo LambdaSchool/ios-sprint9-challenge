@@ -106,6 +106,15 @@ class CalorieChartTableViewController: UITableViewController {
             let textFieldEntry = alertController.textFields![0].text
             let calorieNote = CalorieNote(context: self.container.viewContext)
             
+            guard let _ = Double(textFieldEntry!) else {
+                
+                let ac = UIAlertController(title: "Whoops!", message: "That is not a valid number. Please try again.", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(ac, animated: true, completion: nil)
+                
+                return
+            }
+            
             self.configure(calorieNote: calorieNote, text: textFieldEntry!)
             
             self.calorieLogs.append(calorieNote)
