@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		CC735E3E23A54D8000E23BE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC735E3D23A54D8000E23BE4 /* AppDelegate.swift */; };
 		CC735E4023A54D8000E23BE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC735E3F23A54D8000E23BE4 /* SceneDelegate.swift */; };
-		CC735E4223A54D8000E23BE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC735E4123A54D8000E23BE4 /* ViewController.swift */; };
 		CC735E4523A54D8000E23BE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC735E4323A54D8000E23BE4 /* Main.storyboard */; };
 		CC735E4723A54D8200E23BE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC735E4623A54D8200E23BE4 /* Assets.xcassets */; };
 		CC735E4A23A54D8200E23BE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC735E4823A54D8200E23BE4 /* LaunchScreen.storyboard */; };
+		CC735E5523A54E1C00E23BE4 /* CalorieChartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC735E5423A54E1C00E23BE4 /* CalorieChartTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CC735E3A23A54D8000E23BE4 /* CalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC735E3D23A54D8000E23BE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC735E3F23A54D8000E23BE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CC735E4123A54D8000E23BE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CC735E4423A54D8000E23BE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CC735E4623A54D8200E23BE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC735E4923A54D8200E23BE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC735E4B23A54D8200E23BE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC735E5423A54E1C00E23BE4 /* CalorieChartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieChartTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +56,39 @@
 		CC735E3C23A54D8000E23BE4 /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
+				CC735E5323A54E0900E23BE4 /* Models */,
+				CC735E5223A54E0500E23BE4 /* Views */,
+				CC735E5123A54DFD00E23BE4 /* View Controllers */,
 				CC735E3D23A54D8000E23BE4 /* AppDelegate.swift */,
 				CC735E3F23A54D8000E23BE4 /* SceneDelegate.swift */,
-				CC735E4123A54D8000E23BE4 /* ViewController.swift */,
 				CC735E4323A54D8000E23BE4 /* Main.storyboard */,
 				CC735E4623A54D8200E23BE4 /* Assets.xcassets */,
 				CC735E4823A54D8200E23BE4 /* LaunchScreen.storyboard */,
 				CC735E4B23A54D8200E23BE4 /* Info.plist */,
 			);
 			path = CalorieTracker;
+			sourceTree = "<group>";
+		};
+		CC735E5123A54DFD00E23BE4 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CC735E5423A54E1C00E23BE4 /* CalorieChartTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		CC735E5223A54E0500E23BE4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CC735E5323A54E0900E23BE4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +162,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC735E4223A54D8000E23BE4 /* ViewController.swift in Sources */,
 				CC735E3E23A54D8000E23BE4 /* AppDelegate.swift in Sources */,
 				CC735E4023A54D8000E23BE4 /* SceneDelegate.swift in Sources */,
+				CC735E5523A54E1C00E23BE4 /* CalorieChartTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
