@@ -23,9 +23,11 @@ class CalorieEntryController {
             saveToPersistentStore()
         }
     }
-//    func deleteEntry(entry: CalorieEntry) {
-//
-//    }
+    func deleteEntry(entry: CalorieEntry) {
+        let moc = CoreDataStack.shared.mainContext
+        moc.delete(entry)
+        saveToPersistentStore()
+    }
     func saveToPersistentStore() {
         let moc = CoreDataStack.shared.mainContext
         do {

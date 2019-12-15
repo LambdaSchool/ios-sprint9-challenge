@@ -20,7 +20,7 @@ class CalorieTrackerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews),
-                                               name: .newCalorieEntry, object: nil)
+                                               name: .calorieEntriesUpdated, object: nil)
         updateViews()
     }
     @IBAction func addCalorieEntryButtonTapped(_ sender: Any) {
@@ -34,7 +34,7 @@ class CalorieTrackerViewController: UIViewController {
             guard let calorieString = alert.textFields![0].text, !calorieString.isEmpty else { return }
                 if let calories = Double(calorieString) {
                     self.calorieEntryController.createEntry(calories: calories)
-                    NotificationCenter.default.post(name: .newCalorieEntry, object: nil)
+                    NotificationCenter.default.post(name: .calorieEntriesUpdated, object: nil)
                 } else {
                     print("Please enter a valid number")
                 }
@@ -42,6 +42,24 @@ class CalorieTrackerViewController: UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         alert.addAction(saveAction)
+        self.present(alert, animated: true)
+    }
+    @IBAction func deleteAllEntriesTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Delete Everything?",
+                                      message: """
+                                        All entries will be deleted and your
+                                        data will be permanently erased.
+                                        This action is irreversible.
+                                        """,
+                                      preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Delete All Data", style: .destructive) { (_) in
+            self.calorieEntryController.deleteAllEntries()
+            self.chartView.removeAllSeries()
+            NotificationCenter.default.post(name: .calorieEntriesUpdated, object: nil)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        alert.addAction(confirmAction)
         self.present(alert, animated: true)
     }
     @objc func updateViews() {
@@ -81,5 +99,15 @@ extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSour
             cell.timestamp.text = dateFormatter.string(from: timestamp)
         }
         return cell
+    }
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+                let entry = calorieEntryController.entries[indexPath.row]
+                calorieEntryController.deleteEntry(entry: entry)
+                self.chartView.removeAllSeries()
+                NotificationCenter.default.post(name: .calorieEntriesUpdated, object: nil)
+        }
     }
 }

@@ -83,6 +83,11 @@
                         <viewLayoutGuide key="safeArea" id="Yky-pm-WFv"/>
                     </view>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="25T-aW-0JA">
+                        <barButtonItem key="leftBarButtonItem" title="Delete All" id="4RX-eo-Rfw" userLabel="Delete Entries">
+                            <connections>
+                                <action selector="deleteAllEntriesTapped:" destination="uLs-dv-tah" id="Ehy-EK-cX0"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="DOh-7i-zCH">
                             <connections>
                                 <action selector="addCalorieEntryButtonTapped:" destination="uLs-dv-tah" id="7Pf-C3-60T"/>
