@@ -12,7 +12,7 @@ class EntryController {
     
     var entries: [Entry] = []
     
-    func createEntry(with calories: String) {
+    func createEntry(with calories: Double) {
         let currentDateTime = Date()
         let formatter = DateFormatter()
         formatter.timeStyle = .short

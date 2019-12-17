@@ -8,12 +8,15 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController {
     
     // MARK: - Properties
     
     var entryController = EntryController()
+    
+    var chartSeries: [ChartSeries] = []
     
     lazy var fetchedResultsController: NSFetchedResultsController<Entry> = {
         
@@ -28,6 +31,12 @@ class CalorieTrackerTableViewController: UITableViewController {
         return frc
 
     }()
+    
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var calorieChart: Chart!
+    
     
     // MARK: - Views
 
@@ -50,9 +59,7 @@ class CalorieTrackerTableViewController: UITableViewController {
 
         let entry = fetchedResultsController.object(at: indexPath)
         
-        if let calories = entry.calories {
-            cell.textLabel?.text = "Calories: \(calories)"
-        }
+        cell.textLabel?.text = "Calories: \(entry.calories)"
        
         cell.detailTextLabel?.text = entry.timestamp
         
@@ -85,9 +92,10 @@ class CalorieTrackerTableViewController: UITableViewController {
         }
 
         addEntryAlert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (action: UIAlertAction!) in
-            guard let calories = addEntryAlert.textFields![0].text else { return }
+            guard let calories = addEntryAlert.textFields![0].text,
+            let doubleCalories = Double(calories) else { return }
             
-            self.entryController.createEntry(with: calories)
+            self.entryController.createEntry(with: doubleCalories)
             addEntryAlert.dismiss(animated: true, completion: nil)
             self.tableView.reloadData()
         }))
@@ -97,8 +105,17 @@ class CalorieTrackerTableViewController: UITableViewController {
         }))
 
         present(addEntryAlert, animated: true, completion: nil)
+        setUpChart(calorieChart)
+        
     }
     
+    // MARK: - Methods
+
+    func setUpChart(_ chart: Chart) {
+        let calories = entryController.entries.map {  $0.calories }
+        let series = ChartSeries(calories)
+        chart.add(series)
+    }
 }
 
 // MARK: - Extensions
