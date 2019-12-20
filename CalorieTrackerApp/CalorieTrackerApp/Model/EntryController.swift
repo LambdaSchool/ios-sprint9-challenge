@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 import SwiftChart
 
+
 class EntryController {
     func createEntry(with calories: Double) {
         let entry = Entry(calories: calories)
