@@ -111,3 +111,4 @@ class CalorieTrackerTableViewController: UITableViewController {
 		*/
 
 }
+}
