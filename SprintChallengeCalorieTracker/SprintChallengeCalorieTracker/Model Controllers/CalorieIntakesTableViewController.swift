@@ -98,7 +98,7 @@ class CalorieIntakesTableViewController: UITableViewController {
     private func add(calorieCount: String) {
         guard let calories = Int(calorieCount) else { return /* add alert? */}
         CalorieIntake(calorieCount: calories)
-        
+        save()
     }
 
     private func save() {
