@@ -21,5 +21,4 @@ class TimestampFormatter {
         return formatter
     }()
 }
-
 //Will return 00/00/00, 00:00pm

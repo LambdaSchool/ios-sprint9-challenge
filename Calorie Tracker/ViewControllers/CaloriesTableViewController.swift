@@ -18,7 +18,6 @@ class CaloriesTableViewController: UITableViewController {
     
     @IBOutlet weak var chartView: Chart!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,8 +40,7 @@ class CaloriesTableViewController: UITableViewController {
             self.intakeController.createIntake(calories: self.newCalorieString)
             
             NotificationCenter.default.post(name: .newIntake, object: self)
-//            self.updateViews()
-//            self.addObserver()
+
         })
         let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { ( action) -> Void in })
         
@@ -66,8 +64,6 @@ class CaloriesTableViewController: UITableViewController {
         } catch {
             NSLog("Error: \(error)")
         }
-//            self.updateChart()
-        
         
     }
     
@@ -115,7 +111,6 @@ class CaloriesTableViewController: UITableViewController {
         cell.dateLabelView.text = date
         cell.caloresLabelView.text = "Calories:  \(intakeCalories)"
         
-        //        cell.intake = intakeController.fetchedResultsController.object(at: indexPath)
         return cell
     }
 }

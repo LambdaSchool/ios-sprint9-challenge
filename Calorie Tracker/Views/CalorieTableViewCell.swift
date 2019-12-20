@@ -24,17 +24,13 @@ class CalorieTableViewCell: UITableViewCell {
     func updateViews() {
         guard let intake = intake else { return }
         
-//        let date = TimestampFormatter.formatTimestamp(for: intake)
         let caloriesInt = Int(intake.calories)
         caloresLabelView.text = "Calories: \(String(caloriesInt))"
         dateLabelView.text = "Date: \(intake.date)"
-//        dateLabelView.text = "Date: \(date)"
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
-
 }
