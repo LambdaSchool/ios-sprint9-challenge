@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lh9-0k-cw2">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Calorie Tracker-->
+        <scene sceneID="wbu-w1-iyj">
+            <objects>
+                <viewController title="Calorie Tracker" id="CZU-DM-PAd" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qbr-ap-ci8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hDe-kF-lHK">
+                                <rect key="frame" x="20" y="386" width="374" height="476"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="CZU-DM-PAd" id="9nu-yv-fbs"/>
+                                    <outlet property="delegate" destination="CZU-DM-PAd" id="JbM-rM-xMz"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKX-8a-rvD">
+                                <rect key="frame" x="20" y="140" width="374" height="238"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hDe-kF-lHK" firstAttribute="top" secondItem="KKX-8a-rvD" secondAttribute="bottom" constant="8" id="5FR-zQ-QfZ"/>
+                            <constraint firstItem="KKX-8a-rvD" firstAttribute="leading" secondItem="qdU-u7-5Ag" secondAttribute="leading" constant="20" id="Eee-7i-BhK"/>
+                            <constraint firstItem="qdU-u7-5Ag" firstAttribute="trailing" secondItem="KKX-8a-rvD" secondAttribute="trailing" constant="20" id="Gkz-ag-MRZ"/>
+                            <constraint firstItem="hDe-kF-lHK" firstAttribute="bottom" secondItem="qdU-u7-5Ag" secondAttribute="bottom" id="MEj-GN-X0v"/>
+                            <constraint firstItem="KKX-8a-rvD" firstAttribute="top" secondItem="qdU-u7-5Ag" secondAttribute="top" id="PV9-8n-ySf"/>
+                            <constraint firstItem="qdU-u7-5Ag" firstAttribute="trailing" secondItem="hDe-kF-lHK" secondAttribute="trailing" constant="20" id="X8C-JT-Ez9"/>
+                            <constraint firstItem="KKX-8a-rvD" firstAttribute="height" secondItem="hDe-kF-lHK" secondAttribute="height" multiplier="0.5" id="gLk-6K-7K7"/>
+                            <constraint firstItem="hDe-kF-lHK" firstAttribute="leading" secondItem="qdU-u7-5Ag" secondAttribute="leading" constant="20" id="wxM-FP-7wh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qdU-u7-5Ag"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="zZR-SR-sil">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vJc-qS-GM2"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zo0-bO-D4D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1147.8260869565217" y="126.5625"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BA5-1C-la9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lh9-0k-cw2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="tiN-4K-jFK">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CZU-DM-PAd" kind="relationship" relationship="rootViewController" id="ovv-d6-Pqd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0jG-Ip-GwU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="237.68115942028987" y="126.5625"/>
+        </scene>
+    </scenes>
+</document>
