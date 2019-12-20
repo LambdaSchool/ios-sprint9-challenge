@@ -5,30 +5,29 @@
 //  Created by Dennis Rudolph on 12/20/19.
 //  Copyright © 2019 Lambda School. All rights reserved.
 
-
 import UIKit
 import SwiftChart
 import CoreData
 
 class EntryTableViewController: UITableViewController {
-    
+
     @IBOutlet weak var chart: Chart!
-    
+
     var data: [Double] = []
     let notificationCenter = NotificationCenter.default
-    
+
     var series: ChartSeries {
         ChartSeries(data)
     }
-    
+
     let dateFormatter = DateFormatter()
-    
+
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
-        
+
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
         alert.addTextField()
-        
-        alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { action in
+
+        alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { _ in
             guard let calorieString = alert.textFields![0].text, !calorieString.isEmpty, let calorieDouble = Double(calorieString) else { return }
             _ = Entry(calories: calorieDouble)
             do {
@@ -39,12 +38,11 @@ class EntryTableViewController: UITableViewController {
             }
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
+
         self.present(alert, animated: true)
-        
-        
+
     }
-    
+
     lazy var fetchedResultsController: NSFetchedResultsController<Entry> = {
         let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
@@ -58,14 +56,14 @@ class EntryTableViewController: UITableViewController {
         }
         return frc
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         dateFormatter.dateFormat = "MMM d, h:mm a"
         registerForNotifications()
         NotificationCenter.default.post(name: Notification.Name("dataChanged"), object: self)
     }
-    
+
     @objc private func updateChart(_ notification: Notification) {
         let data = fetchedResultsController.fetchedObjects?.map { $0.calories}
         self.data = data ?? [0]
@@ -74,25 +72,24 @@ class EntryTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-    
+
     private func registerForNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateChart), name: Notification.Name("dataChanged"), object: nil)
     }
-    
-    
+
     // MARK: - Table view data source
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController.sections?.count ?? 1
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath)
-        
+
         cell.textLabel?.text = "Calories: \(String(fetchedResultsController.object(at: indexPath).calories))"
         cell.detailTextLabel?.text = dateFormatter.string(from: fetchedResultsController.object(at: indexPath).date!)
         return cell
@@ -108,7 +105,7 @@ extension EntryTableViewController: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
-    
+
     //  swiftlint:disable:next line_length
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         switch type {
@@ -120,7 +117,7 @@ extension EntryTableViewController: NSFetchedResultsControllerDelegate {
             break
         }
     }
-    
+
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:

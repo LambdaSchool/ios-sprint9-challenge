@@ -11,7 +11,7 @@ import CoreData
 
 class CoreDataStack {
     static let shared = CoreDataStack()
-    
+
     lazy var container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "CalorieTracker")
         container.loadPersistentStores { _, error in
@@ -22,14 +22,14 @@ class CoreDataStack {
         container.viewContext.automaticallyMergesChangesFromParent = true
         return container
     }()
-    
+
     var mainContext: NSManagedObjectContext {
         return container.viewContext
     }
-    
+
     func save(context: NSManagedObjectContext) throws {
         var error: Error?
-        
+
         context.performAndWait {
             do {
                 try context.save()
@@ -37,7 +37,7 @@ class CoreDataStack {
                 error = saveError
             }
         }
-        
+
         if let error = error { throw error }
     }
 }

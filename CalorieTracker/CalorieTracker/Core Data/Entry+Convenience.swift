@@ -15,7 +15,7 @@ extension Entry {
         self.calories = calories
         self.date = date
     }
-    
+
 //    @discardableResult convenience init?(entryRepresentation: EntryRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
 //        guard let mood = Mood(rawValue: entryRepresentation.mood),
 //              let identifierString = entryRepresentation.identifier,
@@ -35,4 +35,3 @@ extension Entry {
 //        return EntryRepresentation(title: title, bodyText: bodyText, mood: mood, identifier: identifier?.uuidString ?? "", timestamp: timestamp ?? Date())
 //    }
 }
-
