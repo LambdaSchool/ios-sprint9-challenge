@@ -8,9 +8,12 @@
 
 import UIKit
 import CoreData
-
+import SwiftChart
 class CalorieTrackerTableViewController: UITableViewController {
 
+    // MARK: - IBOutlets
+    @IBOutlet weak var chartView: Chart!
+    
     // MARK: - Properties
     let entryController = EntryController()
     
@@ -33,7 +36,6 @@ class CalorieTrackerTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .calorieEntryAdded, object: nil)
         
         updateViews()
@@ -62,6 +64,7 @@ class CalorieTrackerTableViewController: UITableViewController {
             if let calories = alert.textFields?.first?.text,
                 !calories.isEmpty {
                 self.entryController.createEntry(calories: Float(calories) ?? 0, timestamp: Date())
+                self.chartView.add(self.entryController.chartSeries)
                 NotificationCenter.default.post(name: .calorieEntryAdded, object: self)
             }
         }))
