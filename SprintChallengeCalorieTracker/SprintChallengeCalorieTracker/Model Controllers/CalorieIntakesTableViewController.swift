@@ -49,6 +49,7 @@ class CalorieIntakesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        updateChart()
     }
 
     // MARK: - Table view data source
@@ -107,6 +108,16 @@ class CalorieIntakesTableViewController: UITableViewController {
         } catch {
             print("Error saving to CoreDataStack: \(error)")
         }
+    }
+
+    private func updateChart() {
+        var caloriesArray: [Double] = []
+        let calorieIntakes = fetchedResultsController.fetchedObjects
+
+        calorieIntakes?.forEach { caloriesArray.append(Double($0.calorieCount)) }
+
+        let series = ChartSeries(caloriesArray)
+        chart.add(series)
     }
 }
 
