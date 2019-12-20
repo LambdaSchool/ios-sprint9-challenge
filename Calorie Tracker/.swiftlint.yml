@@ -4,6 +4,10 @@ disabled_rules:
 opt_in_rules:
 - empty_count
 - empty_string
+- control_statement
+- trailing_newline
+- colon
+- comma
 
 excluded:
 - Carthage
@@ -14,7 +18,7 @@ line_length:
     warning: 150
     error: 200
     ignores_function_declarations: true
-    ignores_comments: true
+    ignores_comments: false
     ignores_urls: true
 
 function_body_length:
