@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Entry View Controller-->
+        <scene sceneID="GeZ-91-8wg">
+            <objects>
+                <viewController id="XqL-jB-Wd9" customClass="AddEntryViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L2i-yt-Ln3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Myo-YL-1Om">
+                                <rect key="frame" x="20" y="98" width="335" height="78"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a meal!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fO7-Ed-gXW">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="4"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="4" id="LZg-X3-dAT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Calories" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XzM-ry-HTv">
+                                        <rect key="frame" x="0.0" y="44" width="335" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="109" translatesAutoresizingMaskIntoConstraints="NO" id="Dov-1h-fUV">
+                                <rect key="frame" x="20" y="220" width="335" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohG-PD-02b">
+                                        <rect key="frame" x="0.0" y="0.0" width="113" height="30"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelButtonTapped:" destination="XqL-jB-Wd9" eventType="touchUpInside" id="PGd-Gf-Ylb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8f9-kP-7Q8">
+                                        <rect key="frame" x="222" y="0.0" width="113" height="30"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="XqL-jB-Wd9" eventType="touchUpInside" id="JyV-Ut-QVq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="8f9-kP-7Q8" firstAttribute="top" secondItem="Dov-1h-fUV" secondAttribute="top" id="Byp-d0-2ci"/>
+                                    <constraint firstAttribute="bottom" secondItem="ohG-PD-02b" secondAttribute="bottom" id="XPY-6J-KpM"/>
+                                    <constraint firstItem="ohG-PD-02b" firstAttribute="top" secondItem="Dov-1h-fUV" secondAttribute="top" id="fa7-kO-AkH"/>
+                                    <constraint firstAttribute="bottom" secondItem="8f9-kP-7Q8" secondAttribute="bottom" id="rs7-KQ-dH8"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Dov-1h-fUV" firstAttribute="top" secondItem="XzM-ry-HTv" secondAttribute="bottom" constant="44" id="Dx2-RY-jht"/>
+                            <constraint firstItem="Dov-1h-fUV" firstAttribute="leading" secondItem="lmf-P8-POE" secondAttribute="leading" constant="20" id="Fnr-hH-lOG"/>
+                            <constraint firstItem="lmf-P8-POE" firstAttribute="trailing" secondItem="Myo-YL-1Om" secondAttribute="trailing" constant="20" id="Lim-gI-BlK"/>
+                            <constraint firstItem="Myo-YL-1Om" firstAttribute="top" secondItem="lmf-P8-POE" secondAttribute="top" constant="10" id="Mko-dd-BOZ"/>
+                            <constraint firstItem="lmf-P8-POE" firstAttribute="trailing" secondItem="Dov-1h-fUV" secondAttribute="trailing" constant="20" id="WlT-dO-W9j"/>
+                            <constraint firstItem="Dov-1h-fUV" firstAttribute="bottom" secondItem="lmf-P8-POE" secondAttribute="bottom" id="nwU-tu-b2i"/>
+                            <constraint firstItem="Myo-YL-1Om" firstAttribute="leading" secondItem="lmf-P8-POE" secondAttribute="leading" constant="20" id="r0u-4Q-GC0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lmf-P8-POE"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="c7b-s7-eVC"/>
+                    <size key="freeformSize" width="375" height="250"/>
+                    <connections>
+                        <outlet property="caloriesTextField" destination="XzM-ry-HTv" id="K9Z-hf-8eS"/>
+                        <outlet property="cancelButton" destination="ohG-PD-02b" id="7DP-9y-fZR"/>
+                        <outlet property="saveButton" destination="8f9-kP-7Q8" id="XqL-QS-mQR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b8n-77-C4E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2576.0869565217395" y="-96.428571428571431"/>
+        </scene>
+        <!--Calorie Tracker-->
+        <scene sceneID="4fh-Ma-pZi">
+            <objects>
+                <tableViewController id="vZ7-QM-FbK" customClass="CalorieTrackerTableViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jRD-gT-NeC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="UhA-Hs-dyi" customClass="ChartView" customModule="CalorieTracker" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="275"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EntryCell" textLabel="umD-1z-3IB" detailTextLabel="cHm-No-mZB" style="IBUITableViewCellStyleValue1" id="Vrt-QV-sph">
+                                <rect key="frame" x="0.0" y="303" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vrt-QV-sph" id="PmD-Dn-GS6">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="umD-1z-3IB">
+                                            <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cHm-No-mZB">
+                                            <rect key="frame" x="350" y="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vZ7-QM-FbK" id="BYN-w5-bLo"/>
+                            <outlet property="delegate" destination="vZ7-QM-FbK" id="N2J-iz-a75"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="hcF-eG-8bR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mY5-0F-6t8">
+                            <connections>
+                                <action selector="addEntryButtonTapped:" destination="vZ7-QM-FbK" id="0af-zE-fMx"/>
+                                <segue destination="XqL-jB-Wd9" kind="show" identifier="AddEntry" id="loq-oX-y0h"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="AddBarButtonItem" destination="mY5-0F-6t8" id="hLx-N7-W5i"/>
+                        <outlet property="chartView" destination="UhA-Hs-dyi" id="1fl-pm-U6S"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OmW-3n-7Yx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1781.1594202898552" y="120.53571428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="S1k-bp-PGQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XuO-wI-bIE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7za-r1-V9V">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vZ7-QM-FbK" kind="relationship" relationship="rootViewController" id="kEP-eP-qdp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H0a-sZ-ura" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="871.01449275362324" y="120.53571428571428"/>
+        </scene>
+    </scenes>
+</document>
