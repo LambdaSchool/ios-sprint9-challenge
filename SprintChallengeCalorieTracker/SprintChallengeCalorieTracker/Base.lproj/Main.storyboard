@@ -63,7 +63,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="cZL-nq-IIQ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="iqJ-Cn-ikX"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="iqJ-Cn-ikX">
+                            <connections>
+                                <action selector="addIntake:" destination="349-Yi-8hl" id="g13-Uf-1zM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="chart" destination="6F3-K3-Uqb" id="CSe-kk-eje"/>

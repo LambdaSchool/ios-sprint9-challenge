@@ -49,12 +49,12 @@ class CalorieIntakesTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return fetchedResultsController.sections?.count ?? 1
+        return fetchedResultsController.sections?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return fetchedResultsController.sections?[section].numberOfObjects ?? 1
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,8 +66,34 @@ class CalorieIntakesTableViewController: UITableViewController {
         return cell
     }
 
-    
+    // MARK: - Actions
 
+    @IBAction func addIntake(_ sender: Any) {
+        let alert = UIAlertController(title: "Add calories?", message: "Type the number of calories you consumed today.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (_) in
+            self.add(calorieCount: alert.textFields?[0].text ?? "")
+        }))
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addTextField(configurationHandler: { textfield in textfield.placeholder = "Calories" })
+
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    // MARK: - Private
+
+    private func add(calorieCount: String) {
+        guard let calories = Int(calorieCount) else { return /* add alert? */}
+        CalorieIntake(calorieCount: calories)
+    }
+
+    private func save() {
+        do {
+            try CoreDataStack.shared.save(context: CoreDataStack.shared.mainContext)
+        } catch {
+            print("Error saving to CoreDataStack: \(error)")
+        }
+    }
 }
 
 extension CalorieIntakesTableViewController: NSFetchedResultsControllerDelegate {
