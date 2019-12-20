@@ -7,4 +7,5 @@ target 'CalorieTrackerSprintChallenge' do
 
   # Pods for CalorieTrackerSprintChallenge
 pod "SwiftChart", :git => 'https://github.com/gpbl/SwiftChart.git'
+pod 'SwiftLint'
 end

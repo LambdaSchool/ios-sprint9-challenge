@@ -3,73 +3,93 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = SwiftLint;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		0EFE27A8EFE011B8758BD790F5ECA609 /* SwiftChart-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB198D40652FA49A604F9A7C4E9F37A2 /* SwiftChart-dummy.m */; };
-		252D4EEA8BD5281A9407B74038B848C5 /* Pods-CalorieTrackerSprintChallenge-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FE8436CCE06B240D5DF43C0DEB6AAA /* Pods-CalorieTrackerSprintChallenge-dummy.m */; };
-		373C85B7B6669A0A3705344EDAB91402 /* ChartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAAC77638A2D9B88445D4DCE34BD6E1 /* ChartColors.swift */; };
-		94EE66ED0960C0DBC3058CA5ABD98556 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		9B6B025901B92784B8037B236F392AA3 /* SwiftChart-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EDD215E44BE794458FAF6F7C69AEC9E9 /* SwiftChart-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0EFE27A8EFE011B8758BD790F5ECA609 /* SwiftChart-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E673EFEF0E6ACB5272E1F843FE51CF1 /* SwiftChart-dummy.m */; };
+		373C85B7B6669A0A3705344EDAB91402 /* ChartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8C4ADE4EA9F1071E67E1CC07BF3CBD /* ChartColors.swift */; };
+		49CAA1D9AC4718439DAA3B2ADFADEB61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		5883E79EAA9CD0D89024EA62D137046C /* Pods-CalorieTrackerSprintChallenge-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FE8436CCE06B240D5DF43C0DEB6AAA /* Pods-CalorieTrackerSprintChallenge-dummy.m */; };
+		65394757F20D64BE20151362473E15B7 /* Pods-CalorieTrackerSprintChallenge-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F8359576FD473EBCBB488B2E224CEB8 /* Pods-CalorieTrackerSprintChallenge-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B6B025901B92784B8037B236F392AA3 /* SwiftChart-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D64DE1A9E1BC3F1BF6FEBE5D45901753 /* SwiftChart-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AABB25CD63C72262E7FFE6F57470ACE0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
 		B6613C0A904ECFDCC0150613D7AF1206 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		E68ECA0D9BFEEC9BF3D47D78D12E8C1E /* Pods-CalorieTrackerSprintChallenge-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F8359576FD473EBCBB488B2E224CEB8 /* Pods-CalorieTrackerSprintChallenge-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E89F36993229D1B75DDCC7E56FC12B62 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB13F972F3B77B583645B30A456160E /* Chart.swift */; };
-		F7951E078EEAB8901537CEA3C6C01859 /* ChartSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A165B1AD01E5C3249C068D45536F95 /* ChartSeries.swift */; };
+		E89F36993229D1B75DDCC7E56FC12B62 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CCD2A8B95D340BE27495DEFCA06E2B /* Chart.swift */; };
+		F7951E078EEAB8901537CEA3C6C01859 /* ChartSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050E1593C5F9DB0BFDCF940E438B9DE0 /* ChartSeries.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3A33881F86294D2FFCCAAFF6482E5D21 /* PBXContainerItemProxy */ = {
+		9FA9635B351900B033082ED79ADFDF32 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4E7BD5B8067AD0B7AFB7967E30BF1BB8;
 			remoteInfo = SwiftChart;
 		};
+		DD2304658FD0D58D216BEE3F42C7D13A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52B60EC2A583F24ACBB69C113F5488B9;
+			remoteInfo = SwiftLint;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02A165B1AD01E5C3249C068D45536F95 /* ChartSeries.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartSeries.swift; path = Source/ChartSeries.swift; sourceTree = "<group>"; };
 		0386647CB37914AEC8D0A23E3BF2B668 /* SwiftChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftChart.framework; path = SwiftChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		050E1593C5F9DB0BFDCF940E438B9DE0 /* ChartSeries.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartSeries.swift; path = Source/ChartSeries.swift; sourceTree = "<group>"; };
 		0F62A01E8F4DDE85CD94D2C99E6FC20C /* Pods_CalorieTrackerSprintChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CalorieTrackerSprintChallenge.framework; path = "Pods-CalorieTrackerSprintChallenge.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16FE8436CCE06B240D5DF43C0DEB6AAA /* Pods-CalorieTrackerSprintChallenge-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CalorieTrackerSprintChallenge-dummy.m"; sourceTree = "<group>"; };
 		18A1B9ADDB1292EE4065350F917B2974 /* Pods-CalorieTrackerSprintChallenge-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CalorieTrackerSprintChallenge-acknowledgements.plist"; sourceTree = "<group>"; };
-		1EAAC77638A2D9B88445D4DCE34BD6E1 /* ChartColors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartColors.swift; path = Source/ChartColors.swift; sourceTree = "<group>"; };
+		1C8C4ADE4EA9F1071E67E1CC07BF3CBD /* ChartColors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartColors.swift; path = Source/ChartColors.swift; sourceTree = "<group>"; };
 		2672CA448751A68BEB12CE4A8BBEFC9D /* Pods-CalorieTrackerSprintChallenge-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CalorieTrackerSprintChallenge-Info.plist"; sourceTree = "<group>"; };
-		2CB13F972F3B77B583645B30A456160E /* Chart.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Chart.swift; path = Source/Chart.swift; sourceTree = "<group>"; };
 		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		36289834CCB672C33A47651577A5B724 /* SwiftChart-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftChart-prefix.pch"; sourceTree = "<group>"; };
+		41CCD2A8B95D340BE27495DEFCA06E2B /* Chart.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Chart.swift; path = Source/Chart.swift; sourceTree = "<group>"; };
 		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		49AF0739289790A715526A30C99062AC /* Pods-CalorieTrackerSprintChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CalorieTrackerSprintChallenge.debug.xcconfig"; sourceTree = "<group>"; };
+		4E673EFEF0E6ACB5272E1F843FE51CF1 /* SwiftChart-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftChart-dummy.m"; sourceTree = "<group>"; };
 		4F8359576FD473EBCBB488B2E224CEB8 /* Pods-CalorieTrackerSprintChallenge-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CalorieTrackerSprintChallenge-umbrella.h"; sourceTree = "<group>"; };
+		7C779B448495FF0B7C139525A48CC826 /* SwiftLint.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.xcconfig; sourceTree = "<group>"; };
 		80857E3AC53A4113DFD4F4EDF23EDA04 /* Pods-CalorieTrackerSprintChallenge-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CalorieTrackerSprintChallenge-acknowledgements.markdown"; sourceTree = "<group>"; };
-		8752C5AEA43889E38E52AF306FA80A0A /* SwiftChart.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftChart.xcconfig; sourceTree = "<group>"; };
 		9B62A883A607A60AB678C48DD0CE0CFB /* Pods-CalorieTrackerSprintChallenge-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CalorieTrackerSprintChallenge-frameworks.sh"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9E080BC0CD223CF34EFA798FB730E0EF /* SwiftChart-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftChart-prefix.pch"; sourceTree = "<group>"; };
 		AFFAAEABA4DC6C936FFB10D6523A44A4 /* Pods-CalorieTrackerSprintChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CalorieTrackerSprintChallenge.release.xcconfig"; sourceTree = "<group>"; };
-		DF8B3AF368B504A374DA4F2A6DD7365E /* SwiftChart-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftChart-Info.plist"; sourceTree = "<group>"; };
-		EAB070CCCAF72189F3A0D131FF6DD343 /* SwiftChart.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftChart.modulemap; sourceTree = "<group>"; };
-		EDD215E44BE794458FAF6F7C69AEC9E9 /* SwiftChart-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftChart-umbrella.h"; sourceTree = "<group>"; };
+		BD42B70949C9E311231145E1D602F1EB /* SwiftChart-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftChart-Info.plist"; sourceTree = "<group>"; };
+		D4A4834BEABE7E16B27C7C9661FA9C3C /* SwiftChart.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftChart.xcconfig; sourceTree = "<group>"; };
+		D64DE1A9E1BC3F1BF6FEBE5D45901753 /* SwiftChart-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftChart-umbrella.h"; sourceTree = "<group>"; };
 		F2FF15E6869E7477DDD4A0502CE5BEE2 /* Pods-CalorieTrackerSprintChallenge.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CalorieTrackerSprintChallenge.modulemap"; sourceTree = "<group>"; };
-		FB198D40652FA49A604F9A7C4E9F37A2 /* SwiftChart-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftChart-dummy.m"; sourceTree = "<group>"; };
+		FAC28EE68A7B02D6B4C98607D9328753 /* SwiftChart.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftChart.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		015A35867DA6EAC3D8CEBDA1F082F2AF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				94EE66ED0960C0DBC3058CA5ABD98556 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7C75323E3A181BCC5B455CBD0102BF7E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B6613C0A904ECFDCC0150613D7AF1206 /* Foundation.framework in Frameworks */,
 				AABB25CD63C72262E7FFE6F57470ACE0 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDFA2FC0A7B9D4115BFD0B83BAFF6D69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49CAA1D9AC4718439DAA3B2ADFADEB61 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +129,18 @@
 			path = "Target Support Files/Pods-CalorieTrackerSprintChallenge";
 			sourceTree = "<group>";
 		};
+		3454291DB88652B1900D6C442E261E3E /* SwiftChart */ = {
+			isa = PBXGroup;
+			children = (
+				41CCD2A8B95D340BE27495DEFCA06E2B /* Chart.swift */,
+				1C8C4ADE4EA9F1071E67E1CC07BF3CBD /* ChartColors.swift */,
+				050E1593C5F9DB0BFDCF940E438B9DE0 /* ChartSeries.swift */,
+				67C98EE3FDC5D1720607DAA8D2FE2102 /* Support Files */,
+			);
+			name = SwiftChart;
+			path = SwiftChart;
+			sourceTree = "<group>";
+		};
 		4CCC748B6F56DDF92CA3842AD8E7E8BD /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,24 +150,36 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		71B7291F733237863A94361DDBD72A96 /* Pods */ = {
+		67C98EE3FDC5D1720607DAA8D2FE2102 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				844677AADEDF0E1ABE8C8BEA308D72CE /* SwiftChart */,
+				FAC28EE68A7B02D6B4C98607D9328753 /* SwiftChart.modulemap */,
+				D4A4834BEABE7E16B27C7C9661FA9C3C /* SwiftChart.xcconfig */,
+				4E673EFEF0E6ACB5272E1F843FE51CF1 /* SwiftChart-dummy.m */,
+				BD42B70949C9E311231145E1D602F1EB /* SwiftChart-Info.plist */,
+				36289834CCB672C33A47651577A5B724 /* SwiftChart-prefix.pch */,
+				D64DE1A9E1BC3F1BF6FEBE5D45901753 /* SwiftChart-umbrella.h */,
 			);
-			name = Pods;
+			name = "Support Files";
+			path = "../Target Support Files/SwiftChart";
 			sourceTree = "<group>";
 		};
-		844677AADEDF0E1ABE8C8BEA308D72CE /* SwiftChart */ = {
+		8D8F174EF94E6C060E87AFB2EE98F145 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				2CB13F972F3B77B583645B30A456160E /* Chart.swift */,
-				1EAAC77638A2D9B88445D4DCE34BD6E1 /* ChartColors.swift */,
-				02A165B1AD01E5C3249C068D45536F95 /* ChartSeries.swift */,
-				DDFB8483963381E05DF803E39CC89874 /* Support Files */,
+				7C779B448495FF0B7C139525A48CC826 /* SwiftLint.xcconfig */,
 			);
-			name = SwiftChart;
-			path = SwiftChart;
+			name = "Support Files";
+			path = "../Target Support Files/SwiftLint";
+			sourceTree = "<group>";
+		};
+		A1A1A255E377BCCC57805C90273CBF86 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3454291DB88652B1900D6C442E261E3E /* SwiftChart */,
+				DF10E7E5317B5FFD4CA734F3DCC1BB59 /* SwiftLint */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -143,24 +187,19 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				71B7291F733237863A94361DDBD72A96 /* Pods */,
+				A1A1A255E377BCCC57805C90273CBF86 /* Pods */,
 				4CCC748B6F56DDF92CA3842AD8E7E8BD /* Products */,
 				12D40A920A9763E699C87B94553B8F3C /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		DDFB8483963381E05DF803E39CC89874 /* Support Files */ = {
+		DF10E7E5317B5FFD4CA734F3DCC1BB59 /* SwiftLint */ = {
 			isa = PBXGroup;
 			children = (
-				EAB070CCCAF72189F3A0D131FF6DD343 /* SwiftChart.modulemap */,
-				8752C5AEA43889E38E52AF306FA80A0A /* SwiftChart.xcconfig */,
-				FB198D40652FA49A604F9A7C4E9F37A2 /* SwiftChart-dummy.m */,
-				DF8B3AF368B504A374DA4F2A6DD7365E /* SwiftChart-Info.plist */,
-				9E080BC0CD223CF34EFA798FB730E0EF /* SwiftChart-prefix.pch */,
-				EDD215E44BE794458FAF6F7C69AEC9E9 /* SwiftChart-umbrella.h */,
+				8D8F174EF94E6C060E87AFB2EE98F145 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/SwiftChart";
+			name = SwiftLint;
+			path = SwiftLint;
 			sourceTree = "<group>";
 		};
 		E2983683FD097A93297E2F5D4E382B36 /* iOS */ = {
@@ -175,19 +214,19 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		5A0E82E35621BAFA0687905F6E79C1D9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65394757F20D64BE20151362473E15B7 /* Pods-CalorieTrackerSprintChallenge-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91C1F06F7D5949312F39A6B7B93A9380 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9B6B025901B92784B8037B236F392AA3 /* SwiftChart-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9AB57F61EB1688084F1EFEFA1EF50C64 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E68ECA0D9BFEEC9BF3D47D78D12E8C1E /* Pods-CalorieTrackerSprintChallenge-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,17 +253,18 @@
 		};
 		9D1A72C54F1B6BBD1703B73111D0A216 /* Pods-CalorieTrackerSprintChallenge */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0B13A0067E08B7556FFE91B01681965A /* Build configuration list for PBXNativeTarget "Pods-CalorieTrackerSprintChallenge" */;
+			buildConfigurationList = 350274190F34C507B49447F266426746 /* Build configuration list for PBXNativeTarget "Pods-CalorieTrackerSprintChallenge" */;
 			buildPhases = (
-				9AB57F61EB1688084F1EFEFA1EF50C64 /* Headers */,
-				8107C1185EE2143D41FEB77995BFFA1C /* Sources */,
-				015A35867DA6EAC3D8CEBDA1F082F2AF /* Frameworks */,
-				9BC9A8AFE2C11AC386F039576862093F /* Resources */,
+				5A0E82E35621BAFA0687905F6E79C1D9 /* Headers */,
+				81EFC694796709513EC8AC0A59593547 /* Sources */,
+				EDFA2FC0A7B9D4115BFD0B83BAFF6D69 /* Frameworks */,
+				6002E84FA1F54936F760CCC8AA609E61 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				837A3415EF5CCC29E320E1CFCE6D2066 /* PBXTargetDependency */,
+				1F2DCE44310D67A5265EAEE0A5BF41C3 /* PBXTargetDependency */,
+				F6EFF135CEB3DD3AC98E4B4ECC508A6A /* PBXTargetDependency */,
 			);
 			name = "Pods-CalorieTrackerSprintChallenge";
 			productName = "Pods-CalorieTrackerSprintChallenge";
@@ -241,7 +281,7 @@
 				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -255,19 +295,20 @@
 			targets = (
 				9D1A72C54F1B6BBD1703B73111D0A216 /* Pods-CalorieTrackerSprintChallenge */,
 				4E7BD5B8067AD0B7AFB7967E30BF1BB8 /* SwiftChart */,
+				52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		923DC915C4C0B60AEC3A935835AA08C1 /* Resources */ = {
+		6002E84FA1F54936F760CCC8AA609E61 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9BC9A8AFE2C11AC386F039576862093F /* Resources */ = {
+		923DC915C4C0B60AEC3A935835AA08C1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -288,29 +329,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8107C1185EE2143D41FEB77995BFFA1C /* Sources */ = {
+		81EFC694796709513EC8AC0A59593547 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				252D4EEA8BD5281A9407B74038B848C5 /* Pods-CalorieTrackerSprintChallenge-dummy.m in Sources */,
+				5883E79EAA9CD0D89024EA62D137046C /* Pods-CalorieTrackerSprintChallenge-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		837A3415EF5CCC29E320E1CFCE6D2066 /* PBXTargetDependency */ = {
+		1F2DCE44310D67A5265EAEE0A5BF41C3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftChart;
 			target = 4E7BD5B8067AD0B7AFB7967E30BF1BB8 /* SwiftChart */;
-			targetProxy = 3A33881F86294D2FFCCAAFF6482E5D21 /* PBXContainerItemProxy */;
+			targetProxy = 9FA9635B351900B033082ED79ADFDF32 /* PBXContainerItemProxy */;
+		};
+		F6EFF135CEB3DD3AC98E4B4ECC508A6A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftLint;
+			target = 52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */;
+			targetProxy = DD2304658FD0D58D216BEE3F42C7D13A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		393A7D6ACE3E33685194D23A99FA79B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8752C5AEA43889E38E52AF306FA80A0A /* SwiftChart.xcconfig */;
+			baseConfigurationReference = D4A4834BEABE7E16B27C7C9661FA9C3C /* SwiftChart.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -345,7 +392,7 @@
 		};
 		3F8D2115E6F90BB37B3DCF4421A2AEEC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8752C5AEA43889E38E52AF306FA80A0A /* SwiftChart.xcconfig */;
+			baseConfigurationReference = D4A4834BEABE7E16B27C7C9661FA9C3C /* SwiftChart.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -379,42 +426,20 @@
 			};
 			name = Release;
 		};
-		4AA25C05FC903397D175042CC5D39A49 /* Release */ = {
+		84D7C4574E8F0F3095623F0E06F5B402 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AFFAAEABA4DC6C936FFB10D6523A44A4 /* Pods-CalorieTrackerSprintChallenge.release.xcconfig */;
+			baseConfigurationReference = 7C779B448495FF0B7C139525A48CC826 /* SwiftLint.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-CalorieTrackerSprintChallenge/Pods-CalorieTrackerSprintChallenge-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-CalorieTrackerSprintChallenge/Pods-CalorieTrackerSprintChallenge.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -482,9 +507,9 @@
 			};
 			name = Debug;
 		};
-		DCBB52D83A1AC9897F007B9F67EE7D6A /* Debug */ = {
+		B80C99B773B25DBA6FB3E3C00EC22988 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 49AF0739289790A715526A30C99062AC /* Pods-CalorieTrackerSprintChallenge.debug.xcconfig */;
+			baseConfigurationReference = AFFAAEABA4DC6C936FFB10D6523A44A4 /* Pods-CalorieTrackerSprintChallenge.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -515,8 +540,25 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DEED47E09AF743F48544C1C4FEADEF47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C779B448495FF0B7C139525A48CC826 /* SwiftLint.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -580,6 +622,44 @@
 			};
 			name = Release;
 		};
+		F63E103EBFD9AF7E076AFC92E295C349 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49AF0739289790A715526A30C99062AC /* Pods-CalorieTrackerSprintChallenge.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CalorieTrackerSprintChallenge/Pods-CalorieTrackerSprintChallenge-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CalorieTrackerSprintChallenge/Pods-CalorieTrackerSprintChallenge.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -592,11 +672,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0B13A0067E08B7556FFE91B01681965A /* Build configuration list for PBXNativeTarget "Pods-CalorieTrackerSprintChallenge" */ = {
+		350274190F34C507B49447F266426746 /* Build configuration list for PBXNativeTarget "Pods-CalorieTrackerSprintChallenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DCBB52D83A1AC9897F007B9F67EE7D6A /* Debug */,
-				4AA25C05FC903397D175042CC5D39A49 /* Release */,
+				F63E103EBFD9AF7E076AFC92E295C349 /* Debug */,
+				B80C99B773B25DBA6FB3E3C00EC22988 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -606,6 +686,15 @@
 			buildConfigurations = (
 				939F1A8F6BCEB7F9F64D9EEE50CAE014 /* Debug */,
 				ECB437504DF805BD96CAABF97400B526 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEED47E09AF743F48544C1C4FEADEF47 /* Debug */,
+				84D7C4574E8F0F3095623F0E06F5B402 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
