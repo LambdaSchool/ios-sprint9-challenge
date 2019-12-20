@@ -25,8 +25,8 @@ class CalorieTableViewCell: UITableViewCell {
         guard let intake = intake else { return }
         
 //        let date = TimestampFormatter.formatTimestamp(for: intake)
-        
-        caloresLabelView.text = "Calories: \(String(intake.calories))"
+        let caloriesInt = Int(intake.calories)
+        caloresLabelView.text = "Calories: \(String(caloriesInt))"
         dateLabelView.text = "Date: \(intake.date)"
 //        dateLabelView.text = "Date: \(date)"
     }

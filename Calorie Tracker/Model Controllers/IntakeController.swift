@@ -39,7 +39,7 @@ class IntakeController {
         let caloriesDouble = Double(calories)
         guard let caloriesIntake = caloriesDouble else { return }
 
-        let _ = Intake(calories: caloriesIntake)
+        Intake(calories: caloriesIntake)
 
         do {
             let moc = CoreDataStack.shared.mainContext

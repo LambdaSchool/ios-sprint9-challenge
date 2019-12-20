@@ -18,6 +18,7 @@ class CaloriesTableViewController: UITableViewController {
     
     @IBOutlet weak var chartView: Chart!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,12 +59,16 @@ class CaloriesTableViewController: UITableViewController {
     }
     
     @objc func updateViews() {
-        
-        DispatchQueue.main.async {
-            self.updateChart()
+        do {
+            try self.intakeController.fetchedResultsController.performFetch()
             self.tableView.reloadData()
-            
+            self.updateChart()
+        } catch {
+            NSLog("Error: \(error)")
         }
+//            self.updateChart()
+        
+        
     }
     
     func addObserver() {
