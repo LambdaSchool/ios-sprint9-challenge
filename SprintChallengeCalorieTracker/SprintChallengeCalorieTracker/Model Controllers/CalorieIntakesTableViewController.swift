@@ -66,8 +66,15 @@ class CalorieIntakesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.cell, for: indexPath)
 
-        cell.textLabel?.text = "Calories: \(fetchedResultsController.object(at: indexPath).calorieCount)"
-        cell.detailTextLabel?.text = "date"
+        let calorieIntake = fetchedResultsController.object(at: indexPath)
+
+        cell.textLabel?.text = "Calories: \(calorieIntake.calorieCount)"
+
+        if let date = calorieIntake.date {
+            cell.detailTextLabel?.text = dateFormatter.string(from: date)
+        } else {
+            cell.detailTextLabel?.text = "No date available"
+        }
 
         return cell
     }
@@ -91,6 +98,7 @@ class CalorieIntakesTableViewController: UITableViewController {
     private func add(calorieCount: String) {
         guard let calories = Int(calorieCount) else { return /* add alert? */}
         CalorieIntake(calorieCount: calories)
+        
     }
 
     private func save() {
@@ -101,6 +109,8 @@ class CalorieIntakesTableViewController: UITableViewController {
         }
     }
 }
+
+// MARK: - Extensions
 
 extension CalorieIntakesTableViewController: NSFetchedResultsControllerDelegate {
 
