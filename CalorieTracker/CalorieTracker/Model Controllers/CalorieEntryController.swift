@@ -44,4 +44,14 @@ class CalorieEntryController {
     func saveToPersistentStore() throws {
         try CoreDataStack.shared.save()
     }
+
+    func deleteEntry(at indexPath: IndexPath) {
+        let thisEntry = entry(at: indexPath)
+        CoreDataStack.shared.mainContext.delete(thisEntry)
+        do {
+            try saveToPersistentStore()
+        } catch {
+            NSLog("Error saving changes after deleting entry: \(error)")
+        }
+    }
 }

@@ -172,6 +172,17 @@ extension CalorieTrackerViewController: UITableViewDataSource {
 
         return cell
     }
+
+    func tableView(
+        _ tableView: UITableView,
+        commit editingStyle: UITableViewCell.EditingStyle,
+        forRowAt indexPath: IndexPath
+    ) {
+        if editingStyle == .delete {
+            calorieEntryController.deleteEntry(at: indexPath)
+            updateChart()
+        }
+    }
 }
 
 // MARK: - Table View Delegate
