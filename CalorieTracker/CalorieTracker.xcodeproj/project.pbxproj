@@ -18,6 +18,8 @@
 		DDF209E223AD4511005151CD /* CalorieTrackerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF209E123AD4511005151CD /* CalorieTrackerTableViewController.swift */; };
 		DDF209E423AD4537005151CD /* CalorieEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF209E323AD4537005151CD /* CalorieEntryController.swift */; };
 		DDF209EA23AD466A005151CD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF209E923AD466A005151CD /* Default-568h@2x.png */; };
+		DDF209EC23AD4E3B005151CD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF209EB23AD4E3B005151CD /* CoreDataStack.swift */; };
+		DDF209EE23AD4E54005151CD /* CalorieEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF209ED23AD4E54005151CD /* CalorieEntry+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		DDF209E123AD4511005151CD /* CalorieTrackerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerTableViewController.swift; sourceTree = "<group>"; };
 		DDF209E323AD4537005151CD /* CalorieEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieEntryController.swift; sourceTree = "<group>"; };
 		DDF209E923AD466A005151CD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		DDF209EB23AD4E3B005151CD /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		DDF209ED23AD4E54005151CD /* CalorieEntry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieEntry+Convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +87,7 @@
 				DDF209E623AD45E2005151CD /* Resources */,
 				DD156E3B23AD3414000788AC /* SceneDelegate.swift */,
 				DDF209E523AD45A5005151CD /* Storyboards */,
-				DD156E4223AD3414000788AC /* CalorieTracker.xcdatamodeld */,
+				DDF209EF23AD4E74005151CD /* CoreData */,
 				DDF209E723AD460D005151CD /* View Controllers */,
 				DDF209E823AD461A005151CD /* Model Controllers */,
 			);
@@ -124,6 +128,16 @@
 				DDF209E323AD4537005151CD /* CalorieEntryController.swift */,
 			);
 			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		DDF209EF23AD4E74005151CD /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				DD156E4223AD3414000788AC /* CalorieTracker.xcdatamodeld */,
+				DDF209EB23AD4E3B005151CD /* CoreDataStack.swift */,
+				DDF209ED23AD4E54005151CD /* CalorieEntry+Convenience.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		DF390C44FC8F58340878CFA9 /* Pods */ = {
@@ -251,7 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDF209EC23AD4E3B005151CD /* CoreDataStack.swift in Sources */,
 				DDF209E423AD4537005151CD /* CalorieEntryController.swift in Sources */,
+				DDF209EE23AD4E54005151CD /* CalorieEntry+Convenience.swift in Sources */,
 				DDF209E223AD4511005151CD /* CalorieTrackerTableViewController.swift in Sources */,
 				DD156E3E23AD3414000788AC /* ViewController.swift in Sources */,
 				DD156E3A23AD3414000788AC /* AppDelegate.swift in Sources */,
