@@ -3,27 +3,31 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35FD2A058585F501133EDA02 /* Pods_SprintChallengeCalorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2D77143C96BDCB1C96BE94 /* Pods_SprintChallengeCalorieTracker.framework */; };
 		C05779A423AD29D200F84A11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05779A323AD29D200F84A11 /* AppDelegate.swift */; };
 		C05779A623AD29D200F84A11 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05779A523AD29D200F84A11 /* SceneDelegate.swift */; };
-		C05779A823AD29D200F84A11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05779A723AD29D200F84A11 /* ViewController.swift */; };
 		C05779AB23AD29D200F84A11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C05779A923AD29D200F84A11 /* Main.storyboard */; };
 		C05779AD23AD29D500F84A11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C05779AC23AD29D500F84A11 /* Assets.xcassets */; };
 		C05779B023AD29D500F84A11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C05779AE23AD29D500F84A11 /* LaunchScreen.storyboard */; };
+		C05779B923AD303300F84A11 /* CalorieIntakesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05779B823AD303300F84A11 /* CalorieIntakesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45D41F6D164D418F18E1300F /* Pods-SprintChallengeCalorieTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SprintChallengeCalorieTracker.release.xcconfig"; path = "Target Support Files/Pods-SprintChallengeCalorieTracker/Pods-SprintChallengeCalorieTracker.release.xcconfig"; sourceTree = "<group>"; };
+		5D2D77143C96BDCB1C96BE94 /* Pods_SprintChallengeCalorieTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SprintChallengeCalorieTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0E0438C0735E2BBFB4D3362 /* Pods-SprintChallengeCalorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SprintChallengeCalorieTracker.debug.xcconfig"; path = "Target Support Files/Pods-SprintChallengeCalorieTracker/Pods-SprintChallengeCalorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		C05779A023AD29D200F84A11 /* SprintChallengeCalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SprintChallengeCalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C05779A323AD29D200F84A11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C05779A523AD29D200F84A11 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C05779A723AD29D200F84A11 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C05779AA23AD29D200F84A11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C05779AC23AD29D500F84A11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C05779AF23AD29D500F84A11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C05779B123AD29D500F84A11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C05779B823AD303300F84A11 /* CalorieIntakesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35FD2A058585F501133EDA02 /* Pods_SprintChallengeCalorieTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		084339DE9223A46892D4D4B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D2D77143C96BDCB1C96BE94 /* Pods_SprintChallengeCalorieTracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3D33FBE6F70EEA63354926B1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A0E0438C0735E2BBFB4D3362 /* Pods-SprintChallengeCalorieTracker.debug.xcconfig */,
+				45D41F6D164D418F18E1300F /* Pods-SprintChallengeCalorieTracker.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C057799723AD29D200F84A11 = {
 			isa = PBXGroup;
 			children = (
 				C05779A223AD29D200F84A11 /* SprintChallengeCalorieTracker */,
 				C05779A123AD29D200F84A11 /* Products */,
+				3D33FBE6F70EEA63354926B1 /* Pods */,
+				084339DE9223A46892D4D4B5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,7 +82,7 @@
 			children = (
 				C05779A323AD29D200F84A11 /* AppDelegate.swift */,
 				C05779A523AD29D200F84A11 /* SceneDelegate.swift */,
-				C05779A723AD29D200F84A11 /* ViewController.swift */,
+				C05779B823AD303300F84A11 /* CalorieIntakesTableViewController.swift */,
 				C05779A923AD29D200F84A11 /* Main.storyboard */,
 				C05779AC23AD29D500F84A11 /* Assets.xcassets */,
 				C05779AE23AD29D500F84A11 /* LaunchScreen.storyboard */,
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C05779B423AD29D500F84A11 /* Build configuration list for PBXNativeTarget "SprintChallengeCalorieTracker" */;
 			buildPhases = (
+				C05779B723AD2CFD00F84A11 /* ShellScript */,
+				CBCD576FD81CED01FECA4994 /* [CP] Check Pods Manifest.lock */,
 				C057799C23AD29D200F84A11 /* Sources */,
 				C057799D23AD29D200F84A11 /* Frameworks */,
 				C057799E23AD29D200F84A11 /* Resources */,
+				D4F530638E39483B9228BFA7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +160,73 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C05779B723AD2CFD00F84A11 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		CBCD576FD81CED01FECA4994 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SprintChallengeCalorieTracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4F530638E39483B9228BFA7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SprintChallengeCalorieTracker/Pods-SprintChallengeCalorieTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SprintChallengeCalorieTracker/Pods-SprintChallengeCalorieTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SprintChallengeCalorieTracker/Pods-SprintChallengeCalorieTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C057799C23AD29D200F84A11 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C05779A823AD29D200F84A11 /* ViewController.swift in Sources */,
 				C05779A423AD29D200F84A11 /* AppDelegate.swift in Sources */,
 				C05779A623AD29D200F84A11 /* SceneDelegate.swift in Sources */,
+				C05779B923AD303300F84A11 /* CalorieIntakesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +368,7 @@
 		};
 		C05779B523AD29D500F84A11 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0E0438C0735E2BBFB4D3362 /* Pods-SprintChallengeCalorieTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +387,7 @@
 		};
 		C05779B623AD29D500F84A11 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45D41F6D164D418F18E1300F /* Pods-SprintChallengeCalorieTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
