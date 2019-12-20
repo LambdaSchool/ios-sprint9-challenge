@@ -50,7 +50,13 @@
                             <outlet property="delegate" destination="hA6-Xp-A1a" id="Vda-HO-sl0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Calorie Tracker" id="Yfv-aX-8lz"/>
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="Yfv-aX-8lz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wgJ-2Z-4uX">
+                            <connections>
+                                <action selector="addInput:" destination="hA6-Xp-A1a" id="FWy-Lu-UB1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="chartView" destination="Td1-Jv-p1c" id="TVe-n7-YPx"/>
                     </connections>
