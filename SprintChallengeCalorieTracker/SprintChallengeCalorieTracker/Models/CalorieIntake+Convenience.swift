@@ -16,7 +16,7 @@ extension CalorieIntake {
 
         self.calorieCount = Int16(calorieCount)
         self.date = Date()
-        
+
         NotificationCenter.default.post(name: .calorieIntakeAdded, object: nil)
     }
 }

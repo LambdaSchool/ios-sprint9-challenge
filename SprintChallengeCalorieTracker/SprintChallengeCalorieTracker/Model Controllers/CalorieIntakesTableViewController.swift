@@ -49,6 +49,10 @@ class CalorieIntakesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateChart),
+                                               name: .calorieIntakeAdded,
+                                               object: nil)
         updateChart()
     }
 
@@ -110,7 +114,7 @@ class CalorieIntakesTableViewController: UITableViewController {
         }
     }
 
-    private func updateChart() {
+    @objc private func updateChart() {
         var caloriesArray: [Double] = []
         let calorieIntakes = fetchedResultsController.fetchedObjects
 

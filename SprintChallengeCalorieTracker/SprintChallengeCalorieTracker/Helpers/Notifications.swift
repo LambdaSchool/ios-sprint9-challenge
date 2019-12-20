@@ -9,7 +9,7 @@
 import Foundation
 
 extension Notification.Name {
-    static let calorieIntakeAdded = Notification.Name("calorieIntakeAdded")
+    static let calorieIntakeAdded = Notification.Name(PropertyKeys.calorieIntakeAdded)
 }
 
 extension NotificationCenter {
