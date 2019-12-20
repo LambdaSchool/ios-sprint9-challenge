@@ -26,6 +26,12 @@ class CalorieTrackerViewController: UIViewController, NSFetchedResultsController
         calorieEntryController.delegate = self
         updateChart()
         entryTableView.reloadData()
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateChart),
+            name: .dataDidUpdate,
+            object: nil)
     }
 
     @IBAction func addEntryButtonTapped(_ sender: UIBarButtonItem) {
@@ -63,6 +69,7 @@ class CalorieTrackerViewController: UIViewController, NSFetchedResultsController
         present(alert, animated: true, completion: nil)
     }
 
+    @objc
     func updateChart() {
         calorieChart.removeAllSeries()
         var data = [Double]()
@@ -118,7 +125,7 @@ class CalorieTrackerViewController: UIViewController, NSFetchedResultsController
         @unknown default:
             break
         }
-        updateChart()
+        NotificationCenter.default.post(name: .dataDidUpdate, object: self)
     }
 }
 
@@ -149,7 +156,7 @@ extension CalorieTrackerViewController: UITableViewDataSource {
     ) {
         if editingStyle == .delete {
             calorieEntryController.deleteEntry(at: indexPath)
-            updateChart()
+            NotificationCenter.default.post(name: .dataDidUpdate, object: self)
         }
     }
 }

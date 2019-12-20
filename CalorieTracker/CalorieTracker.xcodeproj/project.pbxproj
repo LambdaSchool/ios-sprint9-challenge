@@ -18,6 +18,7 @@
 		9923413A23AD299B00D61ABC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9923413823AD299B00D61ABC /* Main.storyboard */; };
 		9923413C23AD299D00D61ABC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9923413B23AD299D00D61ABC /* Assets.xcassets */; };
 		9923413F23AD299D00D61ABC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9923413D23AD299D00D61ABC /* LaunchScreen.storyboard */; };
+		993708A223AD531500F525D3 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993708A123AD531500F525D3 /* Notifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		9923413B23AD299D00D61ABC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9923413E23AD299D00D61ABC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9923414023AD299D00D61ABC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		993708A123AD531500F525D3 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		BB0F5B86DCE7A2B0C212282F /* Pods_CalorieTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E9A58775062938FBA4E14E /* Pods-CalorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.debug.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,7 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				9923414723AD2CBB00D61ABC /* View Controllers */,
-				9923414823AD2CC800D61ABC /* Views */,
 				9923414923AD2CD800D61ABC /* Model Controllers */,
 				9923414A23AD2CDF00D61ABC /* Models */,
 				9923414623AD2ADD00D61ABC /* Resources */,
@@ -87,6 +88,7 @@
 				9923413D23AD299D00D61ABC /* LaunchScreen.storyboard */,
 				9923413223AD299B00D61ABC /* AppDelegate.swift */,
 				9923413423AD299B00D61ABC /* SceneDelegate.swift */,
+				993708A123AD531500F525D3 /* Notifications.swift */,
 				9923413B23AD299D00D61ABC /* Assets.xcassets */,
 				9923414023AD299D00D61ABC /* Info.plist */,
 			);
@@ -99,13 +101,6 @@
 				99046B0523AD3E6100E2DA4F /* CalorieTrackerViewController.swift */,
 			);
 			path = "View Controllers";
-			sourceTree = "<group>";
-		};
-		9923414823AD2CC800D61ABC /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		9923414923AD2CD800D61ABC /* Model Controllers */ = {
@@ -276,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				993708A223AD531500F525D3 /* Notifications.swift in Sources */,
 				99046B0023AD342A00E2DA4F /* CalorieEntryController.swift in Sources */,
 				99046B0423AD36BC00E2DA4F /* CalorieEntry+Convenience.swift in Sources */,
 				9923413323AD299B00D61ABC /* AppDelegate.swift in Sources */,
