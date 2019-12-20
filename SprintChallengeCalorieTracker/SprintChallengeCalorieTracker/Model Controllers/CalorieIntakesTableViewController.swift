@@ -18,6 +18,12 @@ class CalorieIntakesTableViewController: UITableViewController {
 
     // MARK: - Properties
 
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "LLL dd yyyy 'at' h:mm:ss a"
+        formatter.timeZone = TimeZone(secondsFromGMT: -25200)
+        return formatter
+    }
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieIntake> = {
 
         let fetchRequest: NSFetchRequest<CalorieIntake> = CalorieIntake.fetchRequest()
