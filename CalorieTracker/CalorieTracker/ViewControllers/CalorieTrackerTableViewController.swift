@@ -17,6 +17,7 @@ class CalorieTrackerTableViewController: UITableViewController {
     // MARK: - Properties
     let entryController = EntryController()
     let chartSeries = ChartSeries([])
+    private var loadedChartOnce = false
 
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -58,9 +59,22 @@ class CalorieTrackerTableViewController: UITableViewController {
     // MARK: - Private Methods
     @objc func updateViews() {
         tableView?.reloadData()
+
         chartSeries.area = true
         chartSeries.color = ChartColors.blueColor()
+        if !loadedChartOnce {
+            loadChartFromCoreData()
+        }
         chartView.add(chartSeries)
+    }
+
+    private func loadChartFromCoreData() {
+        guard let entries = fetchedResultController.fetchedObjects else { return }
+        for entry in entries {
+            let data = self.entryController.dataToChartSeries(for: entry.calories)
+            self.chartSeries.data.append(data)
+        }
+        loadedChartOnce = true
     }
 
     private func presentCalorieEntryAlert() {
