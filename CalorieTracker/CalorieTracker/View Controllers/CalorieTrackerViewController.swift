@@ -48,7 +48,7 @@ class CalorieTrackerViewController: UIViewController, NSFetchedResultsController
             handler: { [unowned alert] _ in
                 guard
                     let caloriesText = alert.textFields?[0].text,
-                    let calories = Double(caloriesText)
+                    let calories = Int(caloriesText)
                     else { return }
 
                 _ = CalorieEntry(calories: calories)
@@ -67,6 +67,7 @@ class CalorieTrackerViewController: UIViewController, NSFetchedResultsController
         var data = [Double]()
         if let entries = calorieEntryController.fetchedResultsController.fetchedObjects {
             data = entries.map { $0.calories }
+            data = entries.map { Double($0.calories) }.reversed()
         }
         calorieChartView.add(ChartSeries(data))
     }
@@ -167,8 +168,9 @@ extension CalorieTrackerViewController: UITableViewDataSource {
             for: indexPath)
         let entry = calorieEntryController.entry(at: indexPath)
 
-        cell.textLabel?.text = String(entry.calories)
-        cell.detailTextLabel?.text = "\(entry.timestamp ?? Date())"
+        cell.textLabel?.text = "\(entry.calories) calories"
+        cell.detailTextLabel?.text = CalorieEntry.dateFormatter.string(
+            from: entry.timestamp ?? Date())
 
         return cell
     }

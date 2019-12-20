@@ -11,15 +11,24 @@ import CoreData
 
 extension CalorieEntry {
     convenience init(
-        calories: Double,
+        calories: Int,
         timestamp: Date = Date(),
         identifier: UUID = UUID(),
         context: NSManagedObjectContext = CoreDataStack.shared.mainContext
     ) {
         self.init(context: context)
         
-        self.calories = calories
+        self.calories = Int64(calories)
         self.timestamp = timestamp
         self.identifier = identifier
     }
+
+    static let dateFormatter: DateFormatter = {
+        var formatter = DateFormatter()
+        formatter.calendar = .autoupdatingCurrent
+        formatter.timeZone = .autoupdatingCurrent
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }()
 }
