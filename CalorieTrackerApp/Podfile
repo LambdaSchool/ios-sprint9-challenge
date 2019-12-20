@@ -7,4 +7,5 @@ target 'CalorieTrackerApp' do
 
   # Pods for CalorieTrackerApp
 pod "SwiftChart"
+pod 'SwiftLint'
 end

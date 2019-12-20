@@ -15,20 +15,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Myo-YL-1Om">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Myo-YL-1Om">
                                 <rect key="frame" x="20" y="98" width="335" height="78"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a meal!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fO7-Ed-gXW">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="4"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="4" id="LZg-X3-dAT"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xb-dZ-mZw">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="19"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Calories" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XzM-ry-HTv">
-                                        <rect key="frame" x="0.0" y="44" width="335" height="34"/>
+                                        <rect key="frame" x="0.0" y="59" width="335" height="19"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -48,7 +45,7 @@
                                         <rect key="frame" x="222" y="0.0" width="113" height="30"/>
                                         <state key="normal" title="Save"/>
                                         <connections>
-                                            <action selector="saveButtonTapped:" destination="XqL-jB-Wd9" eventType="touchUpInside" id="JyV-Ut-QVq"/>
+                                            <action selector="saveButtonTappedWith_sender:" destination="XqL-jB-Wd9" eventType="touchUpInside" id="j4O-l0-NIA"/>
                                         </connections>
                                     </button>
                                 </subviews>

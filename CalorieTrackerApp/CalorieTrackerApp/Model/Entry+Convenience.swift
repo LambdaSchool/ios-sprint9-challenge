@@ -1,4 +1,4 @@
-//
+// swiftlint:disable all
 //  Entry+Convenience.swift
 //  CalorieTrackerApp
 //
@@ -16,4 +16,3 @@ extension Entry {
         self.calories = calories
     }
 }
-

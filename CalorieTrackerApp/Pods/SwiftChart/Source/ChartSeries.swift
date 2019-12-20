@@ -1,4 +1,4 @@
-//
+// swiftlint:disable all
 //  ChartSeries.swift
 //
 //  Created by Giampaolo Bellavite on 07/11/14.
@@ -59,7 +59,7 @@ open class ChartSeries {
     public init(data: [(x: Int, y: Double)]) {
       self.data = data.map { (Double($0.x), Double($0.y)) }
     }
-    
+
     public init(data: [(x: Float, y: Float)]) {
         self.data = data.map { (Double($0.x), Double($0.y)) }
     }

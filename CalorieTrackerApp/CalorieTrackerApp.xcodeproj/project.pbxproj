@@ -15,7 +15,6 @@
 		1C8026C323AD49120045CBA2 /* Entry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1C8026C123AD49120045CBA2 /* Entry.xcdatamodeld */; };
 		1CD97FE123AD362900AFAD08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD97FE023AD362900AFAD08 /* AppDelegate.swift */; };
 		1CD97FE323AD362900AFAD08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD97FE223AD362900AFAD08 /* SceneDelegate.swift */; };
-		1CD97FE523AD362900AFAD08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD97FE423AD362900AFAD08 /* ViewController.swift */; };
 		1CD97FE823AD362900AFAD08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD97FE623AD362900AFAD08 /* Main.storyboard */; };
 		1CD97FEA23AD362A00AFAD08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD97FE923AD362A00AFAD08 /* Assets.xcassets */; };
 		1CD97FED23AD362A00AFAD08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD97FEB23AD362A00AFAD08 /* LaunchScreen.storyboard */; };
@@ -32,7 +31,6 @@
 		1CD97FDD23AD362900AFAD08 /* CalorieTrackerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTrackerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CD97FE023AD362900AFAD08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CD97FE223AD362900AFAD08 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1CD97FE423AD362900AFAD08 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1CD97FE723AD362900AFAD08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1CD97FE923AD362A00AFAD08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CD97FEC23AD362A00AFAD08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,6 +70,15 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		1C8026C423AD50F50045CBA2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1C8026BA23AD43C60045CBA2 /* AddEntryViewController.swift */,
+				1C8026BC23AD45480045CBA2 /* CalorieTrackerTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		1CD97FD423AD362800AFAD08 = {
 			isa = PBXGroup;
 			children = (
@@ -95,15 +102,13 @@
 			children = (
 				1CD97FE023AD362900AFAD08 /* AppDelegate.swift */,
 				1CD97FE223AD362900AFAD08 /* SceneDelegate.swift */,
-				1CD97FE423AD362900AFAD08 /* ViewController.swift */,
 				1CD97FE623AD362900AFAD08 /* Main.storyboard */,
 				1CD97FE923AD362A00AFAD08 /* Assets.xcassets */,
 				1CD97FEB23AD362A00AFAD08 /* LaunchScreen.storyboard */,
 				1CD97FEE23AD362A00AFAD08 /* Info.plist */,
 				1C8026AF23AD39E80045CBA2 /* Model */,
 				1C8026B423AD3D930045CBA2 /* Helper */,
-				1C8026BA23AD43C60045CBA2 /* AddEntryViewController.swift */,
-				1C8026BC23AD45480045CBA2 /* CalorieTrackerTableViewController.swift */,
+				1C8026C423AD50F50045CBA2 /* ViewControllers */,
 			);
 			path = CalorieTrackerApp;
 			sourceTree = "<group>";
@@ -132,12 +137,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CD97FF123AD362A00AFAD08 /* Build configuration list for PBXNativeTarget "CalorieTrackerApp" */;
 			buildPhases = (
+				1C8026B723AD40050045CBA2 /* ShellScript */,
 				5475BB0E5E5D496DD85AF11E /* [CP] Check Pods Manifest.lock */,
 				1CD97FD923AD362900AFAD08 /* Sources */,
 				1CD97FDA23AD362900AFAD08 /* Frameworks */,
 				1CD97FDB23AD362900AFAD08 /* Resources */,
 				DABAEC6F6C89E522749D5A6E /* [CP] Embed Pods Frameworks */,
-				1C8026B723AD40050045CBA2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -210,7 +215,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		5475BB0E5E5D496DD85AF11E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -259,7 +264,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C8026BB23AD43C60045CBA2 /* AddEntryViewController.swift in Sources */,
-				1CD97FE523AD362900AFAD08 /* ViewController.swift in Sources */,
 				1C8026B623AD3DAC0045CBA2 /* EntryController.swift in Sources */,
 				1CD97FE123AD362900AFAD08 /* AppDelegate.swift in Sources */,
 				1C8026B323AD3A960045CBA2 /* CoreDataStack.swift in Sources */,
