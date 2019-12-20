@@ -7,3 +7,41 @@
 //
 
 import Foundation
+import CoreData
+
+class CalorieEntryController {
+    weak var delegate: NSFetchedResultsControllerDelegate?
+
+    lazy var fetchedResultsController: NSFetchedResultsController<CalorieEntry> = {
+        let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(key: "timestamp", ascending: false)]
+        let moc = CoreDataStack.shared.mainContext
+        let frc = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: moc,
+            sectionNameKeyPath: nil,
+            cacheName: nil)
+        frc.delegate = self.delegate
+        
+        do {
+            try frc.performFetch()
+        } catch {
+            fatalError("Error initializing fetched results controller: \(error)")
+        }
+
+        return frc
+    }()
+
+    var entryCount: Int {
+        return fetchedResultsController.sections?[0].numberOfObjects ?? 0
+    }
+
+    func entry(at indexPath: IndexPath) -> CalorieEntry {
+        return fetchedResultsController.object(at: indexPath)
+    }
+
+    func saveToPersistentStore() throws {
+        try CoreDataStack.shared.save()
+    }
+}
