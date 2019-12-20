@@ -10,17 +10,17 @@ import Foundation
 import SwiftChart
 
 class EntryController {
-    
+
     var chartData: [Double]
     var chartSeries: ChartSeries
-    
+
     init() {
         self.chartData = [0]
         self.chartSeries = ChartSeries(chartData)
         self.chartSeries.color = ChartColors.greyColor()
         self.chartSeries.colors.below = ChartColors.blueColor()
     }
-    
+
     func createEntry(calories: Float, timestamp: Date) {
         Entry(calories: calories, timestamp: timestamp)
         chartData.append(Double(calories))
@@ -31,19 +31,19 @@ class EntryController {
             print("Error saving calorie entry \(error)")
         }
     }
-    
+
     func deleteEntry(for entry: Entry) {
-    
+
     }
-    
+
     private func addDataToChartSeries() {
         var data = [(Double, Double)]()
-        
-        for i in 0..<chartData.count {
-            let axis = (Double(i), chartData[i])
+
+        for index in 0..<chartData.count {
+            let axis = (Double(index), chartData[index])
             data.append(axis)
         }
-        
+
         chartSeries = ChartSeries(data: data)
     }
 }

@@ -17,17 +17,17 @@ extension Entry {
         self.calories = calories
         self.timestamp = timestamp
     }
-    
+
     @discardableResult convenience init?(entryRepresentation: EntryRepresentation,
                                          context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(calories: entryRepresentation.calories,
                   timestamp: entryRepresentation.timestamp,
                   context: context)
     }
-    
+
     var entryRepresnetation: EntryRepresentation? {
         guard let timestamp = timestamp else { return nil }
             return EntryRepresentation(calories: calories, timestamp: timestamp)
     }
-    
+
 }
