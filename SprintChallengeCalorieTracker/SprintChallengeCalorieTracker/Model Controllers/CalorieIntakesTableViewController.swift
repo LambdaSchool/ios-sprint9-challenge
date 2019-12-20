@@ -11,15 +11,15 @@ import CoreData
 import SwiftChart
 
 class CalorieIntakesTableViewController: UITableViewController {
-    
+
     // MARK: - Outlets
-    
+
     @IBOutlet weak var chart: Chart!
-    
+
     // MARK: - Properties
-    
+
     // MARK: - Lifecycle Methods
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
