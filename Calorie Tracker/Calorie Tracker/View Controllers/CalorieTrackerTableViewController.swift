@@ -16,21 +16,49 @@ class CalorieTrackerTableViewController: UITableViewController {
     // MARK: - Outlets
     @IBOutlet weak var chartView: Chart!
     
-    
-    
     // MARK: - Properties
 
     var chart: Chart?
+    let notificationCneeter = NotificationCenter.default
+    let calorieTrackerController = CalorieController()
     
-    var calorieTrackerController = CalorieController()
+    var data = [Double]()
     
-    var inputs: [String] = []
+    var dateFormatter: DateFormatter {
+           let formatter = DateFormatter()
+           formatter.dateFormat = "MM/dd/yyyy, h:mm a"
+           formatter.timeZone = TimeZone.autoupdatingCurrent
+           return formatter
+       }
+    
+    let date = Date(timeIntervalSinceNow: 0)
+    
+    lazy var fetchedResultsController: NSFetchedResultsController<CalorieTracker> = {
+        let fetchRequest: NSFetchRequest<CalorieTracker> = CalorieTracker.fetchRequest()
+        
+        fetchRequest.sortDescriptors = [ NSSortDescriptor(key: "date", ascending: true)]
+        
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.shared.mainContext, sectionNameKeyPath: "date", cacheName: nil)
+        
+        frc.delegate = self
+        
+        do {
+            try frc.performFetch()
+        } catch  {
+            fatalError("Error performing fetch for frc: \(error)")
+        }
+        
+        return frc
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
+    
+    // MARK: - Actions
+
     @IBAction func addInput(_ sender: UIBarButtonItem) {
         // add alert Controller for inpt here
     }
