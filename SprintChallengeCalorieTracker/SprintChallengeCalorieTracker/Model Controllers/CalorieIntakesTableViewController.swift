@@ -109,6 +109,7 @@ class CalorieIntakesTableViewController: UITableViewController {
     private func save() {
         do {
             try CoreDataStack.shared.save(context: CoreDataStack.shared.mainContext)
+            NotificationCenter.default.post(name: .calorieIntakeAdded, object: nil)
         } catch {
             print("Error saving to CoreDataStack: \(error)")
         }
