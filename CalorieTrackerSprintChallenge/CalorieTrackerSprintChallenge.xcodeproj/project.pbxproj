@@ -14,6 +14,10 @@
 		A28365FF23AD2F4500A311A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A28365FE23AD2F4500A311A7 /* Assets.xcassets */; };
 		A283660223AD2F4500A311A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A283660023AD2F4500A311A7 /* LaunchScreen.storyboard */; };
 		A283660A23AD307400A311A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A283660923AD307400A311A7 /* Main.storyboard */; };
+		A283660C23AD33C600A311A7 /* CalorieEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A283660B23AD33C600A311A7 /* CalorieEntry.swift */; };
+		A283660E23AD33F800A311A7 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A283660D23AD33F800A311A7 /* CoreDataStack.swift */; };
+		A283661323AD346B00A311A7 /* CalorieEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = A283661223AD346B00A311A7 /* CalorieEntry+Convenience.swift */; };
+		A283661623AD34C400A311A7 /* CalorieEntry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A283661423AD34C400A311A7 /* CalorieEntry.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		A283660123AD2F4500A311A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A283660323AD2F4500A311A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A283660923AD307400A311A7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A283660B23AD33C600A311A7 /* CalorieEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieEntry.swift; sourceTree = "<group>"; };
+		A283660D23AD33F800A311A7 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		A283661223AD346B00A311A7 /* CalorieEntry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieEntry+Convenience.swift"; sourceTree = "<group>"; };
+		A283661523AD34C400A311A7 /* CalorieEntry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieEntry.xcdatamodel; sourceTree = "<group>"; };
 		E4346374FFA60D19B7E94F05 /* Pods-CalorieTrackerSprintChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTrackerSprintChallenge.debug.xcconfig"; path = "Target Support Files/Pods-CalorieTrackerSprintChallenge/Pods-CalorieTrackerSprintChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 		F8F38C2B4CEC32B2BD89F95D /* Pods_CalorieTrackerSprintChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieTrackerSprintChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -80,15 +88,43 @@
 		A28365F423AD2F4500A311A7 /* CalorieTrackerSprintChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				A283660F23AD340E00A311A7 /* Models */,
+				A283661123AD342E00A311A7 /* View Controllers */,
+				A283661023AD341E00A311A7 /* Storyboards */,
 				A28365F523AD2F4500A311A7 /* AppDelegate.swift */,
 				A28365F723AD2F4500A311A7 /* SceneDelegate.swift */,
-				A28365F923AD2F4500A311A7 /* ViewController.swift */,
 				A28365FE23AD2F4500A311A7 /* Assets.xcassets */,
-				A283660923AD307400A311A7 /* Main.storyboard */,
-				A283660023AD2F4500A311A7 /* LaunchScreen.storyboard */,
 				A283660323AD2F4500A311A7 /* Info.plist */,
 			);
 			path = CalorieTrackerSprintChallenge;
+			sourceTree = "<group>";
+		};
+		A283660F23AD340E00A311A7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A283660B23AD33C600A311A7 /* CalorieEntry.swift */,
+				A283660D23AD33F800A311A7 /* CoreDataStack.swift */,
+				A283661223AD346B00A311A7 /* CalorieEntry+Convenience.swift */,
+				A283661423AD34C400A311A7 /* CalorieEntry.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A283661023AD341E00A311A7 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A283660923AD307400A311A7 /* Main.storyboard */,
+				A283660023AD2F4500A311A7 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A283661123AD342E00A311A7 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A28365F923AD2F4500A311A7 /* ViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,8 +242,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A283660E23AD33F800A311A7 /* CoreDataStack.swift in Sources */,
 				A28365FA23AD2F4500A311A7 /* ViewController.swift in Sources */,
+				A283661623AD34C400A311A7 /* CalorieEntry.xcdatamodeld in Sources */,
+				A283661323AD346B00A311A7 /* CalorieEntry+Convenience.swift in Sources */,
 				A28365F623AD2F4500A311A7 /* AppDelegate.swift in Sources */,
+				A283660C23AD33C600A311A7 /* CalorieEntry.swift in Sources */,
 				A28365F823AD2F4500A311A7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,6 +438,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A283661423AD34C400A311A7 /* CalorieEntry.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A283661523AD34C400A311A7 /* CalorieEntry.xcdatamodel */,
+			);
+			currentVersion = A283661523AD34C400A311A7 /* CalorieEntry.xcdatamodel */;
+			path = CalorieEntry.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A28365EA23AD2F4500A311A7 /* Project object */;
 }
