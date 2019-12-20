@@ -1,0 +1,4 @@
+excluded: 
+  - /Users/Dennis/Desktop/ios-sprint-challenge-calorie-tracker/CalorieTracker/Pods/SwiftChart/Source/ChartSeries.swift 
+  - /Users/Dennis/Desktop/ios-sprint-challenge-calorie-tracker/CalorieTracker/Pods/SwiftChart/Source/Chart.swift 
+

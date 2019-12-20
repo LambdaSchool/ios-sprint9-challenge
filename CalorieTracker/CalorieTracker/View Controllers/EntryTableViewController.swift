@@ -4,7 +4,7 @@
 //
 //  Created by Dennis Rudolph on 12/20/19.
 //  Copyright © 2019 Lambda School. All rights reserved.
-//
+
 
 import UIKit
 import SwiftChart
@@ -15,6 +15,7 @@ class EntryTableViewController: UITableViewController {
     @IBOutlet weak var chart: Chart!
     
     var data: [Double] = []
+    let notificationCenter = NotificationCenter.default
     
     var series: ChartSeries {
         ChartSeries(data)
@@ -32,7 +33,7 @@ class EntryTableViewController: UITableViewController {
             _ = Entry(calories: calorieDouble)
             do {
                 try CoreDataStack.shared.save(context: CoreDataStack.shared.mainContext)
-                self.updateChart()
+                NotificationCenter.default.post(name: Notification.Name("dataChanged"), object: self)
             } catch {
                 print("Error saving entry")
             }
@@ -50,23 +51,32 @@ class EntryTableViewController: UITableViewController {
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "date", cacheName: nil)
         frc.delegate = self
-        try! frc.performFetch()
+        do {
+            try frc.performFetch()
+        } catch {
+            print("Error fetching entries")
+        }
         return frc
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dateFormatter.dateFormat = "MMM d, h:mm a"
-        updateChart()
+        registerForNotifications()
+        NotificationCenter.default.post(name: Notification.Name("dataChanged"), object: self)
     }
     
-    private func updateChart() {
+    @objc private func updateChart(_ notification: Notification) {
         let data = fetchedResultsController.fetchedObjects?.map { $0.calories}
         self.data = data ?? [0]
         chart.add(series)
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    private func registerForNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateChart), name: Notification.Name("dataChanged"), object: nil)
     }
     
     
@@ -87,21 +97,6 @@ class EntryTableViewController: UITableViewController {
         cell.detailTextLabel?.text = dateFormatter.string(from: fetchedResultsController.object(at: indexPath).date!)
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let entry = fetchedResultsController.object(at: indexPath)
-            let moc = CoreDataStack.shared.mainContext
-            moc.delete(entry)
-            do {
-                try moc.save()
-                updateChart()
-            } catch {
-                moc.reset()
-                print("Error saving managed object context: \(error)")
-            }
-        }
-    }
 }
 
 // MARK: - Extensions
@@ -110,11 +105,11 @@ extension EntryTableViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
-    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
     
+    //  swiftlint:disable:next line_length
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         switch type {
         case .insert:
