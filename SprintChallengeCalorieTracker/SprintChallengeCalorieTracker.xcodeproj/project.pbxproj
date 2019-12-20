@@ -18,6 +18,7 @@
 		C05779C323AD330600F84A11 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05779C223AD330600F84A11 /* CoreDataStack.swift */; };
 		C05779C523AD336000F84A11 /* CalorieIntake+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05779C423AD336000F84A11 /* CalorieIntake+Convenience.swift */; };
 		C05779C723AD33FC00F84A11 /* PropertyKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05779C623AD33FC00F84A11 /* PropertyKeys.swift */; };
+		C05779CA23AD43D700F84A11 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05779C923AD43D700F84A11 /* Notifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		C05779C223AD330600F84A11 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		C05779C423AD336000F84A11 /* CalorieIntake+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieIntake+Convenience.swift"; sourceTree = "<group>"; };
 		C05779C623AD33FC00F84A11 /* PropertyKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyKeys.swift; sourceTree = "<group>"; };
+		C05779C923AD43D700F84A11 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				C05779C623AD33FC00F84A11 /* PropertyKeys.swift */,
+				C05779C923AD43D700F84A11 /* Notifications.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C05779CA23AD43D700F84A11 /* Notifications.swift in Sources */,
 				C05779C323AD330600F84A11 /* CoreDataStack.swift in Sources */,
 				C05779BF23AD326F00F84A11 /* SprintChallengeCalorieTracker.xcdatamodeld in Sources */,
 				C05779A423AD29D200F84A11 /* AppDelegate.swift in Sources */,
