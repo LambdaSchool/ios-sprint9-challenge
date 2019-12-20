@@ -18,12 +18,13 @@ class EntryController {
         self.chartData = [0]
         self.chartSeries = ChartSeries(chartData)
         self.chartSeries.color = ChartColors.greyColor()
+        self.chartSeries.colors.below = ChartColors.blueColor()
     }
     
     func createEntry(calories: Float, timestamp: Date) {
         Entry(calories: calories, timestamp: timestamp)
         chartData.append(Double(calories))
-        chartSeries = ChartSeries(chartData)
+        addDataToChartSeries()
         do {
             try CoreDataStack.shared.save(context: CoreDataStack.shared.mainContext)
         } catch {
@@ -33,5 +34,16 @@ class EntryController {
     
     func deleteEntry(for entry: Entry) {
     
+    }
+    
+    private func addDataToChartSeries() {
+        var data = [(Double, Double)]()
+        
+        for i in 0..<chartData.count {
+            let axis = (Double(i), chartData[i])
+            data.append(axis)
+        }
+        
+        chartSeries = ChartSeries(data: data)
     }
 }
