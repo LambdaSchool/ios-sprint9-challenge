@@ -22,6 +22,7 @@ class CaloriesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         updateViews()
+        addObserver()
         tableView.delegate = self
     }
     
@@ -38,8 +39,8 @@ class CaloriesTableViewController: UITableViewController {
             
             self.intakeController.createIntake(calories: self.newCalorieString)
             
-//            NotificationCenter.default.post(name: .newIntake, object: self)
-            self.updateViews()
+            NotificationCenter.default.post(name: .newIntake, object: self)
+//            self.updateViews()
 //            self.addObserver()
         })
         let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { ( action) -> Void in })
@@ -57,8 +58,12 @@ class CaloriesTableViewController: UITableViewController {
     }
     
     @objc func updateViews() {
-        updateChart()
-        tableView.reloadData()
+        
+        DispatchQueue.main.async {
+            self.updateChart()
+            self.tableView.reloadData()
+            
+        }
     }
     
     func addObserver() {
