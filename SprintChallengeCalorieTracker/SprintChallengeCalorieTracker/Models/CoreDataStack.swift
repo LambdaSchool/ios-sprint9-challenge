@@ -18,7 +18,7 @@ class CoreDataStack {
 
     lazy var container: NSPersistentContainer = {
 
-        let container = NSPersistentContainer(name: "ChartTest")
+        let container = NSPersistentContainer(name: "SprintChallengeCalorieTracker")
 
         container.loadPersistentStores { (_, error) in
             if let error = error {
