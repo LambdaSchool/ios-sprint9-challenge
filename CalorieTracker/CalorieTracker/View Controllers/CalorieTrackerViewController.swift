@@ -8,8 +8,9 @@
 
 import UIKit
 import SwiftChart
+import CoreData
 
-class CalorieTrackerViewController: UIViewController {
+class CalorieTrackerViewController: UIViewController, NSFetchedResultsControllerDelegate {
     // MARK: - Properties
 
     @IBOutlet private weak var calorieChartView: Chart!
@@ -69,4 +70,110 @@ class CalorieTrackerViewController: UIViewController {
         }
         calorieChartView.add(ChartSeries(data))
     }
+
+    // MARK: - FetchedResultsController Delegate
+
+    func controllerWillChangeContent(
+        _ controller: NSFetchedResultsController<NSFetchRequestResult>
+    ) {
+        entryTableView.beginUpdates()
+    }
+
+    func controllerDidChangeContent(
+        _ controller: NSFetchedResultsController<NSFetchRequestResult>
+    ) {
+        entryTableView.endUpdates()
+    }
+
+    func controller(
+        _ controller: NSFetchedResultsController<NSFetchRequestResult>,
+        didChange sectionInfo: NSFetchedResultsSectionInfo,
+        atSectionIndex sectionIndex: Int,
+        for type: NSFetchedResultsChangeType
+    ) {
+        switch type {
+        case .insert:
+            entryTableView.insertSections(
+                IndexSet(integer: sectionIndex),
+                with: .automatic)
+        case .delete:
+            entryTableView.deleteSections(
+                IndexSet(integer: sectionIndex),
+                with: .automatic)
+        default:
+            break
+        }
+    }
+
+    func controller(
+        _ controller: NSFetchedResultsController<NSFetchRequestResult>,
+        didChange anObject: Any,
+        at indexPath: IndexPath?,
+        for type: NSFetchedResultsChangeType,
+        newIndexPath: IndexPath?
+    ) {
+        let chartSeries = calorieChartView.series[0]
+
+        switch type {
+        case .insert:
+            guard
+                let newIndexPath = newIndexPath,
+                let entry = anObject as? CalorieEntry
+                else { return }
+            entryTableView.insertRows(at: [newIndexPath], with: .automatic)
+            chartSeries.data.insert(
+                (x: Double(newIndexPath.row), y: entry.calories),
+                at: newIndexPath.row)
+        case .update:
+            guard
+                let indexPath = indexPath,
+                let entry = anObject as? CalorieEntry
+                else { return }
+            entryTableView.reloadRows(at: [indexPath], with: .automatic)
+            chartSeries.data[indexPath.row].y = entry.calories
+        case .move:
+            guard
+                let oldIndexPath = indexPath,
+                let newIndexPath = newIndexPath,
+                let entry = anObject as? CalorieEntry
+                else { return }
+            entryTableView.deleteRows(at: [oldIndexPath], with: .automatic)
+            entryTableView.insertRows(at: [newIndexPath], with: .automatic)
+            chartSeries.data.remove(at: oldIndexPath.row)
+            chartSeries.data.insert(
+                (x: Double(newIndexPath.row), y: entry.calories),
+                at: newIndexPath.row)
+        case .delete:
+            guard let indexPath = indexPath else { return }
+            entryTableView.deleteRows(at: [indexPath], with: .automatic)
+            chartSeries.data.remove(at: indexPath.row)
+        @unknown default:
+            break
+        }
+        
+    }
 }
+
+// MARK: - Table View Data Source
+
+extension CalorieTrackerViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return calorieEntryController.entryCount
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "EntryCell",
+            for: indexPath)
+        let entry = calorieEntryController.entry(at: indexPath)
+
+        cell.textLabel?.text = String(entry.calories)
+        cell.detailTextLabel?.text = "\(entry.timestamp ?? Date())"
+
+        return cell
+    }
+}
+
+// MARK: - Table View Delegate
+
+extension CalorieTrackerViewController: UITableViewDelegate {}
