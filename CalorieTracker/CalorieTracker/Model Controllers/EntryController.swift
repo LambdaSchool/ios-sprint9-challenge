@@ -11,20 +11,10 @@ import SwiftChart
 
 class EntryController {
 
-    var chartData: [Double]
-    var chartSeries: ChartSeries
-
-    init() {
-        self.chartData = [0]
-        self.chartSeries = ChartSeries(chartData)
-        self.chartSeries.color = ChartColors.greyColor()
-        self.chartSeries.colors.below = ChartColors.blueColor()
-    }
+    private var xAxisCount: Double = 0
 
     func createEntry(calories: Float, timestamp: Date) {
         Entry(calories: calories, timestamp: timestamp)
-        chartData.append(Double(calories))
-        addDataToChartSeries()
         do {
             try CoreDataStack.shared.save(context: CoreDataStack.shared.mainContext)
         } catch {
@@ -36,14 +26,9 @@ class EntryController {
 
     }
 
-    private func addDataToChartSeries() {
-        var data = [(Double, Double)]()
-
-        for index in 0..<chartData.count {
-            let axis = (Double(index), chartData[index])
-            data.append(axis)
-        }
-
-        chartSeries = ChartSeries(data: data)
+    func dataToChartSeries(for calories: Float) -> (Double, Double) {
+        let data = (xAxisCount, Double(calories))
+        xAxisCount += 1
+        return data
     }
 }
