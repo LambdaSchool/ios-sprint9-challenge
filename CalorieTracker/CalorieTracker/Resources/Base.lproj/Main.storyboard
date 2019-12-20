@@ -10,7 +10,7 @@
         <!--Calorie Tracker-->
         <scene sceneID="wbu-w1-iyj">
             <objects>
-                <viewController title="Calorie Tracker" id="CZU-DM-PAd" sceneMemberID="viewController">
+                <viewController title="Calorie Tracker" id="CZU-DM-PAd" customClass="CalorieTrackerViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qbr-ap-ci8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                                     <outlet property="delegate" destination="CZU-DM-PAd" id="JbM-rM-xMz"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKX-8a-rvD">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKX-8a-rvD" customClass="Chart" customModule="SwiftChart">
                                 <rect key="frame" x="20" y="140" width="374" height="238"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
@@ -44,6 +44,12 @@
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="zZR-SR-sil">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vJc-qS-GM2"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addEntryButton" destination="vJc-qS-GM2" id="gDz-n8-hoO"/>
+                        <outlet property="addEntryButtonTapped" destination="vJc-qS-GM2" id="StR-DG-Ff4"/>
+                        <outlet property="calorieChartView" destination="KKX-8a-rvD" id="1Wv-bg-Dlr"/>
+                        <outlet property="entryTableView" destination="hDe-kF-lHK" id="Rvg-EB-xps"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zo0-bO-D4D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
