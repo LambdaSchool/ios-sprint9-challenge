@@ -21,7 +21,7 @@ class CalorieIntakesTableViewController: UITableViewController {
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "LLL dd yyyy 'at' h:mm:ss a"
-        formatter.timeZone = TimeZone(secondsFromGMT: -25200)
+        formatter.timeZone = TimeZone.current
         return formatter
     }
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieIntake> = {
