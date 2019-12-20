@@ -21,7 +21,7 @@ class CalorieIntakesTableViewController: UITableViewController {
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "LLL dd yyyy 'at' h:mm:ss a"
-        formatter.timeZone = TimeZone.current
+        formatter.timeZone = TimeZone.autoupdatingCurrent
         return formatter
     }
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieIntake> = {
@@ -122,6 +122,8 @@ class CalorieIntakesTableViewController: UITableViewController {
         calorieIntakes?.forEach { caloriesArray.append(Double($0.calorieCount)) }
 
         let series = ChartSeries(caloriesArray)
+        series.color = ChartColors.orangeColor()
+        series.area = true
         chart.add(series)
     }
 }

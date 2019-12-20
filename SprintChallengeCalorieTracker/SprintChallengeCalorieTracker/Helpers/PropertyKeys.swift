@@ -10,8 +10,6 @@ import Foundation
 
 struct PropertyKeys {
     static let cell = "CalorieIntakeCell"
-
     static let date = "date"
-
     static let calorieIntakeAdded = "calorieIntakeAdded"
 }
