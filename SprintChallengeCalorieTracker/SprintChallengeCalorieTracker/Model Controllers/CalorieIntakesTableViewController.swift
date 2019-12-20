@@ -49,23 +49,22 @@ class CalorieIntakesTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return fetchedResultsController.sections?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.cell, for: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = "Calories: \(fetchedResultsController.object(at: indexPath).calorieCount)"
+        cell.detailTextLabel?.text = "date"
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -115,21 +114,21 @@ class CalorieIntakesTableViewController: UITableViewController {
 }
 
 extension CalorieIntakesTableViewController: NSFetchedResultsControllerDelegate {
-    
+
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
-    
+
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
-    
+
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
                     didChange anObject: Any,
                     at indexPath: IndexPath?,
                     for type: NSFetchedResultsChangeType,
                     newIndexPath: IndexPath?) {
-        
+
         switch type {
         case .insert:
             guard let newIndexPath = newIndexPath else { return }
@@ -147,14 +146,14 @@ extension CalorieIntakesTableViewController: NSFetchedResultsControllerDelegate 
             fatalError()
         }
     }
-    
+
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
                     didChange sectionInfo: NSFetchedResultsSectionInfo,
                     atSectionIndex sectionIndex: Int,
                     for type: NSFetchedResultsChangeType) {
-        
+
         let indexSet = IndexSet(integer: sectionIndex)
-        
+
         switch type {
         case .insert:
             tableView.insertSections(indexSet, with: .automatic)
