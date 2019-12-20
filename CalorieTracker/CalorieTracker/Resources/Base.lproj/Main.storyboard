@@ -75,7 +75,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="calorieChartView" destination="KKX-8a-rvD" id="CK8-YE-kVE"/>
+                        <outlet property="calorieChart" destination="KKX-8a-rvD" id="CK8-YE-kVE"/>
                         <outlet property="entryTableView" destination="hDe-kF-lHK" id="zmq-zM-BN9"/>
                     </connections>
                 </viewController>

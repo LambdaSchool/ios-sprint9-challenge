@@ -13,7 +13,7 @@ import CoreData
 class CalorieTrackerViewController: UIViewController, NSFetchedResultsControllerDelegate {
     // MARK: - Properties
 
-    @IBOutlet private weak var calorieChartView: Chart!
+    @IBOutlet private weak var calorieChart: Chart!
     @IBOutlet private weak var entryTableView: UITableView!
 
     private lazy var calorieEntryController = CalorieEntryController()
@@ -24,7 +24,7 @@ class CalorieTrackerViewController: UIViewController, NSFetchedResultsController
         super.viewDidLoad()
 
         calorieEntryController.delegate = self
-        setUpChart()
+        updateChart()
         entryTableView.reloadData()
     }
 
@@ -63,13 +63,14 @@ class CalorieTrackerViewController: UIViewController, NSFetchedResultsController
         present(alert, animated: true, completion: nil)
     }
 
-    func setUpChart() {
+    func updateChart() {
+        calorieChart.removeAllSeries()
         var data = [Double]()
         if let entries = calorieEntryController.fetchedResultsController.fetchedObjects {
-            data = entries.map { $0.calories }
             data = entries.map { Double($0.calories) }.reversed()
         }
-        calorieChartView.add(ChartSeries(data))
+        calorieChart.add(ChartSeries(data))
+        calorieChart.series[0].area = true
     }
 
     // MARK: - FetchedResultsController Delegate
@@ -88,70 +89,36 @@ class CalorieTrackerViewController: UIViewController, NSFetchedResultsController
 
     func controller(
         _ controller: NSFetchedResultsController<NSFetchRequestResult>,
-        didChange sectionInfo: NSFetchedResultsSectionInfo,
-        atSectionIndex sectionIndex: Int,
-        for type: NSFetchedResultsChangeType
-    ) {
-        switch type {
-        case .insert:
-            entryTableView.insertSections(
-                IndexSet(integer: sectionIndex),
-                with: .automatic)
-        case .delete:
-            entryTableView.deleteSections(
-                IndexSet(integer: sectionIndex),
-                with: .automatic)
-        default:
-            break
-        }
-    }
-
-    func controller(
-        _ controller: NSFetchedResultsController<NSFetchRequestResult>,
         didChange anObject: Any,
         at indexPath: IndexPath?,
         for type: NSFetchedResultsChangeType,
         newIndexPath: IndexPath?
     ) {
-        let chartSeries = calorieChartView.series[0]
-
         switch type {
         case .insert:
             guard
-                let newIndexPath = newIndexPath,
-                let entry = anObject as? CalorieEntry
+                let newIndexPath = newIndexPath
                 else { return }
             entryTableView.insertRows(at: [newIndexPath], with: .automatic)
-            chartSeries.data.insert(
-                (x: Double(newIndexPath.row), y: entry.calories),
-                at: newIndexPath.row)
         case .update:
             guard
-                let indexPath = indexPath,
-                let entry = anObject as? CalorieEntry
+                let indexPath = indexPath
                 else { return }
             entryTableView.reloadRows(at: [indexPath], with: .automatic)
-            chartSeries.data[indexPath.row].y = entry.calories
         case .move:
             guard
                 let oldIndexPath = indexPath,
-                let newIndexPath = newIndexPath,
-                let entry = anObject as? CalorieEntry
+                let newIndexPath = newIndexPath
                 else { return }
             entryTableView.deleteRows(at: [oldIndexPath], with: .automatic)
             entryTableView.insertRows(at: [newIndexPath], with: .automatic)
-            chartSeries.data.remove(at: oldIndexPath.row)
-            chartSeries.data.insert(
-                (x: Double(newIndexPath.row), y: entry.calories),
-                at: newIndexPath.row)
         case .delete:
             guard let indexPath = indexPath else { return }
             entryTableView.deleteRows(at: [indexPath], with: .automatic)
-            chartSeries.data.remove(at: indexPath.row)
         @unknown default:
             break
         }
-        
+        updateChart()
     }
 }
 
