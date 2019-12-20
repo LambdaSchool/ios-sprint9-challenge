@@ -15,6 +15,9 @@
 		C05779B023AD29D500F84A11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C05779AE23AD29D500F84A11 /* LaunchScreen.storyboard */; };
 		C05779B923AD303300F84A11 /* CalorieIntakesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05779B823AD303300F84A11 /* CalorieIntakesTableViewController.swift */; };
 		C05779BF23AD326F00F84A11 /* SprintChallengeCalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C05779BD23AD326F00F84A11 /* SprintChallengeCalorieTracker.xcdatamodeld */; };
+		C05779C323AD330600F84A11 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05779C223AD330600F84A11 /* CoreDataStack.swift */; };
+		C05779C523AD336000F84A11 /* CalorieIntake+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05779C423AD336000F84A11 /* CalorieIntake+Convenience.swift */; };
+		C05779C723AD33FC00F84A11 /* PropertyKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05779C623AD33FC00F84A11 /* PropertyKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		C05779B123AD29D500F84A11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C05779B823AD303300F84A11 /* CalorieIntakesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakesTableViewController.swift; sourceTree = "<group>"; };
 		C05779BE23AD326F00F84A11 /* SprintChallengeCalorieTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SprintChallengeCalorieTracker.xcdatamodel; sourceTree = "<group>"; };
+		C05779C223AD330600F84A11 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		C05779C423AD336000F84A11 /* CalorieIntake+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieIntake+Convenience.swift"; sourceTree = "<group>"; };
+		C05779C623AD33FC00F84A11 /* PropertyKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,7 @@
 				C05779A523AD29D200F84A11 /* SceneDelegate.swift */,
 				C05779C123AD32D100F84A11 /* Model Controllers */,
 				C05779C023AD32C400F84A11 /* Models */,
+				C05779C823AD340700F84A11 /* Helpers */,
 				C05779A923AD29D200F84A11 /* Main.storyboard */,
 				C05779AC23AD29D500F84A11 /* Assets.xcassets */,
 				C05779AE23AD29D500F84A11 /* LaunchScreen.storyboard */,
@@ -97,6 +104,8 @@
 		C05779C023AD32C400F84A11 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C05779C423AD336000F84A11 /* CalorieIntake+Convenience.swift */,
+				C05779C223AD330600F84A11 /* CoreDataStack.swift */,
 				C05779BD23AD326F00F84A11 /* SprintChallengeCalorieTracker.xcdatamodeld */,
 			);
 			path = Models;
@@ -108,6 +117,14 @@
 				C05779B823AD303300F84A11 /* CalorieIntakesTableViewController.swift */,
 			);
 			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		C05779C823AD340700F84A11 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C05779C623AD33FC00F84A11 /* PropertyKeys.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,10 +260,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C05779C323AD330600F84A11 /* CoreDataStack.swift in Sources */,
 				C05779BF23AD326F00F84A11 /* SprintChallengeCalorieTracker.xcdatamodeld in Sources */,
 				C05779A423AD29D200F84A11 /* AppDelegate.swift in Sources */,
 				C05779A623AD29D200F84A11 /* SceneDelegate.swift in Sources */,
+				C05779C723AD33FC00F84A11 /* PropertyKeys.swift in Sources */,
 				C05779B923AD303300F84A11 /* CalorieIntakesTableViewController.swift in Sources */,
+				C05779C523AD336000F84A11 /* CalorieIntake+Convenience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
