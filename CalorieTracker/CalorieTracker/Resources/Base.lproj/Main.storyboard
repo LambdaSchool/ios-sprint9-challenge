@@ -16,15 +16,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hDe-kF-lHK">
-                                <rect key="frame" x="20" y="386" width="374" height="476"/>
+                                <rect key="frame" x="20" y="351.5" width="374" height="510.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EntryCell" textLabel="jVE-8u-kmh" detailTextLabel="VRV-vI-3W5" style="IBUITableViewCellStyleValue1" id="mgI-Zg-Mm1">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mgI-Zg-Mm1" id="omt-ad-XIb">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jVE-8u-kmh">
+                                                    <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VRV-vI-3W5">
+                                                    <rect key="frame" x="310" y="12" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="CZU-DM-PAd" id="9nu-yv-fbs"/>
                                     <outlet property="delegate" destination="CZU-DM-PAd" id="JbM-rM-xMz"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKX-8a-rvD" customClass="Chart" customModule="SwiftChart">
-                                <rect key="frame" x="20" y="140" width="374" height="238"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKX-8a-rvD" customClass="Chart" customModule="SwiftChart">
+                                <rect key="frame" x="20" y="88" width="374" height="255.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
@@ -42,13 +68,15 @@
                         <viewLayoutGuide key="safeArea" id="qdU-u7-5Ag"/>
                     </view>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="zZR-SR-sil">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vJc-qS-GM2"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vJc-qS-GM2">
+                            <connections>
+                                <action selector="addEntryButtonTapped:" destination="CZU-DM-PAd" id="UEg-dO-6Mg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addEntryButton" destination="vJc-qS-GM2" id="gDz-n8-hoO"/>
-                        <outlet property="addEntryButtonTapped" destination="vJc-qS-GM2" id="StR-DG-Ff4"/>
-                        <outlet property="calorieChartView" destination="KKX-8a-rvD" id="1Wv-bg-Dlr"/>
-                        <outlet property="entryTableView" destination="hDe-kF-lHK" id="Rvg-EB-xps"/>
+                        <outlet property="calorieChartView" destination="KKX-8a-rvD" id="CK8-YE-kVE"/>
+                        <outlet property="entryTableView" destination="hDe-kF-lHK" id="zmq-zM-BN9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zo0-bO-D4D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
