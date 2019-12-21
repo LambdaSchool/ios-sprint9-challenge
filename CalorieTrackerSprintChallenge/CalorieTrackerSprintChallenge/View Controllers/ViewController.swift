@@ -21,8 +21,10 @@ class ViewController: UIViewController {
         let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
         
+        let moc = CoreDataStack.shared.mainContext
+        
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                             managedObjectContext: CoreDataStack.shared.mainContext,
+                                             managedObjectContext: moc,
                                              sectionNameKeyPath: "timestamp",
                                              cacheName: nil)
         
@@ -46,9 +48,7 @@ class ViewController: UIViewController {
         calorieEntryTableView.delegate = self
         calorieEntryTableView.dataSource = self
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .newEntry, object: nil)
-        if let series = series {
-            calorieChart.add(series)
-        }
+        self.updateViews()
     }
     
     @IBAction func addCalorieEntryTapped(_ sender: UIBarButtonItem) {
@@ -72,7 +72,10 @@ class ViewController: UIViewController {
     
     
     @objc func updateViews() {
-        series = ChartSeries(entriesArray.compactMap({ Double($0.amount) }))
+        let array: [Double] = entriesArray.compactMap({ Double($0.amount) })
+        series?.color = ChartColors.greenColor()
+        series = ChartSeries(array)
+        calorieChart.add(series!)
         calorieChart.reloadInputViews()
         calorieEntryTableView.reloadData()
     }
@@ -86,11 +89,12 @@ extension ViewController: UITableViewDelegate {
 
 extension ViewController: UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return frc.sections?.count ?? 0
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let objects = frc.sections?[section].numberOfObjects else { return 0 }
-//        print(frc.sections?[section].numberOfObjects)
-        print("Passed first print")
-        return objects
+        return frc.sections?[section].numberOfObjects ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -13,12 +13,12 @@ class CalorieEntryController {
     
     @discardableResult func createEntry(amount: String, timestamp: Date) -> CalorieEntry {
         let entry = CalorieEntry(amount: amount, timestamp: timestamp, context: CoreDataStack.shared.mainContext)
-        CoreDataStack.shared.save()
+        CoreDataStack.shared.saveToPersistentStore()
         return entry
     }
     
     func delete(calorieEntry: CalorieEntry) {
         CoreDataStack.shared.mainContext.delete(calorieEntry)
-        CoreDataStack.shared.save()
+        CoreDataStack.shared.saveToPersistentStore()
     }
 }
