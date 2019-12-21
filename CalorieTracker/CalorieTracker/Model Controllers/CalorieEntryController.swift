@@ -6,52 +6,43 @@
 //  Copyright © 2019 Jon Bash. All rights reserved.
 //
 
-import Foundation
-import CoreData
+import UIKit
 
-class CalorieEntryController {
-    weak var delegate: NSFetchedResultsControllerDelegate?
+class CalorieEntryController: NSObject {
+    // MARK: - Properties
 
-    lazy var fetchedResultsController: NSFetchedResultsController<CalorieEntry> = {
-        let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
-        fetchRequest.sortDescriptors = [
-            NSSortDescriptor(key: "timestamp", ascending: false)]
-        let moc = CoreDataStack.shared.mainContext
-        let frc = NSFetchedResultsController(
-            fetchRequest: fetchRequest,
-            managedObjectContext: moc,
-            sectionNameKeyPath: nil,
-            cacheName: nil)
-        frc.delegate = self.delegate
-        
-        do {
-            try frc.performFetch()
-        } catch {
-            fatalError("Error initializing fetched results controller: \(error)")
+    var persistentStoreController: PersistentStoreController = CoreDataStack()
+
+    var entryCount: Int { persistentStoreController.itemCount }
+
+    var entries: [CalorieEntry]? {
+        persistentStoreController.allItems as? [CalorieEntry]
+    }
+
+    var delegate: PersistentStoreControllerDelegate? {
+        get {
+            return persistentStoreController.delegate
         }
-
-        return frc
-    }()
-
-    var entryCount: Int {
-        return fetchedResultsController.sections?[0].numberOfObjects ?? 0
-    }
-
-    func entry(at indexPath: IndexPath) -> CalorieEntry {
-        return fetchedResultsController.object(at: indexPath)
-    }
-
-    func saveToPersistentStore() throws {
-        try CoreDataStack.shared.save()
-    }
-
-    func deleteEntry(at indexPath: IndexPath) {
-        let thisEntry = entry(at: indexPath)
-        CoreDataStack.shared.mainContext.delete(thisEntry)
-        do {
-            try saveToPersistentStore()
-        } catch {
-            NSLog("Error saving changes after deleting entry: \(error)")
+        set(newDelegate) {
+            persistentStoreController.delegate = newDelegate
         }
+    }
+
+    // MARK: - Methods
+
+    func createEntry(withCalories calories: Int) throws {
+        let context = persistentStoreController.mainContext
+        guard let entry = CalorieEntry(calories: calories, context: context)
+            else { throw NSError() }
+        try persistentStoreController.create(item: entry, in: context)
+    }
+
+    func getEntry(at indexPath: IndexPath) -> CalorieEntry? {
+        return persistentStoreController.getItem(at: indexPath) as? CalorieEntry
+    }
+
+    func deleteEntry(at indexPath: IndexPath) throws {
+        guard let thisEntry = getEntry(at: indexPath) else { throw NSError() }
+        try persistentStoreController.delete(thisEntry, in: nil)
     }
 }

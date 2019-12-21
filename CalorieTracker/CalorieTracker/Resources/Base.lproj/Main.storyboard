@@ -45,8 +45,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="CZU-DM-PAd" id="9nu-yv-fbs"/>
-                                    <outlet property="delegate" destination="CZU-DM-PAd" id="JbM-rM-xMz"/>
+                                    <outlet property="delegate" destination="CZU-DM-PAd" id="zOG-5w-wqF"/>
                                 </connections>
                             </tableView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKX-8a-rvD" customClass="Chart" customModule="SwiftChart">

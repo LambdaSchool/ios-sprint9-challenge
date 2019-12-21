@@ -9,13 +9,15 @@
 import Foundation
 import CoreData
 
-extension CalorieEntry {
-    convenience init(
+extension CalorieEntry: Persistable {
+    convenience init?(
         calories: Int,
+        context: PersistentContext,
         timestamp: Date = Date(),
-        identifier: UUID = UUID(),
-        context: NSManagedObjectContext = CoreDataStack.shared.mainContext
+        identifier: UUID = UUID()
     ) {
+        guard let context = context as? NSManagedObjectContext
+            else { return nil }
         self.init(context: context)
         
         self.calories = Int64(calories)
