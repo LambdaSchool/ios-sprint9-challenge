@@ -72,7 +72,12 @@ class ViewController: UIViewController {
     
     
     @objc func updateViews() {
-        let array: [Double] = entriesArray.compactMap({ Double($0.amount) })
+        if let fetchedObjects = frc.fetchedObjects {
+            for object in fetchedObjects {
+                entryController.entriesArray.append(CalorieEntryRep(amount: object.amount!, timestamp: object.timestamp!))
+            }
+        }
+        let array: [Double] = entryController.entriesArray.compactMap({ Double($0.amount) })
         series?.color = ChartColors.greenColor()
         series = ChartSeries(array)
         calorieChart.add(series!)
