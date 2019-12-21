@@ -27,8 +27,7 @@ class CalorieTrackerTableViewController: UITableViewController {
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yyyy, h:mm a"
-        formatter.timeZone = TimeZone.init(secondsFromGMT: 0)
-        formatter.locale = Locale(identifier: "en_US")
+        formatter.timeZone = TimeZone.autoupdatingCurrent
         return formatter
     }
     
@@ -132,9 +131,10 @@ class CalorieTrackerTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
         
         let calorie = fetchedResultsController.object(at: indexPath).calorie
+        let date = fetchedResultsController.object(at: indexPath).date
         
         cell.textLabel?.text = "Calories: \(String(describing: calorie!))"
-        cell.detailTextLabel?.text = dateFormatter.string(from: date)
+        cell.detailTextLabel?.text = dateFormatter.string(from: date!)
         
         return cell
     }
