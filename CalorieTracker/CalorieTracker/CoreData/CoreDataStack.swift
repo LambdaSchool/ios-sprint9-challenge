@@ -11,7 +11,7 @@ import CoreData
 
 class CoreDataStack {
     static let shared = CoreDataStack()
-    var container: NSPersistentContainer {
+   lazy var container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Calorie")
         container.loadPersistentStores { (_, error) in
             if let error = error {
@@ -19,7 +19,7 @@ class CoreDataStack {
             }
         }
         return container
-    }
+    }()
     var context: NSManagedObjectContext {
         return container.viewContext
     }

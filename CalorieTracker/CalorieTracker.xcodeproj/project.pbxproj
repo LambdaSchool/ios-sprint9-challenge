@@ -11,6 +11,7 @@
 		DDB9ACF823AD739A007D503F /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9ACF723AD739A007D503F /* CalorieController.swift */; };
 		DDB9ACFA23AD73F8007D503F /* ContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9ACF923AD73F8007D503F /* ContextExtension.swift */; };
 		DDB9ACFC23AD7674007D503F /* CalorieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9ACFB23AD7674007D503F /* CalorieTableViewCell.swift */; };
+		DDB9ACFE23ADBE24007D503F /* CalorieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB9ACFD23ADBE24007D503F /* CalorieChart.swift */; };
 		DDF6525C23AD549600338EDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6525B23AD549600338EDF /* AppDelegate.swift */; };
 		DDF6525E23AD549600338EDF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6525D23AD549600338EDF /* SceneDelegate.swift */; };
 		DDF6526323AD549600338EDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDF6526123AD549600338EDF /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		DDB9ACF723AD739A007D503F /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
 		DDB9ACF923AD73F8007D503F /* ContextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextExtension.swift; sourceTree = "<group>"; };
 		DDB9ACFB23AD7674007D503F /* CalorieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewCell.swift; sourceTree = "<group>"; };
+		DDB9ACFD23ADBE24007D503F /* CalorieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieChart.swift; sourceTree = "<group>"; };
 		DDF6525823AD549600338EDF /* CalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF6525B23AD549600338EDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDF6525D23AD549600338EDF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB9ACF723AD739A007D503F /* CalorieController.swift */,
+				DDB9ACFD23ADBE24007D503F /* CalorieChart.swift */,
 			);
 			path = ModelController;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			files = (
 				DDF6527A23AD5F7400338EDF /* CoreDataStack.swift in Sources */,
 				DDF6525C23AD549600338EDF /* AppDelegate.swift in Sources */,
+				DDB9ACFE23ADBE24007D503F /* CalorieChart.swift in Sources */,
 				DDF6527423AD5B7B00338EDF /* CaloriesTableViewController.swift in Sources */,
 				DDB9ACFA23AD73F8007D503F /* ContextExtension.swift in Sources */,
 				DDB9ACF823AD739A007D503F /* CalorieController.swift in Sources */,

@@ -10,9 +10,16 @@ import UIKit
 
 class CalorieTableViewCell: UITableViewCell {
 
-    var calorie: Calorie?
-    
+    @IBOutlet weak var calorieIntake: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    var calorie: Calorie? {
+        didSet{
+            updateViews()
+        }
+    }
     private func updateViews() {
         guard let calorie = calorie else { return }
+        calorieIntake.text = String(calorie.intake)
+        dateLabel.text = "\(calorie.date)"
     }
 }

@@ -14,7 +14,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="rCt-tA-07v">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="rCt-tA-07v" customClass="Chart" customModule="SwiftChart">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="155"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -50,6 +50,10 @@
                                         <constraint firstItem="3S5-mL-z1j" firstAttribute="top" secondItem="BAR-T6-P3B" secondAttribute="top" constant="10" id="xc2-wj-Tkm"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="calorieIntake" destination="3S5-mL-z1j" id="ocN-A7-zYq"/>
+                                    <outlet property="dateLabel" destination="tSx-he-aeY" id="uol-zl-mjE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -64,6 +68,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="calorieChart" destination="rCt-tA-07v" id="86B-hT-g7d"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BAu-iN-z5O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

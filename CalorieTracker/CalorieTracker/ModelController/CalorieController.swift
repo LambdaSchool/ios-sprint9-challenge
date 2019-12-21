@@ -10,8 +10,13 @@ import Foundation
 import CoreData
 
 class CalorieController {
+    var chart: CalorieChart
+    init(chart: CalorieChart = CalorieChart()) {
+        self.chart = chart
+    }
     func createIntake(withCalories calories: Double) {
-        _ = Calorie(intake: calories)
+        let calorie = Calorie(intake: calories)
+        chart.createGraphWith(calorie: calorie.intake)
         CoreDataStack.shared.context.saveChanges()
     }
 }
