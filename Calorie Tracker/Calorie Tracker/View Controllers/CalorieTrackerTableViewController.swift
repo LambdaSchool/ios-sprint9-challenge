@@ -17,19 +17,19 @@ class CalorieTrackerTableViewController: UITableViewController {
     @IBOutlet weak var chartView: Chart!
     
     // MARK: - Properties
-
+    
     var chart: Chart?
-    let notificationCneeter = NotificationCenter.default
+    let notificationCenter = NotificationCenter.default
     let calorieTrackerController = CalorieController()
     
     var data = [Double]()
     
     var dateFormatter: DateFormatter {
-           let formatter = DateFormatter()
-           formatter.dateFormat = "MM/dd/yyyy, h:mm a"
-           formatter.timeZone = TimeZone.autoupdatingCurrent
-           return formatter
-       }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy, h:mm a"
+        formatter.timeZone = TimeZone.autoupdatingCurrent
+        return formatter
+    }
     
     let date = Date(timeIntervalSinceNow: 0)
     
@@ -45,7 +45,7 @@ class CalorieTrackerTableViewController: UITableViewController {
         do {
             try frc.performFetch()
         } catch  {
-            fatalError("Error performing fetch for frc: \(error)")
+            print("Error fetching calorie entries: \(error)")
         }
         
         return frc
@@ -53,43 +53,94 @@ class CalorieTrackerTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchCalories()
+        chartInitliazer()
+        refresh()
+        registerNotifications()
         
-    }
+    } 
     
     
     // MARK: - Actions
-
+    
     @IBAction func addInput(_ sender: UIBarButtonItem) {
-        // add alert Controller for inpt here
+        // add alert Controller for input here
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories", preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Calories:"
+        }
+        
+        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak alert] (_) in
+            if let textField = alert?.textFields![0], let calories = Int(textField.text!) {
+                
+                self.calorieTrackerController.addCalories(calorie: String(calories), date: Date(), context: CoreDataStack.shared.mainContext)
+                self.data.append(Double(calories))
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "InputAdded"), object: self)
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - Other Functions
+    
+    func fetchCalories() {
+        if let calories = fetchedResultsController.fetchedObjects {
+            data = calories.map({ Double($0.calorie!) }) as! [Double]
+        }
+    }
+    
+    func chartInitliazer() {
+        let chartFrame = chartView.frame
+        chart = Chart(frame: chartFrame)
+        guard let chart = chart else { return }
+        self.view.addSubview(chart)
+    }
+    
+    func registerNotifications() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(refresh),
+                                               name: NSNotification.Name(rawValue: "InputAdded"),
+                                               object: nil)
+    }
+    
+    @objc private func refresh() {
+        guard let chart = chart else { return }
+        let series = ChartSeries(data)
+        series.area = true
+        chart.removeAllSeries()
+        chart.add(series)
+        tableView.reloadData()
     }
     
     
-
     // MARK: - Table view data source
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchedResultsController.sections?.count ?? 0
     }
-
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
-
-        // Configure the cell...
-
+        
+        let calorie = fetchedResultsController.object(at: indexPath).calorie
+        
+        cell.textLabel?.text = "Calories: \(String(describing: calorie))"
+        cell.detailTextLabel?.text = dateFormatter.string(from: date)
+        
         return cell
     }
-
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-
 }
 
+
+// MARK: - Extensions
 extension CalorieTrackerTableViewController: NSFetchedResultsControllerDelegate {
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -140,4 +191,5 @@ extension CalorieTrackerTableViewController: NSFetchedResultsControllerDelegate 
             return
         }
     }
+    
 }

@@ -31,13 +31,13 @@ extension CalorieTracker {
         
     }
     
-    @discardableResult convenience init?(calorieRepresentation: CalorieRepresentation, context: NSManagedObjectContext) {
-        
-        self.init(calorie: calorieRepresentation.calorie,
-                  date: calorieRepresentation.date,
-                  id: calorieRepresentation.id,
-                  context: context)
-    }
+//    @discardableResult convenience init?(calorieRepresentation: CalorieRepresentation, context: NSManagedObjectContext) {
+//        
+//        self.init(calorie: calorieRepresentation.calorie,
+//                  date: calorieRepresentation.date,
+//                  id: calorieRepresentation.id,
+//                  context: context)
+//    }
     
     
 }
