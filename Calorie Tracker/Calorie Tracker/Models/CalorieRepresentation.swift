@@ -12,5 +12,5 @@ import CoreData
 struct CalorieRepresentation: Codable {
     let calorie: String
     let date: Date
-    let id: UUID
+    let identifier: UUID
 }

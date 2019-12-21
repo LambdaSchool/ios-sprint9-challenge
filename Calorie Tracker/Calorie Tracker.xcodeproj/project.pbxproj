@@ -150,6 +150,7 @@
 				4B21147B23AD2F76004826D3 /* Frameworks */,
 				4B21147C23AD2F76004826D3 /* Resources */,
 				C9B4D782547B0A416CA92C11 /* [CP] Embed Pods Frameworks */,
+				4B793D4523ADA55800F38A6D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -207,6 +208,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4B793D4523ADA55800F38A6D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
 		54C09944C452A8D027E5A35E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

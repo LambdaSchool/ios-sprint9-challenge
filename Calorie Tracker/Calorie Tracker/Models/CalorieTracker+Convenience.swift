@@ -18,7 +18,7 @@ extension CalorieTracker {
             let date = date,
             let id = id else { return nil }
         
-        return CalorieRepresentation(calorie: calorie, date: date, id: id)
+        return CalorieRepresentation(calorie: calorie, date: date, identifier: id)
     }
     
     @discardableResult convenience init(calorie: String, date: Date, id: UUID = UUID(), context: NSManagedObjectContext) {
@@ -31,13 +31,13 @@ extension CalorieTracker {
         
     }
     
-//    @discardableResult convenience init?(calorieRepresentation: CalorieRepresentation, context: NSManagedObjectContext) {
-//        
-//        self.init(calorie: calorieRepresentation.calorie,
-//                  date: calorieRepresentation.date,
-//                  id: calorieRepresentation.id,
-//                  context: context)
-//    }
+    @discardableResult convenience init?(calorieRepresentation: CalorieRepresentation, context: NSManagedObjectContext) {
+        
+        self.init(calorie: calorieRepresentation.calorie,
+                  date: calorieRepresentation.date,
+                  id: calorieRepresentation.identifier,
+                  context: context)
+    }
     
     
 }
