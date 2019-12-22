@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     var entriesArray: [CalorieEntryRep] = []
     let df = DateFormatter()
     var series: ChartSeries?
+    var hasFetched = false
     lazy var frc: NSFetchedResultsController<CalorieEntry> = {
         
         let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
@@ -49,6 +50,8 @@ class ViewController: UIViewController {
         calorieEntryTableView.dataSource = self
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .newEntry, object: nil)
         self.updateViews()
+        hasFetched = true
+        calorieChart.responds(to: #selector(updateViews))
     }
     
     @IBAction func addCalorieEntryTapped(_ sender: UIBarButtonItem) {
@@ -63,7 +66,7 @@ class ViewController: UIViewController {
             guard let calorieAmount = alert.textFields?.first?.text,
                 !calorieAmount.isEmpty else { return }
             self.entryController.createEntry(amount: calorieAmount, timestamp: Date())
-//            self.updateViews()
+            self.updateViews()
         }
         
         alert.addAction(action)
@@ -72,17 +75,22 @@ class ViewController: UIViewController {
     
     
     @objc func updateViews() {
+        try? frc.performFetch()
         if let fetchedObjects = frc.fetchedObjects {
-            for object in fetchedObjects {
-                entryController.entriesArray.append(CalorieEntryRep(amount: object.amount!, timestamp: object.timestamp!))
+            if hasFetched == false {
+                for object in fetchedObjects {
+                    entryController.entriesArray.append(CalorieEntryRep(amount: object.amount!, timestamp: object.timestamp!))
+                }
             }
         }
         let array: [Double] = entryController.entriesArray.compactMap({ Double($0.amount) })
         series?.color = ChartColors.greenColor()
         series = ChartSeries(array)
+        calorieChart.removeAllSeries()
         calorieChart.add(series!)
-        calorieChart.reloadInputViews()
         calorieEntryTableView.reloadData()
+        self.view.reloadInputViews()
+        self.calorieChart.reloadInputViews()
     }
     
 }

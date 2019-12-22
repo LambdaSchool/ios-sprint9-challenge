@@ -13,6 +13,8 @@ class CalorieEntryController {
     
     @discardableResult func createEntry(amount: String, timestamp: Date) -> CalorieEntry {
         let entry = CalorieEntry(amount: amount, timestamp: timestamp, context: CoreDataStack.shared.mainContext)
+        let entryRep = CalorieEntryRep(amount: amount, timestamp: timestamp)
+        entriesArray.append(entryRep)
         CoreDataStack.shared.saveToPersistentStore()
         return entry
     }
