@@ -46,7 +46,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="mBq-pI-Biv">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8su-un-ZLs"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8su-un-ZLs">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="gFO-J6-r4b" id="Iov-fA-bin"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EXA-8F-Bai" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

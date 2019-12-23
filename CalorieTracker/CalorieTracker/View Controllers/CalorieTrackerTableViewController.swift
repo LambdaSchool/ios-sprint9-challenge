@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController {
 
@@ -31,23 +32,29 @@ class CalorieTrackerTableViewController: UITableViewController {
 
 	}
 
-	// MARK: - Table view data source
-
-	override func numberOfSections(in tableView: UITableView) -> Int {
-
-		return 0
+	// MARK: Actions
+	@IBAction func addButtonTapped(_ sender: Any) {
 	}
+
+
+	// MARK: Table view data source
+
+//	override func numberOfSections(in tableView: UITableView) -> Int {
+//
+//		return 0
+//	}
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-		return 0
+		return fetchedResultsController.sections?[section].numberOfObjects ?? 0
 	}
-
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieEntryCell", for: indexPath)
 
-
+		let calorieEntry = fetchedResultsController.object(at: indexPath)
+		cell.textLabel?.text = "\(calorieEntry.numberOfCalories)"
+		cell.detailTextLabel?.text = "\(String(describing: calorieEntry.entryDate))"
 
 		return cell
 	}
@@ -55,10 +62,12 @@ class CalorieTrackerTableViewController: UITableViewController {
 	// Override to support editing the table view.
 	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
-			// Delete the row from the data source
-			tableView.deleteRows(at: [indexPath], with: .fade)
 
+			let calorieEntry = fetchedResultsController.object(at: indexPath)
+			calorieEntryController.deleteCalorieEntry()
+			tableView.deleteRows(at: [indexPath], with: .fade)
 		}
+	}
 
 		// MARK: Table View Data Source Delegate Methods
 		func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -80,26 +89,26 @@ class CalorieTrackerTableViewController: UITableViewController {
 				}
 			}
 
-			func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-				switch type {
-				case .insert:
-					guard let newIndexPath = newIndexPath else { return }
-					tableView.insertRows(at: [newIndexPath], with: .automatic)
-				case .update:
-					guard let indexPath = indexPath else { return }
-					tableView.reloadRows(at: [indexPath], with: .automatic)
-				case .move:
-					guard let oldIndexPath = indexPath,
-						let newIndexPath = newIndexPath else { return }
-					tableView.deleteRows(at: [oldIndexPath], with: .automatic)
-					tableView.insertRows(at: [newIndexPath], with: .automatic)
-				case .delete:
-					guard let indexPath = indexPath else { return }
-					tableView.deleteRows(at: [indexPath], with: .automatic)
-				@unknown default:
-					fatalError()
-				}
-			}
+//			func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+//				switch type {
+//				case .insert:
+//					guard let newIndexPath = newIndexPath else { return }
+//					tableView.insertRows(at: [newIndexPath], with: .automatic)
+//				case .update:
+//					guard let indexPath = indexPath else { return }
+//					tableView.reloadRows(at: [indexPath], with: .automatic)
+//				case .move:
+//					guard let oldIndexPath = indexPath,
+//						let newIndexPath = newIndexPath else { return }
+//					tableView.deleteRows(at: [oldIndexPath], with: .automatic)
+//					tableView.insertRows(at: [newIndexPath], with: .automatic)
+//				case .delete:
+//					guard let indexPath = indexPath else { return }
+//					tableView.deleteRows(at: [indexPath], with: .automatic)
+//				@unknown default:
+//					fatalError()
+//				}
+//			}
 		/*
 		// MARK: - Navigation
 
@@ -111,4 +120,4 @@ class CalorieTrackerTableViewController: UITableViewController {
 		*/
 
 }
-}
+
