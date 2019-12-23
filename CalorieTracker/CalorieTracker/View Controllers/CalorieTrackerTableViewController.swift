@@ -26,18 +26,29 @@ class CalorieTrackerTableViewController: UITableViewController {
 
 	}()
 
+    // MARK: - Date Formatter
+     struct DateFormat {
+         static var dateFormatter: DateFormatter {
+             let dateFormatter = DateFormatter()
+             dateFormatter.dateStyle = .short
+             dateFormatter.timeStyle = .short
+             return dateFormatter
+         }
+         let entryDate: Date = Date()
+     }
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 
 	}
 
-	// MARK: Actions
+	// MARK: - Actions
 	@IBAction func addButtonTapped(_ sender: Any) {
 	}
 
 
-	// MARK: Table view data source
+	// MARK: - Table view data source
 
 //	override func numberOfSections(in tableView: UITableView) -> Int {
 //
@@ -69,7 +80,7 @@ class CalorieTrackerTableViewController: UITableViewController {
 		}
 	}
 
-		// MARK: Table View Data Source Delegate Methods
+		// MARK: - Table View Data Source Delegate Methods
 		func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 			tableView.beginUpdates()
 		}
@@ -89,26 +100,26 @@ class CalorieTrackerTableViewController: UITableViewController {
 				}
 			}
 
-//			func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-//				switch type {
-//				case .insert:
-//					guard let newIndexPath = newIndexPath else { return }
-//					tableView.insertRows(at: [newIndexPath], with: .automatic)
-//				case .update:
-//					guard let indexPath = indexPath else { return }
-//					tableView.reloadRows(at: [indexPath], with: .automatic)
-//				case .move:
-//					guard let oldIndexPath = indexPath,
-//						let newIndexPath = newIndexPath else { return }
-//					tableView.deleteRows(at: [oldIndexPath], with: .automatic)
-//					tableView.insertRows(at: [newIndexPath], with: .automatic)
-//				case .delete:
-//					guard let indexPath = indexPath else { return }
-//					tableView.deleteRows(at: [indexPath], with: .automatic)
-//				@unknown default:
-//					fatalError()
-//				}
-//			}
+			func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+				switch type {
+				case .insert:
+					guard let newIndexPath = newIndexPath else { return }
+					tableView.insertRows(at: [newIndexPath], with: .automatic)
+				case .update:
+					guard let indexPath = indexPath else { return }
+					tableView.reloadRows(at: [indexPath], with: .automatic)
+				case .move:
+					guard let oldIndexPath = indexPath,
+						let newIndexPath = newIndexPath else { return }
+					tableView.deleteRows(at: [oldIndexPath], with: .automatic)
+					tableView.insertRows(at: [newIndexPath], with: .automatic)
+				case .delete:
+					guard let indexPath = indexPath else { return }
+					tableView.deleteRows(at: [indexPath], with: .automatic)
+				@unknown default:
+					fatalError()
+				}
+			}
 		/*
 		// MARK: - Navigation
 

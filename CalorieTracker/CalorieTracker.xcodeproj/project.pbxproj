@@ -20,6 +20,7 @@
 		DDF209EA23AD466A005151CD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF209E923AD466A005151CD /* Default-568h@2x.png */; };
 		DDF209EC23AD4E3B005151CD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF209EB23AD4E3B005151CD /* CoreDataStack.swift */; };
 		DDF209EE23AD4E54005151CD /* CalorieEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF209ED23AD4E54005151CD /* CalorieEntry+Convenience.swift */; };
+		DDF209F123B08633005151CD /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF209F023B08633005151CD /* Notification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		DDF209E923AD466A005151CD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		DDF209EB23AD4E3B005151CD /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		DDF209ED23AD4E54005151CD /* CalorieEntry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieEntry+Convenience.swift"; sourceTree = "<group>"; };
+		DDF209F023B08633005151CD /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			children = (
 				DD156E3D23AD3414000788AC /* ViewController.swift */,
 				DDF209E123AD4511005151CD /* CalorieTrackerTableViewController.swift */,
+				DDF209F023B08633005151CD /* Notification.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			files = (
 				DDF209EC23AD4E3B005151CD /* CoreDataStack.swift in Sources */,
 				DDF209E423AD4537005151CD /* CalorieEntryController.swift in Sources */,
+				DDF209F123B08633005151CD /* Notification.swift in Sources */,
 				DDF209EE23AD4E54005151CD /* CalorieEntry+Convenience.swift in Sources */,
 				DDF209E223AD4511005151CD /* CalorieTrackerTableViewController.swift in Sources */,
 				DD156E3E23AD3414000788AC /* ViewController.swift in Sources */,
