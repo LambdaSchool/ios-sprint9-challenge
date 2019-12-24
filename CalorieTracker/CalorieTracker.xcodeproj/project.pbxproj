@@ -42,6 +42,7 @@
 		DDF209EB23AD4E3B005151CD /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		DDF209ED23AD4E54005151CD /* CalorieEntry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieEntry+Convenience.swift"; sourceTree = "<group>"; };
 		DDF209F023B08633005151CD /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		DDF209F523B2A714005151CD /* swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = swiftlint.yml; path = ../swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +87,7 @@
 		DD156E3823AD3414000788AC /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
+				DDF209F523B2A714005151CD /* swiftlint.yml */,
 				DDF209E623AD45E2005151CD /* Resources */,
 				DD156E3B23AD3414000788AC /* SceneDelegate.swift */,
 				DDF209E523AD45A5005151CD /* Storyboards */,
@@ -164,6 +166,7 @@
 				DD156E3323AD3414000788AC /* Frameworks */,
 				DD156E3423AD3414000788AC /* Resources */,
 				3728D7D46AD8C5F18179FA20 /* [CP] Embed Pods Frameworks */,
+				DDF209F223B2A426005151CD /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -260,6 +263,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		DDF209F223B2A426005151CD /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
