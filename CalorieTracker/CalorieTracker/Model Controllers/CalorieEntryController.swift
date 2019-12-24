@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 class CalorieEntryController {
-	var calorieEntries: [CalorieEntry] = []
+//	var calorieEntries: [CalorieEntry] = []
 
 	func saveCalorieEntryToPersistentStore() {
 
@@ -28,10 +28,10 @@ class CalorieEntryController {
 		saveCalorieEntryToPersistentStore()
 	}
 
-	func deleteCalorieEntry(calorieEntry: CalorieEntry) {
-		
-		let moc = CoreDataStack.shared.mainContext
-		moc.delete(calorieEntry)
-		saveCalorieEntryToPersistentStore()
-	}
+//	func deleteCalorieEntry(calorieEntry: CalorieEntry) {
+//		
+//		let moc = CoreDataStack.shared.mainContext
+//		moc.delete(calorieEntry)
+//		saveCalorieEntryToPersistentStore()
+//	}
 }
