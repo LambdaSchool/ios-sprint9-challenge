@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -56,7 +56,6 @@
 				A4D26EE9F64DF6E8EA1C7636 /* Pods-Calorie Tracker.debug.xcconfig */,
 				AAC104768FA1EF652F23DD11 /* Pods-Calorie Tracker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -156,6 +155,7 @@
 				E309DE5023C0065D0025AFF9 /* Frameworks */,
 				E309DE5123C0065D0025AFF9 /* Resources */,
 				2912E3B4C46C86F0002D6F0B /* [CP] Embed Pods Frameworks */,
+				E309DE7D23C030E20025AFF9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -251,6 +251,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Calorie Tracker/Pods-Calorie Tracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E309DE7D23C030E20025AFF9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
