@@ -7,13 +7,13 @@
 
 import UIKit
 
-public protocol ChartDelegate: class {
+public protocol ChartDelegate: AnyObject {
 
     /**
     Tells the delegate that the specified chart has been touched.
 
     - parameter chart: The chart that has been touched.
-    - parameter indexes: Each element of this array contains the index of the data that has been touched, one for each 
+    - parameter indexes: Each element of this array contains the index of the data that has been touched, one for each
       series. If the series hasn't been touched, its index will be nil.
     - parameter x: The value on the x-axis that has been touched.
     - parameter left: The distance from the left side of the chart.
@@ -22,7 +22,7 @@ public protocol ChartDelegate: class {
     func didTouchChart(_ chart: Chart, indexes: [Int?], x: Double, left: CGFloat)
 
     /**
-    Tells the delegate that the user finished touching the chart. The user will 
+    Tells the delegate that the user finished touching the chart. The user will
     "finish" touching the chart only swiping left/right outside the chart.
 
     - parameter chart: The chart that has been touched.
@@ -30,8 +30,8 @@ public protocol ChartDelegate: class {
     */
     func didFinishTouchingChart(_ chart: Chart)
     /**
-     Tells the delegate that the user ended touching the chart. The user 
-     will "end" touching the chart whenever the touchesDidEnd method is 
+     Tells the delegate that the user ended touching the chart. The user
+     will "end" touching the chart whenever the touchesDidEnd method is
      being called.
      
      - parameter chart: The chart that has been touched.
@@ -73,7 +73,7 @@ open class Chart: UIControl {
     }
 
     /**
-    The values to display as labels on the x-axis. You can format these values  with the `xLabelFormatter` attribute. 
+    The values to display as labels on the x-axis. You can format these values  with the `xLabelFormatter` attribute.
     As default, it will display the values of the series which has the most data.
     */
     open var xLabels: [Double]?
@@ -168,7 +168,7 @@ open class Chart: UIControl {
     /**
     Delegate for listening to Chart touch events.
     */
-    weak open var delegate: ChartDelegate?
+    open weak var delegate: ChartDelegate?
 
     /**
     Custom minimum value for the x-axis.
@@ -232,12 +232,12 @@ open class Chart: UIControl {
         commonInit()
     }
 
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
 
-    convenience public init() {
+    public convenience init() {
         self.init(frame: .zero)
         commonInit()
     }
@@ -302,8 +302,8 @@ open class Chart: UIControl {
         label.font = UIFont.systemFont(ofSize: 28)
         label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
         label.sizeToFit()
-        label.frame.origin.x += frame.width/2 - (label.frame.width / 2)
-        label.frame.origin.y += frame.height/2 - (label.frame.height / 2)
+        label.frame.origin.x += frame.width / 2 - (label.frame.width / 2)
+        label.frame.origin.y += frame.height / 2 - (label.frame.height / 2)
 
         placeholder.addSubview(label)
         addSubview(placeholder)
@@ -338,8 +338,8 @@ open class Chart: UIControl {
             let segments = Chart.segmentLine(series.data as ChartLineSegment, zeroLevel: series.colors.zeroLevel)
 
             segments.forEach({ segment in
-                let scaledXValues = scaleValuesOnXAxis( segment.map { $0.x } )
-                let scaledYValues = scaleValuesOnYAxis( segment.map { $0.y } )
+                let scaledXValues = scaleValuesOnXAxis( segment.map { $0.x })
+                let scaledYValues = scaleValuesOnYAxis( segment.map { $0.y })
 
                 if series.line {
                     drawLine(scaledXValues, yValues: scaledYValues, seriesIndex: index)
@@ -372,8 +372,8 @@ open class Chart: UIControl {
         // Check in datasets
 
         for series in self.series {
-            let xValues =  series.data.map { $0.x }
-            let yValues =  series.data.map { $0.y }
+            let xValues = series.data.map { $0.x }
+            let yValues = series.data.map { $0.y }
 
             let newMinX = xValues.minOrZero()
             let newMinY = yValues.minOrZero()
@@ -559,14 +559,14 @@ open class Chart: UIControl {
         if xLabels == nil {
             // Use labels from the first series
             labels = series[0].data.map({ (point: ChartPoint) -> Double in
-                return point.x })
+                point.x })
         } else {
             labels = xLabels!
         }
 
         let scaled = scaleValuesOnXAxis(labels)
         let padding: CGFloat = 5
-        scaled.enumerated().forEach { (i, value) in
+        scaled.enumerated().forEach { i, value in
             let x = CGFloat(value)
             let isLastLabel = x == drawingWidth
 
@@ -640,7 +640,7 @@ open class Chart: UIControl {
         let padding: CGFloat = 5
         let zero = CGFloat(getZeroValueOnYAxis(zeroLevel: 0))
 
-        scaled.enumerated().forEach { (i, value) in
+        scaled.enumerated().forEach { i, value in
 
             let y = CGFloat(value)
 
@@ -729,9 +729,9 @@ open class Chart: UIControl {
         var indexes: [Int?] = []
 
         for series in self.series {
-            var index: Int? = nil
+            var index: Int?
             let xValues = series.data.map({ (point: ChartPoint) -> Double in
-                return point.x })
+                point.x })
             let closest = Chart.findClosestInValues(xValues, forValue: x)
             if closest.lowestIndex != nil && closest.highestIndex != nil {
                 // Consider valid only values on the right
@@ -763,7 +763,7 @@ open class Chart: UIControl {
     // MARK: - Utilities
 
     fileprivate func valueFromPointAtX(_ x: CGFloat) -> Double {
-        let value = ((max.x-min.x) / Double(drawingWidth)) * Double(x) + min.x
+        let value = ((max.x - min.x) / Double(drawingWidth)) * Double(x) + min.x
         return value
     }
 
@@ -783,7 +783,7 @@ open class Chart: UIControl {
         ) {
         var lowestValue: Double?, highestValue: Double?, lowestIndex: Int?, highestIndex: Int?
 
-        values.enumerated().forEach { (i, currentValue) in
+        values.enumerated().forEach { i, currentValue in
 
             if currentValue <= value && (lowestValue == nil || lowestValue! < currentValue) {
                 lowestValue = currentValue
@@ -811,10 +811,10 @@ open class Chart: UIControl {
         var segments: [ChartLineSegment] = []
         var segment: ChartLineSegment = []
 
-        line.enumerated().forEach { (i, point) in
+        line.enumerated().forEach { i, point in
             segment.append(point)
             if i < line.count - 1 {
-                let nextPoint = line[i+1]
+                let nextPoint = line[i + 1]
                 if point.y >= zeroLevel && nextPoint.y < zeroLevel || point.y < zeroLevel && nextPoint.y >= zeroLevel {
                     // The segment intersects zeroLevel, close the segment with the intersection point
                     let closingPoint = Chart.intersectionWithLevel(point, and: nextPoint, level: zeroLevel)

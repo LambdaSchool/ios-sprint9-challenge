@@ -12,7 +12,7 @@ import UIKit
 
 class CalorieController {
     func create(calorie: Int16) {
-        let _ = Calorie(calorie: calorie)
+        _ = Calorie(calorie: calorie)
         
         do {
             let moc = CoreDataStack.shared.mainContext

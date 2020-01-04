@@ -11,7 +11,7 @@ import CoreData
 import SwiftChart
 
 class CalorieTableViewController: UITableViewController {
-    @IBOutlet weak var chartView: Chart!
+    @IBOutlet private weak var chartView: Chart!
     
     let calorieController = CalorieController()
     
@@ -24,7 +24,11 @@ class CalorieTableViewController: UITableViewController {
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "calorie", cacheName: nil)
         frc.delegate = self
-        try! frc.performFetch()
+        
+        do {
+            try frc.performFetch()
+        } catch {}
+        
         return frc
     }() // to store the variable after it runs
     
@@ -111,7 +115,7 @@ class CalorieTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 
@@ -152,7 +156,10 @@ extension CalorieTableViewController: NSFetchedResultsControllerDelegate {
         self.updateChart()
     }
     
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange sectionInfo: NSFetchedResultsSectionInfo,
+                    atSectionIndex sectionIndex: Int,
+                    for type: NSFetchedResultsChangeType) {
         switch type {
         case .insert:
             tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
@@ -163,7 +170,11 @@ extension CalorieTableViewController: NSFetchedResultsControllerDelegate {
         }
     }
     
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange anObject: Any,
+                    at indexPath: IndexPath?,
+                    for type: NSFetchedResultsChangeType,
+                    newIndexPath: IndexPath?) {
         switch type {
         case .insert:
             guard let newIndexPath = newIndexPath else { return }
