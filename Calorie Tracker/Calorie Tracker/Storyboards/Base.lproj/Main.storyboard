@@ -20,7 +20,7 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="rCN-57-ned" detailTextLabel="hpd-5Z-70e" style="IBUITableViewCellStyleValue1" id="1X3-VG-lIy">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieCell" textLabel="rCN-57-ned" detailTextLabel="hpd-5Z-70e" style="IBUITableViewCellStyleValue1" id="1X3-VG-lIy">
                                 <rect key="frame" x="0.0" y="328" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1X3-VG-lIy" id="OZz-dT-z9M">
@@ -51,7 +51,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Calorie Tracker" largeTitleDisplayMode="always" id="UlP-xX-XdG">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hiq-vG-SSj"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hiq-vG-SSj">
+                            <connections>
+                                <action selector="addPressed:" destination="a8X-W0-YVQ" id="9eR-Qh-Sa3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i5b-rp-MPU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

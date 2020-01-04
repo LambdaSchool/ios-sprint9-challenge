@@ -16,7 +16,7 @@
 		E309DE7123C00C9E0025AFF9 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E309DE7023C00C9E0025AFF9 /* CoreDataStack.swift */; };
 		E309DE7423C00D6F0025AFF9 /* Calorie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E309DE7223C00D6F0025AFF9 /* Calorie.xcdatamodeld */; };
 		E309DE7623C00EBD0025AFF9 /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = E309DE7523C00EBD0025AFF9 /* Calorie+Convenience.swift */; };
-		E309DE7823C015E20025AFF9 /* CalorieRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E309DE7723C015E20025AFF9 /* CalorieRepresentation.swift */; };
+		E309DE7B23C0191B0025AFF9 /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E309DE7A23C0191B0025AFF9 /* CalorieController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		E309DE7023C00C9E0025AFF9 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		E309DE7323C00D6F0025AFF9 /* Calorie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calorie.xcdatamodel; sourceTree = "<group>"; };
 		E309DE7523C00EBD0025AFF9 /* Calorie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience.swift"; sourceTree = "<group>"; };
-		E309DE7723C015E20025AFF9 /* CalorieRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieRepresentation.swift; sourceTree = "<group>"; };
+		E309DE7A23C0191B0025AFF9 /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +64,7 @@
 		E309DE5523C0065D0025AFF9 /* Calorie Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				E309DE7923C019050025AFF9 /* Model Controllers */,
 				E309DE6F23C00C7C0025AFF9 /* Views */,
 				E309DE6E23C00C750025AFF9 /* Storyboards */,
 				E309DE6D23C00C700025AFF9 /* Models */,
@@ -90,7 +91,6 @@
 				E309DE7023C00C9E0025AFF9 /* CoreDataStack.swift */,
 				E309DE7223C00D6F0025AFF9 /* Calorie.xcdatamodeld */,
 				E309DE7523C00EBD0025AFF9 /* Calorie+Convenience.swift */,
-				E309DE7723C015E20025AFF9 /* CalorieRepresentation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -109,6 +109,14 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E309DE7923C019050025AFF9 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E309DE7A23C0191B0025AFF9 /* CalorieController.swift */,
+			);
+			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,8 +195,8 @@
 				E309DE7423C00D6F0025AFF9 /* Calorie.xcdatamodeld in Sources */,
 				E309DE6B23C0077C0025AFF9 /* CalorieTableViewController.swift in Sources */,
 				E309DE5923C0065D0025AFF9 /* SceneDelegate.swift in Sources */,
+				E309DE7B23C0191B0025AFF9 /* CalorieController.swift in Sources */,
 				E309DE7123C00C9E0025AFF9 /* CoreDataStack.swift in Sources */,
-				E309DE7823C015E20025AFF9 /* CalorieRepresentation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
