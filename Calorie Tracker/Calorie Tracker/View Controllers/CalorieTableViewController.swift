@@ -8,8 +8,10 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class CalorieTableViewController: UITableViewController {
+    @IBOutlet weak var chartView: Chart!
     
     let calorieController = CalorieController()
     
@@ -17,7 +19,6 @@ class CalorieTableViewController: UITableViewController {
         // fetch request
         let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
         fetchRequest.sortDescriptors = [
-            NSSortDescriptor(key: "calorie", ascending: true),
             NSSortDescriptor(key: "timestamp", ascending: true)
         ]
         let moc = CoreDataStack.shared.mainContext
@@ -27,16 +28,17 @@ class CalorieTableViewController: UITableViewController {
         return frc
     }() // to store the variable after it runs
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     private var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
         return dateFormatter
     }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.updateChart()
+    }
     
     func dateString(for calorie: Calorie?) -> String? {
         // execute with map if there is any date
@@ -83,6 +85,14 @@ class CalorieTableViewController: UITableViewController {
         cell.detailTextLabel?.text = dateString(for: calorie)
         return cell
         
+    }
+    
+    private func updateChart() {
+        if let calories = fetchedResultController.fetchedObjects {
+            let series = ChartSeries(calories.map { Double($0.calorie) })
+            self.chartView.removeAllSeries()
+            self.chartView.add(series)
+        }
     }
 
     /*
@@ -139,6 +149,7 @@ extension CalorieTableViewController: NSFetchedResultsControllerDelegate {
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
+        self.updateChart()
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
