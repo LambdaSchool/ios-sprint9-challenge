@@ -69,7 +69,12 @@ class ViewController: UIViewController {
             self.updateViews()
         }
         
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        
         alert.addAction(action)
+        alert.addAction(cancelAction)
         self.present(alert, animated: true)
     }
     
