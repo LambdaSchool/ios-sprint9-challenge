@@ -8,6 +8,7 @@
 
 import CoreData
 import SwiftChart
+import SwiftFontName
 import UIKit
 
 class CalorieTrackerTableViewController: UITableViewController {
@@ -53,6 +54,7 @@ class CalorieTrackerTableViewController: UITableViewController {
         series.color = ChartColors.cyanColor()
         series.area = true
         chart.add(series)
+        self.tableView.reloadData()
     }
     
     @objc func showAddAlert() {
@@ -77,7 +79,9 @@ class CalorieTrackerTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: .calorieCell, for: indexPath)
         let entry = fetchedResultsController.object(at: indexPath)
         if let date = entry.date {
+            cell.textLabel?.font = UIFont(name: FontName.AvenirNextBoldItalic, size: 17)
             cell.textLabel?.text = "Calories: \(entry.calories)"
+            cell.detailTextLabel?.font = UIFont(name: FontName.AvenirNextItalic, size: 17)
             cell.detailTextLabel?.text = dateFormatter.string(from: date)
         }
         return cell
