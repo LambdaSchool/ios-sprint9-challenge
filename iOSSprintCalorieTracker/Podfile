@@ -6,6 +6,6 @@ target 'iOSSprintCalorieTracker' do
   use_frameworks!
 
   # Pods for iOSSprintCalorieTracker
-pod 'SwiftCharts', '~> 0.6.5'
+pod "SwiftChart", :git => 'https://github.com/gpbl/SwiftChart', :branch => 'master'
 
 end

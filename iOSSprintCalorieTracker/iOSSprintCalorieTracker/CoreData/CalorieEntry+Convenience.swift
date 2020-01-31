@@ -10,28 +10,29 @@ import Foundation
 import CoreData
 
 
-extension Calorie {
-
-    // MARK: - Properties
-    
-    var calorieEntry: Calorie? {
-        
-        guard let identifier = identifier,
-        let timestamp = timestamp else { return nil }
-        return Calorie(calories: calories, identifier: identifier, timestamp: timestamp)
-    }
-
-    // MARK: - Convenience inits
-    
-    convenience init(calories: Double,
-                     identifier: UUID = UUID(),
-                     timestamp: Date,
-                     context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
-
+extension CalorieEntry: Persistable {
+    convenience init?(
+        calories: Int,
+        context: PersistentContext,
+        timestamp: Date = Date(),
+        identifier: UUID = UUID()
+    ) {
+        guard let context = context as? NSManagedObjectContext
+            else { return nil }
         self.init(context: context)
-        self.calories = calories
-        self.identifier = identifier
+
+        self.calories = Int64(calories)
         self.timestamp = timestamp
+        self.identifier = identifier
     }
+
+    static let dateFormatter: DateFormatter = {
+        var formatter = DateFormatter()
+        formatter.calendar = .autoupdatingCurrent
+        formatter.timeZone = .autoupdatingCurrent
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }()
 }
 
