@@ -7,5 +7,5 @@ target 'iOSSprintCalorieTracker' do
 
   # Pods for iOSSprintCalorieTracker
 pod "SwiftChart", :git => 'https://github.com/gpbl/SwiftChart', :branch => 'master'
-
+pod 'SwiftLint'
 end
