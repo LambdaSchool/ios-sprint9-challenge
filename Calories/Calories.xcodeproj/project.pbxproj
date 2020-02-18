@@ -1,0 +1,745 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		966F32D721E8F8BA000A6B30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F32D621E8F8BA000A6B30 /* AppDelegate.swift */; };
+		966F32DC21E8F8BA000A6B30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966F32DA21E8F8BA000A6B30 /* Main.storyboard */; };
+		966F32DE21E8F8BA000A6B30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 966F32DD21E8F8BA000A6B30 /* Assets.xcassets */; };
+		966F32E121E8F8BA000A6B30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966F32DF21E8F8BA000A6B30 /* LaunchScreen.storyboard */; };
+		9689C41921E8FB2D00E441F5 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C41621E8FB2C00E441F5 /* Chart.swift */; };
+		9689C41A21E8FB2D00E441F5 /* ChartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C41721E8FB2C00E441F5 /* ChartColors.swift */; };
+		9689C41B21E8FB2D00E441F5 /* ChartSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C41821E8FB2D00E441F5 /* ChartSeries.swift */; };
+		9689C43221E8FB4C00E441F5 /* Reusable+NSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C41F21E8FB4C00E441F5 /* Reusable+NSTableView.swift */; };
+		9689C43321E8FB4C00E441F5 /* Nib+NSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C42021E8FB4C00E441F5 /* Nib+NSViewController.swift */; };
+		9689C43421E8FB4C00E441F5 /* Storyboard+NSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C42121E8FB4C00E441F5 /* Storyboard+NSViewController.swift */; };
+		9689C43521E8FB4C00E441F5 /* Reusable+NSCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C42221E8FB4C00E441F5 /* Reusable+NSCollectionView.swift */; };
+		9689C43621E8FB4C00E441F5 /* Nib+NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C42321E8FB4C00E441F5 /* Nib+NSView.swift */; };
+		9689C43721E8FB4C00E441F5 /* Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C42421E8FB4C00E441F5 /* Nib.swift */; };
+		9689C43821E8FB4C00E441F5 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C42521E8FB4C00E441F5 /* Reusable.swift */; };
+		9689C43921E8FB4C00E441F5 /* Nib+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C42721E8FB4C00E441F5 /* Nib+UIView.swift */; };
+		9689C43A21E8FB4C00E441F5 /* Reusable+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C42821E8FB4C00E441F5 /* Reusable+UICollectionView.swift */; };
+		9689C43B21E8FB4C00E441F5 /* Storyboard+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C42921E8FB4C00E441F5 /* Storyboard+UIViewController.swift */; };
+		9689C43C21E8FB4C00E441F5 /* Nib+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C42A21E8FB4C00E441F5 /* Nib+UIViewController.swift */; };
+		9689C43D21E8FB4C00E441F5 /* Reusable+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C42B21E8FB4C00E441F5 /* Reusable+UITableView.swift */; };
+		9689C43E21E8FB4C00E441F5 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C42C21E8FB4C00E441F5 /* Storyboard.swift */; };
+		9689C43F21E8FB4C00E441F5 /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C42D21E8FB4C00E441F5 /* Deprecated.swift */; };
+		9689C44021E8FB4C00E441F5 /* Injectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C42E21E8FB4C00E441F5 /* Injectable.swift */; };
+		9689C44121E8FB4C00E441F5 /* Instantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C42F21E8FB4C00E441F5 /* Instantiatable.swift */; };
+		9689C44221E8FB4C00E441F5 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C43021E8FB4C00E441F5 /* Identifier.swift */; };
+		9689C44321E8FB4C00E441F5 /* ViewLoadBeforeInject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C43121E8FB4C00E441F5 /* ViewLoadBeforeInject.swift */; };
+		9689C46621E8FB6B00E441F5 /* ChameleonShorthand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689C44821E8FB6B00E441F5 /* ChameleonShorthand.swift */; };
+		9689C46721E8FB6B00E441F5 /* UIColor+ChameleonPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9689C44B21E8FB6B00E441F5 /* UIColor+ChameleonPrivate.m */; };
+		9689C46821E8FB6B00E441F5 /* ChameleonConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9689C44C21E8FB6B00E441F5 /* ChameleonConstants.m */; };
+		9689C46921E8FB6B00E441F5 /* UIColor+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = 9689C45021E8FB6B00E441F5 /* UIColor+Chameleon.m */; };
+		9689C46A21E8FB6B00E441F5 /* UIButton+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = 9689C45221E8FB6B00E441F5 /* UIButton+Chameleon.m */; };
+		9689C46B21E8FB6B00E441F5 /* UIView+ChameleonPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9689C45721E8FB6B00E441F5 /* UIView+ChameleonPrivate.m */; };
+		9689C46C21E8FB6B00E441F5 /* Chameleon_.m in Sources */ = {isa = PBXBuildFile; fileRef = 9689C45821E8FB6B00E441F5 /* Chameleon_.m */; };
+		9689C46D21E8FB6B00E441F5 /* NSArray+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = 9689C45B21E8FB6B00E441F5 /* NSArray+Chameleon.m */; };
+		9689C46E21E8FB6B00E441F5 /* UINavigationController+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = 9689C45D21E8FB6B00E441F5 /* UINavigationController+Chameleon.m */; };
+		9689C46F21E8FB6B00E441F5 /* UILabel+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = 9689C45E21E8FB6B00E441F5 /* UILabel+Chameleon.m */; };
+		9689C47021E8FB6B00E441F5 /* UIViewController+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = 9689C45F21E8FB6B00E441F5 /* UIViewController+Chameleon.m */; };
+		9689C47121E8FB6B00E441F5 /* UIAppearance+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = 9689C46021E8FB6B00E441F5 /* UIAppearance+Swift.m */; };
+		9689C47221E8FB6B00E441F5 /* UIImage+ChameleonPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9689C46121E8FB6B00E441F5 /* UIImage+ChameleonPrivate.m */; };
+		96FBADB021E90698007D51DD /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADAF21E90698007D51DD /* Notification.swift */; };
+		96FBADB321E907FE007D51DD /* CalorieIntakeRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADB221E907FE007D51DD /* CalorieIntakeRepresentation.swift */; };
+		96FBADB521E908A0007D51DD /* CalorieIntakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADB421E908A0007D51DD /* CalorieIntakeController.swift */; };
+		96FBADB721E909E5007D51DD /* CalorieIntakeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADB621E909E5007D51DD /* CalorieIntakeTableViewController.swift */; };
+		96FBADBC21E91004007D51DD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADBB21E91004007D51DD /* CoreDataStack.swift */; };
+		96FBADBF21E91028007D51DD /* Calories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADBD21E91028007D51DD /* Calories.xcdatamodeld */; };
+		96FBADC221E91222007D51DD /* CalorieIntake+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADC121E91222007D51DD /* CalorieIntake+Codable.swift */; };
+		96FBADC421E9129A007D51DD /* CalorieIntake+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADC321E9129A007D51DD /* CalorieIntake+Convenience.swift */; };
+		96FBADC621E9164D007D51DD /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADC521E9164D007D51DD /* HTTPMethod.swift */; };
+		96FBADC821E91F7B007D51DD /* CalorieIntakePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADC721E91F7B007D51DD /* CalorieIntakePopover.swift */; };
+		96FBADCD21E92378007D51DD /* NewCalorieIntakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADCC21E92378007D51DD /* NewCalorieIntakeView.swift */; };
+		96FBADCF21E923FB007D51DD /* Instantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADCE21E923FB007D51DD /* Instantiate.swift */; };
+		96FBADD121E93068007D51DD /* NewCalorieIntakeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96FBADD021E93068007D51DD /* NewCalorieIntakeView.xib */; };
+		96FBADD321E9389A007D51DD /* CalorieIntakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADD221E9389A007D51DD /* CalorieIntakeCell.swift */; };
+		96FBADD521E93C8F007D51DD /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBADD421E93C8F007D51DD /* DateHelper.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		966F32D321E8F8BA000A6B30 /* Calories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calories.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		966F32D621E8F8BA000A6B30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		966F32DB21E8F8BA000A6B30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		966F32DD21E8F8BA000A6B30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		966F32E021E8F8BA000A6B30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		966F32E221E8F8BA000A6B30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9689C41621E8FB2C00E441F5 /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
+		9689C41721E8FB2C00E441F5 /* ChartColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartColors.swift; sourceTree = "<group>"; };
+		9689C41821E8FB2D00E441F5 /* ChartSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartSeries.swift; sourceTree = "<group>"; };
+		9689C41F21E8FB4C00E441F5 /* Reusable+NSTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reusable+NSTableView.swift"; sourceTree = "<group>"; };
+		9689C42021E8FB4C00E441F5 /* Nib+NSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Nib+NSViewController.swift"; sourceTree = "<group>"; };
+		9689C42121E8FB4C00E441F5 /* Storyboard+NSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+NSViewController.swift"; sourceTree = "<group>"; };
+		9689C42221E8FB4C00E441F5 /* Reusable+NSCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reusable+NSCollectionView.swift"; sourceTree = "<group>"; };
+		9689C42321E8FB4C00E441F5 /* Nib+NSView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Nib+NSView.swift"; sourceTree = "<group>"; };
+		9689C42421E8FB4C00E441F5 /* Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nib.swift; sourceTree = "<group>"; };
+		9689C42521E8FB4C00E441F5 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		9689C42721E8FB4C00E441F5 /* Nib+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Nib+UIView.swift"; sourceTree = "<group>"; };
+		9689C42821E8FB4C00E441F5 /* Reusable+UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reusable+UICollectionView.swift"; sourceTree = "<group>"; };
+		9689C42921E8FB4C00E441F5 /* Storyboard+UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+UIViewController.swift"; sourceTree = "<group>"; };
+		9689C42A21E8FB4C00E441F5 /* Nib+UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Nib+UIViewController.swift"; sourceTree = "<group>"; };
+		9689C42B21E8FB4C00E441F5 /* Reusable+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reusable+UITableView.swift"; sourceTree = "<group>"; };
+		9689C42C21E8FB4C00E441F5 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		9689C42D21E8FB4C00E441F5 /* Deprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deprecated.swift; sourceTree = "<group>"; };
+		9689C42E21E8FB4C00E441F5 /* Injectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injectable.swift; sourceTree = "<group>"; };
+		9689C42F21E8FB4C00E441F5 /* Instantiatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instantiatable.swift; sourceTree = "<group>"; };
+		9689C43021E8FB4C00E441F5 /* Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
+		9689C43121E8FB4C00E441F5 /* ViewLoadBeforeInject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLoadBeforeInject.swift; sourceTree = "<group>"; };
+		9689C44521E8FB6B00E441F5 /* Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chameleon.h; sourceTree = "<group>"; };
+		9689C44821E8FB6B00E441F5 /* ChameleonShorthand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChameleonShorthand.swift; sourceTree = "<group>"; };
+		9689C44A21E8FB6B00E441F5 /* ChameleonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChameleonMacros.h; sourceTree = "<group>"; };
+		9689C44B21E8FB6B00E441F5 /* UIColor+ChameleonPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ChameleonPrivate.m"; sourceTree = "<group>"; };
+		9689C44C21E8FB6B00E441F5 /* ChameleonConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChameleonConstants.m; sourceTree = "<group>"; };
+		9689C44D21E8FB6B00E441F5 /* UILabel+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Chameleon.h"; sourceTree = "<group>"; };
+		9689C44E21E8FB6B00E441F5 /* UINavigationController+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Chameleon.h"; sourceTree = "<group>"; };
+		9689C44F21E8FB6B00E441F5 /* Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chameleon.h; sourceTree = "<group>"; };
+		9689C45021E8FB6B00E441F5 /* UIColor+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Chameleon.m"; sourceTree = "<group>"; };
+		9689C45121E8FB6B00E441F5 /* NSArray+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Chameleon.h"; sourceTree = "<group>"; };
+		9689C45221E8FB6B00E441F5 /* UIButton+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Chameleon.m"; sourceTree = "<group>"; };
+		9689C45321E8FB6B00E441F5 /* UIImage+ChameleonPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ChameleonPrivate.h"; sourceTree = "<group>"; };
+		9689C45421E8FB6B00E441F5 /* UIAppearance+Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAppearance+Swift.h"; sourceTree = "<group>"; };
+		9689C45521E8FB6B00E441F5 /* UIViewController+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Chameleon.h"; sourceTree = "<group>"; };
+		9689C45621E8FB6B00E441F5 /* ChameleonEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChameleonEnums.h; sourceTree = "<group>"; };
+		9689C45721E8FB6B00E441F5 /* UIView+ChameleonPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ChameleonPrivate.m"; sourceTree = "<group>"; };
+		9689C45821E8FB6B00E441F5 /* Chameleon_.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chameleon_.m; sourceTree = "<group>"; };
+		9689C45921E8FB6B00E441F5 /* ChameleonConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChameleonConstants.h; sourceTree = "<group>"; };
+		9689C45A21E8FB6B00E441F5 /* UIColor+ChameleonPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ChameleonPrivate.h"; sourceTree = "<group>"; };
+		9689C45B21E8FB6B00E441F5 /* NSArray+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Chameleon.m"; sourceTree = "<group>"; };
+		9689C45C21E8FB6B00E441F5 /* UIColor+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Chameleon.h"; sourceTree = "<group>"; };
+		9689C45D21E8FB6B00E441F5 /* UINavigationController+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Chameleon.m"; sourceTree = "<group>"; };
+		9689C45E21E8FB6B00E441F5 /* UILabel+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Chameleon.m"; sourceTree = "<group>"; };
+		9689C45F21E8FB6B00E441F5 /* UIViewController+Chameleon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Chameleon.m"; sourceTree = "<group>"; };
+		9689C46021E8FB6B00E441F5 /* UIAppearance+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAppearance+Swift.m"; sourceTree = "<group>"; };
+		9689C46121E8FB6B00E441F5 /* UIImage+ChameleonPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ChameleonPrivate.m"; sourceTree = "<group>"; };
+		9689C46221E8FB6B00E441F5 /* UIButton+Chameleon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Chameleon.h"; sourceTree = "<group>"; };
+		9689C46321E8FB6B00E441F5 /* Chameleon_.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chameleon_.h; sourceTree = "<group>"; };
+		9689C46421E8FB6B00E441F5 /* UIView+ChameleonPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ChameleonPrivate.h"; sourceTree = "<group>"; };
+		9689C47421E8FC9900E441F5 /* Calories-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Calories-Bridging-Header.h"; sourceTree = "<group>"; };
+		96FBADAF21E90698007D51DD /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		96FBADB221E907FE007D51DD /* CalorieIntakeRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeRepresentation.swift; sourceTree = "<group>"; };
+		96FBADB421E908A0007D51DD /* CalorieIntakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeController.swift; sourceTree = "<group>"; };
+		96FBADB621E909E5007D51DD /* CalorieIntakeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeTableViewController.swift; sourceTree = "<group>"; };
+		96FBADBB21E91004007D51DD /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		96FBADBE21E91028007D51DD /* Calories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calories.xcdatamodel; sourceTree = "<group>"; };
+		96FBADC121E91222007D51DD /* CalorieIntake+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieIntake+Codable.swift"; sourceTree = "<group>"; };
+		96FBADC321E9129A007D51DD /* CalorieIntake+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieIntake+Convenience.swift"; sourceTree = "<group>"; };
+		96FBADC521E9164D007D51DD /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		96FBADC721E91F7B007D51DD /* CalorieIntakePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakePopover.swift; sourceTree = "<group>"; };
+		96FBADCC21E92378007D51DD /* NewCalorieIntakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCalorieIntakeView.swift; sourceTree = "<group>"; };
+		96FBADCE21E923FB007D51DD /* Instantiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instantiate.swift; sourceTree = "<group>"; };
+		96FBADD021E93068007D51DD /* NewCalorieIntakeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewCalorieIntakeView.xib; sourceTree = "<group>"; };
+		96FBADD221E9389A007D51DD /* CalorieIntakeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeCell.swift; sourceTree = "<group>"; };
+		96FBADD421E93C8F007D51DD /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		966F32D021E8F8BA000A6B30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		966F32CA21E8F8BA000A6B30 = {
+			isa = PBXGroup;
+			children = (
+				966F32D521E8F8BA000A6B30 /* Calories */,
+				966F32D421E8F8BA000A6B30 /* Products */,
+				96FBADA621E8FEC4007D51DD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		966F32D421E8F8BA000A6B30 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				966F32D321E8F8BA000A6B30 /* Calories.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		966F32D521E8F8BA000A6B30 /* Calories */ = {
+			isa = PBXGroup;
+			children = (
+				966F32D621E8F8BA000A6B30 /* AppDelegate.swift */,
+				966F32DA21E8F8BA000A6B30 /* Main.storyboard */,
+				96FBADB121E907BC007D51DD /* Models + Core Data */,
+				96FBADC021E91097007D51DD /* Model Controllers */,
+				96FBADB821E909F0007D51DD /* View Controllers */,
+				96FBADC921E91FA4007D51DD /* Views */,
+				96FBADAE21E9067C007D51DD /* Extensions + Utilities */,
+				966F32E821E8F9AF000A6B30 /* Frameworks */,
+				966F32E921E8F9D1000A6B30 /* Resources */,
+			);
+			path = Calories;
+			sourceTree = "<group>";
+		};
+		966F32E821E8F9AF000A6B30 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9689C44421E8FB6B00E441F5 /* Chameleon */,
+				9689C41C21E8FB3100E441F5 /* Instantiate */,
+				9689C41521E8FB1E00E441F5 /* SwiftChart */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		966F32E921E8F9D1000A6B30 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				966F32DD21E8F8BA000A6B30 /* Assets.xcassets */,
+				966F32DF21E8F8BA000A6B30 /* LaunchScreen.storyboard */,
+				966F32E221E8F8BA000A6B30 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9689C41521E8FB1E00E441F5 /* SwiftChart */ = {
+			isa = PBXGroup;
+			children = (
+				9689C41621E8FB2C00E441F5 /* Chart.swift */,
+				9689C41721E8FB2C00E441F5 /* ChartColors.swift */,
+				9689C41821E8FB2D00E441F5 /* ChartSeries.swift */,
+			);
+			path = SwiftChart;
+			sourceTree = "<group>";
+		};
+		9689C41C21E8FB3100E441F5 /* Instantiate */ = {
+			isa = PBXGroup;
+			children = (
+				9689C41E21E8FB4C00E441F5 /* macOS */,
+				9689C42421E8FB4C00E441F5 /* Nib.swift */,
+				9689C42521E8FB4C00E441F5 /* Reusable.swift */,
+				9689C42621E8FB4C00E441F5 /* iOS */,
+				9689C42C21E8FB4C00E441F5 /* Storyboard.swift */,
+				9689C42D21E8FB4C00E441F5 /* Deprecated.swift */,
+				9689C42E21E8FB4C00E441F5 /* Injectable.swift */,
+				9689C42F21E8FB4C00E441F5 /* Instantiatable.swift */,
+				9689C43021E8FB4C00E441F5 /* Identifier.swift */,
+				9689C43121E8FB4C00E441F5 /* ViewLoadBeforeInject.swift */,
+			);
+			path = Instantiate;
+			sourceTree = "<group>";
+		};
+		9689C41E21E8FB4C00E441F5 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				9689C41F21E8FB4C00E441F5 /* Reusable+NSTableView.swift */,
+				9689C42021E8FB4C00E441F5 /* Nib+NSViewController.swift */,
+				9689C42121E8FB4C00E441F5 /* Storyboard+NSViewController.swift */,
+				9689C42221E8FB4C00E441F5 /* Reusable+NSCollectionView.swift */,
+				9689C42321E8FB4C00E441F5 /* Nib+NSView.swift */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		9689C42621E8FB4C00E441F5 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				9689C42721E8FB4C00E441F5 /* Nib+UIView.swift */,
+				9689C42821E8FB4C00E441F5 /* Reusable+UICollectionView.swift */,
+				9689C42921E8FB4C00E441F5 /* Storyboard+UIViewController.swift */,
+				9689C42A21E8FB4C00E441F5 /* Nib+UIViewController.swift */,
+				9689C42B21E8FB4C00E441F5 /* Reusable+UITableView.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		9689C44421E8FB6B00E441F5 /* Chameleon */ = {
+			isa = PBXGroup;
+			children = (
+				9689C44521E8FB6B00E441F5 /* Chameleon.h */,
+				9689C44621E8FB6B00E441F5 /* Classes */,
+				9689C47421E8FC9900E441F5 /* Calories-Bridging-Header.h */,
+			);
+			path = Chameleon;
+			sourceTree = "<group>";
+		};
+		9689C44621E8FB6B00E441F5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9689C44721E8FB6B00E441F5 /* Swift */,
+				9689C44921E8FB6B00E441F5 /* Objective-C */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		9689C44721E8FB6B00E441F5 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				9689C44821E8FB6B00E441F5 /* ChameleonShorthand.swift */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		9689C44921E8FB6B00E441F5 /* Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				9689C44A21E8FB6B00E441F5 /* ChameleonMacros.h */,
+				9689C44B21E8FB6B00E441F5 /* UIColor+ChameleonPrivate.m */,
+				9689C44C21E8FB6B00E441F5 /* ChameleonConstants.m */,
+				9689C44D21E8FB6B00E441F5 /* UILabel+Chameleon.h */,
+				9689C44E21E8FB6B00E441F5 /* UINavigationController+Chameleon.h */,
+				9689C44F21E8FB6B00E441F5 /* Chameleon.h */,
+				9689C45021E8FB6B00E441F5 /* UIColor+Chameleon.m */,
+				9689C45121E8FB6B00E441F5 /* NSArray+Chameleon.h */,
+				9689C45221E8FB6B00E441F5 /* UIButton+Chameleon.m */,
+				9689C45321E8FB6B00E441F5 /* UIImage+ChameleonPrivate.h */,
+				9689C45421E8FB6B00E441F5 /* UIAppearance+Swift.h */,
+				9689C45521E8FB6B00E441F5 /* UIViewController+Chameleon.h */,
+				9689C45621E8FB6B00E441F5 /* ChameleonEnums.h */,
+				9689C45721E8FB6B00E441F5 /* UIView+ChameleonPrivate.m */,
+				9689C45821E8FB6B00E441F5 /* Chameleon_.m */,
+				9689C45921E8FB6B00E441F5 /* ChameleonConstants.h */,
+				9689C45A21E8FB6B00E441F5 /* UIColor+ChameleonPrivate.h */,
+				9689C45B21E8FB6B00E441F5 /* NSArray+Chameleon.m */,
+				9689C45C21E8FB6B00E441F5 /* UIColor+Chameleon.h */,
+				9689C45D21E8FB6B00E441F5 /* UINavigationController+Chameleon.m */,
+				9689C45E21E8FB6B00E441F5 /* UILabel+Chameleon.m */,
+				9689C45F21E8FB6B00E441F5 /* UIViewController+Chameleon.m */,
+				9689C46021E8FB6B00E441F5 /* UIAppearance+Swift.m */,
+				9689C46121E8FB6B00E441F5 /* UIImage+ChameleonPrivate.m */,
+				9689C46221E8FB6B00E441F5 /* UIButton+Chameleon.h */,
+				9689C46321E8FB6B00E441F5 /* Chameleon_.h */,
+				9689C46421E8FB6B00E441F5 /* UIView+ChameleonPrivate.h */,
+			);
+			path = "Objective-C";
+			sourceTree = "<group>";
+		};
+		96FBADA621E8FEC4007D51DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		96FBADAE21E9067C007D51DD /* Extensions + Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				96FBADCE21E923FB007D51DD /* Instantiate.swift */,
+				96FBADAF21E90698007D51DD /* Notification.swift */,
+				96FBADC521E9164D007D51DD /* HTTPMethod.swift */,
+				96FBADD421E93C8F007D51DD /* DateHelper.swift */,
+			);
+			path = "Extensions + Utilities";
+			sourceTree = "<group>";
+		};
+		96FBADB121E907BC007D51DD /* Models + Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				96FBADC321E9129A007D51DD /* CalorieIntake+Convenience.swift */,
+				96FBADC121E91222007D51DD /* CalorieIntake+Codable.swift */,
+				96FBADB221E907FE007D51DD /* CalorieIntakeRepresentation.swift */,
+				96FBADBA21E90FE1007D51DD /* Core Data */,
+			);
+			path = "Models + Core Data";
+			sourceTree = "<group>";
+		};
+		96FBADB821E909F0007D51DD /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				96FBADB621E909E5007D51DD /* CalorieIntakeTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		96FBADBA21E90FE1007D51DD /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				96FBADBB21E91004007D51DD /* CoreDataStack.swift */,
+				96FBADBD21E91028007D51DD /* Calories.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		96FBADC021E91097007D51DD /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				96FBADB421E908A0007D51DD /* CalorieIntakeController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		96FBADC921E91FA4007D51DD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				96FBADD221E9389A007D51DD /* CalorieIntakeCell.swift */,
+				96FBADCC21E92378007D51DD /* NewCalorieIntakeView.swift */,
+				96FBADD021E93068007D51DD /* NewCalorieIntakeView.xib */,
+				96FBADC721E91F7B007D51DD /* CalorieIntakePopover.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		966F32D221E8F8BA000A6B30 /* Calories */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 966F32E521E8F8BA000A6B30 /* Build configuration list for PBXNativeTarget "Calories" */;
+			buildPhases = (
+				966F32CF21E8F8BA000A6B30 /* Sources */,
+				966F32D021E8F8BA000A6B30 /* Frameworks */,
+				966F32D121E8F8BA000A6B30 /* Resources */,
+				96FBADAD21E90140007D51DD /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Calories;
+			productName = Calories;
+			productReference = 966F32D321E8F8BA000A6B30 /* Calories.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		966F32CB21E8F8BA000A6B30 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Jason Modisett";
+				TargetAttributes = {
+					966F32D221E8F8BA000A6B30 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 966F32CE21E8F8BA000A6B30 /* Build configuration list for PBXProject "Calories" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 966F32CA21E8F8BA000A6B30;
+			productRefGroup = 966F32D421E8F8BA000A6B30 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				966F32D221E8F8BA000A6B30 /* Calories */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		966F32D121E8F8BA000A6B30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				966F32E121E8F8BA000A6B30 /* LaunchScreen.storyboard in Resources */,
+				966F32DE21E8F8BA000A6B30 /* Assets.xcassets in Resources */,
+				96FBADD121E93068007D51DD /* NewCalorieIntakeView.xib in Resources */,
+				966F32DC21E8F8BA000A6B30 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		96FBADAD21E90140007D51DD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/../Carthage/Build/iOS/Popover.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Popover.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		966F32CF21E8F8BA000A6B30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9689C43521E8FB4C00E441F5 /* Reusable+NSCollectionView.swift in Sources */,
+				96FBADC421E9129A007D51DD /* CalorieIntake+Convenience.swift in Sources */,
+				9689C43C21E8FB4C00E441F5 /* Nib+UIViewController.swift in Sources */,
+				9689C43821E8FB4C00E441F5 /* Reusable.swift in Sources */,
+				96FBADCF21E923FB007D51DD /* Instantiate.swift in Sources */,
+				9689C46F21E8FB6B00E441F5 /* UILabel+Chameleon.m in Sources */,
+				9689C43E21E8FB4C00E441F5 /* Storyboard.swift in Sources */,
+				9689C46E21E8FB6B00E441F5 /* UINavigationController+Chameleon.m in Sources */,
+				96FBADCD21E92378007D51DD /* NewCalorieIntakeView.swift in Sources */,
+				9689C47021E8FB6B00E441F5 /* UIViewController+Chameleon.m in Sources */,
+				9689C47121E8FB6B00E441F5 /* UIAppearance+Swift.m in Sources */,
+				9689C43721E8FB4C00E441F5 /* Nib.swift in Sources */,
+				9689C43D21E8FB4C00E441F5 /* Reusable+UITableView.swift in Sources */,
+				9689C46621E8FB6B00E441F5 /* ChameleonShorthand.swift in Sources */,
+				9689C46A21E8FB6B00E441F5 /* UIButton+Chameleon.m in Sources */,
+				9689C46821E8FB6B00E441F5 /* ChameleonConstants.m in Sources */,
+				96FBADB521E908A0007D51DD /* CalorieIntakeController.swift in Sources */,
+				9689C46D21E8FB6B00E441F5 /* NSArray+Chameleon.m in Sources */,
+				96FBADBC21E91004007D51DD /* CoreDataStack.swift in Sources */,
+				9689C44121E8FB4C00E441F5 /* Instantiatable.swift in Sources */,
+				9689C43F21E8FB4C00E441F5 /* Deprecated.swift in Sources */,
+				96FBADBF21E91028007D51DD /* Calories.xcdatamodeld in Sources */,
+				9689C44321E8FB4C00E441F5 /* ViewLoadBeforeInject.swift in Sources */,
+				9689C41921E8FB2D00E441F5 /* Chart.swift in Sources */,
+				9689C43921E8FB4C00E441F5 /* Nib+UIView.swift in Sources */,
+				9689C46721E8FB6B00E441F5 /* UIColor+ChameleonPrivate.m in Sources */,
+				96FBADD521E93C8F007D51DD /* DateHelper.swift in Sources */,
+				96FBADB321E907FE007D51DD /* CalorieIntakeRepresentation.swift in Sources */,
+				96FBADC221E91222007D51DD /* CalorieIntake+Codable.swift in Sources */,
+				96FBADB021E90698007D51DD /* Notification.swift in Sources */,
+				9689C46B21E8FB6B00E441F5 /* UIView+ChameleonPrivate.m in Sources */,
+				9689C46921E8FB6B00E441F5 /* UIColor+Chameleon.m in Sources */,
+				9689C44221E8FB4C00E441F5 /* Identifier.swift in Sources */,
+				9689C43621E8FB4C00E441F5 /* Nib+NSView.swift in Sources */,
+				9689C47221E8FB6B00E441F5 /* UIImage+ChameleonPrivate.m in Sources */,
+				9689C46C21E8FB6B00E441F5 /* Chameleon_.m in Sources */,
+				9689C43221E8FB4C00E441F5 /* Reusable+NSTableView.swift in Sources */,
+				9689C43B21E8FB4C00E441F5 /* Storyboard+UIViewController.swift in Sources */,
+				9689C41B21E8FB2D00E441F5 /* ChartSeries.swift in Sources */,
+				96FBADC621E9164D007D51DD /* HTTPMethod.swift in Sources */,
+				96FBADC821E91F7B007D51DD /* CalorieIntakePopover.swift in Sources */,
+				9689C44021E8FB4C00E441F5 /* Injectable.swift in Sources */,
+				9689C43421E8FB4C00E441F5 /* Storyboard+NSViewController.swift in Sources */,
+				9689C43A21E8FB4C00E441F5 /* Reusable+UICollectionView.swift in Sources */,
+				96FBADB721E909E5007D51DD /* CalorieIntakeTableViewController.swift in Sources */,
+				9689C43321E8FB4C00E441F5 /* Nib+NSViewController.swift in Sources */,
+				96FBADD321E9389A007D51DD /* CalorieIntakeCell.swift in Sources */,
+				966F32D721E8F8BA000A6B30 /* AppDelegate.swift in Sources */,
+				9689C41A21E8FB2D00E441F5 /* ChartColors.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		966F32DA21E8F8BA000A6B30 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				966F32DB21E8F8BA000A6B30 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		966F32DF21E8F8BA000A6B30 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				966F32E021E8F8BA000A6B30 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		966F32E321E8F8BA000A6B30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		966F32E421E8F8BA000A6B30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		966F32E621E8F8BA000A6B30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7LHTMK9AWG;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS/";
+				INFOPLIST_FILE = "$(SRCROOT)/Calories/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jasonmodisett.Calories;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Calories/Frameworks/Chameleon/Calories-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		966F32E721E8F8BA000A6B30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7LHTMK9AWG;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS/";
+				INFOPLIST_FILE = "$(SRCROOT)/Calories/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jasonmodisett.Calories;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Calories/Frameworks/Chameleon/Calories-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		966F32CE21E8F8BA000A6B30 /* Build configuration list for PBXProject "Calories" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				966F32E321E8F8BA000A6B30 /* Debug */,
+				966F32E421E8F8BA000A6B30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		966F32E521E8F8BA000A6B30 /* Build configuration list for PBXNativeTarget "Calories" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				966F32E621E8F8BA000A6B30 /* Debug */,
+				966F32E721E8F8BA000A6B30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		96FBADBD21E91028007D51DD /* Calories.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				96FBADBE21E91028007D51DD /* Calories.xcdatamodel */,
+			);
+			currentVersion = 96FBADBE21E91028007D51DD /* Calories.xcdatamodel */;
+			path = Calories.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 966F32CB21E8F8BA000A6B30 /* Project object */;
+}
