@@ -10,7 +10,7 @@
 #
 disabled_rules: # rule identifiers to exclude from running
   - class_delegate_protocol # This breaks if you have a delegate protocol that inherits from a class-bound protocol (see: SwiftyTables DataSourceDelegate)
-  - identifier_name
+  #- identifier_name
   - redundant_objc_attribute
   - todo
   - trailing_comma
@@ -56,6 +56,7 @@ opt_in_rules:
   - unused_control_flow_label
   - vertical_parameter_alignment_on_call
   - xct_specific_matcher
+  - identifier_name
 
   # Experimental
   - explicit_self
