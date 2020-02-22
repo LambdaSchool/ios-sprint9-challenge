@@ -10,3 +10,4 @@ whitelist_rules:
 - trailing_newline
 excluded: # paths to ignore during linting.
   - Carthage
+  - Pods
