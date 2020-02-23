@@ -155,24 +155,3 @@ extension CalorieTableViewController: NSFetchedResultsControllerDelegate {
         }
     }
 }
-extension CalorieTableViewController: ChartDelegate {
-    override func viewDidLoad() {
-    let chart = Chart(frame: CGRect(x: 0, y: 0, width: 100, height: 200))
-        chart.delegate = self
-        
-        
-    }
-    func didTouchChart(_ chart: Chart, indexes: [Int?], x: Double, left: CGFloat) {
-        
-    }
-    
-    func didFinishTouchingChart(_ chart: Chart) {
-        <#code#>
-    }
-    
-    func didEndTouchingChart(_ chart: Chart) {
-        <#code#>
-    }
-    
-    
-}
