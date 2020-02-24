@@ -21,7 +21,7 @@ class CalorieTrackerController {
             print("error in adding a new entry to core data \(error)")
         }
         let notificationCenter = NotificationCenter.default
-        notificationCenter.post(name: )
+        notificationCenter.post(name: .addedCalorieEntry, object: nil)
         
     }
     
