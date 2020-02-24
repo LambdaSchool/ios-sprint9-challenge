@@ -38,6 +38,8 @@ class CalorieTrackerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .addedCalorieEntry, object: nil)
+        updateViews()
     }
 
     // MARK: - New Entry UI Alert
@@ -48,7 +50,7 @@ class CalorieTrackerViewController: UIViewController {
 //        alert.addTextField { (textField) in
 //            textField.placeholder = "Enter Calories"
 //        }
-        let submit = UIAlertAction(title: "Submit", style: .default) { (alertAction) in
+        let submit = UIAlertAction(title: "Submit", style: .default) { _ in
             let textField = alert.textFields![0] as UITextField
             guard textField.text != "" else { return }
             guard let calories = textField.text,
@@ -57,27 +59,43 @@ class CalorieTrackerViewController: UIViewController {
             self.calorieTrackerController.addEntry(entry: newCalorieTracker)
         }
         
-        alert.addTextField { (textField) in
+        alert.addTextField { textField in
             textField.placeholder = "EnterCalories"
         }
         alert.addAction(submit)
         
-        let cancel = UIAlertAction(title: "Cancel", style: .default) { (alertAction) in }
+        let cancel = UIAlertAction(title: "Cancel", style: .default) { _ in }
         alert.addAction(cancel)
         
         self.present(alert, animated: true, completion: nil)
         // call add action with text field contents
     }
+    
+    @objc func updateViews() {
+        tableView.reloadData()
+    }
 }
 
 // MARK: - Table View Data Source
 extension CalorieTrackerViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        fetchedResultsController.sections?.count ?? 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        calorieTrackerController.entries.count
+        fetchedResultsController.fetchedObjects?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath)
+        
+        let entry = fetchedResultsController.object(at: indexPath)
+        
+        let calories = String(entry.calories)
+        cell.textLabel?.text = calories
+        
+        let entryTime = entry.timestamp
+        cell.detailTextLabel?.text = Date.stringFormattedDate(from: entryTime!)
         
         return cell
     }

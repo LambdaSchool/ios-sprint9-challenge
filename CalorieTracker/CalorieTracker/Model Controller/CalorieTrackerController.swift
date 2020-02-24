@@ -15,6 +15,7 @@ class CalorieTrackerController {
     var entries: [CalorieTracker] = []
     
     func addEntry(entry: CalorieTracker, completion: @escaping () -> Void = { }) {
+        entries.append(entry)
         do {
             try? CoreDataStack.shared.save()
         } catch {
