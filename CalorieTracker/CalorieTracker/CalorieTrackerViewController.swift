@@ -41,7 +41,7 @@ class CalorieTrackerViewController: UIViewController {
         super.viewDidLoad()
 
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .addedCalorieEntry, object: nil)
-        chartView.delegate = self
+        initializeChart()
         updateViews()
     }
 
@@ -76,6 +76,35 @@ class CalorieTrackerViewController: UIViewController {
     
     @objc func updateViews() {
         tableView.reloadData()
+        initializeChart()
+    }
+    
+    func initializeChart() {
+        chartView.delegate = self
+        
+        guard let calorieTrackerArray: [CalorieTracker] = fetchedResultsController.fetchedObjects else { return }
+        
+        var calorieData: [Double] = []
+        var timeData: [Double] = []
+        
+        for entry in calorieTrackerArray {
+            let calorieDatum = entry.calories
+            calorieData.append(calorieDatum)
+            
+            guard let timeDatum = entry.timestamp else { return }
+            let convertedTime: Double = timeDatum.timeIntervalSince1970
+            timeData.append(convertedTime)
+        }
+        
+        let series = ChartSeries(calorieData)
+        series.area = true
+        
+        chartView.lineWidth = 0.5
+        series.color = ChartColors.blueColor()
+        chartView.labelFont = UIFont.systemFont(ofSize: 12)
+        chartView.yLabelsOnRightSide = true
+        
+        chartView.add(series)
     }
 }
 
@@ -159,15 +188,19 @@ extension CalorieTrackerViewController: NSFetchedResultsControllerDelegate {
 // MARK: - ChartView Delegate
 extension CalorieTrackerViewController: ChartDelegate {
     func didTouchChart(_ chart: Chart, indexes: [Int?], x: Double, left: CGFloat) {
-        <#code#>
+        for (seriesIndex, dataIndex) in indexes.enumerated() {
+            if let value = chart.valueForSeries(seriesIndex, atIndex: dataIndex) {
+                print("Touched series: \(seriesIndex): data index: \(dataIndex!); series value: \(value); x-axis value: \(x) (from left: \(left))")
+            }
+        }
     }
     
     func didFinishTouchingChart(_ chart: Chart) {
-        <#code#>
+        
     }
     
     func didEndTouchingChart(_ chart: Chart) {
-        <#code#>
+        
     }
     
     
