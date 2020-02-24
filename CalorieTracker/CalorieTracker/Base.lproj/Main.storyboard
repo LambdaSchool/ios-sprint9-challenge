@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Calorie Tracker View Controller-->
+        <!--CalorieTracker-->
         <scene sceneID="vL6-FE-Dev">
             <objects>
                 <viewController id="Bfh-vc-naa" customClass="CalorieTrackerViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,14 +16,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tFw-XY-BeV" customClass="Chart" customModule="SwiftChart">
-                                <rect key="frame" x="0.0" y="88" width="414" height="300"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="4g4-nT-7Je"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qh3-dh-VB5">
-                                <rect key="frame" x="0.0" y="388" width="414" height="474"/>
+                                <rect key="frame" x="0.0" y="440" width="414" height="422"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EntryCell" textLabel="jwi-qW-uLS" detailTextLabel="QED-ls-m7X" style="IBUITableViewCellStyleValue1" id="W3z-di-ZlZ">
@@ -69,7 +69,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J7p-bF-R7F"/>
                     </view>
-                    <navigationItem key="navigationItem" id="klV-uc-Ghl"/>
+                    <navigationItem key="navigationItem" title="CalorieTracker" id="klV-uc-Ghl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yp4-lD-gT3">
+                            <connections>
+                                <action selector="addNewCalorieEntry:" destination="Bfh-vc-naa" id="DR7-lo-trJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Qh3-dh-VB5" id="6P1-DU-avv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cN1-sC-Jpw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -80,8 +89,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jtF-id-GCd" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="isZ-Ii-eRx">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="isZ-Ii-eRx">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

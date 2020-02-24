@@ -11,25 +11,21 @@ import UIKit
 class CalorieTrackerViewController: UIViewController {
     
     var calorieTrackerController = CalorieTrackerController()
-    
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addNewCalorieEntry(_ sender: UIBarButtonItem) {
+        // show alert
+        // check for valid user entry
+        // call add action with text field contents
+        // dismiss alert
     }
-    */
-
 }
 
 // MARK: Table View Data Source
