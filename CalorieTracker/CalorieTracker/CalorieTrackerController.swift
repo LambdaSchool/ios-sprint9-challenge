@@ -14,4 +14,12 @@ class CalorieTrackerController {
     
     var entries: [CalorieTracker] = []
     
+    func addEntry(entry: CalorieTracker, completion: @escaping (Error?) -> Void = {_ in }) {
+        
+    }
+    
+    private func saveToPersistentStore() throws {
+        let moc = CoreDataStack.shared.mainContext
+        try moc.save()
+    }
 }

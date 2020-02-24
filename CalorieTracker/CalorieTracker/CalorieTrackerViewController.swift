@@ -61,6 +61,7 @@ extension CalorieTrackerViewController: UITableViewDataSource {
     
 }
 
+// MARK: - FRC Delegate
 extension CalorieTrackerViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
