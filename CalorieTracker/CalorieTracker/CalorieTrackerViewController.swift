@@ -51,19 +51,22 @@ class CalorieTrackerViewController: UIViewController {
         let submit = UIAlertAction(title: "Submit", style: .default) { (alertAction) in
             let textField = alert.textFields![0] as UITextField
             guard textField.text != "" else { return }
+            guard let calories = textField.text,
+            let validEntry = Double(calories) else { return }
+            let newCalorieTracker = CalorieTracker(calories: validEntry)
+            self.calorieTrackerController.addEntry(entry: newCalorieTracker)
         }
         
         alert.addTextField { (textField) in
             textField.placeholder = "EnterCalories"
         }
-        
         alert.addAction(submit)
+        
         let cancel = UIAlertAction(title: "Cancel", style: .default) { (alertAction) in }
         alert.addAction(cancel)
         
         self.present(alert, animated: true, completion: nil)
         // call add action with text field contents
-        // dismiss alert
     }
 }
 

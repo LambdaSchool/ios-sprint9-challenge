@@ -14,7 +14,14 @@ class CalorieTrackerController {
     
     var entries: [CalorieTracker] = []
     
-    func addEntry(entry: CalorieTracker, completion: @escaping (Error?) -> Void = {_ in }) {
+    func addEntry(entry: CalorieTracker, completion: @escaping () -> Void = { }) {
+        do {
+            try? CoreDataStack.shared.save()
+        } catch {
+            print("error in adding a new entry to core data \(error)")
+        }
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.post(name: )
         
     }
     
