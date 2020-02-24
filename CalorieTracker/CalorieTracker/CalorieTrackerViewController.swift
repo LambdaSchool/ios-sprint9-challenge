@@ -11,6 +11,7 @@ import CoreData
 
 class CalorieTrackerViewController: UIViewController {
     
+    // MARK: - Properties
     var calorieTrackerController = CalorieTrackerController()
     
     private lazy var fetchedResultsController: NSFetchedResultsController<CalorieTracker> = {
@@ -30,23 +31,43 @@ class CalorieTrackerViewController: UIViewController {
         return frc
     }()
 
+    // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: - View Control Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
+    // MARK: - New Entry UI Alert
     @IBAction func addNewCalorieEntry(_ sender: UIBarButtonItem) {
         // show alert
+        let alert = UIAlertController(title: "New Calorie Entry", message: "Add a new entry for calories consumed.", preferredStyle: .alert)
         // check for valid user entry
+//        alert.addTextField { (textField) in
+//            textField.placeholder = "Enter Calories"
+//        }
+        let submit = UIAlertAction(title: "Submit", style: .default) { (alertAction) in
+            let textField = alert.textFields![0] as UITextField
+            guard textField.text != "" else { return }
+        }
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "EnterCalories"
+        }
+        
+        alert.addAction(submit)
+        let cancel = UIAlertAction(title: "Cancel", style: .default) { (alertAction) in }
+        alert.addAction(cancel)
+        
+        self.present(alert, animated: true, completion: nil)
         // call add action with text field contents
         // dismiss alert
     }
 }
 
-// MARK: Table View Data Source
+// MARK: - Table View Data Source
 extension CalorieTrackerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         calorieTrackerController.entries.count
