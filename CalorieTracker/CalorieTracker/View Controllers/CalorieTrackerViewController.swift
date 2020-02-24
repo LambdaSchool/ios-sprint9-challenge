@@ -40,6 +40,8 @@ class CalorieTrackerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // The observer specifically looks for a new CalorieTracker entry that the user entered into the alert controller
+        // If a new entry is found, the observer calls updateViews(), which reloads the data and also calls initializeChart().
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .addedCalorieEntry, object: nil)
         initializeChart()
         updateViews()
@@ -47,12 +49,11 @@ class CalorieTrackerViewController: UIViewController {
 
     // MARK: - New Entry UI Alert
     @IBAction func addNewCalorieEntry(_ sender: UIBarButtonItem) {
-        // show alert
+        // show alert to enter new calorie info.
         let alert = UIAlertController(title: "New Calorie Entry", message: "Add a new entry for calories consumed.", preferredStyle: .alert)
-        // check for valid user entry
-//        alert.addTextField { (textField) in
-//            textField.placeholder = "Enter Calories"
-//        }
+        
+        // check for valid user entry when the Submit button is tapped
+        // if entry is valid, call the addEntry method to add it to core data
         let submit = UIAlertAction(title: "Submit", style: .default) { _ in
             let textField = alert.textFields![0] as UITextField
             guard textField.text != "" else { return }
@@ -71,7 +72,7 @@ class CalorieTrackerViewController: UIViewController {
         alert.addAction(cancel)
         
         self.present(alert, animated: true, completion: nil)
-        // call add action with text field contents
+
     }
     
     @objc func updateViews() {
@@ -79,6 +80,8 @@ class CalorieTrackerViewController: UIViewController {
         initializeChart()
     }
     
+    // Create chart using SwiftChart library
+    // I was not able to do much with the x-axis of timestamps.
     func initializeChart() {
         chartView.delegate = self
         
@@ -131,77 +134,4 @@ extension CalorieTrackerViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
-}
-
-// MARK: - FRC Delegate
-extension CalorieTrackerViewController: NSFetchedResultsControllerDelegate {
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
-                    didChange sectionInfo: NSFetchedResultsSectionInfo,
-                    atSectionIndex sectionIndex: Int,
-                    for type: NSFetchedResultsChangeType) {
-        switch type {
-        case .insert:
-            tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
-        case .delete:
-            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
-        default:
-            break
-        }
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
-                    didChange anObject: Any,
-                    at indexPath: IndexPath?,
-                    for type: NSFetchedResultsChangeType,
-                    newIndexPath: IndexPath?) {
-        switch type {
-        case .insert:
-            guard let newIndexPath = newIndexPath else { return }
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
-        case .update:
-            guard let indexPath = indexPath else { return }
-            tableView.reloadRows(at: [indexPath], with: .automatic)
-        case .move:
-            guard let oldIndexPath = indexPath else { return }
-            guard let newIndexPath = newIndexPath else { return }
-            tableView.deleteRows(at: [oldIndexPath], with: .automatic)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
-        case .delete:
-            guard let indexPath = indexPath else { return }
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-        default:
-            break
-        }
-    }
-}
-
-// MARK: - ChartView Delegate
-extension CalorieTrackerViewController: ChartDelegate {
-    func didTouchChart(_ chart: Chart, indexes: [Int?], x: Double, left: CGFloat) {
-        for (seriesIndex, dataIndex) in indexes.enumerated() {
-            if let value = chart.valueForSeries(seriesIndex, atIndex: dataIndex) {
-                print("Touched series: \(seriesIndex): data index: \(dataIndex!); series value: \(value); x-axis value: \(x) (from left: \(left))")
-            }
-        }
-    }
-    
-    func didFinishTouchingChart(_ chart: Chart) {
-        
-    }
-    
-    func didEndTouchingChart(_ chart: Chart) {
-        
-    }
-    
-    
 }
