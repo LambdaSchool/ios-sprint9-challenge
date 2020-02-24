@@ -77,6 +77,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="chartView" destination="tFw-XY-BeV" id="J0J-cH-zwY"/>
                         <outlet property="tableView" destination="Qh3-dh-VB5" id="6P1-DU-avv"/>
                     </connections>
                 </viewController>

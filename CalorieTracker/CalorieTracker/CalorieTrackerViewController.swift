@@ -8,9 +8,10 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class CalorieTrackerViewController: UIViewController {
-    
+
     // MARK: - Properties
     var calorieTrackerController = CalorieTrackerController()
     
@@ -32,6 +33,7 @@ class CalorieTrackerViewController: UIViewController {
     }()
 
     // MARK: - Outlets
+    @IBOutlet weak var chartView: Chart!
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - View Control Life Cycle
@@ -39,6 +41,7 @@ class CalorieTrackerViewController: UIViewController {
         super.viewDidLoad()
 
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .addedCalorieEntry, object: nil)
+        chartView.delegate = self
         updateViews()
     }
 
@@ -151,4 +154,21 @@ extension CalorieTrackerViewController: NSFetchedResultsControllerDelegate {
             break
         }
     }
+}
+
+// MARK: - ChartView Delegate
+extension CalorieTrackerViewController: ChartDelegate {
+    func didTouchChart(_ chart: Chart, indexes: [Int?], x: Double, left: CGFloat) {
+        <#code#>
+    }
+    
+    func didFinishTouchingChart(_ chart: Chart) {
+        <#code#>
+    }
+    
+    func didEndTouchingChart(_ chart: Chart) {
+        <#code#>
+    }
+    
+    
 }
