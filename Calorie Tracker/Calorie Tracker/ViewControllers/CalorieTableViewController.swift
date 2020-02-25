@@ -36,14 +36,6 @@ class CalorieTableViewController: UITableViewController {
         return frc
     }()
 
-    let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .short
-        
-        return formatter
-    }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .calorieEntered, object: nil)
@@ -51,9 +43,9 @@ class CalorieTableViewController: UITableViewController {
 
     }
 
-    func dateString(for calorie: Calorie?) -> String? {
-        calorie?.timestamp.map { dateFormatter.string(from: $0) }
-    }
+//    func dateString(for calorie: Calorie?) -> String? {
+//        calorie?.timestamp.map { dateFormatter.string(from: $0) }
+//    }
     
     @objc func updateViews() {
         fetchedResultController.fetchedObjects?.forEach { calorie in
@@ -96,7 +88,7 @@ class CalorieTableViewController: UITableViewController {
         let calorie = fetchedResultController.object(at: indexPath)
         if let date = calorie.timestamp {
             cell.textLabel?.text = "Calorie: \(calorie.calorie)"
-            cell.detailTextLabel?.text = dateFormatter.string(from: date)
+            cell.detailTextLabel?.text = Date.dateToString(from: date)
         }
         
         
@@ -106,8 +98,6 @@ class CalorieTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             caloriesArray.remove(at: indexPath.section)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
             
         }
     }
