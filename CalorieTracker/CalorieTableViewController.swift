@@ -14,6 +14,10 @@ class CalorieTableViewController: UITableViewController {
     
     let calorieController = CalorieController()
     
+    
+    @IBOutlet weak var timestampLabel: UILabel!
+    
+    
     @IBOutlet private weak var chartView: Chart!
     
     lazy var fetchedResultController: NSFetchedResultsController<Calorie> = {
@@ -33,7 +37,9 @@ class CalorieTableViewController: UITableViewController {
         
         do {
             try frc.performFetch()
-        }catch{}
+        }catch {
+            print("Error fetching \(error)")
+        }
         
         return frc
     }() //to store the variable after it runs
@@ -55,8 +61,9 @@ class CalorieTableViewController: UITableViewController {
     
     func dateString(for calorie: Calorie?) -> String? {
         //Eexecute with map if there's any date
-        return calorie?.timestamp.map { dateFormatter.string(from: $0)}
+        return calorie?.timestamp.map { dateFormatter.string(from: $0) }
     }
+    
     
     
     @IBAction func addPressed(_ sender: Any) {
@@ -116,13 +123,6 @@ class CalorieTableViewController: UITableViewController {
         self.chartView.add(series)
     }
         
-//        override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//         if editingStyle == .delete {
-//            self.calorieController.create(calorie: <#T##Int16#>)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//         }
-//        }
-
     }
 }
 
