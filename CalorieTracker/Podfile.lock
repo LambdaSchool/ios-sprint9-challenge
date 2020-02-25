@@ -1,0 +1,29 @@
+PODS:
+  - SwiftChart (1.0.1)
+  - SwiftFontName (4.0.0)
+
+DEPENDENCIES:
+  - SwiftChart (from `https://github.com/gpbl/SwiftChart`, branch `master`)
+  - SwiftFontName (~> 4.0.0)
+
+SPEC REPOS:
+  trunk:
+    - SwiftFontName
+
+EXTERNAL SOURCES:
+  SwiftChart:
+    :branch: master
+    :git: https://github.com/gpbl/SwiftChart
+
+CHECKOUT OPTIONS:
+  SwiftChart:
+    :commit: 4949a94090641ca85b8133129f7a7b2230694788
+    :git: https://github.com/gpbl/SwiftChart
+
+SPEC CHECKSUMS:
+  SwiftChart: 6ed8c61f3731cc32e3cb92858dba339d08ddac87
+  SwiftFontName: 08aaa0143dadc7753587c4317d9e8a5f2c2418b5
+
+PODFILE CHECKSUM: 9457fde2c72e43dab76c3de52e1cf1a3c8bb1140
+
+COCOAPODS: 1.8.4
