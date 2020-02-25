@@ -14,9 +14,7 @@ class CalorieTrackerController {
     
     func addEntry(entry: CalorieTracker, completion: @escaping () -> Void = { }) {
         
-        do {
             try? CoreDataStack.shared.save()
-        }
         
         // Set a notification center post for observers
         let notificationCenter = NotificationCenter.default

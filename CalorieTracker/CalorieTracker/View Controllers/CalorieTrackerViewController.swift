@@ -43,7 +43,7 @@ class CalorieTrackerViewController: UIViewController {
         // The observer specifically looks for a new CalorieTracker entry that the user entered into the alert controller
         // If a new entry is found, the observer calls updateViews(), which reloads the data and also calls initializeChart().
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .addedCalorieEntry, object: nil)
-        initializeChart()
+       
         updateViews()
     }
 
