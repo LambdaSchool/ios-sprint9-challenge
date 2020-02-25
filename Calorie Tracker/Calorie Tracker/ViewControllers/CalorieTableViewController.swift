@@ -12,13 +12,13 @@ import SwiftChart
 
 class CalorieTableViewController: UITableViewController {
     @IBOutlet private weak var chartView: Chart!
-    
-    
-    
+
     let calorieController = CalorieController()
     
+    var caloriesArray = [Double]()
+
     lazy var fetchedResultController: NSFetchedResultsController<Calorie> = {
-        
+
         let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
         fetchRequest.sortDescriptors = [
             NSSortDescriptor(key: "timestamp", ascending: true)
@@ -26,87 +26,104 @@ class CalorieTableViewController: UITableViewController {
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "calorie", cacheName: nil)
         frc.delegate = self
-        
+
         do {
             try frc.performFetch()
-        } catch {}
-        
+        } catch {
+            print("Error fetching CoreDataStack: \(error)")
+        }
+
         return frc
     }()
-    
-    private var dateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .short
-        return dateFormatter
+
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        
+        return formatter
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.updateChart()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .calorieEntered, object: nil)
+        updateViews()
 
     }
-    
+
     func dateString(for calorie: Calorie?) -> String? {
-        return calorie?.timestamp.map { dateFormatter.string(from: $0) }
+        calorie?.timestamp.map { dateFormatter.string(from: $0) }
     }
     
-    @IBAction func addPressed(_ sender: Any) {
-        
-        let ac = UIAlertController(title: "Add calorie Intake", message: "Enter amount of calories in this field.", preferredStyle: .alert)
-        
-        ac.addTextField()
-        
-        let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
-            let answer = ac.textFields![0].text
-            
-            let calorieInt: Int = Int(answer ?? "0") ?? 0
-            let calorieInt16: Int16 = Int16(calorieInt)
-            self.calorieController.create(calorie: calorieInt16)
-            
+    @objc func updateViews() {
+        fetchedResultController.fetchedObjects?.forEach { calorie in
+            let calorie = calorie as Calorie
+            caloriesArray.append(Double(calorie.calorie))
         }
         
-       
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-        
-        ac.addAction(cancelAction)
-        ac.addAction(submitAction)
-        self.present(ac, animated: true, completion: nil)
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return fetchedResultController.sections?.count ?? 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultController.sections?[section].numberOfObjects ?? 0
+        let series = ChartSeries(caloriesArray)
+        series.color = ChartColors.cyanColor()
+        series.area = true
+        chartView.add(series)
+        self.tableView.reloadData()
     }
     
+
+    @IBAction func addPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Add calorie intake", message: "Please enter number of calories", preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.placeholder = "Calorie Intake"
+        }
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+            guard let calorieString = alert.textFields?.first?.text, !calorieString.isEmpty, let calories = Int16(calorieString) else { return }
+            self.calorieController.create(calorie: calories, date: Date())
+            self.caloriesArray.append(Double(calories))
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alert, animated: true)
+    }
+    override func numberOfSections(in tableView: UITableView) -> Int    {
+         fetchedResultController.sections?.count ?? 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         fetchedResultController.sections?[section].numberOfObjects ?? 0
+    }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
-        
         let calorie = fetchedResultController.object(at: indexPath)
-        cell.textLabel?.text = "Calorie: \(calorie.calorie)"
-        cell.detailTextLabel?.text = dateString(for: calorie)
+        if let date = calorie.timestamp {
+            cell.textLabel?.text = "Calorie: \(calorie.calorie)"
+            cell.detailTextLabel?.text = dateFormatter.string(from: date)
+        }
+        
+        
         return cell
     }
     
-    private func updateChart() {
-        if let calories = fetchedResultController.fetchedObjects {
-            let series = ChartSeries(calories.map { Double($0.calorie) })
-            self.chartView.removeAllSeries()
-            self.chartView.add(series)
-            series.colors = (
-                above: ChartColors.greenColor(),
-                below: ChartColors.darkRedColor(),
-                zeroLevel: -1
-            )
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            caloriesArray.remove(at: indexPath.section)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
             
         }
     }
+
+//    private func updateChart() {
+//        if let calories = fetchedResultController.fetchedObjects {
+//            let series = ChartSeries(calories.map { Double($0.calorie) })
+//            self.chartView.removeAllSeries()
+//            self.chartView.add(series)
+//            series.colors = (
+//                above: ChartColors.blueColor(),
+//                below: ChartColors.redColor(),
+//                zeroLevel: 200
+//            )
+//        }
+//    }
 }
 
 extension CalorieTableViewController: NSFetchedResultsControllerDelegate {
@@ -115,7 +132,7 @@ extension CalorieTableViewController: NSFetchedResultsControllerDelegate {
     }
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
-        self.updateChart()
+        self.updateViews()
     }
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
                     didChange sectionInfo: NSFetchedResultsSectionInfo,
@@ -144,9 +161,9 @@ extension CalorieTableViewController: NSFetchedResultsControllerDelegate {
             tableView.reloadRows(at: [indexPath], with: .automatic)
         case .move:
             guard let oldIndexPath = indexPath,
-                let newIndexPath = newIndexPath else { return }
+                let toIndexPath = newIndexPath else { return }
             tableView.deleteRows(at: [oldIndexPath], with: .automatic)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            tableView.insertRows(at: [toIndexPath], with: .automatic)
         case .delete:
             guard let indexPath = indexPath else { return }
             tableView.deleteRows(at: [indexPath], with: .automatic)

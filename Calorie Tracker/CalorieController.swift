@@ -11,11 +11,9 @@ import CoreData
 import UIKit
 
 class CalorieController {
-    func create(calorie: Int16) {
-        let calorie = Calorie(calorie: calorie)
-        
-        calories.append(calorie)
-        
+    func create(calorie: Int16, date: Date) {
+        Calorie(calorie: calorie, timestamp: date)
+
         do {
             let moc = CoreDataStack.shared.mainContext
             try moc.save()
@@ -23,9 +21,6 @@ class CalorieController {
             print("Error saving to core data: \(error)")
         }
     }
-    
-    var calories: [Calorie] = []
-    
     func fetch() {
         let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
         let moc = CoreDataStack.shared.mainContext

@@ -24,9 +24,9 @@ excluded: # paths to ignore during linting.
 
 opt_in_rules:
   - anyobject_protocol
-  - closure_spacing
+ # - closure_spacing
   - collection_alignment
-  - conditional_returns_on_newline
+ # - conditional_returns_on_newline
   - convenience_type
   - empty_count
   - empty_xctest_method
@@ -79,7 +79,7 @@ type_body_length:
   warning: 400
   error: 700
 vertical_whitespace:
-  max_empty_lines: 2
+  max_empty_lines: 10
 trailing_whitespace:
   ignores_empty_lines: true
 

@@ -14,8 +14,8 @@ extension Calorie {
                      timestamp: Date = Date(),
                      context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
-        
-        self.calorie = calorie
+
+        self.calorie = Int16(calorie)
         self.timestamp = timestamp
     }
 }
