@@ -54,10 +54,16 @@ class CalorieTableViewController: UITableViewController {
         }
         
         let series = ChartSeries(caloriesArray)
-        series.color = ChartColors.cyanColor()
+        self.chartView.gridColor = .gray
+        self.chartView.removeAllSeries()
+        self.chartView.add(series)
         series.area = true
-        chartView.add(series)
-        self.tableView.reloadData()
+        series.colors = (
+        above: ChartColors.cyanColor(),
+        below: ChartColors.redColor(),
+        //Makes it to where if you put in an abnormal calorie number for your intake the chart colors turn red
+        zeroLevel: 200
+        )
     }
     
 
