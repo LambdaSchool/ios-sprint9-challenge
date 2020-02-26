@@ -54,7 +54,9 @@ class CalorieTableViewController: UITableViewController {
         }
         
         let series = ChartSeries(caloriesArray)
-        self.chartView.gridColor = .gray
+        self.chartView.gridColor = .white
+        self.chartView.backgroundColor = .black
+        self.chartView.labelColor = .white
         self.chartView.removeAllSeries()
         self.chartView.add(series)
         series.area = true
@@ -100,6 +102,7 @@ class CalorieTableViewController: UITableViewController {
         
         return cell
     }
+    
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {

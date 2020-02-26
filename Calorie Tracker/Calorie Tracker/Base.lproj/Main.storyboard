@@ -10,8 +10,8 @@
         <scene sceneID="X7k-h6-Sqg">
             <objects>
                 <navigationController id="9HV-Lw-AuZ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="62Z-BV-3fK">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="62Z-BV-3fK">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -22,14 +22,15 @@
             </objects>
             <point key="canvasLocation" x="-619" y="80"/>
         </scene>
-        <!--Calorie Table View Controller-->
+        <!--Calorie Tracker-->
         <scene sceneID="WkW-fM-dKY">
             <objects>
                 <tableViewController id="q4a-ry-IH5" customClass="CalorieTableViewController" customModule="Calorie_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="HlL-fM-mIA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexBackgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="iH0-TV-3OG" customClass="Chart" customModule="SwiftChart">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="230"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -59,6 +60,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -66,7 +68,7 @@
                             <outlet property="delegate" destination="q4a-ry-IH5" id="o8L-0E-co8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="fHg-BM-o4n">
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="fHg-BM-o4n">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6By-KE-K5S">
                             <connections>
                                 <action selector="addPressed:" destination="q4a-ry-IH5" id="KI6-f9-dxW"/>
