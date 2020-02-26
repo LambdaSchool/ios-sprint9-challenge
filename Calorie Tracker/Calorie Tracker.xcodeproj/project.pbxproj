@@ -1,0 +1,496 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F30ACCE2401BC95004C0E2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F30ACCD2401BC95004C0E2F /* AppDelegate.swift */; };
+		1F30ACD02401BC95004C0E2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F30ACCF2401BC95004C0E2F /* SceneDelegate.swift */; };
+		1F30ACD22401BC95004C0E2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F30ACD12401BC95004C0E2F /* ViewController.swift */; };
+		1F30ACD52401BC95004C0E2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F30ACD32401BC95004C0E2F /* Main.storyboard */; };
+		1F30ACD72401BC98004C0E2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F30ACD62401BC98004C0E2F /* Assets.xcassets */; };
+		1F30ACDA2401BC98004C0E2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F30ACD82401BC98004C0E2F /* LaunchScreen.storyboard */; };
+		1F30ACE62401D327004C0E2F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F30ACE52401D327004C0E2F /* Model.swift */; };
+		1F30ACE92401D358004C0E2F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1F30ACE82401D358004C0E2F /* README.md */; };
+		1F30ACEC2401D397004C0E2F /* Calorie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1F30ACEA2401D397004C0E2F /* Calorie.xcdatamodeld */; };
+		1F30ACF12401D47F004C0E2F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F30ACF02401D47F004C0E2F /* CoreDataStack.swift */; };
+		1F30ACF32401D4C5004C0E2F /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F30ACF22401D4C5004C0E2F /* Calorie+Convenience.swift */; };
+		1F30ACF52401D664004C0E2F /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F30ACF42401D664004C0E2F /* CalorieController.swift */; };
+		1F30ACF82401D7CB004C0E2F /* CalorieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F30ACF72401D7CB004C0E2F /* CalorieTableViewController.swift */; };
+		1F30ACFB2401F2D4004C0E2F /* CalorieEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F30ACFA2401F2D4004C0E2F /* CalorieEntries.swift */; };
+		1F4055132404EF95008FA1BC /* Notfication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4055122404EF95008FA1BC /* Notfication.swift */; };
+		1F4055152404F9A7008FA1BC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4055142404F9A7008FA1BC /* Date.swift */; };
+		1F467DA52405A46000A0040E /* SwiftChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F467D9E2405A43200A0040E /* SwiftChart.framework */; };
+		1F467DA82405A47600A0040E /* Pods_Calorie_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE52A4FDFB99EE804607CD8 /* Pods_Calorie_Tracker.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1F30ACCA2401BC95004C0E2F /* Calorie Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calorie Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F30ACCD2401BC95004C0E2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1F30ACCF2401BC95004C0E2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1F30ACD12401BC95004C0E2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1F30ACD42401BC95004C0E2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1F30ACD62401BC98004C0E2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1F30ACD92401BC98004C0E2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1F30ACDB2401BC98004C0E2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F30ACE52401D327004C0E2F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		1F30ACE82401D358004C0E2F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		1F30ACEB2401D397004C0E2F /* Calorie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calorie.xcdatamodel; sourceTree = "<group>"; };
+		1F30ACF02401D47F004C0E2F /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		1F30ACF22401D4C5004C0E2F /* Calorie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience.swift"; sourceTree = "<group>"; };
+		1F30ACF42401D664004C0E2F /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
+		1F30ACF72401D7CB004C0E2F /* CalorieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewController.swift; sourceTree = "<group>"; };
+		1F30ACFA2401F2D4004C0E2F /* CalorieEntries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieEntries.swift; sourceTree = "<group>"; };
+		1F4055122404EF95008FA1BC /* Notfication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notfication.swift; sourceTree = "<group>"; };
+		1F4055142404F9A7008FA1BC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		1F467D9E2405A43200A0040E /* SwiftChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4476CD280C2648201B3C959E /* Pods-Calorie Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calorie Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Calorie Tracker/Pods-Calorie Tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		A44F96E2AD61FF734370C459 /* Pods-Calorie Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calorie Tracker.release.xcconfig"; path = "Target Support Files/Pods-Calorie Tracker/Pods-Calorie Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		CEE52A4FDFB99EE804607CD8 /* Pods_Calorie_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calorie_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F30ACC72401BC95004C0E2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F467DA52405A46000A0040E /* SwiftChart.framework in Frameworks */,
+				1F467DA82405A47600A0040E /* Pods_Calorie_Tracker.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F30ACC12401BC95004C0E2F = {
+			isa = PBXGroup;
+			children = (
+				1F30ACE82401D358004C0E2F /* README.md */,
+				1F30ACCC2401BC95004C0E2F /* Calorie Tracker */,
+				1F30ACCB2401BC95004C0E2F /* Products */,
+				BE9A85B391D802AB80176220 /* Pods */,
+				8E4996D9260897ECDB262E15 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1F30ACCB2401BC95004C0E2F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F30ACCA2401BC95004C0E2F /* Calorie Tracker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F30ACCC2401BC95004C0E2F /* Calorie Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				1F30ACF92401D7D6004C0E2F /* ViewControllers */,
+				1F30ACF62401D675004C0E2F /* ModelControllers */,
+				1F30ACE72401D330004C0E2F /* Models */,
+				1F30ACCD2401BC95004C0E2F /* AppDelegate.swift */,
+				1F30ACCF2401BC95004C0E2F /* SceneDelegate.swift */,
+				1F30ACD12401BC95004C0E2F /* ViewController.swift */,
+				1F30ACD32401BC95004C0E2F /* Main.storyboard */,
+				1F30ACD62401BC98004C0E2F /* Assets.xcassets */,
+				1F30ACD82401BC98004C0E2F /* LaunchScreen.storyboard */,
+				1F30ACDB2401BC98004C0E2F /* Info.plist */,
+			);
+			path = "Calorie Tracker";
+			sourceTree = "<group>";
+		};
+		1F30ACE72401D330004C0E2F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1F30ACE52401D327004C0E2F /* Model.swift */,
+				1F30ACEA2401D397004C0E2F /* Calorie.xcdatamodeld */,
+				1F30ACF02401D47F004C0E2F /* CoreDataStack.swift */,
+				1F30ACF22401D4C5004C0E2F /* Calorie+Convenience.swift */,
+				1F30ACFA2401F2D4004C0E2F /* CalorieEntries.swift */,
+				1F4055122404EF95008FA1BC /* Notfication.swift */,
+				1F4055142404F9A7008FA1BC /* Date.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		1F30ACF62401D675004C0E2F /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1F30ACF42401D664004C0E2F /* CalorieController.swift */,
+			);
+			name = ModelControllers;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		1F30ACF92401D7D6004C0E2F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1F30ACF72401D7CB004C0E2F /* CalorieTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8E4996D9260897ECDB262E15 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F467D9E2405A43200A0040E /* SwiftChart.framework */,
+				CEE52A4FDFB99EE804607CD8 /* Pods_Calorie_Tracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE9A85B391D802AB80176220 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4476CD280C2648201B3C959E /* Pods-Calorie Tracker.debug.xcconfig */,
+				A44F96E2AD61FF734370C459 /* Pods-Calorie Tracker.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1F30ACC92401BC95004C0E2F /* Calorie Tracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F30ACDE2401BC98004C0E2F /* Build configuration list for PBXNativeTarget "Calorie Tracker" */;
+			buildPhases = (
+				6A24A13BBBFEACFB3AC611F4 /* [CP] Check Pods Manifest.lock */,
+				1F30ACC62401BC95004C0E2F /* Sources */,
+				1F30ACC72401BC95004C0E2F /* Frameworks */,
+				1F30ACC82401BC95004C0E2F /* Resources */,
+				E186B17823A40C4005A1D15A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Calorie Tracker";
+			productName = "Calorie Tracker";
+			productReference = 1F30ACCA2401BC95004C0E2F /* Calorie Tracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1F30ACC22401BC95004C0E2F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Lambda School";
+				TargetAttributes = {
+					1F30ACC92401BC95004C0E2F = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 1F30ACC52401BC95004C0E2F /* Build configuration list for PBXProject "Calorie Tracker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1F30ACC12401BC95004C0E2F;
+			productRefGroup = 1F30ACCB2401BC95004C0E2F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1F30ACC92401BC95004C0E2F /* Calorie Tracker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1F30ACC82401BC95004C0E2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F30ACDA2401BC98004C0E2F /* LaunchScreen.storyboard in Resources */,
+				1F30ACD72401BC98004C0E2F /* Assets.xcassets in Resources */,
+				1F30ACE92401D358004C0E2F /* README.md in Resources */,
+				1F30ACD52401BC95004C0E2F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6A24A13BBBFEACFB3AC611F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Calorie Tracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		E186B17823A40C4005A1D15A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Calorie Tracker/Pods-Calorie Tracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Calorie Tracker/Pods-Calorie Tracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Calorie Tracker/Pods-Calorie Tracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F30ACC62401BC95004C0E2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F30ACF32401D4C5004C0E2F /* Calorie+Convenience.swift in Sources */,
+				1F30ACD22401BC95004C0E2F /* ViewController.swift in Sources */,
+				1F4055132404EF95008FA1BC /* Notfication.swift in Sources */,
+				1F30ACEC2401D397004C0E2F /* Calorie.xcdatamodeld in Sources */,
+				1F30ACCE2401BC95004C0E2F /* AppDelegate.swift in Sources */,
+				1F30ACF82401D7CB004C0E2F /* CalorieTableViewController.swift in Sources */,
+				1F30ACF12401D47F004C0E2F /* CoreDataStack.swift in Sources */,
+				1F4055152404F9A7008FA1BC /* Date.swift in Sources */,
+				1F30ACFB2401F2D4004C0E2F /* CalorieEntries.swift in Sources */,
+				1F30ACF52401D664004C0E2F /* CalorieController.swift in Sources */,
+				1F30ACD02401BC95004C0E2F /* SceneDelegate.swift in Sources */,
+				1F30ACE62401D327004C0E2F /* Model.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1F30ACD32401BC95004C0E2F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F30ACD42401BC95004C0E2F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1F30ACD82401BC98004C0E2F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F30ACD92401BC98004C0E2F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1F30ACDC2401BC98004C0E2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1F30ACDD2401BC98004C0E2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1F30ACDF2401BC98004C0E2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4476CD280C2648201B3C959E /* Pods-Calorie Tracker.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FMU733F66G;
+				INFOPLIST_FILE = "Calorie Tracker/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alexthompson.Calorie-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1F30ACE02401BC98004C0E2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A44F96E2AD61FF734370C459 /* Pods-Calorie Tracker.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FMU733F66G;
+				INFOPLIST_FILE = "Calorie Tracker/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alexthompson.Calorie-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1F30ACC52401BC95004C0E2F /* Build configuration list for PBXProject "Calorie Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F30ACDC2401BC98004C0E2F /* Debug */,
+				1F30ACDD2401BC98004C0E2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F30ACDE2401BC98004C0E2F /* Build configuration list for PBXNativeTarget "Calorie Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F30ACDF2401BC98004C0E2F /* Debug */,
+				1F30ACE02401BC98004C0E2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1F30ACEA2401D397004C0E2F /* Calorie.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1F30ACEB2401D397004C0E2F /* Calorie.xcdatamodel */,
+			);
+			currentVersion = 1F30ACEB2401D397004C0E2F /* Calorie.xcdatamodel */;
+			path = Calorie.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1F30ACC22401BC95004C0E2F /* Project object */;
+}
