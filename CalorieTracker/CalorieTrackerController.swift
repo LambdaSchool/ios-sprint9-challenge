@@ -20,7 +20,10 @@ class CalorieTrackerController {
         let context = shared.mainContext
         let fetchRequest: NSFetchRequest<Track> = Track.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
-        let fetchResultController =  NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.shared.mainContext, sectionNameKeyPath: nil, cacheName: nil)
+        let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                               managedObjectContext: CoreDataStack.shared.mainContext,
+                                                               sectionNameKeyPath: nil,
+                                                               cacheName: nil)
         
         context.performAndWait {
             do {
@@ -37,7 +40,10 @@ class CalorieTrackerController {
         let context = shared.mainContext
         let fetchRequest: NSFetchRequest<Track> = Track.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
-        let fetchResultController =  NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.shared.mainContext, sectionNameKeyPath: nil, cacheName: nil)
+        let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                               managedObjectContext: CoreDataStack.shared.mainContext,
+                                                               sectionNameKeyPath: nil,
+                                                               cacheName: nil)
         
         context.performAndWait {
             do {
@@ -53,8 +59,6 @@ class CalorieTrackerController {
         }
         try? shared.mainContext.save()
     }
-    
-    
     
     init(shared: CoreDataStack = CoreDataStack.shared) {
         self.shared = shared
@@ -74,13 +78,13 @@ class CalorieTrackerController {
         var big: Double = 0
         let first: Double = Double(trackedCalories[0].caloriesCount!)!
         for t in trackedCalories {
-            guard let i = Int(t.caloriesCount!) else { return [0]}
+            guard let i = Int(t.caloriesCount!) else { return [0] }
             if  Double(i) > big { big = Double(i) }
         }
         
         return [first, big/2, big]
     }
-    
+   
     var getData: [(x: Double, y: Double)] {
         var data: [(x: Double, y: Double)] = []
         

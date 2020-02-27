@@ -33,8 +33,9 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
         
         
         override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieTableViewCell", for: indexPath) as? CalorieTableViewCell else { return UITableViewCell() }
-            let tracked =  calorieTrackerController.trackedCalories[indexPath.row]
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieTableViewCell",
+                                                           for: indexPath) as? CalorieTableViewCell else { return UITableViewCell() }
+            let tracked = calorieTrackerController.trackedCalories[indexPath.row]
             
             cell.textLabel?.text = "Calories: \(tracked.caloriesCount!)" //Calories Cell.
                 
@@ -97,10 +98,9 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
             
             NotificationCenter.default.post(name: .caloriesAded, object: nil)
         }
-        
-                
+    
         let calorieTrackerController = CalorieTrackerController()
-        @IBOutlet var chartView: Chart! {
+        @IBOutlet private var chartView: Chart! {
             didSet {
                 addChartData()
             }
@@ -128,8 +128,8 @@ class CalorieTableViewController: UITableViewController, NSFetchedResultsControl
             self.chartView.backgroundColor = .black
             self.chartView.labelColor = .white
             self.chartView.gridColor = .white
-            chartView.removeAllSeries()
-            chartView.add(series)
+            self.chartView.removeAllSeries()
+            self.chartView.add(series)
         }
 }
 

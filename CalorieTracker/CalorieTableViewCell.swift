@@ -10,6 +10,6 @@ import UIKit
 
 class CalorieTableViewCell: UITableViewCell {
 
-    @IBOutlet var calorieLabel: UILabel!
-    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet private var calorieLabel: UILabel!
+    @IBOutlet private var dateLabel: UILabel!
 }
