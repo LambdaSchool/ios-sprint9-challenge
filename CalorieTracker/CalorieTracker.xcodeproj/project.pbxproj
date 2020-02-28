@@ -242,8 +242,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "
-";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		A5EF3508EF0C130C45B4E02F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
