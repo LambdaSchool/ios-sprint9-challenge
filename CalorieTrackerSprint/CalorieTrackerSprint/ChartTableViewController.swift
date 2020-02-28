@@ -12,6 +12,8 @@ import SwiftChart
 
 class ChartTableViewController: UITableViewController {
     
+    @IBOutlet weak var chart: Chart!
+    
     // Bad way of doing this
     var calorieIntakeArray: [CalorieIntake] {
         let fetchRequest: NSFetchRequest<CalorieIntake> = CalorieIntake.fetchRequest()
@@ -24,11 +26,20 @@ class ChartTableViewController: UITableViewController {
         }
     }
     
+    var calorieSeriesArray: ChartSeries {
+        var temp: [Double] = []
+        for intake in calorieIntakeArray {
+            temp.append(Double(intake.calories))
+        }
+        return ChartSeries(temp)
+    }
+    
     fileprivate lazy var alertController: UIAlertController = {
         let ac = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories below", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (action) in
             print(self.tf?.text ?? "")
             self.saveCalorieIntake()
+            self.refreshChart()
             self.tableView.reloadData()
         }))
         
@@ -66,7 +77,9 @@ class ChartTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        // fill in
+        calorieSeriesArray.area = true
+        chart.add(calorieSeriesArray)
         
     }
     
@@ -74,7 +87,11 @@ class ChartTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
-
+    
+    func refreshChart() {
+        chart.removeAllSeries()
+        chart.add(calorieSeriesArray)
+    }
 
     // MARK: - Table view data source
 
