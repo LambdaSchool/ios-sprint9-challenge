@@ -10,12 +10,14 @@
 		37D7AC3FEFBCA91600F6AC11 /* Pods_CodeQualitySprint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942D60E9A4671867D6C6D13F /* Pods_CodeQualitySprint.framework */; };
 		B92C0AC3240968AF0069D168 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92C0AC2240968AF0069D168 /* AppDelegate.swift */; };
 		B92C0AC5240968AF0069D168 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92C0AC4240968AF0069D168 /* SceneDelegate.swift */; };
-		B92C0AC7240968AF0069D168 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92C0AC6240968AF0069D168 /* ViewController.swift */; };
 		B92C0ACA240968AF0069D168 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B92C0AC8240968AF0069D168 /* Main.storyboard */; };
 		B92C0ACC240968B10069D168 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B92C0ACB240968B10069D168 /* Assets.xcassets */; };
 		B92C0ACF240968B10069D168 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B92C0ACD240968B10069D168 /* LaunchScreen.storyboard */; };
 		B92C0AE02409732D0069D168 /* CalorieEntry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B92C0ADE2409732D0069D168 /* CalorieEntry.xcdatamodeld */; };
 		B92C0AE3240973A00069D168 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92C0AE2240973A00069D168 /* CoreDataStack.swift */; };
+		B92C0AE6240979C50069D168 /* CalorieChartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92C0AE5240979C50069D168 /* CalorieChartTableViewController.swift */; };
+		B92C0AE824097E7B0069D168 /* CalorieEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92C0AE724097E7B0069D168 /* CalorieEntry+Convenience.swift */; };
+		B92C0AEA24097F150069D168 /* CalorieEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92C0AE924097F150069D168 /* CalorieEntryController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,13 +27,15 @@
 		B92C0ABF240968AF0069D168 /* CodeQualitySprint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeQualitySprint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B92C0AC2240968AF0069D168 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B92C0AC4240968AF0069D168 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B92C0AC6240968AF0069D168 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B92C0AC9240968AF0069D168 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B92C0ACB240968B10069D168 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B92C0ACE240968B10069D168 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B92C0AD0240968B10069D168 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B92C0ADF2409732D0069D168 /* CalorieEntry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieEntry.xcdatamodel; sourceTree = "<group>"; };
 		B92C0AE2240973A00069D168 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		B92C0AE5240979C50069D168 /* CalorieChartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieChartTableViewController.swift; sourceTree = "<group>"; };
+		B92C0AE724097E7B0069D168 /* CalorieEntry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieEntry+Convenience.swift"; sourceTree = "<group>"; };
+		B92C0AE924097F150069D168 /* CalorieEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieEntryController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +119,7 @@
 		B92C0AD8240968E30069D168 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B92C0AC6240968AF0069D168 /* ViewController.swift */,
+				B92C0AE5240979C50069D168 /* CalorieChartTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -123,6 +127,7 @@
 		B92C0AD9240968EB0069D168 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B92C0AE924097F150069D168 /* CalorieEntryController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				B92C0ADE2409732D0069D168 /* CalorieEntry.xcdatamodeld */,
+				B92C0AE724097E7B0069D168 /* CalorieEntry+Convenience.swift */,
 			);
 			path = MOM;
 			sourceTree = "<group>";
@@ -293,10 +299,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B92C0AE3240973A00069D168 /* CoreDataStack.swift in Sources */,
-				B92C0AC7240968AF0069D168 /* ViewController.swift in Sources */,
+				B92C0AE6240979C50069D168 /* CalorieChartTableViewController.swift in Sources */,
+				B92C0AE824097E7B0069D168 /* CalorieEntry+Convenience.swift in Sources */,
 				B92C0AC3240968AF0069D168 /* AppDelegate.swift in Sources */,
 				B92C0AE02409732D0069D168 /* CalorieEntry.xcdatamodeld in Sources */,
 				B92C0AC5240968AF0069D168 /* SceneDelegate.swift in Sources */,
+				B92C0AEA24097F150069D168 /* CalorieEntryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,20 +23,21 @@ class CoreDataStack {
         return container
     }()
     
+    #warning("Test this as lazy var vs computed to fix SwiftLint")
     var mainContext: NSManagedObjectContext {
         return container.viewContext
     }
     
     func save(context: NSManagedObjectContext = CoreDataStack.shared.mainContext) throws {
-        var error: Error?
+        var saveError: Error?
         context.performAndWait {
             do {
                 try context.save()
-            } catch let saveError {
+            } catch {
                 context.reset()
-                error = saveError
+                saveError = error
             }
         }
-        if let error = error {throw error}
+        if let error = saveError { throw error }
     }
 }
