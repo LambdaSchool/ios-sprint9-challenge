@@ -14,7 +14,7 @@ class ChartTableViewController: UITableViewController {
     
     // MARK: - Properties
     
-    @IBOutlet weak var chart: Chart!
+    @IBOutlet private weak var chart: Chart!
     
     var calorieIntakeArray: [CalorieIntake] {
         let fetchRequest: NSFetchRequest<CalorieIntake> = CalorieIntake.fetchRequest()
@@ -37,17 +37,15 @@ class ChartTableViewController: UITableViewController {
     
     fileprivate lazy var alertController: UIAlertController = {
         let ac = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories below", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (action) in
+        ac.addAction(UIAlertAction(title: "Submit", style: .default, handler: { _ in
             print(self.tf?.text ?? "")
-            
             self.saveCalorieIntake()
-            // Clear textfield after 
             self.tf?.text = ""
             // ring bell
             NotificationCenter.default.post(name: .updateViews, object: self)
         }))
         
-        ac.addTextField { (textField) in
+        ac.addTextField { textField in
             self.tf = textField
         }
         return ac
@@ -67,10 +65,10 @@ class ChartTableViewController: UITableViewController {
     }
     
     func saveCalorieIntake() {
-        guard let calories = tf!.text, !calories.isEmpty else {return}
+        guard let calories = tf!.text, !calories.isEmpty else { return }
         
         let cals: Int = Int(calories) ?? 0 // why does this need to be unwrapped again?
-        let _ = CalorieIntake(calories: cals, dateEntered: Date())
+        _ = CalorieIntake(calories: cals, dateEntered: Date())
         // Save
         do {
             try CoreDataStack.shared.mainContext.save()
