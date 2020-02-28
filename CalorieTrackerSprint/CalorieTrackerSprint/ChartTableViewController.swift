@@ -10,12 +10,31 @@ import UIKit
 import SwiftChart
 
 class ChartTableViewController: UITableViewController {
-
+    
+    fileprivate lazy var alertController: UIAlertController = {
+        let ac = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories below", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (action) in
+            print(self.tf?.text ?? "")
+        }))
+        
+        ac.addTextField { (textField) in
+            self.tf = textField
+        }
+        return ac
+    }()
+    
+    fileprivate var tf: UITextField?
+    
+    @IBAction func addButton(_ sender: UIBarButtonItem) {
+        present(alertController, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       
         
     }
+
 
     // MARK: - Table view data source
 
@@ -31,7 +50,7 @@ class ChartTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         // Configure the cell...
 
