@@ -39,7 +39,10 @@ class ChartTableViewController: UITableViewController {
         let ac = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories below", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (action) in
             print(self.tf?.text ?? "")
+            
             self.saveCalorieIntake()
+            // Clear textfield after 
+            self.tf?.text = ""
             // ring bell
             NotificationCenter.default.post(name: .updateViews, object: self)
         }))
@@ -76,9 +79,12 @@ class ChartTableViewController: UITableViewController {
         }
     }
     
+    // MARK: - View Life Cycles
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(refreshChart), name: .updateViews, object: nil)
+        
         chart.add(calorieSeriesArray)
     }
     
