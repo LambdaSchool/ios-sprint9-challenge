@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,8 @@
 		B92C0ACA240968AF0069D168 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B92C0AC8240968AF0069D168 /* Main.storyboard */; };
 		B92C0ACC240968B10069D168 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B92C0ACB240968B10069D168 /* Assets.xcassets */; };
 		B92C0ACF240968B10069D168 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B92C0ACD240968B10069D168 /* LaunchScreen.storyboard */; };
+		B92C0AE02409732D0069D168 /* CalorieEntry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B92C0ADE2409732D0069D168 /* CalorieEntry.xcdatamodeld */; };
+		B92C0AE3240973A00069D168 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92C0AE2240973A00069D168 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		B92C0ACB240968B10069D168 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B92C0ACE240968B10069D168 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B92C0AD0240968B10069D168 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B92C0ADF2409732D0069D168 /* CalorieEntry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieEntry.xcdatamodel; sourceTree = "<group>"; };
+		B92C0AE2240973A00069D168 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,8 +147,34 @@
 		B92C0ADC240969170069D168 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B92C0AE1240973940069D168 /* CoreData */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B92C0ADD240972ED0069D168 /* MOM */ = {
+			isa = PBXGroup;
+			children = (
+				B92C0ADE2409732D0069D168 /* CalorieEntry.xcdatamodeld */,
+			);
+			path = MOM;
+			sourceTree = "<group>";
+		};
+		B92C0AE1240973940069D168 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B92C0ADD240972ED0069D168 /* MOM */,
+				B92C0AE4240973AF0069D168 /* Helpers */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B92C0AE4240973AF0069D168 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B92C0AE2240973A00069D168 /* CoreDataStack.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,7 +265,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# SwiftLint\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		64B88A26AF9770D3AFD5DA51 /* [CP] Embed Pods Frameworks */ = {
@@ -262,8 +292,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B92C0AE3240973A00069D168 /* CoreDataStack.swift in Sources */,
 				B92C0AC7240968AF0069D168 /* ViewController.swift in Sources */,
 				B92C0AC3240968AF0069D168 /* AppDelegate.swift in Sources */,
+				B92C0AE02409732D0069D168 /* CalorieEntry.xcdatamodeld in Sources */,
 				B92C0AC5240968AF0069D168 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,6 +496,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B92C0ADE2409732D0069D168 /* CalorieEntry.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B92C0ADF2409732D0069D168 /* CalorieEntry.xcdatamodel */,
+			);
+			currentVersion = B92C0ADF2409732D0069D168 /* CalorieEntry.xcdatamodel */;
+			path = CalorieEntry.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B92C0AB7240968AF0069D168 /* Project object */;
 }
