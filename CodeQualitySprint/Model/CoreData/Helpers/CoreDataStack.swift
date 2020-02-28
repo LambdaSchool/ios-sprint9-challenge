@@ -23,9 +23,8 @@ class CoreDataStack {
         return container
     }()
     
-    #warning("Test this as lazy var vs computed to fix SwiftLint")
     var mainContext: NSManagedObjectContext {
-        return container.viewContext
+        container.viewContext
     }
     
     func save(context: NSManagedObjectContext = CoreDataStack.shared.mainContext) throws {
