@@ -8,10 +8,21 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class CalorieChartTableViewController: UITableViewController {
     //=======================
-    // MARK: - FRC
+    // MARK: - IBOutlets
+    @IBOutlet private weak var chartView: Chart!
+    
+    //=======================
+    // MARK: - Properties
+    var calories: [CalorieEntry]? = [] {
+        didSet {
+            print("set")
+        }
+    }
+    
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieEntry> = {
         let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
         fetchRequest.sortDescriptors = [
@@ -39,8 +50,19 @@ class CalorieChartTableViewController: UITableViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        let entry = CalorieEntry(calories: 200, date: Date())
-        print(entry.date)
+        for i in 0...10 {
+            let entry = CalorieEntry(calories: 200 + (i*3), date: Date())
+            self.calories?.append(entry)
+        }
+    }
+    
+    @objc func chartCalories() {
+        guard let calories = calories else { return }
+        let data = calories.map {
+            Double($0.calories)
+        }
+        let chartCalories = ChartSeries(data)
+        chartView.add(chartCalories)
     }
 
     //=======================
