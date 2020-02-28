@@ -9,7 +9,6 @@
         <!--Root View Controller-->
         <scene sceneID="9fJ-pT-sJr">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MvD-Sp-koJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="H9i-Mt-M41" customClass="CalorieChartTableViewController" customModule="CodeQualitySprint" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5G3-gF-qV7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -22,7 +21,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CalorieCell" textLabel="zbV-g3-9NC" detailTextLabel="cW0-Pk-335" style="IBUITableViewCellStyleValue1" id="eBF-3I-SQs">
-                                <rect key="frame" x="0.0" y="178" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="283" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eBF-3I-SQs" id="Dxk-UX-LMr">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -52,7 +51,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="1x4-Hh-U6B">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0wc-44-cSC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0wc-44-cSC" customClass="I">
                             <connections>
                                 <action selector="addButtonTapped:" destination="H9i-Mt-M41" id="CSS-1k-jVP"/>
                             </connections>
@@ -62,6 +61,7 @@
                         <outlet property="chartView" destination="cTe-73-F8D" id="wO2-m0-MeX"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MvD-Sp-koJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-55.072463768115945" y="138.61607142857142"/>
         </scene>

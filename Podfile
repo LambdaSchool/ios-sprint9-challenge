@@ -7,5 +7,5 @@ target 'CodeQualitySprint' do
 
   # Pods for CodeQualitySprint
   pod 'SwiftLint'
-  pod "SwiftChart", :git => 'https://github.com/gpbl/SwiftChart', :branch => 'master'
+  pod "SwiftChart", :git => 'https://github.com/gpbl/SwiftChart', :branch => 'master'  
 end

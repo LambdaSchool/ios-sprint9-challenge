@@ -85,6 +85,7 @@ class CalorieChartTableViewController: UITableViewController {
         df.dateFormat = "MMM dd, yyyy hh:mm:ss"
         cell.detailTextLabel?.text = df.string(from: calorieEntry.date ?? Date())
         return cell
+        
     }
     
     //=======================

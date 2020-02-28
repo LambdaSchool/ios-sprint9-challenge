@@ -32,6 +32,8 @@ enum Alert {
             }
             NotificationCenter.default.post(name: .calorieEntryPosted, object: self)
         }))
+        //add cancel button
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         vc.present(alert, animated: true)
     }
 }
