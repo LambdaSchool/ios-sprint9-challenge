@@ -1,0 +1,6 @@
+framework module Pods_CodeQualitySprint {
+  umbrella header "Pods-CodeQualitySprint-umbrella.h"
+
+  export *
+  module * { export * }
+}
