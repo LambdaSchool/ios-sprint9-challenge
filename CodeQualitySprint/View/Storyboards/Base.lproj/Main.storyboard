@@ -52,7 +52,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="1x4-Hh-U6B">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0wc-44-cSC"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0wc-44-cSC">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="H9i-Mt-M41" id="CSS-1k-jVP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="chartView" destination="cTe-73-F8D" id="wO2-m0-MeX"/>

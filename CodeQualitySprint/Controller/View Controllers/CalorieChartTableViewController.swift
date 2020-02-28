@@ -16,13 +16,13 @@ class CalorieChartTableViewController: UITableViewController {
     @IBOutlet private weak var chartView: Chart!
     
     //=======================
-    // MARK: - Properties
-    var calories: [CalorieEntry]? = [] {
-        didSet {
-            print("set")
-        }
+    // MARK: - IBActions
+    @IBAction func addButtonTapped(_ sender: Any) {
+        Alert.saveEntry(vc: self)
     }
     
+    //=======================
+    // MARK: - Properties
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieEntry> = {
         let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
         fetchRequest.sortDescriptors = [
@@ -50,18 +50,20 @@ class CalorieChartTableViewController: UITableViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        for i in 0...10 {
-            let entry = CalorieEntry(calories: 200 + (i*3), date: Date())
-            self.calories?.append(entry)
-        }
+        chartCalories()
+        NotificationCenter.default.addObserver(self, selector: #selector(chartCalories), name: .calorieEntryPosted, object: nil)
     }
     
     @objc func chartCalories() {
-        guard let calories = calories else { return }
+        var calories = [CalorieEntry]()
+        for entry in fetchedResultsController.fetchedObjects ?? [] {
+            calories.append(entry)
+        }
         let data = calories.map {
             Double($0.calories)
         }
         let chartCalories = ChartSeries(data)
+        
         chartView.add(chartCalories)
     }
 

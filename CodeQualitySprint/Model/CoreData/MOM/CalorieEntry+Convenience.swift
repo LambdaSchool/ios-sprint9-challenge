@@ -17,4 +17,3 @@ extension CalorieEntry {
         self.date = date
     }
 }
-
