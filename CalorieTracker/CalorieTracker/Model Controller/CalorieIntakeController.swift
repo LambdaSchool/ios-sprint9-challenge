@@ -13,8 +13,6 @@ class CalorieIntakeController {
     
     var calorieIntakes: [Double] = []
     
-    var x: [Double] = []
-    
     func delete(for calorieIntake: CalorieIntake) {
         CoreDataStack.shared.mainContext.delete(calorieIntake)
         saveToPersistentStore()
