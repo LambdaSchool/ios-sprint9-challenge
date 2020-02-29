@@ -15,14 +15,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="efM-QX-ZZJ">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="175"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="nu6-pN-OpF" customClass="Chart" customModule="SwiftChart">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieIntakeCell" textLabel="3MN-yJ-HUy" detailTextLabel="YhO-Yd-qpE" style="IBUITableViewCellStyleValue1" id="h1A-Xq-5gc">
-                                <rect key="frame" x="0.0" y="203" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="178" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h1A-Xq-5gc" id="xoB-5B-iLV">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -58,6 +58,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chartView" destination="nu6-pN-OpF" id="79h-O1-IbV"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3vD-a6-SVx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -97,20 +100,20 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="zLt-Wa-sa3" customClass="CalorieIntakeTableViewCell" customModule="CalorieTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zLt-Wa-sa3" id="KLw-aS-eeo">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAL-oI-Tis">
-                                                    <rect key="frame" x="20" y="11" width="138" height="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAL-oI-Tis">
+                                                    <rect key="frame" x="20" y="11" width="42" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRW-sr-N4I">
-                                                    <rect key="frame" x="166" y="11" width="188" height="21.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRW-sr-N4I">
+                                                    <rect key="frame" x="312" y="11" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -120,7 +123,6 @@
                                                 <constraint firstAttribute="bottom" secondItem="AAL-oI-Tis" secondAttribute="bottom" constant="10.5" id="6vd-cf-57I"/>
                                                 <constraint firstItem="eRW-sr-N4I" firstAttribute="top" secondItem="KLw-aS-eeo" secondAttribute="topMargin" id="D1J-b5-E6l"/>
                                                 <constraint firstItem="AAL-oI-Tis" firstAttribute="top" secondItem="KLw-aS-eeo" secondAttribute="top" constant="11" id="VQ7-gS-gNC"/>
-                                                <constraint firstItem="eRW-sr-N4I" firstAttribute="leading" secondItem="AAL-oI-Tis" secondAttribute="trailing" constant="8" id="VuJ-XN-tHl"/>
                                                 <constraint firstItem="eRW-sr-N4I" firstAttribute="trailing" secondItem="KLw-aS-eeo" secondAttribute="trailingMargin" id="a7v-Ru-vb9"/>
                                                 <constraint firstItem="eRW-sr-N4I" firstAttribute="bottom" secondItem="KLw-aS-eeo" secondAttribute="bottomMargin" id="bQn-Ia-SMC"/>
                                                 <constraint firstItem="AAL-oI-Tis" firstAttribute="leading" secondItem="KLw-aS-eeo" secondAttribute="leading" constant="20" id="zfS-yA-v6f"/>
