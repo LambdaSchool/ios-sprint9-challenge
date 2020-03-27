@@ -20,6 +20,7 @@
 		723289E2242E63F100CCE3AC /* CalorieRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723289E1242E63F100CCE3AC /* CalorieRepresentation.swift */; };
 		723289E4242E672C00CCE3AC /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723289E3242E672C00CCE3AC /* CalorieController.swift */; };
 		723289E7242E82B700CCE3AC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723289E6242E82B700CCE3AC /* Helpers.swift */; };
+		723289E9242E860E00CCE3AC /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723289E8242E860E00CCE3AC /* Alerts.swift */; };
 		813FC333B2F6EF8C4D52D301 /* Pods_Calorie_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC66DF1B2ADEDB03DAA338B7 /* Pods_Calorie_Tracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		723289E1242E63F100CCE3AC /* CalorieRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieRepresentation.swift; sourceTree = "<group>"; };
 		723289E3242E672C00CCE3AC /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
 		723289E6242E82B700CCE3AC /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		723289E8242E860E00CCE3AC /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		BC66DF1B2ADEDB03DAA338B7 /* Pods_Calorie_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calorie_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				723289E6242E82B700CCE3AC /* Helpers.swift */,
+				723289E8242E860E00CCE3AC /* Alerts.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				723289C2242E5BE400CCE3AC /* SceneDelegate.swift in Sources */,
 				723289D9242E60EA00CCE3AC /* CalorieEntryTableViewController.swift in Sources */,
 				723289E2242E63F100CCE3AC /* CalorieRepresentation.swift in Sources */,
+				723289E9242E860E00CCE3AC /* Alerts.swift in Sources */,
 				723289E4242E672C00CCE3AC /* CalorieController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
