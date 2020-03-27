@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3kd-JJ-swq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="odj-Wg-gHQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
-        <scene sceneID="B2Z-uo-tDb">
+        <!--Table View Controller-->
+        <scene sceneID="r7w-bD-2rj">
             <objects>
-                <tableViewController id="bG8-TP-svY" customClass="CalorieChartTableViewController" customModule="CodeQualitySprint" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zA3-K7-dbt">
+                <tableViewController id="QnB-5L-fG7" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iQE-tQ-gZJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="2Fc-Tb-O8t" customClass="Chart" customModule="SwiftChart">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="h9D-nK-cxe">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="255"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CalorieCell" textLabel="BGG-MN-jd2" detailTextLabel="Yee-0Y-FHP" style="IBUITableViewCellStyleValue1" id="WwJ-Ki-Afk">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="32W-yv-KbO" detailTextLabel="k15-IE-1gF" style="IBUITableViewCellStyleValue1" id="SE3-4s-vAC">
                                 <rect key="frame" x="0.0" y="283" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WwJ-Ki-Afk" id="Csp-I5-Gs1">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SE3-4s-vAC" id="wQ9-xk-W87">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BGG-MN-jd2">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="32W-yv-KbO">
                                             <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yee-0Y-FHP">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k15-IE-1gF">
                                             <rect key="frame" x="350" y="12" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -46,40 +46,35 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="bG8-TP-svY" id="66Q-oi-7in"/>
-                            <outlet property="delegate" destination="bG8-TP-svY" id="SgV-CE-4ad"/>
+                            <outlet property="dataSource" destination="QnB-5L-fG7" id="Ox9-KM-dz2"/>
+                            <outlet property="delegate" destination="QnB-5L-fG7" id="gCg-A8-H1A"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="yDg-vT-8f0">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nxK-i5-wi8" customClass="I">
-                            <connections>
-                                <action selector="addButtonTapped:" destination="bG8-TP-svY" id="VjV-wE-nlC"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" id="YMQ-OK-7zb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="73y-7T-P3e"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="chartView" destination="2Fc-Tb-O8t" id="eIP-ty-wfa"/>
-                    </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OeC-eE-4qv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cd7-sz-SsI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-55.072463768115945" y="138.61607142857142"/>
+            <point key="canvasLocation" x="813.04347826086962" y="-9.375"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="HI5-ns-qJb">
+        <scene sceneID="spC-Zp-Lgr">
             <objects>
-                <navigationController id="3kd-JJ-swq" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cb9-cr-s7E">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="odj-Wg-gHQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Gwc-0N-QgM">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="bG8-TP-svY" kind="relationship" relationship="rootViewController" id="Zq7-I4-uPb"/>
+                        <segue destination="QnB-5L-fG7" kind="relationship" relationship="rootViewController" id="Tiw-Lb-qCW"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kbI-3Z-KmQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hgH-FH-ann" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-891" y="139"/>
+            <point key="canvasLocation" x="-97.101449275362327" y="-9.375"/>
         </scene>
     </scenes>
 </document>
