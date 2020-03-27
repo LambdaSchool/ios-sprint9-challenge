@@ -45,9 +45,11 @@ open class ChartSeries {
     ) = (above: ChartColors.blueColor(), below: ChartColors.redColor(), 0)
 
     public init(_ data: [Double]) {
+        // swiftlint:disable identifier_name
         self.data = []
         data.enumerated().forEach { (x, y) in
             let point: (x: Double, y: Double) = (x: Double(x), y: y)
+            // swiftlint:endable identifier_name
             self.data.append(point)
         }
     }
