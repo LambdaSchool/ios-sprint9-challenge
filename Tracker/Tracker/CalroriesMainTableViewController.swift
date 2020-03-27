@@ -8,6 +8,11 @@
 
 import UIKit
 import CoreData
+import SwiftChart
+
+extension NSNotification.Name {
+    static let track  = NSNotification.Name(rawValue: "Track")
+}
 
 class CalroriesMainTableViewController: UITableViewController {
 
@@ -32,14 +37,38 @@ class CalroriesMainTableViewController: UITableViewController {
         
     }()
     
-    
+    private let reuseCellId =  "Tracker"
     private let calorieController = CalorieController()
+    
+    private let calorieChart : Chart = {
+        let frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        let chart = Chart(frame: frame)
+    
+        return chart
+    }()
+    
+    @objc private func updateChart() {
+        let amountCaloriesIntake = ChartSeries(calorieController.amountArray)
+         let series = amountCaloriesIntake
+//        UserDefaults.setValue(series, forKey: "He")
+        calorieChart.add(series)
+    }
     
     //MARK:- View Life Cycle
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpUI()
+//        let defaultChart = UserDefaults.value(forKey: "He") as! ChartSeries
+//        calorieChart.add(defaultChart)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateChart), name: .track, object: nil)
+       
+    }
+    
+    private func setUpUI()  {
         
+        tableView.tableHeaderView = calorieChart
         navigationItem.title = "Calorie Tracker"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
     }
@@ -57,10 +86,15 @@ class CalroriesMainTableViewController: UITableViewController {
 
 
        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Tracker", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseCellId, for: indexPath)
            let calorie = fetchedResultsController.object(at: indexPath)
+        
         cell.textLabel?.text = " Calories: \(calorie.amount)"
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        
         cell.detailTextLabel?.text = dateFormatter.string(from: calorie.date!)
+        cell.detailTextLabel?.textColor = UIColor.gray
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 14)
         
            return cell
        }
@@ -92,6 +126,8 @@ class CalroriesMainTableViewController: UITableViewController {
         ac.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (action) in
             guard let amount = ac.textFields![0].text, let amountToInt = Int64(amount) else { return }
             self.calorieController.createNewItem(amount: amountToInt)
+            
+            NotificationCenter.default.post(name: .track, object: self, userInfo: nil)
         }))
 
         present(ac, animated: true, completion: nil)
