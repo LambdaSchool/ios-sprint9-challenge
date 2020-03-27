@@ -89,9 +89,12 @@ class CalorieTableViewController: UITableViewController {
     }
     
     private func updateChart() {
+        var _: [Double] = []
+        
         if let calories = fetchedResultController.fetchedObjects {
             let series = ChartSeries(calories.map { Double($0.calorie) })
             self.chartView.removeAllSeries()
+            series.area = true
             self.chartView.add(series)
         }
     }
