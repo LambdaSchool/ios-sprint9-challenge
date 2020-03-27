@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		64EC77685DC70E7D4FF5381C /* Pods_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9980FA9994CEA683BB7354A /* Pods_Tracker.framework */; };
 		B68B03E0242E4D9E00131408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B03DF242E4D9E00131408 /* AppDelegate.swift */; };
 		B68B03E2242E4D9E00131408 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B03E1242E4D9E00131408 /* SceneDelegate.swift */; };
-		B68B03E4242E4D9E00131408 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B03E3242E4D9E00131408 /* ViewController.swift */; };
+		B68B03E4242E4D9E00131408 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B03E3242E4D9E00131408 /* MainTableViewController.swift */; };
 		B68B03E7242E4D9E00131408 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B68B03E5242E4D9E00131408 /* Main.storyboard */; };
 		B68B03E9242E4D9F00131408 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B68B03E8242E4D9F00131408 /* Assets.xcassets */; };
 		B68B03EC242E4D9F00131408 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B68B03EA242E4D9F00131408 /* LaunchScreen.storyboard */; };
@@ -21,7 +21,7 @@
 		B68B03DC242E4D9E00131408 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B68B03DF242E4D9E00131408 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B68B03E1242E4D9E00131408 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B68B03E3242E4D9E00131408 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B68B03E3242E4D9E00131408 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		B68B03E6242E4D9E00131408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B68B03E8242E4D9F00131408 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B68B03EB242E4D9F00131408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,7 +48,6 @@
 				54EF2CFD099FBC2143DCE196 /* Pods-Tracker.debug.xcconfig */,
 				E7D9F54A88D9C3F86816C3CD /* Pods-Tracker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -82,7 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				B68B03F3242E4DAB00131408 /* Resources */,
-				B68B03E3242E4D9E00131408 /* ViewController.swift */,
+				B68B03E3242E4D9E00131408 /* MainTableViewController.swift */,
 				B68B03E5242E4D9E00131408 /* Main.storyboard */,
 				B68B03ED242E4D9F00131408 /* Info.plist */,
 			);
@@ -215,7 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B68B03E4242E4D9E00131408 /* ViewController.swift in Sources */,
+				B68B03E4242E4D9E00131408 /* MainTableViewController.swift in Sources */,
 				B68B03E0242E4D9E00131408 /* AppDelegate.swift in Sources */,
 				B68B03E2242E4D9E00131408 /* SceneDelegate.swift in Sources */,
 			);
