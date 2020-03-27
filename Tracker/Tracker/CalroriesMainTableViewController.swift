@@ -33,7 +33,7 @@ class CalroriesMainTableViewController: UITableViewController {
         }
     }
     
-    
+     private var series : [Double] = []
     lazy private var dateFormatter: DateFormatter = {
         let dm = DateFormatter()
         dm.calendar = .current
@@ -55,6 +55,7 @@ class CalroriesMainTableViewController: UITableViewController {
     
     private let reuseCellId =  "Tracker"
     private let calorieController = CalorieController()
+    private var tm: Calorie?
     
     private let calorieChart : Chart = {
         let frame = CGRect(x: 0, y: 0, width: 200, height: 300)
@@ -66,37 +67,43 @@ class CalroriesMainTableViewController: UITableViewController {
     }()
     
     @objc private func updateChart() {
-        var series : [Double] = []
-        fetchedResultsController.fetchedObjects!.forEach { (calorie) in
-            series.append(Double(calorie.amount))
-        }
-        let serie = ChartSeries(series)
-        calorieChart.add(serie)
+        
+     print("Add new item to chart")
+        
+       let serie = ChartSeries(amountArray)
+            calorieChart.add(serie)
+    
+        
     }
-    
-    let userDefault = UserDefaults.standard
-    
+  
+    var amountArray: [Double] {
+        get {
+            let ac  = fetchedResultsController.fetchedObjects!.map { (ac) -> Double in
+                ac.amount }
+            return ac
+        }
+        set {
+           print(newValue)
+        }
+    }
+
     
     //MARK:- View Life Cycle
     
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
         persistChart()
       
-       
+        
+        
         NotificationCenter.default.addObserver(self, selector: #selector(updateChart), name: .track, object: nil)
        
     }
     
-    
     private func persistChart() {
-        var series : [Double] = []
-        fetchedResultsController.fetchedObjects!.forEach { (calorie) in
-            series.append(Double(calorie.amount))
-        }
-        let serie = ChartSeries(series)
+        let serie = ChartSeries(amountArray)
         calorieChart.add(serie)
     }
     
@@ -164,6 +171,9 @@ class CalroriesMainTableViewController: UITableViewController {
                 return
                 
             }
+            let amounter = Double(amountToInt)
+            self.amountArray.append(amounter)
+            
             self.calorieController.createNewItem(amount: amountToInt)
             
             NotificationCenter.default.post(name: .track, object: self, userInfo: nil)

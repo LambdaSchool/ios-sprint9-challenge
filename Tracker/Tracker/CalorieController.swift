@@ -10,15 +10,21 @@ import Foundation
 import CoreData
 
 class CalorieController {
-    var amountArray : [Double] = []
+    
+//    var amountArray : [Double] {
+//        return calrories.map { (ca) -> Double in
+//            ca.amount
+//        }
+//    }
+    var calrories : [Calorie] = []
     
     func createNewItem(amount: Int64, date: Date = Date() ,into context : NSManagedObjectContext = CoreDataStack.shared.mainContext ) {
-        let newItem = Calorie(context: context)
-     
-        newItem.amount = amount
-        amountArray.append(Double(amount))
         
+        let newItem = Calorie(context: context)
+        calrories.append(newItem)
+        newItem.amount = Double(amount)
         newItem.date = date
+        
         do {
             try    CoreDataStack.shared.mainContext.save()
         } catch let err as NSError {
