@@ -59,7 +59,7 @@ class CalroriesMainTableViewController: UITableViewController {
     private let calorieChart : Chart = {
         let frame = CGRect(x: 0, y: 0, width: 200, height: 300)
         let chart = Chart(frame: frame)
-        chart.axesColor = .green
+        chart.axesColor = #colorLiteral(red: 0.6909318566, green: 0.7678380609, blue: 0.870224297, alpha: 1)
         chart.gridColor = .red
        
         return chart
@@ -71,10 +71,11 @@ class CalroriesMainTableViewController: UITableViewController {
         
         for (index,amount) in calorieController.amountArray.enumerated() {
             caloriesData.append((Double(index),amount))
+            let serrie = ChartSeries(data:caloriesData)
+                 serrie.color = .red
+                 calorieChart.add(serrie)
         }
-        let serrie = ChartSeries(data:caloriesData)
-
-        calorieChart.add(serrie)
+     
     }
     
     
@@ -84,6 +85,7 @@ class CalroriesMainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(updateChart), name: .track, object: nil)
        
     }
@@ -94,6 +96,7 @@ class CalroriesMainTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
     }
     
+    //MARK:- Table View DataSource
     
     override func numberOfSections(in tableView: UITableView) -> Int {
  
@@ -111,11 +114,11 @@ class CalroriesMainTableViewController: UITableViewController {
            let calorie = fetchedResultsController.object(at: indexPath)
         
         cell.textLabel?.text = " Calories: \(calorie.amount)"
-        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         
         cell.detailTextLabel?.text = dateFormatter.string(from: calorie.date!)
         cell.detailTextLabel?.textColor = UIColor.gray
-        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 14)
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 16)
         
            return cell
        }
@@ -145,6 +148,7 @@ class CalroriesMainTableViewController: UITableViewController {
             textField.keyboardType = .numberPad
         }
         ac.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (action) in
+            
             guard let amount = ac.textFields![0].text, let amountToInt = Int64(amount) else {
                 self.showErrorAlert()
                 return
