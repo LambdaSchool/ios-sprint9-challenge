@@ -66,17 +66,15 @@ class CalroriesMainTableViewController: UITableViewController {
     }()
     
     @objc private func updateChart() {
-        
-        var caloriesData : [(x:Double,y:Double)] = []
-        
-        for (index,amount) in calorieController.amountArray.enumerated() {
-            caloriesData.append((Double(index),amount))
-            let serrie = ChartSeries(data:caloriesData)
-                 serrie.color = .red
-                 calorieChart.add(serrie)
+        var series : [Double] = []
+        fetchedResultsController.fetchedObjects!.forEach { (calorie) in
+            series.append(Double(calorie.amount))
         }
-     
+        let serie = ChartSeries(series)
+        calorieChart.add(serie)
     }
+    
+    let userDefault = UserDefaults.standard
     
     
     //MARK:- View Life Cycle
@@ -85,9 +83,21 @@ class CalroriesMainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
-        
+        persistChart()
+      
+       
         NotificationCenter.default.addObserver(self, selector: #selector(updateChart), name: .track, object: nil)
        
+    }
+    
+    
+    private func persistChart() {
+        var series : [Double] = []
+        fetchedResultsController.fetchedObjects!.forEach { (calorie) in
+            series.append(Double(calorie.amount))
+        }
+        let serie = ChartSeries(series)
+        calorieChart.add(serie)
     }
     
     private func setUpUI()  {
