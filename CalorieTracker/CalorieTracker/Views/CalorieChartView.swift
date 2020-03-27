@@ -15,7 +15,9 @@ class CalorieChartView: Chart {
     
     init() {
         super.init(frame: .zero)
+        
         let series = ChartSeries(chartSeries)
+        series.area = true
         add(series)
         
     }
@@ -27,6 +29,7 @@ class CalorieChartView: Chart {
     func setSeries(values: [Double]) {
         chartSeries.append(contentsOf: values)
         let newseries = ChartSeries(values)
+        newseries.area = true
         series[0] = newseries
     }
     
