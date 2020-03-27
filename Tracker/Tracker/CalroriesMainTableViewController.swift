@@ -66,13 +66,22 @@ class CalroriesMainTableViewController: UITableViewController {
         return chart
     }()
     
-    @objc private func updateChart() {
+    private var serie: ChartSeries  {
+        let se = ChartSeries(amountArray)
+        se.area = true
+        se.color = .orange
+        se.line = true
+        return se
+    }
+    
+    @objc private func updateChart(_ notification : Notification) {
         
      print("Add new item to chart")
+
+        amountArray.append(notification.userInfo?["Hello"] as! Double)
+        calorieChart.add(serie)
+      
         
-       let serie = ChartSeries(amountArray)
-            calorieChart.add(serie)
-    
         
     }
   
@@ -103,7 +112,6 @@ class CalroriesMainTableViewController: UITableViewController {
     }
     
     private func persistChart() {
-        let serie = ChartSeries(amountArray)
         calorieChart.add(serie)
     }
     
@@ -172,11 +180,12 @@ class CalroriesMainTableViewController: UITableViewController {
                 
             }
             let amounter = Double(amountToInt)
+            let userInfo : [String:Double] = ["Hello": amounter]
             self.amountArray.append(amounter)
             
             self.calorieController.createNewItem(amount: amountToInt)
             
-            NotificationCenter.default.post(name: .track, object: self, userInfo: nil)
+            NotificationCenter.default.post(name: .track, object: self, userInfo: userInfo)
         }))
 
         present(ac, animated: true, completion: nil)
