@@ -11,11 +11,60 @@ import CoreData
 
 class CalorieIntakeViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
+    // MARK: - Properties && Outlets
+    
     @IBOutlet weak var calorieChart: Chart!
      
     @IBOutlet weak var CalorieTable: UITableView!
     
     let controller = CaloriesController()
+    
+    lazy var fetchedResultsController: NSFetchedResultsController <Calorie> = {
+        let request: NSFetchRequest<Calorie> = Calorie.fetchRequest()
+        let MOC = CoreDataStack.shared.mainContext
+            
+        request.sortDescriptors = [NSSortDescriptor(key: "timeAdded",
+                            ascending: true),
+            NSSortDescriptor(key: "timeAdded",
+                            ascending: true)]
+        
+        let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: MOC, sectionNameKeyPath: nil, cacheName: nil)
+        frc.delegate = self
+        
+        try! frc.performFetch()
+        return frc
+    }()
+    
+    // MARK: - Actions
+       @IBAction func addColorieSource(_ sender: Any) {
+           let alertController = UIAlertController(title: "Add Calorie Amount", message: "Enter the amount of calories in the text field! ", preferredStyle: .alert)
+           
+           alertController.addTextField { (textField : UITextField!) -> Void in
+               textField.placeholder = "Calories: "
+           }
+           let submitAction = UIAlertAction(title: "Submit", style: .default, handler: { aleer -> Void in
+               
+            let firstTF = alertController.textFields![0] 
+               
+               guard let amount = firstTF.text else { return }
+               self.controller.createCalorie(withCalorieAmount: amount)
+               
+               NotificationCenter.default.post(name: .updateChart, object: self)
+               
+               self.CalorieTable.reloadData()
+               
+           })
+               
+           let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+           alertController.addAction(submitAction)
+           alertController.addAction(cancelAction)
+           present(alertController, animated: true, completion: nil)
+           }
+       
+       
+
+       
+    // MARK: - Initializers
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,48 +79,23 @@ class CalorieIntakeViewController: UIViewController, NSFetchedResultsControllerD
         NotificationCenter.default.post(name: .updateChart, object: self)
     }
     
-    lazy var fetchedResultsController:
-        NSFetchedResultsController <Calorie> = {
-        let request: NSFetchRequest<Calorie> = Calorie.fetchRequest()
-        let MOC = CoreDataStack.shared.mainContext
-            
-        request.sortDescriptors = [NSSortDescriptor(key: "added",
-                             ascending: true),
-            NSSortDescriptor(key: "added",
-                             ascending: true)]
+    // MARK: - Methods
+    @objc func updateChart(notification: Notification) {
         
-        let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: MOC, sectionNameKeyPath: nil, cacheName: nil)
-        frc.delegate = self
+        var data: [Double] = []
         
-            try! frc.performFetch()
-    }()
-    
-    
-    
-    @IBAction func addColorieSource(_ sender: Any) {
-        let alertController = UIAlertController(title: "Add Calorie Amount", message: "Enter the amount of calories in the text field! ", preferredStyle: .alert)
-        
-        alertController.addTextField { (textField : UITextField!) -> Void in
-            textField.placeholder = "Calories: "
+        for calorie in fetchedResultsController.fetchedObjects! {
+            print(calorie.amount)
+            data.append(Double(calorie.amount!) as! Double)
         }
-        let submitAction = UIAlertAction(title: "Submit", style: .default, handler: { aleer -> Void in
-            
-            let firstTF = alertController.textFields![0] as! UITextField
-            
-            guard let amount = firstTF.text else { return }
-            self.controller.createCalorie(withCalorieAmount: amount)
-            
-            NotificationCenter.default.post(name: .updatChart, object: self)
-            
-            self.CalorieTable.reloadData()
-            
-        })
-            
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        alertController.addAction(submitAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
-        }
+        
+        let series = ChartSeries(data)
+        series.area = true
+        calorieChart.add(series)
+        self.calorieChart.subviews.forEach({ $0.removeFromSuperview() })
+       
+        
+    }
 }
 
 
@@ -85,6 +109,7 @@ extension CalorieIntakeViewController: UITableViewDataSource {
         
         let calorie = self.fetchedResultsController.object(at: indexPath)
         cell.textLabel?.text = "Calories: \(calorie.amount ?? "0")"
+        return cell
     }
     
     

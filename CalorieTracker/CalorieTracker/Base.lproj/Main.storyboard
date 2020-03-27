@@ -77,11 +77,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="CalorieTable" destination="XR3-zz-LYA" id="SLU-Lo-2iK"/>
-                        <outlet property="calorieCahrt" destination="XR3-zz-LYA" id="hZh-Vv-CW5"/>
-                        <outlet property="calorieChard" destination="4rh-eb-qmq" id="m4l-12-ecT"/>
-                        <outlet property="calorieChart" destination="XR3-zz-LYA" id="s0e-yO-XlV"/>
-                        <outlet property="calorieTable" destination="XR3-zz-LYA" id="636-Il-Lu7"/>
+                        <outlet property="CalorieTable" destination="XR3-zz-LYA" id="6BO-Kr-YUm"/>
+                        <outlet property="calorieChart" destination="4rh-eb-qmq" id="E6A-Sh-QPr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
