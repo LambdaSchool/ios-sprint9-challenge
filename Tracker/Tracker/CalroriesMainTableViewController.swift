@@ -26,7 +26,7 @@ class CalroriesMainTableViewController: UITableViewController {
             bottomLabel.charInterval = 0.2
             bottomLabel.continueTyping()
             bottomLabel.text = "Welcome to my amazing app!Have a great day!! :]"
-            bottomLabel.font = UIFont(name: "Copperplate-Bold", size: 16)
+            bottomLabel.font = UIFont(name: "Copperplate-Bold", size: 14)
             
             bottomLabel.textColor = #colorLiteral(red: 0.6909318566, green: 0.7678380609, blue: 0.870224297, alpha: 1)
             
@@ -137,11 +137,13 @@ class CalroriesMainTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseCellId, for: indexPath)
            let calorie = fetchedResultsController.object(at: indexPath)
         cell.accessibilityIdentifier = "Cell"
+        cell.backgroundColor = #colorLiteral(red: 0.6909318566, green: 0.7678380609, blue: 0.870224297, alpha: 1)
         cell.textLabel?.text = " Calories: \(calorie.amount)"
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        cell.textLabel?.textColor = .white
         
         cell.detailTextLabel?.text = dateFormatter.string(from: calorie.date!)
-        cell.detailTextLabel?.textColor = UIColor.gray
+        cell.detailTextLabel?.textColor = UIColor.white
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 16)
         
            return cell
