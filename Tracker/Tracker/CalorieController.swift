@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+
 class CalorieController {
     
     func createNewItem(amount: Int64, date: Date = Date() ,into context : NSManagedObjectContext = CoreDataStack.shared.mainContext ) {
