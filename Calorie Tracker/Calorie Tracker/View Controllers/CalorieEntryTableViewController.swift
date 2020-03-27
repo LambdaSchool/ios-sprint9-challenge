@@ -19,12 +19,15 @@ class CalorieEntryTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     // MARK: - Actions
     
     @IBAction func addTapped(_ sender: UIBarButtonItem) {
         addEntryAlert()
+        NotificationCenter.default.post(name: .addedEntry,
+                                        object: self)
     }
     
     // MARK: - Outlets
@@ -47,6 +50,7 @@ class CalorieEntryTableViewController: UITableViewController {
         
         return cell
     }
+    
     private func updateChart() {
         var chartEntries: [Double] = []
         
@@ -57,6 +61,15 @@ class CalorieEntryTableViewController: UITableViewController {
         
         let series = ChartSeries(chartEntries)
         chart.add(series)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reloadChart),
+                                               name: .addedEntry,
+                                               object: nil)
+    }
+    
+    @objc func reloadChart(){
+        chart.reloadInputViews()
     }
     private func addEntryAlert() {
         

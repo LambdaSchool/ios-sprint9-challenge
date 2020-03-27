@@ -14,6 +14,7 @@ class CalorieController {
     // MARK: - Properties
     
     private(set) var calorieEntries: [Calories] = []
+    private var importer: CoreDataImporter?
     
     // MARK: - CRUD Methods
     
@@ -21,6 +22,32 @@ class CalorieController {
         let entry = Calories(count: count)
         calorieEntries.append(entry)
         saveToPersistentStore()
+    }
+    
+    func updateEntries(with representation: [CalorieRepresentation],
+                       in context: NSManagedObjectContext,
+                       completion: @escaping ((Error?) -> Void) = { _ in }) {
+        importer = CoreDataImporter.init(context: context)
+        importer?.sync(entries: representation, completion: { (error) in
+            if let error = error  {
+                NSLog("Error syncing entries from context: \(error)")
+                completion(error)
+                return
+            }
+            
+            context.perform {
+                do{
+                    try context.save()
+                    completion(nil)
+                } catch {
+                    NSLog("Error saving sync context: \(error)")
+                    completion(error)
+                    return
+                }
+            }
+            
+            
+        })
     }
     
     // MARK: - Private Methods

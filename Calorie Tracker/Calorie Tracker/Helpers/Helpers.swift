@@ -16,3 +16,7 @@ static func getFormattedDate(date: Date, format: String = "MMM d, h:mm a") -> St
 }
 }
 
+extension NSNotification.Name {
+    static let addedEntry = NSNotification.Name("AddedEntry")
+}
+

@@ -57,8 +57,7 @@ class CoreDataImporter {
         entry.count = Int16(calorieRep.calories)
         entry.date = calorieRep.date
     }
-    
-    
+
 }
 
 
