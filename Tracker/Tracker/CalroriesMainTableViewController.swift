@@ -15,10 +15,6 @@ extension NSNotification.Name {
     static let track  = NSNotification.Name(rawValue: "Track")
 }
 
-
-
-
-
 class CalroriesMainTableViewController: UITableViewController {
 
     //MARK:- Properties
@@ -29,9 +25,11 @@ class CalroriesMainTableViewController: UITableViewController {
         didSet {
             bottomLabel.charInterval = 0.2
             bottomLabel.continueTyping()
-            bottomLabel.text = "Welcome to my amazing app! Have a great day!! :]"
-            bottomLabel.font = UIFont.boldSystemFont(ofSize: 17)
+            bottomLabel.text = "Welcome to my amazing app!Have a great day!! :]"
+            bottomLabel.font = UIFont(name: "Copperplate-Bold", size: 16)
+            
             bottomLabel.textColor = #colorLiteral(red: 0.6909318566, green: 0.7678380609, blue: 0.870224297, alpha: 1)
+            
         }
     }
     
@@ -117,10 +115,7 @@ class CalroriesMainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
          if editingStyle == .delete {
            let item = fetchedResultsController.object(at: indexPath)
-            
-            CoreDataStack.shared.mainContext.delete(item)
-
-           try? CoreDataStack.shared.mainContext.save()
+            calorieController.deleteItem(calorie: item)
          }
      }
     
@@ -139,7 +134,11 @@ class CalroriesMainTableViewController: UITableViewController {
             textField.keyboardType = .numberPad
         }
         ac.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (action) in
-            guard let amount = ac.textFields![0].text, let amountToInt = Int64(amount) else { return }
+            guard let amount = ac.textFields![0].text, let amountToInt = Int64(amount) else {
+                self.showErrorAlert()
+                return
+                
+            }
             self.calorieController.createNewItem(amount: amountToInt)
             
             NotificationCenter.default.post(name: .track, object: self, userInfo: nil)
@@ -148,6 +147,12 @@ class CalroriesMainTableViewController: UITableViewController {
         present(ac, animated: true, completion: nil)
     }
 
+    private func showErrorAlert() {
+        let ac = UIAlertController(title: "Please enter a valid number", message: nil, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
+        present(ac, animated: true, completion: nil)
+    }
+    
 
 }
 

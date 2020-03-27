@@ -26,5 +26,18 @@ class CalorieController {
         }
      
     }
+    
+    func deleteItem(calorie: Calorie) {
+        CoreDataStack.shared.mainContext.delete(calorie)
+        
+        do {
+            try CoreDataStack.shared.mainContext.save()
+        } catch let err as NSError {
+            NSLog("Error deleting item : \(err)")
+        }
+    }
+    
+    
+    
 
 }
