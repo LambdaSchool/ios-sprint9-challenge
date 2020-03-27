@@ -3,16 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5C0816F1242E5AEE00837F86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0816F0242E5AEE00837F86 /* AppDelegate.swift */; };
 		5C0816F3242E5AEE00837F86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0816F2242E5AEE00837F86 /* SceneDelegate.swift */; };
-		5C0816F5242E5AEE00837F86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0816F4242E5AEE00837F86 /* ViewController.swift */; };
 		5C0816F8242E5AEE00837F86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C0816F6242E5AEE00837F86 /* Main.storyboard */; };
 		5C0816FA242E5AEF00837F86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C0816F9242E5AEF00837F86 /* Assets.xcassets */; };
 		5C0816FD242E5AEF00837F86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C0816FB242E5AEF00837F86 /* LaunchScreen.storyboard */; };
+		5C081705242E5C4400837F86 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C081704242E5C4400837F86 /* CoreDataStack.swift */; };
+		5C08170A242E5C6400837F86 /* CalorieEntry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C081708242E5C6400837F86 /* CalorieEntry.xcdatamodeld */; };
+		5C64CA3C242E5E7200233B99 /* CalorieEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C64CA3B242E5E7200233B99 /* CalorieEntry+Convenience.swift */; };
 		A2368B879EBC2B512813D36A /* Pods_CalorieSprint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9685AC05815661173688483B /* Pods_CalorieSprint.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,11 +24,13 @@
 		5C0816ED242E5AEE00837F86 /* CalorieSprint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieSprint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C0816F0242E5AEE00837F86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C0816F2242E5AEE00837F86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5C0816F4242E5AEE00837F86 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5C0816F7242E5AEE00837F86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5C0816F9242E5AEF00837F86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C0816FC242E5AEF00837F86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C0816FE242E5AEF00837F86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C081704242E5C4400837F86 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		5C081709242E5C6400837F86 /* CalorieEntry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieEntry.xcdatamodel; sourceTree = "<group>"; };
+		5C64CA3B242E5E7200233B99 /* CalorieEntry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieEntry+Convenience.swift"; sourceTree = "<group>"; };
 		9685AC05815661173688483B /* Pods_CalorieSprint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieSprint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -63,9 +67,9 @@
 		5C0816EF242E5AEE00837F86 /* CalorieSprint */ = {
 			isa = PBXGroup;
 			children = (
+				5C08170B242E5C6B00837F86 /* CoreData */,
 				5C0816F0242E5AEE00837F86 /* AppDelegate.swift */,
 				5C0816F2242E5AEE00837F86 /* SceneDelegate.swift */,
-				5C0816F4242E5AEE00837F86 /* ViewController.swift */,
 				5C0816F6242E5AEE00837F86 /* Main.storyboard */,
 				5C0816F9242E5AEF00837F86 /* Assets.xcassets */,
 				5C0816FB242E5AEF00837F86 /* LaunchScreen.storyboard */,
@@ -74,13 +78,22 @@
 			path = CalorieSprint;
 			sourceTree = "<group>";
 		};
+		5C08170B242E5C6B00837F86 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				5C081704242E5C4400837F86 /* CoreDataStack.swift */,
+				5C64CA3B242E5E7200233B99 /* CalorieEntry+Convenience.swift */,
+				5C081708242E5C6400837F86 /* CalorieEntry.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		8470CDA62E72DD5F3C2CF907 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				1A3ACDDE83E57A4ABD3CD9F5 /* Pods-CalorieSprint.debug.xcconfig */,
 				1C084FB776F85EBB38B179A4 /* Pods-CalorieSprint.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,8 +220,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C0816F5242E5AEE00837F86 /* ViewController.swift in Sources */,
+				5C081705242E5C4400837F86 /* CoreDataStack.swift in Sources */,
+				5C64CA3C242E5E7200233B99 /* CalorieEntry+Convenience.swift in Sources */,
 				5C0816F1242E5AEE00837F86 /* AppDelegate.swift in Sources */,
+				5C08170A242E5C6400837F86 /* CalorieEntry.xcdatamodeld in Sources */,
 				5C0816F3242E5AEE00837F86 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +424,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5C081708242E5C6400837F86 /* CalorieEntry.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5C081709242E5C6400837F86 /* CalorieEntry.xcdatamodel */,
+			);
+			currentVersion = 5C081709242E5C6400837F86 /* CalorieEntry.xcdatamodel */;
+			path = CalorieEntry.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5C0816E5242E5AEE00837F86 /* Project object */;
 }
