@@ -17,14 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         UINavigationBar.appearance().tintColor = .white
                    UINavigationBar.appearance().prefersLargeTitles = true
-                   UINavigationBar.appearance().barTintColor = UIColor.link
+        UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.6909318566, green: 0.7678380609, blue: 0.870224297, alpha: 1)
                
                
                
                    if #available(iOS 13.0, *) {
                      let appearance = UINavigationBarAppearance()
                      UINavigationBar.appearance().tintColor = .white
-                     appearance.backgroundColor = UIColor.link
+                     appearance.backgroundColor = #colorLiteral(red: 0.6909318566, green: 0.7678380609, blue: 0.870224297, alpha: 1)
                      appearance.largeTitleTextAttributes = [.foregroundColor : UIColor.white] //portrait title
                      appearance.titleTextAttributes = [.foregroundColor : UIColor.white] //landscape title
                      UINavigationBar.appearance().tintColor = .white

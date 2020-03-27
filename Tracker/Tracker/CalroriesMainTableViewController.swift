@@ -37,6 +37,34 @@ class CalroriesMainTableViewController: UITableViewController {
     }
     
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+           // #warning Incomplete implementation, return the number of sections
+           return fetchedResultsController.sections?.count ?? 1
+       }
+
+       override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+           // #warning Incomplete implementation, return the number of rows
+           return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+       }
+
+
+       override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Tracker", for: indexPath)
+           let calorie = fetchedResultsController.object(at: indexPath)
+        cell.textLabel?.text = "\(calorie.amount)"
+        cell.detailTextLabel?.text = dateFormatter.string(from: calorie.date!)
+        
+           return cell
+       }
+    
+    lazy var dateFormatter: DateFormatter = {
+        let dm = DateFormatter()
+        dm.calendar = .current
+        dm.dateFormat = "MMM d, yyyy HH:mm:ss"
+        return dm
+    }()
+    
+    
     
     
     //MARK:- Action
@@ -54,7 +82,11 @@ class CalroriesMainTableViewController: UITableViewController {
             textField.placeholder = "Enter amount of calories"
             textField.keyboardType = .numberPad
         }
-        ac.addAction(UIAlertAction(title: "Submit", style: .default, handler: nil))
+        ac.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (action) in
+            guard let amount = ac.textFields![0].text, let amountToInt = Int64(amount) else { return }
+            self.calorieController.createNewItem(amount: amountToInt)
+        }))
+
         present(ac, animated: true, completion: nil)
     }
 
