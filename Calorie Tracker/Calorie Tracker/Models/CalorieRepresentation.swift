@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct CalorieRepresentation: Codable {
+    var calories: Int
+    var date: Date
+}

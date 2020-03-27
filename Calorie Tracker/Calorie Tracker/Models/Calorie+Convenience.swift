@@ -7,3 +7,15 @@
 //
 
 import Foundation
+import CoreData
+
+
+extension Calories {
+    @discardableResult convenience init(count: Int,
+                                        date: Date = Date(),
+                                        context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        self.init(context: context)
+        self.count = Int16(count)
+        self.date = date
+    }
+}
