@@ -1,5 +1,5 @@
 //
-//  MainTableViewController.swift
+//  CalroriesMainTableViewController.swift
 //  Tracker
 //
 //  Created by Nick Nguyen on 3/27/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainTableViewController: UITableViewController {
+class CalroriesMainTableViewController: UITableViewController {
 
     
     //MARK:- View Life Cycle
