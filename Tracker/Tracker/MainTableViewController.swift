@@ -21,6 +21,9 @@ class MainTableViewController: UITableViewController {
     
     
     
+    
+    //MARK:- Action
+    
     @objc func addTapped() {
         showAlert()
     }
@@ -30,6 +33,10 @@ class MainTableViewController: UITableViewController {
     func showAlert() {
         let ac = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+        ac.addTextField { (textField) in
+            textField.placeholder = "Enter amount of calories"
+            textField.keyboardType = .numberPad
+        }
         ac.addAction(UIAlertAction(title: "Submit", style: .default, handler: nil))
         present(ac, animated: true, completion: nil)
     }

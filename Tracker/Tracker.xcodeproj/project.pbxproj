@@ -14,6 +14,7 @@
 		B68B03E7242E4D9E00131408 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B68B03E5242E4D9E00131408 /* Main.storyboard */; };
 		B68B03E9242E4D9F00131408 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B68B03E8242E4D9F00131408 /* Assets.xcassets */; };
 		B68B03EC242E4D9F00131408 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B68B03EA242E4D9F00131408 /* LaunchScreen.storyboard */; };
+		B68B03F5242E50A700131408 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B03F4242E50A700131408 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B68B03E8242E4D9F00131408 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B68B03EB242E4D9F00131408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B68B03ED242E4D9F00131408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B68B03F4242E50A700131408 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		C9980FA9994CEA683BB7354A /* Pods_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7D9F54A88D9C3F86816C3CD /* Pods-Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tracker.release.xcconfig"; path = "Target Support Files/Pods-Tracker/Pods-Tracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,9 +82,10 @@
 		B68B03DE242E4D9E00131408 /* Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				B68B03F3242E4DAB00131408 /* Resources */,
 				B68B03E3242E4D9E00131408 /* MainTableViewController.swift */,
+				B68B03F4242E50A700131408 /* CoreDataStack.swift */,
 				B68B03E5242E4D9E00131408 /* Main.storyboard */,
+				B68B03F3242E4DAB00131408 /* Resources */,
 				B68B03ED242E4D9F00131408 /* Info.plist */,
 			);
 			path = Tracker;
@@ -217,6 +220,7 @@
 				B68B03E4242E4D9E00131408 /* MainTableViewController.swift in Sources */,
 				B68B03E0242E4D9E00131408 /* AppDelegate.swift in Sources */,
 				B68B03E2242E4D9E00131408 /* SceneDelegate.swift in Sources */,
+				B68B03F5242E50A700131408 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
