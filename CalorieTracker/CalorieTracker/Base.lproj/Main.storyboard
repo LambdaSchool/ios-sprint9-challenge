@@ -20,7 +20,7 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="jhQ-Qy-kcA" detailTextLabel="321-b7-C2C" style="IBUITableViewCellStyleValue1" id="aBt-9V-yJL">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieIntakeCell" textLabel="jhQ-Qy-kcA" detailTextLabel="321-b7-C2C" style="IBUITableViewCellStyleValue1" id="aBt-9V-yJL">
                                 <rect key="frame" x="0.0" y="286" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aBt-9V-yJL" id="0Ed-Yh-mv2">
@@ -51,8 +51,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="DwN-tt-QQ4">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EIB-y3-7dA"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EIB-y3-7dA">
+                            <connections>
+                                <action selector="addIntake:" destination="TWo-mr-4CY" id="lPP-O3-8sx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chart" destination="lC7-kH-eiC" id="48y-Dg-2R5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JW2-MM-Ryt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
