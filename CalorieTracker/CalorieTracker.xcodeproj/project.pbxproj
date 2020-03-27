@@ -15,10 +15,10 @@
 		E3AF030D242E54C4003511CE /* Pods_CalorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B423EE4515677FA9D7845FE3 /* Pods_CalorieTracker.framework */; };
 		E3AF030E242E54C4003511CE /* Pods_CalorieTracker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B423EE4515677FA9D7845FE3 /* Pods_CalorieTracker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E3AF0313242E5D8C003511CE /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AF0312242E5D8C003511CE /* CalorieController.swift */; };
-		E3AF0315242E6C8B003511CE /* CalorieIntakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AF0314242E6C8B003511CE /* CalorieIntakeViewController.swift */; };
 		E3AF0317242E72AB003511CE /* Calorie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AF0316242E72AB003511CE /* Calorie.swift */; };
 		E3AF0319242E732B003511CE /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AF0318242E732B003511CE /* CoreDataStack.swift */; };
 		E3AF031C242E8650003511CE /* Calorie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3AF031A242E8650003511CE /* Calorie.xcdatamodeld */; };
+		E3AF031E242E8A86003511CE /* CalorieIntakeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AF031D242E8A86003511CE /* CalorieIntakeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,10 +47,10 @@
 		E3AF0305242E5100003511CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3AF0307242E5100003511CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3AF0312242E5D8C003511CE /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
-		E3AF0314242E6C8B003511CE /* CalorieIntakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeViewController.swift; sourceTree = "<group>"; };
 		E3AF0316242E72AB003511CE /* Calorie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calorie.swift; sourceTree = "<group>"; };
 		E3AF0318242E732B003511CE /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		E3AF031B242E8650003511CE /* Calorie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calorie.xcdatamodel; sourceTree = "<group>"; };
+		E3AF031D242E8A86003511CE /* CalorieIntakeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,9 +111,9 @@
 				E3AF0304242E5100003511CE /* LaunchScreen.storyboard */,
 				E3AF0307242E5100003511CE /* Info.plist */,
 				E3AF0312242E5D8C003511CE /* CalorieController.swift */,
-				E3AF0314242E6C8B003511CE /* CalorieIntakeViewController.swift */,
 				E3AF0316242E72AB003511CE /* Calorie.swift */,
 				E3AF0318242E732B003511CE /* CoreDataStack.swift */,
+				E3AF031D242E8A86003511CE /* CalorieIntakeTableViewController.swift */,
 			);
 			path = CalorieTracker;
 			sourceTree = "<group>";
@@ -237,9 +237,9 @@
 				E3AF0319242E732B003511CE /* CoreDataStack.swift in Sources */,
 				E3AF02F7242E50FB003511CE /* AppDelegate.swift in Sources */,
 				E3AF02F9242E50FB003511CE /* SceneDelegate.swift in Sources */,
+				E3AF031E242E8A86003511CE /* CalorieIntakeTableViewController.swift in Sources */,
 				E3AF0317242E72AB003511CE /* Calorie.swift in Sources */,
 				E3AF0313242E5D8C003511CE /* CalorieController.swift in Sources */,
-				E3AF0315242E6C8B003511CE /* CalorieIntakeViewController.swift in Sources */,
 				E3AF031C242E8650003511CE /* Calorie.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

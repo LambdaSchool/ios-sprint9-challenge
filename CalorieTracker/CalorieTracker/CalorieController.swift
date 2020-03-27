@@ -13,7 +13,7 @@ class CaloriesController {
     
     private (set) var calories: [Calorie] = []
     
-    func createCalorie(withCalorieAmount amount: String) {
+    func createCalorie(withCalorieAmount amount: String = "0") {
         let calorie = Calorie(amount: amount)
         self.calories.append(calorie)
         
@@ -23,6 +23,18 @@ class CaloriesController {
             NSLog("Error saving")
         }
     }
+    
+    func deleteCalories(withCalorie calorie: Calorie) {
+        let moc = CoreDataStack.shared.mainContext
+        moc.delete(calorie)
+
+        do {
+            try self.save()
+        } catch {
+            NSLog("Error saving after delete method")
+        }
+    }
+
     func save() throws {
         let moc = CoreDataStack.shared.mainContext
         try moc.save()
