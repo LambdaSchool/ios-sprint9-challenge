@@ -15,9 +15,12 @@ class CalorieChartView: Chart {
     
     init() {
         super.init(frame: .zero)
-        
+        hideHighlightLineOnTouchEnd = true
+        backgroundColor = .systemBackground
+        labelColor = .label
         let series = ChartSeries(chartSeries)
         series.area = true
+        minY = 0
         add(series)
         
     }
@@ -30,6 +33,7 @@ class CalorieChartView: Chart {
         chartSeries.append(contentsOf: values)
         let newseries = ChartSeries(values)
         newseries.area = true
+        newseries.color = .systemOrange
         series[0] = newseries
     }
     

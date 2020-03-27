@@ -20,6 +20,7 @@
 		D2FA9A0A242E5DB300BB5B79 /* CalorieEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FA9A09242E5DB300BB5B79 /* CalorieEntry+Convenience.swift */; };
 		D2FA9A0C242E612E00BB5B79 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FA9A0B242E612E00BB5B79 /* Notifications.swift */; };
 		D2FA9A0E242E6B4300BB5B79 /* CalorieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FA9A0D242E6B4300BB5B79 /* CalorieChartView.swift */; };
+		D2FA9A10242E955F00BB5B79 /* CalorieEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FA9A0F242E955F00BB5B79 /* CalorieEntryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		D2FA9A09242E5DB300BB5B79 /* CalorieEntry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieEntry+Convenience.swift"; sourceTree = "<group>"; };
 		D2FA9A0B242E612E00BB5B79 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		D2FA9A0D242E6B4300BB5B79 /* CalorieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieChartView.swift; sourceTree = "<group>"; };
+		D2FA9A0F242E955F00BB5B79 /* CalorieEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieEntryCell.swift; sourceTree = "<group>"; };
 		E1843C0D26C0F16D59095550 /* Pods-CalorieTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.release.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				D2FA9A0D242E6B4300BB5B79 /* CalorieChartView.swift */,
+				D2FA9A0F242E955F00BB5B79 /* CalorieEntryCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			files = (
 				D2FA9A0C242E612E00BB5B79 /* Notifications.swift in Sources */,
 				D2FA9A08242E5D6C00BB5B79 /* CalorieEntryController.swift in Sources */,
+				D2FA9A10242E955F00BB5B79 /* CalorieEntryCell.swift in Sources */,
 				D2FA9A06242E5B6600BB5B79 /* CoreDataStack.swift in Sources */,
 				D28A5303242E4DE900AA8C1D /* CalorieTrackerViewController.swift in Sources */,
 				D28A52FF242E4DE900AA8C1D /* AppDelegate.swift in Sources */,

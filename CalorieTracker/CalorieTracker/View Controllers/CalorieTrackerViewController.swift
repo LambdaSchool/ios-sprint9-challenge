@@ -13,6 +13,13 @@ class CalorieTrackerViewController: UIViewController {
     let calorieEntryController = CalorieEntryController()
     let tableView = UITableView()
     let chartView = CalorieChartView()
+    
+    lazy var dateFormatter: DateFormatter = {
+       let df = DateFormatter()
+        df.dateStyle = .short
+        df.timeStyle = .short
+        return df
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +30,7 @@ class CalorieTrackerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         setupChartView()
         setupTableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "EntryCell")
+        tableView.register(CalorieEntryCell.self, forCellReuseIdentifier: "EntryCell")
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .didRecieveNewCalorieEntries, object: nil)
         updateViews()
     }
@@ -40,10 +47,16 @@ class CalorieTrackerViewController: UIViewController {
     
     private func setupNavigationBar() {
         let rightBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCaloriesTapped))
-        rightBarButton.tintColor = .black
+        rightBarButton.tintColor = .label
         navigationItem.rightBarButtonItem = rightBarButton
         title = "Calorie Tracker"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.label]
+        navigationController?.navigationBar.standardAppearance = navBarAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+        
     }
     
     private func setupTableView() {
@@ -92,14 +105,16 @@ extension CalorieTrackerViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath) as? CalorieEntryCell else { return UITableViewCell() }
         
         let entry = calorieEntryController.calorieEntries[indexPath.row]
         
-        cell.textLabel?.text = "Calories: \(entry.calories)   \(entry.date?.description)"
-        
+        cell.caloriesLabel.text = "Calories: \(Int(entry.calories))"
+        if let date = entry.date {
+            cell.dateLabel.text = dateFormatter.string(from: date)
+        }
+
         return cell
     }
-    
 }
 
