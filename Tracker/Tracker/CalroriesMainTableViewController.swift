@@ -65,6 +65,16 @@ class CalroriesMainTableViewController: UITableViewController {
            return cell
        }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+         if editingStyle == .delete {
+           let item = fetchedResultsController.object(at: indexPath)
+            
+            CoreDataStack.shared.mainContext.delete(item)
+
+           try? CoreDataStack.shared.mainContext.save()
+         }
+     }
+    
     
     //MARK:- Action
     
