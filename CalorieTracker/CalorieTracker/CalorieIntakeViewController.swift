@@ -54,21 +54,23 @@ class CalorieIntakeViewController: UIViewController, NSFetchedResultsControllerD
         alertController.addTextField { (textField : UITextField!) -> Void in
             textField.placeholder = "Calories: "
         }
-        let submitAction = UIAlertAction(title: "Submit", style: .default, handler: {
-                
-            let firstTF = alertController.textFields[0] as! UITextField
+        let submitAction = UIAlertAction(title: "Submit", style: .default, handler: { aleer -> Void in
+            
+            let firstTF = alertController.textFields![0] as! UITextField
+            
             guard let amount = firstTF.text else { return }
             self.controller.createCalorie(withCalorieAmount: amount)
             
-            NotificationCenter.default.post(name: .updateChart, object: .self)
+            NotificationCenter.default.post(name: .updatChart, object: self)
+            
+            self.CalorieTable.reloadData()
             
         })
             
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        alertController.addTextField()
         alertController.addAction(submitAction)
         alertController.addAction(cancelAction)
-        present(alertController, animated: true)
+        present(alertController, animated: true, completion: nil)
         }
 }
 

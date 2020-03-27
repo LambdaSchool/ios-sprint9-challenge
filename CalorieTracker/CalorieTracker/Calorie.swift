@@ -27,3 +27,8 @@ extension Calorie {
         return date
     }
 }
+
+
+extension Notification.Name {
+    static let updateChart = Notification.Name("updateChart")
+}
