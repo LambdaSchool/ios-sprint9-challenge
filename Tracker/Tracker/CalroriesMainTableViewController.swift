@@ -57,17 +57,26 @@ class CalroriesMainTableViewController: UITableViewController {
     private let calorieController = CalorieController()
     
     private let calorieChart : Chart = {
-        let frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        let frame = CGRect(x: 0, y: 0, width: 200, height: 300)
         let chart = Chart(frame: frame)
-        
+        chart.axesColor = .green
+        chart.gridColor = .red
+       
         return chart
     }()
     
     @objc private func updateChart() {
-        let amountCaloriesIntake = ChartSeries(calorieController.amountArray)
-         let series = amountCaloriesIntake
-        calorieChart.add(series)
+        
+        var caloriesData : [(x:Double,y:Double)] = []
+        
+        for (index,amount) in calorieController.amountArray.enumerated() {
+            caloriesData.append((Double(index),amount))
+        }
+        let serrie = ChartSeries(data:caloriesData)
+
+        calorieChart.add(serrie)
     }
+    
     
     //MARK:- View Life Cycle
     
@@ -80,7 +89,6 @@ class CalroriesMainTableViewController: UITableViewController {
     }
     
     private func setUpUI()  {
-        
         tableView.tableHeaderView = calorieChart
         navigationItem.title = "Calorie Tracker"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
@@ -119,6 +127,9 @@ class CalroriesMainTableViewController: UITableViewController {
          }
      }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
     //MARK:- Action
     
@@ -156,45 +167,4 @@ class CalroriesMainTableViewController: UITableViewController {
 
 }
 
-extension CalroriesMainTableViewController: NSFetchedResultsControllerDelegate {
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-         tableView.beginUpdates()
-     }
-     
-     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-         tableView.endUpdates()
-     }
-     
-     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-         switch type {
-             case .insert:
-                 tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
-             case .delete:
-                 tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
-             default:
-                 break
-         }
-     }
-     
-     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-         switch type {
-             case .insert:
-                 guard let newIndexPath = newIndexPath else { return }
-                 tableView.insertRows(at: [newIndexPath], with: .automatic)
-             case .update:
-                 guard let indexPath = indexPath else { return }
-                 tableView.reloadRows(at: [indexPath], with: .automatic)
-             case .move:
-                 guard let oldIndexPath = indexPath,
-                     let newIndexPath = newIndexPath else { return }
-                 tableView.deleteRows(at: [oldIndexPath], with: .automatic)
-                 tableView.insertRows(at: [newIndexPath], with: .automatic)
-             case .delete:
-                 guard let indexPath = indexPath else { return }
-                 tableView.deleteRows(at: [indexPath], with: .automatic)
-             @unknown default:
-                 break
-             
-         }
-     }
-}
+
