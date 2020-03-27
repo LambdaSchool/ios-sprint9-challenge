@@ -13,6 +13,7 @@ class CalorieIntakeViewController: UIViewController, NSFetchedResultsControllerD
     
     @IBOutlet weak var calorieChart: Chart!
      
+    @IBOutlet weak var CalorieTable: UITableView!
     
     let controller = CaloriesController()
     
@@ -51,13 +52,17 @@ class CalorieIntakeViewController: UIViewController, NSFetchedResultsControllerD
         let alertController = UIAlertController(title: "Add Calorie Amount", message: "Enter the amount of calories in the text field! ", preferredStyle: .alert)
         
         alertController.addTextField { (textField : UITextField!) -> Void in
-            textField.placeholder = "Calories:"
+            textField.placeholder = "Calories: "
         }
-        
-        let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned self] action in
-            guard let textField = alertController.textFields?.first, let amountToSave = Int(textField.text!) else {
-                    return
-            }
+        let submitAction = UIAlertAction(title: "Submit", style: .default, handler: {
+                
+            let firstTF = alertController.textFields[0] as! UITextField
+            guard let amount = firstTF.text else { return }
+            self.controller.createCalorie(withCalorieAmount: amount)
+            
+            NotificationCenter.default.post(name: .updateChart, object: .self)
+            
+        })
             
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alertController.addTextField()

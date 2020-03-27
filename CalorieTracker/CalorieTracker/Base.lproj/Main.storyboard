@@ -48,7 +48,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="tsl-Tg-cfW"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="jnm-3e-s8x"/>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rh-eb-qmq" userLabel="CalorieChart" customClass="Chart" customModule="SwiftChart">
@@ -77,6 +77,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="CalorieTable" destination="XR3-zz-LYA" id="SLU-Lo-2iK"/>
                         <outlet property="calorieCahrt" destination="XR3-zz-LYA" id="hZh-Vv-CW5"/>
                         <outlet property="calorieChard" destination="4rh-eb-qmq" id="m4l-12-ecT"/>
                         <outlet property="calorieChart" destination="XR3-zz-LYA" id="s0e-yO-XlV"/>
