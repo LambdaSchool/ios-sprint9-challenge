@@ -20,6 +20,7 @@
 		B68B03FD242E66FB00131408 /* CalroiesMainTableViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B03FC242E66FB00131408 /* CalroiesMainTableViewController + Ext.swift */; };
 		B68B0405242E998C00131408 /* TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B0404242E998C00131408 /* TrackerUITests.swift */; };
 		B68B0413242E999400131408 /* TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B0412242E999400131408 /* TrackerTests.swift */; };
+		B68B041B242EB5EE00131408 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B041A242EB5EE00131408 /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		B68B0410242E999400131408 /* TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B68B0412242E999400131408 /* TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerTests.swift; sourceTree = "<group>"; };
 		B68B0414242E999400131408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B68B041A242EB5EE00131408 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		C9980FA9994CEA683BB7354A /* Pods_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7D9F54A88D9C3F86816C3CD /* Pods-Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tracker.release.xcconfig"; path = "Target Support Files/Pods-Tracker/Pods-Tracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +140,7 @@
 				B68B03E5242E4D9E00131408 /* Main.storyboard */,
 				B68B03F3242E4DAB00131408 /* Resources */,
 				B68B03ED242E4D9F00131408 /* Info.plist */,
+				B68B041A242EB5EE00131408 /* SettingViewController.swift */,
 			);
 			path = Tracker;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				B68B03FD242E66FB00131408 /* CalroiesMainTableViewController + Ext.swift in Sources */,
 				B68B03E4242E4D9E00131408 /* CalroriesMainTableViewController.swift in Sources */,
 				B68B03E0242E4D9E00131408 /* AppDelegate.swift in Sources */,
+				B68B041B242EB5EE00131408 /* SettingViewController.swift in Sources */,
 				B68B03E2242E4D9E00131408 /* SceneDelegate.swift in Sources */,
 				B68B03F5242E50A700131408 /* CoreDataStack.swift in Sources */,
 				B68B03F8242E511600131408 /* Tracker.xcdatamodeld in Sources */,
@@ -466,7 +470,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -520,7 +524,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

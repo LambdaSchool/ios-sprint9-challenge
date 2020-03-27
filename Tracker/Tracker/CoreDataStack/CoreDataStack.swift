@@ -43,4 +43,18 @@ class CoreDataStack {
         }
         if let error = error { throw error }
     }
+    
+    
+    func deleteCoreDataStore() {
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Calorie")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        do {
+            let newContext = containter.newBackgroundContext
+            try newContext().execute(deleteRequest)
+            try newContext().save()
+        } catch let err as NSError {
+            NSLog("Error deleting data: \(err)")
+        }
+    }
+
 }

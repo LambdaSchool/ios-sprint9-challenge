@@ -13,7 +13,7 @@ class CalorieController {
     
     var calrories : [Calorie] = []
     
-    func createNewItem(amount: Int64, date: Date = Date() ,into context : NSManagedObjectContext = CoreDataStack.shared.mainContext ) {
+    func createNewItem(amount: Double, date: Date = Date() ,into context : NSManagedObjectContext = CoreDataStack.shared.mainContext ) {
         
         let newItem = Calorie(context: context)
         calrories.append(newItem)

@@ -118,8 +118,15 @@ class CalroriesMainTableViewController: UITableViewController {
         navigationItem.title = "Calorie Tracker"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         navigationItem.rightBarButtonItem?.accessibilityIdentifier = "NavRightBarButtonItem"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "envelope.fill"), style: .done, target: self, action: #selector(handleDelete))
+    }
+    @objc func handleDelete() {
+        openTwitter()
+     
+    
     }
     
+     
     //MARK:- Table View DataSource
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -153,6 +160,9 @@ class CalroriesMainTableViewController: UITableViewController {
          if editingStyle == .delete {
            let item = fetchedResultsController.object(at: indexPath)
             calorieController.deleteItem(calorie: item)
+            if fetchedResultsController.fetchedObjects?.count == 0 {
+                calorieChart.removeAllSeries()
+            }
          }
      }
     
@@ -184,7 +194,7 @@ class CalroriesMainTableViewController: UITableViewController {
             let userInfo : [String:Double] = ["Hello": amounter]
             
             
-            self.calorieController.createNewItem(amount: amountToInt)
+            self.calorieController.createNewItem(amount: Double(amountToInt))
             
             NotificationCenter.default.post(name: .track, object: self, userInfo: userInfo)
         }))
