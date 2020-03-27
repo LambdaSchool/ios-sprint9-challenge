@@ -8,10 +8,13 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class CalorieTableViewController: UITableViewController {
     let calorieController = CalorieController()
-
+    
+    @IBOutlet private weak var chartView: Chart!
+    
     lazy var fetchedResultController: NSFetchedResultsController<Calorie> = {
   
         let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
@@ -28,6 +31,7 @@ class CalorieTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                self.updateChart()
     }
     
     private var dateFormatter: DateFormatter = {
