@@ -9,14 +9,32 @@
 import UIKit
 import CoreData
 import SwiftChart
+import CLTypingLabel
 
 extension NSNotification.Name {
     static let track  = NSNotification.Name(rawValue: "Track")
 }
 
+
+
+
+
 class CalroriesMainTableViewController: UITableViewController {
 
     //MARK:- Properties
+    
+    //MARK:- Stretch
+    
+    @IBOutlet weak var bottomLabel: CLTypingLabel! {
+        didSet {
+            bottomLabel.charInterval = 0.2
+            bottomLabel.continueTyping()
+            bottomLabel.text = "Welcome to my amazing app! Have a great day!! :]"
+            bottomLabel.font = UIFont.boldSystemFont(ofSize: 17)
+            bottomLabel.textColor = #colorLiteral(red: 0.6909318566, green: 0.7678380609, blue: 0.870224297, alpha: 1)
+        }
+    }
+    
     
     lazy private var dateFormatter: DateFormatter = {
         let dm = DateFormatter()
@@ -43,14 +61,13 @@ class CalroriesMainTableViewController: UITableViewController {
     private let calorieChart : Chart = {
         let frame = CGRect(x: 0, y: 0, width: 200, height: 200)
         let chart = Chart(frame: frame)
-    
+        
         return chart
     }()
     
     @objc private func updateChart() {
         let amountCaloriesIntake = ChartSeries(calorieController.amountArray)
          let series = amountCaloriesIntake
-//        UserDefaults.setValue(series, forKey: "He")
         calorieChart.add(series)
     }
     
@@ -60,8 +77,6 @@ class CalroriesMainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
-//        let defaultChart = UserDefaults.value(forKey: "He") as! ChartSeries
-//        calorieChart.add(defaultChart)
         NotificationCenter.default.addObserver(self, selector: #selector(updateChart), name: .track, object: nil)
        
     }
@@ -75,12 +90,12 @@ class CalroriesMainTableViewController: UITableViewController {
     
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-           // #warning Incomplete implementation, return the number of sections
+ 
            return fetchedResultsController.sections?.count ?? 1
        }
 
        override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           // #warning Incomplete implementation, return the number of rows
+        
            return fetchedResultsController.sections?[section].numberOfObjects ?? 0
        }
 
