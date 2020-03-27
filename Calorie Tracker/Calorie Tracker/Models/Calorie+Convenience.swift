@@ -11,11 +11,19 @@ import CoreData
 
 
 extension Calories {
-    @discardableResult convenience init(count: Int,
-                                        date: Date = Date(),
-                                        context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    convenience init(count: Int,
+                     date: Date = Date(),
+                     context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.count = Int16(count)
         self.date = date
+    }
+    
+    convenience init?(calorieRepresentation: CalorieRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        
+        let date = calorieRepresentation.date
+        let count = calorieRepresentation.calories
+        
+        self.init(count: count, date: date)
     }
 }
