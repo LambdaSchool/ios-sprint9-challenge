@@ -70,7 +70,7 @@ class CalorieChartTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
         let calorieEntry = fetchedResultsController.object(at: indexPath)
-        cell.textLabel?.text = String(calorieEntry.calories)
+        cell.textLabel?.text = ("Calories: \(calorieEntry.calories)")
         let df = DateFormatter()
         df.dateFormat = "MMM dd, yyyy hh:mm:ss"
         cell.detailTextLabel?.text = df.string(from: calorieEntry.date ?? Date())
