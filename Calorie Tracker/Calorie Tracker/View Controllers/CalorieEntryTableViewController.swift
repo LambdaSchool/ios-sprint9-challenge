@@ -9,39 +9,61 @@
 import UIKit
 
 class CalorieEntryTableViewController: UITableViewController {
-
+    
+    // MARK: - Properties:
+    
+    var calorieController: CalorieController?
+    
+    
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-
+    
+    // MARK: - Private Methods
+    
+    private func setupCell(for cell: UITableViewCell, at indexPath: IndexPath) {
+        guard let calorieController = calorieController,
+            let date = calorieController.calorieEntries[indexPath.row].date else { return }
+        let entry = calorieController.calorieEntries[indexPath.row]
+        
+        let calorieCount = Int(entry.count)
+        
+        let titleString = "\(calorieCount) calories"
+        let dateString = Date.getFormattedDate(date: date)
+        
+        cell.textLabel?.text = titleString
+        cell.detailTextLabel?.text = dateString
+    }
+    
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return calorieController?.calorieEntries.count ?? 0
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
+        
+        setupCell(for: cell, at: indexPath)
+        
         return cell
     }
-
-
-
+    
+    
+    
     /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
+     // Override to support editing the table view.
+     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+     if editingStyle == .delete {
+     // Delete the row from the data source
+     tableView.deleteRows(at: [indexPath], with: .fade)
+     } else if editingStyle == .insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
+    
 }
+
