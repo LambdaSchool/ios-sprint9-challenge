@@ -58,7 +58,7 @@ class CalroriesMainTableViewController: UITableViewController {
     private var tm: Calorie?
     
     private let calorieChart : Chart = {
-        let frame = CGRect(x: 0, y: 0, width: 200, height: 300)
+        let frame = CGRect(x: 0, y: 0, width: 0, height: 300)
         let chart = Chart(frame: frame)
         chart.axesColor = #colorLiteral(red: 0.6909318566, green: 0.7678380609, blue: 0.870224297, alpha: 1)
         chart.gridColor = .red
@@ -80,9 +80,7 @@ class CalroriesMainTableViewController: UITableViewController {
 
         amountArray.append(notification.userInfo?["Hello"] as! Double)
         calorieChart.add(serie)
-      
-        
-        
+     
     }
   
     var amountArray: [Double] {
@@ -119,6 +117,7 @@ class CalroriesMainTableViewController: UITableViewController {
         tableView.tableHeaderView = calorieChart
         navigationItem.title = "Calorie Tracker"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        navigationItem.rightBarButtonItem?.accessibilityIdentifier = "NavRightBarButtonItem"
     }
     
     //MARK:- Table View DataSource
@@ -137,9 +136,9 @@ class CalroriesMainTableViewController: UITableViewController {
        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseCellId, for: indexPath)
            let calorie = fetchedResultsController.object(at: indexPath)
-        
+        cell.accessibilityIdentifier = "Cell"
         cell.textLabel?.text = " Calories: \(calorie.amount)"
-        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         
         cell.detailTextLabel?.text = dateFormatter.string(from: calorie.date!)
         cell.detailTextLabel?.textColor = UIColor.gray
@@ -181,7 +180,7 @@ class CalroriesMainTableViewController: UITableViewController {
             }
             let amounter = Double(amountToInt)
             let userInfo : [String:Double] = ["Hello": amounter]
-            self.amountArray.append(amounter)
+            
             
             self.calorieController.createNewItem(amount: amountToInt)
             

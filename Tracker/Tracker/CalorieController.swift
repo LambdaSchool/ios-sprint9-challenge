@@ -11,11 +11,6 @@ import CoreData
 
 class CalorieController {
     
-//    var amountArray : [Double] {
-//        return calrories.map { (ca) -> Double in
-//            ca.amount
-//        }
-//    }
     var calrories : [Calorie] = []
     
     func createNewItem(amount: Int64, date: Date = Date() ,into context : NSManagedObjectContext = CoreDataStack.shared.mainContext ) {
