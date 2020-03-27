@@ -17,13 +17,13 @@ extension Calorie {
         self.timestamp = timestamp
     }
 
-    convenience init(calorieRepresentation: CalorieRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
-        self.init(calorie: calorieRepresentation.calorie, context: context)
-    }
-
-    var calorieRepresentation: CalorieRepresentation? {
-        guard let timestamp = timestamp else { return nil }
-
-        return CalorieRepresentation(calorie: calorie, timestamp: timestamp)
-    }
+//    convenience init(calorieRepresentation: CalorieRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+//        self.init(calorie: calorieRepresentation.calorie, context: context)
+//    }
+//
+//    var calorieRepresentation: CalorieRepresentation? {
+//        guard let timestamp = timestamp else { return nil }
+//
+//        return CalorieRepresentation(calorie: calorie, timestamp: timestamp)
+//    }
 }

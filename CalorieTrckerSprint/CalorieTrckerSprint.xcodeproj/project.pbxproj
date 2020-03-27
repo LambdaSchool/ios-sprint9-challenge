@@ -17,6 +17,7 @@
 		B521B5D3242E4FC70000F31E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B521B5D2242E4FC70000F31E /* CoreDataStack.swift */; };
 		B521B5D6242E50170000F31E /* Calorie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B521B5D4242E50170000F31E /* Calorie.xcdatamodeld */; };
 		B521B5D9242E50CB0000F31E /* CalorieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B521B5D8242E50CB0000F31E /* CalorieTableViewController.swift */; };
+		B521B5DC242E51F80000F31E /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B521B5DB242E51F80000F31E /* CalorieController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		B521B5D2242E4FC70000F31E /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B521B5D5242E50170000F31E /* Calorie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calorie.xcdatamodel; sourceTree = "<group>"; };
 		B521B5D8242E50CB0000F31E /* CalorieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewController.swift; sourceTree = "<group>"; };
+		B521B5DB242E51F80000F31E /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		B521B5B8242E4E420000F31E /* CalorieTrckerSprint */ = {
 			isa = PBXGroup;
 			children = (
+				B521B5DA242E51E20000F31E /* Models */,
 				B521B5CD242E4F380000F31E /* CoreData */,
 				B521B5D7242E50A20000F31E /* View Controllers */,
 				B521B5B9242E4E420000F31E /* AppDelegate.swift */,
@@ -93,6 +96,14 @@
 				B521B5D8242E50CB0000F31E /* CalorieTableViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B521B5DA242E51E20000F31E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B521B5DB242E51F80000F31E /* CalorieController.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +182,7 @@
 				B521B5D6242E50170000F31E /* Calorie.xcdatamodeld in Sources */,
 				B521B5BA242E4E420000F31E /* AppDelegate.swift in Sources */,
 				B521B5CF242E4F5D0000F31E /* Calorie+Convience.swift in Sources */,
+				B521B5DC242E51F80000F31E /* CalorieController.swift in Sources */,
 				B521B5D1242E4F8D0000F31E /* CRepresentation.swift in Sources */,
 				B521B5BC242E4E420000F31E /* SceneDelegate.swift in Sources */,
 			);
