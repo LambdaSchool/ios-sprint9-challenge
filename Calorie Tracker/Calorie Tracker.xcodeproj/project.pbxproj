@@ -19,6 +19,7 @@
 		E10CA6CF242E615200B63FE7 /* EntryRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CA6CA242E615200B63FE7 /* EntryRepresentation.swift */; };
 		E10CA6D0242E615200B63FE7 /* CaloriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CA6CB242E615200B63FE7 /* CaloriesTableViewController.swift */; };
 		E10CA6D6242E61FA00B63FE7 /* Calories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E10CA6D4242E61FA00B63FE7 /* Calories.xcdatamodeld */; };
+		E155043A242E7A12007F7BFE /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1550439242E7A12007F7BFE /* Notifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		E10CA6CA242E615200B63FE7 /* EntryRepresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryRepresentation.swift; sourceTree = "<group>"; };
 		E10CA6CB242E615200B63FE7 /* CaloriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaloriesTableViewController.swift; sourceTree = "<group>"; };
 		E10CA6D5242E61FA00B63FE7 /* Calories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calories.xcdatamodel; sourceTree = "<group>"; };
+		E1550439242E7A12007F7BFE /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				E10CA6B9242E607900B63FE7 /* Main.storyboard */,
 				E10CA6C9242E615200B63FE7 /* CalorieController.swift */,
 				E10CA6CB242E615200B63FE7 /* CaloriesTableViewController.swift */,
+				E1550439242E7A12007F7BFE /* Notifications.swift */,
 				E10CA6C7242E615200B63FE7 /* CoreDataStack.swift */,
 				E10CA6C8242E615200B63FE7 /* Entry+Convenience.swift */,
 				E10CA6CA242E615200B63FE7 /* EntryRepresentation.swift */,
@@ -240,6 +243,7 @@
 				E10CA6B4242E607900B63FE7 /* AppDelegate.swift in Sources */,
 				E10CA6B6242E607900B63FE7 /* SceneDelegate.swift in Sources */,
 				E10CA6CC242E615200B63FE7 /* CoreDataStack.swift in Sources */,
+				E155043A242E7A12007F7BFE /* Notifications.swift in Sources */,
 				E10CA6CF242E615200B63FE7 /* EntryRepresentation.swift in Sources */,
 				E10CA6CD242E615200B63FE7 /* Entry+Convenience.swift in Sources */,
 				E10CA6CE242E615200B63FE7 /* CalorieController.swift in Sources */,
