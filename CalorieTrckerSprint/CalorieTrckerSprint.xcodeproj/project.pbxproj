@@ -19,7 +19,33 @@
 		B521B5D6242E50170000F31E /* Calorie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B521B5D4242E50170000F31E /* Calorie.xcdatamodeld */; };
 		B521B5D9242E50CB0000F31E /* CalorieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B521B5D8242E50CB0000F31E /* CalorieTableViewController.swift */; };
 		B521B5DC242E51F80000F31E /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B521B5DB242E51F80000F31E /* CalorieController.swift */; };
+		B521B5FA242E5F700000F31E /* CalorieTrackerFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B521B5F9242E5EEA0000F31E /* CalorieTrackerFramework.framework */; };
+		B521B5FB242E5F700000F31E /* CalorieTrackerFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B521B5F9242E5EEA0000F31E /* CalorieTrackerFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B521B5F8242E5EEA0000F31E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B521B5F4242E5EEA0000F31E /* CalorieTrackerFramework.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B521B5E9242E5D1C0000F31E;
+			remoteInfo = CalorieTrackerFramework;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B521B5FC242E5F700000F31E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B521B5FB242E5F700000F31E /* CalorieTrackerFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		72B7862348D397B6B676421F /* Pods_CalorieTrckerSprint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieTrckerSprint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +62,7 @@
 		B521B5D5242E50170000F31E /* Calorie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calorie.xcdatamodel; sourceTree = "<group>"; };
 		B521B5D8242E50CB0000F31E /* CalorieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewController.swift; sourceTree = "<group>"; };
 		B521B5DB242E51F80000F31E /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
+		B521B5F4242E5EEA0000F31E /* CalorieTrackerFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CalorieTrackerFramework.xcodeproj; path = CalorieTrackerFramework/CalorieTrackerFramework.xcodeproj; sourceTree = SOURCE_ROOT; };
 		CA3AF4C5FE6C12EA1FEDFF17 /* Pods-CalorieTrckerSprint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTrckerSprint.debug.xcconfig"; path = "Target Support Files/Pods-CalorieTrckerSprint/Pods-CalorieTrckerSprint.debug.xcconfig"; sourceTree = "<group>"; };
 		F5933A9B9B03171011039296 /* Pods-CalorieTrckerSprint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTrckerSprint.release.xcconfig"; path = "Target Support Files/Pods-CalorieTrckerSprint/Pods-CalorieTrckerSprint.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -45,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B521B5FA242E5F700000F31E /* CalorieTrackerFramework.framework in Frameworks */,
 				965DE09F8B8E71F6EA02DFD6 /* Pods_CalorieTrckerSprint.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,9 +153,18 @@
 		B521B5DE242E54C20000F31E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B521B5F4242E5EEA0000F31E /* CalorieTrackerFramework.xcodeproj */,
 				72B7862348D397B6B676421F /* Pods_CalorieTrckerSprint.framework */,
 			);
 			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		B521B5F5242E5EEA0000F31E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B521B5F9242E5EEA0000F31E /* CalorieTrackerFramework.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +179,7 @@
 				B521B5B3242E4E420000F31E /* Frameworks */,
 				B521B5B4242E4E420000F31E /* Resources */,
 				EC9C88DDD8CF57CC1C6794BB /* [CP] Embed Pods Frameworks */,
+				B521B5FC242E5F700000F31E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -178,12 +216,28 @@
 			mainGroup = B521B5AD242E4E420000F31E;
 			productRefGroup = B521B5B7242E4E420000F31E /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B521B5F5242E5EEA0000F31E /* Products */;
+					ProjectRef = B521B5F4242E5EEA0000F31E /* CalorieTrackerFramework.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B521B5B5242E4E420000F31E /* CalorieTrckerSprint */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B521B5F9242E5EEA0000F31E /* CalorieTrackerFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CalorieTrackerFramework.framework;
+			remoteRef = B521B5F8242E5EEA0000F31E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B521B5B4242E4E420000F31E /* Resources */ = {
