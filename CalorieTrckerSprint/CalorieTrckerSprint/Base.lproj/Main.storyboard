@@ -58,7 +58,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="chartView" destination="pne-wn-evs" id="i0L-un-bqd"/>
+                        <outlet property="chartView" destination="pne-wn-evs" id="dnR-EB-DAi"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqF-ep-ahD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

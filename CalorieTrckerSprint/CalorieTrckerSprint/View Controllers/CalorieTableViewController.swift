@@ -87,6 +87,14 @@ class CalorieTableViewController: UITableViewController {
         
         return cell
     }
+    
+    private func updateChart() {
+        if let calories = fetchedResultController.fetchedObjects {
+            let series = ChartSeries(calories.map { Double($0.calorie) })
+            self.chartView.removeAllSeries()
+            self.chartView.add(series)
+        }
+    }
 }
 
 extension CalorieTableViewController: NSFetchedResultsControllerDelegate {
