@@ -14,13 +14,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="h9D-nK-cxe">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="h9D-nK-cxe" customClass="Chart" customModule="SwiftChart">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="255"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="32W-yv-KbO" detailTextLabel="k15-IE-1gF" style="IBUITableViewCellStyleValue1" id="SE3-4s-vAC">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieCell" textLabel="32W-yv-KbO" detailTextLabel="k15-IE-1gF" style="IBUITableViewCellStyleValue1" id="SE3-4s-vAC">
                                 <rect key="frame" x="0.0" y="283" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SE3-4s-vAC" id="wQ9-xk-W87">
@@ -51,8 +51,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="YMQ-OK-7zb">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="73y-7T-P3e"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="73y-7T-P3e">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="QnB-5L-fG7" id="Im1-Eu-lqJ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chartsView" destination="h9D-nK-cxe" id="Y5p-ci-uA4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cd7-sz-SsI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
