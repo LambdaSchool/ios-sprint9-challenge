@@ -11,6 +11,15 @@ import CoreData
 
 class CalroriesMainTableViewController: UITableViewController {
 
+    //MARK:- Properties
+    
+    lazy private var dateFormatter: DateFormatter = {
+        let dm = DateFormatter()
+        dm.calendar = .current
+        dm.dateFormat = "MMM d, yyyy 'at' HH:mm:ss a"
+        return dm
+    }()
+    
     lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
         let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
@@ -24,14 +33,13 @@ class CalroriesMainTableViewController: UITableViewController {
     }()
     
     
-    
-    
     private let calorieController = CalorieController()
     
     //MARK:- View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationItem.title = "Calorie Tracker"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
     }
@@ -51,31 +59,20 @@ class CalroriesMainTableViewController: UITableViewController {
        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Tracker", for: indexPath)
            let calorie = fetchedResultsController.object(at: indexPath)
-        cell.textLabel?.text = "\(calorie.amount)"
+        cell.textLabel?.text = " Calories: \(calorie.amount)"
         cell.detailTextLabel?.text = dateFormatter.string(from: calorie.date!)
         
            return cell
        }
     
-    lazy var dateFormatter: DateFormatter = {
-        let dm = DateFormatter()
-        dm.calendar = .current
-        dm.dateFormat = "MMM d, yyyy HH:mm:ss"
-        return dm
-    }()
-    
-    
-    
     
     //MARK:- Action
     
-    @objc func addTapped() {
+    @objc private func addTapped() {
         showAlert()
     }
     
-    
-    
-    func showAlert() {
+    private func showAlert() {
         let ac = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
         ac.addTextField { (textField) in
