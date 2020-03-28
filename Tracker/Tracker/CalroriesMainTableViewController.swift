@@ -79,6 +79,7 @@ class CalroriesMainTableViewController: UITableViewController {
      print("Add new item to chart")
 
         amountArray.append(notification.userInfo?["Hello"] as! Double)
+        calorieChart.removeAllSeries()
         calorieChart.add(serie)
      
     }
