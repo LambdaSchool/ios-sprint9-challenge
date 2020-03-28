@@ -1,0 +1,994 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		12D81660619E68095B3F91BC14FC8717 /* NotieStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B42620909E3ED15F9B181C1CBD43EB /* NotieStyle.swift */; };
+		16D445690A3B824933D2DD8420763CBF /* Pods-CalorieTracker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B05980E9342010E023983343427ACE1 /* Pods-CalorieTracker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E7DC9DB71C933E2D95746927B0CAEDC /* ChartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3CEB577E384CC4BFED9AE3EF64125D /* ChartColors.swift */; };
+		2F672AFEE47B5BEBE4F0B810AD86C19C /* SwiftChart-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D26B8843FD08D82B3FB4236127FB1C0F /* SwiftChart-dummy.m */; };
+		41C6EBE9BAE9EE2399E5D69F72943C08 /* Notie-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D19F3BCFF7D05ED0FEB0DF033556F35 /* Notie-dummy.m */; };
+		423FC8A655A95BF01EB808E296A71791 /* NotchyAlert-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F72F9ADDC027D8248F7BF5A3ABF1B24B /* NotchyAlert-dummy.m */; };
+		4A5E2BAC5FD432EBC205D88B37C4500E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		60805A3C75DE8C8F43727A02BE2CA42C /* ChartSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8B7358E8125F53B2B7871DB97F899E /* ChartSeries.swift */; };
+		7D052FAD5630944E54126C312A6B8251 /* Notie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4109B5736A93800536A35E553B2D1BA1 /* Notie.swift */; };
+		8698DBF799A9E0F383B7BF57BFCDEFA2 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0AFF9D1E947AF53F271A4DA2A20723 /* Chart.swift */; };
+		86E851FD7975E6BE85CA3448F74EEC81 /* NotchyAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = C468F7B0FE859CACF3117AA05DD29F95 /* NotchyAlert.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A21097C16360318104E70BC9E93B9C2 /* NotchyAlert-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A0A3251910EF551DB6B8D6DBC60BF60 /* NotchyAlert-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94780895554FC7F2D77BB31874966388 /* NotchyAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACDECFA7834588B4A362D9941F6EA30 /* NotchyAlert.swift */; };
+		95D8F757D40BF076665487A301CD35CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		A95D1AAA6F226A5E07EBD8EA968DD699 /* Notie.h in Headers */ = {isa = PBXBuildFile; fileRef = 15BAA44795D9BAED911AE50682D42A43 /* Notie.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B204AC24CF4F1557318C8D33FA839865 /* SwiftChart-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EDD2655A41C760F409D04A569822926 /* SwiftChart-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B5DDC9F0A305C269886081553236DBD4 /* Notie-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A00E69D927212D31830897A00C8AA077 /* Notie-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BDE3B4479C03E42F2FB2E2DAA879E235 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		BF1E76C4B424DFB368BA3540CBACECCB /* Pods-CalorieTracker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CF61D3E6CDBE4F45064DD460876FEE1 /* Pods-CalorieTracker-dummy.m */; };
+		C005FBFEB6C8E04691DC990C8154F3C4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		DD50774485A451F2F43580221B19B104 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
+		E35D1CB9F04FFF711E9FD7BCE4E6189A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2D5A21F80F341ACE27E0693713EDCF73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89E9C7B16FFDA8F707F2875DFD1BEFE5;
+			remoteInfo = NotchyAlert;
+		};
+		7E608E46AD8DFF2A3B1B96945BFDCF27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E7BD5B8067AD0B7AFB7967E30BF1BB8;
+			remoteInfo = SwiftChart;
+		};
+		97E1251829C52A29DD9BD0D62C6B4122 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A760E74199CC9ABBFA2663CEC05A54F;
+			remoteInfo = Notie;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0386647CB37914AEC8D0A23E3BF2B668 /* SwiftChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		095BB91511DE085A8EC4675A0B4272B6 /* SwiftChart.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftChart.modulemap; sourceTree = "<group>"; };
+		0D0AFF9D1E947AF53F271A4DA2A20723 /* Chart.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Chart.swift; path = Source/Chart.swift; sourceTree = "<group>"; };
+		15BAA44795D9BAED911AE50682D42A43 /* Notie.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Notie.h; path = Notie/Notie.h; sourceTree = "<group>"; };
+		1B8B7358E8125F53B2B7871DB97F899E /* ChartSeries.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartSeries.swift; path = Source/ChartSeries.swift; sourceTree = "<group>"; };
+		1D19F3BCFF7D05ED0FEB0DF033556F35 /* Notie-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Notie-dummy.m"; sourceTree = "<group>"; };
+		20E01079D3D0877F7AC106226FE3C0E6 /* Pods-CalorieTracker-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CalorieTracker-frameworks.sh"; sourceTree = "<group>"; };
+		258FCDBCE17B9CB4CCFD594F6224279A /* Notie.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Notie.modulemap; sourceTree = "<group>"; };
+		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		3384A17644103C872F4EC3D59CB294DD /* NotchyAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NotchyAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A3B821D86CB38552839E4FCD490B615 /* Pods_CalorieTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CF61D3E6CDBE4F45064DD460876FEE1 /* Pods-CalorieTracker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CalorieTracker-dummy.m"; sourceTree = "<group>"; };
+		3EDD2655A41C760F409D04A569822926 /* SwiftChart-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftChart-umbrella.h"; sourceTree = "<group>"; };
+		4109B5736A93800536A35E553B2D1BA1 /* Notie.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notie.swift; path = Notie/Notie.swift; sourceTree = "<group>"; };
+		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		4E525E9E24DC41E31AD58385D78527ED /* Pods-CalorieTracker-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CalorieTracker-acknowledgements.plist"; sourceTree = "<group>"; };
+		58746B91ACA4656BBAF036E30944C7BD /* Notie-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Notie-Info.plist"; sourceTree = "<group>"; };
+		705F2563C0F9B8436B7A1885D1DB06FE /* NotchyAlert-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NotchyAlert-prefix.pch"; sourceTree = "<group>"; };
+		78D04F3E7669B59DEBC21FCF231B2D8E /* Pods-CalorieTracker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CalorieTracker-Info.plist"; sourceTree = "<group>"; };
+		7A0A3251910EF551DB6B8D6DBC60BF60 /* NotchyAlert-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NotchyAlert-umbrella.h"; sourceTree = "<group>"; };
+		7ACDECFA7834588B4A362D9941F6EA30 /* NotchyAlert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NotchyAlert.swift; path = NotchyAlert/NotchyAlert.swift; sourceTree = "<group>"; };
+		8D3CEB577E384CC4BFED9AE3EF64125D /* ChartColors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartColors.swift; path = Source/ChartColors.swift; sourceTree = "<group>"; };
+		9AA380F04A689317AB8F4557D81255BC /* Pods-CalorieTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CalorieTracker.release.xcconfig"; sourceTree = "<group>"; };
+		9B05980E9342010E023983343427ACE1 /* Pods-CalorieTracker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CalorieTracker-umbrella.h"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A00E69D927212D31830897A00C8AA077 /* Notie-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Notie-umbrella.h"; sourceTree = "<group>"; };
+		A5917E0695BE408F680CC9DC84DF025B /* Pods-CalorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CalorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		AF8F62D8294165B4D8708488FF24CE5A /* Notie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Notie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4C5FFFB831DD7CDFE018EF8CD9B2F07 /* SwiftChart.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftChart.xcconfig; sourceTree = "<group>"; };
+		B5FE156B98F21785D23066CE8DC73D1D /* Notie-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Notie-prefix.pch"; sourceTree = "<group>"; };
+		BC84B6CEC6C9EC6BF9B1D074F9E1A735 /* SwiftChart-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftChart-Info.plist"; sourceTree = "<group>"; };
+		BF41D4F9766772D832FACFA9E18591B6 /* NotchyAlert.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = NotchyAlert.modulemap; sourceTree = "<group>"; };
+		BF715BD0D8EDF684B6B9CD9D3D2AEF0E /* NotchyAlert.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NotchyAlert.xcconfig; sourceTree = "<group>"; };
+		C468F7B0FE859CACF3117AA05DD29F95 /* NotchyAlert.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NotchyAlert.h; path = NotchyAlert/NotchyAlert.h; sourceTree = "<group>"; };
+		C77F57B7486809F77444274785B3C95B /* NotchyAlert-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "NotchyAlert-Info.plist"; sourceTree = "<group>"; };
+		D26B8843FD08D82B3FB4236127FB1C0F /* SwiftChart-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftChart-dummy.m"; sourceTree = "<group>"; };
+		DC568079E06603F4F2625B9B05255FA1 /* Pods-CalorieTracker-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CalorieTracker-acknowledgements.markdown"; sourceTree = "<group>"; };
+		DD815ABBC6A5F45F24C7B1749081F7FA /* Notie.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Notie.xcconfig; sourceTree = "<group>"; };
+		E5406439BEB985F4A87F9909043D6B35 /* Pods-CalorieTracker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CalorieTracker.modulemap"; sourceTree = "<group>"; };
+		E9B42620909E3ED15F9B181C1CBD43EB /* NotieStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NotieStyle.swift; path = Notie/NotieStyle.swift; sourceTree = "<group>"; };
+		F72F9ADDC027D8248F7BF5A3ABF1B24B /* NotchyAlert-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NotchyAlert-dummy.m"; sourceTree = "<group>"; };
+		FC2760122EE86D4BFF2C0C0882127F83 /* SwiftChart-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftChart-prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		159A4D74649279934683CF485F7E021B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C005FBFEB6C8E04691DC990C8154F3C4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19A9238287408381EC0C1F990B12F9B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95D8F757D40BF076665487A301CD35CA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2163C94D7BECF4DE84CC5193B050CD74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDE3B4479C03E42F2FB2E2DAA879E235 /* Foundation.framework in Frameworks */,
+				DD50774485A451F2F43580221B19B104 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D244EA6EEB7E56958CA24E5708047939 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A5E2BAC5FD432EBC205D88B37C4500E /* Foundation.framework in Frameworks */,
+				E35D1CB9F04FFF711E9FD7BCE4E6189A /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E2983683FD097A93297E2F5D4E382B36 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		24CF18D99B9EA7B20957F12F7C07243D /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C821479B6F4916752C88B3450EB42895 /* Pods-CalorieTracker */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		5E2E61B1105F44F5D557EB28858C4A4D /* Notie */ = {
+			isa = PBXGroup;
+			children = (
+				15BAA44795D9BAED911AE50682D42A43 /* Notie.h */,
+				4109B5736A93800536A35E553B2D1BA1 /* Notie.swift */,
+				E9B42620909E3ED15F9B181C1CBD43EB /* NotieStyle.swift */,
+				AA20BE2DDECC321EC5252474C36CA416 /* Support Files */,
+			);
+			path = Notie;
+			sourceTree = "<group>";
+		};
+		7730986B70B9BB57F3BF0E49D8E181E6 /* NotchyAlert */ = {
+			isa = PBXGroup;
+			children = (
+				C468F7B0FE859CACF3117AA05DD29F95 /* NotchyAlert.h */,
+				7ACDECFA7834588B4A362D9941F6EA30 /* NotchyAlert.swift */,
+				DA8A8A6C2B6B9A101FBCC9F2FA7FFA39 /* Support Files */,
+			);
+			path = NotchyAlert;
+			sourceTree = "<group>";
+		};
+		9A180C1385D59BD1BB341FF12DF7A17C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3384A17644103C872F4EC3D59CB294DD /* NotchyAlert.framework */,
+				AF8F62D8294165B4D8708488FF24CE5A /* Notie.framework */,
+				3A3B821D86CB38552839E4FCD490B615 /* Pods_CalorieTracker.framework */,
+				0386647CB37914AEC8D0A23E3BF2B668 /* SwiftChart.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA20BE2DDECC321EC5252474C36CA416 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				258FCDBCE17B9CB4CCFD594F6224279A /* Notie.modulemap */,
+				DD815ABBC6A5F45F24C7B1749081F7FA /* Notie.xcconfig */,
+				1D19F3BCFF7D05ED0FEB0DF033556F35 /* Notie-dummy.m */,
+				58746B91ACA4656BBAF036E30944C7BD /* Notie-Info.plist */,
+				B5FE156B98F21785D23066CE8DC73D1D /* Notie-prefix.pch */,
+				A00E69D927212D31830897A00C8AA077 /* Notie-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Notie";
+			sourceTree = "<group>";
+		};
+		B223FA26AA5E580AF612CD4D88D4E73C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				095BB91511DE085A8EC4675A0B4272B6 /* SwiftChart.modulemap */,
+				B4C5FFFB831DD7CDFE018EF8CD9B2F07 /* SwiftChart.xcconfig */,
+				D26B8843FD08D82B3FB4236127FB1C0F /* SwiftChart-dummy.m */,
+				BC84B6CEC6C9EC6BF9B1D074F9E1A735 /* SwiftChart-Info.plist */,
+				FC2760122EE86D4BFF2C0C0882127F83 /* SwiftChart-prefix.pch */,
+				3EDD2655A41C760F409D04A569822926 /* SwiftChart-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftChart";
+			sourceTree = "<group>";
+		};
+		B9C1253E7EA3BB5DDFA7F5313E628AA1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7730986B70B9BB57F3BF0E49D8E181E6 /* NotchyAlert */,
+				5E2E61B1105F44F5D557EB28858C4A4D /* Notie */,
+				CD85766838E4D518982446316ACB12C4 /* SwiftChart */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C821479B6F4916752C88B3450EB42895 /* Pods-CalorieTracker */ = {
+			isa = PBXGroup;
+			children = (
+				E5406439BEB985F4A87F9909043D6B35 /* Pods-CalorieTracker.modulemap */,
+				DC568079E06603F4F2625B9B05255FA1 /* Pods-CalorieTracker-acknowledgements.markdown */,
+				4E525E9E24DC41E31AD58385D78527ED /* Pods-CalorieTracker-acknowledgements.plist */,
+				3CF61D3E6CDBE4F45064DD460876FEE1 /* Pods-CalorieTracker-dummy.m */,
+				20E01079D3D0877F7AC106226FE3C0E6 /* Pods-CalorieTracker-frameworks.sh */,
+				78D04F3E7669B59DEBC21FCF231B2D8E /* Pods-CalorieTracker-Info.plist */,
+				9B05980E9342010E023983343427ACE1 /* Pods-CalorieTracker-umbrella.h */,
+				A5917E0695BE408F680CC9DC84DF025B /* Pods-CalorieTracker.debug.xcconfig */,
+				9AA380F04A689317AB8F4557D81255BC /* Pods-CalorieTracker.release.xcconfig */,
+			);
+			name = "Pods-CalorieTracker";
+			path = "Target Support Files/Pods-CalorieTracker";
+			sourceTree = "<group>";
+		};
+		CD85766838E4D518982446316ACB12C4 /* SwiftChart */ = {
+			isa = PBXGroup;
+			children = (
+				0D0AFF9D1E947AF53F271A4DA2A20723 /* Chart.swift */,
+				8D3CEB577E384CC4BFED9AE3EF64125D /* ChartColors.swift */,
+				1B8B7358E8125F53B2B7871DB97F899E /* ChartSeries.swift */,
+				B223FA26AA5E580AF612CD4D88D4E73C /* Support Files */,
+			);
+			path = SwiftChart;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				B9C1253E7EA3BB5DDFA7F5313E628AA1 /* Pods */,
+				9A180C1385D59BD1BB341FF12DF7A17C /* Products */,
+				24CF18D99B9EA7B20957F12F7C07243D /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		DA8A8A6C2B6B9A101FBCC9F2FA7FFA39 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF41D4F9766772D832FACFA9E18591B6 /* NotchyAlert.modulemap */,
+				BF715BD0D8EDF684B6B9CD9D3D2AEF0E /* NotchyAlert.xcconfig */,
+				F72F9ADDC027D8248F7BF5A3ABF1B24B /* NotchyAlert-dummy.m */,
+				C77F57B7486809F77444274785B3C95B /* NotchyAlert-Info.plist */,
+				705F2563C0F9B8436B7A1885D1DB06FE /* NotchyAlert-prefix.pch */,
+				7A0A3251910EF551DB6B8D6DBC60BF60 /* NotchyAlert-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/NotchyAlert";
+			sourceTree = "<group>";
+		};
+		E2983683FD097A93297E2F5D4E382B36 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */,
+				312B988EF117AE4DE76A268D970131FE /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		96443963E56A262A26BB6470F5CA275F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A21097C16360318104E70BC9E93B9C2 /* NotchyAlert-umbrella.h in Headers */,
+				86E851FD7975E6BE85CA3448F74EEC81 /* NotchyAlert.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6149CAD87095D4B59144CDE5D3BE9AC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16D445690A3B824933D2DD8420763CBF /* Pods-CalorieTracker-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0774DC45B90A5167F907B156B8DACF1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B204AC24CF4F1557318C8D33FA839865 /* SwiftChart-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE2745848DD75B5FEC80B67378C1DC54 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5DDC9F0A305C269886081553236DBD4 /* Notie-umbrella.h in Headers */,
+				A95D1AAA6F226A5E07EBD8EA968DD699 /* Notie.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4E7BD5B8067AD0B7AFB7967E30BF1BB8 /* SwiftChart */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FF45E72E94A7E132659B21B95E503D6 /* Build configuration list for PBXNativeTarget "SwiftChart" */;
+			buildPhases = (
+				E0774DC45B90A5167F907B156B8DACF1 /* Headers */,
+				56545E927A456C91424F0F4DEBA49B7E /* Sources */,
+				D244EA6EEB7E56958CA24E5708047939 /* Frameworks */,
+				E80DF508F2C326F867C3D918C1410C62 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftChart;
+			productName = SwiftChart;
+			productReference = 0386647CB37914AEC8D0A23E3BF2B668 /* SwiftChart.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5A760E74199CC9ABBFA2663CEC05A54F /* Notie */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB86568161F664CFB4B97DAACB6BC1DB /* Build configuration list for PBXNativeTarget "Notie" */;
+			buildPhases = (
+				EE2745848DD75B5FEC80B67378C1DC54 /* Headers */,
+				CE7A350778AB46554C15CC683AFD88AE /* Sources */,
+				19A9238287408381EC0C1F990B12F9B1 /* Frameworks */,
+				A61652F50A3E27E6C2C1098DB70E7B86 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Notie;
+			productName = Notie;
+			productReference = AF8F62D8294165B4D8708488FF24CE5A /* Notie.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6C1E455D9FD2E581D6E68D0128604B2D /* Pods-CalorieTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 702B697FC334587FFBAB0D0122E3D332 /* Build configuration list for PBXNativeTarget "Pods-CalorieTracker" */;
+			buildPhases = (
+				C6149CAD87095D4B59144CDE5D3BE9AC /* Headers */,
+				9210CE13A527D69E49BBB1B9D5A6585E /* Sources */,
+				159A4D74649279934683CF485F7E021B /* Frameworks */,
+				E25A8338B1CCFB8E4FE9646555E38978 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A4424496F36ED574DD3A8DCF79FFB0E /* PBXTargetDependency */,
+				C83B02CF32A33EF56DF7BE73DE015708 /* PBXTargetDependency */,
+				7920FC65AD470858723BF0F3A840E6AD /* PBXTargetDependency */,
+			);
+			name = "Pods-CalorieTracker";
+			productName = "Pods-CalorieTracker";
+			productReference = 3A3B821D86CB38552839E4FCD490B615 /* Pods_CalorieTracker.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		89E9C7B16FFDA8F707F2875DFD1BEFE5 /* NotchyAlert */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2C997F1635BD6D7D0F5357365A40105 /* Build configuration list for PBXNativeTarget "NotchyAlert" */;
+			buildPhases = (
+				96443963E56A262A26BB6470F5CA275F /* Headers */,
+				0AC870B9D8882368FF8B83B15AB6C603 /* Sources */,
+				2163C94D7BECF4DE84CC5193B050CD74 /* Frameworks */,
+				DCED696B48F4A6CD779CB98B8AB21E33 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotchyAlert;
+			productName = NotchyAlert;
+			productReference = 3384A17644103C872F4EC3D59CB294DD /* NotchyAlert.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 10.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 9A180C1385D59BD1BB341FF12DF7A17C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				89E9C7B16FFDA8F707F2875DFD1BEFE5 /* NotchyAlert */,
+				5A760E74199CC9ABBFA2663CEC05A54F /* Notie */,
+				6C1E455D9FD2E581D6E68D0128604B2D /* Pods-CalorieTracker */,
+				4E7BD5B8067AD0B7AFB7967E30BF1BB8 /* SwiftChart */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A61652F50A3E27E6C2C1098DB70E7B86 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCED696B48F4A6CD779CB98B8AB21E33 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E25A8338B1CCFB8E4FE9646555E38978 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E80DF508F2C326F867C3D918C1410C62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0AC870B9D8882368FF8B83B15AB6C603 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				423FC8A655A95BF01EB808E296A71791 /* NotchyAlert-dummy.m in Sources */,
+				94780895554FC7F2D77BB31874966388 /* NotchyAlert.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56545E927A456C91424F0F4DEBA49B7E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8698DBF799A9E0F383B7BF57BFCDEFA2 /* Chart.swift in Sources */,
+				2E7DC9DB71C933E2D95746927B0CAEDC /* ChartColors.swift in Sources */,
+				60805A3C75DE8C8F43727A02BE2CA42C /* ChartSeries.swift in Sources */,
+				2F672AFEE47B5BEBE4F0B810AD86C19C /* SwiftChart-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9210CE13A527D69E49BBB1B9D5A6585E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF1E76C4B424DFB368BA3540CBACECCB /* Pods-CalorieTracker-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE7A350778AB46554C15CC683AFD88AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41C6EBE9BAE9EE2399E5D69F72943C08 /* Notie-dummy.m in Sources */,
+				7D052FAD5630944E54126C312A6B8251 /* Notie.swift in Sources */,
+				12D81660619E68095B3F91BC14FC8717 /* NotieStyle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3A4424496F36ED574DD3A8DCF79FFB0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NotchyAlert;
+			target = 89E9C7B16FFDA8F707F2875DFD1BEFE5 /* NotchyAlert */;
+			targetProxy = 2D5A21F80F341ACE27E0693713EDCF73 /* PBXContainerItemProxy */;
+		};
+		7920FC65AD470858723BF0F3A840E6AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftChart;
+			target = 4E7BD5B8067AD0B7AFB7967E30BF1BB8 /* SwiftChart */;
+			targetProxy = 7E608E46AD8DFF2A3B1B96945BFDCF27 /* PBXContainerItemProxy */;
+		};
+		C83B02CF32A33EF56DF7BE73DE015708 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Notie;
+			target = 5A760E74199CC9ABBFA2663CEC05A54F /* Notie */;
+			targetProxy = 97E1251829C52A29DD9BD0D62C6B4122 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		08BE0DBE6C0BA9C96184476E369B909F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4C5FFFB831DD7CDFE018EF8CD9B2F07 /* SwiftChart.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftChart/SwiftChart-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftChart/SwiftChart-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftChart/SwiftChart.modulemap";
+				PRODUCT_MODULE_NAME = SwiftChart;
+				PRODUCT_NAME = SwiftChart;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		204B8AEA4AE90A551A1768B355C2F9F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		251F569053E3AF6BA91314A3531B2DBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD815ABBC6A5F45F24C7B1749081F7FA /* Notie.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Notie/Notie-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Notie/Notie-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Notie/Notie.modulemap";
+				PRODUCT_MODULE_NAME = Notie;
+				PRODUCT_NAME = Notie;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		38405073E947AB1FED436F9D0336A286 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD815ABBC6A5F45F24C7B1749081F7FA /* Notie.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Notie/Notie-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Notie/Notie-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Notie/Notie.modulemap";
+				PRODUCT_MODULE_NAME = Notie;
+				PRODUCT_NAME = Notie;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3C5AE0377A3CF933AEFDF1B95A5B4EED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF715BD0D8EDF684B6B9CD9D3D2AEF0E /* NotchyAlert.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/NotchyAlert/NotchyAlert-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/NotchyAlert/NotchyAlert-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/NotchyAlert/NotchyAlert.modulemap";
+				PRODUCT_MODULE_NAME = NotchyAlert;
+				PRODUCT_NAME = NotchyAlert;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3CCC6195EDBEE5DA2A49DF962113BE16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		4002655BE989525A38BA47C5AA8B6921 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5917E0695BE408F680CC9DC84DF025B /* Pods-CalorieTracker.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4015575D3F0676F17DEA8FE8E1A259F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF715BD0D8EDF684B6B9CD9D3D2AEF0E /* NotchyAlert.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/NotchyAlert/NotchyAlert-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/NotchyAlert/NotchyAlert-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/NotchyAlert/NotchyAlert.modulemap";
+				PRODUCT_MODULE_NAME = NotchyAlert;
+				PRODUCT_NAME = NotchyAlert;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		99B95D039C47FFEB5189C2F2F66AB780 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AA380F04A689317AB8F4557D81255BC /* Pods-CalorieTracker.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C7A0F0D17BA22FC60553CAC422A79E12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4C5FFFB831DD7CDFE018EF8CD9B2F07 /* SwiftChart.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftChart/SwiftChart-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftChart/SwiftChart-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftChart/SwiftChart.modulemap";
+				PRODUCT_MODULE_NAME = SwiftChart;
+				PRODUCT_NAME = SwiftChart;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				204B8AEA4AE90A551A1768B355C2F9F0 /* Debug */,
+				3CCC6195EDBEE5DA2A49DF962113BE16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		702B697FC334587FFBAB0D0122E3D332 /* Build configuration list for PBXNativeTarget "Pods-CalorieTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4002655BE989525A38BA47C5AA8B6921 /* Debug */,
+				99B95D039C47FFEB5189C2F2F66AB780 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FF45E72E94A7E132659B21B95E503D6 /* Build configuration list for PBXNativeTarget "SwiftChart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7A0F0D17BA22FC60553CAC422A79E12 /* Debug */,
+				08BE0DBE6C0BA9C96184476E369B909F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB86568161F664CFB4B97DAACB6BC1DB /* Build configuration list for PBXNativeTarget "Notie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38405073E947AB1FED436F9D0336A286 /* Debug */,
+				251F569053E3AF6BA91314A3531B2DBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2C997F1635BD6D7D0F5357365A40105 /* Build configuration list for PBXNativeTarget "NotchyAlert" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C5AE0377A3CF933AEFDF1B95A5B4EED /* Debug */,
+				4015575D3F0676F17DEA8FE8E1A259F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
