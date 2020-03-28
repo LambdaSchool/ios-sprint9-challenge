@@ -1,0 +1,9 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'Calorie Tracker' do
+
+  # Pods for Calorie Tracker
+platform :ios, '9.0'
+pod "SwiftChart", :git => 'https://github.com/gpbl/SwiftChart', :branch => 'master'
+end
