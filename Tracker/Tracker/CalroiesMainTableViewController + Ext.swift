@@ -53,19 +53,27 @@ extension CalroriesMainTableViewController: NSFetchedResultsControllerDelegate {
      }
     
     
-     func openTwitter() {
-
+    func openTwitter() {
+        
         let twitterUrl = URL(string: "twitter://user?screen_name=tonic4000")!
-           let twitterUrlWeb = URL(string: "https://www.twitter.com/tonic4000")!
-           if UIApplication.shared.canOpenURL(twitterUrl) {
-              UIApplication.shared.open(twitterUrl,
-                                        options: [:],
-                                        completionHandler: nil)
-           } else {
+        let twitterUrlWeb = URL(string: "https://www.twitter.com/tonic4000")!
+        if UIApplication.shared.canOpenURL(twitterUrl) {
+            UIApplication.shared.open(twitterUrl,
+                                      options: [:],
+                                      completionHandler: nil)
+        } else {
             
-              UIApplication.shared.open(twitterUrlWeb,
-                                        options: [:],
-                                        completionHandler: nil)
-           }
+            UIApplication.shared.open(twitterUrlWeb,
+                                      options: [:],
+                                      completionHandler: nil)
+        }
     }
+    
+    
+    
+    func showErrorAlert(title: String,actionTitle: String) {
+          let ac = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+          ac.addAction(UIAlertAction(title: actionTitle, style: .destructive, handler: nil))
+          present(ac, animated: true, completion: nil)
+      }
 }

@@ -17,23 +17,23 @@ extension NSNotification.Name {
 
 class CalroriesMainTableViewController: UITableViewController {
 
-    //MARK:- Properties
+    //MARK:- IBOutlet
     
-    //MARK:- Stretch
-    
-    @IBOutlet weak var bottomLabel: CLTypingLabel! {
+    @IBOutlet weak var welcomeLabel: CLTypingLabel! {
         didSet {
-            bottomLabel.charInterval = 0.2
-            bottomLabel.continueTyping()
-            bottomLabel.text = "Welcome to my amazing app!Have a great day!! :]"
-            bottomLabel.font = UIFont(name: "Copperplate-Bold", size: 14)
+            welcomeLabel.charInterval = 0.2
+            welcomeLabel.continueTyping()
+            welcomeLabel.text = "Welcome to my amazing app!Have a great day!! :]"
             
-            bottomLabel.textColor = #colorLiteral(red: 0.6909318566, green: 0.7678380609, blue: 0.870224297, alpha: 1)
+            welcomeLabel.font = UIFont(name: "Copperplate-Bold", size: 14)
+            welcomeLabel.textColor = #colorLiteral(red: 0.6909318566, green: 0.7678380609, blue: 0.870224297, alpha: 1)
             
         }
     }
+   //MARK:- Properties
     
-     private var series : [Double] = []
+    private var series : [Double] = []
+    
     lazy private var dateFormatter: DateFormatter = {
         let dm = DateFormatter()
         dm.calendar = .current
@@ -55,8 +55,7 @@ class CalroriesMainTableViewController: UITableViewController {
     
     private let reuseCellId =  "Tracker"
     private let calorieController = CalorieController()
-    private var tm: Calorie?
-    
+
     private let calorieChart : Chart = {
         let frame = CGRect(x: 0, y: 0, width: 0, height: 300)
         let chart = Chart(frame: frame)
@@ -67,47 +66,31 @@ class CalroriesMainTableViewController: UITableViewController {
     }()
     
     private var serie: ChartSeries  {
-        let se = ChartSeries(amountArray)
+        let se = ChartSeries(dataForSeries)
         se.area = true
         se.color = .orange
         se.line = true
         return se
     }
     
-    @objc private func updateChart(_ notification : Notification) {
-        
-     print("Add new item to chart")
-
-        amountArray.append(notification.userInfo?["Hello"] as! Double)
-        calorieChart.removeAllSeries()
-        calorieChart.add(serie)
-     
-    }
-  
-    var amountArray: [Double] {
+   private var dataForSeries: [Double] {
         get {
-            let ac  = fetchedResultsController.fetchedObjects!.map { (ac) -> Double in
+           return fetchedResultsController.fetchedObjects!.map { (ac) -> Double in
                 ac.amount }
-            return ac
         }
         set {
            print(newValue)
         }
     }
-
     
     //MARK:- View Life Cycle
     
-  
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
         persistChart()
       
-        
-        
         NotificationCenter.default.addObserver(self, selector: #selector(updateChart), name: .track, object: nil)
-       
     }
     
     private func persistChart() {
@@ -119,14 +102,22 @@ class CalroriesMainTableViewController: UITableViewController {
         navigationItem.title = "Calorie Tracker"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         navigationItem.rightBarButtonItem?.accessibilityIdentifier = "NavRightBarButtonItem"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "envelope.fill"), style: .done, target: self, action: #selector(handleDelete))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "envelope.fill"), style: .done, target: self, action: #selector(openMyTwitter))
     }
-    @objc func handleDelete() {
+    
+    @objc func openMyTwitter() {
         openTwitter()
-     
-    
     }
     
+    @objc private func updateChart(_ notification : Notification) {
+        
+        print("Add new item to chart")
+        
+        dataForSeries.append(notification.userInfo?["Serie"] as! Double)
+        calorieChart.removeAllSeries() //
+        calorieChart.add(serie)
+        
+    }
      
     //MARK:- Table View DataSource
     
@@ -146,6 +137,7 @@ class CalroriesMainTableViewController: UITableViewController {
            let calorie = fetchedResultsController.object(at: indexPath)
         cell.accessibilityIdentifier = "Cell"
         cell.backgroundColor = #colorLiteral(red: 0.6909318566, green: 0.7678380609, blue: 0.870224297, alpha: 1)
+        
         cell.textLabel?.text = " Calories: \(calorie.amount)"
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         cell.textLabel?.textColor = .white
@@ -180,22 +172,22 @@ class CalroriesMainTableViewController: UITableViewController {
     private func showAlert() {
         let ac = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+        
         ac.addTextField { (textField) in
             textField.placeholder = "Enter amount of calories"
             textField.keyboardType = .numberPad
         }
+        
         ac.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (action) in
             
-            guard let amount = ac.textFields![0].text, let amountToInt = Int64(amount) else {
-                self.showErrorAlert()
+            guard let amount = ac.textFields![0].text, let amountAsDouble = Double(amount) else {
+                self.showErrorAlert(title: "Please enter a valid number", actionTitle: "Ok")
                 return
-                
             }
-            let amounter = Double(amountToInt)
-            let userInfo : [String:Double] = ["Hello": amounter]
+           
+            let userInfo : [String:Double] = ["Serie": amountAsDouble]
             
-            
-            self.calorieController.createNewItem(amount: Double(amountToInt))
+            self.calorieController.createNewItem(amount: amountAsDouble)
             
             NotificationCenter.default.post(name: .track, object: self, userInfo: userInfo)
         }))
@@ -203,13 +195,7 @@ class CalroriesMainTableViewController: UITableViewController {
         present(ac, animated: true, completion: nil)
     }
 
-    private func showErrorAlert() {
-        let ac = UIAlertController(title: "Please enter a valid number", message: nil, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
-        present(ac, animated: true, completion: nil)
-    }
-    
-
+  
 }
 
 
