@@ -72,10 +72,10 @@ class CalorieTrackerViewController: UIViewController, UITableViewDelegate, UITab
         calorieTV.dataSource = self
         calorieTV.delegate = self
         update()
-        //NotificationCenter.default.addObserver(self, selector: #selector(update), name: <#T##NSNotification.Name?#>, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(update), name: NSNotification.Name("Calorie"), object: nil)
         
     }
-    func update() {
+    @objc func update() {
         if let datas = fetchedResultsController.fetchedObjects {
             for data in datas {
                 scaleY.append(Double(data.calorie))

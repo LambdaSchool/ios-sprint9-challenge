@@ -13,6 +13,6 @@ class CalorieController {
     func create(calorie: Int16) {
         let _ = Calorie(calorie: calorie)
         try! CoreDataStack.shared.save()
-
+        NotificationCenter.default.post(name: NSNotification.Name("Calorie"), object: nil)
     }
 }
