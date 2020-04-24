@@ -35,6 +35,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="4tl-9l-cNO"/>
+                    <connections>
+                        <outlet property="chartUIView" destination="oFQ-81-x1U" id="Zda-2g-6qG"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JxZ-31-e3Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

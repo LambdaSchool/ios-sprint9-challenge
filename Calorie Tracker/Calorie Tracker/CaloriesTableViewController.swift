@@ -9,16 +9,16 @@
 import UIKit
 import CoreData
 import SwiftChart
-
 class CaloriesTableViewController: UITableViewController {
 
     // MARK: - Properties
+    @IBOutlet weak var chartUIView: Chart!
 
-    
-
+    let series = ChartSeries([0, 6.5, 2, 8, 4.1, 7, -3.1, 10, 8])
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        chartUIView.add(series)
     }
 
     // MARK: - Table view data source
