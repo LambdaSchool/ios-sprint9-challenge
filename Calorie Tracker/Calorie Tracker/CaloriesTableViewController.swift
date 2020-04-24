@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import CoreData
+import SwiftChart
 
 class CaloriesTableViewController: UITableViewController {
 
-    // MARK: - Outlets
+    // MARK: - Properties
 
-    @IBOutlet var chartUIView: UITableView!
     
 
 
