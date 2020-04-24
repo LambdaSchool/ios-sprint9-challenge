@@ -18,20 +18,6 @@ class CalorieTableViewController: UITableViewController {
     // MARK: - Properites
     var calorieController = CalorieController()
 
-    static let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en_US")
-        formatter.dateFormat = "MMM d, yyyy"
-        return formatter
-    }()
-
-    static let timeFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en_US")
-        formatter.dateFormat = "h:mm a"
-        return formatter
-    }()
-
     // MARK: - Outlets
 
     @IBOutlet private weak var calorieChart: Chart!
@@ -115,15 +101,11 @@ class CalorieTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCountCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCountCell",
+                                                       for: indexPath) as? CalorieTableViewCell else { return UITableViewCell() }
 
         // Configure the cell...
-        let calorieStr = "Calories: \(calorieController.entries[indexPath.row].calories)"
-
-        let dateString = CalorieTableViewController.dateFormatter.string(from: calorieController.entries[indexPath.row].timestamp!)
-        let timeString = CalorieTableViewController.timeFormatter.string(from: calorieController.entries[indexPath.row].timestamp!)
-
-        cell.textLabel?.text = "\(calorieStr)   \(dateString) at \(timeString)"
+        cell.entity = calorieController.entries[indexPath.row]
 
         return cell
     }
