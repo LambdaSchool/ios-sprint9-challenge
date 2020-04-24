@@ -1,0 +1,6 @@
+framework module Pods_SprintCallengeWk11 {
+  umbrella header "Pods-SprintCallengeWk11-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,23 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'SprintCallengeWk11' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for SprintCallengeWk11
+
+  target 'SprintCallengeWk11Tests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+pod "SwiftChart", :git => 'https://github.com/gpbl/SwiftChart', :branch => 'master'
+pod 'SwiftLint'
+
+  target 'SprintCallengeWk11UITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
