@@ -1,23 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@mazi89 
-LambdaSchool
-/
-ios-swiftlint-rules
-7
-12
- Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security 0 Insights
-ios-swiftlint-rules/.swiftlint.yml
-@PaulSolt PaulSolt Starting rules for iOS at Lambda School
-c9b5733 on Sep 20, 2019
-84 lines (79 sloc)  2.2 KB
-  
 # SwiftLint configuration file for Lambda School
 #
 # For any changes to this file, tag all team members in the PR for quick approval or discussion
@@ -101,17 +81,3 @@ vertical_whitespace:
   max_empty_lines: 2
 trailing_whitespace:
   ignores_empty_lines: true
-
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-
