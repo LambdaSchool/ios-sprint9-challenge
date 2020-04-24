@@ -96,8 +96,6 @@ class CalorieTableViewController: UITableViewController {
             let calorieCountStr = calorieCountTextField.text ?? "NaN"
             let calorieCount = Int(calorieCountStr)
             if let calorieCount = calorieCount {
-                // FIXME: Get value out of here.
-                print(calorieCount)
                 self.calorieController.create(calories: calorieCount, timestamp: Date())
             } else {
                 print("Invalid user input to calorieCount.")
