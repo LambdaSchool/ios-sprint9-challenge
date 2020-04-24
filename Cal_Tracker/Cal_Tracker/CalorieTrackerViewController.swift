@@ -13,7 +13,7 @@ import CoreData
 class CalorieTrackerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     var calorieController = CalorieController()
-    var scale: [Double] = []
+    var scaleY: [Double] = []
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -49,20 +49,46 @@ class CalorieTrackerViewController: UIViewController, UITableViewDelegate, UITab
         return cell
     }
     
-    @IBOutlet weak var chart: Chart!
-    
-    var chartView = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-    let series = ChartSeries([0, 6.5, 2, 8, 4.1, 7, -3.1, 10, 8])
-    //chartView.add(series)
+    @IBOutlet weak var chart: UIView!
     
     
     @IBOutlet weak var calorieTV: UITableView!
+    @IBAction func addCalorie(_ sender: Any) {
+        let alert = UIAlertController(title: "Add Calorie Taken", message: "Enter Calories Intake Below", preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.placeholder = "Enter"
+        }
+        alert.addAction(UIAlertAction(title: "Done", style: .default) { _ in
+            guard let calories = alert.textFields?.first?.text, !calories.isEmpty, let calorieInt = Int(calories) else {return}
+            self.calorieController.create(calorie: Int16(calorieInt))
+            self.scaleY.append(Double(calorieInt))
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alert, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         calorieTV.dataSource = self
         calorieTV.delegate = self
-        // Do any additional setup after loading the view.
+        update()
+        //NotificationCenter.default.addObserver(self, selector: #selector(update), name: <#T##NSNotification.Name?#>, object: nil)
+        
+    }
+    func update() {
+        if let datas = fetchedResultsController.fetchedObjects {
+            for data in datas {
+                scaleY.append(Double(data.calorie))
+            }
+        }
+        let chartView = Chart(frame: CGRect(x: 40, y: 40, width: 350, height: 180))
+        chartView.isUserInteractionEnabled = true
+        chart.addSubview(chartView)
+        let series = ChartSeries(scaleY)
+        series.area = true
+        series.color = ChartColors.pinkColor()
+        chartView.add(series)
+        calorieTV.reloadData()
     }
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -110,15 +136,4 @@ class CalorieTrackerViewController: UIViewController, UITableViewDelegate, UITab
             break
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

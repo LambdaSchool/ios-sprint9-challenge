@@ -65,7 +65,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Calorie Tracker" id="Uh2-EZ-rUo"/>
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="Uh2-EZ-rUo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3Pc-1E-jz9">
+                            <connections>
+                                <action selector="addCalorie:" destination="BYZ-38-t0r" id="AwT-1E-b9Q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="calorieTV" destination="Q1z-ok-ZWn" id="1Lf-KO-ht7"/>
                         <outlet property="chart" destination="JST-nR-LnU" id="5ei-T2-OWi"/>
