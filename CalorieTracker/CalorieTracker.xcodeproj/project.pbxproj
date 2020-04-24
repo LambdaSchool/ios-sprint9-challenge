@@ -17,6 +17,7 @@
 		E255EB12245344E0009F99AD /* CalorieEntry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E255EB10245344E0009F99AD /* CalorieEntry.xcdatamodeld */; };
 		E255EB14245346B0009F99AD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255EB13245346B0009F99AD /* CoreDataStack.swift */; };
 		E255EB1624534899009F99AD /* CalorieEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255EB1524534899009F99AD /* CalorieEntry+Convenience.swift */; };
+		E255EB1824534AC5009F99AD /* CalorieEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255EB1724534AC5009F99AD /* CalorieEntryController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		E255EB11245344E0009F99AD /* CalorieEntry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieEntry.xcdatamodel; sourceTree = "<group>"; };
 		E255EB13245346B0009F99AD /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		E255EB1524534899009F99AD /* CalorieEntry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieEntry+Convenience.swift"; sourceTree = "<group>"; };
+		E255EB1724534AC5009F99AD /* CalorieEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieEntryController.swift; sourceTree = "<group>"; };
 		F576FB966C44FF6B649EFE81 /* Pods_CalorieTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -110,6 +112,7 @@
 		E255EB0A24533C68009F99AD /* Contollers */ = {
 			isa = PBXGroup;
 			children = (
+				E255EB1724534AC5009F99AD /* CalorieEntryController.swift */,
 			);
 			path = Contollers;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				E255EAF224533784009F99AD /* AppDelegate.swift in Sources */,
 				E255EB12245344E0009F99AD /* CalorieEntry.xcdatamodeld in Sources */,
 				E255EAF424533784009F99AD /* SceneDelegate.swift in Sources */,
+				E255EB1824534AC5009F99AD /* CalorieEntryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
