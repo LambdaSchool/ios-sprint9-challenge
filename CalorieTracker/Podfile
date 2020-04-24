@@ -5,6 +5,6 @@ target 'CalorieTracker' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod "SwiftChart"
+  pod "SwiftChart", :git => 'https://github.com/gpbl/SwiftChart', :branch => 'master'
 
 end
