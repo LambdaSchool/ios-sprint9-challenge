@@ -29,7 +29,7 @@ class CalorieTrackerChartViewController: UIViewController {
         super.viewDidLoad()
         setUpChart()
         updateChart(nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateChart(_:)), name: .calorieEntryAdded, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateChart(_:)), name: .calorieEntriesUpdated, object: nil)
     }
     
     // MARK: - Private Methods

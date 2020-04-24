@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 extension NSNotification.Name {
-    static let calorieEntryAdded = NSNotification.Name("CalorieEntryAdded")
+    static let calorieEntriesUpdated = NSNotification.Name("CalorieEntriesUpdated")
 }
 
 class CalorieTrackerViewController: UIViewController {
@@ -42,7 +42,7 @@ class CalorieTrackerViewController: UIViewController {
             
             do {
                 try CoreDataStack.shared.save()
-                NotificationCenter.default.post(name: .calorieEntryAdded, object: nil)
+                NotificationCenter.default.post(name: .calorieEntriesUpdated, object: nil)
             } catch {
                 print(error)
             }
