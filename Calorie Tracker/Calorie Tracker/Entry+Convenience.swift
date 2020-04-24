@@ -16,5 +16,4 @@ extension Entry {
         self.calories = calories
         self.date = date
     }
-    
 }
