@@ -16,7 +16,7 @@ class CoreDataStack {
     
     
     var container: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Refresh")
+        let container = NSPersistentContainer(name: "Calories")
         
         container.loadPersistentStores { (_, error) in
             if let error = error {
