@@ -58,7 +58,13 @@
                             <outlet property="delegate" destination="KUT-EN-6Al" id="Trz-mt-tXh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="4tl-9l-cNO"/>
+                    <navigationItem key="navigationItem" id="4tl-9l-cNO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="iAQ-WH-Zaw">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="KUT-EN-6Al" id="2yR-Rz-MiQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="chartUIView" destination="oFQ-81-x1U" id="Zda-2g-6qG"/>
                     </connections>

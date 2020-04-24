@@ -81,6 +81,12 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
         return cell
     }
 
+    // MARK: - IBActions
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+        self.present(alert, animated: true)
+    }
+
 
     // MARK: - FRC Delegate Methods
 
