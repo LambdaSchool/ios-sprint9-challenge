@@ -38,7 +38,6 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
         super.viewDidLoad()
         series.area = true
         chartUIView.add(series)
-
     }
 
     // MARK: - Table view data source
