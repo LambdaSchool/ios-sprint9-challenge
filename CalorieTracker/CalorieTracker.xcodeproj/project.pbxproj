@@ -14,6 +14,7 @@
 		E255EAFC24533784009F99AD /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E255EAFA24533784009F99AD /* CalorieTracker.xcdatamodeld */; };
 		E255EAFE24533786009F99AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E255EAFD24533786009F99AD /* Assets.xcassets */; };
 		E255EB0124533786009F99AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E255EAFF24533786009F99AD /* LaunchScreen.storyboard */; };
+		E255EB0F24534406009F99AD /* CalorieTrackerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255EB0E24534406009F99AD /* CalorieTrackerTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		E255EAFD24533786009F99AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E255EB0024533786009F99AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E255EB0224533786009F99AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E255EB0E24534406009F99AD /* CalorieTrackerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerTableViewController.swift; sourceTree = "<group>"; };
 		F576FB966C44FF6B649EFE81 /* Pods_CalorieTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 		E255EB0B24533C76009F99AD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E255EB0E24534406009F99AD /* CalorieTrackerTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E255EB0F24534406009F99AD /* CalorieTrackerTableViewController.swift in Sources */,
 				E255EAF224533784009F99AD /* AppDelegate.swift in Sources */,
 				E255EAFC24533784009F99AD /* CalorieTracker.xcdatamodeld in Sources */,
 				E255EAF424533784009F99AD /* SceneDelegate.swift in Sources */,
