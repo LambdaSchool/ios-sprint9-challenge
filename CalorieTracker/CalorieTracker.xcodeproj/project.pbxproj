@@ -15,6 +15,7 @@
 		E3472F202453586D0095C751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3472F1F2453586D0095C751 /* Assets.xcassets */; };
 		E3472F232453586D0095C751 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3472F212453586D0095C751 /* LaunchScreen.storyboard */; };
 		E3472F2B245358C60095C751 /* Calorie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3472F2A245358C60095C751 /* Calorie.swift */; };
+		E3472F2D24535A6D0095C751 /* CaloriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3472F2C24535A6D0095C751 /* CaloriesController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E3472F222453586D0095C751 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3472F242453586D0095C751 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3472F2A245358C60095C751 /* Calorie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calorie.swift; sourceTree = "<group>"; };
+		E3472F2C24535A6D0095C751 /* CaloriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				E3472F212453586D0095C751 /* LaunchScreen.storyboard */,
 				E3472F242453586D0095C751 /* Info.plist */,
 				E3472F1C2453586A0095C751 /* CalorieTracker.xcdatamodeld */,
+				E3472F2C24535A6D0095C751 /* CaloriesController.swift */,
 			);
 			path = CalorieTracker;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3472F182453586A0095C751 /* ViewController.swift in Sources */,
+				E3472F2D24535A6D0095C751 /* CaloriesController.swift in Sources */,
 				E3472F142453586A0095C751 /* AppDelegate.swift in Sources */,
 				E3472F1E2453586A0095C751 /* CalorieTracker.xcdatamodeld in Sources */,
 				E3472F162453586A0095C751 /* SceneDelegate.swift in Sources */,
