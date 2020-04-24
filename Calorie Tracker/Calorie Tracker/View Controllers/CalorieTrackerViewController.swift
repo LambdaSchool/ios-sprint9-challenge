@@ -153,11 +153,19 @@ class CalorieTrackerViewController: UIViewController {
 
 extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-       return fetchedResultsController.sections?.count ?? 1
+        if let numberOfSections = fetchedResultsController.sections?.count {
+            return numberOfSections
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        if let numberOfRows = fetchedResultsController.sections?[section].numberOfObjects {
+            return numberOfRows
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
