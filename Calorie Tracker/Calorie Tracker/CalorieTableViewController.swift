@@ -15,6 +15,7 @@ class CalorieTableViewController: UITableViewController {
     // MARK: - Actions
 
     @IBAction func AddButton(_ sender: UIBarButtonItem) {
+        askUserForCalorieCount()
     }
 
     override func viewDidLoad() {
@@ -25,6 +26,34 @@ class CalorieTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+
+    // MARK: - Private
+
+    private func askUserForCalorieCount() {
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+
+        var calorieCountTextField: UITextField!
+        alert.addTextField { textField in
+            textField.placeholder = "Calories:"
+            calorieCountTextField = textField
+        }
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+        }))
+
+        alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { _ in
+            let calorieCountStr = calorieCountTextField.text ?? "NaN"
+            let calorieCount = Int(calorieCountStr)
+            if let calorieCount = calorieCount {
+                // FIXME: Get value out of here.
+                print(calorieCount)
+            } else {
+                print("Invalid user input to calorieCount.")
+            }
+        }))
+
+        present(alert, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
