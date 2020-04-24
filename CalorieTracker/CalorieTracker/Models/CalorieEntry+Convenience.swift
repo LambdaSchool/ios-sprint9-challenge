@@ -17,4 +17,16 @@ extension CalorieEntry {
         self.date = date
         self.id = id
     }
+    
+    @discardableResult
+    convenience init(_ representation: CalorieEntryRepresentation, context: NSManagedObjectContext) {
+        self.init(context: context)
+        self.calories = Int64(representation.calories)
+        self.date = Date(timeIntervalSinceReferenceDate: representation.date)
+        self.id = representation.id
+    }
+    
+    var representation: CalorieEntryRepresentation {
+        CalorieEntryRepresentation(calories: Int(self.calories), date: self.date!.timeIntervalSinceReferenceDate, id: self.id!)
+    }
 }

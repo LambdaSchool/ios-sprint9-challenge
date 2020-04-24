@@ -36,14 +36,14 @@ extension URLSession {
     
     func dataTask(with request: URLRequest, errorHandler: @escaping (NetworkError?) -> Void) -> URLSessionDataTask {
         
-        return self.dataTask(with: request) { (data, response, error) in
+        self.dataTask(with: request) { _, response, error in
             errorHandler(NetworkError(response: response, error: error))
         }
     }
     
     func dataTask(with request: URLRequest, resultHandler: @escaping (DataResult) -> Void) -> URLSessionDataTask {
         
-        return self.dataTask(with: request) { data, response, error in
+        self.dataTask(with: request) { data, response, error in
             
                 if let networkError = NetworkError(data: data, response: response, error: error) {
                     resultHandler(.failure(networkError))

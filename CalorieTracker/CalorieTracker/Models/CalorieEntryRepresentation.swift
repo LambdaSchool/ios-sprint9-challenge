@@ -10,6 +10,6 @@ import Foundation
 
 struct CalorieEntryRepresentation: Codable {
     let calories: Int
-    let date: TimeInterval
+    let date: TimeInterval // seconds since reference date
     let id: String
 }

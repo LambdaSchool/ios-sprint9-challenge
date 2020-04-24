@@ -33,7 +33,7 @@ class CoreDataStack {
         context.performAndWait {
             do {
                 try context.save()
-            } catch let saveError {
+            } catch let saveError as NSError {
                 error = saveError
             }
         }

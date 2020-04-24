@@ -15,6 +15,10 @@ extension NSNotification.Name {
 
 class CalorieTrackerViewController: UIViewController {
     
+    // MARK: - Private Properties
+    
+    let syncEngine = SyncEngine()
+    
     // MARK: - IBActions
     
     @IBAction func addCalorieIntake(_ sender: Any) {

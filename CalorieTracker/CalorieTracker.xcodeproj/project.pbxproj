@@ -19,12 +19,12 @@
 		04C4C4002453454E0006C76F /* CalorieEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4C3FF2453454E0006C76F /* CalorieEntry+Convenience.swift */; };
 		04C4C402245345F00006C76F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4C401245345F00006C76F /* CoreDataStack.swift */; };
 		04C4C40424534C070006C76F /* DateFormatter+Short.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4C40324534C070006C76F /* DateFormatter+Short.swift */; };
-		04C4C407245358EA0006C76F /* SyncEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4C406245358EA0006C76F /* SyncEngine.swift */; };
 		04C4C40924535A960006C76F /* NetworkingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4C40824535A960006C76F /* NetworkingExtensions.swift */; };
 		04C4C40B24535AAC0006C76F /* FirebaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4C40A24535AAC0006C76F /* FirebaseClient.swift */; };
 		04C4C40D24535B230006C76F /* ResultDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4C40C24535B230006C76F /* ResultDecoder.swift */; };
 		04C4C40F24535B3A0006C76F /* NetworkingEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4C40E24535B3A0006C76F /* NetworkingEnums.swift */; };
 		04C4C41224535C180006C76F /* CalorieEntryRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4C41124535C180006C76F /* CalorieEntryRepresentation.swift */; };
+		04C4C4142453623F0006C76F /* SyncEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4C4132453623F0006C76F /* SyncEngine.swift */; };
 		AD63CB45405AF10CE2CABDBE /* Pods_CalorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A52B31D02D7FDD995A11CEC /* Pods_CalorieTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,12 +43,12 @@
 		04C4C3FF2453454E0006C76F /* CalorieEntry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieEntry+Convenience.swift"; sourceTree = "<group>"; };
 		04C4C401245345F00006C76F /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		04C4C40324534C070006C76F /* DateFormatter+Short.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Short.swift"; sourceTree = "<group>"; };
-		04C4C406245358EA0006C76F /* SyncEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SyncEngine.swift; path = "/Users/shawngee/Development/Lambda/Unit3/Sprint11/ios-sprint-challenge-calorie-tracker/CalorieTracker/CalorieTracker/SyncEngine.swift"; sourceTree = "<absolute>"; };
 		04C4C40824535A960006C76F /* NetworkingExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingExtensions.swift; sourceTree = "<group>"; };
 		04C4C40A24535AAC0006C76F /* FirebaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseClient.swift; sourceTree = "<group>"; };
 		04C4C40C24535B230006C76F /* ResultDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultDecoder.swift; sourceTree = "<group>"; };
 		04C4C40E24535B3A0006C76F /* NetworkingEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingEnums.swift; sourceTree = "<group>"; };
 		04C4C41124535C180006C76F /* CalorieEntryRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieEntryRepresentation.swift; sourceTree = "<group>"; };
+		04C4C4132453623F0006C76F /* SyncEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncEngine.swift; sourceTree = "<group>"; };
 		3A52B31D02D7FDD995A11CEC /* Pods_CalorieTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA1A0A82F8C6B7623C05B75A /* Pods-CalorieTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.release.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.release.xcconfig"; sourceTree = "<group>"; };
 		E4140A893F43301828C35EA1 /* Pods-CalorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.debug.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,9 +88,10 @@
 			isa = PBXGroup;
 			children = (
 				045F0C232453378F00D3A03A /* Main.storyboard */,
-				04C4C41024535B420006C76F /* Networking */,
 				04C4C3FE245342E80006C76F /* Models */,
 				04C4C3FA24533E460006C76F /* ViewControllers */,
+				04C4C4152453677E0006C76F /* Syncing */,
+				04C4C41024535B420006C76F /* Networking */,
 				04C4C40524534C0D0006C76F /* Extensions */,
 				045F0C31245337F600D3A03A /* Resources */,
 				045F0C262453379100D3A03A /* Assets.xcassets */,
@@ -124,8 +125,8 @@
 			children = (
 				04C4C3FB245342DB0006C76F /* CalorieTracker.xcdatamodeld */,
 				04C4C3FF2453454E0006C76F /* CalorieEntry+Convenience.swift */,
-				04C4C401245345F00006C76F /* CoreDataStack.swift */,
 				04C4C41124535C180006C76F /* CalorieEntryRepresentation.swift */,
+				04C4C401245345F00006C76F /* CoreDataStack.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -141,13 +142,20 @@
 		04C4C41024535B420006C76F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				04C4C406245358EA0006C76F /* SyncEngine.swift */,
 				04C4C40A24535AAC0006C76F /* FirebaseClient.swift */,
 				04C4C40824535A960006C76F /* NetworkingExtensions.swift */,
 				04C4C40E24535B3A0006C76F /* NetworkingEnums.swift */,
 				04C4C40C24535B230006C76F /* ResultDecoder.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		04C4C4152453677E0006C76F /* Syncing */ = {
+			isa = PBXGroup;
+			children = (
+				04C4C4132453623F0006C76F /* SyncEngine.swift */,
+			);
+			path = Syncing;
 			sourceTree = "<group>";
 		};
 		800BCA6B2C8A6E2FDF10587E /* Frameworks */ = {
@@ -302,10 +310,10 @@
 			files = (
 				04C4C40F24535B3A0006C76F /* NetworkingEnums.swift in Sources */,
 				04C4C3F724533D760006C76F /* CalorieTrackerTableViewController.swift in Sources */,
+				04C4C4142453623F0006C76F /* SyncEngine.swift in Sources */,
 				045F0C222453378F00D3A03A /* CalorieTrackerViewController.swift in Sources */,
 				04C4C40D24535B230006C76F /* ResultDecoder.swift in Sources */,
 				04C4C40924535A960006C76F /* NetworkingExtensions.swift in Sources */,
-				04C4C407245358EA0006C76F /* SyncEngine.swift in Sources */,
 				04C4C3FD245342DB0006C76F /* CalorieTracker.xcdatamodeld in Sources */,
 				045F0C1E2453378F00D3A03A /* AppDelegate.swift in Sources */,
 				04C4C40424534C070006C76F /* DateFormatter+Short.swift in Sources */,
