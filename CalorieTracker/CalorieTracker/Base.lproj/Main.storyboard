@@ -49,24 +49,25 @@
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="128.57142857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Calorie Tracker Chart View Controller-->
         <scene sceneID="vKt-l7-LDL">
             <objects>
-                <viewController id="tuS-ZZ-Lo4" sceneMemberID="viewController">
+                <viewController id="tuS-ZZ-Lo4" customClass="CalorieTrackerChartViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JTn-jF-fH1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="276"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="QFQ-fE-Mja"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wV3-9N-RXW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1888" y="-63"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Calorie Tracker Table View Controller-->
         <scene sceneID="RPn-I0-UzD">
             <objects>
-                <tableViewController id="Lil-re-ofN" sceneMemberID="viewController">
+                <tableViewController id="Lil-re-ofN" customClass="CalorieTrackerTableViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mOL-O9-Xxw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="498"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
