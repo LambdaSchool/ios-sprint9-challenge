@@ -26,6 +26,26 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A0T-Sa-pO1" id="AW6-pL-En1">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories: xxx" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ds-Nm-dYn">
+                                            <rect key="frame" x="20" y="11.5" width="97" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon dd, yyyy at h:mm:ss XM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JY-9X-Ihp">
+                                            <rect key="frame" x="173" y="11.5" width="221" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="5ds-Nm-dYn" firstAttribute="leading" secondItem="AW6-pL-En1" secondAttribute="leadingMargin" id="2wc-dH-3AS"/>
+                                        <constraint firstItem="0JY-9X-Ihp" firstAttribute="trailing" secondItem="AW6-pL-En1" secondAttribute="trailingMargin" id="3x9-Eu-83T"/>
+                                        <constraint firstItem="0JY-9X-Ihp" firstAttribute="centerY" secondItem="AW6-pL-En1" secondAttribute="centerY" id="Beg-8I-Ivp"/>
+                                        <constraint firstItem="5ds-Nm-dYn" firstAttribute="centerY" secondItem="AW6-pL-En1" secondAttribute="centerY" id="kT7-Vb-DNl"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
