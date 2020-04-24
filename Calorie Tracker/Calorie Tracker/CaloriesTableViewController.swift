@@ -18,7 +18,9 @@ class CaloriesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        series.area = true
         chartUIView.add(series)
+
     }
 
     // MARK: - Table view data source
