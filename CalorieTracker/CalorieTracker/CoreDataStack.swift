@@ -17,7 +17,7 @@ class CoreDataStack {
 
     lazy var container: NSPersistentContainer = {
 
-        let container = NSPersistentContainer(name: "Password")
+        let container = NSPersistentContainer(name: "Calories")
 
         container.loadPersistentStores(completionHandler: { _, error in
             if let error = error {
