@@ -51,10 +51,15 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
         chartUIView.reloadInputViews()
     }
 
+    @objc func notificationCall(_ notification: Notification) {
+        print("Hello World!")
+    }
+
     // MARK: - View Controller
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationCall(_:)), name: .caloriesSubmitted, object: nil)
 //        let newEntry = Entry(calories: 190, date: Date(), context: CoreDataStack.shared.mainContext)
 //        try! CoreDataStack.shared.save()
     }
@@ -88,7 +93,7 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
             textfield.placeholder = "Calories:"
         }
         alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (action) in
-
+            NotificationCenter.default.post(name: .caloriesSubmitted, object: nil)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true)
