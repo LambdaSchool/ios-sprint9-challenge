@@ -6,6 +6,6 @@ target 'CalorieTracker' do
   use_frameworks!
 
   # Pods for CalorieTracker
-  pod "SwiftChart"
+  pod "SwiftChart", :git => 'https://github.com/gpbl/SwiftChart', :branch => 'master'
 
 end
