@@ -10,4 +10,9 @@ import UIKit
 
 class CalorieTableViewCell: UITableViewCell {
 
+    // MARK: - Outlets
+
+    @IBOutlet private weak var calorieCountLabel: UILabel!
+    @IBOutlet private weak var timestampLabel: UILabel!
+
 }
