@@ -12,7 +12,6 @@ import SwiftChart
 class CalorieTrackerTableViewController: UITableViewController {
     
     // MARK: - Properties
-    let calorieEntryController = CalorieEntryController()
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -22,7 +21,7 @@ class CalorieTrackerTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        calorieEntryController.loadFromPersistentStore()
+        CalorieEntryController.shared.loadFromPersistentStore()
         updateViews()
         
         NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(_:)), name: .addCalorieEntry, object: nil)
@@ -53,8 +52,8 @@ class CalorieTrackerTableViewController: UITableViewController {
             let textField = alert?.textFields![0]
             guard let caloriesString = textField?.text, let calories = Int(caloriesString) else {
                 return }
-            self.calorieEntryController.createCalorieEntry(calories: calories)
-            NotificationCenter.default.post(name: .addCalorieEntry, object: self.calorieEntryController)
+            CalorieEntryController.shared.createCalorieEntry(calories: calories)
+            NotificationCenter.default.post(name: .addCalorieEntry, object: self)
         }))
         self.present(alert, animated: true, completion: nil)
     }
@@ -66,13 +65,13 @@ class CalorieTrackerTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return calorieEntryController.calorieEntries.count
+        return CalorieEntryController.shared.calorieEntries.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieEntryCell", for: indexPath)
 
-        let calorieEntry = calorieEntryController.calorieEntries[indexPath.row]
+        let calorieEntry = CalorieEntryController.shared.calorieEntries[indexPath.row]
         let timestamp = calorieEntry.timestamp ?? Date()
         cell.textLabel?.text = "Calories: \(calorieEntry.calories)"
         cell.detailTextLabel?.text = dateFormatter.string(from: timestamp)
@@ -80,14 +79,13 @@ class CalorieTrackerTableViewController: UITableViewController {
         return cell
     }
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            let calorieEntry = CalorieEntryController.shared.calorieEntries[indexPath.row]
+            CalorieEntryController.shared.deleteCalorieEntry(calorieEntry: calorieEntry)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-    */
 
 }

@@ -16,6 +16,7 @@ extension NSNotification.Name {
 class CalorieEntryController {
     
     var calorieEntries: [CalorieEntry] = []
+    static let shared = CalorieEntryController()
     
     func loadFromPersistentStore() {
         let context = CoreDataStack.shared.container.newBackgroundContext()
@@ -51,6 +52,5 @@ class CalorieEntryController {
         guard let index = calorieEntries.firstIndex(of: calorieEntry) else { return }
         calorieEntries.remove(at: index)
     }
-    
-    
+
 }
