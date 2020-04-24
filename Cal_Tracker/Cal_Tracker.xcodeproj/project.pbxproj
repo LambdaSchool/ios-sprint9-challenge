@@ -1,0 +1,466 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5D59C6063C96856EF2735DF9 /* Pods_Cal_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16CFE0A8C365C658573F01A /* Pods_Cal_Tracker.framework */; };
+		AE00A0262453377F00859092 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE00A0252453377F00859092 /* AppDelegate.swift */; };
+		AE00A0282453377F00859092 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE00A0272453377F00859092 /* SceneDelegate.swift */; };
+		AE00A02D2453377F00859092 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE00A02B2453377F00859092 /* Main.storyboard */; };
+		AE00A02F2453378000859092 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE00A02E2453378000859092 /* Assets.xcassets */; };
+		AE00A0322453378000859092 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE00A0302453378000859092 /* LaunchScreen.storyboard */; };
+		AE00A03B24533BDF00859092 /* CalorieTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE00A03A24533BDF00859092 /* CalorieTrackerViewController.swift */; };
+		AE00A046245349CD00859092 /* Calorie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE00A044245349CD00859092 /* Calorie.xcdatamodeld */; };
+		AE00A04924534A1E00859092 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE00A04824534A1E00859092 /* CoreDataStack.swift */; };
+		AE00A04B24534A4E00859092 /* Calorie+Conv.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE00A04A24534A4E00859092 /* Calorie+Conv.swift */; };
+		AE00A04D24534D3D00859092 /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE00A04C24534D3D00859092 /* CalorieController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		17E61D8461EE1A6EEFC226E0 /* Pods-Cal_Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cal_Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Cal_Tracker/Pods-Cal_Tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		996CF15D30FE45F358651BCC /* Pods-Cal_Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cal_Tracker.release.xcconfig"; path = "Target Support Files/Pods-Cal_Tracker/Pods-Cal_Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		AE00A0222453377F00859092 /* Cal_Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cal_Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE00A0252453377F00859092 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AE00A0272453377F00859092 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		AE00A02C2453377F00859092 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AE00A02E2453378000859092 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AE00A0312453378000859092 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AE00A0332453378000859092 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE00A03A24533BDF00859092 /* CalorieTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerViewController.swift; sourceTree = "<group>"; };
+		AE00A045245349CD00859092 /* Calorie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calorie.xcdatamodel; sourceTree = "<group>"; };
+		AE00A04824534A1E00859092 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		AE00A04A24534A4E00859092 /* Calorie+Conv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Conv.swift"; sourceTree = "<group>"; };
+		AE00A04C24534D3D00859092 /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
+		E16CFE0A8C365C658573F01A /* Pods_Cal_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cal_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AE00A01F2453377F00859092 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D59C6063C96856EF2735DF9 /* Pods_Cal_Tracker.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AE00A0192453377F00859092 = {
+			isa = PBXGroup;
+			children = (
+				AE00A0242453377F00859092 /* Cal_Tracker */,
+				AE00A0232453377F00859092 /* Products */,
+				B13B792F2FFA3BFA56AB9B86 /* Pods */,
+				D1A00521A396D9C6C64DC937 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AE00A0232453377F00859092 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE00A0222453377F00859092 /* Cal_Tracker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AE00A0242453377F00859092 /* Cal_Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				AE00A0252453377F00859092 /* AppDelegate.swift */,
+				AE00A0272453377F00859092 /* SceneDelegate.swift */,
+				AE00A02B2453377F00859092 /* Main.storyboard */,
+				AE00A04724534A0E00859092 /* Model */,
+				AE00A03A24533BDF00859092 /* CalorieTrackerViewController.swift */,
+				AE00A02E2453378000859092 /* Assets.xcassets */,
+				AE00A0302453378000859092 /* LaunchScreen.storyboard */,
+				AE00A0332453378000859092 /* Info.plist */,
+			);
+			path = Cal_Tracker;
+			sourceTree = "<group>";
+		};
+		AE00A04724534A0E00859092 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AE00A044245349CD00859092 /* Calorie.xcdatamodeld */,
+				AE00A04824534A1E00859092 /* CoreDataStack.swift */,
+				AE00A04A24534A4E00859092 /* Calorie+Conv.swift */,
+				AE00A04C24534D3D00859092 /* CalorieController.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B13B792F2FFA3BFA56AB9B86 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				17E61D8461EE1A6EEFC226E0 /* Pods-Cal_Tracker.debug.xcconfig */,
+				996CF15D30FE45F358651BCC /* Pods-Cal_Tracker.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D1A00521A396D9C6C64DC937 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E16CFE0A8C365C658573F01A /* Pods_Cal_Tracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AE00A0212453377F00859092 /* Cal_Tracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE00A0362453378000859092 /* Build configuration list for PBXNativeTarget "Cal_Tracker" */;
+			buildPhases = (
+				2881E0580F9BCAF6182C1B2C /* [CP] Check Pods Manifest.lock */,
+				AE00A01E2453377F00859092 /* Sources */,
+				AE00A01F2453377F00859092 /* Frameworks */,
+				AE00A0202453377F00859092 /* Resources */,
+				54256A773AACA879E31F4EB8 /* [CP] Embed Pods Frameworks */,
+				AE00A03924533A6E00859092 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cal_Tracker;
+			productName = Cal_Tracker;
+			productReference = AE00A0222453377F00859092 /* Cal_Tracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AE00A01A2453377F00859092 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Lydia Zhang";
+				TargetAttributes = {
+					AE00A0212453377F00859092 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = AE00A01D2453377F00859092 /* Build configuration list for PBXProject "Cal_Tracker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AE00A0192453377F00859092;
+			productRefGroup = AE00A0232453377F00859092 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AE00A0212453377F00859092 /* Cal_Tracker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AE00A0202453377F00859092 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE00A0322453378000859092 /* LaunchScreen.storyboard in Resources */,
+				AE00A02F2453378000859092 /* Assets.xcassets in Resources */,
+				AE00A02D2453377F00859092 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2881E0580F9BCAF6182C1B2C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cal_Tracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		54256A773AACA879E31F4EB8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cal_Tracker/Pods-Cal_Tracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cal_Tracker/Pods-Cal_Tracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cal_Tracker/Pods-Cal_Tracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE00A03924533A6E00859092 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AE00A01E2453377F00859092 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE00A04924534A1E00859092 /* CoreDataStack.swift in Sources */,
+				AE00A0262453377F00859092 /* AppDelegate.swift in Sources */,
+				AE00A03B24533BDF00859092 /* CalorieTrackerViewController.swift in Sources */,
+				AE00A04D24534D3D00859092 /* CalorieController.swift in Sources */,
+				AE00A04B24534A4E00859092 /* Calorie+Conv.swift in Sources */,
+				AE00A0282453377F00859092 /* SceneDelegate.swift in Sources */,
+				AE00A046245349CD00859092 /* Calorie.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AE00A02B2453377F00859092 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE00A02C2453377F00859092 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AE00A0302453378000859092 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE00A0312453378000859092 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AE00A0342453378000859092 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AE00A0352453378000859092 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AE00A0372453378000859092 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17E61D8461EE1A6EEFC226E0 /* Pods-Cal_Tracker.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Cal_Tracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lydia.Cal-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AE00A0382453378000859092 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 996CF15D30FE45F358651BCC /* Pods-Cal_Tracker.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Cal_Tracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lydia.Cal-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AE00A01D2453377F00859092 /* Build configuration list for PBXProject "Cal_Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE00A0342453378000859092 /* Debug */,
+				AE00A0352453378000859092 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE00A0362453378000859092 /* Build configuration list for PBXNativeTarget "Cal_Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE00A0372453378000859092 /* Debug */,
+				AE00A0382453378000859092 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AE00A044245349CD00859092 /* Calorie.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AE00A045245349CD00859092 /* Calorie.xcdatamodel */,
+			);
+			currentVersion = AE00A045245349CD00859092 /* Calorie.xcdatamodel */;
+			path = Calorie.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = AE00A01A2453377F00859092 /* Project object */;
+}
