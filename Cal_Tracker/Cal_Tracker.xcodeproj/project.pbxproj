@@ -13,6 +13,7 @@
 		AE00A02D2453377F00859092 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE00A02B2453377F00859092 /* Main.storyboard */; };
 		AE00A02F2453378000859092 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE00A02E2453378000859092 /* Assets.xcassets */; };
 		AE00A0322453378000859092 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE00A0302453378000859092 /* LaunchScreen.storyboard */; };
+		AE00A03B24533BDF00859092 /* CalorieTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE00A03A24533BDF00859092 /* CalorieTrackerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		AE00A02E2453378000859092 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE00A0312453378000859092 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE00A0332453378000859092 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE00A03A24533BDF00859092 /* CalorieTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerViewController.swift; sourceTree = "<group>"; };
 		E16CFE0A8C365C658573F01A /* Pods_Cal_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cal_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -64,6 +66,7 @@
 				AE00A0252453377F00859092 /* AppDelegate.swift */,
 				AE00A0272453377F00859092 /* SceneDelegate.swift */,
 				AE00A02B2453377F00859092 /* Main.storyboard */,
+				AE00A03A24533BDF00859092 /* CalorieTrackerViewController.swift */,
 				AE00A02E2453378000859092 /* Assets.xcassets */,
 				AE00A0302453378000859092 /* LaunchScreen.storyboard */,
 				AE00A0332453378000859092 /* Info.plist */,
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE00A0262453377F00859092 /* AppDelegate.swift in Sources */,
+				AE00A03B24533BDF00859092 /* CalorieTrackerViewController.swift in Sources */,
 				AE00A0282453377F00859092 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

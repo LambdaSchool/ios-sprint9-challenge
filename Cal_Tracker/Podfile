@@ -6,6 +6,6 @@ target 'Cal_Tracker' do
   use_frameworks!
 
   # Pods for Cal_Tracker
-  pod "SwiftChart"
+  pod "SwiftChart", :git => 'https://github.com/gpbl/SwiftChart', :branch => 'master'
   pod 'SwiftLint'
 end
