@@ -92,6 +92,7 @@
 				1346796024533856007AD396 /* SceneDelegate.swift */,
 				1346796724533857007AD396 /* Assets.xcassets */,
 				1346796C24533857007AD396 /* Info.plist */,
+				1346796924533857007AD396 /* LaunchScreen.storyboard */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -100,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				1346796424533856007AD396 /* Main.storyboard */,
-				1346796924533857007AD396 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
