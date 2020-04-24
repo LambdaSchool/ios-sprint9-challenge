@@ -52,7 +52,11 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
     }
 
     @objc func notificationCall(_ notification: Notification) {
-        print("Hello World!")
+        do {
+            try CoreDataStack.shared.save()
+        } catch {
+            NSLog("Error saving newly created entry")
+        }
     }
 
     // MARK: - View Controller
@@ -93,6 +97,10 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
             textfield.placeholder = "Calories:"
         }
         alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (action) in
+            guard let fields = alert.textFields,
+                let text = fields[0].text,
+            let calories = Double(text) else { return }
+            let newEntry = Entry(calories: calories)
             NotificationCenter.default.post(name: .caloriesSubmitted, object: nil)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
