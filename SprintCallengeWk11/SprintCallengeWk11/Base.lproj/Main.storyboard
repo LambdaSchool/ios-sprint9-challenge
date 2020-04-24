@@ -20,13 +20,42 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="z5y-aF-5IE">
-                                <rect key="frame" x="0.0" y="328" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="48" id="z5y-aF-5IE" customClass="CalorieTableViewCell" customModule="SprintCallengeWk11" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="328" width="414" height="48"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z5y-aF-5IE" id="87o-8f-jAG">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories: 9999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgJ-hQ-DTy">
+                                            <rect key="frame" x="20" y="14" width="130" height="20.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="130" id="773-Ty-9m1"/>
+                                                <constraint firstAttribute="height" constant="20.5" id="7nK-MB-Wtc"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/12/2222 at 12:22 am" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9d-ES-bFo">
+                                            <rect key="frame" x="215" y="13.5" width="179" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="CgJ-hQ-DTy" firstAttribute="leading" secondItem="87o-8f-jAG" secondAttribute="leadingMargin" id="DjC-TK-J8N"/>
+                                        <constraint firstItem="F9d-ES-bFo" firstAttribute="centerY" secondItem="87o-8f-jAG" secondAttribute="centerY" id="Vem-5U-ImE"/>
+                                        <constraint firstItem="CgJ-hQ-DTy" firstAttribute="centerY" secondItem="87o-8f-jAG" secondAttribute="centerY" id="d2r-0V-o1R"/>
+                                        <constraint firstItem="F9d-ES-bFo" firstAttribute="leading" relation="lessThanOrEqual" secondItem="CgJ-hQ-DTy" secondAttribute="trailing" constant="80" id="eAz-yY-9rI"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="F9d-ES-bFo" secondAttribute="trailing" id="p2w-BH-Lqe"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="calorieText" destination="CgJ-hQ-DTy" id="k5i-pw-CXQ"/>
+                                    <outlet property="dateText" destination="F9d-ES-bFo" id="QKp-YX-OMe"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -47,7 +76,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KGg-7b-dIt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="270" y="79"/>
+            <point key="canvasLocation" x="269.56521739130437" y="78.348214285714278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AnR-H0-QXi">

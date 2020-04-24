@@ -19,7 +19,6 @@ class CalorieTableViewController: UITableViewController {
     @IBOutlet weak var chart: Chart!
 
     let entryController = EntryController()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,7 +53,6 @@ class CalorieTableViewController: UITableViewController {
                     }
             }))
             present(alert, animated: true, completion: nil)
-
     }
 
     @objc func createIt() {
@@ -67,7 +65,6 @@ class CalorieTableViewController: UITableViewController {
               Double($0.calories)
           }
           let allCalories = ChartSeries(entries)
-
           chart.add(allCalories)
       }
 
@@ -77,11 +74,13 @@ class CalorieTableViewController: UITableViewController {
         let context = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: "timestamp", cacheName: nil)
         frc.delegate = self
-        try frc.performFetch()
+        do {
+           try frc.performFetch()
+        } catch {
+            NSLog("Error loading managed object context: \(error)")
+        }
         return frc
     }()
-    
-
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -92,20 +91,23 @@ class CalorieTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return fetchedResultsController.sections?[section].numberOfObjects ?? 3
     }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-        let entry = fetchedResultsController.object(at: indexPath)
-        cell.textLabel?.text = "\(entry.calories)"
-
-        let dateF = DateFormatter()
-        dateF.dateFormat = "MMM dd, yyyy hh:mm:ss"
-        cell.detailTextLabel?.text = dateF.string(from: entry.timestamp ?? Date())
-
-        return cell
+    func changeTheDate(_ date: Date) -> String {
+        let dateDay = DateFormatter()
+        let dateTime = DateFormatter()
+        dateDay.dateFormat = "MMM dd, yyyy"
+        dateTime.dateFormat = "hh:mm:ss"
+        let day = dateDay.string(from: date)
+        let time = dateTime.string(from: date)
+        return "\(day) at \(time)"
     }
 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CalorieTableViewCell else {return UITableViewCell()}
+        let entry = fetchedResultsController.object(at: indexPath)
+        cell.calorieText.text = "Calories: \(entry.calories)"
+        cell.dateText.text = changeTheDate(entry.timestamp ?? Date())
+        return cell
+    }
 }
 
 extension CalorieTableViewController: NSFetchedResultsControllerDelegate {

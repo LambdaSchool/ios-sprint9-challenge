@@ -20,6 +20,7 @@
 		C46F49B924533E380020771D /* CalorieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46F49B824533E380020771D /* CalorieTableViewController.swift */; };
 		C46F49BC24533E600020771D /* CalorieEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46F49BB24533E600020771D /* CalorieEntryController.swift */; };
 		C4853D1924534DBC00BA611B /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4853D1824534DBC00BA611B /* Calorie+Convenience.swift */; };
+		C4853D1C2453705300BA611B /* CalorieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4853D1B2453705300BA611B /* CalorieTableViewCell.swift */; };
 		F21F908F6F3BDA9F0325CB4A /* Pods_SprintCallengeWk11Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F98A836CBDE44406EF291A34 /* Pods_SprintCallengeWk11Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		C46F49B824533E380020771D /* CalorieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewController.swift; sourceTree = "<group>"; };
 		C46F49BB24533E600020771D /* CalorieEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieEntryController.swift; sourceTree = "<group>"; };
 		C4853D1824534DBC00BA611B /* Calorie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience.swift"; sourceTree = "<group>"; };
+		C4853D1B2453705300BA611B /* CalorieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewCell.swift; sourceTree = "<group>"; };
 		D33BFCAA32391C7B21099EC0 /* Pods-SprintCallengeWk11Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SprintCallengeWk11Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SprintCallengeWk11Tests/Pods-SprintCallengeWk11Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D667E33C1BF964E402B610B8 /* Pods_SprintCallengeWk11UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SprintCallengeWk11UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98A836CBDE44406EF291A34 /* Pods_SprintCallengeWk11Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SprintCallengeWk11Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +123,7 @@
 		C4122BBE245334AE002C31B5 = {
 			isa = PBXGroup;
 			children = (
+				C4853D1A2453702B00BA611B /* Views */,
 				C461038A2453425900A4580D /* Models */,
 				C46F49BA24533E420020771D /* Controller */,
 				C46F49B724533E0C0020771D /* ViewController */,
@@ -179,6 +182,14 @@
 				C46F49BB24533E600020771D /* CalorieEntryController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		C4853D1A2453702B00BA611B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C4853D1B2453705300BA611B /* CalorieTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,7 +374,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SprintCallengeWk11/Pods-SprintCallengeWk11-frameworks.sh\"\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SprintCallengeWk11/Pods-SprintCallengeWk11-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CD2FF9416B2B9BF2A470213E /* [CP] Check Pods Manifest.lock */ = {
@@ -399,6 +410,7 @@
 				C4122BCB245334AE002C31B5 /* AppDelegate.swift in Sources */,
 				C46F49B624533BAD0020771D /* SprintCallengeWk11.xcdatamodeld in Sources */,
 				C4122BCD245334AE002C31B5 /* SceneDelegate.swift in Sources */,
+				C4853D1C2453705300BA611B /* CalorieTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

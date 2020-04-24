@@ -11,7 +11,7 @@ import CoreData
 
 class EntryController {
     func create(_ calories: Int) {
-        CalorieEntry(calories: calories, timestamp: Date())
+        CalorieEntry(calories: calories, timestamp: Date(), context: CoreDataStack.shared.mainContext)
         do {
             try CoreDataStack.shared.save()
         } catch {
