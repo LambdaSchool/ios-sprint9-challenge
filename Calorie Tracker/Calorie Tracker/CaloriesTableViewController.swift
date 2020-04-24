@@ -43,6 +43,8 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
         super.viewDidLoad()
         series.area = true
         chartUIView.add(series)
+//        let newEntry = Entry(calories: 200, date: Date(), context: CoreDataStack.shared.mainContext)
+//        try! CoreDataStack.shared.save()
     }
 
     // MARK: - Table view data source
@@ -60,6 +62,7 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "caloriesEntryCell", for: indexPath) as? CaloriesEntryTableViewCell else { return UITableViewCell() }
 
+        cell.formatter = formatter
         cell.entry = fetchedResultsController.object(at: indexPath)
 
         return cell
