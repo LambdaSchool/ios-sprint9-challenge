@@ -96,11 +96,11 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
         alert.addTextField { textfield in
             textfield.placeholder = "Calories:"
         }
-        alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { _ in
             guard let fields = alert.textFields,
                 let text = fields[0].text,
             let calories = Double(text) else { return }
-            let newEntry = Entry(calories: calories)
+            Entry(calories: calories)
             NotificationCenter.default.post(name: .caloriesSubmitted, object: nil)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))

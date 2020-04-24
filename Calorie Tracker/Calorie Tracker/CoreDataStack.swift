@@ -18,7 +18,7 @@ class CoreDataStack {
     var container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Calories")
         
-        container.loadPersistentStores { (_, error) in
+        container.loadPersistentStores { _, error in
             if let error = error {
                 NSLog("Couldn't load items from persistent store : \(error)")
             }
