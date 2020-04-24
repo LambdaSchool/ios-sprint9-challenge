@@ -11,8 +11,8 @@ import UIKit
 class CaloriesEntryTableViewCell: UITableViewCell {
     // MARK: - Outlet
     
-    @IBOutlet weak var caloriesLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet private weak var caloriesLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
 
     // MARK: - Property
 
