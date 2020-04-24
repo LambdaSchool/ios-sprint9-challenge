@@ -15,7 +15,7 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
 
     // MARK: - Properties
     
-     @IBOutlet weak var calorieChart: UIView!
+     
 
 
     let calorieController = CaloriesController()
