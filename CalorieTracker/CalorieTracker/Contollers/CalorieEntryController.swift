@@ -9,6 +9,10 @@
 import Foundation
 import CoreData
 
+extension NSNotification.Name {
+    static let addCalorieEntry = NSNotification.Name("AddCalorieEntry")
+}
+
 class CalorieEntryController {
     
     var calorieEntries: [CalorieEntry] = []

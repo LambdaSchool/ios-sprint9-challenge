@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController {
     
@@ -15,6 +16,37 @@ class CalorieTrackerTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(_:)), name: .addCalorieEntry, object: nil)
+    }
+    
+    @objc func refreshViews(_ notifications: Notification) {
+        updateViews()
+    }
+    
+    func updateViews() {
+        tableView.reloadData()
+    }
+    
+    // MARK: - Outlet
+    @IBOutlet private weak var calorieChart: Chart!
+    
+    // MARK: - Actions
+    
+    @IBAction func addCalorientry(_ sender: Any) {
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in this field", preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.placeholder = "Calories: "
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] _ in
+            let textField = alert?.textFields![0]
+            guard let caloriesString = textField?.text, let calories = Int(caloriesString) else {
+                return }
+            self.calorieEntryController.createCalorieEntry(calories: calories)
+            NotificationCenter.default.post(name: .addCalorieEntry, object: self.calorieEntryController)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source

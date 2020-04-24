@@ -9,7 +9,7 @@
         <!--Calorie Tracker-->
         <scene sceneID="afi-rz-w5t">
             <objects>
-                <tableViewController id="NAI-an-2cH" sceneMemberID="viewController">
+                <tableViewController id="NAI-an-2cH" customClass="CalorieTrackerTableViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RXV-pQ-KCq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,8 +51,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="R7M-BU-STE">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="YIA-GH-7bZ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="TgX-yl-4uc">
+                            <connections>
+                                <action selector="addCalorientry:" destination="NAI-an-2cH" id="Kvl-Ch-owA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="calorieChart" destination="TDB-Se-7F8" id="JSc-Mt-MDA"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i4s-Zj-ebo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
