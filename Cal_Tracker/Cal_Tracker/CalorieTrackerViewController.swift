@@ -13,7 +13,6 @@ import CoreData
 class CalorieTrackerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     var calorieController = CalorieController()
-    var scaleY: [Double] = [0]
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -61,7 +60,7 @@ class CalorieTrackerViewController: UIViewController, UITableViewDelegate, UITab
         alert.addAction(UIAlertAction(title: "Done", style: .default) { _ in
             guard let calories = alert.textFields?.first?.text, !calories.isEmpty, let calorieInt = Int(calories) else {return}
             self.calorieController.create(calorie: Int16(calorieInt))
-            self.scaleY.append(Double(calorieInt))
+            NotificationCenter.default.post(name: NSNotification.Name("Calorie"), object: self)
         })
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(alert, animated: true)
@@ -72,22 +71,26 @@ class CalorieTrackerViewController: UIViewController, UITableViewDelegate, UITab
         calorieTV.dataSource = self
         calorieTV.delegate = self
         update()
-        NotificationCenter.default.addObserver(self, selector: #selector(update), name: NSNotification.Name("Calorie"), object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(update), name: NSNotification.Name("Calorie"), object: nil)
     }
-    let chartView = Chart(frame: CGRect(x: 40, y: 40, width: 350, height: 180))//do not put this inside update! will make new chart everytime!
-    
+    let chartView = Chart()
+    //do not put this inside update! will make new chart everytime!
     @objc func update() {
-        if let datas = fetchedResultsController.fetchedObjects {
-            for data in datas {
-                scaleY.append(Double(data.calorie))
-            }
+        var scale: [Double] = [] //keep this inside function so it doesnt presist outside!
+        chartView.frame = CGRect(x: 20, y: 20, width: chart.bounds.maxX - 40, height: chart.bounds.maxY - 40)
+        guard let datas = fetchedResultsController.fetchedObjects else {return}
+        for data in datas {
+            scale.append(Double(data.calorie))
         }
         chartView.isUserInteractionEnabled = true
         chart.addSubview(chartView)
-        let series = ChartSeries(scaleY)
+        let series = ChartSeries(scale)
         series.area = true
         series.color = ChartColors.pinkColor()
+        if chartView.series.isEmpty == false {
+            chartView.removeAllSeries()
+        }
         chartView.add(series)
         calorieTV.reloadData()
     }
