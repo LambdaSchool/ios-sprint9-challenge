@@ -13,7 +13,7 @@ import CoreData
 class CalorieTrackerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     var calorieController = CalorieController()
-    var scaleY: [Double] = []
+    var scaleY: [Double] = [0]
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
