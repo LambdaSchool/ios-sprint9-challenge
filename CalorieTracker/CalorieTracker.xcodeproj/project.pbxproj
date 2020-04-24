@@ -82,16 +82,56 @@
 		E255EAF024533784009F99AD /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
-				E255EAF124533784009F99AD /* AppDelegate.swift */,
-				E255EAF324533784009F99AD /* SceneDelegate.swift */,
-				E255EAF524533784009F99AD /* ViewController.swift */,
-				E255EAF724533784009F99AD /* Main.storyboard */,
-				E255EAFD24533786009F99AD /* Assets.xcassets */,
-				E255EAFF24533786009F99AD /* LaunchScreen.storyboard */,
+				E255EB0D24533C84009F99AD /* Models */,
+				E255EB0C24533C7D009F99AD /* Views */,
+				E255EB0B24533C76009F99AD /* View Controllers */,
+				E255EB0A24533C68009F99AD /* Contollers */,
+				E255EB0924533C54009F99AD /* Resources */,
 				E255EB0224533786009F99AD /* Info.plist */,
-				E255EAFA24533784009F99AD /* CalorieTracker.xcdatamodeld */,
 			);
 			path = CalorieTracker;
+			sourceTree = "<group>";
+		};
+		E255EB0924533C54009F99AD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E255EAF124533784009F99AD /* AppDelegate.swift */,
+				E255EAF324533784009F99AD /* SceneDelegate.swift */,
+				E255EAFD24533786009F99AD /* Assets.xcassets */,
+				E255EAFF24533786009F99AD /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E255EB0A24533C68009F99AD /* Contollers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Contollers;
+			sourceTree = "<group>";
+		};
+		E255EB0B24533C76009F99AD /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E255EAF524533784009F99AD /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		E255EB0C24533C7D009F99AD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E255EAF724533784009F99AD /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E255EB0D24533C84009F99AD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E255EAFA24533784009F99AD /* CalorieTracker.xcdatamodeld */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
