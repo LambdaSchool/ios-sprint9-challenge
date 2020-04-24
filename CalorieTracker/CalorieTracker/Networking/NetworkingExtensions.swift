@@ -12,7 +12,7 @@ typealias DataResult = Result<Data, NetworkError>
 
 extension NetworkError {
     
-    init?(data: Data? = Data(), response: URLResponse?, error: Error?) {
+    init?(error: Error?, response: URLResponse?, data: Data? = Data()) {
         if let error = error {
             self = .transportError(error)
             return
@@ -37,7 +37,7 @@ extension URLSession {
     func dataTask(with request: URLRequest, errorHandler: @escaping (NetworkError?) -> Void) -> URLSessionDataTask {
         
         self.dataTask(with: request) { _, response, error in
-            errorHandler(NetworkError(response: response, error: error))
+            errorHandler(NetworkError(error: error, response: response))
         }
     }
     
@@ -45,7 +45,7 @@ extension URLSession {
         
         self.dataTask(with: request) { data, response, error in
             
-                if let networkError = NetworkError(data: data, response: response, error: error) {
+            if let networkError = NetworkError(error: error, response: response, data: data) {
                     resultHandler(.failure(networkError))
                     return
                 }

@@ -10,16 +10,16 @@ import UIKit
 
 protocol ResultDecoder {
     
-    associatedtype T
+    associatedtype ResultType
     
-    var transform: (Data) throws -> T { get }
+    var transform: (Data) throws -> ResultType { get }
     
-    func decode(_ result: DataResult) -> Result<T, NetworkError>
+    func decode(_ result: DataResult) -> Result<ResultType, NetworkError>
 }
 
 extension ResultDecoder {
-    func decode(_ result: DataResult) -> Result<T, NetworkError> {
-        result.flatMap { (data) -> Result<T, NetworkError> in
+    func decode(_ result: DataResult) -> Result<ResultType, NetworkError> {
+        result.flatMap { data -> Result<ResultType, NetworkError> in
             Result { try transform(data) }
                 .mapError { NetworkError.decodingError($0) }
         }
@@ -27,10 +27,9 @@ extension ResultDecoder {
 }
 
 struct CalorieEntryResultDecoder: ResultDecoder {
-    typealias T = [String: CalorieEntryRepresentation]
+    typealias ResultType = [String: CalorieEntryRepresentation]
     
     var transform = { data in
         try JSONDecoder().decode([String: CalorieEntryRepresentation].self, from: data)
     }
 }
-

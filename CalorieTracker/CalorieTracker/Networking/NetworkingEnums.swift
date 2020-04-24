@@ -23,4 +23,3 @@ enum HTTPMethod {
     static let patch = "PATCH"
     static let delete = "DELETE"
 }
-
