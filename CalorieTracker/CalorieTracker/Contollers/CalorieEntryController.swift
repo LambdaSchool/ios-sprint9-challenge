@@ -12,14 +12,6 @@ import CoreData
 class CalorieEntryController {
     
     var calorieEntries: [CalorieEntry] = []
-     
-    func saveToPersistentStore() {
-        // TODO: -
-    }
-    
-    func loadFromPersistentStore() {
-        // TODO: -
-    }
     
     // MARK: - CRUD
     func createCalorieEntry(calories: Int) {
