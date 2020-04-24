@@ -16,6 +16,7 @@
 		E3472F232453586D0095C751 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3472F212453586D0095C751 /* LaunchScreen.storyboard */; };
 		E3472F2B245358C60095C751 /* Calorie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3472F2A245358C60095C751 /* Calorie.swift */; };
 		E3472F2D24535A6D0095C751 /* CaloriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3472F2C24535A6D0095C751 /* CaloriesController.swift */; };
+		E3472F2F24535B250095C751 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3472F2E24535B250095C751 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		E3472F242453586D0095C751 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3472F2A245358C60095C751 /* Calorie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calorie.swift; sourceTree = "<group>"; };
 		E3472F2C24535A6D0095C751 /* CaloriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesController.swift; sourceTree = "<group>"; };
+		E3472F2E24535B250095C751 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				E3472F242453586D0095C751 /* Info.plist */,
 				E3472F1C2453586A0095C751 /* CalorieTracker.xcdatamodeld */,
 				E3472F2C24535A6D0095C751 /* CaloriesController.swift */,
+				E3472F2E24535B250095C751 /* CoreDataStack.swift */,
 			);
 			path = CalorieTracker;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3472F2F24535B250095C751 /* CoreDataStack.swift in Sources */,
 				E3472F182453586A0095C751 /* ViewController.swift in Sources */,
 				E3472F2D24535A6D0095C751 /* CaloriesController.swift in Sources */,
 				E3472F142453586A0095C751 /* AppDelegate.swift in Sources */,

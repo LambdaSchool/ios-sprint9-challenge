@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-extesnion Calorie {
+extension Calorie {
 
     convenience init(amount: String, timeAdded: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
@@ -27,6 +27,7 @@ extesnion Calorie {
         return date
     }
 }
+
 
 
 extension Notification.Name {
