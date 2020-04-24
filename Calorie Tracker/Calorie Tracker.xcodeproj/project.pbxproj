@@ -16,6 +16,7 @@
 		9C8363552453380C00CA66A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C8363542453380C00CA66A9 /* Assets.xcassets */; };
 		9C8363582453380C00CA66A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8363562453380C00CA66A9 /* LaunchScreen.storyboard */; };
 		9CFDF2AB245342850010C838 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFDF2AA245342850010C838 /* CoreDataStack.swift */; };
+		9CFDF2AD245343040010C838 /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFDF2AC245343040010C838 /* Entry+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		9C8363572453380C00CA66A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C8363592453380C00CA66A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CFDF2AA245342850010C838 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		9CFDF2AC245343040010C838 /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
 		BBE432C3501A91C0B7ECE0ED /* Pods-Calorie Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calorie Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Calorie Tracker/Pods-Calorie Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		BC38CB068F96645F81F41F7E /* Pods-Calorie Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calorie Tracker.release.xcconfig"; path = "Target Support Files/Pods-Calorie Tracker/Pods-Calorie Tracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +70,7 @@
 			children = (
 				9C77DD64245340EF001D9987 /* Calories.xcdatamodeld */,
 				9CFDF2AA245342850010C838 /* CoreDataStack.swift */,
+				9CFDF2AC245343040010C838 /* Entry+Convenience.swift */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -207,7 +210,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		F750975B5A7945D81A245297 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -242,6 +245,7 @@
 				9C8363502453380A00CA66A9 /* ViewController.swift in Sources */,
 				9C83634C2453380A00CA66A9 /* AppDelegate.swift in Sources */,
 				9C83634E2453380A00CA66A9 /* SceneDelegate.swift in Sources */,
+				9CFDF2AD245343040010C838 /* Entry+Convenience.swift in Sources */,
 				9C77DD66245340EF001D9987 /* Calories.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
