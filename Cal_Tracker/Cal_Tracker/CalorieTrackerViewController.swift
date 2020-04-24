@@ -75,13 +75,14 @@ class CalorieTrackerViewController: UIViewController, UITableViewDelegate, UITab
         NotificationCenter.default.addObserver(self, selector: #selector(update), name: NSNotification.Name("Calorie"), object: nil)
         
     }
+    let chartView = Chart(frame: CGRect(x: 40, y: 40, width: 350, height: 180))//do not put this inside update! will make new chart everytime!
+    
     @objc func update() {
         if let datas = fetchedResultsController.fetchedObjects {
             for data in datas {
                 scaleY.append(Double(data.calorie))
             }
         }
-        let chartView = Chart(frame: CGRect(x: 40, y: 40, width: 350, height: 180))
         chartView.isUserInteractionEnabled = true
         chart.addSubview(chartView)
         let series = ChartSeries(scaleY)
