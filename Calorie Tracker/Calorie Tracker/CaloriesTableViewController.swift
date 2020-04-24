@@ -84,8 +84,11 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
     // MARK: - IBActions
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+        alert.addTextField { textfield in
+            textfield.placeholder = "Calories:"
+        }
         alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (action) in
-            
+
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true)
