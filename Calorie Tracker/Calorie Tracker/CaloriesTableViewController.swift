@@ -21,7 +21,11 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
         formatter.dateFormat = "MMM d, yyyy 'at' h:mm:ss a"
         return formatter
     }()
-    let series = ChartSeries([0, 6.5, 2, 8, 4.1, 7, -3.1, 10, 8])
+    var data: [Double] = [] {
+        didSet {
+            updateChart()        }
+    }
+
 
     lazy var fetchedResultsController: NSFetchedResultsController<Entry> = {
 
@@ -37,13 +41,21 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 
     }()
 
+    // MARK: - Methods
+
+    private func updateChart() {
+        let series = ChartSeries(data)
+        series.area = true
+        chartUIView.removeAllSeries()
+        chartUIView.add(series)
+        chartUIView.reloadInputViews()
+    }
+
     // MARK: - View Controller
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        series.area = true
-        chartUIView.add(series)
-//        let newEntry = Entry(calories: 200, date: Date(), context: CoreDataStack.shared.mainContext)
+//        let newEntry = Entry(calories: 190, date: Date(), context: CoreDataStack.shared.mainContext)
 //        try! CoreDataStack.shared.save()
     }
 
@@ -62,9 +74,10 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "caloriesEntryCell", for: indexPath) as? CaloriesEntryTableViewCell else { return UITableViewCell() }
 
+        let entry = fetchedResultsController.object(at: indexPath)
         cell.formatter = formatter
-        cell.entry = fetchedResultsController.object(at: indexPath)
-
+        cell.entry = entry
+        data.append(entry.calories)
         return cell
     }
 
