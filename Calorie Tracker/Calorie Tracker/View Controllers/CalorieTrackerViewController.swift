@@ -31,7 +31,7 @@ class CalorieTrackerViewController: UIViewController {
         tableView.dataSource = self
         setupChart()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .newEntryAddedToCoreData, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews(_:)), name: .newEntryAddedToCoreData, object: nil)
     }
     
     // MARK: - Private Methods
@@ -47,7 +47,20 @@ class CalorieTrackerViewController: UIViewController {
         calorieChart.add(chartSeries)
     }
     
-    @objc private func updateViews() {
+    @objc private func updateViews(_ notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        let numberOfCalories = userInfo["Calories"] as? Double
+        
+        if let numberOfCalories = numberOfCalories {
+            entries.append(numberOfCalories)
+        }
+        
+        calorieChart.removeAllSeries()
+        let chartSeries = ChartSeries(entries)
+        chartSeries.color = .red
+        chartSeries.area = true
+        calorieChart.add(chartSeries)
+
         tableView.reloadData()
     }
     
@@ -70,7 +83,7 @@ class CalorieTrackerViewController: UIViewController {
             
             do {
                 try CoreDataStack.shared.save()
-                NotificationCenter.default.post(name: .newEntryAddedToCoreData, object: self)
+                NotificationCenter.default.post(name: .newEntryAddedToCoreData, object: self, userInfo: ["Calories": numberOfCalorories])
             } catch {
                 NSLog("Error saving managed object contect: \(error)")
             }
