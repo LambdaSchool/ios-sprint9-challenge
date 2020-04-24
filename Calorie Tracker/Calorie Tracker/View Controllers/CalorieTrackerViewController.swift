@@ -9,6 +9,7 @@
 import UIKit
 import SwiftChart
 import CoreData
+import SCLAlertView
 
 extension NSNotification.Name {
     static let newEntryAddedToCoreData = NSNotification.Name("NewEntryAddedToCoreData")
@@ -66,6 +67,44 @@ class CalorieTrackerViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func addButtonTapped(_ sender: Any) {
+        /*
+        // MVP Alert Controller
+        showAlert()
+        */
+        
+        // Stretch Goal Alert Controller
+        var textInput: String!
+        
+        let appearance = SCLAlertView.SCLAppearance(
+            showCloseButton: false
+        )
+        let alert = SCLAlertView(appearance: appearance)
+        let txt = alert.addTextField("Calories:")
+        alert.addButton("Submit") {
+            textInput = txt.text
+            self.addEntry(with: textInput)
+        }
+        alert.addButton("Cancel") {
+            //close
+        }
+        alert.showEdit("Add Calorie Intake", subTitle: "Enter the amount of calories in the field", colorStyle: 0xFF0707)
+        
+    }
+    
+    private func addEntry(with text: String) {
+        guard let numberOfCalories = Double(text) else { return }
+        
+        Entry(numberOfCalories: numberOfCalories)
+        
+        do {
+            try CoreDataStack.shared.save()
+            NotificationCenter.default.post(name: .newEntryAddedToCoreData, object: self, userInfo: ["Calories": numberOfCalories])
+        } catch {
+            NSLog("Error saving managed object contect: \(error)")
+        }
+    }
+    
+    private func showAlert() {
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
         
         var calorieTextfield: UITextField!
