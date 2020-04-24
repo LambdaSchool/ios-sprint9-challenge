@@ -6,25 +6,24 @@
 //  Copyright © 2020 Swift Student. All rights reserved.
 //
 
+import SwiftChart
 import UIKit
 
 class CalorieTrackerChartViewController: UIViewController {
-
+    
+    // MARK: - Private Properties
+    private var chartView: Chart!
+    
+    // MARK: - View Lifecycle
+    
+    override func loadView() {
+        chartView = Chart(frame: .zero)
+        view = chartView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
