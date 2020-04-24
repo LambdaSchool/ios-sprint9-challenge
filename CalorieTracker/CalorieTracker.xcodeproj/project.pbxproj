@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,7 +12,7 @@
 		E3472F162453586A0095C751 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3472F152453586A0095C751 /* SceneDelegate.swift */; };
 		E3472F182453586A0095C751 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3472F172453586A0095C751 /* ViewController.swift */; };
 		E3472F1B2453586A0095C751 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3472F192453586A0095C751 /* Main.storyboard */; };
-		E3472F1E2453586A0095C751 /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3472F1C2453586A0095C751 /* CalorieTracker.xcdatamodeld */; };
+		E3472F1E2453586A0095C751 /* Calorie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3472F1C2453586A0095C751 /* Calorie.xcdatamodeld */; };
 		E3472F202453586D0095C751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3472F1F2453586D0095C751 /* Assets.xcassets */; };
 		E3472F232453586D0095C751 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3472F212453586D0095C751 /* LaunchScreen.storyboard */; };
 		E3472F2B245358C60095C751 /* Calorie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3472F2A245358C60095C751 /* Calorie.swift */; };
@@ -66,7 +66,6 @@
 				B7E4251A1A3058D56C2083F5 /* Pods-CalorieTracker.debug.xcconfig */,
 				3811234EB81B01FE118367F8 /* Pods-CalorieTracker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -99,7 +98,7 @@
 				E3472F1F2453586D0095C751 /* Assets.xcassets */,
 				E3472F212453586D0095C751 /* LaunchScreen.storyboard */,
 				E3472F242453586D0095C751 /* Info.plist */,
-				E3472F1C2453586A0095C751 /* CalorieTracker.xcdatamodeld */,
+				E3472F1C2453586A0095C751 /* Calorie.xcdatamodeld */,
 				E3472F2C24535A6D0095C751 /* CaloriesController.swift */,
 				E3472F2E24535B250095C751 /* CoreDataStack.swift */,
 				E3472F3024535B850095C751 /* CalorieIntakeViewController.swift */,
@@ -227,7 +226,7 @@
 				E3472F3124535B850095C751 /* CalorieIntakeViewController.swift in Sources */,
 				E3472F2D24535A6D0095C751 /* CaloriesController.swift in Sources */,
 				E3472F142453586A0095C751 /* AppDelegate.swift in Sources */,
-				E3472F1E2453586A0095C751 /* CalorieTracker.xcdatamodeld in Sources */,
+				E3472F1E2453586A0095C751 /* Calorie.xcdatamodeld in Sources */,
 				E3472F162453586A0095C751 /* SceneDelegate.swift in Sources */,
 				E3472F2B245358C60095C751 /* Calorie.swift in Sources */,
 			);
@@ -431,13 +430,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E3472F1C2453586A0095C751 /* CalorieTracker.xcdatamodeld */ = {
+		E3472F1C2453586A0095C751 /* Calorie.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				E3472F1D2453586A0095C751 /* CalorieTracker.xcdatamodel */,
 			);
 			currentVersion = E3472F1D2453586A0095C751 /* CalorieTracker.xcdatamodel */;
-			path = CalorieTracker.xcdatamodeld;
+			path = Calorie.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

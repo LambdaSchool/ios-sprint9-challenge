@@ -10,12 +10,11 @@ import UIKit
 import CoreData
 import SwiftChart
 
-
 class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
     // MARK: - Properties
     
-     
+     @IBOutlet weak var calorieChart: UIView!
 
 
     let calorieController = CaloriesController()
@@ -182,5 +181,3 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
            }
        }
 }
-
-
