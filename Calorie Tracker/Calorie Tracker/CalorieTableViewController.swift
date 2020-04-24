@@ -58,6 +58,8 @@ class CalorieTableViewController: UITableViewController {
                 // FIXME: Get value out of here.
                 print(calorieCount)
                 self.calorieController.create(calories: calorieCount, timestamp: Date())
+                // TODO: I can't believe this works. Race condition? Better way?
+                self.tableView.reloadData()
             } else {
                 print("Invalid user input to calorieCount.")
             }
