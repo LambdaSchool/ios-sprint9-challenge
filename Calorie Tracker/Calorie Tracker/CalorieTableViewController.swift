@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftChart
 
 class CalorieTableViewController: UITableViewController {
 
@@ -14,6 +15,8 @@ class CalorieTableViewController: UITableViewController {
     var calorieController = CalorieController()
 
     // MARK: - Outlets
+
+    @IBOutlet private weak var calorieChart: Chart!
 
     // MARK: - Actions
 
@@ -24,20 +27,30 @@ class CalorieTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        updateViews()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        tableView.reloadData()
+        updateViews()
     }
 
     // MARK: - Private
+    private func updateViews() {
+        tableView.reloadData()
+
+        let calorieData = ChartSeries(calorieController.entries.map({ Double($0.calories) }))
+
+        calorieData.area = true
+
+        calorieData.colors = (
+            above: ChartColors.blueColor(),
+            below: ChartColors.yellowColor(),
+            zeroLevel: 0
+        )
+        calorieChart.add(calorieData)
+    }
 
     private func askUserForCalorieCount() {
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
