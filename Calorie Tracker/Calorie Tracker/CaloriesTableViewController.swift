@@ -15,7 +15,12 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
     @IBOutlet weak var chartUIView: Chart!
 
 
-    // MARK: - Prooperties
+    // MARK: - Properties
+    let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, yyyy 'at' h:mm:ss a"
+        return formatter
+    }()
     let series = ChartSeries([0, 6.5, 2, 8, 4.1, 7, -3.1, 10, 8])
 
     lazy var fetchedResultsController: NSFetchedResultsController<Entry> = {
@@ -53,9 +58,9 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "caloriesEntryCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "caloriesEntryCell", for: indexPath) as? CaloriesEntryTableViewCell else { return UITableViewCell() }
 
-        // Configure the cell...
+        cell.entry = fetchedResultsController.object(at: indexPath)
 
         return cell
     }

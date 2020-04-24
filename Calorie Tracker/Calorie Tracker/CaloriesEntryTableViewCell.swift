@@ -14,6 +14,15 @@ class CaloriesEntryTableViewCell: UITableViewCell {
     @IBOutlet weak var caloriesLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
 
+    // MARK: - Property
+
+    var entry: Entry? {
+        didSet {
+            updateViews()
+        }
+    }
+    var formatter: DateFormatter?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,6 +32,14 @@ class CaloriesEntryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+
+    private func updateViews() {
+        guard let entry = entry,
+        let formatter = formatter,
+            let date = entry.date else { return }
+        caloriesLabel.text = "Calories: \(entry.calories)"
+        dateLabel.text = formatter.string(from: date)
     }
 
 }
