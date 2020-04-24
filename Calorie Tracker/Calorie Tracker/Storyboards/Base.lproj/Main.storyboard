@@ -10,7 +10,7 @@
         <!--Calorie Tracker-->
         <scene sceneID="n43-rg-tRO">
             <objects>
-                <viewController id="zD2-85-YMR" sceneMemberID="viewController">
+                <viewController id="zD2-85-YMR" customClass="CalorieTrackerViewController" customModule="Calorie_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="00y-he-6jd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,7 +65,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="a8c-TI-1zy"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Calorie Tracker" id="JM8-gs-yX1"/>
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="JM8-gs-yX1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tNm-uC-AOH">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="zD2-85-YMR" id="Qgl-US-7cf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="calorieChart" destination="9FM-3N-iV3" id="wqX-G8-pWC"/>
+                        <outlet property="tableView" destination="Tg0-Zf-zIx" id="FKP-zS-H8E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mz8-fJ-cTi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
