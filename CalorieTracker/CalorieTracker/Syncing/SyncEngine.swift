@@ -60,6 +60,7 @@ class SyncEngine: NSObject {
         }
         
         try CoreDataStack.shared.save(context: context)
+        NotificationCenter.default.post(name: .calorieEntriesUpdated, object: nil)
     }
     
     // MARK: - Syncing
