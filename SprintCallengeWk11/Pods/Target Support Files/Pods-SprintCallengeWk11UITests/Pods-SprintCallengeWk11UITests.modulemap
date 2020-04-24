@@ -1,0 +1,6 @@
+framework module Pods_SprintCallengeWk11UITests {
+  umbrella header "Pods-SprintCallengeWk11UITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
