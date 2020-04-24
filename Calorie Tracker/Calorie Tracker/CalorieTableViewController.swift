@@ -18,6 +18,20 @@ class CalorieTableViewController: UITableViewController {
     // MARK: - Properites
     var calorieController = CalorieController()
 
+    static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US")
+        formatter.dateFormat = "MMM d, yyyy"
+        return formatter
+    }()
+
+    static let timeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US")
+        formatter.dateFormat = "h:mm a"
+        return formatter
+    }()
+
     // MARK: - Outlets
 
     @IBOutlet private weak var calorieChart: Chart!
@@ -105,9 +119,11 @@ class CalorieTableViewController: UITableViewController {
 
         // Configure the cell...
         let calorieStr = "Calories: \(calorieController.entries[indexPath.row].calories)"
-        // FIXME: Get a date formatter in here.
-        let timeStr = "\(calorieController.entries[indexPath.row].timestamp!)"
-        cell.textLabel?.text = "\(calorieStr) \(timeStr)"
+
+        let dateString = CalorieTableViewController.dateFormatter.string(from: calorieController.entries[indexPath.row].timestamp!)
+        let timeString = CalorieTableViewController.timeFormatter.string(from: calorieController.entries[indexPath.row].timestamp!)
+
+        cell.textLabel?.text = "\(calorieStr)   \(dateString) at \(timeString)"
 
         return cell
     }
