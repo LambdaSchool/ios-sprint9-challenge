@@ -31,6 +31,12 @@ class CalorieTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        tableView.reloadData()
+    }
+
     // MARK: - Private
 
     private func askUserForCalorieCount() {
@@ -51,6 +57,7 @@ class CalorieTableViewController: UITableViewController {
             if let calorieCount = calorieCount {
                 // FIXME: Get value out of here.
                 print(calorieCount)
+                self.calorieController.create(calories: calorieCount, timestamp: Date())
             } else {
                 print("Invalid user input to calorieCount.")
             }
@@ -70,7 +77,10 @@ class CalorieTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCountCell", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = String("\(calorieController.entries[indexPath.row].calories)")
+        let calorieStr = "Calories: \(calorieController.entries[indexPath.row].calories)"
+        // FIXME: Get a date formatter in here.
+        let timeStr = "\(calorieController.entries[indexPath.row].timestamp!)"
+        cell.textLabel?.text = "\(calorieStr) \(timeStr)"
 
         return cell
     }
