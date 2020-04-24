@@ -12,7 +12,7 @@ import SwiftChart
 class CaloriesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
     // MARK: - Outlet
-    @IBOutlet weak var chartUIView: Chart!
+    @IBOutlet private weak var chartUIView: Chart!
 
 
     // MARK: - Properties
