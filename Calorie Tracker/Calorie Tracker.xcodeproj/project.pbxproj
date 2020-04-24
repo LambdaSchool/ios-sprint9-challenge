@@ -17,6 +17,7 @@
 		9CFDF2AB245342850010C838 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFDF2AA245342850010C838 /* CoreDataStack.swift */; };
 		9CFDF2AD245343040010C838 /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFDF2AC245343040010C838 /* Entry+Convenience.swift */; };
 		9CFDF2AF2453450B0010C838 /* CaloriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFDF2AE2453450B0010C838 /* CaloriesTableViewController.swift */; };
+		9CFDF2B724534F1D0010C838 /* CaloriesEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFDF2B624534F1D0010C838 /* CaloriesEntryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		9CFDF2AA245342850010C838 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		9CFDF2AC245343040010C838 /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
 		9CFDF2AE2453450B0010C838 /* CaloriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesTableViewController.swift; sourceTree = "<group>"; };
+		9CFDF2B624534F1D0010C838 /* CaloriesEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesEntryTableViewCell.swift; sourceTree = "<group>"; };
 		BBE432C3501A91C0B7ECE0ED /* Pods-Calorie Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calorie Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Calorie Tracker/Pods-Calorie Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		BC38CB068F96645F81F41F7E /* Pods-Calorie Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calorie Tracker.release.xcconfig"; path = "Target Support Files/Pods-Calorie Tracker/Pods-Calorie Tracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,16 +98,41 @@
 		9C83634A2453380A00CA66A9 /* Calorie Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				9CFDF2B524534EF30010C838 /* App */,
+				9CFDF2B424534EEE0010C838 /* View Controller */,
+				9CFDF2B124534ED10010C838 /* View */,
 				9C77DD63245340C1001D9987 /* CoreData */,
-				9C83634B2453380A00CA66A9 /* AppDelegate.swift */,
-				9C83634D2453380A00CA66A9 /* SceneDelegate.swift */,
 				9C8363512453380A00CA66A9 /* Main.storyboard */,
-				9C8363542453380C00CA66A9 /* Assets.xcassets */,
 				9C8363562453380C00CA66A9 /* LaunchScreen.storyboard */,
 				9C8363592453380C00CA66A9 /* Info.plist */,
-				9CFDF2AE2453450B0010C838 /* CaloriesTableViewController.swift */,
 			);
 			path = "Calorie Tracker";
+			sourceTree = "<group>";
+		};
+		9CFDF2B124534ED10010C838 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9CFDF2B624534F1D0010C838 /* CaloriesEntryTableViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		9CFDF2B424534EEE0010C838 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9CFDF2AE2453450B0010C838 /* CaloriesTableViewController.swift */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		9CFDF2B524534EF30010C838 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9C83634B2453380A00CA66A9 /* AppDelegate.swift */,
+				9C83634D2453380A00CA66A9 /* SceneDelegate.swift */,
+				9C8363542453380C00CA66A9 /* Assets.xcassets */,
+			);
+			name = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +271,7 @@
 				9CFDF2AB245342850010C838 /* CoreDataStack.swift in Sources */,
 				9CFDF2AF2453450B0010C838 /* CaloriesTableViewController.swift in Sources */,
 				9C83634C2453380A00CA66A9 /* AppDelegate.swift in Sources */,
+				9CFDF2B724534F1D0010C838 /* CaloriesEntryTableViewCell.swift in Sources */,
 				9C83634E2453380A00CA66A9 /* SceneDelegate.swift in Sources */,
 				9CFDF2AD245343040010C838 /* Entry+Convenience.swift in Sources */,
 				9C77DD66245340EF001D9987 /* Calories.xcdatamodeld in Sources */,

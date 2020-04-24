@@ -20,7 +20,7 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="A0T-Sa-pO1">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="caloriesEntryCell" id="A0T-Sa-pO1" customClass="CaloriesEntryTableViewCell" customModule="Calorie_Tracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="243" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A0T-Sa-pO1" id="AW6-pL-En1">
@@ -47,6 +47,10 @@
                                         <constraint firstItem="5ds-Nm-dYn" firstAttribute="centerY" secondItem="AW6-pL-En1" secondAttribute="centerY" id="kT7-Vb-DNl"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="caloriesLabel" destination="5ds-Nm-dYn" id="CB7-bZ-qvf"/>
+                                    <outlet property="dateLabel" destination="0JY-9X-Ihp" id="Vse-wV-bp0"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
