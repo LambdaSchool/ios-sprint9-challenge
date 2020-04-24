@@ -18,6 +18,7 @@ class CalorieTrackerViewController: UIViewController {
     
     // MARK: - Properties
     var entries: [Double] = []
+    let dateFormatter = DateFormatter()
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -87,9 +88,11 @@ extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
 
+        dateFormatter.dateFormat = "MMM d, yyyy 'at' h:mm a"
+        
         let entry = fetchedResultsController.object(at: indexPath)
-        cell.textLabel?.text = "Calories: \(entry.numberOfCalories)"
-        cell.detailTextLabel?.text = "\(entry.timestamp)"
+        cell.textLabel?.text = "Calories: \(Int(entry.numberOfCalories))"
+        cell.detailTextLabel?.text = "\(dateFormatter.string(from: entry.timestamp!))"
 
         return cell
     }
