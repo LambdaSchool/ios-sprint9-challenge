@@ -66,6 +66,8 @@ class CalorieTableViewController: UITableViewController {
     private func updateViews() {
         tableView.reloadData()
 
+        calorieChart.removeAllSeries()
+
         let calorieData = ChartSeries(calorieController.entries.map({ Double($0.calories) }))
 
         // Color in the graph
