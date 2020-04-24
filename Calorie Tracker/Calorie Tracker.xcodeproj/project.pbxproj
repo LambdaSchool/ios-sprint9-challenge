@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7FADA4FC9B61D84261BC972A /* Pods_Calorie_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4012068302217929CF2419B0 /* Pods_Calorie_Tracker.framework */; };
+		9258F7A024539516001F53DC /* CalorieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9258F79F24539516001F53DC /* CalorieTableViewCell.swift */; };
 		92921B2124533B7F002EDD59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92921B2024533B7F002EDD59 /* AppDelegate.swift */; };
 		92921B2324533B7F002EDD59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92921B2224533B7F002EDD59 /* SceneDelegate.swift */; };
 		92921B2824533B7F002EDD59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92921B2624533B7F002EDD59 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		4012068302217929CF2419B0 /* Pods_Calorie_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calorie_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9258F79F24539516001F53DC /* CalorieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewCell.swift; sourceTree = "<group>"; };
 		92921B1D24533B7F002EDD59 /* Calorie Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calorie Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92921B2024533B7F002EDD59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92921B2224533B7F002EDD59 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				92921B3C24535CB6002EDD59 /* CalorieController.swift */,
+				9258F79F24539516001F53DC /* CalorieTableViewCell.swift */,
 				92921B3A245351F4002EDD59 /* CalorieTableViewController.swift */,
 				92921B46245368F4002EDD59 /* Models */,
 				92921B3724533BBB002EDD59 /* Resources */,
@@ -267,6 +270,7 @@
 				92921B2324533B7F002EDD59 /* SceneDelegate.swift in Sources */,
 				92921B3D24535CB6002EDD59 /* CalorieController.swift in Sources */,
 				92921B4524535ED2002EDD59 /* Entity+Convenience.swift in Sources */,
+				9258F7A024539516001F53DC /* CalorieTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
