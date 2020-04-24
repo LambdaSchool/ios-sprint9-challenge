@@ -44,7 +44,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="zpH-xv-Coo">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Nj-fP-8ES"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Nj-fP-8ES">
+                            <connections>
+                                <action selector="addCalorieIntake:" destination="BYZ-38-t0r" id="ZEY-iL-0WE"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
