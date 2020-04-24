@@ -29,14 +29,14 @@ class CoreDataStack {
     }
     
     func save(context: NSManagedObjectContext = CoreDataStack.shared.mainContext) throws {
-        var error: Error?
+        var saveError: Error?
         context.performAndWait {
             do {
                 try context.save()
-            } catch let saveError {
-                error = saveError
+            } catch {
+                saveError = error
             }
         }
-        if let error = error { throw error }
+        if let error = saveError { throw error }
     }
 }
