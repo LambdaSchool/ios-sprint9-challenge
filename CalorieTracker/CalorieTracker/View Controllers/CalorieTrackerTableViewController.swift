@@ -13,6 +13,12 @@ class CalorieTrackerTableViewController: UITableViewController {
     
     // MARK: - Properties
     let calorieEntryController = CalorieEntryController()
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .medium
+        return formatter
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +45,10 @@ class CalorieTrackerTableViewController: UITableViewController {
         alert.addTextField { textField in
             textField.placeholder = "Calories: "
         }
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] _ in
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { [weak alert] _ in
             let textField = alert?.textFields![0]
             guard let caloriesString = textField?.text, let calories = Int(caloriesString) else {
                 return }
@@ -63,8 +72,9 @@ class CalorieTrackerTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieEntryCell", for: indexPath)
 
         let calorieEntry = calorieEntryController.calorieEntries[indexPath.row]
+        let timestamp = calorieEntry.timestamp ?? Date()
         cell.textLabel?.text = "Calories: \(calorieEntry.calories)"
-        cell.detailTextLabel?.text = "\(calorieEntry.timestamp)"
+        cell.detailTextLabel?.text = dateFormatter.string(from: timestamp)
 
         return cell
     }
