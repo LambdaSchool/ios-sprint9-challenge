@@ -9,6 +9,10 @@
 import UIKit
 import SwiftChart
 
+extension NSNotification.Name {
+    static let shouldUpdateGraph = NSNotification.Name("shouldUpdateGraph")
+}
+
 class CalorieTableViewController: UITableViewController {
 
     // MARK: - Properites
@@ -27,6 +31,8 @@ class CalorieTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(_:)), name: .shouldUpdateGraph, object: nil)
+
         updateViews()
     }
 
@@ -36,14 +42,22 @@ class CalorieTableViewController: UITableViewController {
         updateViews()
     }
 
+    @objc func refreshViews(_ notification: Notification) {
+        if notification.name == .shouldUpdateGraph {
+            updateViews()
+        }
+    }
+
     // MARK: - Private
     private func updateViews() {
         tableView.reloadData()
 
         let calorieData = ChartSeries(calorieController.entries.map({ Double($0.calories) }))
 
+        // Color in the graph
         calorieData.area = true
 
+        // Specify colors for the graph
         calorieData.colors = (
             above: ChartColors.blueColor(),
             below: ChartColors.yellowColor(),
@@ -71,8 +85,6 @@ class CalorieTableViewController: UITableViewController {
                 // FIXME: Get value out of here.
                 print(calorieCount)
                 self.calorieController.create(calories: calorieCount, timestamp: Date())
-                // TODO: I can't believe this works. Race condition? Better way?
-                self.tableView.reloadData()
             } else {
                 print("Invalid user input to calorieCount.")
             }

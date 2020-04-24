@@ -32,6 +32,8 @@ class CalorieController {
     private func saveToPersistentStore() {
         do {
             try CoreDataStack.shared.mainContext.save()
+
+            NotificationCenter.default.post(name: .shouldUpdateGraph, object: self)
         } catch {
             NSLog("Error saving managed error context: \(error)")
         }
