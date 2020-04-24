@@ -11,23 +11,22 @@ import CoreData
 import SwiftChart
 
 extension NSNotification.Name {
-    static let calorieChanged = NSNotification.Name("calorieChanged")
+    static let changed = NSNotification.Name("calorieChanged")
 }
 
 class CalorieTableViewController: UITableViewController {
-    
+
     @IBOutlet weak var chart: Chart!
-    
+
     let entryController = EntryController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        createChart()
-        NotificationCenter.default.addObserver(self, selector: #selector(createChart), name: .calorieChanged, object: nil)
+        createIt()
+        NotificationCenter.default.addObserver(self, selector: #selector(createIt), name: .changed, object: nil)
     }
-    
-    
+
     @IBAction func addTap(_ sender: Any) {
           let alert = UIAlertController(
                 title: "Please input calorie intake",
@@ -51,15 +50,15 @@ class CalorieTableViewController: UITableViewController {
                         else { return }
                     do {
                         self.entryController.create(calories)
-                        NotificationCenter.default.post(name: .calorieChanged, object: self)
+                        NotificationCenter.default.post(name: .changed, object: self)
                     }
             }))
             present(alert, animated: true, completion: nil)
-        
+
     }
-    
-    @objc func createChart() {
-         
+
+    @objc func createIt() {
+
         var calorieList: [CalorieEntry] = []
           for entry in fetchedResultsController.fetchedObjects ?? [] {
              calorieList.append(entry)
@@ -71,20 +70,19 @@ class CalorieTableViewController: UITableViewController {
 
           chart.add(allCalories)
       }
-    
+
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieEntry> = {
         let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
         let context = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: "timestamp", cacheName: nil)
         frc.delegate = self
-        try! frc.performFetch()
+        try frc.performFetch()
         return frc
     }()
     
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return fetchedResultsController.sections?.count ?? 1
@@ -94,17 +92,16 @@ class CalorieTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return fetchedResultsController.sections?[section].numberOfObjects ?? 3
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
 
         let entry = fetchedResultsController.object(at: indexPath)
         cell.textLabel?.text = "\(entry.calories)"
-        
-                let df = DateFormatter()
-        df.dateFormat = "MMM dd, yyyy hh:mm:ss"
-        cell.detailTextLabel?.text = df.string(from: entry.timestamp ?? Date())
+
+        let dateF = DateFormatter()
+        dateF.dateFormat = "MMM dd, yyyy hh:mm:ss"
+        cell.detailTextLabel?.text = dateF.string(from: entry.timestamp ?? Date())
 
         return cell
     }
@@ -156,4 +153,3 @@ extension CalorieTableViewController: NSFetchedResultsControllerDelegate {
         }
     }
 }
-
