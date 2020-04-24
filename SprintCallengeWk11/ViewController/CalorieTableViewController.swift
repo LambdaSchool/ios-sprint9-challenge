@@ -72,7 +72,10 @@ class CalorieTableViewController: UITableViewController {
         let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
         let context = CoreDataStack.shared.mainContext
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: "timestamp", cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                             managedObjectContext: context,
+                                             sectionNameKeyPath: "timestamp",
+                                             cacheName: nil)
         frc.delegate = self
         do {
            try frc.performFetch()
@@ -102,7 +105,8 @@ class CalorieTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CalorieTableViewCell else {return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
+                                                       for: indexPath) as? CalorieTableViewCell else {return UITableViewCell()}
         let entry = fetchedResultsController.object(at: indexPath)
         cell.calorieText.text = "Calories: \(entry.calories)"
         cell.dateText.text = changeTheDate(entry.timestamp ?? Date())
