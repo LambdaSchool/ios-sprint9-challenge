@@ -36,7 +36,11 @@ class CaloriesTableViewController: UITableViewController, NSFetchedResultsContro
 
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         frc.delegate = self
-        try! frc.performFetch()
+        do {
+            try frc.performFetch()
+        } catch {
+            NSLog("Fetched Results Controller could not perform fetch: \(error)")
+        }
         return frc
 
     }()
