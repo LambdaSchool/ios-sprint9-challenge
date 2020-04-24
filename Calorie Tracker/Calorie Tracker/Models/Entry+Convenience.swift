@@ -11,7 +11,8 @@ import CoreData
 
 extension Entry {
 
-    @discardableResult convenience init(numberOfCalories: Double, timestamp: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    @discardableResult
+    convenience init(numberOfCalories: Double, timestamp: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.numberOfCalories = numberOfCalories
         self.timestamp = timestamp
