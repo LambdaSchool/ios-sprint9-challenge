@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CalorieTrackerViewController: UIViewController {
     
@@ -40,6 +41,8 @@ class CalorieTrackerViewController: UIViewController {
                 return
             }
             print("Submit tapped with \(calories) calories")
+            CalorieEntry(calories: calories)
+            try? CoreDataStack.shared.save()
         }))
         
         present(ac, animated: true)
