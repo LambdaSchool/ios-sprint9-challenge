@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 
+extension NSNotification.Name {
+    static let calorieEntryAdded = NSNotification.Name("CalorieEntryAdded")
+}
+
 class CalorieTrackerViewController: UIViewController {
     
     // MARK: - View Lifecycle
@@ -42,7 +46,13 @@ class CalorieTrackerViewController: UIViewController {
             }
             print("Submit tapped with \(calories) calories")
             CalorieEntry(calories: calories)
-            try? CoreDataStack.shared.save()
+            
+            do {
+                try CoreDataStack.shared.save()
+                NotificationCenter.default.post(name: .calorieEntryAdded, object: nil)
+            } catch {
+                print(error)
+            }
         }))
         
         present(ac, animated: true)
