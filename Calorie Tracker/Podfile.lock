@@ -2,15 +2,21 @@ PODS:
   - SwiftChart (1.0.1)
 
 DEPENDENCIES:
-  - SwiftChart
+  - SwiftChart (from `https://github.com/gpbl/SwiftChart`, branch `master`)
 
-SPEC REPOS:
-  trunk:
-    - SwiftChart
+EXTERNAL SOURCES:
+  SwiftChart:
+    :branch: master
+    :git: https://github.com/gpbl/SwiftChart
+
+CHECKOUT OPTIONS:
+  SwiftChart:
+    :commit: 4949a94090641ca85b8133129f7a7b2230694788
+    :git: https://github.com/gpbl/SwiftChart
 
 SPEC CHECKSUMS:
-  SwiftChart: ba767a678d568a5ee22d419e146a0582865e1aff
+  SwiftChart: 6ed8c61f3731cc32e3cb92858dba339d08ddac87
 
-PODFILE CHECKSUM: 308cc3c59128b9635a4e15d75b7fb945063cd887
+PODFILE CHECKSUM: f641d4439525aa2cb9a74291e97a69d5f960ccc6
 
 COCOAPODS: 1.9.1
