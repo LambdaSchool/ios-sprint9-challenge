@@ -25,6 +25,19 @@ class CalorieTrackerViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        setupChart()
+    }
+    
+    func setupChart() {
+        if let objects = fetchedResultsController.fetchedObjects{
+            for entry in objects {
+                entries.append(entry.numberOfCalories)
+            }
+        }
+        let chartSeries = ChartSeries(entries)
+        chartSeries.color = .red
+        chartSeries.area = true
+        calorieChart.add(chartSeries)
     }
     
     // MARK: - Actions
@@ -88,7 +101,7 @@ extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
 
-        dateFormatter.dateFormat = "MMM d, yyyy 'at' h:mm a"
+        dateFormatter.dateFormat = "MMM d, yyyy 'at' h:mm:ss a"
         
         let entry = fetchedResultsController.object(at: indexPath)
         cell.textLabel?.text = "Calories: \(Int(entry.numberOfCalories))"
