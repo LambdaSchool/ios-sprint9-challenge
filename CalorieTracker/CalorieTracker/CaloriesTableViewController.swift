@@ -61,6 +61,8 @@ class CaloriesTableViewController: UITableViewController {
                 let calories = Int16(response) ?? 0
                 self.calorieController.add(calories: calories)
             }
+
+            NotificationCenter.default.post(name: .updateChart, object: self)
         }
 
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -72,7 +74,7 @@ class CaloriesTableViewController: UITableViewController {
 
     // MARK: - Actions
 
-    func updateChart() {
+    @objc func updateChart() {
         let calorieEntries = fetchedResultsController.fetchedObjects ?? []
         var chartEntries: [Double] = []
 
@@ -94,6 +96,7 @@ class CaloriesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateChart()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateChart), name: .updateChart, object: nil)
     }
 
     // MARK: - Table view data source
