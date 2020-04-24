@@ -15,9 +15,11 @@
 		C4122BD2245334AE002C31B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4122BD0245334AE002C31B5 /* Main.storyboard */; };
 		C4122BD4245334B2002C31B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4122BD3245334B2002C31B5 /* Assets.xcassets */; };
 		C4122BD7245334B2002C31B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4122BD5245334B2002C31B5 /* LaunchScreen.storyboard */; };
+		C461038C2453427300A4580D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C461038B2453427300A4580D /* CoreDataStack.swift */; };
 		C46F49B624533BAD0020771D /* SprintCallengeWk11.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C46F49B424533BAD0020771D /* SprintCallengeWk11.xcdatamodeld */; };
 		C46F49B924533E380020771D /* CalorieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46F49B824533E380020771D /* CalorieTableViewController.swift */; };
 		C46F49BC24533E600020771D /* CalorieEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46F49BB24533E600020771D /* CalorieEntryController.swift */; };
+		C4853D1924534DBC00BA611B /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4853D1824534DBC00BA611B /* Calorie+Convenience.swift */; };
 		F21F908F6F3BDA9F0325CB4A /* Pods_SprintCallengeWk11Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F98A836CBDE44406EF291A34 /* Pods_SprintCallengeWk11Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,9 +57,11 @@
 		C4122BD8245334B3002C31B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4122BDD245334B3002C31B5 /* SprintCallengeWk11Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SprintCallengeWk11Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4122BE8245334B3002C31B5 /* SprintCallengeWk11UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SprintCallengeWk11UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C461038B2453427300A4580D /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		C46F49B524533BAD0020771D /* SprintCallengeWk11.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SprintCallengeWk11.xcdatamodel; sourceTree = "<group>"; };
 		C46F49B824533E380020771D /* CalorieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewController.swift; sourceTree = "<group>"; };
 		C46F49BB24533E600020771D /* CalorieEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieEntryController.swift; sourceTree = "<group>"; };
+		C4853D1824534DBC00BA611B /* Calorie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience.swift"; sourceTree = "<group>"; };
 		D33BFCAA32391C7B21099EC0 /* Pods-SprintCallengeWk11Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SprintCallengeWk11Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SprintCallengeWk11Tests/Pods-SprintCallengeWk11Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D667E33C1BF964E402B610B8 /* Pods_SprintCallengeWk11UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SprintCallengeWk11UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98A836CBDE44406EF291A34 /* Pods_SprintCallengeWk11Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SprintCallengeWk11Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +121,7 @@
 		C4122BBE245334AE002C31B5 = {
 			isa = PBXGroup;
 			children = (
+				C461038A2453425900A4580D /* Models */,
 				C46F49BA24533E420020771D /* Controller */,
 				C46F49B724533E0C0020771D /* ViewController */,
 				C46F49B424533BAD0020771D /* SprintCallengeWk11.xcdatamodeld */,
@@ -149,6 +154,15 @@
 				C4122BD8245334B3002C31B5 /* Info.plist */,
 			);
 			path = SprintCallengeWk11;
+			sourceTree = "<group>";
+		};
+		C461038A2453425900A4580D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C461038B2453427300A4580D /* CoreDataStack.swift */,
+				C4853D1824534DBC00BA611B /* Calorie+Convenience.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		C46F49B724533E0C0020771D /* ViewController */ = {
@@ -377,8 +391,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C461038C2453427300A4580D /* CoreDataStack.swift in Sources */,
 				C46F49BC24533E600020771D /* CalorieEntryController.swift in Sources */,
 				C4122BCF245334AE002C31B5 /* ViewController.swift in Sources */,
+				C4853D1924534DBC00BA611B /* Calorie+Convenience.swift in Sources */,
 				C46F49B924533E380020771D /* CalorieTableViewController.swift in Sources */,
 				C4122BCB245334AE002C31B5 /* AppDelegate.swift in Sources */,
 				C46F49B624533BAD0020771D /* SprintCallengeWk11.xcdatamodeld in Sources */,

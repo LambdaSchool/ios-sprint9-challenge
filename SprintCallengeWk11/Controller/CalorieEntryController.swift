@@ -9,4 +9,13 @@
 import Foundation
 import CoreData
 
-
+class EntryController {
+    func create(_ calories: Int) {
+        CalorieEntry(calories: calories, timestamp: Date())
+        do {
+            try CoreDataStack.shared.save()
+        } catch {
+            NSLog("Error saving managed object context: \(error)")
+        }
+    }
+}
