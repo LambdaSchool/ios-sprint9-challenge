@@ -118,6 +118,15 @@ class CaloriesTableViewController: UITableViewController {
 
         return cell
     }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let calorieEntry = fetchedResultsController.object(at: indexPath)
+            calorieController.delete(calorieEntry: calorieEntry)
+            NotificationCenter.default.post(name: .updateChart, object: self)
+            tableView.reloadData()
+        }
+    }
 }
 
 extension CaloriesTableViewController: NSFetchedResultsControllerDelegate {

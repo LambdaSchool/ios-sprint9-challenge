@@ -11,13 +11,15 @@ import CoreData
 
 class CalorieController {
 
-    var calorieEntries: [Calorie] = []
-
     @discardableResult func add(calories: Int16) -> Calorie {
         let calorieEntry = Calorie(calories: calories)
-        calorieEntries.append(calorieEntry)
         CoreDataStack.shared.save()
 
         return calorieEntry
+    }
+
+    func delete(calorieEntry: Calorie) {
+        CoreDataStack.shared.mainContext.delete(calorieEntry)
+        CoreDataStack.shared.save()
     }
 }
