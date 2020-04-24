@@ -10,6 +10,10 @@ import UIKit
 import SwiftChart
 import CoreData
 
+extension NSNotification.Name {
+    static let newEntryAddedToCoreData = NSNotification.Name("NewEntryAddedToCoreData")
+}
+
 class CalorieTrackerViewController: UIViewController {
 
     // MARK: - IBOutlets
@@ -26,10 +30,13 @@ class CalorieTrackerViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         setupChart()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .newEntryAddedToCoreData, object: nil)
     }
     
-    func setupChart() {
-        if let objects = fetchedResultsController.fetchedObjects{
+    // MARK: - Private Methods
+    private func setupChart() {
+        if let objects = fetchedResultsController.fetchedObjects {
             for entry in objects {
                 entries.append(entry.numberOfCalories)
             }
@@ -38,6 +45,10 @@ class CalorieTrackerViewController: UIViewController {
         chartSeries.color = .red
         chartSeries.area = true
         calorieChart.add(chartSeries)
+    }
+    
+    @objc private func updateViews() {
+        tableView.reloadData()
     }
     
     // MARK: - Actions
@@ -59,11 +70,10 @@ class CalorieTrackerViewController: UIViewController {
             
             do {
                 try CoreDataStack.shared.save()
+                NotificationCenter.default.post(name: .newEntryAddedToCoreData, object: self)
             } catch {
                 NSLog("Error saving managed object contect: \(error)")
             }
-            
-            self.tableView.reloadData()
         }
         
         alert.addAction(cancelAction)
