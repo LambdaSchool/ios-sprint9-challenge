@@ -43,7 +43,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Calorie Tracker" id="zpH-xv-Coo"/>
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="zpH-xv-Coo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Nj-fP-8ES"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
