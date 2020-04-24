@@ -67,7 +67,7 @@
 		045F0C1C2453378F00D3A03A /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
-				04C4C3FA24533E460006C76F /* View Controllers */,
+				04C4C3FA24533E460006C76F /* ViewControllers */,
 				045F0C232453378F00D3A03A /* Main.storyboard */,
 				045F0C31245337F600D3A03A /* Resources */,
 				045F0C262453379100D3A03A /* Assets.xcassets */,
@@ -86,14 +86,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		04C4C3FA24533E460006C76F /* View Controllers */ = {
+		04C4C3FA24533E460006C76F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				045F0C212453378F00D3A03A /* CalorieTrackerViewController.swift */,
 				04C4C3F624533D760006C76F /* CalorieTrackerTableViewController.swift */,
 				04C4C3F824533DAB0006C76F /* CalorieTrackerChartViewController.swift */,
 			);
-			path = "View Controllers";
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		800BCA6B2C8A6E2FDF10587E /* Frameworks */ = {
