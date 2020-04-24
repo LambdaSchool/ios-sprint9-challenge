@@ -27,6 +27,24 @@ class CalorieTrackerViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func addButtonTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+        
+        var calorieTextfield: UITextField!
+        
+        alert.addTextField { (textField) in
+            calorieTextfield = textField
+            textField.placeholder = "Calories:"
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { (_) in
+            // Add Calorie Intake to Core Data Here
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(submitAction)
+        
+        present(alert, animated: true)
     }
     
 
