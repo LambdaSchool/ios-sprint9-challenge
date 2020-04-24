@@ -57,8 +57,7 @@ class CaloriesTableViewController: UITableViewController {
         }
 
         let submit = UIAlertAction(title: "Submit", style: .default) { _ in
-            if let response = alert.textFields?.first?.text,
-                !response.isEmpty  {
+            if let response = alert.textFields?.first?.text, !response.isEmpty {
                 let calories = Int16(response) ?? 0
                 self.calorieController.add(calories: calories)
             }
@@ -71,10 +70,30 @@ class CaloriesTableViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
 
+    // MARK: - Actions
+
+    func updateChart() {
+        let calorieEntries = fetchedResultsController.fetchedObjects ?? []
+        var chartEntries: [Double] = []
+
+        for entry in calorieEntries {
+            let calories = Double(entry.calories)
+            chartEntries.append(calories)
+        }
+
+        chart.removeAllSeries()
+
+        let series = ChartSeries(chartEntries)
+        series.area = true
+        series.color = .black
+        chart.add(series)
+    }
+
     // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateChart()
     }
 
     // MARK: - Table view data source
