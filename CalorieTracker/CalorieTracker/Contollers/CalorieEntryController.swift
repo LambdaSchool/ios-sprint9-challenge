@@ -17,6 +17,21 @@ class CalorieEntryController {
     
     var calorieEntries: [CalorieEntry] = []
     
+    func loadFromPersistentStore() {
+        let context = CoreDataStack.shared.container.newBackgroundContext()
+        
+        let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
+        
+        context.performAndWait {
+            do {
+                let previousEntries = try context.fetch(fetchRequest)
+                calorieEntries = previousEntries
+            } catch {
+                NSLog("Error fetching calorie entries: \(error)")
+            }
+        }
+    }
+    
     // MARK: - CRUD
     func createCalorieEntry(calories: Int) {
         let calories: Int16 = Int16(calories)

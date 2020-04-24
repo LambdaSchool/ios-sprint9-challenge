@@ -22,6 +22,7 @@ class CalorieTrackerTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        calorieEntryController.loadFromPersistentStore()
         updateViews()
         
         NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(_:)), name: .addCalorieEntry, object: nil)
