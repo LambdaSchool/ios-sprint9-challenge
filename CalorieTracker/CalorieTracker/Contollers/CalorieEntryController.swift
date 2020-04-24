@@ -29,12 +29,16 @@ class CalorieEntryController {
             try CoreDataStack.shared.save()
         } catch {
             NSLog("Error saving context")
+            return
         }
         calorieEntries.append(calorieEntry)
     }
     
-    func deleteCalorieEntry() {
-        // TODO: -
+    func deleteCalorieEntry(calorieEntry: CalorieEntry) {
+        let context = CoreDataStack.shared.mainContext
+        context.delete(calorieEntry)
+        guard let index = calorieEntries.firstIndex(of: calorieEntry) else { return }
+        calorieEntries.remove(at: index)
     }
     
     
