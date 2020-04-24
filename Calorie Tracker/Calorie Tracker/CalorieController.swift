@@ -50,5 +50,12 @@ class CalorieController {
     }
 
     // Update
+
     // Delete
+    func delete(entity: Entity) {
+
+        CoreDataStack.shared.mainContext.delete(entity)
+
+        saveToPersistentStore()
+    }
 }
