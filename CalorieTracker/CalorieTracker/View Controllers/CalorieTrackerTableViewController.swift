@@ -18,22 +18,9 @@ class CalorieTrackerTableViewController: UITableViewController {
         formatter.timeStyle = .medium
         return formatter
     }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        CalorieEntryController.shared.loadFromPersistentStore()
-        updateViews()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(_:)), name: .addCalorieEntry, object: nil)
-    }
     
-    @objc func refreshViews(_ notifications: Notification) {
-        updateViews()
-    }
-    
-    func updateViews() {
-        tableView.reloadData()
-    }
+    var series: ChartSeries = ChartSeries([])
+    var calorieData: [Double] = []
     
     // MARK: - Outlet
     @IBOutlet private weak var calorieChart: Chart!
@@ -57,15 +44,51 @@ class CalorieTrackerTableViewController: UITableViewController {
         }))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        CalorieEntryController.shared.loadFromPersistentStore()
+        setCalorieData()
+        updateViews()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(_:)), name: .addCalorieEntry, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(addToCalorieData(_:)), name: .addCalorieEntry, object: nil)
+    }
+    
+    @objc func refreshViews(_ notifications: Notification) {
+        updateViews()
+    }
+    
+    @objc func addToCalorieData(_ notifications: Notification) {
+        setCalorieData()
+    }
+    
+    func setCalorieData() {
+        var tempArray: [Double] = []
+        for entry in CalorieEntryController.shared.calorieEntries {
+            let calories = entry.calories
+            tempArray.append(Double(calories))
+        }
+        calorieData = tempArray
+        series = ChartSeries(calorieData)
+        if !calorieChart.series.isEmpty {
+            calorieChart.removeAllSeries()
+        }
+        calorieChart.add(series)
+    }
+    
+    func updateViews() {
+        tableView.reloadData()
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CalorieEntryController.shared.calorieEntries.count
+        CalorieEntryController.shared.calorieEntries.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,6 +107,8 @@ class CalorieTrackerTableViewController: UITableViewController {
         if editingStyle == .delete {
             let calorieEntry = CalorieEntryController.shared.calorieEntries[indexPath.row]
             CalorieEntryController.shared.deleteCalorieEntry(calorieEntry: calorieEntry)
+            calorieData.remove(at: indexPath.row)
+            setCalorieData()
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

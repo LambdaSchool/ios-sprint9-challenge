@@ -19,7 +19,7 @@ class CalorieEntryController {
     static let shared = CalorieEntryController()
     
     func loadFromPersistentStore() {
-        let context = CoreDataStack.shared.container.newBackgroundContext()
+        let context = CoreDataStack.shared.mainContext
         
         let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
         
@@ -49,6 +49,7 @@ class CalorieEntryController {
     func deleteCalorieEntry(calorieEntry: CalorieEntry) {
         let context = CoreDataStack.shared.mainContext
         context.delete(calorieEntry)
+        try? context.save()
         guard let index = calorieEntries.firstIndex(of: calorieEntry) else { return }
         calorieEntries.remove(at: index)
     }
