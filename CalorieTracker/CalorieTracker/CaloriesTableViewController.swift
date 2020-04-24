@@ -40,10 +40,36 @@ class CaloriesTableViewController: UITableViewController {
 
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
+        dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .short
         return dateFormatter
     }()
+
+    // MARK: - IBActions
+
+    @IBAction func addButtonPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Add Calorie Intake",
+                                      message: "Enter the amount of calories in the field",
+                                      preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.keyboardType = .numberPad
+            textField.placeholder = "Calories:"
+        }
+
+        let submit = UIAlertAction(title: "Submit", style: .default) { _ in
+            if let response = alert.textFields?.first?.text,
+                !response.isEmpty  {
+                let calories = Int16(response) ?? 0
+                self.calorieController.add(calories: calories)
+            }
+        }
+
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        alert.addAction(submit)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+    }
 
     // MARK: - View Lifecycle
 
