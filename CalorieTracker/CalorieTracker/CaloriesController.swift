@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class CaloriesController {
 
     private (set) var calories: [Calorie] = []
@@ -40,4 +39,3 @@ class CaloriesController {
         try moc.save()
     }
 }
-

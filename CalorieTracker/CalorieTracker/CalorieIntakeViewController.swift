@@ -13,20 +13,21 @@ import SwiftChart
 class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
     // MARK: - Properties
-    
-     @IBOutlet weak var calorieChart: UIView!
 
+     @IBOutlet private weak var calorieChart: UIView!
 
     let calorieController = CaloriesController()
 
-
     // MARK: - IBActions
     @IBAction func addCaloriesButton(_ sender: UIBarButtonItem) {
-           let alertController = UIAlertController(title: "Add Calorie Amount", message: "Enter the amount of calories in the text field", preferredStyle: .alert)
-           alertController.addTextField { (textField : UITextField!) -> Void in
+        let alertController = UIAlertController(title: "Add Calorie Amount",
+                                                message: "Enter the amount of calories in the text field",
+                                                preferredStyle: .alert)
+        
+           alertController.addTextField { (textField: UITextField!) -> Void in
             textField.placeholder = "Calories:"
            }
-           let submitAction = UIAlertAction(title: "Done", style: UIAlertAction.Style.default, handler: { alert -> Void in
+           let submitAction = UIAlertAction(title: "Done", style: UIAlertAction.Style.default, handler: { _ -> Void in
                let firstTextField = alertController.textFields![0] as UITextField
                guard let caloriesCount = firstTextField.text else { return }
 
@@ -49,8 +50,8 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
          var data: [Double] = []
 
          for calorie in fetchedResultsController.fetchedObjects! {
-             print(calorie.amount)
-            data.append(Double(calorie.amount!) as? Double ?? 0.0)
+             print(calorie.amount as Any)
+            data.append(Double(calorie.amount!) ?? 0.0)
          }
 
          let series = ChartSeries(data)
@@ -60,13 +61,10 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
          self.calorieChart.subviews.forEach({ $0.removeFromSuperview() })
          self.calorieChart.addSubview(cChart)
 
-
      }
 
-
-
     // MARK: - View Did Load && View Did Appear
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -80,9 +78,8 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
         NotificationCenter.default.post(name: .updateChart, object: self)
     }
 
-
     // MARK: - Fetched Results Controller
-    
+
     lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
         let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timeAdded",
@@ -94,8 +91,12 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
 
         frc.delegate = self
+        do {
+            try frc.performFetch()
+        } catch {
+            fatalError("Error performing fetch for frc: \(error)")
+        }
 
-        try! frc.performFetch()
         return frc
     }()
 
@@ -110,7 +111,6 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
            return self.fetchedResultsController.sections?[section].numberOfObjects ?? 0
        }
 
-
        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
             let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath) as UITableViewCell
@@ -121,8 +121,6 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
         cell.detailTextLabel?.text = calorie.date
         return cell
        }
-
-
 
        // Override to support editing the table view.
        override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -137,9 +135,8 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
            }
        }
 
-
     // MARK: - Controller Methods
-    
+
        func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
            self.tableView.beginUpdates()
        }
@@ -148,7 +145,10 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
            self.tableView.endUpdates()
        }
 
-       func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+       func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                       didChange sectionInfo: NSFetchedResultsSectionInfo,
+                       atSectionIndex sectionIndex: Int,
+                       for type: NSFetchedResultsChangeType) {
            switch type {
            case .insert:
                self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
@@ -159,7 +159,11 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
            }
        }
 
-       func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+       func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                       didChange anObject: Any,
+                       at indexPath: IndexPath?,
+                       for type: NSFetchedResultsChangeType,
+                       newIndexPath: IndexPath?) {
            switch type {
            case .insert:
                guard let newIndexPath = newIndexPath else { return }

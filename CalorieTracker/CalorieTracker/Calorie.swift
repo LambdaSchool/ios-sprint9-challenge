@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Calorie {
 
     convenience init(amount: String, timeAdded: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
@@ -19,7 +18,7 @@ extension Calorie {
     }
 
     var date: String {
-        guard let timeAdded = self.timeAdded else { return ""}
+        guard let timeAdded = self.timeAdded else { return "" }
 
         let df = DateFormatter()
         df.dateFormat = "MM dd Y 'at' h:mm"
@@ -27,8 +26,6 @@ extension Calorie {
         return date
     }
 }
-
-
 
 extension Notification.Name {
     static let updateChart = Notification.Name("updateChart")
