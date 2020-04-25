@@ -116,7 +116,7 @@ class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsC
             let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath) as UITableViewCell
 
            let calorie = self.fetchedResultsController.object(at: indexPath)
-           cell.textLabel?.text = "Calories: \(calorie.amount ?? "0")"
+        cell.textLabel?.text = "Calories: \(calorie.amount ?? "0")   Added: \(calorie.date)"
 
         cell.detailTextLabel?.text = calorie.date
         return cell
