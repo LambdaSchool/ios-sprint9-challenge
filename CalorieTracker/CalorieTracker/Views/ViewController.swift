@@ -93,7 +93,7 @@ extension ViewController: UITableViewDelegate {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -161,4 +161,3 @@ extension ViewController: NSFetchedResultsControllerDelegate {
         }
     }
 }
-
