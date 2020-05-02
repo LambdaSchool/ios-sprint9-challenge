@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class CalorieTableViewController: UITableViewController {
 
