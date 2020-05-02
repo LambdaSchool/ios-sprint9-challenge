@@ -88,17 +88,15 @@
 		E05250B3245CFE970006348E /* Calorie Counter */ = {
 			isa = PBXGroup;
 			children = (
+				E05250D4245D085C0006348E /* Model */,
 				E05250D1245D078A0006348E /* Model Controller */,
+				E05250D5245D087C0006348E /* View Controller */,
 				E05250B4245CFE970006348E /* AppDelegate.swift */,
 				E05250B6245CFE970006348E /* SceneDelegate.swift */,
 				E05250BA245CFE970006348E /* Main.storyboard */,
 				E05250C0245CFE9B0006348E /* Assets.xcassets */,
 				E05250C2245CFE9B0006348E /* LaunchScreen.storyboard */,
 				E05250C5245CFE9B0006348E /* Info.plist */,
-				E05250BD245CFE970006348E /* Calorie.xcdatamodeld */,
-				E05250CB245D00AF0006348E /* CalorieCounterTableViewController.swift */,
-				E05250CD245D03170006348E /* CoreDataStack.swift */,
-				E05250CF245D06440006348E /* Calorie+Convenience.swift */,
 			);
 			path = "Calorie Counter";
 			sourceTree = "<group>";
@@ -109,6 +107,24 @@
 				E05250D2245D07A50006348E /* CalorieController.swift */,
 			);
 			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		E05250D4245D085C0006348E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E05250BD245CFE970006348E /* Calorie.xcdatamodeld */,
+				E05250CD245D03170006348E /* CoreDataStack.swift */,
+				E05250CF245D06440006348E /* Calorie+Convenience.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E05250D5245D087C0006348E /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E05250CB245D00AF0006348E /* CalorieCounterTableViewController.swift */,
+			);
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
