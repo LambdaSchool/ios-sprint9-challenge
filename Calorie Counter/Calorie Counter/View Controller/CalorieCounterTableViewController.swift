@@ -12,8 +12,20 @@ import SwiftChart
 
 class CalorieCounterTableViewController: UITableViewController {
     
+    // MARK: Date Formatter
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .medium
+        formatter.dateStyle = .medium
+        return formatter
+    }()
+    
+     // MARK: Properties
+    
     var calorieController = CalorieController()
     var count: Int = 0
+    var series: ChartSeries = ChartSeries([]) // array of empty chartseries
+    var calorieData: [Double] = []
     
     // MARK: FRC
     lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
@@ -32,22 +44,15 @@ class CalorieCounterTableViewController: UITableViewController {
         return frc
     }()
     
-    // MARK: Date Formatter
-    let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.timeStyle = .medium
-        formatter.dateStyle = .medium
-        return formatter
-    }()
-    
     // MARK: - IB Outlets
     
     @IBOutlet weak var chartView: Chart!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        calorieController.loadFromPersistentStore()
         updateViews()
-
+        setChartData()
     }
 
     // MARK: - Table view data source
@@ -66,9 +71,9 @@ class CalorieCounterTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
         
-        let caloriesIntake = fetchedResultsController.object(at: indexPath)
-        cell.textLabel?.text = "Calories: \(caloriesIntake.calories)"
-        cell.detailTextLabel?.text = dateFormatter.string(from: caloriesIntake.date ?? Date())
+        let caloriesEntry = fetchedResultsController.object(at: indexPath)
+        cell.textLabel?.text = "Calories: \(caloriesEntry.calories)"
+        cell.detailTextLabel?.text = dateFormatter.string(from: caloriesEntry.date ?? Date())
         return cell
     }
    
@@ -89,6 +94,21 @@ class CalorieCounterTableViewController: UITableViewController {
         }))
         self.present(alert, animated: true)
     }
+ 
+    func setChartData() {
+        var tempArray: [Double] = []
+        for entry in calorieController.calorieEntries {
+            let calories = entry.calories
+            tempArray.append(Double(calories)) // cast Int16 as double ..Int has no append
+        }
+        calorieData = tempArray
+        series = ChartSeries(calorieData)
+        if !chartView.series.isEmpty {
+            chartView.removeAllSeries()
+        }
+        chartView.add(series)
+    }
+
     
     // update Views
     func updateViews() {
@@ -97,10 +117,7 @@ class CalorieCounterTableViewController: UITableViewController {
         for object in calories {
             self.calorieController.calories.append(Double(object.calories))
         }
-//        let chartSeries = ChartSeries(calorieController.calories)
-//        chartSeries.color = ChartColors.greenColor()
-//        chartSeries.area = true
-//        chartView.add(chartSeries)
+//        tableView.reloadData()
     }
     
  
@@ -108,11 +125,12 @@ class CalorieCounterTableViewController: UITableViewController {
   
 //    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+        if editingStyle == .delete {            
             let caloricIntake = fetchedResultsController.object(at: indexPath)
             calorieController.delete(for: caloricIntake)
-
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            calorieData.remove(at: indexPath.row)
+            setChartData()
+//            tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
@@ -170,19 +188,24 @@ extension CalorieCounterTableViewController: NSFetchedResultsControllerDelegate 
     }
 }
 
-// MARK: - ChartView Delegate
+//// MARK: - ChartView Delegate
 extension CalorieCounterTableViewController: ChartDelegate {
     func didTouchChart(_ chart: Chart, indexes: [Int?], x: Double, left: CGFloat) {
-        
+
     }
-    
+
     func didFinishTouchingChart(_ chart: Chart) {
-        
+
     }
-    
+
     func didEndTouchingChart(_ chart: Chart) {
-        
+
     }
-    
-    
+
+
+}
+
+// - Added Extension for NS Notification
+extension NSNotification.Name {
+    static let newEntryAddedToCoreData = NSNotification.Name("NewEntryAdded")
 }

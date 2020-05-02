@@ -13,10 +13,29 @@ import SwiftChart
 
 class CalorieController {
     
+    var calorieEntries: [Calorie] = []
     var calories: [Double] = []
     
     func delete(for calories: Calorie) {
-        CoreDataStack.shared.mainContext.delete(calories)
+        let context = CoreDataStack.shared.mainContext
+        context.delete(calories)
+        try? context.save()
+        guard let index = calorieEntries.firstIndex(of: calories) else {return}
+        calorieEntries.remove(at: index)
+//        CoreDataStack.shared.mainContext.delete(calories)
+    }
+    
+    func loadFromPersistentStore() {
+        let context = CoreDataStack.shared.mainContext
+        let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
+        context.performAndWait {
+            do {
+                let oldEntries = try context.fetch(fetchRequest)
+                calorieEntries = oldEntries
+            } catch {
+                print("Error Fetching calorie entries: \(error)")
+            }
+        }
     }
     
     func saveToPersistentStore() {
