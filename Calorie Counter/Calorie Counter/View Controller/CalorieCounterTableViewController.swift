@@ -110,13 +110,12 @@ class CalorieCounterTableViewController: UITableViewController {
 
     
     // update Views
-    @objc func updateViews() {
+    func updateViews() {
         guard let calories = fetchedResultsController.fetchedObjects else { return }
         calorieController.calories = []
         for object in calories {
             self.calorieController.calories.append(Double(object.calories))
         }
-
         chartView.removeAllSeries()
         let chartSeries = ChartSeries(calorieData)
         chartSeries.color = .blue
