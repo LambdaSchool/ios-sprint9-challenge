@@ -31,6 +31,14 @@ class CalorieCounterTableViewController: UITableViewController {
         return frc
     }()
     
+    // MARK: Date Formatter
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .medium
+        formatter.dateStyle = .medium
+        return formatter
+    }()
+    
     // MARK: - IB Outlets
     
     @IBOutlet weak var chartView: Chart!
@@ -38,11 +46,6 @@ class CalorieCounterTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -50,14 +53,16 @@ class CalorieCounterTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
 
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
-
-        // Configure the cell...
+        
+        let caloriesIntake = fetchedResultsController.object(at: indexPath)
+        cell.textLabel?.text = "Calories: \(caloriesIntake.calories)"
+        cell.detailTextLabel?.text = dateFormatter.string(from: caloriesIntake.date ?? Date())
 
         return cell
     }
