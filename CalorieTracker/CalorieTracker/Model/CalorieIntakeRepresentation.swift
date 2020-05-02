@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+struct CalorieIntakeRepresentation: Codable {
+    let calories: Int16
+    let date: Date
+    let time: Date
+}
+
+struct CalorieIntakeRepresentations: Codable {
+    let results: [CalorieIntakeRepresentation]
+}

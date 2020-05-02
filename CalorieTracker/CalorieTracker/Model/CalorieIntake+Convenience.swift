@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import CoreData
+
+extension CalorieIntake {
+    convenience init(calories: Int16,
+                     date: Date = Date(),
+                     time: Date,
+                     context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        self.init(context: context)
+        self.calories = calories
+        self.date = date
+        self.time = time
+    }
+}
