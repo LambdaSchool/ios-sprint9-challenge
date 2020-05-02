@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DF102DAA73EC2FEC36728B4 /* Pods_Calorie_Counter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13FC7C0EEE84A726A46D15DD /* Pods_Calorie_Counter.framework */; };
 		E05250B5245CFE970006348E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05250B4245CFE970006348E /* AppDelegate.swift */; };
 		E05250B7245CFE970006348E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05250B6245CFE970006348E /* SceneDelegate.swift */; };
 		E05250BC245CFE970006348E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05250BA245CFE970006348E /* Main.storyboard */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13FC7C0EEE84A726A46D15DD /* Pods_Calorie_Counter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calorie_Counter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE76E4439358D96FFDBD1144 /* Pods-Calorie Counter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calorie Counter.release.xcconfig"; path = "Target Support Files/Pods-Calorie Counter/Pods-Calorie Counter.release.xcconfig"; sourceTree = "<group>"; };
 		E05250B1245CFE970006348E /* Calorie Counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calorie Counter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E05250B4245CFE970006348E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E05250B6245CFE970006348E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		E05250C3245CFE9B0006348E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E05250C5245CFE9B0006348E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E05250CB245D00AF0006348E /* CalorieCounterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieCounterTableViewController.swift; sourceTree = "<group>"; };
+		E1589A83B7C80E222649D379 /* Pods-Calorie Counter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calorie Counter.debug.xcconfig"; path = "Target Support Files/Pods-Calorie Counter/Pods-Calorie Counter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF102DAA73EC2FEC36728B4 /* Pods_Calorie_Counter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CC15F793C6FA9E0FC339B35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				13FC7C0EEE84A726A46D15DD /* Pods_Calorie_Counter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1AFC68BC05269FA86FD34D08 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E1589A83B7C80E222649D379 /* Pods-Calorie Counter.debug.xcconfig */,
+				BE76E4439358D96FFDBD1144 /* Pods-Calorie Counter.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E05250A8245CFE970006348E = {
 			isa = PBXGroup;
 			children = (
 				E05250B3245CFE970006348E /* Calorie Counter */,
 				E05250B2245CFE970006348E /* Products */,
+				1AFC68BC05269FA86FD34D08 /* Pods */,
+				0CC15F793C6FA9E0FC339B35 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E05250C8245CFE9B0006348E /* Build configuration list for PBXNativeTarget "Calorie Counter" */;
 			buildPhases = (
+				E373D76B10571FC525B810E9 /* [CP] Check Pods Manifest.lock */,
 				E05250AD245CFE970006348E /* Sources */,
 				E05250AE245CFE970006348E /* Frameworks */,
 				E05250AF245CFE970006348E /* Resources */,
+				C33208BA007AE2ED5666E6BD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +162,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C33208BA007AE2ED5666E6BD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Calorie Counter/Pods-Calorie Counter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Calorie Counter/Pods-Calorie Counter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Calorie Counter/Pods-Calorie Counter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E373D76B10571FC525B810E9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Calorie Counter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E05250AD245CFE970006348E /* Sources */ = {
@@ -286,6 +355,7 @@
 		};
 		E05250C9245CFE9B0006348E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1589A83B7C80E222649D379 /* Pods-Calorie Counter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -304,6 +374,7 @@
 		};
 		E05250CA245CFE9B0006348E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE76E4439358D96FFDBD1144 /* Pods-Calorie Counter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

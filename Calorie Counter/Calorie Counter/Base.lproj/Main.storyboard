@@ -51,8 +51,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="k93-Vq-k8i">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1kb-vk-7TW"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1kb-vk-7TW">
+                            <connections>
+                                <action selector="addBtnWasPressed:" destination="QbG-Cr-Erl" id="oVq-bT-uri"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chartView" destination="pIo-m4-y46" id="Lhx-wS-1C6"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jAB-oE-Nh7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

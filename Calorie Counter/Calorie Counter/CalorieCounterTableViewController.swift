@@ -8,12 +8,13 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class CalorieCounterTableViewController: UITableViewController {
     
     // MARK: - IB Outlets
     
-    @IBOutlet weak var chartView: UIView!
+    @IBOutlet weak var chartView: Chart!
     
     override func viewDidLoad() {
         super.viewDidLoad()
