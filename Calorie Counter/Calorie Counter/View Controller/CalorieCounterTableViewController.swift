@@ -84,6 +84,19 @@ class CalorieCounterTableViewController: UITableViewController {
         
     }
     
+    // update Views
+    func updateViews() {
+        guard let calories = fetchedResultsController.fetchedObjects else { return }
+        calorieController.calories = []
+        for object in calories {
+            self.calorieController.calories.append(Double(object.calories))
+        }
+        let chartSeries = ChartSeries(calorieController.calories)
+        chartSeries.color = ChartColors.greenColor()
+        chartSeries.area = true
+        chartView.add(chartSeries)
+    }
+    
   
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

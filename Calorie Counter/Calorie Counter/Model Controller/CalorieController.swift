@@ -13,7 +13,7 @@ import SwiftChart
 
 class CalorieController {
     
-    var calories: [Int] = []
+    var calories: [Double] = []
     
     func delete(for calories: Calorie) {
         CoreDataStack.shared.mainContext.delete(calories)
@@ -28,8 +28,8 @@ class CalorieController {
         }
     }
     
-    func addCalorieEntry(calories: Int) -> [Int] {
-        var caloriesArray: [Int] = []
+    func addCalorieEntry(calories: Double) -> [Double] {
+        var caloriesArray: [Double] = []
         caloriesArray.append(calories)
         return caloriesArray
         
