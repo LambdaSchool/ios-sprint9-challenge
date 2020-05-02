@@ -63,13 +63,25 @@ class CalorieCounterTableViewController: UITableViewController {
         let caloriesIntake = fetchedResultsController.object(at: indexPath)
         cell.textLabel?.text = "Calories: \(caloriesIntake.calories)"
         cell.detailTextLabel?.text = dateFormatter.string(from: caloriesIntake.date ?? Date())
-
         return cell
     }
    
     // MARK: - IB Actions
 
     @IBAction func addBtnWasPressed(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Add Caloric Intake", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addTextField { (textField) in
+            textField.placeholder = "Enter Caloric Intake amount:"
+        }
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action) in
+            if let calories = alert.textFields?.first?.text, !calories.isEmpty {
+                _ = Calorie(calories: Int16(calories) ?? 0, date: Date(), context: CoreDataStack.shared.mainContext)
+                self.calorieController.saveToPersistentStore()
+                
+            }
+        }))
+        
     }
     
   

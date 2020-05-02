@@ -12,8 +12,26 @@ import SwiftChart
 
 
 class CalorieController {
-    func addEntry(entry: Calorie, completion: @escaping () -> Void = {}) {
-        try? CoreDataStack.shared.save()
+    
+    var calories: [Int] = []
+    
+    func delete(for calories: Calorie) {
+        CoreDataStack.shared.mainContext.delete(calories)
+    }
+    
+    func saveToPersistentStore() {
+        do {
+            try CoreDataStack.shared.save()
+        } catch {
+            print("Error saving Managed Object context: \(error)")
+            CoreDataStack.shared.mainContext.reset()
+        }
+    }
+    
+    func addCalorieEntry(calories: Int) -> [Int] {
+        var caloriesArray: [Int] = []
+        caloriesArray.append(calories)
+        return caloriesArray
         
         //TODO Notification observers will go here
         
