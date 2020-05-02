@@ -5,7 +5,7 @@
 //  Created by denis cedeno on 5/1/20.
 //  Copyright © 2020 DenCedeno Co. All rights reserved.
 //
-
+import Foundation
 import UIKit
 import CoreData
 import SwiftChart
@@ -52,6 +52,8 @@ class CalorieTableViewController: UITableViewController {
             }
         }
         
+        NotificationCenter.default.post(name: .calorieAdded, object: self)
+        
         let cancel = UIAlertAction(title: "Cancel",
                                    style: .cancel,
                                    handler: nil)
@@ -65,12 +67,19 @@ class CalorieTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "Calorie Tracker"
         updateChart()
+        // listen for notification
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateChart),
+                                               name: .calorieAdded,
+                                               object: nil)
+        
+        
+       
     }
     
-    func updateChart() {
+    @objc func updateChart() {
         
         let caloriePoints = fetchedResultsController.fetchedObjects ?? []
         
@@ -117,7 +126,7 @@ class CalorieTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath) as? CalorieCell else { return UITableViewCell() }
-        cell.delegate = self
+//        cell.delegate = self
         cell.calorie = fetchedResultsController.object(at: indexPath)
         return cell
     }
@@ -136,6 +145,7 @@ class CalorieTableViewController: UITableViewController {
                 CoreDataStack.shared.mainContext.reset()
                 print("Error saving managed object context: \(error)")
             }
+            NotificationCenter.default.post(name: .calorieAdded, object: self)
             
         }
     }
@@ -205,9 +215,12 @@ extension CalorieTableViewController: NSFetchedResultsControllerDelegate {
         }
     }
 }
-
-extension CalorieTableViewController: ChartsTableViewControllerDelegate {
-    func chartDataChanged(newValueof: Calorie) {
-        updateChart()
-    }
+extension NSNotification.Name {
+    static let calorieAdded = NSNotification.Name("CalorieAdded")
 }
+
+//extension CalorieTableViewController: ChartsTableViewControllerDelegate {
+//    func chartDataChanged(newValueof: Calorie) {
+//        updateChart()
+//    }
+//}
