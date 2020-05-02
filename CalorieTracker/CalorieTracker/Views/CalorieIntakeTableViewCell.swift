@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import SwiftChart
 
 class CalorieIntakeTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var caloriesLabel: UILabel!
-    @IBOutlet weak var dateAndTimeLabel: UILabel!
+    @IBOutlet private weak var caloriesLabel: UILabel!
+    @IBOutlet private weak var dateAndTimeLabel: UILabel!
 
     var calorieIntake: CalorieIntake? {
         didSet {

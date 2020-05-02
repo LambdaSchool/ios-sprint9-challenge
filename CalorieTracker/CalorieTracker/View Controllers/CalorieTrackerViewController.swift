@@ -9,17 +9,40 @@
 import UIKit
 import SwiftChart
 
-class CalorieTrackerViewController: UIViewController {
+class CalorieTrackerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: Properties
-    @IBOutlet weak var intakeTableView: UITableView!
-    @IBOutlet weak var intakeChartView: Chart!
+    @IBOutlet private weak var intakeTableView: UITableView!
+    @IBOutlet private weak var intakeChartView: Chart!
+
+    let series = ChartSeries([0, 600, 200, 800, 400, 700, 300, 1000, 800])
 
     let calorieIntakeController = CalorieIntakeController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        intakeTableView.delegate = self
+        intakeTableView.dataSource = self
+        intakeTableView.reloadData()
 
+        series.color = ChartColors.greenColor()
+        series.area = true
+        intakeChartView.minY = 0
+        intakeChartView.maxY = 1000
+        intakeChartView.add(series)
+    }
+
+    // MARK: UITableView Delegates
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return calorieIntakeController.listOfIntakes.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = intakeTableView.dequeueReusableCell(withIdentifier: "CalorieIntakeCell",
+                                                             for: indexPath) as? CalorieIntakeTableViewCell
+            else { return UITableViewCell() }
+
+        return cell
     }
 
     // MARK: IBActions

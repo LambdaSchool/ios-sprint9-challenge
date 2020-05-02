@@ -12,7 +12,6 @@ import CoreData
 class CalorieIntakeController {
 
     var listOfIntakes: [CalorieIntake] {
-        //swiftlint:disable:next implicit_return
         return loadFromPersistentStore()
     }
 
