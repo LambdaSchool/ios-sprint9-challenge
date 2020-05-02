@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		E05250C1245CFE9B0006348E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E05250C0245CFE9B0006348E /* Assets.xcassets */; };
 		E05250C4245CFE9B0006348E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05250C2245CFE9B0006348E /* LaunchScreen.storyboard */; };
 		E05250CC245D00AF0006348E /* CalorieCounterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05250CB245D00AF0006348E /* CalorieCounterTableViewController.swift */; };
+		E05250CE245D03170006348E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05250CD245D03170006348E /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		E05250C3245CFE9B0006348E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E05250C5245CFE9B0006348E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E05250CB245D00AF0006348E /* CalorieCounterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieCounterTableViewController.swift; sourceTree = "<group>"; };
+		E05250CD245D03170006348E /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		E1589A83B7C80E222649D379 /* Pods-Calorie Counter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calorie Counter.debug.xcconfig"; path = "Target Support Files/Pods-Calorie Counter/Pods-Calorie Counter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,7 +60,6 @@
 				E1589A83B7C80E222649D379 /* Pods-Calorie Counter.debug.xcconfig */,
 				BE76E4439358D96FFDBD1144 /* Pods-Calorie Counter.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -91,6 +92,7 @@
 				E05250C5245CFE9B0006348E /* Info.plist */,
 				E05250BD245CFE970006348E /* Calorie.xcdatamodeld */,
 				E05250CB245D00AF0006348E /* CalorieCounterTableViewController.swift */,
+				E05250CD245D03170006348E /* CoreDataStack.swift */,
 			);
 			path = "Calorie Counter";
 			sourceTree = "<group>";
@@ -210,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E05250CE245D03170006348E /* CoreDataStack.swift in Sources */,
 				E05250CC245D00AF0006348E /* CalorieCounterTableViewController.swift in Sources */,
 				E05250B5245CFE970006348E /* AppDelegate.swift in Sources */,
 				E05250BF245CFE970006348E /* Calorie.xcdatamodeld in Sources */,
