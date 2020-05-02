@@ -53,7 +53,7 @@ class CalorieCounterTableViewController: UITableViewController {
         calorieController.loadFromPersistentStore()
         updateViews()
         setChartData()
-//        NotificationCenter.default.addObserver(self, selector: #selector(updateViews(_:)), name: .newEntryAdded, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setChartData), name: .newEntryAdded, object: nil)
     }
 
     // MARK: - Table view data source
@@ -90,34 +90,22 @@ class CalorieCounterTableViewController: UITableViewController {
             if let calories = alert.textFields?.first?.text, !calories.isEmpty {
                 _ = Calorie(calories: Int16(calories) ?? 0, date: Date(), context: CoreDataStack.shared.mainContext)
                 self.calorieController.saveToPersistentStore()
-                
+                NotificationCenter.default.post(name: .newEntryAdded, object: self)
             }
         }))
         self.present(alert, animated: true)
     }
  
-    func setChartData() {
+    @objc func setChartData() {
         if let objects = fetchedResultsController.fetchedObjects {
             for entry in objects {
-                calorieData.append(Double(entry.calories))
+                calorieData.append(Double(entry.calories)) // cast Int16 as double ..Int has no append
             }
         }
         let chartSeries = ChartSeries(calorieData)
         chartSeries.color = .blue
         chartSeries.area = true
         chartView.add(chartSeries)
-        
-//        var tempArray: [Double] = []
-//        for entry in calorieController.calorieEntries {
-//            let calories = entry.calories
-//            tempArray.append(Double(calories)) // cast Int16 as double ..Int has no append
-//        }
-//        calorieData = tempArray
-//        series = ChartSeries(calorieData)
-//        if !chartView.series.isEmpty {
-//            chartView.removeAllSeries()
-//        }
-//        chartView.add(series)
     }
 
     
@@ -225,5 +213,5 @@ extension CalorieCounterTableViewController: ChartDelegate {
 
 // - Added Extension for NS Notification
 extension NSNotification.Name {
-    static let newEntryAddedToCoreData = NSNotification.Name("NewEntryAdded")
+    static let newEntryAdded = NSNotification.Name("NewEntryAdded")
 }
