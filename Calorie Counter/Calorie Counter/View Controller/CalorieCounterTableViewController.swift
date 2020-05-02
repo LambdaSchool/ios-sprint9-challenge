@@ -13,6 +13,7 @@ import SwiftChart
 class CalorieCounterTableViewController: UITableViewController {
     
     var calorieController = CalorieController()
+    var count: Int = 0
     
     // MARK: FRC
     lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
@@ -45,6 +46,7 @@ class CalorieCounterTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
 
     }
 
@@ -81,7 +83,7 @@ class CalorieCounterTableViewController: UITableViewController {
                 
             }
         }))
-        
+        self.present(alert, animated: true)
     }
     
     // update Views
@@ -91,22 +93,24 @@ class CalorieCounterTableViewController: UITableViewController {
         for object in calories {
             self.calorieController.calories.append(Double(object.calories))
         }
-        let chartSeries = ChartSeries(calorieController.calories)
-        chartSeries.color = ChartColors.greenColor()
-        chartSeries.area = true
-        chartView.add(chartSeries)
+//        let chartSeries = ChartSeries(calorieController.calories)
+//        chartSeries.color = ChartColors.greenColor()
+//        chartSeries.area = true
+//        chartView.add(chartSeries)
     }
     
   
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
+//    // Override to support editing the table view.
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            let caloricIntake = fetchedResultsController.object(at: indexPath)
+//            calorieController.delete(for: caloricIntake)
+//
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        } else if editingStyle == .insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }
+//    }
 
 
 
