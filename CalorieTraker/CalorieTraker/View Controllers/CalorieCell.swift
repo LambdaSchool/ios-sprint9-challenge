@@ -7,11 +7,15 @@
 //
 
 import UIKit
+protocol ChartsTableViewControllerDelegate {
+    func chartDataChanged(newValueof: Calorie)
+}
 
 class CalorieCell: UITableViewCell {
     
     @IBOutlet weak var calorieLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    var delegate: ChartsTableViewControllerDelegate!
     
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -29,7 +33,8 @@ class CalorieCell: UITableViewCell {
     private func updateViews() {
         guard let calorie  = calorie else { return }
         calorieLabel.text = "Calories: \(calorie.calories)"
-        dateLabel.text = dateFormatter.string(from: calorie.date ?? Date()) 
+        dateLabel.text = dateFormatter.string(from: calorie.date ?? Date())
+        self.delegate.chartDataChanged(newValueof: calorie)
       
     }
 

@@ -10,8 +10,13 @@ import UIKit
 import CoreData
 import SwiftChart
 
+
+
 class CalorieTableViewController: UITableViewController {
 
+    @IBOutlet weak var chart: Chart!
+     
+    
     lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
           let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
           fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
@@ -43,6 +48,7 @@ class CalorieTableViewController: UITableViewController {
             if let entry = alert.textFields?.first?.text,!entry.isEmpty {
                 let calories = Int16(entry) ?? 0
                 self.calorieController.appendCalories(calories: calories)
+                self.updateChart()
             }
         }
         
@@ -53,12 +59,48 @@ class CalorieTableViewController: UITableViewController {
         alert.addAction(submit)
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
+        
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         title = "Calorie Tracker"
+        updateChart()
+    }
+    
+    func updateChart() {
+        
+        let caloriePoints = fetchedResultsController.fetchedObjects ?? []
+        
+               var chartPoints: [Double] = []
+               
+               for point in caloriePoints {
+                   let points = Double(point.calories)
+                   chartPoints.append(points)
+               }
+               
+               chart.removeAllSeries()
+               
+               let series = ChartSeries(chartPoints)
+               series.area = true
+               chart.add(series)
+               
+               // Set minimum and maximum values for y-axis
+               chart.minY = 0
+               chart.maxY = 4000
+
+               // Format y-axis, e.g. with units
+               chart.yLabelsFormatter = { String(Int($1)) +  " Calories" }
+               
+               series.colors = (
+                 above: ChartColors.redColor(),
+                 below: ChartColors.blueColor(),
+                 zeroLevel: 2000
+               )
+
+        
     }
 
     // MARK: - Table view data source
@@ -75,7 +117,7 @@ class CalorieTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath) as? CalorieCell else { return UITableViewCell() }
-        
+        cell.delegate = self
         cell.calorie = fetchedResultsController.object(at: indexPath)
         return cell
     }
@@ -89,13 +131,12 @@ class CalorieTableViewController: UITableViewController {
             CoreDataStack.shared.mainContext.delete(calorie)
             do {
                 try CoreDataStack.shared.save(context: CoreDataStack.shared.mainContext)
+                
             } catch {
                 CoreDataStack.shared.mainContext.reset()
                 print("Error saving managed object context: \(error)")
             }
             
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
@@ -162,5 +203,11 @@ extension CalorieTableViewController: NSFetchedResultsControllerDelegate {
         @unknown default:
             break
         }
+    }
+}
+
+extension CalorieTableViewController: ChartsTableViewControllerDelegate {
+    func chartDataChanged(newValueof: Calorie) {
+        updateChart()
     }
 }
