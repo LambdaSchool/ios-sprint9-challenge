@@ -51,6 +51,10 @@ class CalorieCounterTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchedResultsController.sections?.count ?? 1
+    }
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -101,19 +105,16 @@ class CalorieCounterTableViewController: UITableViewController {
     
   
 //    // Override to support editing the table view.
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            let caloricIntake = fetchedResultsController.object(at: indexPath)
-//            calorieController.delete(for: caloricIntake)
-//
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        } else if editingStyle == .insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let caloricIntake = fetchedResultsController.object(at: indexPath)
+            calorieController.delete(for: caloricIntake)
 
-
-
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
 }
 
 // Extensions
@@ -170,11 +171,7 @@ extension CalorieCounterTableViewController: NSFetchedResultsControllerDelegate 
 // MARK: - ChartView Delegate
 extension CalorieCounterTableViewController: ChartDelegate {
     func didTouchChart(_ chart: Chart, indexes: [Int?], x: Double, left: CGFloat) {
-        for (seriesIndex, dataIndex) in indexes.enumerated() {
-            if let value = chart.valueForSeries(seriesIndex, atIndex: dataIndex) {
-                print("Touched series: \(seriesIndex): data index: \(dataIndex!); series value: \(value); x-axis value: \(x) (from left: \(left))")
-            }
-        }
+        
     }
     
     func didFinishTouchingChart(_ chart: Chart) {
