@@ -11,7 +11,7 @@ import CoreData
 
 class CalorieController {
     var caloriePosts: [Calorie] = []
-    
+
     @discardableResult
     func appendCalories(calories: Int16) -> Calorie {
         let caloriePost = Calorie(calories: calories, date: Date())
@@ -22,6 +22,6 @@ class CalorieController {
             fatalError("Could not save calorie post: \(error)")
         }
         return caloriePost
-        
+
     }
 }

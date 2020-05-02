@@ -11,7 +11,7 @@ import CoreData
 
 class CoreDataStack {
      static let shared = CoreDataStack()
-        
+
         private init() {}
         lazy var container: NSPersistentContainer = {
 
@@ -25,16 +25,14 @@ class CoreDataStack {
             newContainer.viewContext.automaticallyMergesChangesFromParent = true
             return newContainer
         }()
-        
+
         var mainContext: NSManagedObjectContext {
             return container.viewContext
         }
-        
-        
-         
+
         func save(context: NSManagedObjectContext) throws {
             var saveError: Error?
-            
+
             context.performAndWait {
                 do {
                     try context.save()
@@ -42,7 +40,7 @@ class CoreDataStack {
                     saveError = error
                 }
             }
-            
+
             if let saveError = saveError { throw saveError }
         }
     }

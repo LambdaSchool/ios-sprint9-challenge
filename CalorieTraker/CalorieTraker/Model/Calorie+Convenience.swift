@@ -18,18 +18,18 @@ extension Calorie {
         self.calories = calories
         self.date = date
     }
-    
+
     var calorieRepresentation: CalorieRepresentation? {
         guard let date = date else {
             return nil
         }
         return CalorieRepresentation(calories: calories, date: date)
     }
-    
+
      @discardableResult
     convenience init(calorieRepresentation: CalorieRepresentation,
                      context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(calories: calorieRepresentation.calories, date: calorieRepresentation.date)
     }
-    
+
 }

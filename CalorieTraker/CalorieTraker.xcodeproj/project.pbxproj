@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -122,7 +122,6 @@
 				00C71FF09517B92F2EE39AAE /* Pods-CalorieTraker.debug.xcconfig */,
 				485AE78D0CBF1B692B946FB2 /* Pods-CalorieTraker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -146,6 +145,7 @@
 				12434D56245D02860018BCBA /* Frameworks */,
 				12434D57245D02860018BCBA /* Resources */,
 				323421550B8859DF46622770 /* [CP] Embed Pods Frameworks */,
+				12DB0A25245D6054006BF40D /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -203,6 +203,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		12DB0A25245D6054006BF40D /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"",
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		28C7D25E3B1214298ACD8C1F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

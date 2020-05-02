@@ -12,31 +12,30 @@ import UIKit
 //}
 
 class CalorieCell: UITableViewCell {
-    
+
     @IBOutlet weak var calorieLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
 //    var delegate: ChartsTableViewControllerDelegate!
-    
+
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
         return dateFormatter
     }()
-    
+
     var calorie: Calorie? {
         didSet {
             updateViews()
         }
     }
-    
+
     private func updateViews() {
         guard let calorie  = calorie else { return }
         calorieLabel.text = "Calories: \(calorie.calories)"
         dateLabel.text = dateFormatter.string(from: calorie.date ?? Date())
 //        self.delegate.chartDataChanged(newValueof: calorie)
-      
+
     }
 
-    
 }
