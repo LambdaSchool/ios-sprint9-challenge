@@ -1,0 +1,693 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D88958A321836D28001BF6F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88958A221836D28001BF6F5 /* AppDelegate.swift */; };
+		D88958A821836D28001BF6F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D88958A621836D28001BF6F5 /* Main.storyboard */; };
+		D88958AB21836D28001BF6F5 /* SmartCal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D88958A921836D28001BF6F5 /* SmartCal.xcdatamodeld */; };
+		D88958AD21836D2A001BF6F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D88958AC21836D2A001BF6F5 /* Assets.xcassets */; };
+		D88958B021836D2A001BF6F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D88958AE21836D2A001BF6F5 /* LaunchScreen.storyboard */; };
+		D88958BB21836D2A001BF6F5 /* SmartCalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88958BA21836D2A001BF6F5 /* SmartCalTests.swift */; };
+		D88958C621836D2B001BF6F5 /* SmartCalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88958C521836D2B001BF6F5 /* SmartCalUITests.swift */; };
+		D88958D521836EC3001BF6F5 /* Intake.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D88958D321836EC3001BF6F5 /* Intake.xcdatamodeld */; };
+		D88958D821836F91001BF6F5 /* CalorieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88958D721836F91001BF6F5 /* CalorieTableViewController.swift */; };
+		D88958DC2183703C001BF6F5 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88958DB2183703C001BF6F5 /* CoreDataStack.swift */; };
+		D88958DE21837156001BF6F5 /* Intake + Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88958DD21837156001BF6F5 /* Intake + Convenience.swift */; };
+		D88958E0218372AF001BF6F5 /* IntakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88958DF218372AF001BF6F5 /* IntakeController.swift */; };
+		D8DC48F521867E5D00B4A7C5 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DC48F421867E5D00B4A7C5 /* ChartViewController.swift */; };
+		D8DC48F821867FEA00B4A7C5 /* SwiftChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8DC48F721867FEA00B4A7C5 /* SwiftChart.framework */; };
+		D8DC48FC21874C9D00B4A7C5 /* NewDataPointNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DC48FB21874C9D00B4A7C5 /* NewDataPointNotification.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D88958B721836D2A001BF6F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D889589721836D28001BF6F5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D889589E21836D28001BF6F5;
+			remoteInfo = SmartCal;
+		};
+		D88958C221836D2B001BF6F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D889589721836D28001BF6F5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D889589E21836D28001BF6F5;
+			remoteInfo = SmartCal;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D889589F21836D28001BF6F5 /* SmartCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D88958A221836D28001BF6F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D88958A721836D28001BF6F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D88958AA21836D28001BF6F5 /* SmartCal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SmartCal.xcdatamodel; sourceTree = "<group>"; };
+		D88958AC21836D2A001BF6F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D88958AF21836D2A001BF6F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D88958B121836D2A001BF6F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D88958B621836D2A001BF6F5 /* SmartCalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartCalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D88958BA21836D2A001BF6F5 /* SmartCalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCalTests.swift; sourceTree = "<group>"; };
+		D88958BC21836D2A001BF6F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D88958C121836D2A001BF6F5 /* SmartCalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartCalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D88958C521836D2B001BF6F5 /* SmartCalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCalUITests.swift; sourceTree = "<group>"; };
+		D88958C721836D2B001BF6F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D88958D421836EC3001BF6F5 /* Intake.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Intake.xcdatamodel; sourceTree = "<group>"; };
+		D88958D721836F91001BF6F5 /* CalorieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewController.swift; sourceTree = "<group>"; };
+		D88958DB2183703C001BF6F5 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		D88958DD21837156001BF6F5 /* Intake + Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Intake + Convenience.swift"; sourceTree = "<group>"; };
+		D88958DF218372AF001BF6F5 /* IntakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeController.swift; sourceTree = "<group>"; };
+		D8DC48F421867E5D00B4A7C5 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		D8DC48F721867FEA00B4A7C5 /* SwiftChart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftChart.framework; path = Carthage/Build/iOS/SwiftChart.framework; sourceTree = SOURCE_ROOT; };
+		D8DC48FB21874C9D00B4A7C5 /* NewDataPointNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDataPointNotification.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D889589C21836D28001BF6F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8DC48F821867FEA00B4A7C5 /* SwiftChart.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D88958B321836D2A001BF6F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D88958BE21836D2A001BF6F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D889589621836D28001BF6F5 = {
+			isa = PBXGroup;
+			children = (
+				D88958A121836D28001BF6F5 /* SmartCal */,
+				D88958B921836D2A001BF6F5 /* SmartCalTests */,
+				D88958C421836D2B001BF6F5 /* SmartCalUITests */,
+				D88958A021836D28001BF6F5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D88958A021836D28001BF6F5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D889589F21836D28001BF6F5 /* SmartCal.app */,
+				D88958B621836D2A001BF6F5 /* SmartCalTests.xctest */,
+				D88958C121836D2A001BF6F5 /* SmartCalUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D88958A121836D28001BF6F5 /* SmartCal */ = {
+			isa = PBXGroup;
+			children = (
+				D8DC48F721867FEA00B4A7C5 /* SwiftChart.framework */,
+				D88958A221836D28001BF6F5 /* AppDelegate.swift */,
+				D88958D621836ECA001BF6F5 /* CoreData */,
+				D88958A621836D28001BF6F5 /* Main.storyboard */,
+				D8DC48F621867E6200B4A7C5 /* View Controllers */,
+				D88958AC21836D2A001BF6F5 /* Assets.xcassets */,
+				D88958AE21836D2A001BF6F5 /* LaunchScreen.storyboard */,
+				D88958B121836D2A001BF6F5 /* Info.plist */,
+				D88958A921836D28001BF6F5 /* SmartCal.xcdatamodeld */,
+			);
+			path = SmartCal;
+			sourceTree = "<group>";
+		};
+		D88958B921836D2A001BF6F5 /* SmartCalTests */ = {
+			isa = PBXGroup;
+			children = (
+				D88958BA21836D2A001BF6F5 /* SmartCalTests.swift */,
+				D88958BC21836D2A001BF6F5 /* Info.plist */,
+			);
+			path = SmartCalTests;
+			sourceTree = "<group>";
+		};
+		D88958C421836D2B001BF6F5 /* SmartCalUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D88958C521836D2B001BF6F5 /* SmartCalUITests.swift */,
+				D88958C721836D2B001BF6F5 /* Info.plist */,
+			);
+			path = SmartCalUITests;
+			sourceTree = "<group>";
+		};
+		D88958D621836ECA001BF6F5 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				D88958D321836EC3001BF6F5 /* Intake.xcdatamodeld */,
+				D8DC48FB21874C9D00B4A7C5 /* NewDataPointNotification.swift */,
+				D88958DD21837156001BF6F5 /* Intake + Convenience.swift */,
+				D88958DF218372AF001BF6F5 /* IntakeController.swift */,
+				D88958DB2183703C001BF6F5 /* CoreDataStack.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		D8DC48F621867E6200B4A7C5 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D8DC48F421867E5D00B4A7C5 /* ChartViewController.swift */,
+				D88958D721836F91001BF6F5 /* CalorieTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D889589E21836D28001BF6F5 /* SmartCal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D88958CA21836D2B001BF6F5 /* Build configuration list for PBXNativeTarget "SmartCal" */;
+			buildPhases = (
+				D889589B21836D28001BF6F5 /* Sources */,
+				D889589C21836D28001BF6F5 /* Frameworks */,
+				D889589D21836D28001BF6F5 /* Resources */,
+				D8DC48F92186800700B4A7C5 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmartCal;
+			productName = SmartCal;
+			productReference = D889589F21836D28001BF6F5 /* SmartCal.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D88958B521836D2A001BF6F5 /* SmartCalTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D88958CD21836D2B001BF6F5 /* Build configuration list for PBXNativeTarget "SmartCalTests" */;
+			buildPhases = (
+				D88958B221836D2A001BF6F5 /* Sources */,
+				D88958B321836D2A001BF6F5 /* Frameworks */,
+				D88958B421836D2A001BF6F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D88958B821836D2A001BF6F5 /* PBXTargetDependency */,
+			);
+			name = SmartCalTests;
+			productName = SmartCalTests;
+			productReference = D88958B621836D2A001BF6F5 /* SmartCalTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D88958C021836D2A001BF6F5 /* SmartCalUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D88958D021836D2B001BF6F5 /* Build configuration list for PBXNativeTarget "SmartCalUITests" */;
+			buildPhases = (
+				D88958BD21836D2A001BF6F5 /* Sources */,
+				D88958BE21836D2A001BF6F5 /* Frameworks */,
+				D88958BF21836D2A001BF6F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D88958C321836D2B001BF6F5 /* PBXTargetDependency */,
+			);
+			name = SmartCalUITests;
+			productName = SmartCalUITests;
+			productReference = D88958C121836D2A001BF6F5 /* SmartCalUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D889589721836D28001BF6F5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = Farhan;
+				TargetAttributes = {
+					D889589E21836D28001BF6F5 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					D88958B521836D2A001BF6F5 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = D889589E21836D28001BF6F5;
+					};
+					D88958C021836D2A001BF6F5 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = D889589E21836D28001BF6F5;
+					};
+				};
+			};
+			buildConfigurationList = D889589A21836D28001BF6F5 /* Build configuration list for PBXProject "SmartCal" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D889589621836D28001BF6F5;
+			productRefGroup = D88958A021836D28001BF6F5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D889589E21836D28001BF6F5 /* SmartCal */,
+				D88958B521836D2A001BF6F5 /* SmartCalTests */,
+				D88958C021836D2A001BF6F5 /* SmartCalUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D889589D21836D28001BF6F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D88958B021836D2A001BF6F5 /* LaunchScreen.storyboard in Resources */,
+				D88958AD21836D2A001BF6F5 /* Assets.xcassets in Resources */,
+				D88958A821836D28001BF6F5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D88958B421836D2A001BF6F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D88958BF21836D2A001BF6F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D8DC48F92186800700B4A7C5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftChart.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D889589B21836D28001BF6F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D88958D521836EC3001BF6F5 /* Intake.xcdatamodeld in Sources */,
+				D88958DE21837156001BF6F5 /* Intake + Convenience.swift in Sources */,
+				D88958A321836D28001BF6F5 /* AppDelegate.swift in Sources */,
+				D88958DC2183703C001BF6F5 /* CoreDataStack.swift in Sources */,
+				D88958E0218372AF001BF6F5 /* IntakeController.swift in Sources */,
+				D8DC48F521867E5D00B4A7C5 /* ChartViewController.swift in Sources */,
+				D88958D821836F91001BF6F5 /* CalorieTableViewController.swift in Sources */,
+				D8DC48FC21874C9D00B4A7C5 /* NewDataPointNotification.swift in Sources */,
+				D88958AB21836D28001BF6F5 /* SmartCal.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D88958B221836D2A001BF6F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D88958BB21836D2A001BF6F5 /* SmartCalTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D88958BD21836D2A001BF6F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D88958C621836D2B001BF6F5 /* SmartCalUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D88958B821836D2A001BF6F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D889589E21836D28001BF6F5 /* SmartCal */;
+			targetProxy = D88958B721836D2A001BF6F5 /* PBXContainerItemProxy */;
+		};
+		D88958C321836D2B001BF6F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D889589E21836D28001BF6F5 /* SmartCal */;
+			targetProxy = D88958C221836D2B001BF6F5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D88958A621836D28001BF6F5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D88958A721836D28001BF6F5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D88958AE21836D2A001BF6F5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D88958AF21836D2A001BF6F5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D88958C821836D2B001BF6F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D88958C921836D2B001BF6F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D88958CB21836D2B001BF6F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9AL899TPVP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = SmartCal/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = farhanf.SmartCal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D88958CC21836D2B001BF6F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9AL899TPVP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = SmartCal/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = farhanf.SmartCal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D88958CE21836D2B001BF6F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9AL899TPVP;
+				INFOPLIST_FILE = SmartCalTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = farhanf.SmartCalTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartCal.app/SmartCal";
+			};
+			name = Debug;
+		};
+		D88958CF21836D2B001BF6F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9AL899TPVP;
+				INFOPLIST_FILE = SmartCalTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = farhanf.SmartCalTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartCal.app/SmartCal";
+			};
+			name = Release;
+		};
+		D88958D121836D2B001BF6F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9AL899TPVP;
+				INFOPLIST_FILE = SmartCalUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = farhanf.SmartCalUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SmartCal;
+			};
+			name = Debug;
+		};
+		D88958D221836D2B001BF6F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9AL899TPVP;
+				INFOPLIST_FILE = SmartCalUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = farhanf.SmartCalUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SmartCal;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D889589A21836D28001BF6F5 /* Build configuration list for PBXProject "SmartCal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D88958C821836D2B001BF6F5 /* Debug */,
+				D88958C921836D2B001BF6F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D88958CA21836D2B001BF6F5 /* Build configuration list for PBXNativeTarget "SmartCal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D88958CB21836D2B001BF6F5 /* Debug */,
+				D88958CC21836D2B001BF6F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D88958CD21836D2B001BF6F5 /* Build configuration list for PBXNativeTarget "SmartCalTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D88958CE21836D2B001BF6F5 /* Debug */,
+				D88958CF21836D2B001BF6F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D88958D021836D2B001BF6F5 /* Build configuration list for PBXNativeTarget "SmartCalUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D88958D121836D2B001BF6F5 /* Debug */,
+				D88958D221836D2B001BF6F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D88958A921836D28001BF6F5 /* SmartCal.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D88958AA21836D28001BF6F5 /* SmartCal.xcdatamodel */,
+			);
+			currentVersion = D88958AA21836D28001BF6F5 /* SmartCal.xcdatamodel */;
+			path = SmartCal.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		D88958D321836EC3001BF6F5 /* Intake.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D88958D421836EC3001BF6F5 /* Intake.xcdatamodel */,
+			);
+			currentVersion = D88958D421836EC3001BF6F5 /* Intake.xcdatamodel */;
+			path = Intake.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D889589721836D28001BF6F5 /* Project object */;
+}
