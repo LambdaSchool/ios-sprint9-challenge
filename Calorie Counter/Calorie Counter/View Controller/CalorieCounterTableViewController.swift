@@ -46,7 +46,7 @@ class CalorieCounterTableViewController: UITableViewController {
     
     // MARK: - IB Outlets
     
-    @IBOutlet weak var chartView: Chart!
+    @IBOutlet private weak var chartView: Chart!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,10 +83,10 @@ class CalorieCounterTableViewController: UITableViewController {
     @IBAction func addBtnWasPressed(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Add Caloric Intake", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addTextField { (textField) in
+        alert.addTextField { textField in
             textField.placeholder = "Enter Caloric Intake amount:"
         }
-        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { _ in
             if let calories = alert.textFields?.first?.text, !calories.isEmpty {
                 _ = Calorie(calories: Int16(calories) ?? 0, date: Date(), context: CoreDataStack.shared.mainContext)
                 self.calorieController.saveToPersistentStore()
@@ -127,7 +127,7 @@ class CalorieCounterTableViewController: UITableViewController {
 
 //    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {            
+        if editingStyle == .delete {   
             let caloricIntake = fetchedResultsController.object(at: indexPath)
             calorieController.delete(for: caloricIntake)
             calorieData.remove(at: indexPath.row)
@@ -190,7 +190,7 @@ extension CalorieCounterTableViewController: NSFetchedResultsControllerDelegate 
     }
 }
 
-//// MARK: - ChartView Delegate
+// MARK: - ChartView Delegate
 extension CalorieCounterTableViewController: ChartDelegate {
     func didTouchChart(_ chart: Chart, indexes: [Int?], x: Double, left: CGFloat) {
 

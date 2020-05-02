@@ -16,7 +16,7 @@ class CoreDataStack {
     
     lazy var container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Calorie")
-        container.loadPersistentStores { (_, error) in
+        container.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("Failed to load persistant store: \(error)")
             }
@@ -39,6 +39,6 @@ class CoreDataStack {
             error = saveError
         }
     }
-        if let error = error { throw error}
+        if let error = error { throw error }
 }
 }

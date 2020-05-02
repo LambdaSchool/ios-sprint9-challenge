@@ -20,7 +20,7 @@ class CalorieController {
         let context = CoreDataStack.shared.mainContext
         context.delete(calories)
         try? context.save()
-        guard let index = calorieEntries.firstIndex(of: calories) else {return}
+        guard let index = calorieEntries.firstIndex(of: calories) else { return }
         calorieEntries.remove(at: index)
 //        CoreDataStack.shared.mainContext.delete(calories)
     }
