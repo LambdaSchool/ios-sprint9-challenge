@@ -1,0 +1,6 @@
+framework module Pods_sprint9_calorieTracker {
+  umbrella header "Pods-sprint9-calorieTracker-umbrella.h"
+
+  export *
+  module * { export * }
+}
