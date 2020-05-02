@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import SwiftChart
 
 class CalorieTrackerViewController: UIViewController {
 
     // MARK: Properties
     @IBOutlet weak var intakeTableView: UITableView!
-    @IBOutlet weak var intakeGraphView: UIView!
+    @IBOutlet weak var intakeChartView: Chart!
 
     let calorieIntakeController = CalorieIntakeController()
 

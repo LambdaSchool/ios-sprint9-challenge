@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V5c-33-qhb">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V5c-33-qhb" customClass="Chart" customModule="SwiftChart">
                                 <rect key="frame" x="0.0" y="156" width="414" height="195"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
@@ -91,7 +91,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="intakeGraphView" destination="V5c-33-qhb" id="D4w-3F-ezp"/>
+                        <outlet property="intakeChartView" destination="V5c-33-qhb" id="WCV-qP-Jaf"/>
                         <outlet property="intakeTableView" destination="5PP-Cf-wzT" id="uun-jH-ngZ"/>
                     </connections>
                 </viewController>
