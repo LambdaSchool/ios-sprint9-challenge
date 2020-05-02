@@ -53,6 +53,7 @@ class CalorieCounterTableViewController: UITableViewController {
         calorieController.loadFromPersistentStore()
         updateViews()
         setChartData()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews(_:)), name: .newEntryAdded, object: nil)
     }
 
     // MARK: - Table view data source
@@ -111,13 +112,14 @@ class CalorieCounterTableViewController: UITableViewController {
 
     
     // update Views
-    func updateViews() {
+    @objc func updateViews(_ notification: Notification) {
         guard let calories = fetchedResultsController.fetchedObjects else { return }
         calorieController.calories = []
         for object in calories {
             self.calorieController.calories.append(Double(object.calories))
         }
 //        tableView.reloadData()
+
     }
     
  
