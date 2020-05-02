@@ -53,7 +53,7 @@ class CalorieCounterTableViewController: UITableViewController {
         calorieController.loadFromPersistentStore()
         updateViews()
         setChartData()
-        NotificationCenter.default.addObserver(self, selector: #selector(updateViews(_:)), name: .newEntryAdded, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(updateViews(_:)), name: .newEntryAdded, object: nil)
     }
 
     // MARK: - Table view data source
@@ -97,28 +97,44 @@ class CalorieCounterTableViewController: UITableViewController {
     }
  
     func setChartData() {
-        var tempArray: [Double] = []
-        for entry in calorieController.calorieEntries {
-            let calories = entry.calories
-            tempArray.append(Double(calories)) // cast Int16 as double ..Int has no append
+        if let objects = fetchedResultsController.fetchedObjects {
+            for entry in objects {
+                calorieData.append(Double(entry.calories))
+            }
         }
-        calorieData = tempArray
-        series = ChartSeries(calorieData)
-        if !chartView.series.isEmpty {
-            chartView.removeAllSeries()
-        }
-        chartView.add(series)
+        let chartSeries = ChartSeries(calorieData)
+        chartSeries.color = .blue
+        chartSeries.area = true
+        chartView.add(chartSeries)
+        
+//        var tempArray: [Double] = []
+//        for entry in calorieController.calorieEntries {
+//            let calories = entry.calories
+//            tempArray.append(Double(calories)) // cast Int16 as double ..Int has no append
+//        }
+//        calorieData = tempArray
+//        series = ChartSeries(calorieData)
+//        if !chartView.series.isEmpty {
+//            chartView.removeAllSeries()
+//        }
+//        chartView.add(series)
     }
 
     
     // update Views
-    @objc func updateViews(_ notification: Notification) {
+    @objc func updateViews() {
         guard let calories = fetchedResultsController.fetchedObjects else { return }
         calorieController.calories = []
         for object in calories {
             self.calorieController.calories.append(Double(object.calories))
         }
-//        tableView.reloadData()
+
+        chartView.removeAllSeries()
+        let chartSeries = ChartSeries(calorieData)
+        chartSeries.color = .blue
+        chartSeries.area = true
+        chartView.add(chartSeries)
+        tableView.reloadData()
 
     }
     
