@@ -14,6 +14,9 @@
 		D7228158245DFB6700B6C618 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7228156245DFB6700B6C618 /* LaunchScreen.storyboard */; };
 		D7259E7C245EFF7500B1E503 /* TrackerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7259E7B245EFF7500B1E503 /* TrackerTableViewController.swift */; };
 		D7259E83245F171100B1E503 /* Entries.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7259E81245F171100B1E503 /* Entries.xcdatamodeld */; };
+		D7259E89245F1A0300B1E503 /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7259E88245F1A0300B1E503 /* Entry+Convenience.swift */; };
+		D7259E8B245F1C9800B1E503 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7259E8A245F1C9800B1E503 /* CoreDataStack.swift */; };
+		D7259E8D245F252E00B1E503 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7259E8C245F252E00B1E503 /* EntryController.swift */; };
 		E5EB6EC3DD3EF7053DA06E28 /* Pods_Calorie_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3A22E6ECE34A521DAEB60DE /* Pods_Calorie_Tracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +31,9 @@
 		D7228159245DFB6700B6C618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7259E7B245EFF7500B1E503 /* TrackerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerTableViewController.swift; sourceTree = "<group>"; };
 		D7259E82245F171100B1E503 /* Entries.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Entries.xcdatamodel; sourceTree = "<group>"; };
+		D7259E88245F1A0300B1E503 /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
+		D7259E8A245F1C9800B1E503 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		D7259E8C245F252E00B1E503 /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 		D9394EEBE9F174F483F24784 /* Pods-Calorie_Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calorie_Tracker.release.xcconfig"; path = "Target Support Files/Pods-Calorie_Tracker/Pods-Calorie_Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		F3A22E6ECE34A521DAEB60DE /* Pods_Calorie_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calorie_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -99,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				D7259E7B245EFF7500B1E503 /* TrackerTableViewController.swift */,
+				D7259E8C245F252E00B1E503 /* EntryController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -114,6 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				D7259E81245F171100B1E503 /* Entries.xcdatamodeld */,
+				D7259E88245F1A0300B1E503 /* Entry+Convenience.swift */,
+				D7259E8A245F1C9800B1E503 /* CoreDataStack.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -146,6 +155,7 @@
 				D7228145245DFB6600B6C618 /* Frameworks */,
 				D7228146245DFB6600B6C618 /* Resources */,
 				11A0B5D2185FC3E1C9B7D99C /* [CP] Embed Pods Frameworks */,
+				D7259E8E245F795600B1E503 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -242,6 +252,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D7259E8E245F795600B1E503 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -251,8 +279,11 @@
 			files = (
 				D7259E7C245EFF7500B1E503 /* TrackerTableViewController.swift in Sources */,
 				D722814C245DFB6600B6C618 /* AppDelegate.swift in Sources */,
+				D7259E8D245F252E00B1E503 /* EntryController.swift in Sources */,
 				D7259E83245F171100B1E503 /* Entries.xcdatamodeld in Sources */,
+				D7259E8B245F1C9800B1E503 /* CoreDataStack.swift in Sources */,
 				D722814E245DFB6600B6C618 /* SceneDelegate.swift in Sources */,
+				D7259E89245F1A0300B1E503 /* Entry+Convenience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

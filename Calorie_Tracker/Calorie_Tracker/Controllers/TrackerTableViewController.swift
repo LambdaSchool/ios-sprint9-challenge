@@ -8,8 +8,33 @@
 
 import UIKit
 import SwiftChart
+import CoreData
 
-class TrackerTableViewController: UITableViewController {
+
+class TrackerTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+
+let entryController = EntryController()
+var entries: [Entry] {
+    let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
+    let moc = CoreDataStack.shared.mainContext
+    do {
+        return try moc.fetch(fetchRequest)
+    } catch {
+        print("Error fetching tasks: \(error)")
+        return []
+    }
+    
+}
+
+//var fetchedResultsController: NSFetchedResultsController<Entry> = {
+//    let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
+//    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
+//    let moc = CoreDataStack.shared.mainContext
+//    let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "priority", cacheName: nil)
+//    frc.delegate = self
+//    try! frc.performFetch()
+//    return frc
+//}()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +58,7 @@ class TrackerTableViewController: UITableViewController {
         return 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
@@ -41,7 +66,7 @@ class TrackerTableViewController: UITableViewController {
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -63,29 +88,5 @@ class TrackerTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
