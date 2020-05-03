@@ -11,12 +11,22 @@ import CoreData
 
 class CalorieIntakeController {
 
-    var listOfIntakes: [CalorieIntake] {
-        return loadFromPersistentStore()
+    init() {
+        loadFromPersistentStore()
+    }
+    
+    private(set) var listOfIntakes: [CalorieIntake] = []
+    var listOfCalories: [Double] {
+        var list: [Double] = []
+        for item in listOfIntakes {
+            list.append(item.calories)
+        }
+        return list
     }
 
-    func createIntake(withCalories: Int16) {
-        _ = CalorieIntake(calories: withCalories, time: Date())
+    func createIntake(withCalories: Double) {
+        let intake = CalorieIntake(calories: withCalories)
+        listOfIntakes.append(intake)
         saveToPersistentStore()
     }
 
@@ -29,7 +39,7 @@ class CalorieIntakeController {
 
         let fetchRequest: NSFetchRequest<CalorieIntake> = CalorieIntake.fetchRequest()
 
-        fetchRequest.predicate = NSPredicate(format: "date == %@", Date() as CVarArg)
+        fetchRequest.predicate = NSPredicate(format: "calories == %@", Double())
         let moc = CoreDataStack.shared.mainContext
 
         do {

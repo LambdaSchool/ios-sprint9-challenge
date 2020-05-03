@@ -16,10 +16,15 @@ class CalorieIntakeTableViewCell: UITableViewCell {
 
     var calorieIntake: CalorieIntake? {
         didSet {
-            guard let calorieIntake = calorieIntake else { return }
-            caloriesLabel.text = "Calories: \(calorieIntake.calories)"
-            dateAndTimeLabel.text =
-                "\(String(describing: calorieIntake.date)) at \(String(describing: calorieIntake.time))"
+            updateViews()
         }
+    }
+    
+    func updateViews() {
+        guard let calorieIntake = calorieIntake,
+            let date = calorieIntake.date,
+            let time = calorieIntake.time else { return }
+        caloriesLabel.text = "Calories: \(calorieIntake.calories)"
+        dateAndTimeLabel.text = "\(date) at \(time)"
     }
 }

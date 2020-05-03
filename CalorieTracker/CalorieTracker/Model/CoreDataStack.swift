@@ -10,17 +10,19 @@ import Foundation
 import CoreData
 
 class CoreDataStack {
+
+    private init() { }
+
     static let shared = CoreDataStack()
 
     lazy var container: NSPersistentContainer = {
 
         let container = NSPersistentContainer(name: "CalorieIntake")
         container.loadPersistentStores { _, error in
-            if let error = error {
+            if let error = error as NSError? {
                 fatalError("Failed to load persistent stores: \(error)")
             }
         }
-
         container.viewContext.automaticallyMergesChangesFromParent = true
         return container
     }()

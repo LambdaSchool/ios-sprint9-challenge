@@ -10,13 +10,24 @@ import Foundation
 import CoreData
 
 extension CalorieIntake {
-    convenience init(calories: Int16,
+
+    convenience init(calories: Double,
                      date: Date = Date(),
-                     time: Date,
                      context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM-dd-yyyy"
+
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "h:mm:ss"
+
+        dateFormatter.timeZone = NSTimeZone(name: "EST") as TimeZone?
+        let convertedDate = dateFormatter.string(from: date)
+        let time = timeFormatter.string(from: date)
+
         self.calories = calories
-        self.date = date
+        self.date = convertedDate
         self.time = time
     }
 }

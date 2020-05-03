@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9526B8A3245F464800D85450 /* CalorieIntakeRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9526B8A2245F464800D85450 /* CalorieIntakeRepresentation.swift */; };
+		9526B8A5245F4A4400D85450 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9526B8A4245F4A4400D85450 /* Notifications.swift */; };
 		956C2353245D008F00756584 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C2352245D008F00756584 /* AppDelegate.swift */; };
 		956C2355245D009000756584 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C2354245D009000756584 /* SceneDelegate.swift */; };
 		956C235A245D009000756584 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956C2358245D009000756584 /* Main.storyboard */; };
 		956C235C245D009000756584 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 956C235B245D009000756584 /* Assets.xcassets */; };
 		956C235F245D009000756584 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956C235D245D009000756584 /* LaunchScreen.storyboard */; };
 		956C236C245D061400756584 /* CalorieIntake.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 956C236A245D061400756584 /* CalorieIntake.xcdatamodeld */; };
-		956C236E245D069B00756584 /* CalorieIntakeRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C236D245D069B00756584 /* CalorieIntakeRepresentation.swift */; };
 		956C2370245D072E00756584 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C236F245D072E00756584 /* CoreDataStack.swift */; };
 		956C2372245D083A00756584 /* CalorieIntake+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C2371245D083A00756584 /* CalorieIntake+Convenience.swift */; };
 		956C2374245D09C000756584 /* CalorieIntakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C2373245D09C000756584 /* CalorieIntakeController.swift */; };
@@ -39,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		8EADB54F7B180B661CF7C4DE /* Pods_CalorieTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9526B8A2245F464800D85450 /* CalorieIntakeRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeRepresentation.swift; sourceTree = "<group>"; };
+		9526B8A4245F4A4400D85450 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		956C234F245D008F00756584 /* CalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		956C2352245D008F00756584 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		956C2354245D009000756584 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,7 +50,6 @@
 		956C235E245D009000756584 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		956C2360245D009000756584 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		956C236B245D061400756584 /* CalorieIntake.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieIntake.xcdatamodel; sourceTree = "<group>"; };
-		956C236D245D069B00756584 /* CalorieIntakeRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeRepresentation.swift; sourceTree = "<group>"; };
 		956C236F245D072E00756584 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		956C2371245D083A00756584 /* CalorieIntake+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieIntake+Convenience.swift"; sourceTree = "<group>"; };
 		956C2373245D09C000756584 /* CalorieIntakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeController.swift; sourceTree = "<group>"; };
@@ -122,9 +124,9 @@
 			isa = PBXGroup;
 			children = (
 				956C236A245D061400756584 /* CalorieIntake.xcdatamodeld */,
-				956C236D245D069B00756584 /* CalorieIntakeRepresentation.swift */,
 				956C236F245D072E00756584 /* CoreDataStack.swift */,
 				956C2371245D083A00756584 /* CalorieIntake+Convenience.swift */,
+				9526B8A2245F464800D85450 /* CalorieIntakeRepresentation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -151,6 +153,7 @@
 				956C2354245D009000756584 /* SceneDelegate.swift */,
 				956C2352245D008F00756584 /* AppDelegate.swift */,
 				956C235B245D009000756584 /* Assets.xcassets */,
+				9526B8A4245F4A4400D85450 /* Notifications.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -307,13 +310,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9526B8A5245F4A4400D85450 /* Notifications.swift in Sources */,
 				956C236C245D061400756584 /* CalorieIntake.xcdatamodeld in Sources */,
 				956C2353245D008F00756584 /* AppDelegate.swift in Sources */,
 				956C2372245D083A00756584 /* CalorieIntake+Convenience.swift in Sources */,
 				956C237C245D0F6400756584 /* CalorieIntakeTableViewCell.swift in Sources */,
 				956C2379245D0E2600756584 /* CalorieTrackerViewController.swift in Sources */,
+				9526B8A3245F464800D85450 /* CalorieIntakeRepresentation.swift in Sources */,
 				956C2370245D072E00756584 /* CoreDataStack.swift in Sources */,
-				956C236E245D069B00756584 /* CalorieIntakeRepresentation.swift in Sources */,
 				956C2355245D009000756584 /* SceneDelegate.swift in Sources */,
 				956C2374245D09C000756584 /* CalorieIntakeController.swift in Sources */,
 			);
