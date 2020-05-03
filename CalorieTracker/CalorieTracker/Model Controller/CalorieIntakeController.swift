@@ -17,7 +17,7 @@ class CalorieIntakeController {
     
     private(set) var listOfIntakes: [CalorieIntake] = []
     var listOfCalories: [Double] {
-        var list: [Double] = []
+        var list: [Double] = [0]
         for item in listOfIntakes {
             list.append(item.calories)
         }

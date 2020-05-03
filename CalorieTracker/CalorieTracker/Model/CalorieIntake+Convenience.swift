@@ -17,7 +17,7 @@ extension CalorieIntake {
         self.init(context: context)
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM-dd-yyyy"
+        dateFormatter.dateFormat = "MMM dd, yyyy"
 
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "h:mm:ss"

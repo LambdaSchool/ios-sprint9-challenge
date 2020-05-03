@@ -40,16 +40,22 @@ class CalorieTrackerViewController: UIViewController, UITableViewDelegate, UITab
         intakeTableView.dataSource = self
         intakeTableView.reloadData()
 
+//        let series = ChartSeries(calorieIntakeController.listOfCalories)
+//        series.color = ChartColors.greenColor()
+//        series.area = true
+//        intakeChartView.minY = 0.0
+//        intakeChartView.maxY = 1000
+//        intakeChartView.add(series)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         let series = ChartSeries(calorieIntakeController.listOfCalories)
         series.color = ChartColors.greenColor()
         series.area = true
         intakeChartView.minY = 0.0
         intakeChartView.maxY = 1000
         intakeChartView.add(series)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateViews),
                                                name: .newCalorieIntakeAddedNotificationName,
@@ -58,7 +64,10 @@ class CalorieTrackerViewController: UIViewController, UITableViewDelegate, UITab
 
     @objc func updateViews() {
         intakeTableView.reloadData()
-        intakeChartView.reloadInputViews()
+        let series = ChartSeries(calorieIntakeController.listOfCalories)
+        series.color = ChartColors.greenColor()
+        series.area = true
+        intakeChartView.add(series)
     }
 
     // MARK: UITableView Delegates and Data Source
