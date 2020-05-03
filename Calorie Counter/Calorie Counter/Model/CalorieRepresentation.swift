@@ -9,13 +9,9 @@
 import Foundation
 
 struct CalorieRepresentation: Codable {
-    var calories: String
-    var date: String
+    var calories: Int
+    var date: TimeInterval
     var identifier: String?
 }
 
 
-//self.init(context: context)
-//self.calories = calories
-//self.identifier = identifier
-//self.date = date
