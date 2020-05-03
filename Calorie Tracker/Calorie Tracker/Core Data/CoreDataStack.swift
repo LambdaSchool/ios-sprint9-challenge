@@ -21,7 +21,6 @@ class CoreDataStack {
         return container
     }()
     
-    // Handle to the data in database
     var mainContext: NSManagedObjectContext {
         container.viewContext
     }

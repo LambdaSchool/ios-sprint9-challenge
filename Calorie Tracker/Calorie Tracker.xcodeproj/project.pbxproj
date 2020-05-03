@@ -14,7 +14,6 @@
 		BADC656E245F6933000ADB03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BADC656D245F6933000ADB03 /* Assets.xcassets */; };
 		BADC6571245F6933000ADB03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BADC656F245F6933000ADB03 /* LaunchScreen.storyboard */; };
 		BADC657C245F7A24000ADB03 /* CalorieTrackerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC657B245F7A24000ADB03 /* CalorieTrackerTableViewController.swift */; };
-		BADC6580245F7B2D000ADB03 /* CalorieIntakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC657F245F7B2D000ADB03 /* CalorieIntakeController.swift */; };
 		BADC6582245F7B5A000ADB03 /* CalorieIntake+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC6581245F7B5A000ADB03 /* CalorieIntake+Convenience.swift */; };
 		BADC6585245F7B8F000ADB03 /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BADC6583245F7B8F000ADB03 /* CalorieTracker.xcdatamodeld */; };
 		BADC6587245F7BA5000ADB03 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADC6586245F7BA5000ADB03 /* CoreDataStack.swift */; };
@@ -32,7 +31,6 @@
 		BADC6570245F6933000ADB03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BADC6572245F6933000ADB03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BADC657B245F7A24000ADB03 /* CalorieTrackerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerTableViewController.swift; sourceTree = "<group>"; };
-		BADC657F245F7B2D000ADB03 /* CalorieIntakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeController.swift; sourceTree = "<group>"; };
 		BADC6581245F7B5A000ADB03 /* CalorieIntake+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieIntake+Convenience.swift"; sourceTree = "<group>"; };
 		BADC6584245F7B8F000ADB03 /* CalorieTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieTracker.xcdatamodel; sourceTree = "<group>"; };
 		BADC6586245F7BA5000ADB03 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 		BADC657D245F7ACC000ADB03 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BADC657F245F7B2D000ADB03 /* CalorieIntakeController.swift */,
 				BADC6581245F7B5A000ADB03 /* CalorieIntake+Convenience.swift */,
 			);
 			path = Controllers;
@@ -269,7 +266,6 @@
 				BADC6585245F7B8F000ADB03 /* CalorieTracker.xcdatamodeld in Sources */,
 				BADC6567245F6933000ADB03 /* SceneDelegate.swift in Sources */,
 				BADC6587245F7BA5000ADB03 /* CoreDataStack.swift in Sources */,
-				BADC6580245F7B2D000ADB03 /* CalorieIntakeController.swift in Sources */,
 				BADC6582245F7B5A000ADB03 /* CalorieIntake+Convenience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
