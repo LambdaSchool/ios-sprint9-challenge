@@ -7,84 +7,114 @@
 //
 
 import UIKit
+import CoreData
+import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController {
-
+    
+    // MARK: - Properties
+    
+    @IBOutlet private weak var chart: Chart!
+    
+    var calorieIntakeArray: [CalorieIntake] {
+        let fetchRequest: NSFetchRequest<CalorieIntake> = CalorieIntake.fetchRequest()
+        let context = CoreDataStack.shared.mainContext
+        do {
+            return try context.fetch(fetchRequest)
+        } catch {
+            NSLog("Error fetching calorieIntakes: \(error)")
+            return []
+        }
+    }
+    
+    var calorieSeriesArray: ChartSeries {
+        var temp: [Double] = []
+        for intake in calorieIntakeArray {
+            temp.append(Double(intake.calories))
+        }
+        return ChartSeries(temp)
+    }
+    
+    fileprivate lazy var alertController: UIAlertController = {
+        let alertController = UIAlertController(title: "Add Calorie Intake.", message: "Enter the number of calories below.", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Submit", style: .default, handler: { _ in
+            print(self.textField?.text ?? "")
+            self.saveCalorieIntake()
+            self.textField?.text = ""
+            
+            NotificationCenter.default.post(name: .updateViews, object: self)
+        }))
+        
+        alertController.addTextField { textField in
+            self.textField = textField
+        }
+        return alertController
+    }()
+    
+    var dateFormatter: DateFormatter = {
+       let formatter = DateFormatter()
+       formatter.dateStyle = .short
+       formatter.timeStyle = .short
+       return formatter
+    }()
+    
+    fileprivate var textField: UITextField?
+    
+    @IBAction func addButton(_ sender: UIBarButtonItem) {
+        present(alertController, animated: true)
+    }
+    
+    // MARK: - Method
+    func saveCalorieIntake() {
+        guard let calories = textField!.text, !calories.isEmpty else { return }
+        
+        let cals: Int = Int(calories) ?? 0
+        _ = CalorieIntake(calories: cals, dateEntered: Date())
+        
+        do {
+            try CoreDataStack.shared.mainContext.save()
+        } catch {
+            NSLog("Error saving managed object context: \(error)")
+        }
+    }
+    
+    // MARK: - View
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshChart), name: .updateViews, object: nil)
+        
+        chart.add(calorieSeriesArray)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    @objc func refreshChart() {
+        chart.removeAllSeries()
+        chart.add(calorieSeriesArray)
+        tableView.reloadData()
     }
 
-    // MARK: - Table view data source
-
+    // MARK: - Data Source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return calorieIntakeArray.count
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        // Configure the cell...
+        let calorieIntake = calorieIntakeArray[indexPath.row]
+        cell.textLabel?.text = "Calories: \(calorieIntake.calories)"
+        cell.detailTextLabel?.text = dateFormatter.string(from: calorieIntake.dateEntered ?? Date())
 
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+    
