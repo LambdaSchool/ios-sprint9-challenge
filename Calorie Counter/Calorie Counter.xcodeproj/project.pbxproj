@@ -35,6 +35,7 @@
 		E05250CD245D03170006348E /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		E05250CF245D06440006348E /* Calorie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience.swift"; sourceTree = "<group>"; };
 		E05250D2245D07A50006348E /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
+		E05250D7245EA1A80006348E /* Calorie_Counter 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Calorie_Counter 2.xcdatamodel"; sourceTree = "<group>"; };
 		E1589A83B7C80E222649D379 /* Pods-Calorie Counter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calorie Counter.debug.xcconfig"; path = "Target Support Files/Pods-Calorie Counter/Pods-Calorie Counter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -471,9 +472,10 @@
 		E05250BD245CFE970006348E /* Calorie.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				E05250D7245EA1A80006348E /* Calorie_Counter 2.xcdatamodel */,
 				E05250BE245CFE970006348E /* Calorie_Counter.xcdatamodel */,
 			);
-			currentVersion = E05250BE245CFE970006348E /* Calorie_Counter.xcdatamodel */;
+			currentVersion = E05250D7245EA1A80006348E /* Calorie_Counter 2.xcdatamodel */;
 			path = Calorie.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
