@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+extension NSNotification.Name {
+    
+    static let updateViews = NSNotification.Name("updateViews")
+}
