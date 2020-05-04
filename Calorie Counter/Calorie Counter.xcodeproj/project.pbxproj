@@ -19,6 +19,8 @@
 		E05250D0245D06440006348E /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05250CF245D06440006348E /* Calorie+Convenience.swift */; };
 		E05250D3245D07A50006348E /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05250D2245D07A50006348E /* CalorieController.swift */; };
 		E05250D9245EA2AD0006348E /* CalorieRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05250D8245EA2AD0006348E /* CalorieRepresentation.swift */; };
+		E05250DD245FF9B50006348E /* ResultsDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05250DC245FF9B50006348E /* ResultsDecoder.swift */; };
+		E05250DF245FFA6F0006348E /* NetworkingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05250DE245FFA6F0006348E /* NetworkingExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		E05250D7245EA1A80006348E /* Calorie_Counter 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Calorie_Counter 2.xcdatamodel"; sourceTree = "<group>"; };
 		E05250D8245EA2AD0006348E /* CalorieRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieRepresentation.swift; sourceTree = "<group>"; };
 		E05250DA245EAC410006348E /* Calorie_Counter 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Calorie_Counter 3.xcdatamodel"; sourceTree = "<group>"; };
+		E05250DC245FF9B50006348E /* ResultsDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsDecoder.swift; sourceTree = "<group>"; };
+		E05250DE245FFA6F0006348E /* NetworkingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingExtensions.swift; sourceTree = "<group>"; };
 		E1589A83B7C80E222649D379 /* Pods-Calorie Counter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calorie Counter.debug.xcconfig"; path = "Target Support Files/Pods-Calorie Counter/Pods-Calorie Counter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +96,7 @@
 		E05250B3245CFE970006348E /* Calorie Counter */ = {
 			isa = PBXGroup;
 			children = (
+				E05250DB245FF9920006348E /* Networking */,
 				E05250D4245D085C0006348E /* Model */,
 				E05250D1245D078A0006348E /* Model Controller */,
 				E05250D5245D087C0006348E /* View Controller */,
@@ -130,6 +135,15 @@
 				E05250CB245D00AF0006348E /* CalorieCounterTableViewController.swift */,
 			);
 			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		E05250DB245FF9920006348E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E05250DC245FF9B50006348E /* ResultsDecoder.swift */,
+				E05250DE245FFA6F0006348E /* NetworkingExtensions.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,10 +281,12 @@
 			files = (
 				E05250D9245EA2AD0006348E /* CalorieRepresentation.swift in Sources */,
 				E05250CE245D03170006348E /* CoreDataStack.swift in Sources */,
+				E05250DD245FF9B50006348E /* ResultsDecoder.swift in Sources */,
 				E05250D0245D06440006348E /* Calorie+Convenience.swift in Sources */,
 				E05250CC245D00AF0006348E /* CalorieCounterTableViewController.swift in Sources */,
 				E05250D3245D07A50006348E /* CalorieController.swift in Sources */,
 				E05250B5245CFE970006348E /* AppDelegate.swift in Sources */,
+				E05250DF245FFA6F0006348E /* NetworkingExtensions.swift in Sources */,
 				E05250BF245CFE970006348E /* Calorie.xcdatamodeld in Sources */,
 				E05250B7245CFE970006348E /* SceneDelegate.swift in Sources */,
 			);

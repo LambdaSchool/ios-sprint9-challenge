@@ -10,14 +10,17 @@ import Foundation
 import CoreData
 
 extension Calorie {
-    convenience init(calories: Int16, date: Date = Date(),identifier: String = UUID().uuidString, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    convenience init(calories: Int16,
+                     date: Date = Date(),
+                     identifier: String = UUID().uuidString,
+                     context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.calories = calories
         self.identifier = identifier
         self.date = date
     }
     
-    convenience init(_ calorieRepresentation: CalorieRepresentation, context: NSManagedObjectContext) {
+    convenience init?(_ calorieRepresentation: CalorieRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.calories = Int16(calorieRepresentation.calories)
         self.identifier = identifier
