@@ -42,11 +42,10 @@ class TrackerTableViewController: UITableViewController {
             // Delete the row from the data source
             entries.remove(at: indexPath.row)
         } else if editingStyle == .insert {
-    }    
+    }
     }
     // ACTION: - Methods
     @IBAction func addEntryButtonPressed(_ sender: Any) {
-        var intake = NSString()
         let alert = UIAlertController(title: "Add Calorie Entry",
                                       message: "Enter the amount of Calories",
                                       preferredStyle: .alert)
@@ -55,19 +54,18 @@ class TrackerTableViewController: UITableViewController {
         calorieEntry.textAlignment = .center
         calorieEntry.keyboardType = .numberPad
         guard let text = calorieEntry.text else { return }
-        intake = text as NSString
         }
-        let alertAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+        let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in
             let text = alert.textFields?.first?.text
             self.addEntryToChart(entry: NSString(string: text ?? "null"))
         }
-        let cancelAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in
+        let cancelAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
         }
         alert.addAction(alertAction)
         alert.addAction(cancelAlertAction)
         self.present(alert,animated: true, completion: nil)
     }
-    
+
     func addEntryToChart(entry: NSString) {
         let number = entry.doubleValue
         let currentDateTime = Date()
@@ -78,5 +76,5 @@ class TrackerTableViewController: UITableViewController {
         let series = ChartSeries(data)
         calorieChart.add(series)
     }
-    
+
 }
