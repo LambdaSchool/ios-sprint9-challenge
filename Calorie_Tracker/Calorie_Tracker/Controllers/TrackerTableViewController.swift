@@ -13,9 +13,12 @@ import CoreData
 class TrackerTableViewController: UITableViewController {
 
     @IBOutlet weak var addEntryButton: UIBarButtonItem!
-    
+    @IBOutlet weak var calorieChart: Chart!
     let entryController = EntryController()
-
+    let chart = Chart()
+    var data: [Double] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -40,26 +43,40 @@ class TrackerTableViewController: UITableViewController {
             // Delete the row from the data source
             entryController.entries.remove(at: indexPath.row)
         } else if editingStyle == .insert {
-           
         }    
     }
     // ACTION: - Methods
     @IBAction func addEntryButtonPressed(_ sender: Any) {
+        var intake = NSString()
         let alert = UIAlertController(title: "Add Calorie Entry",
                                       message: "Enter the amount of Calories",
                                       preferredStyle: .alert)
+        alert.addTextField { (calorieEntry) in
+        calorieEntry.placeholder = "Enter Calorie Count"
+        calorieEntry.textAlignment = .center
+        calorieEntry.keyboardType = .numberPad
+        guard let text = calorieEntry.text else { return }
+        intake = text as NSString
+        }
         let alertAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
-            
+            let text = alert.textFields?.first?.text
+            self.addEntryToChart(entry: NSString(string: text ?? "null"))
+        
         }
         let cancelAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in
         }
-        alert.addTextField { (calorieEntry) in
-            calorieEntry.placeholder = "Enter Calorie Count"
-        }
+        
+        
         alert.addAction(alertAction)
         alert.addAction(cancelAlertAction)
         self.present(alert,animated: true, completion: nil)
     }
     
-
+    func addEntryToChart(entry: NSString) {
+        let number = entry.doubleValue
+        data.append(number)
+        let series = ChartSeries(data)
+        calorieChart.add(series)
+    }
+    
 }

@@ -14,9 +14,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="HZb-Jb-Muj" customClass="Chart" customModule="SwiftChart">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackerCell" id="m4K-qq-xxQ" customClass="TrackerTableViewCell" customModule="Calorie_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="36"/>
+                                <rect key="frame" x="0.0" y="178" width="414" height="36"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m4K-qq-xxQ" id="y3N-KA-CHI">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="36"/>
@@ -69,6 +74,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addEntryButton" destination="Lf5-xr-VM0" id="W6X-Jo-4wY"/>
+                        <outlet property="calorieChart" destination="HZb-Jb-Muj" id="XGg-Xf-jjx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gg1-pN-Xfv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
