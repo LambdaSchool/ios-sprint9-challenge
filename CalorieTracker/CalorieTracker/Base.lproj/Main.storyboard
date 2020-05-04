@@ -45,7 +45,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OOp-Ie-P48">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OOp-Ie-P48" customClass="Chart" customModule="SwiftChart">
                                 <rect key="frame" x="0.0" y="88" width="375" height="220"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -68,11 +68,12 @@
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="Vnt-R4-87M">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xv3-sw-mDm">
                             <connections>
-                                <action selector="addCalorieDataPoint:" destination="BYZ-38-t0r" id="XhT-N8-qoz"/>
+                                <action selector="addCaloriesButtonTapped:" destination="BYZ-38-t0r" id="gig-69-tlv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="calorieChart" destination="OOp-Ie-P48" id="CRc-PO-EdI"/>
                         <outlet property="tableView" destination="JjL-5r-8ds" id="fTX-LV-Sh6"/>
                     </connections>
                 </viewController>

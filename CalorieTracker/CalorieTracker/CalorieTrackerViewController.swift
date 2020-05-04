@@ -13,45 +13,57 @@ class CalorieTrackerViewController: UIViewController {
 
     var calorieDataPoints = [CalorieDataPoint]()
     
+    @IBOutlet private weak var calorieChart: Chart!
     @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        updateViews()
     }
     
-    @IBAction func addCalorieDataPoint(_ sender: UIBarButtonItem) {
+    @IBAction func addCaloriesButtonTapped(_ sender: UIBarButtonItem) {
         showCalorieIntakeAlert()
     }
     
     private func showCalorieIntakeAlert() {
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field below", preferredStyle: .alert)
-        alert.addTextField { textField in
-            textField.placeholder = "Calories:"
-            textField.keyboardType = .numberPad
-        }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
             guard let textFields = alert.textFields,
                 let caloriesString = textFields[0].text,
                 !caloriesString.isEmpty,
                 let calories = Int(caloriesString) else { return }
-            self.addCalorieDataPoint(calories: calories)
-            alert.dismiss(animated: true, completion: nil)
+            self.addCalories(calories: calories)
         }
         
+        alert.addTextField { textField in
+            textField.placeholder = "Calories:"
+            textField.keyboardType = .numberPad
+        }
         alert.addAction(cancelAction)
         alert.addAction(submitAction)
-        
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func addCalorieDataPoint(calories: Int) {
+    private func addCalories(calories: Int) {
         let timestamp = Date()
         let calorieDataPoint = CalorieDataPoint(calories: calories, timestamp: timestamp)
         calorieDataPoints.append(calorieDataPoint)
+        updateViews()
+    }
+    
+    private func updateChart() {
+        let calorieData = calorieDataPoints.compactMap { Double($0.calories) }
+        let series = ChartSeries(calorieData)
+        series.area = true
+        calorieChart.add(series)
+    }
+    
+    private func updateViews() {
         tableView.reloadData()
+        updateChart()
     }
 }
 
