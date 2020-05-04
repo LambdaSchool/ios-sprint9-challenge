@@ -14,7 +14,6 @@
 		12434D69245D02870018BCBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12434D67245D02870018BCBA /* LaunchScreen.storyboard */; };
 		12434D71245D07D80018BCBA /* CalorieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12434D70245D07D80018BCBA /* CalorieTableViewController.swift */; };
 		12434D73245D08C20018BCBA /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12434D72245D08C20018BCBA /* CoreDataStack.swift */; };
-		12434D77245D0CD60018BCBA /* CalorieRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12434D76245D0CD60018BCBA /* CalorieRepresentation.swift */; };
 		12434D79245D0D090018BCBA /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12434D78245D0D090018BCBA /* Calorie+Convenience.swift */; };
 		12434D7D245D0E4F0018BCBA /* Calorie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 12434D7B245D0E4F0018BCBA /* Calorie.xcdatamodeld */; };
 		12434D7F245D126B0018BCBA /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12434D7E245D126B0018BCBA /* CalorieController.swift */; };
@@ -33,7 +32,6 @@
 		12434D6A245D02870018BCBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12434D70245D07D80018BCBA /* CalorieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewController.swift; sourceTree = "<group>"; };
 		12434D72245D08C20018BCBA /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		12434D76245D0CD60018BCBA /* CalorieRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieRepresentation.swift; sourceTree = "<group>"; };
 		12434D78245D0D090018BCBA /* Calorie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience.swift"; sourceTree = "<group>"; };
 		12434D7C245D0E4F0018BCBA /* Calorie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calorie.xcdatamodel; sourceTree = "<group>"; };
 		12434D7E245D126B0018BCBA /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
@@ -92,7 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				12434D72245D08C20018BCBA /* CoreDataStack.swift */,
-				12434D76245D0CD60018BCBA /* CalorieRepresentation.swift */,
 				12434D78245D0D090018BCBA /* Calorie+Convenience.swift */,
 				12434D7B245D0E4F0018BCBA /* Calorie.xcdatamodeld */,
 			);
@@ -275,7 +272,6 @@
 				12434D5F245D02860018BCBA /* SceneDelegate.swift in Sources */,
 				12434D73245D08C20018BCBA /* CoreDataStack.swift in Sources */,
 				12434D7F245D126B0018BCBA /* CalorieController.swift in Sources */,
-				12434D77245D0CD60018BCBA /* CalorieRepresentation.swift in Sources */,
 				12434D7D245D0E4F0018BCBA /* Calorie.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

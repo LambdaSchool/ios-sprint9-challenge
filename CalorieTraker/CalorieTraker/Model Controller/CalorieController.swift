@@ -17,7 +17,7 @@ class CalorieController {
         let caloriePost = Calorie(calories: calories, date: Date())
         caloriePosts.append(caloriePost)
         do {
-        try CoreDataStack.shared.save(context: CoreDataStack.shared.mainContext)
+            try CoreDataStack.shared.save(context: CoreDataStack.shared.mainContext)
         } catch {
             fatalError("Could not save calorie post: \(error)")
         }
