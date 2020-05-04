@@ -10,83 +10,56 @@ import UIKit
 import SwiftChart
 import CoreData
 
+class TrackerTableViewController: UITableViewController {
 
-class TrackerTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
-
-let entryController = EntryController()
-var entries: [Entry] {
-    let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
-    let moc = CoreDataStack.shared.mainContext
-    do {
-        return try moc.fetch(fetchRequest)
-    } catch {
-        print("Error fetching tasks: \(error)")
-        return []
-    }
+    @IBOutlet weak var addEntryButton: UIBarButtonItem!
     
-}
-
-//var fetchedResultsController: NSFetchedResultsController<Entry> = {
-//    let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
-//    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
-//    let moc = CoreDataStack.shared.mainContext
-//    let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "priority", cacheName: nil)
-//    frc.delegate = self
-//    try! frc.performFetch()
-//    return frc
-//}()
+    let entryController = EntryController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return entryController.entries.count
     }
-
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TrackerCell", for: indexPath)
+            as? TrackerTableViewCell else { return UITableViewCell()}
+        let entry = entryController.entries[indexPath.row]
+        cell.entry = entry
+        
         return cell
     }
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle:
+     UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            entryController.entries.remove(at: indexPath.row)
         } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+           
         }    
     }
-    */
-
+    // ACTION: - Methods
+    @IBAction func addEntryButtonPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Add Calorie Entry",
+                                      message: "Enter the amount of Calories",
+                                      preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+            
+        }
+        let cancelAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in
+        }
+        alert.addTextField { (calorieEntry) in
+            calorieEntry.placeholder = "Enter Calorie Count"
+        }
+        alert.addAction(alertAction)
+        alert.addAction(cancelAlertAction)
+        self.present(alert,animated: true, completion: nil)
+    }
+    
 
 }

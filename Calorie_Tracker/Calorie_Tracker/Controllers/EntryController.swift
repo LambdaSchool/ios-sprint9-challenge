@@ -9,37 +9,26 @@
 import Foundation
 
 class EntryController {
+    var entries = [Entry]()
     func saveToPersistentStore() {
-        let moc = CoreDataStack.shared.container.viewContext
+        let context  = CoreDataStack.shared.container.viewContext
         do {
-            try moc.save()
+            try context.save()
         } catch {
             NSLog("Error saving managed context: \(error)")
         }
     }
-    
-    // Saves content to Core Data
+    // Saves context to Core Data
     func save() {
-        let moc = CoreDataStack.shared.mainContext
+        let context = CoreDataStack.shared.mainContext
         do {
-            try moc.save()
+            try context.save()
         } catch {
             print("There was a problem saving: \(error)")
         }
     }
-    
-    func update(entry: Entry) {
-        let moc = CoreDataStack.shared.mainContext
-        do {
-            try moc.save()
-        } catch {
-            print("there was a problem Updating Core Data: \(error)")
-        }
-        
-    }
-    
     func delete(entry: Entry) {
-        let moc = CoreDataStack.shared.mainContext
-        moc.delete(entry)
+        let context = CoreDataStack.shared.mainContext
+        context.delete(entry)
     }
 }
