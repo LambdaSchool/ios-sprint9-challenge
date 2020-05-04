@@ -15,14 +15,11 @@ class CoreDataStack {
         container.loadPersistentStores { (_, error)  in
             if let error = error {
                 fatalError("Failed to load persistent stores: \(error)")
-                
             }
         }
         return container
     }()
-    
     var mainContext: NSManagedObjectContext {
         return container.viewContext
-    }
-    
+    }    
 }

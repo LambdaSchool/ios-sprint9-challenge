@@ -24,8 +24,10 @@ class TrackerTableViewCell: UITableViewCell {
         func updateViews() {
             guard let entry = entry else { return }
             DispatchQueue.main.async {
-                self.calorieLabel.text = "\(entry.calories)"
-                self.dateLabel.text = ""
+                self.calorieLabel.text = String(entry.calories)
+                let date = self.formatter(currentDate: entry.date!)
+                self.dateLabel.text = date
+                
             }
         }
     }

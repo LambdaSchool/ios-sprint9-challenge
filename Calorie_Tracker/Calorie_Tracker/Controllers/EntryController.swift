@@ -9,7 +9,7 @@
 import Foundation
 
 class EntryController {
-    var entries = [Entry]()
+    
     func saveToPersistentStore() {
         let context  = CoreDataStack.shared.container.viewContext
         do {

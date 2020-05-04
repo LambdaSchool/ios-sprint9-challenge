@@ -15,25 +15,24 @@ class TrackerTableViewController: UITableViewController {
     @IBOutlet weak var addEntryButton: UIBarButtonItem!
     @IBOutlet weak var calorieChart: Chart!
     let entryController = EntryController()
+    var entries = [Entry]()
     let chart = Chart()
     var data: [Double] = []
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return entryController.entries.count
+        return entries.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TrackerCell", for: indexPath)
             as? TrackerTableViewCell else { return UITableViewCell()}
-        let entry = entryController.entries[indexPath.row]
+        let entry = entries[indexPath.row]
         cell.entry = entry
-        
         return cell
     }
     // Override to support editing the table view.
@@ -41,9 +40,9 @@ class TrackerTableViewController: UITableViewController {
      UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            entryController.entries.remove(at: indexPath.row)
+            entries.remove(at: indexPath.row)
         } else if editingStyle == .insert {
-        }    
+    }    
     }
     // ACTION: - Methods
     @IBAction func addEntryButtonPressed(_ sender: Any) {
@@ -61,12 +60,9 @@ class TrackerTableViewController: UITableViewController {
         let alertAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
             let text = alert.textFields?.first?.text
             self.addEntryToChart(entry: NSString(string: text ?? "null"))
-        
         }
         let cancelAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in
         }
-        
-        
         alert.addAction(alertAction)
         alert.addAction(cancelAlertAction)
         self.present(alert,animated: true, completion: nil)
@@ -74,6 +70,10 @@ class TrackerTableViewController: UITableViewController {
     
     func addEntryToChart(entry: NSString) {
         let number = entry.doubleValue
+        let currentDateTime = Date()
+        let newEntry = Entry(calories: number, date: currentDateTime)
+        self.entries.append(newEntry)
+        entryController.save()
         data.append(number)
         let series = ChartSeries(data)
         calorieChart.add(series)
