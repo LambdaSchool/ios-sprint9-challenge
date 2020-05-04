@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Calorie Intake Table View Controller-->
+        <!--Calorie Tracker-->
         <scene sceneID="yT0-Z3-NsQ">
             <objects>
                 <tableViewController id="j4m-im-VcB" customClass="CalorieIntakeTableViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,14 +20,19 @@
                             <subviews>
                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nm2-oW-8I9" userLabel="CalorieChart" customClass="Chart" customModule="SwiftChart">
                                     <rect key="frame" x="6" y="10" width="382" height="211"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="nm2-oW-8I9" secondAttribute="bottom" constant="8" id="7Mi-Ac-tKz"/>
+                                <constraint firstAttribute="trailing" secondItem="nm2-oW-8I9" secondAttribute="trailing" constant="8" id="H9y-2L-DFa"/>
+                                <constraint firstItem="nm2-oW-8I9" firstAttribute="top" secondItem="fDs-wO-Fzb" secondAttribute="top" constant="8" id="MYM-Mv-S60"/>
+                                <constraint firstItem="nm2-oW-8I9" firstAttribute="leading" secondItem="fDs-wO-Fzb" secondAttribute="leading" constant="8" id="zfL-bn-TCt"/>
+                            </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieIntakeCell" textLabel="wXO-AC-yqU" detailTextLabel="t7h-44-bJR" style="IBUITableViewCellStyleValue1" id="dFf-9J-mcK">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieCell" textLabel="wXO-AC-yqU" detailTextLabel="t7h-44-bJR" style="IBUITableViewCellStyleValue1" id="dFf-9J-mcK">
                                 <rect key="frame" x="0.0" y="268" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dFf-9J-mcK" id="8Fs-NI-86Q">
@@ -41,11 +46,11 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t7h-44-bJR">
-                                            <rect key="frame" x="350" y="12" width="44" height="20.5"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" id="t7h-44-bJR">
+                                            <rect key="frame" x="354" y="14" width="40" height="18"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -57,7 +62,7 @@
                             <outlet property="delegate" destination="j4m-im-VcB" id="Mtm-BL-pyP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="bMD-LI-HqM">
+                    <navigationItem key="navigationItem" title="Calorie Tracker" largeTitleDisplayMode="always" id="bMD-LI-HqM">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="WiM-yr-2lu">
                             <connections>
                                 <action selector="addCalorieIntake:" destination="j4m-im-VcB" id="yCe-3w-1cG"/>
