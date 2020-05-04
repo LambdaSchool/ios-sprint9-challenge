@@ -221,7 +221,9 @@ extension NSNotification.Name {
 }
 
 extension ChartColors {
+    // swiftlint:disable cyclomatic_complexity
     public static func colorForIndex(_ index: Int) -> UIColor {
+    // swiftlint:enable cyclomatic_complexity
         switch index % 13 {
         case 1:
             return ChartColors.blueColor()

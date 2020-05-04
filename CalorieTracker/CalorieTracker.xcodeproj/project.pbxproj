@@ -70,26 +70,50 @@
 		639332C1245FA6E700E84D09 /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
-				639332D7245FB3FF00E84D09 /* Model */,
-				639332C2245FA6E700E84D09 /* AppDelegate.swift */,
-				639332C4245FA6E700E84D09 /* SceneDelegate.swift */,
-				639332C6245FA6E700E84D09 /* CalorieTrackerViewController.swift */,
-				639332C8245FA6E700E84D09 /* Main.storyboard */,
-				639332CB245FA6E800E84D09 /* Assets.xcassets */,
-				639332CD245FA6E800E84D09 /* LaunchScreen.storyboard */,
-				639332D0245FA6E800E84D09 /* Info.plist */,
+				639332D7245FB3FF00E84D09 /* Models */,
+				639332E3245FF27800E84D09 /* View Controllers */,
+				639332E4245FF28D00E84D09 /* Storyboards */,
+				639332E2245FF26000E84D09 /* Resources */,
 			);
 			path = CalorieTracker;
 			sourceTree = "<group>";
 		};
-		639332D7245FB3FF00E84D09 /* Model */ = {
+		639332D7245FB3FF00E84D09 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				639332DF245FCE0C00E84D09 /* CalorieDataPoint+Convenience.swift */,
-				639332DA245FCADA00E84D09 /* CalorieTracker.xcdatamodeld */,
 				639332DD245FCBA700E84D09 /* CoreDataStack.swift */,
+				639332DA245FCADA00E84D09 /* CalorieTracker.xcdatamodeld */,
 			);
-			path = Model;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		639332E2245FF26000E84D09 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				639332C2245FA6E700E84D09 /* AppDelegate.swift */,
+				639332C4245FA6E700E84D09 /* SceneDelegate.swift */,
+				639332CB245FA6E800E84D09 /* Assets.xcassets */,
+				639332D0245FA6E800E84D09 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		639332E3245FF27800E84D09 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				639332C6245FA6E700E84D09 /* CalorieTrackerViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		639332E4245FF28D00E84D09 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				639332C8245FA6E700E84D09 /* Main.storyboard */,
+				639332CD245FA6E800E84D09 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		992BDDB7A3C0BDA1D848FFC3 /* Frameworks */ = {
@@ -395,7 +419,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3BQB6FYF6S;
-				INFOPLIST_FILE = CalorieTracker/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CalorieTracker/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -414,7 +438,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3BQB6FYF6S;
-				INFOPLIST_FILE = CalorieTracker/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CalorieTracker/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
