@@ -29,6 +29,12 @@ class CalorieTrackerViewController: UIViewController {
         return frc
     }()
     
+    let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy, h:mm:ss a"
+        return dateFormatter
+    }()
+    
     @IBOutlet private weak var calorieChart: Chart!
     @IBOutlet private weak var tableView: UITableView!
     
@@ -36,11 +42,39 @@ class CalorieTrackerViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateViews),
+                                               name: .calorieDataPointAddedNotificationName,
+                                               object: nil)
+        
         updateViews()
     }
     
     @IBAction func addCaloriesButtonTapped(_ sender: UIBarButtonItem) {
         showCalorieIntakeAlert()
+    }
+    
+    @objc private func updateViews() {
+        tableView.reloadData()
+        updateChart()
+    }
+    
+    private func updateChart() {
+        let calorieData = fetchedResultsController.fetchedObjects?.compactMap { $0.calories } ?? []
+        let series = ChartSeries(calorieData)
+        series.area = true
+        calorieChart.add(series)
+    }
+    
+    private func addCalories(calories: Double) {
+        CalorieDataPoint(calories: calories)
+        do {
+            try CoreDataStack.shared.save()
+        } catch {
+            print("Error saving task to database: \(error)")
+        }
+        NotificationCenter.default.post(Notification(name: .calorieDataPointAddedNotificationName, object: nil))
     }
     
     private func showCalorieIntakeAlert() {
@@ -62,28 +96,6 @@ class CalorieTrackerViewController: UIViewController {
         alert.addAction(submitAction)
         self.present(alert, animated: true, completion: nil)
     }
-    
-    private func addCalories(calories: Double) {
-        CalorieDataPoint(calories: calories)
-        do {
-            try CoreDataStack.shared.save()
-        } catch {
-            print("Error saving task to database: \(error)")
-        }
-        updateViews()
-    }
-    
-    private func updateChart() {
-        let calorieData = fetchedResultsController.fetchedObjects?.compactMap { $0.calories } ?? []
-        let series = ChartSeries(calorieData)
-        series.area = true
-        calorieChart.add(series)
-    }
-    
-    private func updateViews() {
-        tableView.reloadData()
-        updateChart()
-    }
 }
 
 extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSource {
@@ -101,9 +113,6 @@ extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSour
         let calorieDataPoint = fetchedResultsController.object(at: indexPath)
         let calories = calorieDataPoint.calories
         let timestamp = calorieDataPoint.timestamp ?? Date()
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, yyyy, h:mm:ss a"
         
         cell.textLabel?.text = "Calories: \(Int(calories))"
         cell.detailTextLabel?.text = dateFormatter.string(from: timestamp)
@@ -161,4 +170,8 @@ extension CalorieTrackerViewController: NSFetchedResultsControllerDelegate {
             break
         }
     }
+}
+
+extension NSNotification.Name {
+    static let calorieDataPointAddedNotificationName = NSNotification.Name("calorieDataPointAddedNotificationKey")
 }
