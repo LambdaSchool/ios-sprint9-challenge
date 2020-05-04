@@ -10,16 +10,21 @@ import Foundation
 import CoreData
 
 class CoreDataStack {
-
+    
+    enum Error: Swift.Error {
+        case invalidOperation
+        case failedOperation
+    }
+    
     // Let us access the CoreDataStack from anywhere in the app.
     static let shared = CoreDataStack()
-
+    
     // Set up a persistent container
-
+    
     lazy var container: NSPersistentContainer = {
-
+        
         let container = NSPersistentContainer(name: "CalorieTracker")
-
+        
         container.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("Failed to load persistent stores: \(error)")
@@ -27,21 +32,22 @@ class CoreDataStack {
         }
         return container
     }()
-
+    
     // Create easy access to the moc (managed object context)
     var mainContext: NSManagedObjectContext {
         return container.viewContext
     }
-
+    
     func save(context: NSManagedObjectContext) throws {
         var error: Error?
-
+        
         do {
             try context.save()
-        } catch let saveError {
-            error = saveError
+            
+        } catch Error.invalidOperation {
+            print("Action failed with invalid operation")
+            
+            if let error = error { throw error }
         }
-
-        if let error = error { throw error }
     }
 }
