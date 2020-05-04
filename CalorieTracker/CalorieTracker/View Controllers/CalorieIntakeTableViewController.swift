@@ -10,10 +10,10 @@ import UIKit
 import CoreData
 import SwiftChart
 
-struct PropertyKeys {
-    static let cell = "CalorieCell"
-    static let date = "date"
-    static let calorieIntakeAdded = "calorieIntakeAdded"
+enum PropertyKeys {
+    public static let cell = "CalorieCell"
+    public static let date = "date"
+    public static let calorieIntakeAdded = "calorieIntakeAdded"
 }
 
 class CalorieIntakeTableViewController: UITableViewController {
@@ -172,7 +172,7 @@ extension CalorieIntakeTableViewController: NSFetchedResultsControllerDelegate {
             guard let indexPath = indexPath else { return }
             tableView.reloadRows(at: [indexPath], with: .automatic)
         @unknown default:
-            fatalError()
+            fatalError("Error: Your app broke. Should have bought an android.")
         }
     }
 
