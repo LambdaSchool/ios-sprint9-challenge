@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Calorie Tracker View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="CalorieTrackerViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V5c-33-qhb" customClass="Chart" customModule="SwiftChart">
+                                <rect key="frame" x="0.0" y="156" width="414" height="195"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5PP-Cf-wzT">
+                                <rect key="frame" x="0.0" y="351" width="414" height="511"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieIntakeCell" id="flr-x7-awJ" customClass="CalorieIntakeTableViewCell" customModule="CalorieTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="flr-x7-awJ" id="RJ1-Bq-8ds">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WUW-OD-7lx">
+                                                    <rect key="frame" x="20" y="11.5" width="374" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeU-7O-T16">
+                                                            <rect key="frame" x="0.0" y="0.0" width="170.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSU-By-NVO">
+                                                            <rect key="frame" x="178.5" y="0.0" width="195.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="WUW-OD-7lx" firstAttribute="centerY" secondItem="RJ1-Bq-8ds" secondAttribute="centerY" id="J6V-UJ-uVq"/>
+                                                <constraint firstItem="WUW-OD-7lx" firstAttribute="leading" secondItem="RJ1-Bq-8ds" secondAttribute="leadingMargin" id="TxF-jJ-as4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="WUW-OD-7lx" secondAttribute="trailing" id="tOm-8N-Djy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="caloriesLabel" destination="LeU-7O-T16" id="M5E-ZX-83V"/>
+                                            <outlet property="dateAndTimeLabel" destination="oSU-By-NVO" id="mLP-6f-UoT"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VNH-5W-emE">
+                                <rect key="frame" x="0.0" y="60" width="414" height="96"/>
+                                <items>
+                                    <navigationItem title="Calorie Tracker" id="WkI-kb-TJN">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dje-j2-W5d">
+                                            <connections>
+                                                <action selector="addNewIntakeButton:" destination="BYZ-38-t0r" id="dsQ-Io-0rz"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="VNH-5W-emE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="2Fz-hz-laT"/>
+                            <constraint firstItem="5PP-Cf-wzT" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="5:8" id="6ig-yR-ZfO"/>
+                            <constraint firstItem="5PP-Cf-wzT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="79J-8o-Zq9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V5c-33-qhb" secondAttribute="trailing" id="Bdl-NR-Z5M"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5PP-Cf-wzT" secondAttribute="trailing" id="Ctk-Tf-1Ws"/>
+                            <constraint firstItem="V5c-33-qhb" firstAttribute="top" secondItem="VNH-5W-emE" secondAttribute="bottom" id="G81-zP-Bc8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5PP-Cf-wzT" secondAttribute="bottom" id="JQZ-F2-qR3"/>
+                            <constraint firstItem="VNH-5W-emE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="QW6-Mq-k3L"/>
+                            <constraint firstItem="VNH-5W-emE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZM8-jK-v6G"/>
+                            <constraint firstItem="5PP-Cf-wzT" firstAttribute="top" secondItem="V5c-33-qhb" secondAttribute="bottom" id="nR2-E9-3th"/>
+                            <constraint firstItem="V5c-33-qhb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qEa-Mj-qPv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="intakeChartView" destination="V5c-33-qhb" id="WCV-qP-Jaf"/>
+                        <outlet property="intakeTableView" destination="5PP-Cf-wzT" id="uun-jH-ngZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141" y="119"/>
+        </scene>
+    </scenes>
+</document>
