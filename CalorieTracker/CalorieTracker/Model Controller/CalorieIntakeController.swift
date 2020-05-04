@@ -12,7 +12,7 @@ import CoreData
 class CalorieIntakeController {
 
     init() {
-        loadFromPersistentStore()
+        listOfIntakes = loadFromPersistentStore()
     }
     
     private(set) var listOfIntakes: [CalorieIntake] = []
@@ -38,8 +38,7 @@ class CalorieIntakeController {
     func loadFromPersistentStore() -> [CalorieIntake] {
 
         let fetchRequest: NSFetchRequest<CalorieIntake> = CalorieIntake.fetchRequest()
-
-        fetchRequest.predicate = NSPredicate(format: "calories == %@", Double())
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
         let moc = CoreDataStack.shared.mainContext
 
         do {
