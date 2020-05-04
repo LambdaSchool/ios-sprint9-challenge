@@ -22,6 +22,7 @@
 		E05250DD245FF9B50006348E /* ResultsDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05250DC245FF9B50006348E /* ResultsDecoder.swift */; };
 		E05250DF245FFA6F0006348E /* NetworkingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05250DE245FFA6F0006348E /* NetworkingExtensions.swift */; };
 		E05250E1245FFACF0006348E /* NetworkingErrorsMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05250E0245FFACF0006348E /* NetworkingErrorsMethods.swift */; };
+		E05250E3245FFB110006348E /* FirebaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05250E2245FFB110006348E /* FirebaseClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		E05250DC245FF9B50006348E /* ResultsDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsDecoder.swift; sourceTree = "<group>"; };
 		E05250DE245FFA6F0006348E /* NetworkingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingExtensions.swift; sourceTree = "<group>"; };
 		E05250E0245FFACF0006348E /* NetworkingErrorsMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingErrorsMethods.swift; sourceTree = "<group>"; };
+		E05250E2245FFB110006348E /* FirebaseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseClient.swift; sourceTree = "<group>"; };
 		E1589A83B7C80E222649D379 /* Pods-Calorie Counter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calorie Counter.debug.xcconfig"; path = "Target Support Files/Pods-Calorie Counter/Pods-Calorie Counter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,7 @@
 				E05250DC245FF9B50006348E /* ResultsDecoder.swift */,
 				E05250DE245FFA6F0006348E /* NetworkingExtensions.swift */,
 				E05250E0245FFACF0006348E /* NetworkingErrorsMethods.swift */,
+				E05250E2245FFB110006348E /* FirebaseClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				E05250DF245FFA6F0006348E /* NetworkingExtensions.swift in Sources */,
 				E05250BF245CFE970006348E /* Calorie.xcdatamodeld in Sources */,
 				E05250B7245CFE970006348E /* SceneDelegate.swift in Sources */,
+				E05250E3245FFB110006348E /* FirebaseClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
