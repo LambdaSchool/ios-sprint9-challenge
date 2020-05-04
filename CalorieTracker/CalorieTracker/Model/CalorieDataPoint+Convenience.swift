@@ -18,4 +18,17 @@ extension CalorieDataPoint {
         self.calories = calories
         self.timestamp = timestamp
     }
+    
+    @discardableResult
+    convenience init(calories: Double,
+                     userName: String,
+                     timestamp: Date = Date(),
+                     userId: UUID = UUID(),
+                     context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        self.init(context: context)
+        self.calories = calories
+        self.timestamp = timestamp
+        self.userName = userName
+        self.userId = userId
+    }
 }

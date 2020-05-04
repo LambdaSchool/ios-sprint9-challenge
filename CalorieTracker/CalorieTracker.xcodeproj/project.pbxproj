@@ -33,6 +33,7 @@
 		639332DB245FCADA00E84D09 /* CalorieTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieTracker.xcdatamodel; sourceTree = "<group>"; };
 		639332DD245FCBA700E84D09 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		639332DF245FCE0C00E84D09 /* CalorieDataPoint+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieDataPoint+Convenience.swift"; sourceTree = "<group>"; };
+		639332E1245FD7BB00E84D09 /* CalorieTracker 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CalorieTracker 2.xcdatamodel"; sourceTree = "<group>"; };
 		CBBD5AA62D2869465CE50E89 /* Pods-CalorieTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.release.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -452,9 +453,10 @@
 		639332DA245FCADA00E84D09 /* CalorieTracker.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				639332E1245FD7BB00E84D09 /* CalorieTracker 2.xcdatamodel */,
 				639332DB245FCADA00E84D09 /* CalorieTracker.xcdatamodel */,
 			);
-			currentVersion = 639332DB245FCADA00E84D09 /* CalorieTracker.xcdatamodel */;
+			currentVersion = 639332E1245FD7BB00E84D09 /* CalorieTracker 2.xcdatamodel */;
 			path = CalorieTracker.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

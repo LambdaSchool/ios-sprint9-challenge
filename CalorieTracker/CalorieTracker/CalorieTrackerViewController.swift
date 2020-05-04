@@ -14,11 +14,12 @@ class CalorieTrackerViewController: UIViewController {
     
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieDataPoint> = {
         let fetchRequest: NSFetchRequest<CalorieDataPoint> = CalorieDataPoint.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "userName", ascending: true),
+                                        NSSortDescriptor(key: "timestamp", ascending: true)]
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
                                              managedObjectContext: moc,
-                                             sectionNameKeyPath: nil,
+                                             sectionNameKeyPath: "userName",
                                              cacheName: nil)
         frc.delegate = self
         do {
@@ -61,14 +62,25 @@ class CalorieTrackerViewController: UIViewController {
     }
     
     private func updateChart() {
-        let calorieData = fetchedResultsController.fetchedObjects?.compactMap { $0.calories } ?? []
-        let series = ChartSeries(calorieData)
-        series.area = true
-        calorieChart.add(series)
+        var userNames = [String]()
+        var allSeries = [ChartSeries]()
+        let sections = fetchedResultsController.sections ?? []
+        
+        for section in sections {
+            userNames.append(section.name)
+            guard let calorieDataPoints = section.objects as? [CalorieDataPoint] else { continue }
+            let caloriesData = calorieDataPoints.compactMap { $0.calories }
+            let series = ChartSeries(caloriesData)
+            series.area = true
+            series.color = ChartColors.colorForIndex(allSeries.count + 1)
+            allSeries.append(series)
+        }
+        
+        calorieChart.add(allSeries)
     }
     
-    private func addCalories(calories: Double) {
-        CalorieDataPoint(calories: calories)
+    private func addCalories(_ calories: Double, forUser userName: String) {
+        CalorieDataPoint(calories: calories, userName: userName)
         do {
             try CoreDataStack.shared.save()
         } catch {
@@ -78,20 +90,31 @@ class CalorieTrackerViewController: UIViewController {
     }
     
     private func showCalorieIntakeAlert() {
-        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field below", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
-            guard let textFields = alert.textFields,
-                let caloriesString = textFields[0].text,
-                !caloriesString.isEmpty,
-                let calories = Double(caloriesString) else { return }
-            self.addCalories(calories: calories)
+        let alert = UIAlertController(title: "Add Calorie Intake",
+                                      message: "Enter your name and the amount of calories to add",
+                                      preferredStyle: .alert)
+        
+        alert.addTextField { textField in
+            textField.placeholder = "Name:"
         }
         
         alert.addTextField { textField in
             textField.placeholder = "Calories:"
             textField.keyboardType = .numberPad
         }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
+            guard let textFields = alert.textFields,
+                let userName = textFields[0].text,
+                !userName.isEmpty,
+                let caloriesString = textFields[1].text,
+                !caloriesString.isEmpty,
+                let calories = Double(caloriesString) else { return }
+            
+            self.addCalories(calories, forUser: userName)
+        }
+        
         alert.addAction(cancelAction)
         alert.addAction(submitAction)
         self.present(alert, animated: true, completion: nil)
@@ -108,16 +131,37 @@ extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSour
         fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let sectionInfo = fetchedResultsController.sections?[section]
+        return sectionInfo?.name.capitalized
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieDataPointCell", for: indexPath)
         let calorieDataPoint = fetchedResultsController.object(at: indexPath)
+        let userName = calorieDataPoint.userName ?? "Unknown User"
         let calories = calorieDataPoint.calories
         let timestamp = calorieDataPoint.timestamp ?? Date()
         
-        cell.textLabel?.text = "Calories: \(Int(calories))"
+        cell.textLabel?.text = "\(userName)'s calories: \(Int(calories))"
         cell.detailTextLabel?.text = dateFormatter.string(from: timestamp)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let calorieDataPoint = fetchedResultsController.object(at: indexPath)
+            let context = CoreDataStack.shared.mainContext
+            do {
+                context.delete(calorieDataPoint)
+                try CoreDataStack.shared.save()
+                NotificationCenter.default.post(Notification(name: .calorieDataPointAddedNotificationName, object: nil))
+            } catch {
+                context.reset()
+                print("Error deleting object from managed object context: \(error)")
+            }
+        }
     }
 }
 
@@ -174,4 +218,37 @@ extension CalorieTrackerViewController: NSFetchedResultsControllerDelegate {
 
 extension NSNotification.Name {
     static let calorieDataPointAddedNotificationName = NSNotification.Name("calorieDataPointAddedNotificationKey")
+}
+
+extension ChartColors {
+    public static func colorForIndex(_ index: Int) -> UIColor {
+        switch index % 13 {
+        case 1:
+            return ChartColors.blueColor()
+        case 2:
+            return ChartColors.greenColor()
+        case 3:
+            return ChartColors.redColor()
+        case 4:
+            return ChartColors.yellowColor()
+        case 5:
+            return ChartColors.purpleColor()
+        case 6:
+            return ChartColors.cyanColor()
+        case 7:
+            return ChartColors.darkGreenColor()
+        case 8:
+            return ChartColors.darkRedColor()
+        case 9:
+            return ChartColors.goldColor()
+        case 10:
+            return ChartColors.maroonColor()
+        case 11:
+            return ChartColors.orangeColor()
+        case 12:
+            return ChartColors.pinkColor()
+        default:
+            return ChartColors.greyColor()
+        }
+    }
 }
