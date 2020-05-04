@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sRy-ag-0KS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -18,8 +18,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nm2-oW-8I9" userLabel="CalorieChart">
-                                    <rect key="frame" x="8" y="8" width="398" height="224"/>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nm2-oW-8I9" userLabel="CalorieChart" customClass="Chart" customModule="SwiftChart">
+                                    <rect key="frame" x="6" y="10" width="382" height="211"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 </view>
@@ -58,8 +58,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="bMD-LI-HqM">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="WiM-yr-2lu"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="WiM-yr-2lu">
+                            <connections>
+                                <action selector="addCalorieIntake:" destination="j4m-im-VcB" id="yCe-3w-1cG"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chart" destination="nm2-oW-8I9" id="CeQ-91-Nsc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7h-Q1-BQ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

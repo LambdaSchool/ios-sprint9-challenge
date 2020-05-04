@@ -7,9 +7,46 @@
 //
 
 import UIKit
+import CoreData
+import SwiftChart
 
-class CalorieIntakeTableViewController: UITableViewController {
+struct PropertyKeys {
+    static let cell = "CalorieIntakeCell"
+    static let date = "date"
+    static let calorieIntakeAdded = "calorieIntakeAdded"
+}
 
+class CalorieIntakeTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+    
+    @IBOutlet weak var chart: Chart!
+    
+    lazy var fetchedResultsController: NSFetchedResultsController<CalorieIntake> = {
+
+        let fetchRequest: NSFetchRequest<CalorieIntake> = CalorieIntake.fetchRequest()
+
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: PropertyKeys.date, ascending: true)]
+
+        let moc = CoreDataStack.shared.mainContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: PropertyKeys.date, cacheName: nil)
+
+        frc.delegate = self
+
+        do {
+            try frc.performFetch()
+        } catch {
+            fatalError("Error performing fetch for frc: \(error)")
+        }
+
+        return frc
+    }()
+    
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "LLL dd yyyy 'at' h:mm:ss a"
+        formatter.timeZone = TimeZone.autoupdatingCurrent
+        return formatter
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,60 +68,40 @@ class CalorieIntakeTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    //MARK: - Private Functions
+    
+    private func add(calorieCount: String) {
+        guard let calories = Int(calorieCount) else { return /* add alert? */}
+        CalorieIntake(calorieCount: calories)
+        save()
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    private func save() {
+        do {
+            try CoreDataStack.shared.save(context: CoreDataStack.shared.mainContext)
+            NotificationCenter.default.post(name: .calorieIntakeAdded, object: nil)
+        } catch {
+            print("Error saving to CoreDataStack: \(error)")
+        }
     }
-    */
+    
+    // MARK: - IBActions
+    
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    @IBAction func addCalorieIntake(_ sender: Any) {
+        let alert = UIAlertController(title: "Add calories?", message: "Type the number of calories you consumed today.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (_) in
+            self.add(calorieCount: alert.textFields?[0].text ?? "")
+        }))
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addTextField(configurationHandler: { textfield in textfield.placeholder = "Calories" })
+
+        self.present(alert, animated: true, completion: nil)
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }
+
+// MARK: - Extensions
+
