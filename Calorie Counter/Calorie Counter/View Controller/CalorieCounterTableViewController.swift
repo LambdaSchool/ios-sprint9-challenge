@@ -21,7 +21,7 @@ class CalorieCounterTableViewController: UITableViewController {
     }()
     
      // MARK: Properties
-    
+    let firebaseSyncEngine = FireBaseSyncEngine()
     var calorieController = CalorieController()
     var count: Int = 0
     var series: ChartSeries = ChartSeries([]) // array of empty chartseries

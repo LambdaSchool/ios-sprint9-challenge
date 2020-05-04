@@ -61,7 +61,7 @@ class FireBaseSyncEngine: NSObject {
             Calorie(representation, context: context)
         }
         try CoreDataStack.shared.save(context: context)
-//        NotificationCenter.default.post(name: , object: nil)
+        NotificationCenter.default.post(name: .newEntryAdded, object: nil)
     }
     
     // Syncing
