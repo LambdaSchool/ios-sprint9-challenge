@@ -11,22 +11,21 @@ import SwiftChart
 import CoreData
 
 class CalorieTrackerViewController: UIViewController {
-    
+    // MARK: - Properties
     @IBOutlet private weak var chartView: Chart!
     @IBOutlet private weak var tableView: UITableView!
     
-
       let dateFormatter: DateFormatter = {
       let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, yyyy, h:mm:ss a"
+        dateFormatter.dateFormat = "MMM d, yyyy, 'at' h:mm:ss a"
         return dateFormatter
     }()
     
     
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieData> = {
         let fetchRequest: NSFetchRequest<CalorieData> = CalorieData.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "calories", ascending: true),
-                                        NSSortDescriptor(key: "timestamp", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true),
+                                        NSSortDescriptor(key: "calories", ascending: true)]
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
                                              managedObjectContext: moc,
@@ -50,44 +49,41 @@ class CalorieTrackerViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .calorieAddedNotificationKey, object: nil)
     }
-    
- 
+    // MARK: - IBAction
     @IBAction func addCaloriesButtonTapped(_ sender: UIBarButtonItem) {
         addCalorieIntakeAlert()
     }
     
-    
-        @objc private func updateViews() {
+    // MARK: - Updates
+    @objc private func updateViews() {
         tableView.reloadData()
         updateChart()
-        
     }
     
     private func updateChart() {
-        var calories = [String]()
-        let chartSeries = [ChartSeries]()
-        let sections = fetchedResultsController.sections ?? []
+        var count: [Double] = []
+        let calories = fetchedResultsController.fetchedObjects ?? []
         
-        for section in sections {
-            calories.append(section.name)
-            guard let calorieData = section.objects as? [CalorieData] else { return }
-            let allCalories = calorieData.compactMap { $0.calories }
-            let series = ChartSeries(allCalories)
-            series.area = true
-            series.color = ChartColors.cyanColor()
+        for calories in calories {
+            let calories = Double(calories.calories)
+            count.append(calories)
+            
         }
-        chartView.add(chartSeries)
+        let series = ChartSeries(count)
+        series.area = true
+        chartView.add(series)
     }
-    
-    private func persistCalories(_ calories: Double) {
-        CalorieData(calories: calories)
+    // MARK: - Persistence
+    private func persistCalories(_ calories: Double, timestamp: Date = Date()) {
+        CalorieData(calories: calories, timestamp: timestamp)
         do {
             try CoreDataStack.shared.save()
         } catch {
             print("Error saving task to database: \(error)")
         }
+        NotificationCenter.default.post(name: .calorieAddedNotificationKey, object: nil)
     }
-    
+    // MARK: - Alert
     private func addCalorieIntakeAlert() {
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
         alert.addTextField { textField in
@@ -108,13 +104,9 @@ class CalorieTrackerViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    
 }
 
-extension NSNotification.Name {
-    static let calorieAddedNotificationKey = NSNotification.Name("calorieAddedNotificationKey")
-}
-
+// MARK: - FRC Delegate
 extension CalorieTrackerViewController: NSFetchedResultsControllerDelegate {
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -202,4 +194,8 @@ extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSour
             }
         }
     }
+}
+// MARK: - Notification Key
+extension NSNotification.Name {
+    static let calorieAddedNotificationKey = NSNotification.Name("calorieAddedNotificationKey")
 }
