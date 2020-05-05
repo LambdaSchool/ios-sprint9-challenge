@@ -9,38 +9,58 @@
         <!--Calorie Tracker-->
         <scene sceneID="XZc-QR-oNQ">
             <objects>
-                <tableViewController id="AkI-E1-M79" customClass="CalorieTrackerTableViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="AkI-E1-M79" customClass="CalorieTrackerViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dTx-YC-QmI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="WIF-K5-SNu" customClass="ChartView" customModule="CalorieTracker" customModuleProvider="target">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="WIF-K5-SNu" customClass="Chart" customModule="SwiftChart">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="227"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CaloriesCell" id="YyT-nG-7Eh">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CaloriesCell" textLabel="4wQ-mm-zOc" detailTextLabel="xjd-zN-dWN" style="IBUITableViewCellStyleValue1" id="YyT-nG-7Eh">
                                 <rect key="frame" x="0.0" y="255" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YyT-nG-7Eh" id="qJM-U9-cuV">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4wQ-mm-zOc">
+                                            <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xjd-zN-dWN">
+                                            <rect key="frame" x="350" y="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="AkI-E1-M79" id="BnI-4g-ax4"/>
-                            <outlet property="delegate" destination="AkI-E1-M79" id="6vX-7K-gxy"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="QoW-6K-2RU">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PDU-l7-hKB"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PDU-l7-hKB">
+                            <connections>
+                                <action selector="addCaloriesButtonTapped:" destination="AkI-E1-M79" id="YPS-aB-NjT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chartView" destination="WIF-K5-SNu" id="8LW-eZ-JHK"/>
+                        <outlet property="tableView" destination="dTx-YC-QmI" id="xOk-Wx-uGX"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="joz-uX-Alu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1360.8695652173915" y="125.89285714285714"/>
+            <point key="canvasLocation" x="1319" y="56"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="phK-Ir-Msi">
