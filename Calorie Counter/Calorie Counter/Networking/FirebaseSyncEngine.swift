@@ -24,7 +24,6 @@ class FireBaseSyncEngine: NSObject {
     
     private let firebaseClient = FirebaseClient()
     
-    
     override init() {
         super.init()
         fetchCalorieEntries()
@@ -64,7 +63,7 @@ class FireBaseSyncEngine: NSObject {
         NotificationCenter.default.post(name: .newEntryAdded, object: nil)
     }
     
-    // Syncing
+    // Syncing & Update
     private func update(_ entry: Calorie, with representation: CalorieRepresentation) {
         entry.calories = Int16(representation.calories)
         entry.date = Date(timeIntervalSinceReferenceDate: representation.date)
