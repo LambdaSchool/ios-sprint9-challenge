@@ -49,6 +49,7 @@ class CalorieTrackerViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .calorieAddedNotificationKey, object: nil)
     }
+    
     // MARK: - IBAction
     @IBAction func addCaloriesButtonTapped(_ sender: UIBarButtonItem) {
         addCalorieIntakeAlert()
@@ -59,7 +60,6 @@ class CalorieTrackerViewController: UIViewController {
         tableView.reloadData()
         updateChart()
     }
-    
     private func updateChart() {
         var count: [Double] = []
         let calories = fetchedResultsController.fetchedObjects ?? []
@@ -73,6 +73,7 @@ class CalorieTrackerViewController: UIViewController {
         series.area = true
         chartView.add(series)
     }
+    
     // MARK: - Persistence
     private func persistCalories(_ calories: Double, timestamp: Date = Date()) {
         CalorieData(calories: calories, timestamp: timestamp)
@@ -83,11 +84,13 @@ class CalorieTrackerViewController: UIViewController {
         }
         NotificationCenter.default.post(name: .calorieAddedNotificationKey, object: nil)
     }
+    
     // MARK: - Alert
     private func addCalorieIntakeAlert() {
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
         alert.addTextField { textField in
             textField.placeholder = "Calories:"
+            textField.becomeFirstResponder()
             textField.keyboardType = .numberPad
         }
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -103,7 +106,6 @@ class CalorieTrackerViewController: UIViewController {
         alert.addAction(submitButton)
         self.present(alert, animated: true, completion: nil)
     }
-    
 }
 
 // MARK: - FRC Delegate
@@ -195,6 +197,7 @@ extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSour
         }
     }
 }
+
 // MARK: - Notification Key
 extension NSNotification.Name {
     static let calorieAddedNotificationKey = NSNotification.Name("calorieAddedNotificationKey")
