@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0mA-QB-Q1e">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Calorie Tracker-->
+        <scene sceneID="trP-h6-cmE">
+            <objects>
+                <tableViewController id="Ag5-fm-ywQ" customClass="CalorieTableViewController" customModule="Sprint9" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fZV-3a-h0K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="ipU-zC-GVh" customClass="Chart" customModule="SwiftChart">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Calorie" rowHeight="70" id="YS4-oM-XE7" customClass="CalorieTableViewCell" customModule="Sprint9" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YS4-oM-XE7" id="5ip-TN-aba">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0n8-ha-tYe">
+                                            <rect key="frame" x="16" y="11" width="343" height="48"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7o1-3h-jmS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="293" height="48"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ZN-Bw-Udy">
+                                                    <rect key="frame" x="301" y="0.0" width="42" height="48"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="0n8-ha-tYe" firstAttribute="leading" secondItem="5ip-TN-aba" secondAttribute="leadingMargin" id="2um-cr-P6a"/>
+                                        <constraint firstItem="0n8-ha-tYe" firstAttribute="top" secondItem="5ip-TN-aba" secondAttribute="topMargin" id="4hN-k1-Is7"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="0n8-ha-tYe" secondAttribute="bottom" id="Au3-V5-gNU"/>
+                                        <constraint firstItem="0n8-ha-tYe" firstAttribute="trailing" secondItem="5ip-TN-aba" secondAttribute="trailingMargin" id="OUS-MQ-MQN"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="calorie" destination="7o1-3h-jmS" id="129-zT-rkp"/>
+                                    <outlet property="timestamp" destination="9ZN-Bw-Udy" id="Ryt-ab-AH6"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Ag5-fm-ywQ" id="lBH-sF-aF1"/>
+                            <outlet property="delegate" destination="Ag5-fm-ywQ" id="1vP-ZO-Jpv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="tQz-Uo-Egb">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="T4w-xF-5qf">
+                                <connections>
+                                    <action selector="addCalorie:" destination="Ag5-fm-ywQ" id="mEx-LZ-2sF"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem enabled="NO" title="Remove" id="o7g-2R-TfL">
+                                <connections>
+                                    <action selector="removeCalories:" destination="Ag5-fm-ywQ" id="FOp-on-kEV"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="chart" destination="ipU-zC-GVh" id="Yf2-SG-hPm"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lva-wS-Hiv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="829.60000000000002" y="141.67916041979012"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6Ef-2I-oU6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0mA-QB-Q1e" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="qUq-1I-DhP">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ag5-fm-ywQ" kind="relationship" relationship="rootViewController" id="YQc-VS-EUv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NoH-5V-ahz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="76" y="141.67916041979012"/>
+        </scene>
+    </scenes>
+</document>
