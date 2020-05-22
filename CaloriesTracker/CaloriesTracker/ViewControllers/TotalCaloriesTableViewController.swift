@@ -28,22 +28,23 @@ class TotalCaloriesTableViewController: UITableViewController {
     }
 
     @IBAction func addButton(_ sender: UIBarButtonItem) {
-        caloriesChart.removeAllSeries()
-        
-        let series = ChartSeries(caloriesController.calories.map({ Double($0.calories)}))
-        
-        series.area = true
-        series.colors = (
-            above: ChartColors.greenColor(),
-            below: ChartColors.yellowColor(),
-            zeroLevel: 0
-        )
-        caloriesChart.add(series)
+      
     }
     
     
     func updateViews() {
         
+caloriesChart.removeAllSeries()
+
+let series = ChartSeries(caloriesController.calories.map({ Double($0.calories)}))
+
+series.area = true
+series.colors = (
+    above: ChartColors.greenColor(),
+    below: ChartColors.yellowColor(),
+    zeroLevel: 0
+)
+caloriesChart.add(series)
         
     }
     // MARK: - Table view data source
