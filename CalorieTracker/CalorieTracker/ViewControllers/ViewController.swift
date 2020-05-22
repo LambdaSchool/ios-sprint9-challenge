@@ -42,6 +42,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        populateChartWithCoreDataEntries()
     }
     
     // MARK: - Actions & Methods
@@ -68,10 +69,15 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    private func populateChartWithCoreDataEntries() {
+        let coreDataEntries = fetchedResultsController.fetchedObjects! as [Entry]
+        for entry in coreDataEntries { chartData.append(Double(entry.calorieAmount)) }
+        let series = ChartSeries(chartData)
+        chart.add(series)
+    }
+    
     private func populateChart(with newEntry: Int64) {
-        
         chartData.append(Double(newEntry))
-        let data = chartData
         let series = ChartSeries(chartData)
         chart.add(series)
         
