@@ -22,6 +22,7 @@
 		C4C470802478317F00649868 /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4707F2478317F00649868 /* Calorie+Convenience.swift */; };
 		C4C47083247831D700649868 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C47082247831D700649868 /* EntryController.swift */; };
 		C4C470862478320500649868 /* CalorieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C470852478320500649868 /* CalorieViewController.swift */; };
+		C4C4708824783B4800649868 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4708724783B4800649868 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		C4C4707F2478317F00649868 /* Calorie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience.swift"; sourceTree = "<group>"; };
 		C4C47082247831D700649868 /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 		C4C470852478320500649868 /* CalorieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieViewController.swift; sourceTree = "<group>"; };
+		C4C4708724783B4800649868 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D53035078E531A38B5E8D2CC /* Pods_CalorieTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -134,6 +136,7 @@
 				C4C4705424782B0900649868 /* LaunchScreen.storyboard */,
 				C4C4705724782B0900649868 /* Info.plist */,
 				C4C4704F24782B0800649868 /* CalorieTracker.xcdatamodeld */,
+				C4C4708724783B4800649868 /* SceneDelegate.swift */,
 			);
 			path = CalorieTracker;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				C4C4704724782B0800649868 /* AppDelegate.swift in Sources */,
 				C4C4705124782B0800649868 /* CalorieTracker.xcdatamodeld in Sources */,
 				C4C4707B2478312900649868 /* CalorieTableViewCell.swift in Sources */,
+				C4C4708824783B4800649868 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

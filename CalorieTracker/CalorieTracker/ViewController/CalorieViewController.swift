@@ -10,20 +10,65 @@ import UIKit
 import SwiftChart
 import CoreData
 
+extension NSNotification.Name {
+    static let changed = NSNotification.Name("calorieChanged")
+}
+
 class CalorieViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var chart: Chart!
     
+    let entryController = EntryController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
+        createIt()
     }
     
     @IBAction func addTap(_ sender: Any) {
+        let alert = UIAlertController(
+              title: "Type how many calories you had",
+              message: "Please?",
+              preferredStyle: .alert)
+
+          alert.addTextField { textField in
+              textField.placeholder = "# of calories"
+          }
+
+          alert.addAction(UIAlertAction(
+              title: "Cancel",
+              style: .cancel,
+              handler: nil))
+          alert.addAction(UIAlertAction(
+              title: "Add record",
+              style: .default,
+              handler: { [unowned alert] _ in
+                  guard let caloriesText = alert.textFields?[0].text,
+                      let calories = Int(caloriesText)
+                      else { return }
+                  do {
+                      self.entryController.create(calories)
+                      NotificationCenter.default.post(name: .changed, object: self)
+                  }
+          }))
+          present(alert, animated: true, completion: nil)
     }
+    
+    @objc func createIt() {
+
+        var calorieList: [CalorieEntry] = []
+          for entry in fetchedResultsController.fetchedObjects ?? [] {
+             calorieList.append(entry)
+          }
+          let entries = calorieList.map {
+              Double($0.calories)
+          }
+          let allCalories = ChartSeries(entries)
+          chart.add(allCalories)
+      }
     
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieEntry> = {
         let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
@@ -72,6 +117,21 @@ extension CalorieViewController: UITableViewDelegate, UITableViewDataSource {
         cell.calorieText.text = "Calories: \(entry.calories)"
         cell.dateText.text = changeTheDate(entry.timestamp ?? Date())
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let entry = fetchedResultsController.object(at: indexPath)
+            let context = CoreDataStack.shared.mainContext
+            context.delete(entry)
+            do {
+                try context.save()
+            } catch {
+                context.reset()
+                NSLog("Error saving managed object context (deleting record): \(error)")
+            }
+            NotificationCenter.default.post(name: .changed, object: self)
+        }
     }
     
 }
