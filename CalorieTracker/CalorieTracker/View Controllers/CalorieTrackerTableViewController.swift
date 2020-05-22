@@ -12,7 +12,7 @@ import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController {
 
-    //MARK: - Outlets
+    //MARK:- Outlets
 
     @IBOutlet weak var chartView: Chart!
 
@@ -100,11 +100,11 @@ class CalorieTrackerTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return fetchedResultsController.sections?.count ?? 0
+        fetchedResultsController.sections?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -177,4 +177,3 @@ extension CalorieTrackerTableViewController: NSFetchedResultsControllerDelegate 
 extension Notification.Name {
     static let calorieLogAdded = Notification.Name("calorieLogAdded")
 }
-

@@ -17,7 +17,7 @@ class CoreDataStack {
 
           let container = NSPersistentContainer(name: "CalorieTracker")
 
-          container.loadPersistentStores { (_, error) in
+          container.loadPersistentStores {_, error in
               if let error = error {
                   fatalError("Failed to load persistent stores: \(error)")
               }
@@ -26,7 +26,7 @@ class CoreDataStack {
       }()
 
     var mainContext: NSManagedObjectContext {
-        return container.viewContext
+        container.viewContext
     }
 
     func save(context: NSManagedObjectContext) throws {
