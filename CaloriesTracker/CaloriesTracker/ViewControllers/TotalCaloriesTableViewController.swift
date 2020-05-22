@@ -28,7 +28,7 @@ class TotalCaloriesTableViewController: UITableViewController {
     }
     
     @IBAction func addButton(_ sender: UIBarButtonItem) {
-//        alert controller with textfield
+        //        alert controller with textfield
         
         let alert = UIAlertController(title: "Add Calories Intake", message: "Fill the amount of the calories in the textfield", preferredStyle: .alert)
         
@@ -37,7 +37,7 @@ class TotalCaloriesTableViewController: UITableViewController {
             textField.placeholder = "Amount of Calories"
             caloriesTextField = textField
         }
-
+        
         alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (_) in
             //        Converting stirng calories in integer.
             let stringCalorieCount = caloriesTextField.text ?? ""
@@ -71,25 +71,22 @@ class TotalCaloriesTableViewController: UITableViewController {
     }
     // MARK: - Table view data source
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+   
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return caloriesController.calories.count
     }
     
-    /*
+    
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+     let cell = tableView.dequeueReusableCell(withIdentifier: "CaloriesCell", for: indexPath) as! CaloriesTableViewCell
      
      // Configure the cell...
      
      return cell
      }
-     */
+     
     
     /*
      // Override to support conditional editing of the table view.
