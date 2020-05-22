@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import SwiftChart
 
 class TotalCaloriesTableViewController: UITableViewController {
 
+    
+    var caloriesController = CaloriesController()
+    
+  @IBOutlet private weak var caloriesChart: Chart!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
