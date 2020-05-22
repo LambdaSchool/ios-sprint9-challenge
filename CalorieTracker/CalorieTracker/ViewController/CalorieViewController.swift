@@ -12,6 +12,7 @@ import CoreData
 
 extension NSNotification.Name {
     static let changed = NSNotification.Name("calorieChanged")
+    static let deleted = NSNotification.Name("calorieDeleted")
 }
 
 class CalorieViewController: UIViewController {
@@ -64,6 +65,8 @@ class CalorieViewController: UIViewController {
 
     @objc func createIt() {
 
+        chart.removeAllSeries()
+        
         var calorieList: [CalorieEntry] = []
           for entry in fetchedResultsController.fetchedObjects ?? [] {
              calorieList.append(entry)
@@ -73,7 +76,7 @@ class CalorieViewController: UIViewController {
           }
           let allCalories = ChartSeries(entries)
           chart.add(allCalories)
-      }
+    }
 
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieEntry> = {
         let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
