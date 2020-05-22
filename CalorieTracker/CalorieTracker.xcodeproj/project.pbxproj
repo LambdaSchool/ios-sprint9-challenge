@@ -11,11 +11,12 @@
 		1D8039E4247826F6004BC8AC /* ChartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8039E1247826F6004BC8AC /* ChartColors.swift */; };
 		1D8039E5247826F6004BC8AC /* ChartSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8039E2247826F6004BC8AC /* ChartSeries.swift */; };
 		1D8039E6247826F6004BC8AC /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8039E3247826F6004BC8AC /* Chart.swift */; };
+		1DDE516024783C7800FF7AFD /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDE515F24783C7800FF7AFD /* Entry+Convenience.swift */; };
 		1DEE7C8E2478220300468113 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE7C8D2478220300468113 /* AppDelegate.swift */; };
 		1DEE7C902478220300468113 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE7C8F2478220300468113 /* SceneDelegate.swift */; };
 		1DEE7C922478220300468113 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE7C912478220300468113 /* ViewController.swift */; };
 		1DEE7C952478220300468113 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DEE7C932478220300468113 /* Main.storyboard */; };
-		1DEE7C982478220300468113 /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE7C962478220300468113 /* CalorieTracker.xcdatamodeld */; };
+		1DEE7C982478220300468113 /* Entry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE7C962478220300468113 /* Entry.xcdatamodeld */; };
 		1DEE7C9A2478220400468113 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DEE7C992478220400468113 /* Assets.xcassets */; };
 		1DEE7C9D2478220400468113 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DEE7C9B2478220400468113 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -25,6 +26,7 @@
 		1D8039E1247826F6004BC8AC /* ChartColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartColors.swift; path = ../SwiftChart/Source/ChartColors.swift; sourceTree = "<group>"; };
 		1D8039E2247826F6004BC8AC /* ChartSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartSeries.swift; path = ../SwiftChart/Source/ChartSeries.swift; sourceTree = "<group>"; };
 		1D8039E3247826F6004BC8AC /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Chart.swift; path = ../SwiftChart/Source/Chart.swift; sourceTree = "<group>"; };
+		1DDE515F24783C7800FF7AFD /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
 		1DEE7C8A2478220300468113 /* CalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DEE7C8D2478220300468113 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DEE7C8F2478220300468113 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +59,15 @@
 			name = SwiftChart;
 			sourceTree = "<group>";
 		};
+		1DA7E5FC2478377900FD7F39 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1DEE7CA7247822A700468113 /* CoreData */,
+				1DDE515F24783C7800FF7AFD /* Entry+Convenience.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1DEE7C812478220300468113 = {
 			isa = PBXGroup;
 			children = (
@@ -80,7 +91,7 @@
 				1DEE7CA42478227A00468113 /* Application */,
 				1DEE7CA52478229100468113 /* ViewControllers */,
 				1DEE7CA62478229F00468113 /* Storyboards */,
-				1DEE7CA7247822A700468113 /* CoreData */,
+				1DA7E5FC2478377900FD7F39 /* Model */,
 			);
 			path = CalorieTracker;
 			sourceTree = "<group>";
@@ -116,7 +127,7 @@
 		1DEE7CA7247822A700468113 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				1DEE7C962478220300468113 /* CalorieTracker.xcdatamodeld */,
+				1DEE7C962478220300468113 /* Entry.xcdatamodeld */,
 				1D18433224782A9600670C4A /* CoreDataManager.swift */,
 			);
 			path = CoreData;
@@ -194,9 +205,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DEE7C922478220300468113 /* ViewController.swift in Sources */,
+				1DDE516024783C7800FF7AFD /* Entry+Convenience.swift in Sources */,
 				1D8039E6247826F6004BC8AC /* Chart.swift in Sources */,
 				1DEE7C8E2478220300468113 /* AppDelegate.swift in Sources */,
-				1DEE7C982478220300468113 /* CalorieTracker.xcdatamodeld in Sources */,
+				1DEE7C982478220300468113 /* Entry.xcdatamodeld in Sources */,
 				1D8039E5247826F6004BC8AC /* ChartSeries.swift in Sources */,
 				1DEE7C902478220300468113 /* SceneDelegate.swift in Sources */,
 				1D18433324782A9600670C4A /* CoreDataManager.swift in Sources */,
@@ -400,13 +412,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		1DEE7C962478220300468113 /* CalorieTracker.xcdatamodeld */ = {
+		1DEE7C962478220300468113 /* Entry.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				1DEE7C972478220300468113 /* CalorieTracker.xcdatamodel */,
 			);
 			currentVersion = 1DEE7C972478220300468113 /* CalorieTracker.xcdatamodel */;
-			path = CalorieTracker.xcdatamodeld;
+			path = Entry.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

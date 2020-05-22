@@ -30,6 +30,11 @@ class ViewController: UIViewController {
         }
         return fetchedResultsController
     }()
+    let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMM d"
+        return dateFormatter
+    }()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -39,6 +44,25 @@ class ViewController: UIViewController {
 
     // MARK: - Actions & Methods
     @IBAction func addButtonTapped(_ sender: UIButton) {
+        // presents an alert and the alert handles the rest of the action
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories", preferredStyle: .alert)
+        var calorieTextField: UITextField!
+        alert.addTextField { (textField) in
+            calorieTextField = textField
+            textField.placeholder = "Calories:"
+        }
+        alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { (_) in
+            // TODO: populate the graph here?
+            guard let calories = calorieTextField.text, !calories.isEmpty, let caloriesInt64 = Int64(calories) else { return }
+            let date = self.dateFormatter.string(from: Date())
+            let _ = Entry(calorieAmount: caloriesInt64, timeStamp: date)
+            do {
+                try CoreDataManager.shared.mainContext.save()
+            } catch {
+                print("Error saving new entry to CoreData: \(error)")
+            }
+        }))
+        present(alert, animated: true, completion: nil)
     }
     
 }
@@ -55,7 +79,7 @@ extension ViewController: UITableViewDataSource {
         cell.detailTextLabel?.text = fetchedResultsController.object(at: indexPath).timeStamp
         return cell
     }
-    
+
 }
 
 extension ViewController: NSFetchedResultsControllerDelegate {
