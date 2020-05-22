@@ -19,8 +19,15 @@ class CaloriesController {
     
     
     func saveToPersistentStore() {
-        
+        do {
+            try CoreDataStack.shared.mainContext.save()
+            
+            NotificationCenter.default.post(name: .whenUpdateGraph, object: self)
+        } catch {
+            NSLog("Error managing the posts: \(error)")
+        }
     }
+    
     func loadFromPersistentStore() -> Calories {
         
     }
