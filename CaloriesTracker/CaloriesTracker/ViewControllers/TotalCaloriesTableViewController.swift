@@ -48,6 +48,7 @@ class TotalCaloriesTableViewController: UITableViewController {
                 print("Not a calorie")
             }
         }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
         
         present(alert, animated: true, completion: nil)
     }
