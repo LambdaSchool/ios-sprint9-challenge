@@ -25,7 +25,11 @@ class CalorieViewController: UIViewController {
         super.viewDidLoad()
 
         tableView.delegate = self
+        tableView.dataSource = self
+        
         createIt()
+        NotificationCenter.default.addObserver(self, selector: #selector(createIt), name: .changed, object: nil)
+        
     }
     
     @IBAction func addTap(_ sender: Any) {
