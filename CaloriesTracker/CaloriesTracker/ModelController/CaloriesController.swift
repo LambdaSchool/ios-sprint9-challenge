@@ -16,8 +16,6 @@ class CaloriesController {
         loadFromPersistentStore()
     }
     
-    
-    
     func saveToPersistentStore() {
         do {
             try CoreDataStack.shared.mainContext.save()
