@@ -51,7 +51,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="Iwx-lP-pmg">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lSS-jh-SOe"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lSS-jh-SOe">
+                            <connections>
+                                <action selector="addButton:" destination="1cb-BO-dfj" id="GPu-jq-TMR"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="chart" destination="NYJ-FC-mtO" id="cbU-hC-cQi"/>
