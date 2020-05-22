@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D8039E4247826F6004BC8AC /* ChartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8039E1247826F6004BC8AC /* ChartColors.swift */; };
+		1D8039E5247826F6004BC8AC /* ChartSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8039E2247826F6004BC8AC /* ChartSeries.swift */; };
+		1D8039E6247826F6004BC8AC /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8039E3247826F6004BC8AC /* Chart.swift */; };
 		1DEE7C8E2478220300468113 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE7C8D2478220300468113 /* AppDelegate.swift */; };
 		1DEE7C902478220300468113 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE7C8F2478220300468113 /* SceneDelegate.swift */; };
 		1DEE7C922478220300468113 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE7C912478220300468113 /* ViewController.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D8039E1247826F6004BC8AC /* ChartColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartColors.swift; path = ../SwiftChart/Source/ChartColors.swift; sourceTree = "<group>"; };
+		1D8039E2247826F6004BC8AC /* ChartSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartSeries.swift; path = ../SwiftChart/Source/ChartSeries.swift; sourceTree = "<group>"; };
+		1D8039E3247826F6004BC8AC /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Chart.swift; path = ../SwiftChart/Source/Chart.swift; sourceTree = "<group>"; };
 		1DEE7C8A2478220300468113 /* CalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DEE7C8D2478220300468113 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DEE7C8F2478220300468113 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,10 +45,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D8039D92478269F004BC8AC /* SwiftChart */ = {
+			isa = PBXGroup;
+			children = (
+				1D8039E3247826F6004BC8AC /* Chart.swift */,
+				1D8039E1247826F6004BC8AC /* ChartColors.swift */,
+				1D8039E2247826F6004BC8AC /* ChartSeries.swift */,
+			);
+			name = SwiftChart;
+			sourceTree = "<group>";
+		};
 		1DEE7C812478220300468113 = {
 			isa = PBXGroup;
 			children = (
 				1DEE7C8C2478220300468113 /* CalorieTracker */,
+				1D8039D92478269F004BC8AC /* SwiftChart */,
 				1DEE7C8B2478220300468113 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -174,9 +191,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DEE7C922478220300468113 /* ViewController.swift in Sources */,
+				1D8039E6247826F6004BC8AC /* Chart.swift in Sources */,
 				1DEE7C8E2478220300468113 /* AppDelegate.swift in Sources */,
 				1DEE7C982478220300468113 /* CalorieTracker.xcdatamodeld in Sources */,
+				1D8039E5247826F6004BC8AC /* ChartSeries.swift in Sources */,
 				1DEE7C902478220300468113 /* SceneDelegate.swift in Sources */,
+				1D8039E4247826F6004BC8AC /* ChartColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
