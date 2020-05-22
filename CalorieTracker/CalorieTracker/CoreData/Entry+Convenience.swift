@@ -12,10 +12,12 @@ import CoreData
 extension Entry {
     @discardableResult convenience init(calorieAmount: Int64,
                                         timeStamp: String,
+                                        sortByDate: Date = Date(),
                                         context: NSManagedObjectContext = CoreDataManager.shared.mainContext) {
         self.init(context: context)
         self.calorieAmount = calorieAmount
         self.timeStamp = timeStamp
+        self.sortByDate = sortByDate
     }
 
 }

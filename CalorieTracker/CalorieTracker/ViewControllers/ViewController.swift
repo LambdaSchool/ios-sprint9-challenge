@@ -17,8 +17,8 @@ class ViewController: UIViewController {
     
     private lazy var fetchedResultsController: NSFetchedResultsController<Entry> = {
         let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timeStamp",
-                                                         ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "sortByDate",
+                                                         ascending: false)]
         let mainContext = CoreDataManager.shared.mainContext
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                   managedObjectContext: mainContext,
@@ -71,7 +71,7 @@ class ViewController: UIViewController {
     
     private func populateChartWithCoreDataEntries() {
         let coreDataEntries = fetchedResultsController.fetchedObjects! as [Entry]
-        for entry in coreDataEntries { chartData.append(Double(entry.calorieAmount)) }
+        for entry in coreDataEntries.reversed() { chartData.append(Double(entry.calorieAmount)) }
         let series = ChartSeries(chartData)
         chart.add(series)
     }
