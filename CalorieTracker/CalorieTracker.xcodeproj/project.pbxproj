@@ -58,16 +58,48 @@
 		1DEE7C8C2478220300468113 /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
-				1DEE7C8D2478220300468113 /* AppDelegate.swift */,
-				1DEE7C8F2478220300468113 /* SceneDelegate.swift */,
-				1DEE7C912478220300468113 /* ViewController.swift */,
-				1DEE7C932478220300468113 /* Main.storyboard */,
-				1DEE7C992478220400468113 /* Assets.xcassets */,
-				1DEE7C9B2478220400468113 /* LaunchScreen.storyboard */,
-				1DEE7C9E2478220400468113 /* Info.plist */,
-				1DEE7C962478220300468113 /* CalorieTracker.xcdatamodeld */,
+				1DEE7CA42478227A00468113 /* Application */,
+				1DEE7CA52478229100468113 /* ViewControllers */,
+				1DEE7CA62478229F00468113 /* Storyboards */,
+				1DEE7CA7247822A700468113 /* CoreData */,
 			);
 			path = CalorieTracker;
+			sourceTree = "<group>";
+		};
+		1DEE7CA42478227A00468113 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				1DEE7C8D2478220300468113 /* AppDelegate.swift */,
+				1DEE7C8F2478220300468113 /* SceneDelegate.swift */,
+				1DEE7C992478220400468113 /* Assets.xcassets */,
+				1DEE7C9E2478220400468113 /* Info.plist */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		1DEE7CA52478229100468113 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1DEE7C912478220300468113 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1DEE7CA62478229F00468113 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1DEE7C932478220300468113 /* Main.storyboard */,
+				1DEE7C9B2478220400468113 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		1DEE7CA7247822A700468113 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				1DEE7C962478220300468113 /* CalorieTracker.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
