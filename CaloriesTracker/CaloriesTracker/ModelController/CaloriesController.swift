@@ -28,8 +28,16 @@ class CaloriesController {
         }
     }
     
-    func loadFromPersistentStore() -> Calories {
+    func loadFromPersistentStore() -> [Calories] {
+        let fetchRequest: NSFetchRequest<Calories> = Calories.fetchRequest()
         
+        do {
+           return try CoreDataStack.shared.mainContext.fetch(fetchRequest)
+            
+        } catch {
+            NSLog("Error fetching :\(error)")
+        }
+        return []
     }
     
     func createCalories(calories: Int, timestamp: Date = Date()) -> Calories {
