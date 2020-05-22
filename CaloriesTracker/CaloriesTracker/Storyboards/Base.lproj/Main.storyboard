@@ -59,7 +59,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Calories" id="bA7-Q5-VcP">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="oil-ei-WiK"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="oil-ei-WiK">
+                            <connections>
+                                <action selector="addButton:" destination="rQG-4B-RQt" id="xfn-er-o1P"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="caloriesChart" destination="42L-xB-9xn" id="gNI-q7-rRK"/>

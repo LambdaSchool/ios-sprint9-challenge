@@ -27,6 +27,25 @@ class TotalCaloriesTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    @IBAction func addButton(_ sender: UIBarButtonItem) {
+        caloriesChart.removeAllSeries()
+        
+        let series = ChartSeries(caloriesController.calories.map({ Double($0.calories)}))
+        
+        series.area = true
+        series.colors = (
+            above: ChartColors.greenColor(),
+            below: ChartColors.yellowColor(),
+            zeroLevel: 0
+        )
+        caloriesChart.add(series)
+    }
+    
+    
+    func updateViews() {
+        
+        
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
