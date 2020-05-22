@@ -10,3 +10,12 @@ import Foundation
 import CoreData
 
 
+extension Calories {
+    
+    @discardableResult convenience init(calories: Int, timestamp: Date, context: NSManagedObjectContext) {
+        
+        self.init(context: context)
+        self.calories = Int64(truncatingIfNeeded: calories)
+        self.timestamp = timestamp
+    }
+}
