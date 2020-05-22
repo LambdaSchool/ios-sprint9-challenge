@@ -9,11 +9,12 @@
 import UIKit
 import CoreData
 
+let updateViewsKey = "co.shawnjames.updateViews"
+
 class ViewController: UIViewController {
     // MARK: - Outlets & Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var chart: Chart!
-    var chartData = [Double]()
     
     private lazy var fetchedResultsController: NSFetchedResultsController<Entry> = {
         let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
@@ -24,7 +25,6 @@ class ViewController: UIViewController {
                                                                   managedObjectContext: mainContext,
                                                                   sectionNameKeyPath: nil,
                                                                   cacheName: nil)
-        fetchedResultsController.delegate = self
         do {
             try fetchedResultsController.performFetch()
         } catch {
@@ -38,11 +38,17 @@ class ViewController: UIViewController {
         return dateFormatter
     }()
     
-    // MARK: - Lifecycle
+    // MARK: - Lifecycle & init's
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         populateChartWithCoreDataEntries()
+        createObservers()
+    }
+    
+    // just for practice
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Actions & Methods
@@ -58,29 +64,46 @@ class ViewController: UIViewController {
             // TODO: populate the graph here?
             guard let calories = calorieTextField.text, !calories.isEmpty, let caloriesInt64 = Int64(calories) else { return }
             let date = self.dateFormatter.string(from: Date())
-            let _ = Entry(calorieAmount: caloriesInt64, timeStamp: date)
+            Entry(calorieAmount: caloriesInt64, timeStamp: date)
             do {
                 try CoreDataManager.shared.mainContext.save()
             } catch {
                 print("Error saving new entry to CoreData: \(error)")
             }
-            self.populateChart(with: caloriesInt64)
+            NotificationCenter.default.post(name: Notification.Name(updateViewsKey), object: nil)
         }))
         present(alert, animated: true, completion: nil)
     }
     
-    private func populateChartWithCoreDataEntries() {
+    @objc private func populateChartWithCoreDataEntries() {
+        var chartData = [Double]()
+        // reset chart
+        chart.removeAllSeries()
+        // repopulate chart
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            print("Error Fetching -> ViewController in fetchedResultsController: \(error)")
+        }
         let coreDataEntries = fetchedResultsController.fetchedObjects! as [Entry]
         for entry in coreDataEntries.reversed() { chartData.append(Double(entry.calorieAmount)) }
         let series = ChartSeries(chartData)
         chart.add(series)
     }
     
-    private func populateChart(with newEntry: Int64) {
-        chartData.append(Double(newEntry))
-        let series = ChartSeries(chartData)
-        chart.add(series)
-        
+    private func createObservers() {
+        // tableView
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.populateChartWithCoreDataEntries),
+                                               name: Notification.Name(updateViewsKey), object: nil)
+        // chart
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.reloadTableView),
+                                               name: Notification.Name(updateViewsKey), object: nil)
+    }
+
+    @objc private func reloadTableView() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.tableView.reloadData()
+        }
     }
     
 }
@@ -98,53 +121,4 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
     
-}
-
-extension ViewController: NSFetchedResultsControllerDelegate {
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
-                    didChange sectionInfo: NSFetchedResultsSectionInfo,
-                    atSectionIndex sectionIndex: Int,
-                    for type: NSFetchedResultsChangeType) {
-        switch type {
-        case .insert:
-            tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
-        case .delete:
-            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
-        default:
-            break
-        }
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
-                    didChange anObject: Any,
-                    at indexPath: IndexPath?,
-                    for type: NSFetchedResultsChangeType,
-                    newIndexPath: IndexPath?) {
-        switch type {
-        case .insert:
-            guard let newIndexPath = newIndexPath else { return }
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
-        case .update:
-            guard let indexPath = indexPath else { return }
-            tableView.reloadRows(at: [indexPath], with: .automatic)
-        case .move:
-            guard let oldIndexPath = indexPath,
-                let newIndexPath = newIndexPath else { return }
-            tableView.deleteRows(at: [oldIndexPath], with: .automatic)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
-        case .delete:
-            guard let indexPath = indexPath else { return }
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-        @unknown default:
-            break
-        }
-    }
 }

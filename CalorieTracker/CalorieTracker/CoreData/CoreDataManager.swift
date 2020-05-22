@@ -12,7 +12,7 @@ import CoreData
 class CoreDataManager {
     // create singleton
     static let shared = CoreDataManager()
-    
+
     // create container
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Entry")
@@ -23,10 +23,10 @@ class CoreDataManager {
         }
         return container
     }()
-    
+
     // create context -> everything done in the app uses the context
     var mainContext: NSManagedObjectContext {
         persistentContainer.viewContext
     }
-    
+
 }
