@@ -11,7 +11,6 @@
 		14665F73B4CFB4EDAE6F8FA4 /* Pods_CalorieTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 993CE0AABD17C66AE5F85606 /* Pods_CalorieTrackerUITests.framework */; };
 		8B3DCCCEECE1D5BCD1C36753 /* Pods_CalorieTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0158E473CBC75494C51F038D /* Pods_CalorieTrackerTests.framework */; };
 		C4C4704724782B0800649868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4704624782B0800649868 /* AppDelegate.swift */; };
-		C4C4704B24782B0800649868 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4704A24782B0800649868 /* ViewController.swift */; };
 		C4C4704E24782B0800649868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4C4704C24782B0800649868 /* Main.storyboard */; };
 		C4C4705124782B0800649868 /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4C4704F24782B0800649868 /* CalorieTracker.xcdatamodeld */; };
 		C4C4705324782B0900649868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4C4705224782B0900649868 /* Assets.xcassets */; };
@@ -53,7 +52,6 @@
 		9FF7C99301BDEAE5F306F7A5 /* Pods-CalorieTrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTrackerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalorieTrackerUITests/Pods-CalorieTrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C4C4704324782B0800649868 /* CalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4C4704624782B0800649868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C4C4704A24782B0800649868 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C4C4704D24782B0800649868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C4C4705024782B0800649868 /* CalorieTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieTracker.xcdatamodel; sourceTree = "<group>"; };
 		C4C4705224782B0900649868 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 				C4C4707C2478315200649868 /* Models */,
 				C4C470792478310D00649868 /* Views */,
 				C4C4704624782B0800649868 /* AppDelegate.swift */,
-				C4C4704A24782B0800649868 /* ViewController.swift */,
 				C4C4704C24782B0800649868 /* Main.storyboard */,
 				C4C4705224782B0900649868 /* Assets.xcassets */,
 				C4C4705424782B0900649868 /* LaunchScreen.storyboard */,
@@ -444,7 +441,6 @@
 				C4C4707E2478316B00649868 /* CoreDataStack.swift in Sources */,
 				C4C470802478317F00649868 /* Calorie+Convenience.swift in Sources */,
 				C4C47083247831D700649868 /* EntryController.swift in Sources */,
-				C4C4704B24782B0800649868 /* ViewController.swift in Sources */,
 				C4C470862478320500649868 /* CalorieViewController.swift in Sources */,
 				C4C4704724782B0800649868 /* AppDelegate.swift in Sources */,
 				C4C4705124782B0800649868 /* CalorieTracker.xcdatamodeld in Sources */,
