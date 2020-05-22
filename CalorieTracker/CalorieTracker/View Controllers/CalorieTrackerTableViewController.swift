@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import CoreData
+import SwiftChart
+
 
 class CalorieTrackerTableViewController: UITableViewController {
 
