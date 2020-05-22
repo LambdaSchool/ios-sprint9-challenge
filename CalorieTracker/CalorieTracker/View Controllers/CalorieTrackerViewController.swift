@@ -14,8 +14,8 @@ class CalorieTrackerViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var calorieChart: Chart!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var calorieChart: Chart!
+    @IBOutlet private weak var tableView: UITableView!
     
     // MARK: - Properties
         
@@ -28,7 +28,7 @@ class CalorieTrackerViewController: UIViewController {
                                              sectionNameKeyPath: nil,
                                              cacheName: nil)
         frc.delegate = self
-        try! frc.performFetch()
+        try? frc.performFetch()
         return frc
     }()
     
