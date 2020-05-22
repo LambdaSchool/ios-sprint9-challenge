@@ -47,6 +47,10 @@
                                         <constraint firstItem="S9Q-Uz-QQ9" firstAttribute="trailing" secondItem="IEe-IL-d1l" secondAttribute="trailingMargin" id="uTU-8M-RHf"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="calorieLabel" destination="Ftz-en-pWK" id="wU4-Hs-VpQ"/>
+                                    <outlet property="timestampLabel" destination="S9Q-Uz-QQ9" id="vDb-79-LWY"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

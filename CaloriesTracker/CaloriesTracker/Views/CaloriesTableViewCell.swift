@@ -10,6 +10,8 @@ import UIKit
 
 class CaloriesTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var calorieLabel: UILabel!
+    @IBOutlet weak var timestampLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
