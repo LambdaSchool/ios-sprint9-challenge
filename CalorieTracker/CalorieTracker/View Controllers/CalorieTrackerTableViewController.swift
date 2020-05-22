@@ -12,11 +12,11 @@ import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController {
 
-    //MARK:- Outlets
+    // MARK: - Outlets
 
-    @IBOutlet weak var chartView: Chart!
+    @IBOutlet private weak var chartView: Chart!
 
-    //MARK: - Properties
+    // MARK: - Properties
     let calorieTrackerController = CalorieTrackerController()
     let calorieLogs: [CalorieLog] = []
 
@@ -27,7 +27,7 @@ class CalorieTrackerTableViewController: UITableViewController {
         return formatter
     }
 
-    //MARK: - View Life Cycle
+    // MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ class CalorieTrackerTableViewController: UITableViewController {
 
     }
 
-    //MARK: - Methods
+    // MARK: - Methods
 
     @objc func updateViews() {
         let chartInput = fetchedResultsController.fetchedObjects!.count
@@ -62,11 +62,11 @@ class CalorieTrackerTableViewController: UITableViewController {
     @IBAction func addButtonTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
         var calorieTrackerTextField: UITextField!
-        alert.addTextField { (alertTextField) in
+        alert.addTextField { alertTextField in
             alertTextField.placeholder = "Number of Calories:"
             calorieTrackerTextField = alertTextField
         }
-        let action = UIAlertAction(title: "Submit", style: .default) { (action) in
+        let action = UIAlertAction(title: "Submit", style: .default) { _ in
             let enterNumberofCalories = calorieTrackerTextField.text ?? "0"
             self.calorieTrackerController.addEntry(numberOfCalories: Double(enterNumberofCalories) ?? 0)
             NotificationCenter.default.post(name: .calorieLogAdded, object: nil)
@@ -79,7 +79,7 @@ class CalorieTrackerTableViewController: UITableViewController {
         present(alert, animated: true)
     }
 
-    //MARK: - Fetch Results Controller
+    // MARK: - Fetch Results Controller
 
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieLog> = {
         let fetchRequest: NSFetchRequest<CalorieLog> = CalorieLog.fetchRequest()
@@ -92,8 +92,12 @@ class CalorieTrackerTableViewController: UITableViewController {
 
         frc.delegate = self
 
-        try! frc.performFetch()
+        do {
 
+        try frc.performFetch()
+        } catch {
+            fatalError("Error performing fetch for frc: \(error)")
+        }
         return frc
     }()
 
