@@ -19,12 +19,15 @@ class TotalCaloriesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadViews(_:)), name: .whenUpdateGraph, object: nil)
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+       updateViews()
+    }
+    
+    @objc func reloadViews(_ notification: Notification) {
+        if notification.name == .whenUpdateGraph {
+            updateViews()
+        }
     }
     
     @IBAction func addButton(_ sender: UIBarButtonItem) {
@@ -51,6 +54,8 @@ class TotalCaloriesTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
         
         present(alert, animated: true, completion: nil)
+        
+       
     }
     
     
@@ -67,7 +72,7 @@ class TotalCaloriesTableViewController: UITableViewController {
             zeroLevel: 0
         )
         caloriesChart.add(series)
-        
+        tableView.reloadData()
     }
     // MARK: - Table view data source
     
@@ -83,7 +88,7 @@ class TotalCaloriesTableViewController: UITableViewController {
      let cell = tableView.dequeueReusableCell(withIdentifier: "CaloriesCell", for: indexPath) as! CaloriesTableViewCell
      
      // Configure the cell...
-     
+        cell.calories = caloriesController.calories[indexPath.row]
      return cell
      }
      
