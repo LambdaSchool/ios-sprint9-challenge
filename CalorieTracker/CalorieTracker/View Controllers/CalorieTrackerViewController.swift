@@ -50,7 +50,40 @@ class CalorieTrackerViewController: UIViewController {
     
     // MARK: - Add Calories to Table View
     
+    @IBAction func addCalorie(_ sender: Any) {
+        presentAlert()
+    }
     
+    // TODO: Move all this into a model controller and use a notification to trigger it
+    
+    private func presentAlert() {
+        let title = "Add Calorie Intake"
+        let message = "Enter the amount of calories in the field"
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addTextField()
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
+            let textField = alert.textFields![0]
+            guard let amount = textField.text else { return }
+            self.createCalorie(amount: amount)
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(submitAction)
+        
+        present(alert, animated: true)
+    }
+    
+    private func createCalorie(amount: String) {
+        Calorie(amount: amount)
+        
+        do {
+            try CoreDataStack.shared.mainContext.save()
+        } catch {
+            NSLog("Error saving managed object context: \(error)")
+        }
+    }
 }
 
 // MARK: - Table View Extension
@@ -89,6 +122,8 @@ extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSour
         }
     }
 }
+
+// MARK: - Fetched Results Extension
 
 extension CalorieTrackerViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
