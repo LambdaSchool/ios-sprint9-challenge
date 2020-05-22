@@ -8,6 +8,9 @@
 
 import UIKit
 import CoreData
+import SwiftCharts
+import SwiftLint
+
 
 class ViewController: UIViewController {
 
