@@ -19,6 +19,10 @@
 		C4C4706124782B0A00649868 /* CalorieTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4706024782B0A00649868 /* CalorieTrackerTests.swift */; };
 		C4C4706C24782B0A00649868 /* CalorieTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4706B24782B0A00649868 /* CalorieTrackerUITests.swift */; };
 		C4C4707B2478312900649868 /* CalorieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4707A2478312900649868 /* CalorieTableViewCell.swift */; };
+		C4C4707E2478316B00649868 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4707D2478316B00649868 /* CoreDataStack.swift */; };
+		C4C470802478317F00649868 /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4707F2478317F00649868 /* Calorie+Convenience.swift */; };
+		C4C47083247831D700649868 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C47082247831D700649868 /* EntryController.swift */; };
+		C4C470862478320500649868 /* CalorieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C470852478320500649868 /* CalorieViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +66,10 @@
 		C4C4706B24782B0A00649868 /* CalorieTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerUITests.swift; sourceTree = "<group>"; };
 		C4C4706D24782B0A00649868 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4C4707A2478312900649868 /* CalorieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewCell.swift; sourceTree = "<group>"; };
+		C4C4707D2478316B00649868 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		C4C4707F2478317F00649868 /* Calorie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience.swift"; sourceTree = "<group>"; };
+		C4C47082247831D700649868 /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
+		C4C470852478320500649868 /* CalorieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieViewController.swift; sourceTree = "<group>"; };
 		D53035078E531A38B5E8D2CC /* Pods_CalorieTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -118,6 +126,9 @@
 		C4C4704524782B0800649868 /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
+				C4C47084247831E600649868 /* ViewController */,
+				C4C47081247831AC00649868 /* Controller */,
+				C4C4707C2478315200649868 /* Models */,
 				C4C470792478310D00649868 /* Views */,
 				C4C4704624782B0800649868 /* AppDelegate.swift */,
 				C4C4704A24782B0800649868 /* ViewController.swift */,
@@ -154,6 +165,31 @@
 				C4C4707A2478312900649868 /* CalorieTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C4C4707C2478315200649868 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C4C4707D2478316B00649868 /* CoreDataStack.swift */,
+				C4C4707F2478317F00649868 /* Calorie+Convenience.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C4C47081247831AC00649868 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C4C47082247831D700649868 /* EntryController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C4C47084247831E600649868 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C4C470852478320500649868 /* CalorieViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		CC1FC4E8BA87B08239F7860E /* Frameworks */ = {
@@ -405,7 +441,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4C4707E2478316B00649868 /* CoreDataStack.swift in Sources */,
+				C4C470802478317F00649868 /* Calorie+Convenience.swift in Sources */,
+				C4C47083247831D700649868 /* EntryController.swift in Sources */,
 				C4C4704B24782B0800649868 /* ViewController.swift in Sources */,
+				C4C470862478320500649868 /* CalorieViewController.swift in Sources */,
 				C4C4704724782B0800649868 /* AppDelegate.swift in Sources */,
 				C4C4705124782B0800649868 /* CalorieTracker.xcdatamodeld in Sources */,
 				C4C4707B2478312900649868 /* CalorieTableViewCell.swift in Sources */,
