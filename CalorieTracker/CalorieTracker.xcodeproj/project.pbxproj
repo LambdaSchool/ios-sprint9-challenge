@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D18433324782A9600670C4A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18433224782A9600670C4A /* CoreDataManager.swift */; };
 		1D8039E4247826F6004BC8AC /* ChartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8039E1247826F6004BC8AC /* ChartColors.swift */; };
 		1D8039E5247826F6004BC8AC /* ChartSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8039E2247826F6004BC8AC /* ChartSeries.swift */; };
 		1D8039E6247826F6004BC8AC /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8039E3247826F6004BC8AC /* Chart.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D18433224782A9600670C4A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		1D8039E1247826F6004BC8AC /* ChartColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartColors.swift; path = ../SwiftChart/Source/ChartColors.swift; sourceTree = "<group>"; };
 		1D8039E2247826F6004BC8AC /* ChartSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartSeries.swift; path = ../SwiftChart/Source/ChartSeries.swift; sourceTree = "<group>"; };
 		1D8039E3247826F6004BC8AC /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Chart.swift; path = ../SwiftChart/Source/Chart.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				1DEE7C962478220300468113 /* CalorieTracker.xcdatamodeld */,
+				1D18433224782A9600670C4A /* CoreDataManager.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				1DEE7C982478220300468113 /* CalorieTracker.xcdatamodeld in Sources */,
 				1D8039E5247826F6004BC8AC /* ChartSeries.swift in Sources */,
 				1DEE7C902478220300468113 /* SceneDelegate.swift in Sources */,
+				1D18433324782A9600670C4A /* CoreDataManager.swift in Sources */,
 				1D8039E4247826F6004BC8AC /* ChartColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
