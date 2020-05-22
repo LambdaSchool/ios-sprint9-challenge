@@ -101,17 +101,18 @@ class TotalCaloriesTableViewController: UITableViewController {
      }
      */
     
-    /*
+    
      // Override to support editing the table view.
      override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
      if editingStyle == .delete {
+        let calories = caloriesController.calories[indexPath.row]
      // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
+        caloriesController.deleteCalories(calories: calories)
      } else if editingStyle == .insert {
      // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
      }
      }
-     */
+     
     
     /*
      // Override to support rearranging the table view.
