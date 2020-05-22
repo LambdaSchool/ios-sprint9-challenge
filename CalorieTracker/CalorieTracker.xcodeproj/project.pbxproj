@@ -59,15 +59,6 @@
 			name = SwiftChart;
 			sourceTree = "<group>";
 		};
-		1DA7E5FC2478377900FD7F39 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				1DEE7CA7247822A700468113 /* CoreData */,
-				1DDE515F24783C7800FF7AFD /* Entry+Convenience.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		1DEE7C812478220300468113 = {
 			isa = PBXGroup;
 			children = (
@@ -91,7 +82,7 @@
 				1DEE7CA42478227A00468113 /* Application */,
 				1DEE7CA52478229100468113 /* ViewControllers */,
 				1DEE7CA62478229F00468113 /* Storyboards */,
-				1DA7E5FC2478377900FD7F39 /* Model */,
+				1DEE7CA7247822A700468113 /* CoreData */,
 			);
 			path = CalorieTracker;
 			sourceTree = "<group>";
@@ -129,6 +120,7 @@
 			children = (
 				1DEE7C962478220300468113 /* Entry.xcdatamodeld */,
 				1D18433224782A9600670C4A /* CoreDataManager.swift */,
+				1DDE515F24783C7800FF7AFD /* Entry+Convenience.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";

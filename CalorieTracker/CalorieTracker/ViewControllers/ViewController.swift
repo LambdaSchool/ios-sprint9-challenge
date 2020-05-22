@@ -12,6 +12,8 @@ import CoreData
 class ViewController: UIViewController {
     // MARK: - Outlets & Properties
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var chart: Chart!
+    var chartData = [Double]()
     
     private lazy var fetchedResultsController: NSFetchedResultsController<Entry> = {
         let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
@@ -41,7 +43,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
     }
-
+    
     // MARK: - Actions & Methods
     @IBAction func addButtonTapped(_ sender: UIButton) {
         // presents an alert and the alert handles the rest of the action
@@ -61,8 +63,18 @@ class ViewController: UIViewController {
             } catch {
                 print("Error saving new entry to CoreData: \(error)")
             }
+            self.populateChart(with: caloriesInt64)
         }))
         present(alert, animated: true, completion: nil)
+    }
+    
+    private func populateChart(with newEntry: Int64) {
+        
+        chartData.append(Double(newEntry))
+        let data = chartData
+        let series = ChartSeries(chartData)
+        chart.add(series)
+        
     }
     
 }
@@ -79,7 +91,7 @@ extension ViewController: UITableViewDataSource {
         cell.detailTextLabel?.text = fetchedResultsController.object(at: indexPath).timeStamp
         return cell
     }
-
+    
 }
 
 extension ViewController: NSFetchedResultsControllerDelegate {

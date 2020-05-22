@@ -85,6 +85,7 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="chart" destination="WSx-Gz-7Qx" id="Ja5-5L-17m"/>
                         <outlet property="tableView" destination="4Ii-QU-xSO" id="BNe-gf-82I"/>
                     </connections>
                 </viewController>
