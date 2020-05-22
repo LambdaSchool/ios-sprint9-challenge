@@ -18,20 +18,20 @@ class CalorieViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var chart: Chart!
-    
+
     let entryController = EntryController()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
-        
+
         createIt()
         NotificationCenter.default.addObserver(self, selector: #selector(createIt), name: .changed, object: nil)
-        
+
     }
-    
+
     @IBAction func addTap(_ sender: Any) {
         let alert = UIAlertController(
               title: "Type how many calories you had",
@@ -60,7 +60,7 @@ class CalorieViewController: UIViewController {
           }))
           present(alert, animated: true, completion: nil)
     }
-    
+
     @objc func createIt() {
 
         var calorieList: [CalorieEntry] = []
@@ -73,7 +73,7 @@ class CalorieViewController: UIViewController {
           let allCalories = ChartSeries(entries)
           chart.add(allCalories)
       }
-    
+
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieEntry> = {
         let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
@@ -90,7 +90,7 @@ class CalorieViewController: UIViewController {
         }
         return frc
     }()
-    
+
     func changeTheDate(_ date: Date) -> String {
         let dateDay = DateFormatter()
         let dateTime = DateFormatter()
@@ -113,7 +113,7 @@ extension CalorieViewController: UITableViewDelegate, UITableViewDataSource {
         // #warning Incomplete implementation, return the number of rows
         return fetchedResultsController.sections?[section].numberOfObjects ?? 3
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
                                                        for: indexPath) as? CalorieTableViewCell else {return UITableViewCell()}
@@ -122,8 +122,10 @@ extension CalorieViewController: UITableViewDelegate, UITableViewDataSource {
         cell.dateText.text = changeTheDate(entry.timestamp ?? Date())
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let entry = fetchedResultsController.object(at: indexPath)
             let context = CoreDataStack.shared.mainContext
