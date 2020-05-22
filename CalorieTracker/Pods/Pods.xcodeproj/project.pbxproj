@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,6 +33,7 @@
 		0531AA355451EA5CBFC1C98EDB8457F4 /* Pods-CalorieTracker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CalorieTracker-dummy.m"; sourceTree = "<group>"; };
 		14921E366FBB956C7E3822559A19B3E5 /* Pods-CalorieTracker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CalorieTracker.modulemap"; sourceTree = "<group>"; };
 		1961B7D5025A15EBAA3F05AD0A8D31D1 /* ChartColors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartColors.swift; path = Source/ChartColors.swift; sourceTree = "<group>"; };
+		278FE04E2478262E00B711B0 /* autocorrect.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = autocorrect.yml; path = ../../autocorrect.yml; sourceTree = "<group>"; };
 		569E43FE2ADE408732231EE8E96BF6C0 /* Chart.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Chart.swift; path = Source/Chart.swift; sourceTree = "<group>"; };
 		7ACA50CA8F3A31A1774704AE70AF5481 /* SwiftChart-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftChart-dummy.m"; sourceTree = "<group>"; };
 		7F1D0BF670D4D8CD5F8813EBB007E813 /* Pods-CalorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CalorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -42,8 +43,8 @@
 		8E102FE402E0556B3AF2F63830BF70B0 /* Pods-CalorieTracker-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CalorieTracker-frameworks.sh"; sourceTree = "<group>"; };
 		908E902E026C5C22904CF9014A5604AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		92BC73E0C3787528F754F9E9BAE51DC5 /* SwiftChart.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftChart.modulemap; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		97ABC80D42AA1F1E69C6DFAAB21EB2C3 /* SwiftChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftChart.framework; path = SwiftChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		97ABC80D42AA1F1E69C6DFAAB21EB2C3 /* SwiftChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DEE87D9E851CC26F49D60D2354D536F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A48BFFEFC5DEE078D291CBF183AFEA42 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6DAA949AA1D7AC38EC7A6B229C23917 /* Pods-CalorieTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CalorieTracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -51,7 +52,7 @@
 		A91249D5601A7A64C9F8B5592D44BF27 /* Pods-CalorieTracker-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CalorieTracker-acknowledgements.markdown"; sourceTree = "<group>"; };
 		B1355CD9F8883ADADEBED87C31872CB4 /* Pods-CalorieTracker-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CalorieTracker-resources.sh"; sourceTree = "<group>"; };
 		BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		D76B8B7113F380532B82567CBAFEE4E0 /* Pods_CalorieTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CalorieTracker.framework; path = "Pods-CalorieTracker.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D76B8B7113F380532B82567CBAFEE4E0 /* Pods_CalorieTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2E24A523ABEB2131D9AA795916B79C3 /* Pods-CalorieTracker-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CalorieTracker-acknowledgements.plist"; sourceTree = "<group>"; };
 		F5D2C63DA77907A7E1F8413B41DBA7F8 /* SwiftChart.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftChart.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,8 +81,8 @@
 		02BAF293B87E5B2C94DFDE5096B530EE /* SwiftLint */ = {
 			isa = PBXGroup;
 			children = (
+				278FE04E2478262E00B711B0 /* autocorrect.yml */,
 			);
-			name = SwiftLint;
 			path = SwiftLint;
 			sourceTree = "<group>";
 		};
@@ -102,7 +103,6 @@
 				8C25220CE34E0CDD3954BB4F53F847B0 /* ChartSeries.swift */,
 				C3B7DA9AF73DE1BC194858D8D86CAED5 /* Support Files */,
 			);
-			name = SwiftChart;
 			path = SwiftChart;
 			sourceTree = "<group>";
 		};
@@ -254,6 +254,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
@@ -317,11 +318,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-CalorieTracker/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.modulemap";
 				OTHER_LDFLAGS = "";
@@ -478,11 +475,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-CalorieTracker/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.modulemap";
 				OTHER_LDFLAGS = "";
@@ -517,11 +510,7 @@
 				INFOPLIST_FILE = "Target Support Files/SwiftChart/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SwiftChart/SwiftChart.modulemap";
 				PRODUCT_MODULE_NAME = SwiftChart;
 				PRODUCT_NAME = SwiftChart;
@@ -554,11 +543,7 @@
 				INFOPLIST_FILE = "Target Support Files/SwiftChart/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SwiftChart/SwiftChart.modulemap";
 				PRODUCT_MODULE_NAME = SwiftChart;
 				PRODUCT_NAME = SwiftChart;
