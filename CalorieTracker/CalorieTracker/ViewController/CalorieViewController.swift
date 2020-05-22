@@ -20,6 +20,7 @@ class CalorieViewController: UIViewController {
     @IBOutlet weak var chart: Chart!
 
     let entryController = EntryController()
+    let bad = UITableViewCell()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,7 +117,7 @@ extension CalorieViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
-                                                       for: indexPath) as? CalorieTableViewCell else {return UITableViewCell()}
+                                                       for: indexPath) as? CalorieTableViewCell else {return bad}
         let entry = fetchedResultsController.object(at: indexPath)
         cell.calorieText.text = "Calories: \(entry.calories)"
         cell.dateText.text = changeTheDate(entry.timestamp ?? Date())
@@ -139,7 +140,7 @@ extension CalorieViewController: UITableViewDelegate, UITableViewDataSource {
             NotificationCenter.default.post(name: .changed, object: self)
         }
     }
-    
+
 }
 
 extension CalorieViewController: NSFetchedResultsControllerDelegate {

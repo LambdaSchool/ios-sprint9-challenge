@@ -12,8 +12,7 @@ class CalorieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var calorieText: UILabel!
     @IBOutlet weak var dateText: UILabel!
-    
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
