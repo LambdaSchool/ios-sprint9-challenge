@@ -18,7 +18,7 @@ class CalorieTrackerViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
-    
+        
     lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
         let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
@@ -39,6 +39,8 @@ class CalorieTrackerViewController: UIViewController {
         return formatter
     }()
     
+    var calorieChartSeries = ChartSeries([])
+    
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
@@ -46,6 +48,14 @@ class CalorieTrackerViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        calorieChart.minY = 100
+        
+        calorieChartSeries.area = true
+        calorieChartSeries.colors.below = .blue
+        
+        calorieChart.add(calorieChartSeries)
+        updateChart()
     }
     
     // MARK: - Add Calories to Table View
@@ -68,6 +78,7 @@ class CalorieTrackerViewController: UIViewController {
             let textField = alert.textFields![0]
             guard let amount = textField.text else { return }
             self.createCalorie(amount: amount)
+            
         }
         alert.addAction(cancelAction)
         alert.addAction(submitAction)
@@ -77,11 +88,39 @@ class CalorieTrackerViewController: UIViewController {
     
     private func createCalorie(amount: String) {
         Calorie(amount: amount)
-        
         do {
             try CoreDataStack.shared.mainContext.save()
         } catch {
             NSLog("Error saving managed object context: \(error)")
+        }
+        
+        updateChart()
+    }
+    
+    // MARK: - Add Calories to Chart
+    
+    private func updateChart() {
+        calorieChart.removeAllSeries()
+        
+        let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
+        let context = CoreDataStack.shared.container.newBackgroundContext()
+        
+        do {
+            var calorieAmounts = [(x: Double, y: Double)]()
+            let calories = try context.fetch(fetchRequest)
+            
+            for (index, calorie) in calories.enumerated() {
+                guard let amountString = calorie.amount,
+                    let amount = Double(amountString) else { return }
+                calorieAmounts.append((x: Double(index), y: amount))
+            }
+            
+            calorieChartSeries.data = calorieAmounts
+            
+            calorieChart.series.append(calorieChartSeries)
+        } catch {
+            NSLog("Failed to fetch calories.")
+            return
         }
     }
 }
@@ -113,12 +152,13 @@ extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSour
         if editingStyle == .delete {
             let calorie = fetchedResultsController.object(at: indexPath)
             CoreDataStack.shared.mainContext.delete(calorie)
-            
             do {
                 try CoreDataStack.shared.mainContext.save()
             } catch {
                 NSLog("Error saving managed object context: \(error)")
             }
+            
+            updateChart()
         }
     }
 }
