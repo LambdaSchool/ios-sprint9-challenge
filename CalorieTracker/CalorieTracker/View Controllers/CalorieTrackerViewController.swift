@@ -41,6 +41,8 @@ class CalorieTrackerViewController: UIViewController {
     
     var calorieChartSeries = ChartSeries([])
     
+    let calorieController = CalorieController()
+    
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
@@ -56,6 +58,13 @@ class CalorieTrackerViewController: UIViewController {
         
         calorieChart.add(calorieChartSeries)
         updateChart()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshView), name: .didCreateNewCalorie, object: nil)
+    }
+    
+    @objc private func refreshView() {
+        updateChart()
+        tableView.reloadData()
     }
     
     // MARK: - Add Calories to Table View
@@ -63,9 +72,7 @@ class CalorieTrackerViewController: UIViewController {
     @IBAction func addCalorie(_ sender: Any) {
         presentAlert()
     }
-    
-    // TODO: Move all this into a model controller and use a notification to trigger it
-    
+        
     private func presentAlert() {
         let title = "Add Calorie Intake"
         let message = "Enter the amount of calories in the field"
@@ -77,24 +84,12 @@ class CalorieTrackerViewController: UIViewController {
         let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
             let textField = alert.textFields![0]
             guard let amount = textField.text else { return }
-            self.createCalorie(amount: amount)
-            
+            self.calorieController.createCalorie(amount: amount)
         }
         alert.addAction(cancelAction)
         alert.addAction(submitAction)
         
         present(alert, animated: true)
-    }
-    
-    private func createCalorie(amount: String) {
-        Calorie(amount: amount)
-        do {
-            try CoreDataStack.shared.mainContext.save()
-        } catch {
-            NSLog("Error saving managed object context: \(error)")
-        }
-        
-        updateChart()
     }
     
     // MARK: - Add Calories to Chart
