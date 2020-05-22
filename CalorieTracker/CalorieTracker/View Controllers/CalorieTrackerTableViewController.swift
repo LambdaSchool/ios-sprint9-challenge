@@ -13,7 +13,7 @@ import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController {
     
-    @IBOutlet weak var chart: Chart!
+    @IBOutlet private var chart: Chart!
     
     var calorieIntakeArray: [CalorieIntake] {
         let fetchRequest: NSFetchRequest<CalorieIntake> = CalorieIntake.fetchRequest()
@@ -78,8 +78,6 @@ class CalorieTrackerTableViewController: UITableViewController {
         }
     }
 
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -103,7 +101,7 @@ class CalorieTrackerTableViewController: UITableViewController {
     
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return calorieIntakeArray.count
+        calorieIntakeArray.count
     }
 
   
