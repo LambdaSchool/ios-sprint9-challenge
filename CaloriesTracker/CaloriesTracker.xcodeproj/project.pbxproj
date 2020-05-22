@@ -177,6 +177,7 @@
 				3FA0F2D8247829EB00A4A89B /* Frameworks */,
 				3FA0F2D9247829EB00A4A89B /* Resources */,
 				12D29658D0F9D77731E6975F /* [CP] Embed Pods Frameworks */,
+				3FE578CE24785C1400C80A08 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -250,6 +251,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CaloriesTracker/Pods-CaloriesTracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		3FE578CE24785C1400C80A08 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\n";
 		};
 		C360DB007B51E21256A06CC0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
