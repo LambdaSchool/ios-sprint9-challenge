@@ -26,8 +26,9 @@ class CaloriesTableViewCell: UITableViewCell {
         formatter.dateFormat = "h:mm a"
         return formatter
     }()
-    @IBOutlet weak var calorieLabel: UILabel!
-    @IBOutlet weak var timestampLabel: UILabel!
+    @IBOutlet private weak var calorieLabel: UILabel!
+    @IBOutlet private weak var timestampLabel: UILabel!
+    
     func updatesViews() {
         guard let calories = calories else { return }
         let dateString = dateFormatter.string(from: calories.timestamp!)

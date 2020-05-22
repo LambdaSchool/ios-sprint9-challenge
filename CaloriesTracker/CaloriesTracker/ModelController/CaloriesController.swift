@@ -32,10 +32,10 @@ class CaloriesController {
         }
         return []
     }
-    func createCalories(calories: Int, timestamp: Date = Date()) -> Calories {
-        let calories = Calories(calories: calories, timestamp: timestamp, context: CoreDataStack.shared.mainContext)
+    func createCalories(calories: Int, timestamp: Date = Date()) {
+         Calories(calories: calories, timestamp: timestamp, context: CoreDataStack.shared.mainContext)
         saveToPersistentStore()
-        return calories
+        
     }
     func deleteCalories(calories: Calories) {
        CoreDataStack.shared.mainContext.delete(calories)

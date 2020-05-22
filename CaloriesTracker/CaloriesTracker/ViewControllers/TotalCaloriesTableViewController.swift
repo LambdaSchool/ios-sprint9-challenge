@@ -13,6 +13,7 @@ class TotalCaloriesTableViewController: UITableViewController {
     
     var caloriesController = CaloriesController()
     @IBOutlet private weak var caloriesChart: Chart!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadViews), name: .whenUpdateGraph, object: nil)
@@ -36,7 +37,7 @@ class TotalCaloriesTableViewController: UITableViewController {
             let stringCalorieCount = caloriesTextField.text ?? ""
             let caloriesInt = Int(stringCalorieCount)
             if let caloriesInt = caloriesInt {
-                self.caloriesController.createCalories(calories: caloriesInt, timestamp: Date())
+              self.caloriesController.createCalories(calories: caloriesInt, timestamp: Date())
             } else {
                 print("Not a calorie")
             }
