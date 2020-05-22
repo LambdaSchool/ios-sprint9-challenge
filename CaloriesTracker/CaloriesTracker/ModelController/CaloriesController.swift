@@ -48,5 +48,12 @@ class CaloriesController {
         
     }
     
+    func deleteCalories(calories: Calories) {
+        
+       CoreDataStack.shared.mainContext.delete(calories)
+        saveToPersistentStore()
+       
+    }
+    
     
 }
