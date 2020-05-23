@@ -5,87 +5,175 @@
 //  Created by Thomas Sabino-Benowitz on 5/22/20.
 //
 
-import UIKit
-import SwiftCharts
-import SwiftLint
+    import UIKit
+    import CoreData
+    import SwiftChart
+    
+    class CalorieTrackerTableViewController: UITableViewController {
+        
+        // MARK: - Outlets
+        @IBOutlet private weak var chartView: Chart!
+        
+        // MARK: - Properties
+        let calorieTrackerController = CalorieTrackerController()
+        let entries: [Entry] = []
+        
+        var dateFormatter: DateFormatter {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "LLL dd, yyyy 'at' h:mm:ss a"
+            formatter.timeZone = TimeZone.autoupdatingCurrent
+            return formatter
+        }
+        
+        // MARK: - View Life Cycle
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            DispatchQueue.main.async {
+                self.updateViews()
+                self.fetchedResultsController.delegate = self
+            }
+            
+            NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .calorieLogAdded, object: nil)
+            
+        }
+        
+        // MARK: - Methods
+        @objc func updateViews() {
+            let chartInput = fetchedResultsController.fetchedObjects!.count
+            var calorieLogArray: [Double] = []
+            for calories in 0..<chartInput {
+                calorieLogArray.append(fetchedResultsController.fetchedObjects?[calories].calories ?? 0.0)
+            }
+            let series = ChartSeries(calorieLogArray)
+            series.color = ChartColors.greenColor()
+            series.area = true
+            chartView.add(series)
+            
+            chartView.gridColor = .darkGray
+            chartView.highlightLineColor = .cyan
+            chartView.axesColor = .black
+            
+            tableView.reloadData()
+        }
+        
+        @IBAction func addButtonTapped(_ sender: Any) {
+            let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+            var calorieTrackerTextField: UITextField!
+            alert.addTextField { alertTextField in
+                alertTextField.placeholder = "Number of Calories:"
+                calorieTrackerTextField = alertTextField
+            }
+            let action = UIAlertAction(title: "Submit", style: .default) { _ in
+                let enterNumberofCalories = calorieTrackerTextField.text ?? "0"
+                self.calorieTrackerController.addEntry(calories: Double(enterNumberofCalories) ?? 0)
+                NotificationCenter.default.post(name: .calorieLogAdded, object: nil)
+            }
+            
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+            
+            alert.addAction(action)
+            alert.addAction(cancel)
+            present(alert, animated: true)
+        }
 
-class CalorieTrackerTableViewTableViewController: UITableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        // MARK: - Fetch Results Controller
+        lazy var fetchedResultsController: NSFetchedResultsController<Entry> = {
+            let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
+            
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+            
+            let context = CoreDataStack.shared.mainContext
+            
+            let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: "date", cacheName: nil)
+            
+            frc.delegate = self
+            
+            do {
+                
+                try frc.performFetch()
+            } catch {
+                fatalError("Error performing fetch for frc: \(error)")
+            }
+            return frc
+        }()
+        
+        // MARK: - Table view data source
+        override func numberOfSections(in tableView: UITableView) -> Int {
+            fetchedResultsController.sections?.count ?? 0
+        }
+        
+        override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        }
+        
+        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath)
+            
+            let calorieLog = fetchedResultsController.object(at: indexPath)
+            
+            cell.textLabel?.text = "Calories: \(calorieLog.calories)"
+            
+            if let date = calorieLog.date {
+                cell.detailTextLabel?.text = dateFormatter.string(from: date)
+            } else {
+                cell.detailTextLabel?.text = "No date has been provided."
+            }
+            
+            return cell
+        }
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    extension CalorieTrackerTableViewController: NSFetchedResultsControllerDelegate {
+        
+        func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+            tableView.beginUpdates()
+        }
+        
+        func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+            tableView.endUpdates()
+        }
+        
+        func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                        didChange sectionInfo: NSFetchedResultsSectionInfo,
+                        atSectionIndex sectionIndex: Int,
+                        for type: NSFetchedResultsChangeType) {
+            switch type {
+            case .insert:
+                tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
+            case .delete:
+                tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
+            default:
+                break
+            }
+        }
+        
+        func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                        didChange anObject: Any,
+                        at indexPath: IndexPath?,
+                        for type: NSFetchedResultsChangeType,
+                        newIndexPath: IndexPath?) {
+            switch type {
+            case .insert:
+                guard let newIndexPath = newIndexPath else { return }
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            case .update:
+                guard let indexPath = indexPath else { return }
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            case .move:
+                guard let oldIndexPath = indexPath,
+                    let newIndexPath = newIndexPath else { return }
+                tableView.deleteRows(at: [oldIndexPath], with: .automatic)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            case .delete:
+                guard let indexPath = indexPath else { return }
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            @unknown default:
+                break
+            }
+        }
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    extension Notification.Name {
+        static let calorieLogAdded = Notification.Name("calorieLogAdded")
 }
