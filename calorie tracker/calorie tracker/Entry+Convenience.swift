@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 extension Entry {
-    convenience init(calories: Double, date: Date = Date(), context:NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    convenience init(calories: Double, date: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.calories = calories
         self.date = date
