@@ -33,18 +33,18 @@
                 self.fetchedResultsController.delegate = self
             }
             
-            NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .calorieLogAdded, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .calorieDataRecorded, object: nil)
             
         }
         
         // MARK: - Methods
         @objc func updateViews() {
-            let chartInput = fetchedResultsController.fetchedObjects!.count
-            var calorieLogArray: [Double] = []
-            for calories in 0..<chartInput {
-                calorieLogArray.append(fetchedResultsController.fetchedObjects?[calories].calories ?? 0.0)
+            let chartData = fetchedResultsController.fetchedObjects!.count
+            var calorieLog: [Double] = []
+            for calories in 0..<chartData {
+                calorieLog.append(fetchedResultsController.fetchedObjects?[calories].calories ?? 0.0)
             }
-            let series = ChartSeries(calorieLogArray)
+            let series = ChartSeries(calorieLog)
             series.color = ChartColors.greenColor()
             series.area = true
             chartView.add(series)
@@ -57,7 +57,7 @@
         }
         
         @IBAction func addButtonTapped(_ sender: Any) {
-            let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the number of calories in this field", preferredStyle: .alert)
             var calorieTrackerTextField: UITextField!
             alert.addTextField { alertTextField in
                 alertTextField.placeholder = "Number of Calories:"
@@ -66,7 +66,7 @@
             let action = UIAlertAction(title: "Submit", style: .default) { _ in
                 let enterNumberofCalories = calorieTrackerTextField.text ?? "0"
                 self.calorieTrackerController.addEntry(calories: Double(enterNumberofCalories) ?? 0)
-                NotificationCenter.default.post(name: .calorieLogAdded, object: nil)
+                NotificationCenter.default.post(name: .calorieDataRecorded, object: nil)
             }
             
             let cancel = UIAlertAction(title: "Cancel", style: .cancel)
@@ -117,7 +117,7 @@
             if let date = calorieLog.date {
                 cell.detailTextLabel?.text = dateFormatter.string(from: date)
             } else {
-                cell.detailTextLabel?.text = "No date has been provided."
+                cell.detailTextLabel?.text = "Date not recorded"
             }
             
             return cell
@@ -175,5 +175,5 @@
     }
     
     extension Notification.Name {
-        static let calorieLogAdded = Notification.Name("calorieLogAdded")
+        static let calorieDataRecorded = Notification.Name("calorieDataRecorded")
 }
