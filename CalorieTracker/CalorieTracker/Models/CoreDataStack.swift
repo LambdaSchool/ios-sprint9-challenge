@@ -35,5 +35,7 @@ class CoreDataStack {
             }
         }
         if let error = error { throw error }
+        print("gitkraken test")
     }
+    
 }

@@ -18,4 +18,9 @@ class EntryController {
             NSLog("Error saving managed object context: \(error)")
         }
     }
+    
+    func delete(_ calories: Int) {
+        
+    }
+    
 }
