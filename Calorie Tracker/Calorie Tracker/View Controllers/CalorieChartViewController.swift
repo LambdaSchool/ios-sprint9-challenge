@@ -76,7 +76,7 @@ class CalorieChartViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func addCalorieButtonPressed(_ sender: Any) {
         promptForCalorieInput()
-        calorieTableView.reloadData()
+        
     }
     
     func promptForCalorieInput() {
@@ -97,6 +97,8 @@ class CalorieChartViewController: UIViewController, UITableViewDelegate, UITable
         ac.addAction(cancel)
         ac.addAction(sumbitAction)
         present(ac, animated: true)
+        
+        calorieTableView.reloadData()
     }
     
     
