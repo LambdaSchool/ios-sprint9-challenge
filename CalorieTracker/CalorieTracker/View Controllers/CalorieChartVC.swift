@@ -23,6 +23,9 @@ class CalorieChartVC: UIViewController {
    func updateChart() {
       var calorieEntries: [CalorieEntry] {
          let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
+         fetchRequest.sortDescriptors = [
+            NSSortDescriptor(key: "date", ascending: true)
+         ]
          let context = CoreDataStack.shared.mainContext
          do {
             return try context.fetch(fetchRequest)
