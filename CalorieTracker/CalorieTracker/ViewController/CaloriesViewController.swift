@@ -8,12 +8,12 @@
 
 import UIKit
 import CoreData
-
+import SwiftChart
 
 class CaloriesViewController: UIViewController {
 
     // MARK: - Properties
-    var calorieEntries: [Int16] = []
+    var calorieEntries: [Double] = []
     let dateFormatter = DateFormatter()
     
     lazy var fetchedResultsController: NSFetchedResultsController<Calories> = {
@@ -33,13 +33,14 @@ class CaloriesViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet var tableView: UITableView!
-    
+    @IBOutlet var calorieChart: Chart!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        charts()
     }
     
     // MARK: - IBAction
@@ -76,8 +77,18 @@ class CaloriesViewController: UIViewController {
         
         present(alertController, animated: true)
     }
-    
-
+    // MARK: - Functions
+    func charts() {
+        if let objects = fetchedResultsController.fetchedObjects {
+            for entry in objects {
+                calorieEntries.append(Double(entry.amount))
+            }
+        }
+        let chartSeries = ChartSeries(calorieEntries)
+        chartSeries.color = .blue
+        chartSeries.area = true
+        calorieChart.add(chartSeries)
+    }
 }
 
 // MARK: - Extensions
