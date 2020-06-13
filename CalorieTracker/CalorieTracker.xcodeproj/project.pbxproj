@@ -9,25 +9,25 @@
 /* Begin PBXBuildFile section */
 		3AE391AB24945DE9003A6AC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE391AA24945DE9003A6AC5 /* AppDelegate.swift */; };
 		3AE391AD24945DE9003A6AC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE391AC24945DE9003A6AC5 /* SceneDelegate.swift */; };
-		3AE391AF24945DE9003A6AC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE391AE24945DE9003A6AC5 /* ViewController.swift */; };
 		3AE391B224945DE9003A6AC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AE391B024945DE9003A6AC5 /* Main.storyboard */; };
 		3AE391B424945DEA003A6AC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AE391B324945DEA003A6AC5 /* Assets.xcassets */; };
 		3AE391B724945DEA003A6AC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AE391B524945DEA003A6AC5 /* LaunchScreen.storyboard */; };
 		3AE391C124946069003A6AC5 /* Calories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3AE391BF24946069003A6AC5 /* Calories.xcdatamodeld */; };
 		3AE391C5249461D3003A6AC5 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE391C4249461D3003A6AC5 /* CoreDataStack.swift */; };
+		3AE391C824946261003A6AC5 /* CaloriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE391C724946261003A6AC5 /* CaloriesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3AE391A724945DE9003A6AC5 /* CalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE391AA24945DE9003A6AC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AE391AC24945DE9003A6AC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3AE391AE24945DE9003A6AC5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3AE391B124945DE9003A6AC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3AE391B324945DEA003A6AC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AE391B624945DEA003A6AC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3AE391B824945DEA003A6AC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AE391C024946069003A6AC5 /* Calories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calories.xcdatamodel; sourceTree = "<group>"; };
 		3AE391C4249461D3003A6AC5 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		3AE391C724946261003A6AC5 /* CaloriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +63,9 @@
 				3AE391BE2494604C003A6AC5 /* Model */,
 				3AE391C2249460BF003A6AC5 /* View */,
 				3AE391C3249460E9003A6AC5 /* Controller */,
+				3AE391C62494624E003A6AC5 /* ViewController */,
 				3AE391AA24945DE9003A6AC5 /* AppDelegate.swift */,
 				3AE391AC24945DE9003A6AC5 /* SceneDelegate.swift */,
-				3AE391AE24945DE9003A6AC5 /* ViewController.swift */,
 				3AE391B024945DE9003A6AC5 /* Main.storyboard */,
 				3AE391B324945DEA003A6AC5 /* Assets.xcassets */,
 				3AE391B524945DEA003A6AC5 /* LaunchScreen.storyboard */,
@@ -95,6 +95,14 @@
 			children = (
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		3AE391C62494624E003A6AC5 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3AE391C724946261003A6AC5 /* CaloriesViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,9 +177,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AE391C5249461D3003A6AC5 /* CoreDataStack.swift in Sources */,
-				3AE391AF24945DE9003A6AC5 /* ViewController.swift in Sources */,
 				3AE391AB24945DE9003A6AC5 /* AppDelegate.swift in Sources */,
 				3AE391AD24945DE9003A6AC5 /* SceneDelegate.swift in Sources */,
+				3AE391C824946261003A6AC5 /* CaloriesViewController.swift in Sources */,
 				3AE391C124946069003A6AC5 /* Calories.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
