@@ -18,9 +18,16 @@ class CalorieChartVC: UIViewController {
       super.viewDidLoad()
       
       updateChart()
+      
+      NotificationCenter.default.addObserver(
+         self,
+         selector: #selector(updateChart),
+         name: NSNotification.Name.NSManagedObjectContextObjectsDidChange,
+         object: CoreDataStack.shared.mainContext
+      )
    }
    
-   func updateChart() {
+   @objc func updateChart() {
       var calorieEntries: [CalorieEntry] {
          let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
          fetchRequest.sortDescriptors = [
