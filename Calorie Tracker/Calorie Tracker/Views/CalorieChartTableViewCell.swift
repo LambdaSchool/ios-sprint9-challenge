@@ -14,10 +14,23 @@ class CalorieChartTableViewCell: UITableViewCell {
     @IBOutlet weak var calorieLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    var calorie: Calorie? {
+        didSet{
+            updateViews()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func updateViews() {
+        guard let calorie = calorie else { return }
+    
+        calorieLabel.text = calorie.calorie
+        dateLabel.text = calorie.date.toString(dateFormat: "MM/dd/yy, h:mm a")
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -14,6 +14,7 @@ class CalorieChartViewController: UIViewController, UITableViewDelegate, UITable
     
     // MARK: IBOutlets
     @IBOutlet weak var calorieTableView: UITableView!
+    @IBOutlet weak var chartView: UIView!
     
     
     override func viewDidLoad() {
@@ -21,7 +22,6 @@ class CalorieChartViewController: UIViewController, UITableViewDelegate, UITable
         
         calorieTableView.delegate = self
         calorieTableView.dataSource = self
-        calorieTableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +34,6 @@ class CalorieChartViewController: UIViewController, UITableViewDelegate, UITable
     
     let chart = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
     let series = ChartSeries([0, 6.5, 2, 8, 4.1, 7, -3.1, 10, 8])
-    
 
     // MARK: - Table view data source
 
@@ -44,9 +43,9 @@ class CalorieChartViewController: UIViewController, UITableViewDelegate, UITable
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieInputCell", for: indexPath) as? CalorieChartTableViewCell else {
             fatalError("Can't dequeue cell of type 'CalorieInputCell' ")
         }
-        
-        cell.calorieLabel.text = calorieList[indexPath.row].calorie
-        cell.dateLabel.text = calorieList[indexPath.row].date.toString(dateFormat: "MM/dd/yy, h:mm a")
+
+        cell.textLabel?.text = calorieList[indexPath.row].calorie
+        cell.detailTextLabel?.text = calorieList[indexPath.row].date.toString(dateFormat: "MM/dd/yy, h:mm a")
         
         // Configure the cell...
 

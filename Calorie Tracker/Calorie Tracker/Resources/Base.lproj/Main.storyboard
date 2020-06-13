@@ -19,54 +19,47 @@
                                 <rect key="frame" x="0.0" y="288" width="414" height="574"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieInputCell" rowHeight="76" id="SMv-p9-CSy" customClass="CalorieChartTableViewCell" customModule="Calorie_Tracker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieInputCell" textLabel="WM6-lU-GQL" detailTextLabel="7e2-Y7-aYH" rowHeight="76" style="IBUITableViewCellStyleValue1" id="SMv-p9-CSy" customClass="CalorieChartTableViewCell" customModule="Calorie_Tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SMv-p9-CSy" id="xw2-RO-WK7">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Calorie: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gD7-jg-zJJ">
-                                                    <rect key="frame" x="20" y="21" width="61" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="dg0-eU-h9a"/>
-                                                    </constraints>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WM6-lU-GQL">
+                                                    <rect key="frame" x="20" y="28" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWa-8u-PzW">
-                                                    <rect key="frame" x="352" y="21" width="42" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="Olb-vD-AJd"/>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="bz7-WK-Spx"/>
-                                                    </constraints>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7e2-Y7-aYH">
+                                                    <rect key="frame" x="350" y="28" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="gD7-jg-zJJ" firstAttribute="leading" secondItem="xw2-RO-WK7" secondAttribute="leadingMargin" id="NOX-X7-C8J"/>
-                                                <constraint firstItem="gD7-jg-zJJ" firstAttribute="top" secondItem="xw2-RO-WK7" secondAttribute="topMargin" constant="10" id="hqV-pd-8TH"/>
-                                                <constraint firstItem="YWa-8u-PzW" firstAttribute="trailing" secondItem="xw2-RO-WK7" secondAttribute="trailingMargin" id="nNR-DR-1nH"/>
-                                                <constraint firstItem="YWa-8u-PzW" firstAttribute="top" secondItem="xw2-RO-WK7" secondAttribute="topMargin" constant="10" id="ucm-vY-IMD"/>
-                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="calorieLabel" destination="gD7-jg-zJJ" id="UU9-Mf-jaj"/>
-                                            <outlet property="dateLabel" destination="YWa-8u-PzW" id="in0-1r-jgO"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XH3-T1-jJB" customClass="Chart" customModule="SwiftChart">
+                                <rect key="frame" x="0.0" y="88" width="414" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ldF-62-Lr1" firstAttribute="top" secondItem="5yU-nS-341" secondAttribute="top" constant="200" id="4wP-Xs-myc"/>
+                            <constraint firstItem="XH3-T1-jJB" firstAttribute="top" secondItem="5yU-nS-341" secondAttribute="top" id="56N-jY-iJh"/>
+                            <constraint firstItem="5yU-nS-341" firstAttribute="trailing" secondItem="XH3-T1-jJB" secondAttribute="trailing" id="6NL-4a-NSy"/>
+                            <constraint firstItem="XH3-T1-jJB" firstAttribute="leading" secondItem="5yU-nS-341" secondAttribute="leading" id="7xo-Ey-AXY"/>
                             <constraint firstItem="5yU-nS-341" firstAttribute="bottom" secondItem="ldF-62-Lr1" secondAttribute="bottom" id="BGl-m5-EX7"/>
                             <constraint firstItem="5yU-nS-341" firstAttribute="trailing" secondItem="ldF-62-Lr1" secondAttribute="trailing" id="Fng-9I-MHW"/>
                             <constraint firstItem="ldF-62-Lr1" firstAttribute="leading" secondItem="5yU-nS-341" secondAttribute="leading" id="TB3-kZ-zkU"/>
+                            <constraint firstItem="ldF-62-Lr1" firstAttribute="top" secondItem="XH3-T1-jJB" secondAttribute="bottom" id="vmk-IN-iKS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5yU-nS-341"/>
                     </view>
@@ -79,6 +72,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="calorieTableView" destination="ldF-62-Lr1" id="Ejp-pL-LgL"/>
+                        <outlet property="chartView" destination="XH3-T1-jJB" id="Lq0-Wq-6Ot"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wyf-qc-sgr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
