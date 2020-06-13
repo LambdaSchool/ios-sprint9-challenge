@@ -12,7 +12,6 @@ class CaloriesViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet var tableView: UITableView!
-
     
     
     override func viewDidLoad() {
