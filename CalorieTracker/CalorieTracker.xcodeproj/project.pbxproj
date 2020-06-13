@@ -13,6 +13,7 @@
 		3AE391B224945DE9003A6AC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AE391B024945DE9003A6AC5 /* Main.storyboard */; };
 		3AE391B424945DEA003A6AC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AE391B324945DEA003A6AC5 /* Assets.xcassets */; };
 		3AE391B724945DEA003A6AC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AE391B524945DEA003A6AC5 /* LaunchScreen.storyboard */; };
+		3AE391C124946069003A6AC5 /* Calories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3AE391BF24946069003A6AC5 /* Calories.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3AE391B324945DEA003A6AC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AE391B624945DEA003A6AC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3AE391B824945DEA003A6AC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AE391C024946069003A6AC5 /* Calories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calories.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		3AE391A924945DE9003A6AC5 /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
+				3AE391BE2494604C003A6AC5 /* Model */,
 				3AE391AA24945DE9003A6AC5 /* AppDelegate.swift */,
 				3AE391AC24945DE9003A6AC5 /* SceneDelegate.swift */,
 				3AE391AE24945DE9003A6AC5 /* ViewController.swift */,
@@ -65,6 +68,14 @@
 				3AE391B824945DEA003A6AC5 /* Info.plist */,
 			);
 			path = CalorieTracker;
+			sourceTree = "<group>";
+		};
+		3AE391BE2494604C003A6AC5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3AE391BF24946069003A6AC5 /* Calories.xcdatamodeld */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +152,7 @@
 				3AE391AF24945DE9003A6AC5 /* ViewController.swift in Sources */,
 				3AE391AB24945DE9003A6AC5 /* AppDelegate.swift in Sources */,
 				3AE391AD24945DE9003A6AC5 /* SceneDelegate.swift in Sources */,
+				3AE391C124946069003A6AC5 /* Calories.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +350,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3AE391BF24946069003A6AC5 /* Calories.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3AE391C024946069003A6AC5 /* Calories.xcdatamodel */,
+			);
+			currentVersion = 3AE391C024946069003A6AC5 /* Calories.xcdatamodel */;
+			path = Calories.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3AE3919F24945DE9003A6AC5 /* Project object */;
 }
