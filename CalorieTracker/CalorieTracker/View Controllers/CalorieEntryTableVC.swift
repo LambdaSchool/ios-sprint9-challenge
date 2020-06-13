@@ -38,8 +38,10 @@ class CalorieEntryTableVC: UITableViewController {
       return frc
    }()
    
-   override func viewDidLoad() {
-      super.viewDidLoad()
+   // MARK: - Public
+   
+   func scrollToTop() {
+      tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
    }
    
    // MARK: - Table view data source
