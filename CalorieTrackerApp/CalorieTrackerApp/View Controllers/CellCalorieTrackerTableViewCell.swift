@@ -10,6 +10,13 @@ import UIKit
 
 class CellCalorieTrackerTableViewCell: UITableViewCell {
     
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "en_US")
+        return formatter
+    }()
     
     @IBOutlet var calorieCountLabel: UILabel!
     @IBOutlet var calorieSavedDateLabel: UILabel!
@@ -17,12 +24,11 @@ class CellCalorieTrackerTableViewCell: UITableViewCell {
     
         override func awakeFromNib() {
             super.awakeFromNib()
-            // Initialization code
         }
         
-        func setOption(calorie: Calorie){
-            calorieCountLabel.text = calorie.calorieAmount
-            calorieSavedDateLabel.text = calorie.savedDate
+        func setOption(calorie: CalorieEntry){
+            calorieCountLabel.text = "Calories: \(calorie.calories)"
+            calorieSavedDateLabel.text = dateFormatter.string(from: calorie.timestamp!)
         }
 
     }

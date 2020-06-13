@@ -10,7 +10,7 @@
         <!--Calorie Tracker-->
         <scene sceneID="JsD-xR-NZy">
             <objects>
-                <viewController id="ZSX-8R-vYF" customClass="MainTrackerViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZSX-8R-vYF" customClass="MainTrackerViewController" customModule="CalorieTrackerApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tJj-fO-ome">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                                     <constraint firstAttribute="height" constant="536" id="rie-F5-G3b"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="calorieCell" id="Jia-Iv-fa7" customClass="CellCalorieTrackerTableViewCell" customModule="CalorieTracker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="calorieCell" id="Jia-Iv-fa7" customClass="CellCalorieTrackerTableViewCell" customModule="CalorieTrackerApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jia-Iv-fa7" id="KZd-YG-upC">
@@ -60,27 +60,34 @@
                                     <outlet property="delegate" destination="ZSX-8R-vYF" id="BDJ-Kq-u8N"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wWR-Eb-T5q">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtW-tZ-pwn" customClass="Chart" customModule="SwiftChart">
                                 <rect key="frame" x="0.0" y="88" width="414" height="272"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="eWj-B1-u7g" firstAttribute="top" secondItem="wWR-Eb-T5q" secondAttribute="bottom" id="0GJ-GR-JIr"/>
+                            <constraint firstItem="eWj-B1-u7g" firstAttribute="top" secondItem="gtW-tZ-pwn" secondAttribute="bottom" id="Dxh-uN-Bp5"/>
+                            <constraint firstItem="BL8-7f-SdA" firstAttribute="trailing" secondItem="gtW-tZ-pwn" secondAttribute="trailing" id="GaQ-jm-k7n"/>
                             <constraint firstItem="eWj-B1-u7g" firstAttribute="trailing" secondItem="BL8-7f-SdA" secondAttribute="trailing" id="HHJ-vY-HII"/>
-                            <constraint firstItem="eWj-B1-u7g" firstAttribute="top" secondItem="wWR-Eb-T5q" secondAttribute="bottom" id="N3n-MT-Wb3"/>
                             <constraint firstItem="eWj-B1-u7g" firstAttribute="leading" secondItem="BL8-7f-SdA" secondAttribute="leading" id="Qwi-Nd-LhJ"/>
-                            <constraint firstItem="wWR-Eb-T5q" firstAttribute="trailing" secondItem="BL8-7f-SdA" secondAttribute="trailing" id="lTp-eu-we1"/>
-                            <constraint firstItem="wWR-Eb-T5q" firstAttribute="leading" secondItem="BL8-7f-SdA" secondAttribute="leading" id="tVU-Ud-6Se"/>
-                            <constraint firstItem="wWR-Eb-T5q" firstAttribute="top" secondItem="BL8-7f-SdA" secondAttribute="top" id="twM-wv-jst"/>
+                            <constraint firstItem="gtW-tZ-pwn" firstAttribute="top" secondItem="BL8-7f-SdA" secondAttribute="top" id="W6r-cT-l0T"/>
+                            <constraint firstItem="gtW-tZ-pwn" firstAttribute="leading" secondItem="BL8-7f-SdA" secondAttribute="leading" id="ox5-e0-YcZ"/>
                             <constraint firstAttribute="bottom" secondItem="eWj-B1-u7g" secondAttribute="bottom" id="zkV-Z4-L8j"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BL8-7f-SdA"/>
                     </view>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="1Su-zq-Y62">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="J11-cK-EL5"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="J11-cK-EL5">
+                            <connections>
+                                <action selector="addCalorieEntry:" destination="ZSX-8R-vYF" id="8dz-w1-H2A"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="calorieChart" destination="gtW-tZ-pwn" id="1ff-1Z-5Nb"/>
+                        <outlet property="tableView" destination="eWj-B1-u7g" id="7Bm-3j-gtW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maX-km-e1O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
