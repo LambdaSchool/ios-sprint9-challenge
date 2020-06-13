@@ -18,13 +18,13 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ia-Se-xwb">
                                 <rect key="frame" x="0.0" y="140" width="414" height="224"/>
                                 <connections>
-                                    <segue destination="sUc-8U-FxC" kind="embed" id="TGn-RI-6bs"/>
+                                    <segue destination="sUc-8U-FxC" kind="embed" identifier="ChartSegue" id="TGn-RI-6bs"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7z-I4-rEO">
                                 <rect key="frame" x="0.0" y="364" width="414" height="498"/>
                                 <connections>
-                                    <segue destination="AgF-rD-Ftz" kind="embed" id="oOc-gk-26T"/>
+                                    <segue destination="AgF-rD-Ftz" kind="embed" identifier="TableViewSegue" id="oOc-gk-26T"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -86,6 +86,9 @@
                             <constraint firstItem="i5S-B7-Mvg" firstAttribute="leading" secondItem="S48-Rx-ErI" secondAttribute="leading" id="ohX-df-UeR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chart" destination="i5S-B7-Mvg" id="eWW-y7-NFb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ohy-fa-JqU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -100,12 +103,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieEntryCell" id="8KV-Kw-gwV">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieEntryCell" textLabel="HHG-uX-Pze" detailTextLabel="k4O-z6-TRu" style="IBUITableViewCellStyleValue1" id="8KV-Kw-gwV">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8KV-Kw-gwV" id="c6f-ow-17g">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HHG-uX-Pze">
+                                            <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k4O-z6-TRu">
+                                            <rect key="frame" x="350" y="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
