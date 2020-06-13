@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftChart
+import CoreData
 
 class CalorieChartVC: UIViewController {
    
@@ -15,5 +16,24 @@ class CalorieChartVC: UIViewController {
    
    override func viewDidLoad() {
       super.viewDidLoad()
+      
+      updateChart()
+   }
+   
+   func updateChart() {
+      var calorieEntries: [CalorieEntry] {
+         let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
+         let context = CoreDataStack.shared.mainContext
+         do {
+            return try context.fetch(fetchRequest)
+         } catch {
+            NSLog("Error fetching entries: \(error)")
+            return []
+         }
+      }
+      let calorieNumbers = calorieEntries.map { Double($0.calories) }
+      let series = ChartSeries(calorieNumbers)
+      chart.removeAllSeries()
+      chart.add(series)
    }
 }

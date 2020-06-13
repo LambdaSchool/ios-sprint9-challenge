@@ -11,12 +11,21 @@ import CoreData
 
 class CalorieTrackerVC: UIViewController {
    
+   var calorieChartVC: CalorieChartVC!
+   
    @IBAction func addCalorieEntry(_ sender: Any) {
       CalorieEntry(calories: Int16.random(in: 1...400) * 5)
       do {
-          try CoreDataStack.shared.mainContext.save()
+         try CoreDataStack.shared.mainContext.save()
+         calorieChartVC.updateChart()
       } catch {
-          NSLog("Error saving managed object context: \(error)")
+         NSLog("Error saving managed object context: \(error)")
+      }
+   }
+   
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      if let calorieChartVC = segue.destination as? CalorieChartVC {
+         self.calorieChartVC = calorieChartVC
       }
    }
 }
