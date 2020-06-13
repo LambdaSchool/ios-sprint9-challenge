@@ -22,7 +22,9 @@ class MainTrackerViewController: UIViewController, UITableViewDelegate, UITableV
         CalorieEntryController.shared.loadFromPersistentStore()
         setCalorieData()
         updateViews()
-        calorieChart.axesColor = .green
+        calorieChart.axesColor = .black
+        calorieChart.gridColor = .white
+        calorieChart.highlightLineColor = .black
         NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(_:)), name: .addCalorieEntry, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(addToCalorieData(_:)), name: .addCalorieEntry, object: nil)
         
@@ -53,7 +55,7 @@ class MainTrackerViewController: UIViewController, UITableViewDelegate, UITableV
     @objc func addToCalorieData(_ notifications: Notification) {
         setCalorieData()
     }
-    
+
     func setCalorieData() {
         var tempArray: [Double] = []
         for entry in CalorieEntryController.shared.calorieEntries {
@@ -66,6 +68,7 @@ class MainTrackerViewController: UIViewController, UITableViewDelegate, UITableV
             calorieChart.removeAllSeries()
         }
         calorieChart.add(series)
+        series.area = true
     }
     
     func updateViews() {
