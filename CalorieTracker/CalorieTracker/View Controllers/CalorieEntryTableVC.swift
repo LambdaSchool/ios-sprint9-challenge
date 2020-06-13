@@ -21,7 +21,7 @@ class CalorieEntryTableVC: UITableViewController {
    lazy var fetchedResultsController: NSFetchedResultsController<CalorieEntry> = {
       let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
       fetchRequest.sortDescriptors = [
-         NSSortDescriptor(key: "date", ascending: true)
+         NSSortDescriptor(key: "date", ascending: false)
       ]
       let frc = NSFetchedResultsController(
          fetchRequest: fetchRequest,

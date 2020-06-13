@@ -7,21 +7,16 @@
 //
 
 import UIKit
+import CoreData
 
 class CalorieTrackerVC: UIViewController {
    
-   override func viewDidLoad() {
-      super.viewDidLoad()
-   }
-   
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      switch segue.identifier {
-      case "ChartSegue":
-         break
-      case "TableViewSegue":
-         break
-      default:
-         break
+   @IBAction func addCalorieEntry(_ sender: Any) {
+      CalorieEntry(calories: Int16.random(in: 1...400) * 5)
+      do {
+          try CoreDataStack.shared.mainContext.save()
+      } catch {
+          NSLog("Error saving managed object context: \(error)")
       }
    }
 }

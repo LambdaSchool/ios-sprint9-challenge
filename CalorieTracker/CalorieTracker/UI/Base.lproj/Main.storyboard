@@ -41,7 +41,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mi3-mE-nWy"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Calorie Tracker" id="U0H-UR-4s2"/>
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="U0H-UR-4s2">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="BHb-qg-7tc">
+                            <connections>
+                                <action selector="addCalorieEntry:" destination="sCe-UN-EQl" id="7aT-Ag-WSo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Frh-vn-2Ep" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -85,6 +91,7 @@
                             <constraint firstAttribute="trailing" secondItem="i5S-B7-Mvg" secondAttribute="trailing" id="dNN-eD-xUj"/>
                             <constraint firstItem="i5S-B7-Mvg" firstAttribute="leading" secondItem="S48-Rx-ErI" secondAttribute="leading" id="ohX-df-UeR"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="Zx9-vZ-vzv"/>
                     </view>
                     <connections>
                         <outlet property="chart" destination="i5S-B7-Mvg" id="eWW-y7-NFb"/>
