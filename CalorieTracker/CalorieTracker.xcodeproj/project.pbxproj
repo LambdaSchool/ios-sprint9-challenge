@@ -14,6 +14,7 @@
 		C36E835B2494642900E10942 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36E83592494642900E10942 /* LaunchScreen.storyboard */; };
 		C36E8367249467E500E10942 /* MainTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E8366249467E500E10942 /* MainTrackerViewController.swift */; };
 		C36E83692494680500E10942 /* CellCalorieTrackerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E83682494680500E10942 /* CellCalorieTrackerTableViewCell.swift */; };
+		C36E836B249468D900E10942 /* Calorie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E836A249468D900E10942 /* Calorie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C36E835C2494642900E10942 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C36E8366249467E500E10942 /* MainTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTrackerViewController.swift; sourceTree = "<group>"; };
 		C36E83682494680500E10942 /* CellCalorieTrackerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellCalorieTrackerTableViewCell.swift; sourceTree = "<group>"; };
+		C36E836A249468D900E10942 /* Calorie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calorie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,8 +45,6 @@
 			isa = PBXGroup;
 			children = (
 				C36E834D2494642800E10942 /* CalorieTracker */,
-				C36E83572494642900E10942 /* Assets.xcassets */,
-				C36E835C2494642900E10942 /* Info.plist */,
 				C36E834C2494642800E10942 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,6 +60,8 @@
 		C36E834D2494642800E10942 /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
+				C36E83572494642900E10942 /* Assets.xcassets */,
+				C36E835C2494642900E10942 /* Info.plist */,
 				C36E83622494674E00E10942 /* Model */,
 				C36E83632494676900E10942 /* View Controllers */,
 				C36E83642494678400E10942 /* Views */,
@@ -71,6 +73,7 @@
 		C36E83622494674E00E10942 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C36E836A249468D900E10942 /* Calorie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				C36E83512494642800E10942 /* SceneDelegate.swift in Sources */,
 				C36E83692494680500E10942 /* CellCalorieTrackerTableViewCell.swift in Sources */,
 				C36E8367249467E500E10942 /* MainTrackerViewController.swift in Sources */,
+				C36E836B249468D900E10942 /* Calorie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
