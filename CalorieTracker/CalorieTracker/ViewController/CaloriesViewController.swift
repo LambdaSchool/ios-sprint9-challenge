@@ -23,18 +23,26 @@ class CaloriesViewController: UIViewController {
     
     // MARK: - IBAction
     @IBAction func addButtonTapped(_ sender: Any) {
+        let alertController = UIAlertController(title: "Add Calorie Intake",
+                                                message: "Enter the amount of caloreis in the field",
+                                                preferredStyle: .alert)
+        
+        var caloriesTextField: UITextField!
+        
+        alertController.addTextField { (textField) in
+            caloriesTextField = textField
+            textField.placeholder = "Calories:"
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let submitAction = UIAlertAction(title: "Submit", style: .default)
+        // Need to add Code to save the caloreisTextField data
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(submitAction)
+        
+        present(alertController, animated: true)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
