@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		C36E834F2494642800E10942 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E834E2494642800E10942 /* AppDelegate.swift */; };
 		C36E83512494642800E10942 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E83502494642800E10942 /* SceneDelegate.swift */; };
-		C36E83532494642800E10942 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E83522494642800E10942 /* ViewController.swift */; };
 		C36E83562494642800E10942 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36E83542494642800E10942 /* Main.storyboard */; };
 		C36E83582494642900E10942 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C36E83572494642900E10942 /* Assets.xcassets */; };
 		C36E835B2494642900E10942 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36E83592494642900E10942 /* LaunchScreen.storyboard */; };
+		C36E8367249467E500E10942 /* MainTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E8366249467E500E10942 /* MainTrackerViewController.swift */; };
+		C36E83692494680500E10942 /* CellCalorieTrackerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E83682494680500E10942 /* CellCalorieTrackerTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C36E834B2494642800E10942 /* CalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36E834E2494642800E10942 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C36E83502494642800E10942 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C36E83522494642800E10942 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C36E83552494642800E10942 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C36E83572494642900E10942 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C36E835A2494642900E10942 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C36E835C2494642900E10942 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C36E8366249467E500E10942 /* MainTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTrackerViewController.swift; sourceTree = "<group>"; };
+		C36E83682494680500E10942 /* CellCalorieTrackerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellCalorieTrackerTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +43,8 @@
 			isa = PBXGroup;
 			children = (
 				C36E834D2494642800E10942 /* CalorieTracker */,
+				C36E83572494642900E10942 /* Assets.xcassets */,
+				C36E835C2494642900E10942 /* Info.plist */,
 				C36E834C2494642800E10942 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,15 +60,46 @@
 		C36E834D2494642800E10942 /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
-				C36E834E2494642800E10942 /* AppDelegate.swift */,
-				C36E83502494642800E10942 /* SceneDelegate.swift */,
-				C36E83522494642800E10942 /* ViewController.swift */,
-				C36E83542494642800E10942 /* Main.storyboard */,
-				C36E83572494642900E10942 /* Assets.xcassets */,
-				C36E83592494642900E10942 /* LaunchScreen.storyboard */,
-				C36E835C2494642900E10942 /* Info.plist */,
+				C36E83622494674E00E10942 /* Model */,
+				C36E83632494676900E10942 /* View Controllers */,
+				C36E83642494678400E10942 /* Views */,
+				C36E8365249467A600E10942 /* Resources */,
 			);
 			path = CalorieTracker;
+			sourceTree = "<group>";
+		};
+		C36E83622494674E00E10942 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C36E83632494676900E10942 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C36E8366249467E500E10942 /* MainTrackerViewController.swift */,
+				C36E83682494680500E10942 /* CellCalorieTrackerTableViewCell.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C36E83642494678400E10942 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C36E83592494642900E10942 /* LaunchScreen.storyboard */,
+				C36E83542494642800E10942 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C36E8365249467A600E10942 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C36E834E2494642800E10942 /* AppDelegate.swift */,
+				C36E83502494642800E10942 /* SceneDelegate.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +173,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C36E83532494642800E10942 /* ViewController.swift in Sources */,
 				C36E834F2494642800E10942 /* AppDelegate.swift in Sources */,
 				C36E83512494642800E10942 /* SceneDelegate.swift in Sources */,
+				C36E83692494680500E10942 /* CellCalorieTrackerTableViewCell.swift in Sources */,
+				C36E8367249467E500E10942 /* MainTrackerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
