@@ -1,0 +1,10 @@
+platform :ios, '13.0'
+
+target 'CalorieTracker' do
+  use_frameworks!
+
+  # Pods for CalorieTracker
+
+  pod "SwiftChart", :git => 'https://github.com/gpbl/SwiftChart', :branch => 'master'
+
+end
