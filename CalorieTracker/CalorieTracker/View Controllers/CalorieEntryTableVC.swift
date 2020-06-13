@@ -38,9 +38,15 @@ class CalorieEntryTableVC: UITableViewController {
       return frc
    }()
    
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      
+      NotificationCenter.default.addObserver(self, selector: #selector(scrollToTop), name: .newCalorieEntryAdded, object: nil)
+   }
+   
    // MARK: - Public
    
-   func scrollToTop() {
+   @objc func scrollToTop() {
       tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
    }
    
