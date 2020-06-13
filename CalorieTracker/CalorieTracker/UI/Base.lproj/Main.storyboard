@@ -23,37 +23,6 @@
             </objects>
             <point key="canvasLocation" x="189" y="1"/>
         </scene>
-        <!--Calorie Tracker-->
-        <scene sceneID="Nwk-yg-44J">
-            <objects>
-                <tableViewController id="AFq-AH-CZx" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Z7M-a4-FGb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XYR-Y8-YPB">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XYR-Y8-YPB" id="xGj-u2-tlV">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="AFq-AH-CZx" id="Fex-ud-DHJ"/>
-                            <outlet property="delegate" destination="AFq-AH-CZx" id="UK8-Un-0vZ"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Calorie Tracker" id="dgV-84-v7Q">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="Vao-yc-uNd"/>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0rx-vk-WyT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1277" y="1"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="wVu-bW-PuU">
             <objects>
