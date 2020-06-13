@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import CoreData
+
 
 class CaloriesViewController: UIViewController {
 
+    // MARK: - Properties
+    var calorieEntries: [Int16] = []
+    
+    
     // MARK: - IBOutlets
     @IBOutlet var tableView: UITableView!
     
@@ -35,8 +41,20 @@ class CaloriesViewController: UIViewController {
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let submitAction = UIAlertAction(title: "Submit", style: .default)
-        // Need to add Code to save the caloreisTextField data
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
+            guard let amount = caloriesTextField.text,
+                let caloriesAmount = Int16(amount) else { return }
+            
+            Calories(amount: caloriesAmount, date: Date())
+            
+            do {
+                try CoreDataStack.shared.save()
+            } catch {
+                NSLog("Error saving to CoreData: \(error)")
+            }
+            
+            self.tableView.reloadData()
+        }
         
         alertController.addAction(cancelAction)
         alertController.addAction(submitAction)
