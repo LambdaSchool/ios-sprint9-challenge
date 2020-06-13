@@ -16,6 +16,9 @@
 		C36E839924946EC000E10942 /* MainTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E839824946EC000E10942 /* MainTrackerViewController.swift */; };
 		C36E839B24946EF100E10942 /* CellCalorieTrackerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E839A24946EF100E10942 /* CellCalorieTrackerTableViewCell.swift */; };
 		C36E839D24946F5000E10942 /* Calorie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E839C24946F5000E10942 /* Calorie.swift */; };
+		C36E83A02494714A00E10942 /* CalorieEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E839F2494714A00E10942 /* CalorieEntryController.swift */; };
+		C36E83A22494719F00E10942 /* CalorieEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E83A12494719F00E10942 /* CalorieEntry+Convenience.swift */; };
+		C36E83A4249471CD00E10942 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E83A3249471CD00E10942 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		C36E839824946EC000E10942 /* MainTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTrackerViewController.swift; sourceTree = "<group>"; };
 		C36E839A24946EF100E10942 /* CellCalorieTrackerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellCalorieTrackerTableViewCell.swift; sourceTree = "<group>"; };
 		C36E839C24946F5000E10942 /* Calorie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calorie.swift; sourceTree = "<group>"; };
+		C36E839F2494714A00E10942 /* CalorieEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieEntryController.swift; sourceTree = "<group>"; };
+		C36E83A12494719F00E10942 /* CalorieEntry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieEntry+Convenience.swift"; sourceTree = "<group>"; };
+		C36E83A3249471CD00E10942 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +71,7 @@
 				C36E839424946E4F00E10942 /* Model */,
 				C36E839624946E6000E10942 /* Views */,
 				C36E839524946E5700E10942 /* View Controllers */,
+				C36E839E2494713000E10942 /* Controller */,
 				C36E839724946E6600E10942 /* Resources */,
 				C36E838924946E2600E10942 /* Assets.xcassets */,
 				C36E838E24946E2600E10942 /* Info.plist */,
@@ -77,6 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				C36E839C24946F5000E10942 /* Calorie.swift */,
+				C36E83A12494719F00E10942 /* CalorieEntry+Convenience.swift */,
+				C36E83A3249471CD00E10942 /* CoreDataStack.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -106,6 +115,14 @@
 				C36E837F24946E2500E10942 /* SceneDelegate.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		C36E839E2494713000E10942 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C36E839F2494714A00E10942 /* CalorieEntryController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,10 +198,13 @@
 			files = (
 				C36E837E24946E2500E10942 /* AppDelegate.swift in Sources */,
 				C36E838824946E2500E10942 /* CalorieTrackerApp.xcdatamodeld in Sources */,
+				C36E83A22494719F00E10942 /* CalorieEntry+Convenience.swift in Sources */,
+				C36E83A4249471CD00E10942 /* CoreDataStack.swift in Sources */,
 				C36E839924946EC000E10942 /* MainTrackerViewController.swift in Sources */,
 				C36E839D24946F5000E10942 /* Calorie.swift in Sources */,
 				C36E838024946E2500E10942 /* SceneDelegate.swift in Sources */,
 				C36E839B24946EF100E10942 /* CellCalorieTrackerTableViewCell.swift in Sources */,
+				C36E83A02494714A00E10942 /* CalorieEntryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
