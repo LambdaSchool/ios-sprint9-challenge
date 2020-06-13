@@ -48,11 +48,15 @@ class CaloriesViewController: UIViewController {
 
 extension CaloriesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CaloriesCell", for: indexPath)
+        cell.textLabel?.text = "Calories:"
+        cell.detailTextLabel?.text = "Date"
+        
+        return cell
     }
     
     
