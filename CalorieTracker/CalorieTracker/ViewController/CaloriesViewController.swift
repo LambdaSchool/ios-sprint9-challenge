@@ -41,6 +41,11 @@ class CaloriesViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         charts()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateViews),
+                                               name: .newEntryWasAddedToCoreData,
+                                               object: nil)
     }
     
     // MARK: - IBAction
@@ -65,11 +70,10 @@ class CaloriesViewController: UIViewController {
             
             do {
                 try CoreDataStack.shared.save()
+                NotificationCenter.default.post(name: .newEntryWasAddedToCoreData, object: self)
             } catch {
                 NSLog("Error saving to CoreData: \(error)")
             }
-            
-            self.tableView.reloadData()
         }
         
         alertController.addAction(cancelAction)
@@ -77,6 +81,7 @@ class CaloriesViewController: UIViewController {
         
         present(alertController, animated: true)
     }
+
     // MARK: - Functions
     func charts() {
         if let objects = fetchedResultsController.fetchedObjects {
@@ -88,6 +93,10 @@ class CaloriesViewController: UIViewController {
         chartSeries.color = .blue
         chartSeries.area = true
         calorieChart.add(chartSeries)
+    }
+    
+    @objc func updateViews() {
+        tableView.reloadData()
     }
 }
 
@@ -161,4 +170,7 @@ extension CaloriesViewController: NSFetchedResultsControllerDelegate {
             break
         }
     }
+}
+extension NSNotification.Name {
+    static let newEntryWasAddedToCoreData = NSNotification.Name("newEntryWasAddedToCoreData")
 }
