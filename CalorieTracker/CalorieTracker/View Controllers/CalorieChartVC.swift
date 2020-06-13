@@ -14,6 +14,20 @@ class CalorieChartVC: UIViewController {
    
    @IBOutlet private weak var chart: Chart!
    
+   private var calorieEntries: [CalorieEntry] {
+      let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
+      fetchRequest.sortDescriptors = [
+         NSSortDescriptor(key: "date", ascending: true)
+      ]
+      let context = CoreDataStack.shared.mainContext
+      do {
+         return try context.fetch(fetchRequest)
+      } catch {
+         NSLog("Error fetching entries: \(error)")
+         return []
+      }
+   }
+   
    override func viewDidLoad() {
       super.viewDidLoad()
       
@@ -28,19 +42,6 @@ class CalorieChartVC: UIViewController {
    }
    
    @objc func updateChart() {
-      var calorieEntries: [CalorieEntry] {
-         let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
-         fetchRequest.sortDescriptors = [
-            NSSortDescriptor(key: "date", ascending: true)
-         ]
-         let context = CoreDataStack.shared.mainContext
-         do {
-            return try context.fetch(fetchRequest)
-         } catch {
-            NSLog("Error fetching entries: \(error)")
-            return []
-         }
-      }
       let calorieNumbers = calorieEntries.map { Double($0.calories) }
       let series = ChartSeries(calorieNumbers)
       chart.removeAllSeries()
