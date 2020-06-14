@@ -49,8 +49,8 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         let chart = Chart(frame: chartUIView.frame)
         var data: [Double] = []
         for calorie in fetchedResultsController.fetchedObjects! {
-            print(calorie.calories)
-            data.append(Double(calorie.calories!) as! Double)
+            print(calorie.calories as Any)
+            data.append(Double(calorie.calories!)!)
         }
         let series = ChartSeries(data)
         series.area = true
