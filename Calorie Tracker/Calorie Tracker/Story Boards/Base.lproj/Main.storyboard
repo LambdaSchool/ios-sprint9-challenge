@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Calorie Tracker-->
         <scene sceneID="TAk-YZ-hgh">
             <objects>
                 <tableViewController id="g97-YP-CVw" customClass="CalorieTrackerTableViewController" customModule="Calorie_Tracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,7 +50,16 @@
                             <outlet property="delegate" destination="g97-YP-CVw" id="tMb-X9-ehe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="qu3-Vo-pfz"/>
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="qu3-Vo-pfz">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="psd-Km-rlW">
+                            <connections>
+                                <action selector="addCalorieButtonTapped:" destination="g97-YP-CVw" id="c7t-CH-15z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="chartUIView" destination="I0c-1h-tm9" id="9RT-Fq-tsd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l3H-ai-M3c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
