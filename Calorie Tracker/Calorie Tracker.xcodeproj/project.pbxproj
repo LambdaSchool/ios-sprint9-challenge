@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		C92971122496FFA70038E8A7 /* Calorie_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C92971102496FFA70038E8A7 /* Calorie_Tracker.xcdatamodeld */; };
 		C92971142496FFA90038E8A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C92971132496FFA90038E8A7 /* Assets.xcassets */; };
 		C92971172496FFA90038E8A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C92971152496FFA90038E8A7 /* LaunchScreen.storyboard */; };
+		C9297122249705680038E8A7 /* CalorieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9297121249705680038E8A7 /* CalorieTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		C92971132496FFA90038E8A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C92971162496FFA90038E8A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C92971182496FFA90038E8A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9297121249705680038E8A7 /* CalorieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				C929710D2496FFA70038E8A7 /* Main.storyboard */,
+				C9297121249705680038E8A7 /* CalorieTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -115,7 +118,6 @@
 				9053230E534183B0199D23E0 /* Pods-Calorie Tracker.debug.xcconfig */,
 				404468DB67A1A276D340F497 /* Pods-Calorie Tracker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -238,6 +240,7 @@
 				C92971082496FFA70038E8A7 /* AppDelegate.swift in Sources */,
 				C92971122496FFA70038E8A7 /* Calorie_Tracker.xcdatamodeld in Sources */,
 				C929710A2496FFA70038E8A7 /* SceneDelegate.swift in Sources */,
+				C9297122249705680038E8A7 /* CalorieTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

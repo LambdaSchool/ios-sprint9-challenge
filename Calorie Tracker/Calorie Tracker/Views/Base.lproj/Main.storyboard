@@ -28,6 +28,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="YCJ-tT-Wsp"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="5fF-LJ-Lyo"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Mr-5I-Ab7" customClass="Chart" customModule="SwiftChart">
                                 <rect key="frame" x="0.0" y="140" width="414" height="250"/>
@@ -67,6 +71,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="chartView" destination="0Mr-5I-Ab7" id="u4o-8d-Zgc"/>
+                        <outlet property="tableView" destination="ZN5-hI-pAL" id="DzI-mW-3SS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

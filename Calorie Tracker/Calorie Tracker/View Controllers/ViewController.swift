@@ -11,16 +11,46 @@ import SwiftChart
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var chartView: Chart!
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         showChart()
     }
 
     func showChart() {
-        let chart = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-        let series = ChartSeries([0, 6.5, 2, 8, 4.1, 7, -3.1, 10, 8])
-        chart.add(series)
+        let data = [
+          (x: 0, y: 0),
+          (x: 1, y: 3.1),
+          (x: 4, y: 2),
+          (x: 5, y: 4.2),
+          (x: 7, y: 5),
+          (x: 9, y: 9),
+          (x: 10, y: 8)
+        ]
+        let series = ChartSeries(data: data)
+        chartView.add(series)
     }
+    
+    
 
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? CalorieTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        
+        return cell
+    }
+    
+    
 }
 
