@@ -104,14 +104,23 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqZ-PQ-1gS">
                                         <rect key="frame" x="182" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="Red"/>
+                                        <connections>
+                                            <action selector="redButtonTapped:" destination="Fna-rM-7S0" eventType="touchUpInside" id="DhB-se-rnp"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2af-Uj-fMV">
                                         <rect key="frame" x="176" y="35" width="42" height="30"/>
                                         <state key="normal" title="Green"/>
+                                        <connections>
+                                            <action selector="greenButtonTapped:" destination="Fna-rM-7S0" eventType="touchUpInside" id="Bfh-7S-d0Z"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTg-tg-8aa">
                                         <rect key="frame" x="181.5" y="70" width="31" height="30"/>
                                         <state key="normal" title="Blue"/>
+                                        <connections>
+                                            <action selector="blueButtonTapped:" destination="Fna-rM-7S0" eventType="touchUpInside" id="7wh-ND-okx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

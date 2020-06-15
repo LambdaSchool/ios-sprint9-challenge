@@ -11,94 +11,120 @@ import CoreData
 import SwiftChart
 
 class CalorieTrackerViewController: UIViewController {
-
-        @IBOutlet private weak var calorieChart: Chart!
-        @IBOutlet private weak var caloriesTableView: UITableView!
-        
-        let calorieController = CalorieController()
     
-        lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
-            
-            // Create fetch request, NSSortDescriptor, Managed Object Context, and Fetched Results Controller
-            let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
-            fetchRequest.sortDescriptors = [NSSortDescriptor(key: .timeStamp, ascending: true)]
-            let moc = CoreDataStack.shared.mainContext
-            let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                                 managedObjectContext: moc,
-                                                 sectionNameKeyPath: nil,
-                                                 cacheName: nil)
-            frc.delegate = self
-            do {
-                try frc.performFetch()
-                return frc
-            } catch {
-                fatalError("Error Fetching: \(error)")
-            }
-        }()
+    @IBOutlet private weak var calorieChart: Chart!
+    @IBOutlet private weak var caloriesTableView: UITableView!
         
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            updateViews()
+    let calorieController = CalorieController()
+    
+    lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
+            
+        // Create fetch request, NSSortDescriptor, Managed Object Context, and Fetched Results Controller
+        let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: .timeStamp, ascending: true)]
+        let moc = CoreDataStack.shared.mainContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                             managedObjectContext: moc,
+                                             sectionNameKeyPath: nil,
+                                             cacheName: nil)
+        frc.delegate = self
+        do {
+            try frc.performFetch()
+            return frc
+        } catch {
+            fatalError("Error Fetching: \(error)")
         }
+    }()
         
-        @objc func updateViews() {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateViews()
+    }
+    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        setThemeColor()
+        self.viewDidLoad()
+    }
+        
+    @objc func updateViews() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateViews),
+                                               name: .calorieLogChanged,
+                                               object: nil)
+        caloriesTableView.reloadData()
+        guard let sections = fetchedResultsController.sections else { return }
+        calorieChart.removeAllSeries()
             
-            NotificationCenter.default.addObserver(self,
-                                                   selector: #selector(updateViews),
-                                                   name: .calorieLogChanged,
-                                                   object: nil)
-            caloriesTableView.reloadData()
-            guard let sections = fetchedResultsController.sections else { return }
-            calorieChart.removeAllSeries()
-            
-            var seriesOfDoubles: [Double] = []
-            for section in sections {
-                if let objects = section.objects as? [Calorie] {
-                    for object in objects {
-                        seriesOfDoubles.append(Double(object.amount))
-                    }
+        var seriesOfDoubles: [Double] = []
+        for section in sections {
+            if let objects = section.objects as? [Calorie] {
+                for object in objects {
+                    seriesOfDoubles.append(Double(object.amount))
                 }
             }
-            
+        }
+        calorieChart.add(ChartSeries(seriesOfDoubles))
+    }
+    
+    func setThemeColor() {
+        let selectedTheme = UserDefaults.standard.string(forKey: "selectedTheme") ?? "red"
+        if selectedTheme == "red" {
+            print("Current theme: \(selectedTheme)")
             calorieChart.axesColor = .red
             calorieChart.gridColor = .red
-            calorieChart.add(ChartSeries(seriesOfDoubles))
-            
+            calorieChart.highlightLineColor = .red
         }
+        
+        if selectedTheme == "green" {
+            print("Current theme: \(selectedTheme)")
+            calorieChart.axesColor = .green
+            calorieChart.gridColor = .green
+        }
+        
+        if selectedTheme == "blue" {
+            print("Current theme: \(selectedTheme)")
+            calorieChart.axesColor = .blue
+            calorieChart.gridColor = .blue
+        }
+    }
+    
 
-        @IBAction func addButtonTapped(_ sender: Any) {
+    @IBAction func addButtonTapped(_ sender: Any) {
             
-            // Create alert
-            let alert = UIAlertController(title: "Add calorie intake",
-                                          message: "Enter the amount of calories",
-                                          preferredStyle: .alert)
+        // Create alert
+        let alert = UIAlertController(title: "Add calorie intake",
+                                      message: "Enter the amount of calories",
+                                      preferredStyle: .alert)
             
-            // Add text field
-            alert.addTextField { textField in
-                textField.placeholder = "Calories"
-            }
+        // Add text field
+        alert.addTextField { textField in
+            textField.placeholder = "Calories"
+        }
             
-            // Save button - if textField is NaN returns an error alert.
-            alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { _ in
+        // Save button - if textField is NaN returns an error alert.
+        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { _ in
                 
-                if alert.textFields?.first?.text?.isNumeric == false {
-                    self.failedToEnterCaloriesAlert()
-                    print("it's empty")
-                }
-                guard let currentTextField = alert.textFields,
-                    let caloriesString = currentTextField[0].text,
-                    let calories = Int(caloriesString)
+            if alert.textFields?.first?.text?.isNumeric == false {
+                self.failedToEnterCaloriesAlert()
+                print("it's empty")
+            }
+            guard let currentTextField = alert.textFields,
+                let caloriesString = currentTextField[0].text,
+                let calories = Int(caloriesString)
                 else {
                     return
-                }
-                // Create calories from given integer.
-                self.calorieController.create(amount: calories)
-            }))
-            alert.addAction(UIAlertAction(title: "Cancel",
-                                          style: .destructive,
-                                          handler: nil))
-            present(alert, animated: true, completion: nil)
-        }
+            }
+            // Create calories from given integer.
+            self.calorieController.create(amount: calories)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel",
+                                      style: .destructive,
+                                      handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
     
     // Function to display alert when entering NaN
     func failedToEnterCaloriesAlert() {

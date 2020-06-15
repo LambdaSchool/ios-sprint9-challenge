@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import Foundation
 
 class SelectThemeViewController: UIViewController {
+    
     @IBOutlet weak var redButton: UIButton!
     @IBOutlet weak var greenButton: UIButton!
     @IBOutlet weak var blueButton: UIButton!
+    
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,15 +23,23 @@ class SelectThemeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func redButtonTapped(_ sender: UIButton) {
+        defaults.set("red", forKey: "selectedTheme")
+        dismissViewController()
     }
-    */
-
+    
+    @IBAction func greenButtonTapped(_ sender: UIButton) {
+        defaults.set("green", forKey: "selectedTheme")
+        dismissViewController()
+    }
+    
+    @IBAction func blueButtonTapped(_ sender: UIButton) {
+        defaults.set("blue", forKey: "selectedTheme")
+        dismissViewController()
+    }
+    
+    func dismissViewController() {
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+    }
 }
