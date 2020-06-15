@@ -57,6 +57,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func deleteHandler(alert: UIAlertAction!) {
         deleteAllData("Calorie")
         NotificationCenter.default.post(name: notificationName, object: nil)
+        chartView.removeAllSeries()
     }
     
     func deleteAllData(_ entity: String) {
