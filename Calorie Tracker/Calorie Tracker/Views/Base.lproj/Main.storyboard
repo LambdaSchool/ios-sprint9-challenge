@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="390" width="414" height="472"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="MNc-RK-23w" customClass="CalorieTableViewCell" customModule="Calorie_Tracker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="MNc-RK-23w" customClass="CalorieTableViewCell" customModule="Calorie_Tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MNc-RK-23w" id="KiT-QI-mwx">
@@ -27,30 +27,30 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eq-oZ-yPm">
-                                                    <rect key="frame" x="28" y="11.5" width="70" height="20.5"/>
+                                                    <rect key="frame" x="28" y="13" width="70" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="DVc-dN-pCv"/>
                                                         <constraint firstAttribute="width" constant="70" id="w8P-cY-brk"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QM4-Gf-dXe">
-                                                    <rect key="frame" x="106" y="11.5" width="70" height="20.5"/>
+                                                    <rect key="frame" x="106" y="13" width="70" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="70" id="fwq-xg-HQ2"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ar-5u-UvC">
-                                                    <rect key="frame" x="186" y="11.5" width="200" height="20.5"/>
+                                                    <rect key="frame" x="186" y="13" width="200" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="vzy-eH-xie"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -93,6 +93,9 @@
                                     <navigationItem title="Calorie Tracker" id="9ih-V5-AP2">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Inb-JV-YGF">
                                             <color key="tintColor" red="0.42640530724982734" green="0.56765578371291625" blue="0.64126785424760158" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <connections>
+                                                <action selector="addCalorieCount:" destination="BYZ-38-t0r" id="t9m-UB-XR3"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>

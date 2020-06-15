@@ -16,6 +16,9 @@
 		C92971142496FFA90038E8A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C92971132496FFA90038E8A7 /* Assets.xcassets */; };
 		C92971172496FFA90038E8A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C92971152496FFA90038E8A7 /* LaunchScreen.storyboard */; };
 		C9297122249705680038E8A7 /* CalorieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9297121249705680038E8A7 /* CalorieTableViewCell.swift */; };
+		C9297124249709FB0038E8A7 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9297123249709FB0038E8A7 /* CoreDataStack.swift */; };
+		C929712624970A510038E8A7 /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C929712524970A510038E8A7 /* Calorie+Convenience.swift */; };
+		C929712824970B240038E8A7 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C929712724970B240038E8A7 /* Date+Formatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		C92971162496FFA90038E8A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C92971182496FFA90038E8A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9297121249705680038E8A7 /* CalorieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewCell.swift; sourceTree = "<group>"; };
+		C9297123249709FB0038E8A7 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		C929712524970A510038E8A7 /* Calorie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience.swift"; sourceTree = "<group>"; };
+		C929712724970B240038E8A7 /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +97,9 @@
 			isa = PBXGroup;
 			children = (
 				C92971102496FFA70038E8A7 /* Calorie_Tracker.xcdatamodeld */,
+				C9297123249709FB0038E8A7 /* CoreDataStack.swift */,
+				C929712524970A510038E8A7 /* Calorie+Convenience.swift */,
+				C929712724970B240038E8A7 /* Date+Formatter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -236,9 +245,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C929712624970A510038E8A7 /* Calorie+Convenience.swift in Sources */,
 				C929710C2496FFA70038E8A7 /* ViewController.swift in Sources */,
 				C92971082496FFA70038E8A7 /* AppDelegate.swift in Sources */,
 				C92971122496FFA70038E8A7 /* Calorie_Tracker.xcdatamodeld in Sources */,
+				C929712824970B240038E8A7 /* Date+Formatter.swift in Sources */,
+				C9297124249709FB0038E8A7 /* CoreDataStack.swift in Sources */,
 				C929710A2496FFA70038E8A7 /* SceneDelegate.swift in Sources */,
 				C9297122249705680038E8A7 /* CalorieTableViewCell.swift in Sources */,
 			);
