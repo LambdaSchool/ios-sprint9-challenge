@@ -10,6 +10,8 @@ import UIKit
 import SwiftChart
 import CoreData
 
+let notificationName = NSNotification.Name(rawValue: "updateUI")
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     @IBOutlet weak var chartView: Chart!
@@ -17,17 +19,60 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateChartData()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateChartData), name: notificationName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTableView), name: notificationName, object: nil)
     }
     
-    func updateChartData() {
+    // MARK: - Notification Observers
+    
+    
+    @objc func updateChartData() {
         if let data: [Double] = fetchedResultsController.fetchedObjects?.compactMap({Double($0.count)}) {
             let series = ChartSeries(data.reversed())
             chartView.add(series)
+            chartView.setNeedsDisplay()
         }
+    }
+    
+    @objc func updateTableView() {
+        tableView.reloadData()
     }
     
     @IBAction func addCalorieCount(_ sender: UIBarButtonItem) {
         showAddCalorieAlert()
+    }
+    
+    @IBAction func deleteAllButtonTapped(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: "Delete all Entries", message: "Are you sure?", preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: deleteHandler )
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func deleteHandler(alert: UIAlertAction!) {
+        deleteAllData("Calorie")
+        NotificationCenter.default.post(name: notificationName, object: nil)
+    }
+    
+    func deleteAllData(_ entity: String) {
+        let context = CoreDataStack.shared.mainContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        fetchRequest.returnsObjectsAsFaults = false
+        do {
+            let results = try context.fetch(fetchRequest)
+            for object in results {
+                guard let objectData = object as? NSManagedObject else {continue}
+                context.delete(objectData)
+                try context.save()
+            }
+        } catch let error {
+            print("Detele all data in \(entity) error :", error)
+        }
     }
     
     func showAddCalorieAlert() {
@@ -47,7 +92,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             do {
                 try context.save()
-                self.tableView.reloadData()
+                NotificationCenter.default.post(name: notificationName, object: nil)
             } catch {
                 NSLog("Error saving Calorie Intake to context: \(error)")
                 context.reset()

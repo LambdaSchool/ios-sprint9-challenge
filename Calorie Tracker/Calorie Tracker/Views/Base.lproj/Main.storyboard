@@ -91,6 +91,12 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Calorie Tracker" id="9ih-V5-AP2">
+                                        <barButtonItem key="leftBarButtonItem" title="Delete All" id="PDR-2q-cNP">
+                                            <color key="tintColor" red="0.95686274510000002" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="deleteAllButtonTapped:" destination="BYZ-38-t0r" id="4ec-8y-4Bt"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Inb-JV-YGF">
                                             <color key="tintColor" red="0.42640530724982734" green="0.56765578371291625" blue="0.64126785424760158" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <connections>
