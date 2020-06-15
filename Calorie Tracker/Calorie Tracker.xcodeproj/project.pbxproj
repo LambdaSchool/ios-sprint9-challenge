@@ -18,6 +18,7 @@
 		EDF8C08D249706A5002C56E0 /* SwiftChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF8C08C249706A5002C56E0 /* SwiftChart.framework */; };
 		EDF8C093249708C2002C56E0 /* CalorieCounter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EDF8C091249708C2002C56E0 /* CalorieCounter.xcdatamodeld */; };
 		EDF8C0952497091E002C56E0 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8C0942497091E002C56E0 /* CoreDataStack.swift */; };
+		EDF8C09724970A5C002C56E0 /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8C09624970A5C002C56E0 /* Calorie+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		EDF8C08C249706A5002C56E0 /* SwiftChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF8C092249708C2002C56E0 /* CalorieCounter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieCounter.xcdatamodel; sourceTree = "<group>"; };
 		EDF8C0942497091E002C56E0 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		EDF8C09624970A5C002C56E0 /* Calorie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				EDF8C08524970335002C56E0 /* Notification.swift */,
 				EDF8C091249708C2002C56E0 /* CalorieCounter.xcdatamodeld */,
 				EDF8C0942497091E002C56E0 /* CoreDataStack.swift */,
+				EDF8C09624970A5C002C56E0 /* Calorie+Convenience.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDF8C09724970A5C002C56E0 /* Calorie+Convenience.swift in Sources */,
 				EDF8C093249708C2002C56E0 /* CalorieCounter.xcdatamodeld in Sources */,
 				EDF8C08624970335002C56E0 /* Notification.swift in Sources */,
 				EDF8C083249702DE002C56E0 /* CalorieTrackerTableViewController.swift in Sources */,
