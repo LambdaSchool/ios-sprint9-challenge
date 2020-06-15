@@ -19,13 +19,55 @@
                                 <rect key="frame" x="0.0" y="390" width="414" height="472"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="MNc-RK-23w">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="MNc-RK-23w" customClass="CalorieTableViewCell" customModule="Calorie_Tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MNc-RK-23w" id="KiT-QI-mwx">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eq-oZ-yPm">
+                                                    <rect key="frame" x="28" y="11.5" width="70" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="DVc-dN-pCv"/>
+                                                        <constraint firstAttribute="width" constant="70" id="w8P-cY-brk"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QM4-Gf-dXe">
+                                                    <rect key="frame" x="106" y="11.5" width="70" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="fwq-xg-HQ2"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ar-5u-UvC">
+                                                    <rect key="frame" x="186" y="11.5" width="200" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="200" id="vzy-eH-xie"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="QM4-Gf-dXe" firstAttribute="leading" secondItem="7eq-oZ-yPm" secondAttribute="trailing" constant="8" id="1Xu-cw-XDd"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="2ar-5u-UvC" secondAttribute="trailing" constant="8" id="BpT-Ks-15Y"/>
+                                                <constraint firstItem="QM4-Gf-dXe" firstAttribute="centerY" secondItem="KiT-QI-mwx" secondAttribute="centerY" id="GUj-xB-PnP"/>
+                                                <constraint firstItem="2ar-5u-UvC" firstAttribute="centerY" secondItem="KiT-QI-mwx" secondAttribute="centerY" id="aTk-FC-YQp"/>
+                                                <constraint firstItem="7eq-oZ-yPm" firstAttribute="leading" secondItem="KiT-QI-mwx" secondAttribute="leadingMargin" constant="8" id="fhk-Xo-xYk"/>
+                                                <constraint firstItem="7eq-oZ-yPm" firstAttribute="centerY" secondItem="KiT-QI-mwx" secondAttribute="centerY" id="rDS-N2-9Ec"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="calorieCountLabel" destination="QM4-Gf-dXe" id="jf6-3G-Egc"/>
+                                            <outlet property="dateLabel" destination="2ar-5u-UvC" id="6Te-N3-fCE"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
