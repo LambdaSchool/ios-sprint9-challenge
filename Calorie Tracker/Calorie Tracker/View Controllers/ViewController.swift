@@ -30,6 +30,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @objc func updateChartData() {
         if let data: [Double] = fetchedResultsController.fetchedObjects?.compactMap({Double($0.count)}) {
             let series = ChartSeries(data.reversed())
+            series.area = true
+            
+            chartView.minY = 0
+            chartView.maxY = 3000
+            
             chartView.add(series)
             chartView.setNeedsDisplay()
         }
