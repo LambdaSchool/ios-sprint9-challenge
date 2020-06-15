@@ -17,23 +17,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showChart()
     }
     
-    func showChart() {
-        let data = [
-            (x: 0, y: 0),
-            (x: 1, y: 3.1),
-            (x: 4, y: 2),
-            (x: 5, y: 4.2),
-            (x: 7, y: 5),
-            (x: 9, y: 9),
-            (x: 10, y: 8)
-        ]
-        let series = ChartSeries(data: data)
-        chartView.add(series)
+    func updateChartData() {
+        if let data: [Double] = fetchedResultsController.fetchedObjects?.compactMap({Double($0.count)}) {
+            let series = ChartSeries(data.reversed())
+            chartView.add(series)
+        }
     }
-
+    
     @IBAction func addCalorieCount(_ sender: UIBarButtonItem) {
         showAddCalorieAlert()
     }
@@ -44,6 +36,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
         alert.addTextField { textField in
             textField.placeholder = "Number of Calories"
+            textField.keyboardType = UIKeyboardType.numberPad
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
