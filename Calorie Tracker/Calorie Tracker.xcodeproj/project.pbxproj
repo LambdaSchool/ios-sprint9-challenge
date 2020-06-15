@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F93B45DF9E6B7A7730A6865 /* Pods_Calorie_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C051B9FBB5AB3B52FEC9BB4 /* Pods_Calorie_Tracker.framework */; };
+		2EB6272629381CF9760325EA /* Pods_Calorie_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C051B9FBB5AB3B52FEC9BB4 /* Pods_Calorie_Tracker.framework */; };
 		EDF8C06E24970212002C56E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8C06D24970212002C56E0 /* AppDelegate.swift */; };
 		EDF8C07024970212002C56E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8C06F24970212002C56E0 /* SceneDelegate.swift */; };
 		EDF8C07524970212002C56E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF8C07324970212002C56E0 /* Main.storyboard */; };
@@ -15,6 +15,8 @@
 		EDF8C07A24970216002C56E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF8C07824970216002C56E0 /* LaunchScreen.storyboard */; };
 		EDF8C083249702DE002C56E0 /* CalorieTrackerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8C082249702DE002C56E0 /* CalorieTrackerTableViewController.swift */; };
 		EDF8C08624970335002C56E0 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8C08524970335002C56E0 /* Notification.swift */; };
+		EDF8C08D249706A5002C56E0 /* SwiftChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF8C08C249706A5002C56E0 /* SwiftChart.framework */; };
+		EDF8C093249708C2002C56E0 /* CalorieCounter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EDF8C091249708C2002C56E0 /* CalorieCounter.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,9 @@
 		EDF8C07B24970216002C56E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDF8C082249702DE002C56E0 /* CalorieTrackerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerTableViewController.swift; sourceTree = "<group>"; };
 		EDF8C08524970335002C56E0 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		EDF8C08A2497066D002C56E0 /* SwiftChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF8C08C249706A5002C56E0 /* SwiftChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF8C092249708C2002C56E0 /* CalorieCounter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieCounter.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,7 +42,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F93B45DF9E6B7A7730A6865 /* Pods_Calorie_Tracker.framework in Frameworks */,
+				EDF8C08D249706A5002C56E0 /* SwiftChart.framework in Frameworks */,
+				2EB6272629381CF9760325EA /* Pods_Calorie_Tracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +53,8 @@
 		13953300FCCDE7D795B8C095 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EDF8C08C249706A5002C56E0 /* SwiftChart.framework */,
+				EDF8C08A2497066D002C56E0 /* SwiftChart.framework */,
 				3C051B9FBB5AB3B52FEC9BB4 /* Pods_Calorie_Tracker.framework */,
 			);
 			name = Frameworks;
@@ -58,7 +66,6 @@
 				37770484DE621A898403B808 /* Pods-Calorie Tracker.debug.xcconfig */,
 				69BD4A90D893DBB2930BD9D6 /* Pods-Calorie Tracker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -107,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				EDF8C08524970335002C56E0 /* Notification.swift */,
+				EDF8C091249708C2002C56E0 /* CalorieCounter.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -123,6 +131,7 @@
 				EDF8C06724970212002C56E0 /* Frameworks */,
 				EDF8C06824970212002C56E0 /* Resources */,
 				07AEEAB795B4154825204546 /* [CP] Embed Pods Frameworks */,
+				EDF8C09024970877002C56E0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -197,6 +206,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Calorie Tracker/Pods-Calorie Tracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EDF8C09024970877002C56E0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		F0E4F6BF8B7C009D2943AD51 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -226,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDF8C093249708C2002C56E0 /* CalorieCounter.xcdatamodeld in Sources */,
 				EDF8C08624970335002C56E0 /* Notification.swift in Sources */,
 				EDF8C083249702DE002C56E0 /* CalorieTrackerTableViewController.swift in Sources */,
 				EDF8C06E24970212002C56E0 /* AppDelegate.swift in Sources */,
@@ -429,6 +456,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EDF8C091249708C2002C56E0 /* CalorieCounter.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EDF8C092249708C2002C56E0 /* CalorieCounter.xcdatamodel */,
+			);
+			currentVersion = EDF8C092249708C2002C56E0 /* CalorieCounter.xcdatamodel */;
+			path = CalorieCounter.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EDF8C06224970212002C56E0 /* Project object */;
 }
