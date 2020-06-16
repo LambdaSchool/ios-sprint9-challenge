@@ -14,9 +14,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+         let notificationName = NSNotification.Name(rawValue: "chartHasChanged")
+               NotificationCenter.default.addObserver(self,
+                                                      selector: #selector(chartHasChanged),
+                                                      name: notificationName,
+                                                      object: nil)
+               
+               return true
     }
+    
+    @objc func chartHasChanged() {
+           print("Status Changed")
+       }
 
     // MARK: UISceneSession Lifecycle
 

@@ -14,6 +14,7 @@ class CalorieTrackerTableViewController: UITableViewController {
     
     // MARK: - Properties
     var chartedCalories = [Calories]()
+    @IBOutlet var calorieChart: Chart!
     
     // MARK: - Fetch results
     lazy var fetchedResultsController: NSFetchedResultsController<Calories> = {
@@ -28,7 +29,12 @@ class CalorieTrackerTableViewController: UITableViewController {
                                              cacheName: nil)
         
         frc.delegate = self
-        try? frc.performFetch()
+        
+        do {
+            try frc.performFetch()
+        } catch {
+            print("Error fetching calories: \(error)")
+        }
         return frc
     }()
     
@@ -57,22 +63,35 @@ class CalorieTrackerTableViewController: UITableViewController {
     }
     
     private func addCalorieIntake(calories: Int) {
-        let calories = Calories(calories: calories, timestamp: Date())
-        chartedCalories.append(calories)
+        Calories(calories: calories)
+        do {
+            try CoreDataStack.shared.save()
+        } catch {
+            print("Error saving calories: \(error)")
+        }
         updateViews()
+    }
+    
+    private func chartCalories() {
+        let caloriesCharted = (fetchedResultsController.fetchedObjects?.compactMap { Double($0.calories)})!
+        let series = ChartSeries(caloriesCharted)
+        series.area = true
+        series.color = ChartColors.greenColor()
+        calorieChart.removeAllSeries()
+        calorieChart.add(series)
     }
     
     func updateViews() {
         tableView.reloadData()
+        chartCalories()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
     }
 
     // MARK: - Table view data source
-    
-    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -84,7 +103,6 @@ class CalorieTrackerTableViewController: UITableViewController {
         return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath) as? CalorieTrackerTableViewCell else { return UITableViewCell() }
 
@@ -94,52 +112,22 @@ class CalorieTrackerTableViewController: UITableViewController {
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+                if editingStyle == .delete {
+                let calorie = fetchedResultsController.object(at: indexPath)
+                let moc = CoreDataStack.shared.mainContext
+                DispatchQueue.main.async {
+                    moc.delete(calorie)
+                    do {
+                        try moc.save()
+                        self.updateViews()
+                    } catch {
+                        print("Error saving deleted task: \(error)")
+                        moc.reset()
+                }
+            }
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension CalorieTrackerTableViewController: NSFetchedResultsControllerDelegate {

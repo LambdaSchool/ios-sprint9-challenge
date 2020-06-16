@@ -10,6 +10,14 @@ import UIKit
 
 class CalorieTrackerTableViewCell: UITableViewCell {
     
+    var dateFormatter: DateFormatter = {
+       let formatter = DateFormatter()
+       formatter.dateStyle = .short
+       formatter.timeStyle = .short
+        formatter.dateFormat = "MMM d, yyyy, h:mm a"
+       return formatter
+    }()
+    
     // Outlets
     @IBOutlet var calorieLabel: UILabel!
     @IBOutlet var timestampLabel: UILabel!
@@ -21,12 +29,8 @@ class CalorieTrackerTableViewCell: UITableViewCell {
     }
 
     func updateViews() {
-        calorieLabel.text = "Calories \(String(describing: calories?.calories))"
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, yyyy, h:mm:ss a"
-        
-        timestampLabel.text = "\(String(describing: calories?.timestamp))"
+        calorieLabel.text = "Calories \(calories?.calories ?? Int16(100))"
+        timestampLabel.text = dateFormatter.string(from: calories?.timestamp ?? Date())
     }
     
 }

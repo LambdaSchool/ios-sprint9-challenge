@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Calories {
-    var calories: Int
-    var timestamp: Date
-}
+//struct Calories {
+//    var calories: Int
+//    var timestamp: Date
+//}

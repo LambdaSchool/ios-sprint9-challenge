@@ -14,21 +14,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="Y3Q-aB-b4Z">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Y3Q-aB-b4Z" customClass="Chart" customModule="SwiftChart">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="245"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieCell" id="Ipn-NO-aaJ" customClass="CalorieTrackerTableViewCell" customModule="CalorieTracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="273" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="273" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ipn-NO-aaJ" id="wRS-ux-oXh">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5f-2U-XNj">
-                                            <rect key="frame" x="20" y="11" width="150" height="21"/>
+                                            <rect key="frame" x="20" y="11" width="150" height="21.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="MCe-po-kVo"/>
                                             </constraints>
@@ -37,7 +37,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6G-1R-D3f">
-                                            <rect key="frame" x="194" y="11" width="200" height="21"/>
+                                            <rect key="frame" x="194" y="11" width="200" height="21.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="200" id="eCZ-d2-XCD"/>
                                             </constraints>
@@ -75,6 +75,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="7eM-xK-7qO" id="vl5-sU-1AJ"/>
+                        <outlet property="calorieChart" destination="Y3Q-aB-b4Z" id="DbE-wH-6oM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKc-6b-iUC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

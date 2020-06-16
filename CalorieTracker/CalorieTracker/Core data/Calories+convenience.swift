@@ -10,11 +10,13 @@ import Foundation
 import CoreData
 
 extension Calories {
-    @discardableResult init (calories: Int,
-                             timestamp: Date = Date(),
-                             context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    
+    @discardableResult
+    convenience init (calories: Int,
+                      timestamp: Date = Date(),
+                      context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
-        self.calories = calories
+        self.calories = Int16(calories)
         self.timestamp = timestamp
     }
 }
