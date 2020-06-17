@@ -1,9 +1,8 @@
 import UIKit
-import CoreData
 
 extension Date {
     
-    func string() -> String {
+    func convertToString() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
         

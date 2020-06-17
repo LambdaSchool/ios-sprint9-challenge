@@ -116,8 +116,8 @@
 		C2A4386D24970D07003B4240 /* Calorie Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				C2127082249724CE0007D841 /* Extentions */,
 				C2A4388224970D1F003B4240 /* Resources */,
+				C2127082249724CE0007D841 /* Extentions */,
 				C2A4388324970D2E003B4240 /* Storyboard */,
 				C21270752497159F0007D841 /* Model */,
 				C212707F249717F10007D841 /* Controllers */,

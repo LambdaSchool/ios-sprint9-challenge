@@ -1,5 +1,4 @@
 import UIKit
-import Pods_Calorie_Tracker
 import SwiftChart
 import CoreData
 
@@ -10,6 +9,7 @@ class CaloriesTableViewController: UITableViewController {
     // MARK: - Properties
     
     var caloriesController = CaloriesController()
+    var seriesArray: [Double] = [0]
     
     
     // MARK: - NSFetchedObjectController
@@ -40,6 +40,7 @@ class CaloriesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,7 +62,7 @@ class CaloriesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieIntake", for: indexPath)
         let object = fetchedResultsController.object(at: indexPath)
         cell.textLabel?.text = "Calories: \(object.amount)"
-        cell.detailTextLabel?.text = object.date?.string()
+        cell.detailTextLabel?.text = object.date?.convertToString()
         return cell
     }
     
@@ -97,7 +98,11 @@ class CaloriesTableViewController: UITableViewController {
                 let caloriesToSave = Int16(textField.text!) else {
                     return print("Invalid Input")
             }
-            
+            let amountDouble = Double(caloriesToSave)
+            self.seriesArray.append(amountDouble)
+            let series = ChartSeries(self.seriesArray)
+            series.area = true
+            self.chart.add(series)
             let _ = Calories(amount: caloriesToSave)
             do {
                 let moc = CoreDataStack.shared.mainContext

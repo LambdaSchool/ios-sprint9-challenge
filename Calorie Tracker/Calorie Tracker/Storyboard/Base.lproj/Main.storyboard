@@ -52,7 +52,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="3OF-Xf-fzV">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="deJ-Vh-1Zw">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="text.badge.plus" catalog="system" id="deJ-Vh-1Zw">
                             <connections>
                                 <action selector="addButtonTapped:" destination="Ex8-DW-Xhm" id="9xO-fZ-tmT"/>
                             </connections>
@@ -76,6 +76,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="nRo-kP-fSl">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -87,7 +88,8 @@
             <point key="canvasLocation" x="-123.18840579710145" y="103.79464285714285"/>
         </scene>
     </scenes>
+    <color key="tintColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
-        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="text.badge.plus" catalog="system" width="128" height="109"/>
     </resources>
 </document>

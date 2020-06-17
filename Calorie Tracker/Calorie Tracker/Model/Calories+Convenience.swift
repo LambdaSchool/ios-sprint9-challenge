@@ -1,4 +1,3 @@
-import Foundation
 import CoreData
 
 extension Calories {
@@ -6,7 +5,7 @@ extension Calories {
     
     // MARK: - Initializers
 
-    // Creates Tasks with same Managed Object Context "moc"
+    /// Creates Tasks with same Managed Object Context "moc"
     @discardableResult
     convenience init(amount: Int16,
                      date: Date = Date(),

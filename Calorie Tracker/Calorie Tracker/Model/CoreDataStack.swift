@@ -1,4 +1,3 @@
-import Foundation
 import CoreData
 
 class CoreDataStack {
@@ -9,7 +8,7 @@ class CoreDataStack {
     // Shared instance of CoreDataStack
     static let shared = CoreDataStack()
     
-    // Creates Persistent Store & Persistent Store Coordinator
+    // Persistent Store & Persistent Store Coordinator
     lazy var container: NSPersistentContainer = {
         let newContainer = NSPersistentContainer(name: "Calories")
         newContainer.loadPersistentStores { (_, error) in
@@ -20,7 +19,7 @@ class CoreDataStack {
         return newContainer
     }()
     
-    // Creates Managed Object Context
+    // Managed Object Context
     // Retrive with "CoreDataStack.shared.mainContext"
     var mainContext: NSManagedObjectContext {
         return container.viewContext
