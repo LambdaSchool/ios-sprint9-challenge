@@ -6,24 +6,24 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Calorie Tracker-->
         <scene sceneID="bER-D9-6Eu">
             <objects>
-                <tableViewController id="tKV-if-JkA" sceneMemberID="viewController">
+                <tableViewController id="tKV-if-JkA" customClass="CalorieTrackerTableViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nkM-9i-Hqj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="FAf-c4-a2r">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieCell" rowHeight="95" id="FAf-c4-a2r">
+                                <rect key="frame" x="0.0" y="28" width="414" height="95"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FAf-c4-a2r" id="w3U-pk-gK5">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dKY-aF-XWa" customClass="Chart" customModule="SwiftChart">
-                                            <rect key="frame" x="6" y="0.0" width="168" height="44"/>
+                                            <rect key="frame" x="6" y="0.0" width="218" height="95"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <connections>
@@ -39,7 +39,9 @@
                             <outlet property="delegate" destination="tKV-if-JkA" id="n6X-Ir-wmI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ood-9a-R5A"/>
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="ood-9a-R5A">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="U8A-Zq-tQC"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1dz-ZV-zeP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="NuR-wD-Dcf" userLabel="Exit" sceneMemberID="exit"/>
@@ -51,8 +53,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CvG-yO-G9U" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yk9-Mg-XLC">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="yk9-Mg-XLC">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

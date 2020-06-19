@@ -17,6 +17,8 @@
 		FEDA23B9249D19AC00ED08A4 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23B8249D19AC00ED08A4 /* Notifications.swift */; };
 		FEDA23BB249D1A8400ED08A4 /* CalorieTrackerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23BA249D1A8400ED08A4 /* CalorieTrackerTableViewController.swift */; };
 		FEDA23BD249D1E1300ED08A4 /* CalorieTrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23BC249D1E1300ED08A4 /* CalorieTrackerController.swift */; };
+		FEDA23C0249D1F6900ED08A4 /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23BE249D1F6900ED08A4 /* CalorieTracker.xcdatamodeld */; };
+		FEDA23C6249D239200ED08A4 /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23C5249D239200ED08A4 /* Calorie+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		FEDA23B8249D19AC00ED08A4 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		FEDA23BA249D1A8400ED08A4 /* CalorieTrackerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerTableViewController.swift; sourceTree = "<group>"; };
 		FEDA23BC249D1E1300ED08A4 /* CalorieTrackerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerController.swift; sourceTree = "<group>"; };
+		FEDA23BF249D1F6900ED08A4 /* CalorieTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieTracker.xcdatamodel; sourceTree = "<group>"; };
+		FEDA23C5249D239200ED08A4 /* Calorie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,18 +90,52 @@
 		FEDA239F249D0FBB00ED08A4 /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
-				FEDA23A0249D0FBB00ED08A4 /* AppDelegate.swift */,
-				FEDA23A2249D0FBB00ED08A4 /* SceneDelegate.swift */,
-				FEDA23A6249D0FBB00ED08A4 /* Main.storyboard */,
+				FEDA23C4249D206800ED08A4 /* App */,
+				FEDA23C1249D1FAE00ED08A4 /* Model */,
+				FEDA23C3249D1FCD00ED08A4 /* Model Controller */,
+				FEDA23C2249D1FC200ED08A4 /* View Controllers */,
 				FEDA23A9249D0FBC00ED08A4 /* Assets.xcassets */,
-				FEDA23AB249D0FBC00ED08A4 /* LaunchScreen.storyboard */,
 				FEDA23AE249D0FBC00ED08A4 /* Info.plist */,
-				FEDA23B6249D184F00ED08A4 /* CoreDataStack.swift */,
-				FEDA23B8249D19AC00ED08A4 /* Notifications.swift */,
-				FEDA23BA249D1A8400ED08A4 /* CalorieTrackerTableViewController.swift */,
-				FEDA23BC249D1E1300ED08A4 /* CalorieTrackerController.swift */,
 			);
 			path = CalorieTracker;
+			sourceTree = "<group>";
+		};
+		FEDA23C1249D1FAE00ED08A4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FEDA23B8249D19AC00ED08A4 /* Notifications.swift */,
+				FEDA23B6249D184F00ED08A4 /* CoreDataStack.swift */,
+				FEDA23BE249D1F6900ED08A4 /* CalorieTracker.xcdatamodeld */,
+				FEDA23C5249D239200ED08A4 /* Calorie+Convenience.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FEDA23C2249D1FC200ED08A4 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FEDA23A6249D0FBB00ED08A4 /* Main.storyboard */,
+				FEDA23BA249D1A8400ED08A4 /* CalorieTrackerTableViewController.swift */,
+				FEDA23AB249D0FBC00ED08A4 /* LaunchScreen.storyboard */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		FEDA23C3249D1FCD00ED08A4 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FEDA23BC249D1E1300ED08A4 /* CalorieTrackerController.swift */,
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		FEDA23C4249D206800ED08A4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FEDA23A0249D0FBB00ED08A4 /* AppDelegate.swift */,
+				FEDA23A2249D0FBB00ED08A4 /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,8 +274,10 @@
 				FEDA23BB249D1A8400ED08A4 /* CalorieTrackerTableViewController.swift in Sources */,
 				FEDA23B9249D19AC00ED08A4 /* Notifications.swift in Sources */,
 				FEDA23BD249D1E1300ED08A4 /* CalorieTrackerController.swift in Sources */,
+				FEDA23C6249D239200ED08A4 /* Calorie+Convenience.swift in Sources */,
 				FEDA23A1249D0FBB00ED08A4 /* AppDelegate.swift in Sources */,
 				FEDA23A3249D0FBB00ED08A4 /* SceneDelegate.swift in Sources */,
+				FEDA23C0249D1F6900ED08A4 /* CalorieTracker.xcdatamodeld in Sources */,
 				FEDA23B7249D184F00ED08A4 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +476,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FEDA23BE249D1F6900ED08A4 /* CalorieTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FEDA23BF249D1F6900ED08A4 /* CalorieTracker.xcdatamodel */,
+			);
+			currentVersion = FEDA23BF249D1F6900ED08A4 /* CalorieTracker.xcdatamodel */;
+			path = CalorieTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FEDA2395249D0FBB00ED08A4 /* Project object */;
 }
