@@ -16,6 +16,8 @@ class CalorieTrackerTableViewController: UITableViewController {
 
     @IBOutlet weak var chartView: Chart!
     
+//    var totalCalories = [calories]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -26,9 +28,30 @@ class CalorieTrackerTableViewController: UITableViewController {
 
     @IBAction func addCalorieButtonTapped(_ sender: UIBarButtonItem) {
         
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+        let submitCaloriesAction = UIAlertAction(title: "Submit", style: .default) {
+            [unowned self] action in
+            guard let textField = alert.textFields?.first,
+                let caloriesToSubmit = textField.text else {
+                    return
+            }
+            
+            self.save(calories: caloriesToSubmit)
+            self.tableView.reloadData()
+        }
         
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addTextField()
+        
+        alert.addAction(submitCaloriesAction)
+        alert.addAction(cancelAction)
+
+        present(alert, animated: true)
     }
     
+    func save(calories: String) {
+        
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
