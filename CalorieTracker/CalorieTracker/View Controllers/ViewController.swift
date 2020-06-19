@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var chartView: Chart!
     @IBOutlet weak var entriesTableView: UITableView!
     
-    private lazy var frc = NSFetchedResultsController<Entry> = {
+    private lazy var frc: NSFetchedResultsController<Entry> = {
        let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp",
                                                          ascending: false)]
@@ -57,9 +57,24 @@ class ViewController: UIViewController {
     
     //MARK: - Methods -
     private func updateViews() {
-        //clear
-        
-        //repopulate
+        ///properties
+        var chartData: [Double] = []
+        ///clear
+        chartView.removeAllSeries()
+        ///repopulate
+        ///get the stuff from core data
+        do {
+            try frc.performFetch()
+        } catch {
+            NSLog("Unable to fetch chart data. Here's what went wrong: \(error) \(error.localizedDescription)")
+            return
+        }
+        let entries = frc.fetchedObjects! as [Entry]
+        for entry in entries.reversed() {
+            chartData.append(entry.calories)
+        }
+        let chartSeries = ChartSeries(chartData)
+        chartView.add(chartSeries)
     }
     
     private func createEntry() {
@@ -85,7 +100,6 @@ class ViewController: UIViewController {
                                                 NSLog("Unable to save entry to Core Data. Here's what went wrong: \(error) \(error.localizedDescription)")
                                                 return
                                             }
-                                            self.updateViews()
         }))
         present(addEntry, animated: true, completion: nil)
     }
@@ -96,13 +110,13 @@ class ViewController: UIViewController {
 //MARK: - Extension: Table View Data Source -
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        frc.fetchedObjects.count ?? 0
+        frc.fetchedObjects?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath)
-        cell.textLabel?.text = String(frc.fetchedObjects[indexPath.row].calories)
-        cell.detailTextLabel?.text = dateFormatter.string(from: frc.fetchedObjects[indexPath.row].timestamp)
+        cell.textLabel?.text = String(frc.fetchedObjects?[indexPath.row].calories)
+        cell.detailTextLabel?.text = dateFormatter.string(from: frc.fetchedObjects?[indexPath.row].timestamp)
         return cell
     }
 }
