@@ -16,7 +16,13 @@ class CalorieTrackerTableViewController: UITableViewController {
 
     @IBOutlet weak var chartView: Chart!
     
-    
+    let dateFormatter: DateFormatter = {
+        var formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }()
+
     
 //    let coreDataStack = CoreDataStack()
     
@@ -87,10 +93,9 @@ class CalorieTrackerTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
         
-//        let calories = caloriesAdded[indexPath.row]
-//        cell.textLabel?.text = calories.value(forKeyPath: "calories") as? String
-//        cell.detailTextLabel?.text = calories.value(forKeyPath: "timestamp") as? String
-        
+        let calories = caloriesAdded[indexPath.row]
+        cell.textLabel?.text = calories.value(forKeyPath: "calories") as? String
+//        cell.detailTextLabel?.text = dateFormatter.value(forKey: "timestamp") as? String
         return cell
     }
     
