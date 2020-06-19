@@ -23,6 +23,8 @@ excluded: # paths to ignore during linting.
   - Pods
   - Calorie TrackerTests/*
   - Calorie TrackerUITests/*
+  - AppDelegate
+  - SceneDelegate
 
 opt_in_rules:
   - anyobject_protocol

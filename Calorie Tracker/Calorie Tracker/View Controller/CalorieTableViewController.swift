@@ -11,10 +11,10 @@ import SwiftChart
 
 class CalorieTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    //let notification = NSNotification.Name(rawValue: "reload")
+    let notification = NSNotification.Name(rawValue: "reload")
 
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var chart: Chart!
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var chart: Chart!
 
     var dateFormatter: DateFormatter = DateFormatter()
 
@@ -27,11 +27,13 @@ class CalorieTableViewController: UIViewController, UITableViewDelegate, UITable
         tableView.dataSource = self
 
         setUpDateFormatter()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: notification, object: nil)
     }
 
     // MARK: - UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return meals.count
+        meals.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,6 +50,11 @@ class CalorieTableViewController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
+    @objc func reloadTableView() {
+        tableView.reloadData()
+        setUpChart()
+    }
+    
     // MARK: - Actions
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         entryPrompt()
@@ -56,7 +63,9 @@ class CalorieTableViewController: UIViewController, UITableViewDelegate, UITable
     // MARK: - Helper Functions
     private func entryPrompt() {
         let alert = UIAlertController(
-            title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+            title: "Add Calorie Intake",
+            message: "Enter the amount of calories in the field",
+            preferredStyle: .alert)
 
         alert.addTextField(configurationHandler: { textField in
             textField.placeholder = "Calories"
@@ -70,8 +79,7 @@ class CalorieTableViewController: UIViewController, UITableViewDelegate, UITable
             UIAlertAction(title: "Submit", style: .default, handler: { _ in
                 guard let input = alert.textFields?[0].text else { return }
                 self.meals.append(Meal(calories: Int(input) ?? 0))
-                self.tableView.reloadData()
-                self.setUpChart()
+                NotificationCenter.default.post(name: self.notification, object: nil)
             }))
 
         present(alert, animated: true, completion: nil)
@@ -113,7 +121,9 @@ class CalorieTableViewController: UIViewController, UITableViewDelegate, UITable
     }
 
     private func findMaxY(calories: Int) -> Int {
-        if calories < 500 { return 500 }
+        if calories < 500 {
+            return 500
+        }
 
         var increment = 1000
 
