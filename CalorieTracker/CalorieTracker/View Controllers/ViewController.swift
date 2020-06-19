@@ -33,8 +33,8 @@ class ViewController: UIViewController {
     var chartArray = [Double]()
 
     // MARK: - Outlet
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var chart: Chart!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var chart: Chart!
     
     // MARK: - Actions
     @IBAction func addButtonTapped(_ sender: Any) {

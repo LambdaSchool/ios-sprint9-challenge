@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -66,7 +66,6 @@
 				4DA31E851B05980D3F88A8D7 /* Pods-CalorieTracker.debug.xcconfig */,
 				1EE97A628121E607A2ADE15C /* Pods-CalorieTracker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -159,6 +158,7 @@
 				9983A981249D0B3F00E9F26F /* Frameworks */,
 				9983A982249D0B3F00E9F26F /* Resources */,
 				7E9781645AAD7E8594386F8F /* [CP] Embed Pods Frameworks */,
+				9983A9AB249D274400E9F26F /* Run Script Phase */,
 			);
 			buildRules = (
 			);
@@ -254,6 +254,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		9983A9AB249D274400E9F26F /* Run Script Phase */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script Phase";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
