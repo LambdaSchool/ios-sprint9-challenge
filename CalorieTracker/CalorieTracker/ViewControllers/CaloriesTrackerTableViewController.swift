@@ -12,7 +12,7 @@ import SwiftChart
 
 class CaloriesTrackerTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    @IBOutlet weak var dateLabel: UILabel!
+
     @IBOutlet weak var caloriesChart: UIView!
     
     let caloriesController = CaloriesController()
@@ -64,8 +64,9 @@ class CaloriesTrackerTableViewController: UITableViewController, NSFetchedResult
         let cell = tableView.dequeueReusableCell(withIdentifier: "CaloriesCell", for: indexPath)
         
         let calories = self.fetchedResultsController.object(at: indexPath)
+        
         cell.textLabel?.text = "Calories: \(calories.calories ?? "0")"
-        cell.detailTextLabel?.text = calories.date
+        cell.detailTextLabel?.text = "\(calories.date)"
         
         return cell
     }
