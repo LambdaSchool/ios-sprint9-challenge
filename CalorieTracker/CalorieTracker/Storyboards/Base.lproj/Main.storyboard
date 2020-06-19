@@ -58,8 +58,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="y3e-0L-N5A">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="RTN-La-bub"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="RTN-La-bub">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="BYZ-38-t0r" id="g6r-kh-6Yg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="IjF-k8-6Ev" id="EGp-MB-Lso"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
