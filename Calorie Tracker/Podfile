@@ -7,7 +7,7 @@ target 'Calorie Tracker' do
 
   # Pods for Calorie Tracker
 
-  pod "SwiftChart"
+  pod "SwiftChart", :git => 'https://github.com/gpbl/SwiftChart', :branch => 'master'
 
   target 'Calorie TrackerTests' do
     inherit! :search_paths
