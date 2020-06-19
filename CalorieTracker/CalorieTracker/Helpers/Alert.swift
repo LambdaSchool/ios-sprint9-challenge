@@ -15,4 +15,24 @@ enum Alert {
         vc.present(alert, animated: true)
     }
     
+    static func saveEntry(vc: UIViewController) {
+        let alert = UIAlertController(title: "Calorie Entry", message: "Enter the amount of calories you want to track", preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.placeholder = "Enter Calorie Amount!"
+        }
+        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak alert] _ in
+            guard let text = alert?.textFields?[0].text,
+                let calAmount = Int(text)
+                else { return }
+            _ = CalorieEntry(calories: calAmount, date: Date())
+            do {
+                try CoreDataStack.shared.save()
+            } catch {
+                print("Error Saving context: ", error)
+            }
+            NotificationCenter.default.post(name: .postedEntry, object: self)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        vc.present(alert, animated: true)
+    }
 }
