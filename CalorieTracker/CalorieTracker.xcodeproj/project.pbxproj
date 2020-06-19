@@ -16,7 +16,6 @@
 		FEDA23B7249D184F00ED08A4 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23B6249D184F00ED08A4 /* CoreDataStack.swift */; };
 		FEDA23B9249D19AC00ED08A4 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23B8249D19AC00ED08A4 /* Notifications.swift */; };
 		FEDA23BB249D1A8400ED08A4 /* CalorieTrackerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23BA249D1A8400ED08A4 /* CalorieTrackerTableViewController.swift */; };
-		FEDA23BD249D1E1300ED08A4 /* CalorieTrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23BC249D1E1300ED08A4 /* CalorieTrackerController.swift */; };
 		FEDA23C0249D1F6900ED08A4 /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23BE249D1F6900ED08A4 /* CalorieTracker.xcdatamodeld */; };
 		FEDA23C6249D239200ED08A4 /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23C5249D239200ED08A4 /* Calorie+Convenience.swift */; };
 /* End PBXBuildFile section */
@@ -35,7 +34,6 @@
 		FEDA23B6249D184F00ED08A4 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		FEDA23B8249D19AC00ED08A4 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		FEDA23BA249D1A8400ED08A4 /* CalorieTrackerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerTableViewController.swift; sourceTree = "<group>"; };
-		FEDA23BC249D1E1300ED08A4 /* CalorieTrackerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerController.swift; sourceTree = "<group>"; };
 		FEDA23BF249D1F6900ED08A4 /* CalorieTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieTracker.xcdatamodel; sourceTree = "<group>"; };
 		FEDA23C5249D239200ED08A4 /* Calorie+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,8 +90,8 @@
 			children = (
 				FEDA23C4249D206800ED08A4 /* App */,
 				FEDA23C1249D1FAE00ED08A4 /* Model */,
-				FEDA23C3249D1FCD00ED08A4 /* Model Controller */,
 				FEDA23C2249D1FC200ED08A4 /* View Controllers */,
+				FEDA23C7249D270500ED08A4 /* Storyboards */,
 				FEDA23A9249D0FBC00ED08A4 /* Assets.xcassets */,
 				FEDA23AE249D0FBC00ED08A4 /* Info.plist */,
 			);
@@ -114,19 +112,9 @@
 		FEDA23C2249D1FC200ED08A4 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FEDA23A6249D0FBB00ED08A4 /* Main.storyboard */,
 				FEDA23BA249D1A8400ED08A4 /* CalorieTrackerTableViewController.swift */,
-				FEDA23AB249D0FBC00ED08A4 /* LaunchScreen.storyboard */,
 			);
 			path = "View Controllers";
-			sourceTree = "<group>";
-		};
-		FEDA23C3249D1FCD00ED08A4 /* Model Controller */ = {
-			isa = PBXGroup;
-			children = (
-				FEDA23BC249D1E1300ED08A4 /* CalorieTrackerController.swift */,
-			);
-			path = "Model Controller";
 			sourceTree = "<group>";
 		};
 		FEDA23C4249D206800ED08A4 /* App */ = {
@@ -136,6 +124,15 @@
 				FEDA23A2249D0FBB00ED08A4 /* SceneDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		FEDA23C7249D270500ED08A4 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FEDA23A6249D0FBB00ED08A4 /* Main.storyboard */,
+				FEDA23AB249D0FBC00ED08A4 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,7 +147,6 @@
 				FEDA239A249D0FBB00ED08A4 /* Frameworks */,
 				FEDA239B249D0FBB00ED08A4 /* Resources */,
 				F1E66C51D9D78A1671911D0E /* [CP] Embed Pods Frameworks */,
-				FEDA23B5249D168700ED08A4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -247,23 +243,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FEDA23B5249D168700ED08A4 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -273,7 +252,6 @@
 			files = (
 				FEDA23BB249D1A8400ED08A4 /* CalorieTrackerTableViewController.swift in Sources */,
 				FEDA23B9249D19AC00ED08A4 /* Notifications.swift in Sources */,
-				FEDA23BD249D1E1300ED08A4 /* CalorieTrackerController.swift in Sources */,
 				FEDA23C6249D239200ED08A4 /* Calorie+Convenience.swift in Sources */,
 				FEDA23A1249D0FBB00ED08A4 /* AppDelegate.swift in Sources */,
 				FEDA23A3249D0FBB00ED08A4 /* SceneDelegate.swift in Sources */,

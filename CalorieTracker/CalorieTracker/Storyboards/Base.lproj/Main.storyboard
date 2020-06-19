@@ -1,70 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CvG-yO-G9U">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CJb-nn-4mo">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Calorie Tracker-->
-        <scene sceneID="bER-D9-6Eu">
+        <scene sceneID="X0x-40-ele">
             <objects>
-                <tableViewController id="tKV-if-JkA" customClass="CalorieTrackerTableViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nkM-9i-Hqj">
+                <viewController title="Calorie Tracker" id="CJb-nn-4mo" customClass="CalorieTrackerTableViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zXU-iX-m9t">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieCell" rowHeight="95" id="FAf-c4-a2r">
-                                <rect key="frame" x="0.0" y="28" width="414" height="95"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FAf-c4-a2r" id="w3U-pk-gK5">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dKY-aF-XWa" customClass="Chart" customModule="SwiftChart">
-                                            <rect key="frame" x="6" y="0.0" width="218" height="95"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mtz-4D-dke" customClass="Chart" customModule="SwiftChart">
+                                <rect key="frame" x="0.0" y="84" width="414" height="192"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qr-fe-6lg">
+                                <rect key="frame" x="0.0" y="44" width="414" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ola-Ca-dQZ"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Calorie Tracker" largeTitleDisplayMode="never" id="LYC-yM-1oL">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="E6C-mB-klB">
                                             <connections>
-                                                <action selector="chart:" destination="NuR-wD-Dcf" eventType="valueChanged" id="vmB-pN-iMV"/>
+                                                <action selector="addButton:" destination="CJb-nn-4mo" id="wmZ-Lw-wf5"/>
                                             </connections>
-                                        </view>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bRd-XF-2aR">
+                                <rect key="frame" x="0.0" y="276" width="414" height="576"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="576" id="UGp-U0-zoP"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EntryCell" textLabel="GmT-Lb-e0o" detailTextLabel="xHH-CY-6Db" style="IBUITableViewCellStyleValue1" id="dlo-B5-ccd">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dlo-B5-ccd" id="m2f-ml-IGl">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GmT-Lb-e0o">
+                                                    <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="calorieDetail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xHH-CY-6Db">
+                                                    <rect key="frame" x="299" y="12" width="95" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="KrB-6I-mIt" firstAttribute="bottom" secondItem="bRd-XF-2aR" secondAttribute="bottom" constant="10" id="0SM-eq-FeU"/>
+                            <constraint firstItem="Mtz-4D-dke" firstAttribute="leading" secondItem="KrB-6I-mIt" secondAttribute="leading" id="2eu-1E-8ku"/>
+                            <constraint firstItem="KrB-6I-mIt" firstAttribute="trailing" secondItem="Mtz-4D-dke" secondAttribute="trailing" id="4G4-SM-eaf"/>
+                            <constraint firstItem="Mtz-4D-dke" firstAttribute="top" secondItem="2qr-fe-6lg" secondAttribute="bottom" id="4Ms-dr-5tI"/>
+                            <constraint firstItem="2qr-fe-6lg" firstAttribute="top" secondItem="KrB-6I-mIt" secondAttribute="top" id="DEb-5n-lM9"/>
+                            <constraint firstItem="bRd-XF-2aR" firstAttribute="top" secondItem="Mtz-4D-dke" secondAttribute="bottom" id="NzH-Xn-k5e"/>
+                            <constraint firstItem="2qr-fe-6lg" firstAttribute="leading" secondItem="zXU-iX-m9t" secondAttribute="leading" id="X1E-ou-R3p"/>
+                            <constraint firstItem="KrB-6I-mIt" firstAttribute="trailing" secondItem="2qr-fe-6lg" secondAttribute="trailing" id="l3H-bb-qn1"/>
+                            <constraint firstItem="KrB-6I-mIt" firstAttribute="trailing" secondItem="bRd-XF-2aR" secondAttribute="trailing" id="lTK-W8-agL"/>
+                            <constraint firstItem="bRd-XF-2aR" firstAttribute="leading" secondItem="KrB-6I-mIt" secondAttribute="leading" id="u8f-lC-p1j"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KrB-6I-mIt"/>
                         <connections>
-                            <outlet property="dataSource" destination="tKV-if-JkA" id="END-tI-VG1"/>
-                            <outlet property="delegate" destination="tKV-if-JkA" id="n6X-Ir-wmI"/>
+                            <outlet property="chartView" destination="Mtz-4D-dke" id="3ke-RS-NrK"/>
+                            <outlet property="tableView" destination="bRd-XF-2aR" id="eD8-dP-2Ln"/>
                         </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Calorie Tracker" id="ood-9a-R5A">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="U8A-Zq-tQC"/>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1dz-ZV-zeP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="NuR-wD-Dcf" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="905.79710144927549" y="75"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="tG2-mW-IhA">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CvG-yO-G9U" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="yk9-Mg-XLC">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                    </view>
                     <connections>
-                        <segue destination="tKV-if-JkA" kind="relationship" relationship="rootViewController" id="lbN-hu-SFW"/>
+                        <outlet property="chartView" destination="Mtz-4D-dke" id="b0y-Jw-4hr"/>
+                        <outlet property="entriesTableView" destination="bRd-XF-2aR" id="cCZ-PG-kaE"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kQ0-bR-Ycz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m5g-Hy-3lE" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128.98550724637681" y="75"/>
+            <point key="canvasLocation" x="1627.536231884058" y="116.51785714285714"/>
         </scene>
     </scenes>
 </document>

@@ -10,67 +10,69 @@ import UIKit
 import CoreData
 import SwiftChart
 
-class CalorieTrackerTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class CalorieTrackerTableViewController: UIViewController {
 
 
-      lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
-          let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
-          fetchRequest.sortDescriptors = [
-              NSSortDescriptor(key: "date", ascending: true)
-          ]
-          let context = CoreDataStack.shared.mainContext
-          let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-          frc.delegate = self
-          do {
-              try frc.performFetch()
-          } catch {
-              print("Error fetching: ", error)
-          }
-          return frc
-      }()
+    lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
+        let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(key: "date", ascending: true)
+        ]
+        let context = CoreDataStack.shared.mainContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest,                                                                          managedObjectContext: context,
+                                             sectionNameKeyPath: nil, cacheName: nil)
+        frc.delegate = self
+        do {
+            try frc.performFetch()
+        } catch {
+            print("Error fetching: ", error)
+        }
+        return frc
+    }()
+
+    private var dateFormatter: DateFormatter = {
+           let formatter = DateFormatter()
+           formatter.dateStyle = .short
+           formatter.timeStyle = .medium
+           return formatter
+       }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return fetchedResultsController.count 
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
 
 
 }
 
-extension CalorieTrackerTableViewController: NSFetchedResultsControllerDelegate {
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates() // prepare for things to change
+    // MARK: - Extension - Table view data source
+
+    extension CalorieTrackerTableViewController: UITableViewDataSource {
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        return 0
     }
 
-    // nothing else to be edited, last thing to tell the tableView. endupdates means, commit all of those changes all at once..
+
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+
+
+        return cell
+    }
+}
+
+
+extension CalorieTrackerTableViewController: NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
 
-    // insert or delete entire sections..
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
                     didChange sectionInfo: NSFetchedResultsSectionInfo,
                     atSectionIndex sectionIndex: Int,
@@ -84,8 +86,6 @@ extension CalorieTrackerTableViewController: NSFetchedResultsControllerDelegate 
             break
         }
     }
-
-    // 1:47 pm in video
 
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
                     didChange anObject: Any,
