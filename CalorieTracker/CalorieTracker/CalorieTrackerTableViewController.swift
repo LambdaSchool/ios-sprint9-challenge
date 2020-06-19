@@ -16,6 +16,9 @@ class CalorieTrackerTableViewController: UITableViewController {
 
     @IBOutlet weak var chartView: Chart!
     
+    let coreDataStack = CoreDataStack()
+    
+    var caloriesAdded: [NSManagedObject] = []
 //    var totalCalories = [calories]()
     
     override func viewDidLoad() {
@@ -50,7 +53,18 @@ class CalorieTrackerTableViewController: UITableViewController {
     }
     
     func save(calories: String) {
+        let managedContext = coreDataStack.container.viewContext
         
+        let enity = NSEntityDescription.entity(forEntityName: "calories", in: managedContext)!
+        let newCalories = NSManagedObject(entity: enity, insertInto: managedContext)
+        newCalories.setValue(calories, forKey: "calories")
+        
+        do {
+            try managedContext.save()
+            caloriesAdded.append(newCalories)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
     // MARK: - Table view data source
 
@@ -61,7 +75,7 @@ class CalorieTrackerTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return caloriesAdded.count
     }
 
     
