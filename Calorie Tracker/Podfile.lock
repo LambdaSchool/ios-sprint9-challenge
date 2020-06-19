@@ -1,8 +1,14 @@
 PODS:
   - SwiftChart (1.0.1)
+  - SwiftLint (0.39.2)
 
 DEPENDENCIES:
   - SwiftChart (from `https://github.com/gpbl/SwiftChart`, branch `master`)
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - SwiftLint
 
 EXTERNAL SOURCES:
   SwiftChart:
@@ -16,7 +22,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   SwiftChart: 6ed8c61f3731cc32e3cb92858dba339d08ddac87
+  SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: 06211bf3db9632be79ca48a65f48fe5a275560c1
+PODFILE CHECKSUM: be82f7cbb905ebbb265bea78af59b277f40d3103
 
 COCOAPODS: 1.9.3
