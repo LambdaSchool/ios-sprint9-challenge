@@ -9,16 +9,28 @@
 import UIKit
 
 class CalorieIntakeTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var calorieIntakeLabel: UILabel!
+    @IBOutlet weak var timeStampLabel: UILabel!
+    
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    var calorieIntake: CalorieIntake? {
+        didSet {
+            updateViews()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    private func updateViews() {
+        guard let calorieIntake = calorieIntake else { return }
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "MM/dd/YY, h:mm a"
+        let now = dateFormatter.string(from: calorieIntake.timeStamp!)
+        
+        calorieIntakeLabel.text = calorieIntake.numOfCalories
+        timeStampLabel.text = now
     }
 
 }
