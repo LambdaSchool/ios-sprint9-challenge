@@ -1,5 +1,5 @@
 //
-//  Entry.swift
+//  EntryRepresentation.swift
 //  CalorieTracker
 //
 //  Created by Cody Morley on 6/19/20.
@@ -9,7 +9,7 @@
 import Foundation
 import SwiftChart
 
-struct Entry {
+struct EntryRepresentaton {
        var calories: Double
        var timestamp: Date
        var formatter: DateFormatter {
