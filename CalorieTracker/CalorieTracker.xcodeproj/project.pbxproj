@@ -16,6 +16,7 @@
 		5A9FA816249D18790070434D /* CalorieTrackerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FA815249D18790070434D /* CalorieTrackerTableViewController.swift */; };
 		5A9FA819249D19850070434D /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FA817249D19850070434D /* CalorieTracker.xcdatamodeld */; };
 		5ADF2590249D1F0400B7BC5A /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF258F249D1F0400B7BC5A /* ChartView.swift */; };
+		5ADF2592249D20DC00B7BC5A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF2591249D20DC00B7BC5A /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		5A9FA815249D18790070434D /* CalorieTrackerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerTableViewController.swift; sourceTree = "<group>"; };
 		5A9FA818249D19850070434D /* CalorieTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieTracker.xcdatamodel; sourceTree = "<group>"; };
 		5ADF258F249D1F0400B7BC5A /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		5ADF2591249D20DC00B7BC5A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		E828498454605BC361489EC8 /* Pods-CalorieTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.release.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				5A9FA817249D19850070434D /* CalorieTracker.xcdatamodeld */,
+				5ADF2591249D20DC00B7BC5A /* CoreDataStack.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				5A9FA816249D18790070434D /* CalorieTrackerTableViewController.swift in Sources */,
 				5A9FA802249D15D40070434D /* AppDelegate.swift in Sources */,
 				5A9FA819249D19850070434D /* CalorieTracker.xcdatamodeld in Sources */,
+				5ADF2592249D20DC00B7BC5A /* CoreDataStack.swift in Sources */,
 				5ADF2590249D1F0400B7BC5A /* ChartView.swift in Sources */,
 				5A9FA804249D15D40070434D /* SceneDelegate.swift in Sources */,
 			);
