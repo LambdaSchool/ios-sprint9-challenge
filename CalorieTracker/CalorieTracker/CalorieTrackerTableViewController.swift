@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController {
 
+    @IBOutlet weak var chartView: ChartView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

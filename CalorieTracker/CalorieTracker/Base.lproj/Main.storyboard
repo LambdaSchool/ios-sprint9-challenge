@@ -14,9 +14,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="kUi-eM-0Ai" customClass="ChartView" customModule="CalorieTracker" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="191"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OKs-DL-OcM">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieCell" id="OKs-DL-OcM">
+                                <rect key="frame" x="0.0" y="219" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OKs-DL-OcM" id="f82-JE-QSI">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -30,10 +35,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="aRe-Qo-Ro5"/>
+                    <connections>
+                        <outlet property="chartView" destination="kUi-eM-0Ai" id="a17-a4-VlX"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l16-z4-gOa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="545" y="-85"/>
+            <point key="canvasLocation" x="544.92753623188412" y="-85.044642857142847"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6gD-oe-AJO">
