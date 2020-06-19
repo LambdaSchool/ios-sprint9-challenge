@@ -9,41 +9,47 @@
 import UIKit
 import SwiftChart
 
+// when the add button is tapped the user will enter in the amount of calories in an alert controller, the table view should display the amount of calories and the timestamp that it was entered
+
 class CalorieTrackerTableViewController: UITableViewController {
 
-    @IBOutlet weak var chartView: ChartView!
+    @IBOutlet weak var chartView: Chart!
+    
+    var dailyCalories = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    
+        let series = ChartSeries([1, 6, 2, 8, 4, 7, 3, 10, 8])
+        series.color = ChartColors.greenColor()
+        chartView.add(series)
     }
 
+    @IBAction func addCalorieButtonTapped(_ sender: UIBarButtonItem) {
+        
+        
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return dailyCalories.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
 
-        // Configure the cell...
-
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
