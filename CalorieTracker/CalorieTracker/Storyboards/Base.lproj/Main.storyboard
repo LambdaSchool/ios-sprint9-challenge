@@ -28,7 +28,7 @@
                                     <navigationItem title="Calorie Tracker" largeTitleDisplayMode="never" id="LYC-yM-1oL">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="E6C-mB-klB">
                                             <connections>
-                                                <action selector="addButton:" destination="CJb-nn-4mo" id="wmZ-Lw-wf5"/>
+                                                <action selector="addButtonTapped:" destination="CJb-nn-4mo" id="625-Bp-Je1"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -88,8 +88,10 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="chart" destination="Mtz-4D-dke" id="IdH-1y-4C4"/>
                         <outlet property="chartView" destination="Mtz-4D-dke" id="b0y-Jw-4hr"/>
                         <outlet property="entriesTableView" destination="bRd-XF-2aR" id="cCZ-PG-kaE"/>
+                        <outlet property="tableView" destination="bRd-XF-2aR" id="8Ep-gd-gfL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5g-Hy-3lE" sceneMemberID="firstResponder"/>
