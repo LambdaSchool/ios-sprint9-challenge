@@ -6,6 +6,7 @@
 //  Copyright © 2020 Cody Morley. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import SwiftChart
 import CoreData
@@ -42,17 +43,51 @@ class ViewController: UIViewController {
     //MARK: - Life Cycles -
     override func viewDidLoad() {
         super.viewDidLoad()
+        entriesTableView.dataSource = self
         updateViews()
     }
     
     
     //MARK: - Actions -
     @IBAction func addButton(_ sender: Any) {
+        createEntry()
+        updateViews()
     }
     
     
     //MARK: - Methods -
-    func updateViews() {
+    private func updateViews() {
+        //clear
+        
+        //repopulate
+    }
+    
+    private func createEntry() {
+        let addEntry = UIAlertController(title: "Add Calorie Intake",
+                                         message: "Enter number of calories:",
+                                         preferredStyle: .alert)
+        var calories: UITextField!
+        addEntry.addTextField { textfield in
+            calories = textfield
+            calories.placeholder = "Calories:"
+        }
+        
+        addEntry.addAction(UIAlertAction(title: "Add Entry",
+                                         style: .default,
+                                         handler: { _ in
+                                            guard let caloriesString = calories.text,
+                                                !caloriesString.isEmpty,
+                                                let calories = Double(caloriesString) else { return }
+                                            Entry(calories: calories)
+                                            do {
+                                                try CoreDataStack.shared.mainContext.save()
+                                            } catch {
+                                                NSLog("Unable to save entry to Core Data. Here's what went wrong: \(error) \(error.localizedDescription)")
+                                                return
+                                            }
+                                            self.updateViews()
+        }))
+        present(addEntry, animated: true, completion: nil)
     }
 }
 
