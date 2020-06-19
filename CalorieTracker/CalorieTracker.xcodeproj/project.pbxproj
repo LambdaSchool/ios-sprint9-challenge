@@ -14,7 +14,6 @@
 		5E7B0710249D0C4A00F6664A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E7B070E249D0C4A00F6664A /* Main.storyboard */; };
 		5E7B0712249D0C5000F6664A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E7B0711249D0C5000F6664A /* Assets.xcassets */; };
 		5E7B0715249D0C5000F6664A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E7B0713249D0C5000F6664A /* LaunchScreen.storyboard */; };
-		5E7B0722249D106800F6664A /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7B0721249D106800F6664A /* Chart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 		5E7B0711249D0C5000F6664A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E7B0714249D0C5000F6664A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E7B0716249D0C5000F6664A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5E7B0721249D106800F6664A /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		6DA2D131998658B125EBF27D /* Pods-CalorieTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.release.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.release.xcconfig"; sourceTree = "<group>"; };
 		6EBF50B75A0ABFA8761FA30D /* Pods-CalorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.debug.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,7 +109,6 @@
 		5E7B0720249D0CD400F6664A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5E7B0721249D106800F6664A /* Chart.swift */,
 				5E7B071D249D0C7A00F6664A /* Storyboards */,
 			);
 			path = Views;
@@ -249,7 +246,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E7B0722249D106800F6664A /* Chart.swift in Sources */,
 				5E7B070D249D0C4A00F6664A /* ViewController.swift in Sources */,
 				5E7B0709249D0C4A00F6664A /* AppDelegate.swift in Sources */,
 				5E7B070B249D0C4A00F6664A /* SceneDelegate.swift in Sources */,
