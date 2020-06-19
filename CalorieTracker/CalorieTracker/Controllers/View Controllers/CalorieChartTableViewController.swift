@@ -128,4 +128,3 @@ extension CalorieChartTableViewController: NSFetchedResultsControllerDelegate {
         }
     }
 }
-

@@ -90,11 +90,11 @@
 		8EDFEF34249D0B7D006C6C8E /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
+				8EDFEF4C249D0BDE006C6C8E /* Resources */,
+				8EDFEF4E249D0BF4006C6C8E /* Helpers */,
 				8EDFEF4D249D0BEB006C6C8E /* CoreData */,
 				8EDFEF50249D0C01006C6C8E /* Controllers */,
 				8EDFEF4F249D0BFA006C6C8E /* Views */,
-				8EDFEF4E249D0BF4006C6C8E /* Helpers */,
-				8EDFEF4C249D0BDE006C6C8E /* Resources */,
 				8EDFEF46249D0B7E006C6C8E /* Info.plist */,
 			);
 			path = CalorieTracker;
