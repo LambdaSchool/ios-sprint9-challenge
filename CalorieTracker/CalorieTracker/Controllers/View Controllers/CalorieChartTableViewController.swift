@@ -33,25 +33,49 @@ class CalorieChartTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(chartCals), name: .postedEntry, object: nil)
+        chartCals()
     }
+    
+    //MARK: -Class Funcs
+    
+    @objc func chartCals() {
+        var calories = [CalorieEntry]()
+        for entry in fetchedResultsController.fetchedObjects ?? [] {
+            calories.append(entry)
+        }
+        let data = calories.map {
+            Double($0.calories)
+        }
+        let chartCals = ChartSeries(data)
+        chartView.add(chartCals)
+    }
+    
     
     //MARK: -IBActions
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        Alert.saveEntry(vc: self)
     }
     
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
-
+        let calorieEntry = fetchedResultsController.object(at: indexPath)
+        let df = DateFormatter()
+        df.dateFormat = "MMM dd, yyyy hh:mm:ss"
+        cell.textLabel?.text = String(calorieEntry.calories)
+        cell.detailTextLabel?.text = df.string(from: calorieEntry.date ?? Date())
+        
+        
         return cell
     }
 }
