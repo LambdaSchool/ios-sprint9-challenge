@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     
+    
     private lazy var fetchedResultsController: NSFetchedResultsController<CalorieInput> = {
         let fetchRequest: NSFetchRequest<CalorieInput> = CalorieInput.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
@@ -30,6 +31,9 @@ class ViewController: UIViewController {
         return frc
     }()
     
+    let chart = Chart()
+    var chartArray = [Double]()
+    var series = ChartSeries([])
     // MARK: - Outlet
     @IBOutlet weak var tableView: UITableView!
     
@@ -49,7 +53,9 @@ class ViewController: UIViewController {
                 let caloriesInt = Int(calories) else { return }
             
             CalorieInput(calories: caloriesInt)
-            
+            self.chartArray.append(Double(caloriesInt))
+            self.series = ChartSeries(self.chartArray)
+            print("\(self.series)")
             do {
                 try CoreDataStack.shared.mainContext.save()
             } catch {
