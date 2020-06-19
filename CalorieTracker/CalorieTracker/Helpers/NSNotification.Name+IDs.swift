@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+extension NSNotification.Name {
+    static let postedEntry = NSNotification.Name("postedEntry")
+}
