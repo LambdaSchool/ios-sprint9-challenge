@@ -13,6 +13,7 @@
 		9983A98F249D0B3F00E9F26F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9983A98D249D0B3F00E9F26F /* Main.storyboard */; };
 		9983A991249D0B3F00E9F26F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9983A990249D0B3F00E9F26F /* Assets.xcassets */; };
 		9983A994249D0B3F00E9F26F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9983A992249D0B3F00E9F26F /* LaunchScreen.storyboard */; };
+		9983A9A1249D0C4F00E9F26F /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9983A99F249D0C4F00E9F26F /* CalorieTracker.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		9983A990249D0B3F00E9F26F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9983A993249D0B3F00E9F26F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9983A995249D0B3F00E9F26F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9983A9A0249D0C4F00E9F26F /* CalorieInput.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieInput.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,48 @@
 		9983A986249D0B3F00E9F26F /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
-				9983A987249D0B3F00E9F26F /* AppDelegate.swift */,
-				9983A989249D0B3F00E9F26F /* SceneDelegate.swift */,
-				9983A98B249D0B3F00E9F26F /* ViewController.swift */,
-				9983A98D249D0B3F00E9F26F /* Main.storyboard */,
+				9983A99E249D0C0C00E9F26F /* Model */,
+				9983A99B249D0B6800E9F26F /* Application */,
+				9983A99C249D0BEF00E9F26F /* View Controllers */,
+				9983A99D249D0BFB00E9F26F /* Storyboards */,
 				9983A990249D0B3F00E9F26F /* Assets.xcassets */,
-				9983A992249D0B3F00E9F26F /* LaunchScreen.storyboard */,
 				9983A995249D0B3F00E9F26F /* Info.plist */,
 			);
 			path = CalorieTracker;
+			sourceTree = "<group>";
+		};
+		9983A99B249D0B6800E9F26F /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				9983A987249D0B3F00E9F26F /* AppDelegate.swift */,
+				9983A989249D0B3F00E9F26F /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		9983A99C249D0BEF00E9F26F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9983A98B249D0B3F00E9F26F /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9983A99D249D0BFB00E9F26F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				9983A992249D0B3F00E9F26F /* LaunchScreen.storyboard */,
+				9983A98D249D0B3F00E9F26F /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		9983A99E249D0C0C00E9F26F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9983A99F249D0C4F00E9F26F /* CalorieTracker.xcdatamodeld */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9983A9A1249D0C4F00E9F26F /* CalorieTracker.xcdatamodeld in Sources */,
 				9983A98C249D0B3F00E9F26F /* ViewController.swift in Sources */,
 				9983A988249D0B3F00E9F26F /* AppDelegate.swift in Sources */,
 				9983A98A249D0B3F00E9F26F /* SceneDelegate.swift in Sources */,
@@ -336,6 +372,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9983A99F249D0C4F00E9F26F /* CalorieTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9983A9A0249D0C4F00E9F26F /* CalorieInput.xcdatamodel */,
+			);
+			currentVersion = 9983A9A0249D0C4F00E9F26F /* CalorieInput.xcdatamodel */;
+			path = CalorieTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9983A97C249D0B3F00E9F26F /* Project object */;
 }
