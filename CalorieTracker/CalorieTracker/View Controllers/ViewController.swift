@@ -31,11 +31,11 @@ class ViewController: UIViewController {
         return frc
     }()
     
-    let chart = Chart()
     var chartArray = [Double]()
     var series = ChartSeries([])
     // MARK: - Outlet
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var chart: Chart!
     
     // MARK: - Actions
     @IBAction func addButtonTapped(_ sender: Any) {
@@ -55,7 +55,8 @@ class ViewController: UIViewController {
             CalorieInput(calories: caloriesInt)
             self.chartArray.append(Double(caloriesInt))
             self.series = ChartSeries(self.chartArray)
-            print("\(self.series)")
+            print("\(self.series.data)")
+        
             do {
                 try CoreDataStack.shared.mainContext.save()
             } catch {
@@ -70,6 +71,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        chartData()
+    }
+    
+    // Chart Implementation
+    @objc private func chartData() {
+        var chartData = [Double]()
+        chartData.removeAll()
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            NSLog("Error fetching for chart: \(error)")
+        }
+        guard let input = fetchedResultsController.fetchedObjects else { return }
+        for i in input {
+            chartData.append(Double(i.calories))
+        }
+        let series = ChartSeries(chartData)
+        chart.add(series)
     }
 }
 
