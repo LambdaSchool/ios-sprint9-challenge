@@ -31,8 +31,9 @@ class ViewController: UIViewController {
     }()
     
     var chartArray = [Double]()
+    let notificationKey = "co.dahnab.update"
 
-    // MARK: - Outlet
+    // MARK: - Outlets
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var chart: Chart!
     
@@ -60,6 +61,7 @@ class ViewController: UIViewController {
             } catch {
                 NSLog("Error saving calorie submission: \(error)")
             }
+            NotificationCenter.default.post(name: Notification.Name(self.notificationKey), object: nil)
         }))
         present(alert, animated: true, completion: nil)
     }
@@ -69,31 +71,44 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         chartData()
+        createObservers()
     }
     
-    // Chart Implementation
+    // MARK: - Chart Implementation
     @objc private func chartData() {
         var chartData = [Double]()
-        
         chartData.removeAll()
-        
         do {
             try fetchedResultsController.performFetch()
         } catch {
             NSLog("Error fetching for chart: \(error)")
         }
-        
         guard let input = fetchedResultsController.fetchedObjects else { return }
-        
         for i in input {
             chartData.append(Double(i.calories))
         }
-        
         let series = ChartSeries(chartData)
-        
         chart.add(series)
+    }
+    
+    // MARK: - Functions
+    @objc private func reloadView() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.tableView.reloadData()
+        }
+    }
+    
+    private func createObservers() {
+        NotificationCenter.default.addObserver(self,
+                                                  selector: #selector(ViewController.chartData),
+                                                  name: Notification.Name(notificationKey),
+                                                  object: nil)
         
-        self.tableView.reloadData()
+        NotificationCenter.default.addObserver(self,
+                                                  selector: #selector(ViewController.reloadView),
+                                                  name: Notification.Name(notificationKey),
+                                                  object: nil)
+        
     }
 }
 
