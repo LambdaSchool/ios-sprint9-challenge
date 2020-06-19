@@ -8,14 +8,13 @@
 
 import UIKit
 import SwiftChart
+import CoreData
 
 // when the add button is tapped the user will enter in the amount of calories in an alert controller, the table view should display the amount of calories and the timestamp that it was entered
 
 class CalorieTrackerTableViewController: UITableViewController {
 
     @IBOutlet weak var chartView: Chart!
-    
-    var dailyCalories = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +38,7 @@ class CalorieTrackerTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return dailyCalories.count
+        return 1
     }
 
     
