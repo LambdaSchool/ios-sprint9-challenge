@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4272DEB249D2035004774BB /* Calories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4272DEA249D2035004774BB /* Calories.swift */; };
+		B4272DED249D2165004774BB /* CalorieTracker+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4272DEC249D2165004774BB /* CalorieTracker+Convenience.swift */; };
 		B4D2971C249C5D620054E525 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D2971B249C5D620054E525 /* AppDelegate.swift */; };
 		B4D2971E249C5D620054E525 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D2971D249C5D620054E525 /* SceneDelegate.swift */; };
 		B4D29720249C5D620054E525 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D2971F249C5D620054E525 /* ViewController.swift */; };
@@ -24,6 +26,8 @@
 /* Begin PBXFileReference section */
 		357395E5055F04E81F9A9DB5 /* Pods-CalorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.debug.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		7AF214C68919312EA1886BF3 /* Pods_CalorieTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalorieTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4272DEA249D2035004774BB /* Calories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calories.swift; sourceTree = "<group>"; };
+		B4272DEC249D2165004774BB /* CalorieTracker+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieTracker+Convenience.swift"; sourceTree = "<group>"; };
 		B4D29718249C5D620054E525 /* CalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4D2971B249C5D620054E525 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4D2971D249C5D620054E525 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,7 +99,6 @@
 				B4D2971D249C5D620054E525 /* SceneDelegate.swift */,
 				B4D2971F249C5D620054E525 /* ViewController.swift */,
 				B4D29721249C5D630054E525 /* Main.storyboard */,
-				B4D29730249C60A80054E525 /* CoreDataStack.swift */,
 				B4D29724249C5D680054E525 /* Assets.xcassets */,
 				B4D29726249C5D680054E525 /* LaunchScreen.storyboard */,
 				B4D29729249C5D680054E525 /* Info.plist */,
@@ -118,6 +121,9 @@
 			isa = PBXGroup;
 			children = (
 				B4D29739249D16CB0054E525 /* CalorieTracker.xcdatamodeld */,
+				B4D29730249C60A80054E525 /* CoreDataStack.swift */,
+				B4272DEC249D2165004774BB /* CalorieTracker+Convenience.swift */,
+				B4272DEA249D2035004774BB /* Calories.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,7 +239,7 @@
 		};
 		B4D2972F249C5F190054E525 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -245,7 +251,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
@@ -257,8 +263,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4D29720249C5D620054E525 /* ViewController.swift in Sources */,
+				B4272DEB249D2035004774BB /* Calories.swift in Sources */,
 				B4D2971C249C5D620054E525 /* AppDelegate.swift in Sources */,
 				B4D29733249D12A10054E525 /* CalorieCountTableViewController.swift in Sources */,
+				B4272DED249D2165004774BB /* CalorieTracker+Convenience.swift in Sources */,
 				B4D29738249D16570054E525 /* CalorieCountController.swift in Sources */,
 				B4D29735249D12BA0054E525 /* CalorieCell.swift in Sources */,
 				B4D2971E249C5D620054E525 /* SceneDelegate.swift in Sources */,
