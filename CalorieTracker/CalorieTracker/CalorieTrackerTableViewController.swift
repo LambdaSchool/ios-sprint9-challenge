@@ -16,10 +16,11 @@ class CalorieTrackerTableViewController: UITableViewController {
 
     @IBOutlet weak var chartView: Chart!
     
-    let coreDataStack = CoreDataStack()
+    
+    
+//    let coreDataStack = CoreDataStack()
     
     var caloriesAdded: [NSManagedObject] = []
-//    var totalCalories = [calories]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,12 +54,16 @@ class CalorieTrackerTableViewController: UITableViewController {
     }
     
     func save(calories: String) {
-        let managedContext = coreDataStack.container.viewContext
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
         
-        let enity = NSEntityDescription.entity(forEntityName: "calories", in: managedContext)!
+        let managedContext = appDelegate.persistentContainer.viewContext
+
+        let enity = NSEntityDescription.entity(forEntityName: "CalorieTracker", in: managedContext)!
         let newCalories = NSManagedObject(entity: enity, insertInto: managedContext)
         newCalories.setValue(calories, forKey: "calories")
-        
+
         do {
             try managedContext.save()
             caloriesAdded.append(newCalories)
@@ -81,7 +86,10 @@ class CalorieTrackerTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
-
+        
+//        let calories = caloriesAdded[indexPath.row]
+//        cell.textLabel?.text = calories.value(forKeyPath: "calories") as? String
+//        cell.detailTextLabel?.text = calories.value(forKeyPath: "timestamp") as? String
         
         return cell
     }
