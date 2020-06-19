@@ -16,9 +16,10 @@ class CalorieTrackerViewController: UIViewController {
     @IBOutlet private weak var chartView: Chart!
     @IBOutlet private weak var tableView: UITableView!
     
+//    @IBOutlet weak var detailTextLabel: UILabel!
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, yyyy, h:mm:ss a"
+        dateFormatter.dateFormat = "MMM d, yyyy, 'at' h:mm:ss a"
         return dateFormatter
     }()
     
@@ -44,7 +45,6 @@ class CalorieTrackerViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
         updateViews()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .calorieAddedNotificationKey, object: nil)

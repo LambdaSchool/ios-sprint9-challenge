@@ -27,7 +27,7 @@ extension CalorieTrackerViewController: UITableViewDelegate, UITableViewDataSour
         let timestamp = calorieData.calorieDate ?? Date()
         
         cell.textLabel?.text = "Calories: \(Int(calories))"
-        cell.detailTextLabel?.text = dateFormatter.string(from: timestamp)
+        cell.detailTextLabel?.text = "\(calories.calorieDate)"
         
         return cell
     }

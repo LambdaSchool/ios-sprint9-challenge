@@ -17,4 +17,13 @@ extension CalorieData {
         self.calories = calories
         self.calorieDate = calorieDate
     }
+    
+    var date: String {
+            guard let calorieDate = self.calorieDate else { return "" }
+
+            let df = DateFormatter()
+            df.dateFormat = "MMM d Y 'at' h:mm a"
+            let date = df.string(from: calorieDate)
+            return date
+        }
 }

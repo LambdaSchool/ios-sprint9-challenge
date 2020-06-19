@@ -1,5 +1,5 @@
 //
-//  Calories.swift
+//  CalorieController.swift
 //  CalorieTracker
 //
 //  Created by Nonye on 6/19/20.
@@ -7,7 +7,6 @@
 //
 
 import Foundation
+import CoreData
 
-struct Calories {
-    
-}
+
