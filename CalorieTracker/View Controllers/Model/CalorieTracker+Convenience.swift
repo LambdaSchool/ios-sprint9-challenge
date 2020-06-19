@@ -8,3 +8,13 @@
 
 import Foundation
 import CoreData
+
+extension CalorieData {
+    @discardableResult
+    convenience init(calories: Double, calorieDate: Date = Date(),
+                     context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        self.init(context: context)
+        self.calories = calories
+        self.calorieDate = calorieDate
+    }
+}
