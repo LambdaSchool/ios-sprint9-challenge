@@ -1,5 +1,5 @@
 //
-//  Meal.swift
+//  MealController.swift
 //  Calorie Tracker
 //
 //  Created by Vincent Hoang on 6/19/20.
@@ -7,8 +7,3 @@
 //
 
 import Foundation
-
-struct Meal {
-    let calories: Int
-    let date: Date = Date()
-}
