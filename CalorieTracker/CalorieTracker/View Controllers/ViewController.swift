@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     
-    
     private lazy var fetchedResultsController: NSFetchedResultsController<CalorieInput> = {
         let fetchRequest: NSFetchRequest<CalorieInput> = CalorieInput.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
@@ -61,7 +60,6 @@ class ViewController: UIViewController {
             } catch {
                 NSLog("Error saving calorie submission: \(error)")
             }
-            //            NotificationCenter.default.post(name: Notification.Name(self.updateViewsKey), object: nil)
         }))
         present(alert, animated: true, completion: nil)
     }
@@ -76,18 +74,25 @@ class ViewController: UIViewController {
     // Chart Implementation
     @objc private func chartData() {
         var chartData = [Double]()
+        
         chartData.removeAll()
+        
         do {
             try fetchedResultsController.performFetch()
         } catch {
             NSLog("Error fetching for chart: \(error)")
         }
+        
         guard let input = fetchedResultsController.fetchedObjects else { return }
+        
         for i in input {
             chartData.append(Double(i.calories))
         }
+        
         let series = ChartSeries(chartData)
+        
         chart.add(series)
+        
         self.tableView.reloadData()
     }
 }
