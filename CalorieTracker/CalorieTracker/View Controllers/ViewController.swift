@@ -45,6 +45,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         entriesTableView.dataSource = self
         updateViews()
+        self.entriesTableView.reloadData()
     }
     
     
@@ -57,7 +58,6 @@ class ViewController: UIViewController {
     
     //MARK: - Methods -
     private func updateViews() {
-        ///properties
         var chartData: [Double] = []
         ///clear
         chartView.removeAllSeries()
@@ -75,6 +75,7 @@ class ViewController: UIViewController {
         }
         let chartSeries = ChartSeries(chartData)
         chartView.add(chartSeries)
+        
     }
     
     private func createEntry() {
@@ -100,6 +101,7 @@ class ViewController: UIViewController {
                                                 NSLog("Unable to save entry to Core Data. Here's what went wrong: \(error) \(error.localizedDescription)")
                                                 return
                                             }
+                                            self.updateViews()
         }))
         present(addEntry, animated: true, completion: nil)
     }
@@ -115,8 +117,15 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath)
-        cell.textLabel?.text = String(frc.fetchedObjects?[indexPath.row].calories)
-        cell.detailTextLabel?.text = dateFormatter.string(from: frc.fetchedObjects?[indexPath.row].timestamp)
+        if let date = frc.fetchedObjects?[indexPath.row].timestamp {
+            let dateString = self.dateFormatter.string(from: date)
+            cell.detailTextLabel?.text = dateString
+        }
+        if let calories = frc.fetchedObjects?[indexPath.row].calories {
+            let caloriesString = String(format: "%d", calories)
+            cell.textLabel?.text = caloriesString
+        }
+        
         return cell
     }
 }
@@ -173,3 +182,4 @@ extension ViewController: NSFetchedResultsControllerDelegate {
     }
 }
 
+//NotificationCenter.default.post(name: .dataWasAdded, object: self)
