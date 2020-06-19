@@ -86,22 +86,86 @@
 		50517211249D0D83004F068B /* CALORIE-TRACKER */ = {
 			isa = PBXGroup;
 			children = (
-				50517212249D0D83004F068B /* AppDelegate.swift */,
-				50517214249D0D83004F068B /* SceneDelegate.swift */,
-				50517218249D0D83004F068B /* Main.storyboard */,
-				5051721B249D0D86004F068B /* Assets.xcassets */,
-				5051721D249D0D86004F068B /* LaunchScreen.storyboard */,
+				50517238249D2B59004F068B /* Application */,
+				50517239249D2B67004F068B /* StoryBoards */,
 				50517220249D0D86004F068B /* Info.plist */,
-				50517226249D0FFA004F068B /* CalorieIntakeTableViewCell.swift */,
-				50517228249D100D004F068B /* CalorieTrackerTableViewController.swift */,
-				5051722A249D104A004F068B /* CalorieIntake.xcdatamodeld */,
-				5051722D249D10A2004F068B /* CoreDataStack.swift */,
-				5051722F249D1103004F068B /* EntryRepresentation.swift */,
-				50517231249D1131004F068B /* Entry+Conenience.swift */,
-				50517233249D122A004F068B /* CalorieEntryController.swift */,
-				50517235249D131A004F068B /* Notifications.swift */,
+				5051723A249D2B74004F068B /* Views */,
+				5051723B249D2B7E004F068B /* ModelControllers */,
+				5051723D249D2BC6004F068B /* CoreData */,
+				5051723E249D2BDA004F068B /* Helpers */,
+				5051723F249D2BE4004F068B /* ViewControllers */,
+				5051723C249D2B98004F068B /* Notifications */,
 			);
 			path = "CALORIE-TRACKER";
+			sourceTree = "<group>";
+		};
+		50517238249D2B59004F068B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				5051721B249D0D86004F068B /* Assets.xcassets */,
+				50517212249D0D83004F068B /* AppDelegate.swift */,
+				50517214249D0D83004F068B /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		50517239249D2B67004F068B /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				50517218249D0D83004F068B /* Main.storyboard */,
+				5051721D249D0D86004F068B /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		5051723A249D2B74004F068B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				50517226249D0FFA004F068B /* CalorieIntakeTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5051723B249D2B7E004F068B /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				50517233249D122A004F068B /* CalorieEntryController.swift */,
+			);
+			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		5051723C249D2B98004F068B /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				50517235249D131A004F068B /* Notifications.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		5051723D249D2BC6004F068B /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				5051722A249D104A004F068B /* CalorieIntake.xcdatamodeld */,
+				5051722D249D10A2004F068B /* CoreDataStack.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		5051723E249D2BDA004F068B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5051722F249D1103004F068B /* EntryRepresentation.swift */,
+				50517231249D1131004F068B /* Entry+Conenience.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5051723F249D2BE4004F068B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				50517228249D100D004F068B /* CalorieTrackerTableViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		56CBECFDF99741A828FF66B1 /* Frameworks */ = {

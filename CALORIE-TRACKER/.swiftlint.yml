@@ -1,0 +1,9 @@
+excluded:
+- Pods
+
+analyzer_rules:
+line_length: 300
+
+identifier_name:
+    excluded:
+        - x

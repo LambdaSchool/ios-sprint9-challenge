@@ -8,5 +8,6 @@ target 'CALORIE-TRACKER' do
   # Pods for CALORIE-TRACKER
 
 pod "SwiftChart", :git => 'https://github.com/gpbl/SwiftChart', :branch => 'master'
+pod 'SwiftLint'
 
 end
