@@ -9,7 +9,7 @@
         <!--Calorie Tracker-->
         <scene sceneID="1lV-DQ-S2A">
             <objects>
-                <tableViewController id="GGo-bV-MWa" sceneMemberID="viewController">
+                <tableViewController id="GGo-bV-MWa" customClass="CalorieTrackerTableViewController" customModule="CALORIE_TRACKER" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pOP-fe-8pn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,7 +20,7 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Avi-KM-Rzh">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Avi-KM-Rzh" customClass="CalorieIntakeTableViewCell" customModule="CALORIE_TRACKER" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="270" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Avi-KM-Rzh" id="D5P-d3-F7m">
@@ -57,6 +57,9 @@
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="yVY-1G-kHq">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Gh6-LW-bWe"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chart" destination="DC9-kA-ECM" id="7GM-xh-Stz"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yal-Ui-Dvv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
