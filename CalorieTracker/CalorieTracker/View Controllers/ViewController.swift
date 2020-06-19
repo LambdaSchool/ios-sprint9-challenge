@@ -8,9 +8,27 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class ViewController: UIViewController {
     
+    // MARK: - Properties
+    
+    private lazy var fetchedResultsController: NSFetchedResultsController<CalorieInput> = {
+        let fetchRequest: NSFetchRequest<CalorieInput> = CalorieInput.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+        let mainContext = CoreDataStack.shared.mainContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                             managedObjectContext: mainContext,
+                                             sectionNameKeyPath: nil,
+                                             cacheName: nil)
+        do {
+            try frc.performFetch()
+        } catch {
+            NSLog("Error fetching calorie intake: \(error)")
+        }
+        return frc
+    }()
     
     // MARK: - Outlet
     @IBOutlet weak var tableView: UITableView!
@@ -41,25 +59,6 @@ class ViewController: UIViewController {
         }))
         present(alert, animated: true, completion: nil)
     }
-    
-    // MARK: - Properties
-    
-    private lazy var fetchedResultsController: NSFetchedResultsController<CalorieInput> = {
-        let fetchRequest: NSFetchRequest<CalorieInput> = CalorieInput.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
-        let mainContext = CoreDataStack.shared.mainContext
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                             managedObjectContext: mainContext,
-                                             sectionNameKeyPath: nil,
-                                             cacheName: nil)
-        do {
-            try frc.performFetch()
-        } catch {
-            NSLog("Error fetching calorie intake: \(error)")
-        }
-        return frc
-    }()
-    
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
