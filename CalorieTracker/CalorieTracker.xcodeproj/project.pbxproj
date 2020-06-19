@@ -3,17 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		697731AE7C799E3BE966BE3E /* Pods_CalorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B9CA4650EB54544B3ADE86F /* Pods_CalorieTracker.framework */; };
 		FEDA23A1249D0FBB00ED08A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23A0249D0FBB00ED08A4 /* AppDelegate.swift */; };
 		FEDA23A3249D0FBB00ED08A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23A2249D0FBB00ED08A4 /* SceneDelegate.swift */; };
-		FEDA23A5249D0FBB00ED08A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23A4249D0FBB00ED08A4 /* ViewController.swift */; };
 		FEDA23A8249D0FBB00ED08A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEDA23A6249D0FBB00ED08A4 /* Main.storyboard */; };
 		FEDA23AA249D0FBC00ED08A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEDA23A9249D0FBC00ED08A4 /* Assets.xcassets */; };
 		FEDA23AD249D0FBC00ED08A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEDA23AB249D0FBC00ED08A4 /* LaunchScreen.storyboard */; };
+		FEDA23B7249D184F00ED08A4 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23B6249D184F00ED08A4 /* CoreDataStack.swift */; };
+		FEDA23B9249D19AC00ED08A4 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23B8249D19AC00ED08A4 /* Notifications.swift */; };
+		FEDA23BB249D1A8400ED08A4 /* CalorieTrackerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23BA249D1A8400ED08A4 /* CalorieTrackerTableViewController.swift */; };
+		FEDA23BD249D1E1300ED08A4 /* CalorieTrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23BC249D1E1300ED08A4 /* CalorieTrackerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,11 +26,14 @@
 		FEDA239D249D0FBB00ED08A4 /* CalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEDA23A0249D0FBB00ED08A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEDA23A2249D0FBB00ED08A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FEDA23A4249D0FBB00ED08A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FEDA23A7249D0FBB00ED08A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FEDA23A9249D0FBC00ED08A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEDA23AC249D0FBC00ED08A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FEDA23AE249D0FBC00ED08A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEDA23B6249D184F00ED08A4 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		FEDA23B8249D19AC00ED08A4 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		FEDA23BA249D1A8400ED08A4 /* CalorieTrackerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerTableViewController.swift; sourceTree = "<group>"; };
+		FEDA23BC249D1E1300ED08A4 /* CalorieTrackerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +62,6 @@
 				8A243900D5594394008EC116 /* Pods-CalorieTracker.debug.xcconfig */,
 				B3ED7F7A597EA912A651B387 /* Pods-CalorieTracker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,11 +88,14 @@
 			children = (
 				FEDA23A0249D0FBB00ED08A4 /* AppDelegate.swift */,
 				FEDA23A2249D0FBB00ED08A4 /* SceneDelegate.swift */,
-				FEDA23A4249D0FBB00ED08A4 /* ViewController.swift */,
 				FEDA23A6249D0FBB00ED08A4 /* Main.storyboard */,
 				FEDA23A9249D0FBC00ED08A4 /* Assets.xcassets */,
 				FEDA23AB249D0FBC00ED08A4 /* LaunchScreen.storyboard */,
 				FEDA23AE249D0FBC00ED08A4 /* Info.plist */,
+				FEDA23B6249D184F00ED08A4 /* CoreDataStack.swift */,
+				FEDA23B8249D19AC00ED08A4 /* Notifications.swift */,
+				FEDA23BA249D1A8400ED08A4 /* CalorieTrackerTableViewController.swift */,
+				FEDA23BC249D1E1300ED08A4 /* CalorieTrackerController.swift */,
 			);
 			path = CalorieTracker;
 			sourceTree = "<group>";
@@ -104,6 +112,7 @@
 				FEDA239A249D0FBB00ED08A4 /* Frameworks */,
 				FEDA239B249D0FBB00ED08A4 /* Resources */,
 				F1E66C51D9D78A1671911D0E /* [CP] Embed Pods Frameworks */,
+				FEDA23B5249D168700ED08A4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -200,6 +209,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FEDA23B5249D168700ED08A4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -207,9 +233,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEDA23A5249D0FBB00ED08A4 /* ViewController.swift in Sources */,
+				FEDA23BB249D1A8400ED08A4 /* CalorieTrackerTableViewController.swift in Sources */,
+				FEDA23B9249D19AC00ED08A4 /* Notifications.swift in Sources */,
+				FEDA23BD249D1E1300ED08A4 /* CalorieTrackerController.swift in Sources */,
 				FEDA23A1249D0FBB00ED08A4 /* AppDelegate.swift in Sources */,
 				FEDA23A3249D0FBB00ED08A4 /* SceneDelegate.swift in Sources */,
+				FEDA23B7249D184F00ED08A4 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
