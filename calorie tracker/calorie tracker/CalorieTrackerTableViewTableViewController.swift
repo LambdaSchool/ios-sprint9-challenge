@@ -1,6 +1,5 @@
 //
 //  CalorieTrackerTableViewTableViewController.swift
-//  
 //
 //  Created by Thomas Sabino-Benowitz on 5/22/20.
 //
@@ -33,6 +32,7 @@
                 self.fetchedResultsController.delegate = self
             }
             
+//            MARK: Notification Center Observer
             NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .calorieDataRecorded, object: nil)
             
         }

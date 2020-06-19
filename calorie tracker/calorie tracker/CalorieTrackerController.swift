@@ -9,7 +9,7 @@
 import Foundation
 
 class CalorieTrackerController {
-    
+//    Save entry to CoreData method
     func saveEntryToPersistentStore() {
         let moc = CoreDataStack.shared.mainContext
         do {
