@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     }()
     
     var chartArray = [Double]()
-    var series = ChartSeries([])
+
     // MARK: - Outlet
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var chart: Chart!
@@ -54,11 +54,10 @@ class ViewController: UIViewController {
             
             CalorieInput(calories: caloriesInt)
             self.chartArray.append(Double(caloriesInt))
-            self.series = ChartSeries(self.chartArray)
-            print("\(self.series.data)")
         
             do {
                 try CoreDataStack.shared.mainContext.save()
+                self.chartData()
             } catch {
                 NSLog("Error saving calorie submission: \(error)")
             }
@@ -89,6 +88,7 @@ class ViewController: UIViewController {
         }
         let series = ChartSeries(chartData)
         chart.add(series)
+        self.tableView.reloadData()
     }
 }
 
