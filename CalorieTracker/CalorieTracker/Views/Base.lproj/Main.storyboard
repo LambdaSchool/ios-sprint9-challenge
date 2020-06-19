@@ -53,12 +53,12 @@
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="oAc-n6-FvO">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="UdG-Im-3SA">
                             <connections>
-                                <action selector="addButtonTapped:" destination="WnN-fD-d4G" id="rQq-96-HXM"/>
+                                <action selector="addButtonTapped:" destination="WnN-fD-d4G" id="Qkr-on-o6a"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="chartView" destination="2vQ-Uy-mZ9" id="sUC-Ys-qc9"/>
+                        <outlet property="chartView" destination="2vQ-Uy-mZ9" id="Kev-Ap-CxT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROf-j1-DtE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
