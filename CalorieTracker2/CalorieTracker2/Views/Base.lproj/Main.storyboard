@@ -15,15 +15,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EIE-Pl-oBZ">
-                                <rect key="frame" x="0.0" y="140" width="414" height="150"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EIE-Pl-oBZ" customClass="Chart" customModule="SwiftChart">
+                                <rect key="frame" x="0.0" y="140" width="414" height="228"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nyd-JS-n5u">
-                                <rect key="frame" x="0.0" y="290" width="414" height="572"/>
+                                <rect key="frame" x="0.0" y="368" width="414" height="494"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="572" id="oUr-6B-S2d"/>
+                                    <constraint firstAttribute="height" constant="494" id="8J0-B0-aUh"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CalorieCell" id="4HC-LF-ebH" customClass="CalorieTableViewCell" customModule="CalorieTracker2" customModuleProvider="target">
@@ -66,17 +66,14 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="MTG-tc-hOR" firstAttribute="trailing" secondItem="nyd-JS-n5u" secondAttribute="trailing" id="0JX-Uz-jWf"/>
-                            <constraint firstItem="nyd-JS-n5u" firstAttribute="top" secondItem="EIE-Pl-oBZ" secondAttribute="bottom" id="7mk-jQ-JZA"/>
-                            <constraint firstItem="nyd-JS-n5u" firstAttribute="top" secondItem="EIE-Pl-oBZ" secondAttribute="bottom" id="WPT-Pt-rf7"/>
-                            <constraint firstItem="EIE-Pl-oBZ" firstAttribute="trailing" secondItem="MTG-tc-hOR" secondAttribute="trailing" id="XcY-lP-GzF"/>
-                            <constraint firstItem="MTG-tc-hOR" firstAttribute="bottom" secondItem="nyd-JS-n5u" secondAttribute="bottom" id="azH-9g-f65"/>
-                            <constraint firstItem="EIE-Pl-oBZ" firstAttribute="leading" secondItem="MTG-tc-hOR" secondAttribute="leading" id="gd2-hk-7AU"/>
-                            <constraint firstItem="nyd-JS-n5u" firstAttribute="trailing" secondItem="MTG-tc-hOR" secondAttribute="trailing" id="hjX-hz-nO8"/>
-                            <constraint firstItem="EIE-Pl-oBZ" firstAttribute="top" secondItem="MTG-tc-hOR" secondAttribute="top" id="m6X-ve-J2a"/>
-                            <constraint firstItem="nyd-JS-n5u" firstAttribute="leading" secondItem="MTG-tc-hOR" secondAttribute="leading" id="pWC-oH-Gr7"/>
-                            <constraint firstItem="nyd-JS-n5u" firstAttribute="leading" secondItem="MTG-tc-hOR" secondAttribute="leading" id="sdJ-hw-fl8"/>
-                            <constraint firstItem="nyd-JS-n5u" firstAttribute="bottom" secondItem="MTG-tc-hOR" secondAttribute="bottom" id="vuE-rh-EXM"/>
+                            <constraint firstItem="nyd-JS-n5u" firstAttribute="top" secondItem="EIE-Pl-oBZ" secondAttribute="bottom" id="2gF-Fw-GGL"/>
+                            <constraint firstItem="EIE-Pl-oBZ" firstAttribute="trailing" secondItem="MTG-tc-hOR" secondAttribute="trailing" id="BqL-HA-jF2"/>
+                            <constraint firstItem="nyd-JS-n5u" firstAttribute="leading" secondItem="MTG-tc-hOR" secondAttribute="leading" id="FWY-T1-suj"/>
+                            <constraint firstItem="EIE-Pl-oBZ" firstAttribute="top" secondItem="MTG-tc-hOR" secondAttribute="top" id="V9r-hs-Sc6"/>
+                            <constraint firstItem="nyd-JS-n5u" firstAttribute="bottom" secondItem="MTG-tc-hOR" secondAttribute="bottom" id="hFe-5h-4pI"/>
+                            <constraint firstItem="nyd-JS-n5u" firstAttribute="top" secondItem="EIE-Pl-oBZ" secondAttribute="bottom" id="tBu-43-7VA"/>
+                            <constraint firstItem="EIE-Pl-oBZ" firstAttribute="leading" secondItem="MTG-tc-hOR" secondAttribute="leading" id="wzx-Ak-Txn"/>
+                            <constraint firstItem="nyd-JS-n5u" firstAttribute="trailing" secondItem="MTG-tc-hOR" secondAttribute="trailing" id="ya7-FZ-9Yl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MTG-tc-hOR"/>
                     </view>
