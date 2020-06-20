@@ -16,7 +16,7 @@
 		FEDA23B7249D184F00ED08A4 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23B6249D184F00ED08A4 /* CoreDataStack.swift */; };
 		FEDA23B9249D19AC00ED08A4 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23B8249D19AC00ED08A4 /* Notifications.swift */; };
 		FEDA23BB249D1A8400ED08A4 /* CalorieTrackerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23BA249D1A8400ED08A4 /* CalorieTrackerTableViewController.swift */; };
-		FEDA23C0249D1F6900ED08A4 /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23BE249D1F6900ED08A4 /* CalorieTracker.xcdatamodeld */; };
+		FEDA23C0249D1F6900ED08A4 /* Calorie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23BE249D1F6900ED08A4 /* Calorie.xcdatamodeld */; };
 		FEDA23C6249D239200ED08A4 /* Calorie+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDA23C5249D239200ED08A4 /* Calorie+Convenience.swift */; };
 /* End PBXBuildFile section */
 
@@ -103,7 +103,7 @@
 			children = (
 				FEDA23B8249D19AC00ED08A4 /* Notifications.swift */,
 				FEDA23B6249D184F00ED08A4 /* CoreDataStack.swift */,
-				FEDA23BE249D1F6900ED08A4 /* CalorieTracker.xcdatamodeld */,
+				FEDA23BE249D1F6900ED08A4 /* Calorie.xcdatamodeld */,
 				FEDA23C5249D239200ED08A4 /* Calorie+Convenience.swift */,
 			);
 			path = Model;
@@ -255,7 +255,7 @@
 				FEDA23C6249D239200ED08A4 /* Calorie+Convenience.swift in Sources */,
 				FEDA23A1249D0FBB00ED08A4 /* AppDelegate.swift in Sources */,
 				FEDA23A3249D0FBB00ED08A4 /* SceneDelegate.swift in Sources */,
-				FEDA23C0249D1F6900ED08A4 /* CalorieTracker.xcdatamodeld in Sources */,
+				FEDA23C0249D1F6900ED08A4 /* Calorie.xcdatamodeld in Sources */,
 				FEDA23B7249D184F00ED08A4 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,13 +456,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		FEDA23BE249D1F6900ED08A4 /* CalorieTracker.xcdatamodeld */ = {
+		FEDA23BE249D1F6900ED08A4 /* Calorie.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				FEDA23BF249D1F6900ED08A4 /* CalorieTracker.xcdatamodel */,
 			);
 			currentVersion = FEDA23BF249D1F6900ED08A4 /* CalorieTracker.xcdatamodel */;
-			path = CalorieTracker.xcdatamodeld;
+			path = Calorie.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

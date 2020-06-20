@@ -19,20 +19,22 @@ class CalorieTrackerTableViewController: UIViewController {
     // MARK: - Properties
 
     lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
-        let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
-        fetchRequest.sortDescriptors = [
-            NSSortDescriptor(key: "date", ascending: true)
-        ]
-        let context = CoreDataStack.shared.mainContext
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest,                                                                                       managedObjectContext: context,
-                                             sectionNameKeyPath: nil, cacheName: nil)
-        frc.delegate = self
-        do {
-            try frc.performFetch()
-        } catch {
-            print("Error fetching results: \(error)")
+        if let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest() {
+            fetchRequest.sortDescriptors = [
+                NSSortDescriptor(key: "date", ascending: true)
+            ]
+            let context = CoreDataStack.shared.mainContext
+            let frc = NSFetchedResultsController(fetchRequest: fetchRequest,                                                                                       managedObjectContext: context,
+                                                 sectionNameKeyPath: nil, cacheName: nil)
+            frc.delegate = self
+            do {
+                try frc.performFetch()
+            } catch {
+                print("Error fetching results: \(error)")
+            }
+            return frc
         }
-        return frc
+
     }()
 
     private var dateFormatter: DateFormatter = {
@@ -47,6 +49,11 @@ class CalorieTrackerTableViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         updateViews()
+        observeChanged()
+    }
+
+    func observeChanged() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .chartUpdate, object: nil)
     }
 
     // MARK: - IBAction
@@ -57,6 +64,7 @@ class CalorieTrackerTableViewController: UIViewController {
     // MARK: - Methods
     @objc private func updateViews() {
         tableView.reloadData()
+
         updateChart()
     }
 
@@ -81,7 +89,6 @@ class CalorieTrackerTableViewController: UIViewController {
 
         alert.addTextField { textField in
             textField.placeholder = "Calories:"
-            textField.keyboardType = .numberPad
         }
 
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

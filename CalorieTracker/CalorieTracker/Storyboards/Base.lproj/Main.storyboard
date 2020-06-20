@@ -15,11 +15,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mtz-4D-dke" customClass="Chart" customModule="SwiftChart">
+                            <view contentMode="scaleToFill" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="Mtz-4D-dke" customClass="Chart" customModule="SwiftChart">
                                 <rect key="frame" x="0.0" y="84" width="414" height="192"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="192" id="H7u-d9-nNU"/>
+                                </constraints>
                             </view>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qr-fe-6lg">
+                            <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2qr-fe-6lg">
                                 <rect key="frame" x="0.0" y="44" width="414" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Ola-Ca-dQZ"/>
@@ -28,7 +31,7 @@
                                     <navigationItem title="Calorie Tracker" largeTitleDisplayMode="never" id="LYC-yM-1oL">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="E6C-mB-klB">
                                             <connections>
-                                                <action selector="addButtonTapped:" destination="CJb-nn-4mo" id="625-Bp-Je1"/>
+                                                <action selector="addButtonTapped:" destination="CJb-nn-4mo" id="WUx-W5-6wP"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -37,9 +40,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bRd-XF-2aR">
                                 <rect key="frame" x="0.0" y="276" width="414" height="576"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="576" id="UGp-U0-zoP"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CalorieCell" textLabel="GmT-Lb-e0o" detailTextLabel="xHH-CY-6Db" style="IBUITableViewCellStyleValue1" id="dlo-B5-ccd">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -82,14 +82,10 @@
                             <constraint firstItem="bRd-XF-2aR" firstAttribute="leading" secondItem="KrB-6I-mIt" secondAttribute="leading" id="u8f-lC-p1j"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KrB-6I-mIt"/>
-                        <connections>
-                            <outlet property="chartView" destination="Mtz-4D-dke" id="3ke-RS-NrK"/>
-                            <outlet property="tableView" destination="bRd-XF-2aR" id="eD8-dP-2Ln"/>
-                        </connections>
                     </view>
                     <connections>
-                        <outlet property="chart" destination="Mtz-4D-dke" id="IdH-1y-4C4"/>
-                        <outlet property="tableView" destination="bRd-XF-2aR" id="8Ep-gd-gfL"/>
+                        <outlet property="chart" destination="Mtz-4D-dke" id="BwD-Aj-bff"/>
+                        <outlet property="tableView" destination="bRd-XF-2aR" id="LPc-ra-DqQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5g-Hy-3lE" sceneMemberID="firstResponder"/>
