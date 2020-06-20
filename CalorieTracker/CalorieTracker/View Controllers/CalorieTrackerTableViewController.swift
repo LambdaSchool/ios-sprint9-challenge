@@ -49,10 +49,10 @@ class CalorieTrackerTableViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         updateViews()
-        observeChanged()
+        observerChanged()
     }
 
-    func observeChanged() {
+    func observerChanged() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .chartUpdate, object: nil)
     }
 
