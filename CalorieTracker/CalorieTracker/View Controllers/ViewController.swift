@@ -44,6 +44,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         entriesTableView.dataSource = self
+        observeDataChanged()
         updateViews()
         self.entriesTableView.reloadData()
     }
@@ -57,12 +58,11 @@ class ViewController: UIViewController {
     
     
     //MARK: - Methods -
-    private func updateViews() {
+    @objc private func updateViews() {
         var chartData: [Double] = []
-        ///clear
+        
         chartView.removeAllSeries()
-        ///repopulate
-        ///get the stuff from core data
+        
         do {
             try frc.performFetch()
         } catch {
@@ -75,7 +75,7 @@ class ViewController: UIViewController {
         }
         let chartSeries = ChartSeries(chartData)
         chartView.add(chartSeries)
-        
+        entriesTableView.reloadData()
     }
     
     private func createEntry() {
@@ -101,9 +101,15 @@ class ViewController: UIViewController {
                                                 NSLog("Unable to save entry to Core Data. Here's what went wrong: \(error) \(error.localizedDescription)")
                                                 return
                                             }
-                                            self.updateViews()
+                                            //self.updateViews()
+                                            NotificationCenter.default.post(name: .dataWasAdded, object: self)
+                                            
         }))
         present(addEntry, animated: true, completion: nil)
+    }
+    
+    func observeDataChanged() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .dataWasAdded, object: nil)
     }
 }
 
@@ -182,4 +188,8 @@ extension ViewController: NSFetchedResultsControllerDelegate {
     }
 }
 
-//NotificationCenter.default.post(name: .dataWasAdded, object: self)
+
+//MARK: - Notification Center -
+extension Notification.Name {
+    static var dataWasAdded = Notification.Name("dataWasAdded")
+}
