@@ -75,7 +75,9 @@ class CalorieTrackerTableViewController: UIViewController {
     }
 
     private func createCalorieAlert() {
-        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the ammount of calories below:", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add Calorie Intake",
+                                      message: "Enter the ammount of calories below:",
+                                      preferredStyle: .alert)
 
         alert.addTextField { textField in
             textField.placeholder = "Calories:"
@@ -145,11 +147,7 @@ extension CalorieTrackerTableViewController: UITableViewDataSource {
             }
         }
     }
-
-
-
 }
-
 
 extension CalorieTrackerTableViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

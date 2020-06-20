@@ -40,5 +40,4 @@ class CoreDataStack {
         }
         if let error = error { throw error }
     }
-
 }

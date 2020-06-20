@@ -147,7 +147,6 @@
 				FEDA239A249D0FBB00ED08A4 /* Frameworks */,
 				FEDA239B249D0FBB00ED08A4 /* Resources */,
 				F1E66C51D9D78A1671911D0E /* [CP] Embed Pods Frameworks */,
-				FE47E40D249D8893007F1660 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -243,24 +242,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		FE47E40D249D8893007F1660 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "
-";
 		};
 /* End PBXShellScriptBuildPhase section */
 

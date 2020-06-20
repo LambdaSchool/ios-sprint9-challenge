@@ -89,8 +89,6 @@
                     </view>
                     <connections>
                         <outlet property="chart" destination="Mtz-4D-dke" id="IdH-1y-4C4"/>
-                        <outlet property="chartView" destination="Mtz-4D-dke" id="b0y-Jw-4hr"/>
-                        <outlet property="entriesTableView" destination="bRd-XF-2aR" id="cCZ-PG-kaE"/>
                         <outlet property="tableView" destination="bRd-XF-2aR" id="8Ep-gd-gfL"/>
                     </connections>
                 </viewController>
