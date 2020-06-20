@@ -56,6 +56,10 @@
                                                 <constraint firstItem="kCK-JR-uP2" firstAttribute="centerX" secondItem="y9D-FD-YWj" secondAttribute="centerX" id="S04-MF-7ME"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="caloriesTextLabel" destination="Ssw-wW-akQ" id="rbh-qB-9we"/>
+                                            <outlet property="timestampTextLabel" destination="Rpx-4q-e16" id="rcM-Lc-4vy"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
