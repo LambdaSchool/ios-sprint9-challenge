@@ -10,22 +10,28 @@ import UIKit
 
 class CalorieTableViewCell: UITableViewCell {
     
-    var calorieTracker: CalorieTracker?
-    //TODO: when you get the dependency injection set up correctly fix the commented out code!
-//    var calories: calorie {
-//        didSet {
-//            updateViews()
-//        }
-//    }
+    var calorieTracker: CalorieTracker? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    let dateFormatter: DateFormatter = {
+        var formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }()
     
     @IBOutlet weak var caloriesTextLabel: UILabel!
     @IBOutlet weak var timestampTextLabel: UILabel!
     
     func updateViews() {
-//        guard let calories =  else { return }
-//
-//        caloriesTextLabel.text =
-//        timestampTextLabel.text =
+        guard let calorieTracker = calorieTracker,
+            let timestamp = calorieTracker.timestamp else { return }
+        
+        caloriesTextLabel.text = "Calories: \(calorieTracker.calories)"
+        let calorieTimestamp = dateFormatter.string(from: timestamp)
+        timestampTextLabel.text = calorieTimestamp
     }
-    
 }

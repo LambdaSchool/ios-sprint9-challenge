@@ -19,16 +19,30 @@ write in methods that add the data from core data to the views and update it whe
 
 class CalorieTrackerViewController: UIViewController {
     
-    var calorieTracker = CalorieTracker()
+//    var calorieTracker = CalorieTracker()
     var coreDataStack: CoreDataStack?
     
     @IBOutlet weak var chartView: Chart!
     @IBOutlet weak var caloriesTableView: UITableView!
     
+    lazy var fetchedResultsController: NSFetchedResultsController<CalorieTracker> = {
+        let fetchRequest: NSFetchRequest<CalorieTracker> = CalorieTracker.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
+        let context = CoreDataStack.shared.mainContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: "timestamp", cacheName: nil)
+        frc.delegate = self
+        do {
+            try frc.performFetch()
+        } catch {
+            print("Error performing initial fetch inside fetchedResultsController: \(error)")
+        }
+        return frc
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let series = ChartSeries([1, 6, 2, 8, 4, 7, 3, 10, 8])
+        let series = ChartSeries([7])
         series.color = ChartColors.greenColor()
         chartView.add(series)
         
@@ -66,11 +80,13 @@ class CalorieTrackerViewController: UIViewController {
 
 extension CalorieTrackerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = caloriesTableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath) as? CalorieTableViewCell else { return UITableViewCell() }
+        cell.calorieTracker = fetchedResultsController.object(at: indexPath)
+        return cell
     }
     
     
