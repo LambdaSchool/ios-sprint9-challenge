@@ -77,7 +77,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MTG-tc-hOR"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Calorie Tracker" id="iLA-wI-CK7"/>
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="iLA-wI-CK7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hqa-zN-zBN">
+                            <connections>
+                                <action selector="addCaloriesButtonTapped:" destination="lj3-6f-Pcl" id="oCl-Q3-Cjh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="caloriesTableView" destination="nyd-JS-n5u" id="Fvq-gg-Y4E"/>
                         <outlet property="chartView" destination="EIE-Pl-oBZ" id="XQs-43-d8c"/>

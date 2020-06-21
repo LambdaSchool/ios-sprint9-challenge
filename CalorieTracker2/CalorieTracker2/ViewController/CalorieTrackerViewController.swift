@@ -11,27 +11,18 @@ import CoreData
 import SwiftChart
 
 /*
-your model, forgive the softball is;
-Entity: EntityName
-    caloriesPropertyName: Double
-    datePropertyName: Date
 
-thassit. you can do the whole app with two numbers.
-
-so you make a core data model
-write a core data stack with a shared instance(singleton)
-write a convenience init (protip. use the current date as the default value and you only need one property to init)
-Make a view controller for your project w/ a view that inherits from chart and a tableview that uses a right detail layout, write in outlets for both
 Put in a bar button item with system type 'add' and give it an IBAction
-extend to conform to tableview datasource and set the datasource
 write in methods that will grab data via a UI alert and add it to core data
 write in methods that add the data from core data to the views and update it when the user submits (use the notification center)
 */
 
 class CalorieTrackerViewController: UIViewController {
     
-    @IBOutlet weak var chartView: Chart!
+    var calorieTracker = CalorieTracker()
+    var coreDataStack: CoreDataStack?
     
+    @IBOutlet weak var chartView: Chart!
     @IBOutlet weak var caloriesTableView: UITableView!
     
     override func viewDidLoad() {
@@ -46,6 +37,31 @@ class CalorieTrackerViewController: UIViewController {
         
     }
     
+    @IBAction func addCaloriesButtonTapped(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+        let submitCaloriesAction = UIAlertAction(title: "Submit", style: .default) {
+            [unowned self] action in
+            guard let textField = alert.textFields?.first,
+                let caloriesToSubmit = textField.text else {
+                    return
+            }
+            do {
+                try self.coreDataStack?.save()
+                self.caloriesTableView.reloadData()
+            } catch {
+                print("Error saving calories: \(error)")
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addTextField()
+        alert.addAction(submitCaloriesAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+        
+    }
 }
 
 extension CalorieTrackerViewController: UITableViewDataSource {
