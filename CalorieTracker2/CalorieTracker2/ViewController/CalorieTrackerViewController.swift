@@ -41,8 +41,8 @@ class CalorieTrackerViewController: UIViewController {
         
         caloriesTableView.dataSource = self
         caloriesTableView.delegate = self
-        
         updateViews()
+        observeDataChanged()
     }
     
     @IBAction func addCaloriesButtonTapped(_ sender: UIBarButtonItem) {
@@ -55,10 +55,11 @@ class CalorieTrackerViewController: UIViewController {
             else { return }
             
             CalorieTracker(calories: calories)
+            
 
             do {
                 try CoreDataStack.shared.save()
-                self.updateViews()
+                NotificationCenter.default.post(name: .caloriesEntered, object: self)
                 self.caloriesTableView.reloadData()
             } catch {
                 print("Error saving calories: \(error)")
@@ -75,7 +76,12 @@ class CalorieTrackerViewController: UIViewController {
         
     }
     
-    private func updateViews() {
+    func observeDataChanged() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .caloriesEntered, object: nil)
+    }
+    
+    
+    @objc private func updateViews() {
         let fetchedObjects = fetchedResultsController.fetchedObjects! as [CalorieTracker]
         var chartData: [Double] = []
         for fetchedObject in fetchedObjects {
