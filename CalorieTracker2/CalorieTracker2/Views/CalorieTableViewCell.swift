@@ -26,7 +26,7 @@ class CalorieTableViewCell: UITableViewCell {
     @IBOutlet weak var caloriesTextLabel: UILabel!
     @IBOutlet weak var timestampTextLabel: UILabel!
     
-    func updateViews() {
+    private func updateViews() {
         guard let calorieTracker = calorieTracker,
             let timestamp = calorieTracker.timestamp else { return }
         

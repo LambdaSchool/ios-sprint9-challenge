@@ -19,9 +19,6 @@ write in methods that add the data from core data to the views and update it whe
 
 class CalorieTrackerViewController: UIViewController {
     
-//    var calorieTracker = CalorieTracker()
-    var coreDataStack: CoreDataStack?
-    
     @IBOutlet weak var chartView: Chart!
     @IBOutlet weak var caloriesTableView: UITableView!
     
@@ -29,7 +26,7 @@ class CalorieTrackerViewController: UIViewController {
         let fetchRequest: NSFetchRequest<CalorieTracker> = CalorieTracker.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
         let context = CoreDataStack.shared.mainContext
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: "timestamp", cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         frc.delegate = self
         do {
             try frc.performFetch()
@@ -42,25 +39,26 @@ class CalorieTrackerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let series = ChartSeries([7])
-        series.color = ChartColors.greenColor()
-        chartView.add(series)
-        
         caloriesTableView.dataSource = self
         caloriesTableView.delegate = self
         
+        updateViews()
     }
     
     @IBAction func addCaloriesButtonTapped(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+        
         let submitCaloriesAction = UIAlertAction(title: "Submit", style: .default) {
             [unowned self] action in
-            guard let textField = alert.textFields?.first,
-                let caloriesToSubmit = textField.text else {
-                    return
-            }
+            guard let textField = alert.textFields?.first?.text,
+                let calories = Double(textField)
+            else { return }
+            
+            CalorieTracker(calories: calories)
+
             do {
-                try self.coreDataStack?.save()
+                try CoreDataStack.shared.save()
+                self.updateViews()
                 self.caloriesTableView.reloadData()
             } catch {
                 print("Error saving calories: \(error)")
@@ -76,11 +74,23 @@ class CalorieTrackerViewController: UIViewController {
         present(alert, animated: true)
         
     }
+    
+    private func updateViews() {
+        let fetchedObjects = fetchedResultsController.fetchedObjects! as [CalorieTracker]
+        var chartData: [Double] = []
+        for fetchedObject in fetchedObjects {
+            chartData.append(fetchedObject.calories)
+        }
+        
+        let series = ChartSeries(chartData)
+        series.color = ChartColors.greenColor()
+        chartView.add(series)
+    }
 }
 
 extension CalorieTrackerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        return fetchedResultsController.fetchedObjects?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
