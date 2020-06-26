@@ -1,0 +1,480 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AB0D313C249ADF850055C2F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D313B249ADF850055C2F7 /* AppDelegate.swift */; };
+		AB0D313E249ADF850055C2F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D313D249ADF850055C2F7 /* SceneDelegate.swift */; };
+		AB0D3140249ADF850055C2F7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D313F249ADF850055C2F7 /* LoginViewController.swift */; };
+		AB0D3143249ADF850055C2F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB0D3141249ADF850055C2F7 /* Main.storyboard */; };
+		AB0D3145249ADF860055C2F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB0D3144249ADF860055C2F7 /* Assets.xcassets */; };
+		AB0D3148249ADF860055C2F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB0D3146249ADF860055C2F7 /* LaunchScreen.storyboard */; };
+		AB0D3157249AE0BF0055C2F7 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D3156249AE0BF0055C2F7 /* CoreDataStack.swift */; };
+		AB0D3159249AE32D0055C2F7 /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D3158249AE32D0055C2F7 /* User+Convenience.swift */; };
+		AB0D315C249AE57A0055C2F7 /* User.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB0D315A249AE57A0055C2F7 /* User.xcdatamodeld */; };
+		AB0D3160249AE9100055C2F7 /* Plant+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D315F249AE9100055C2F7 /* Plant+Convenience.swift */; };
+		AB0D3168249C40370055C2F7 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D3167249C40370055C2F7 /* Bearer.swift */; };
+		AB0D316A249C42910055C2F7 /* UserRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D3169249C42910055C2F7 /* UserRepresentation.swift */; };
+		AB0D316C249C45940055C2F7 /* PlantRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D316B249C45940055C2F7 /* PlantRepresentation.swift */; };
+		AB0D316E249C4B910055C2F7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AB0D316D249C4B910055C2F7 /* README.md */; };
+		AB0D3170249C5C220055C2F7 /* WaterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D316F249C5C220055C2F7 /* WaterController.swift */; };
+		AB0D3172249D261B0055C2F7 /* Login-Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB0D3171249D261B0055C2F7 /* Login-Register.storyboard */; };
+		AB0D317524A14D720055C2F7 /* PasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D317424A14D720055C2F7 /* PasswordField.swift */; };
+		AB0D317724A17DB80055C2F7 /* NetworkDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D317624A17DB80055C2F7 /* NetworkDataLoader.swift */; };
+		AB0D317924A188710055C2F7 /* URLSession+NetworkDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D317824A188710055C2F7 /* URLSession+NetworkDataLoader.swift */; };
+		AB0D317B24A57CBB0055C2F7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D317A24A57CBB0055C2F7 /* SignUpViewController.swift */; };
+		AB0D317D24A57DB00055C2F7 /* WaterPlantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D317C24A57DB00055C2F7 /* WaterPlantDetailViewController.swift */; };
+		AB0D317F24A58ECC0055C2F7 /* WaterPlantsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D317E24A58ECC0055C2F7 /* WaterPlantsTableViewController.swift */; };
+		AB0D318224A590090055C2F7 /* WaterPlantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D318124A590090055C2F7 /* WaterPlantTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AB0D3138249ADF850055C2F7 /* WaterMyPlants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterMyPlants.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB0D313B249ADF850055C2F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AB0D313D249ADF850055C2F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		AB0D313F249ADF850055C2F7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AB0D3142249ADF850055C2F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AB0D3144249ADF860055C2F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AB0D3147249ADF860055C2F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AB0D3149249ADF860055C2F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB0D3156249AE0BF0055C2F7 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		AB0D3158249AE32D0055C2F7 /* User+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Convenience.swift"; sourceTree = "<group>"; };
+		AB0D315B249AE57A0055C2F7 /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
+		AB0D315F249AE9100055C2F7 /* Plant+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plant+Convenience.swift"; sourceTree = "<group>"; };
+		AB0D3167249C40370055C2F7 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
+		AB0D3169249C42910055C2F7 /* UserRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepresentation.swift; sourceTree = "<group>"; };
+		AB0D316B249C45940055C2F7 /* PlantRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRepresentation.swift; sourceTree = "<group>"; };
+		AB0D316D249C4B910055C2F7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AB0D316F249C5C220055C2F7 /* WaterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterController.swift; sourceTree = "<group>"; };
+		AB0D3171249D261B0055C2F7 /* Login-Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Login-Register.storyboard"; sourceTree = "<group>"; };
+		AB0D317424A14D720055C2F7 /* PasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordField.swift; sourceTree = "<group>"; };
+		AB0D317624A17DB80055C2F7 /* NetworkDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataLoader.swift; sourceTree = "<group>"; };
+		AB0D317824A188710055C2F7 /* URLSession+NetworkDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+NetworkDataLoader.swift"; sourceTree = "<group>"; };
+		AB0D317A24A57CBB0055C2F7 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		AB0D317C24A57DB00055C2F7 /* WaterPlantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterPlantDetailViewController.swift; sourceTree = "<group>"; };
+		AB0D317E24A58ECC0055C2F7 /* WaterPlantsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterPlantsTableViewController.swift; sourceTree = "<group>"; };
+		AB0D318124A590090055C2F7 /* WaterPlantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterPlantTableViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AB0D3135249ADF850055C2F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AB0D312F249ADF840055C2F7 = {
+			isa = PBXGroup;
+			children = (
+				AB0D316D249C4B910055C2F7 /* README.md */,
+				AB0D317324A14D410055C2F7 /* Helpers */,
+				AB0D313A249ADF850055C2F7 /* WaterMyPlants */,
+				AB0D3139249ADF850055C2F7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AB0D3139249ADF850055C2F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AB0D3138249ADF850055C2F7 /* WaterMyPlants.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AB0D313A249ADF850055C2F7 /* WaterMyPlants */ = {
+			isa = PBXGroup;
+			children = (
+				AB0D3153249ADFF60055C2F7 /* Model Controllers */,
+				AB0D3152249ADFF00055C2F7 /* Models */,
+				AB0D314F249ADFB40055C2F7 /* Resources */,
+				AB0D3150249ADFBF0055C2F7 /* View Controllers */,
+				AB0D318024A58FD90055C2F7 /* View Cell */,
+				AB0D3151249ADFCE0055C2F7 /* Story Boards */,
+				AB0D3149249ADF860055C2F7 /* Info.plist */,
+			);
+			path = WaterMyPlants;
+			sourceTree = "<group>";
+		};
+		AB0D314F249ADFB40055C2F7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AB0D313B249ADF850055C2F7 /* AppDelegate.swift */,
+				AB0D313D249ADF850055C2F7 /* SceneDelegate.swift */,
+				AB0D3144249ADF860055C2F7 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AB0D3150249ADFBF0055C2F7 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AB0D313F249ADF850055C2F7 /* LoginViewController.swift */,
+				AB0D317A24A57CBB0055C2F7 /* SignUpViewController.swift */,
+				AB0D317C24A57DB00055C2F7 /* WaterPlantDetailViewController.swift */,
+				AB0D317E24A58ECC0055C2F7 /* WaterPlantsTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		AB0D3151249ADFCE0055C2F7 /* Story Boards */ = {
+			isa = PBXGroup;
+			children = (
+				AB0D3146249ADF860055C2F7 /* LaunchScreen.storyboard */,
+				AB0D3141249ADF850055C2F7 /* Main.storyboard */,
+				AB0D3171249D261B0055C2F7 /* Login-Register.storyboard */,
+			);
+			path = "Story Boards";
+			sourceTree = "<group>";
+		};
+		AB0D3152249ADFF00055C2F7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AB0D3156249AE0BF0055C2F7 /* CoreDataStack.swift */,
+				AB0D315F249AE9100055C2F7 /* Plant+Convenience.swift */,
+				AB0D316B249C45940055C2F7 /* PlantRepresentation.swift */,
+				AB0D3158249AE32D0055C2F7 /* User+Convenience.swift */,
+				AB0D3169249C42910055C2F7 /* UserRepresentation.swift */,
+				AB0D315A249AE57A0055C2F7 /* User.xcdatamodeld */,
+				AB0D3167249C40370055C2F7 /* Bearer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AB0D3153249ADFF60055C2F7 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AB0D316F249C5C220055C2F7 /* WaterController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		AB0D317324A14D410055C2F7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AB0D317424A14D720055C2F7 /* PasswordField.swift */,
+				AB0D317624A17DB80055C2F7 /* NetworkDataLoader.swift */,
+				AB0D317824A188710055C2F7 /* URLSession+NetworkDataLoader.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		AB0D318024A58FD90055C2F7 /* View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				AB0D318124A590090055C2F7 /* WaterPlantTableViewCell.swift */,
+			);
+			path = "View Cell";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AB0D3137249ADF850055C2F7 /* WaterMyPlants */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB0D314C249ADF860055C2F7 /* Build configuration list for PBXNativeTarget "WaterMyPlants" */;
+			buildPhases = (
+				AB0D3134249ADF850055C2F7 /* Sources */,
+				AB0D3135249ADF850055C2F7 /* Frameworks */,
+				AB0D3136249ADF850055C2F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WaterMyPlants;
+			productName = WaterMyPlants;
+			productReference = AB0D3138249ADF850055C2F7 /* WaterMyPlants.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AB0D3130249ADF850055C2F7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Crus Technologies";
+				TargetAttributes = {
+					AB0D3137249ADF850055C2F7 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+				};
+			};
+			buildConfigurationList = AB0D3133249ADF850055C2F7 /* Build configuration list for PBXProject "WaterMyPlants" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AB0D312F249ADF840055C2F7;
+			productRefGroup = AB0D3139249ADF850055C2F7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AB0D3137249ADF850055C2F7 /* WaterMyPlants */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AB0D3136249ADF850055C2F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB0D3148249ADF860055C2F7 /* LaunchScreen.storyboard in Resources */,
+				AB0D3172249D261B0055C2F7 /* Login-Register.storyboard in Resources */,
+				AB0D3145249ADF860055C2F7 /* Assets.xcassets in Resources */,
+				AB0D316E249C4B910055C2F7 /* README.md in Resources */,
+				AB0D3143249ADF850055C2F7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AB0D3134249ADF850055C2F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB0D3168249C40370055C2F7 /* Bearer.swift in Sources */,
+				AB0D317524A14D720055C2F7 /* PasswordField.swift in Sources */,
+				AB0D3157249AE0BF0055C2F7 /* CoreDataStack.swift in Sources */,
+				AB0D317F24A58ECC0055C2F7 /* WaterPlantsTableViewController.swift in Sources */,
+				AB0D317D24A57DB00055C2F7 /* WaterPlantDetailViewController.swift in Sources */,
+				AB0D3140249ADF850055C2F7 /* LoginViewController.swift in Sources */,
+				AB0D317724A17DB80055C2F7 /* NetworkDataLoader.swift in Sources */,
+				AB0D3170249C5C220055C2F7 /* WaterController.swift in Sources */,
+				AB0D3159249AE32D0055C2F7 /* User+Convenience.swift in Sources */,
+				AB0D315C249AE57A0055C2F7 /* User.xcdatamodeld in Sources */,
+				AB0D3160249AE9100055C2F7 /* Plant+Convenience.swift in Sources */,
+				AB0D317B24A57CBB0055C2F7 /* SignUpViewController.swift in Sources */,
+				AB0D316C249C45940055C2F7 /* PlantRepresentation.swift in Sources */,
+				AB0D317924A188710055C2F7 /* URLSession+NetworkDataLoader.swift in Sources */,
+				AB0D313C249ADF850055C2F7 /* AppDelegate.swift in Sources */,
+				AB0D316A249C42910055C2F7 /* UserRepresentation.swift in Sources */,
+				AB0D313E249ADF850055C2F7 /* SceneDelegate.swift in Sources */,
+				AB0D318224A590090055C2F7 /* WaterPlantTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AB0D3141249ADF850055C2F7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB0D3142249ADF850055C2F7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AB0D3146249ADF860055C2F7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB0D3147249ADF860055C2F7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AB0D314A249ADF860055C2F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AB0D314B249ADF860055C2F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AB0D314D249ADF860055C2F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 46XAGWCJPW;
+				INFOPLIST_FILE = WaterMyPlants/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pravinpatel.WaterMyPlants;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AB0D314E249ADF860055C2F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 46XAGWCJPW;
+				INFOPLIST_FILE = WaterMyPlants/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pravinpatel.WaterMyPlants;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AB0D3133249ADF850055C2F7 /* Build configuration list for PBXProject "WaterMyPlants" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB0D314A249ADF860055C2F7 /* Debug */,
+				AB0D314B249ADF860055C2F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB0D314C249ADF860055C2F7 /* Build configuration list for PBXNativeTarget "WaterMyPlants" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB0D314D249ADF860055C2F7 /* Debug */,
+				AB0D314E249ADF860055C2F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AB0D315A249AE57A0055C2F7 /* User.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AB0D315B249AE57A0055C2F7 /* User.xcdatamodel */,
+			);
+			currentVersion = AB0D315B249AE57A0055C2F7 /* User.xcdatamodel */;
+			path = User.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = AB0D3130249ADF850055C2F7 /* Project object */;
+}
