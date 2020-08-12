@@ -1,0 +1,20 @@
+PODS:
+  - SAConfettiView (0.1.8)
+  - SwiftChart (1.0.1)
+
+DEPENDENCIES:
+  - SAConfettiView
+  - SwiftChart
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SAConfettiView
+    - SwiftChart
+
+SPEC CHECKSUMS:
+  SAConfettiView: c87031a2280659261b730fce3669fb10e73636ee
+  SwiftChart: ba767a678d568a5ee22d419e146a0582865e1aff
+
+PODFILE CHECKSUM: db90f4396e02c4d9e4ef663461f5ddf7e41fb8f8
+
+COCOAPODS: 1.7.5
