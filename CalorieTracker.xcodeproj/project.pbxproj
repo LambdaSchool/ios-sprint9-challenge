@@ -54,6 +54,8 @@
 			isa = PBXGroup;
 			children = (
 				0B57EDEE24E76BAC005F046F /* CalorieTracker */,
+				0B57EE0424E76E2A005F046F /* ViewController */,
+				0B57EE0524E76E35005F046F /* Storyboards */,
 				0B57EDED24E76BAC005F046F /* Products */,
 				84613A2F60AF2DE2C0DD8792 /* Pods */,
 				5D8441E815FE279DFE573AAC /* Frameworks */,
@@ -71,13 +73,11 @@
 		0B57EDEE24E76BAC005F046F /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
+				0B57EDFD24E76BAD005F046F /* Info.plist */,
 				0B57EE0924E76E5C005F046F /* Resources */,
 				0B57EE0824E76E52005F046F /* ModelController */,
 				0B57EE0724E76E4C005F046F /* Model */,
 				0B57EE0624E76E46005F046F /* CoreDataStack */,
-				0B57EE0524E76E35005F046F /* Storyboards */,
-				0B57EE0424E76E2A005F046F /* ViewController */,
-				0B57EDFD24E76BAD005F046F /* Info.plist */,
 			);
 			path = CalorieTracker;
 			sourceTree = "<group>";
