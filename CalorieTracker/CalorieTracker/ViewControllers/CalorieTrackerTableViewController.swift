@@ -9,10 +9,7 @@
 import UIKit
 
 class CalorieTrackerTableViewController: UITableViewController {
-    
-    // MARK: - IBOutlets
-    @IBOutlet weak var calorieCountLabel: UILabel!
-    @IBOutlet weak var timestampLabel: UILabel!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()

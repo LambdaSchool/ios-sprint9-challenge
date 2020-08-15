@@ -14,24 +14,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="sSY-kf-Lrq" customClass="Chart" customModule="SwiftChart">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="calorieCell" id="vk1-5f-BWT">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="calorieCell" id="vk1-5f-BWT" customClass="CalorieTrackerTableViewCell" customModule="CalorieTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vk1-5f-BWT" id="Fv0-2D-fvm">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="I6C-nz-YB6">
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="F9t-I2-sgC">
                                             <rect key="frame" x="30" y="11" width="96.5" height="21"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D9I-yn-Zd8">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jT5-uc-8NJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="67" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Int" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xeq-VD-t1Q">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Int" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eae-Bv-U4p">
                                                     <rect key="frame" x="77" y="0.0" width="19.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -39,22 +44,26 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZP-Zo-Am3">
-                                            <rect key="frame" x="318.5" y="0.0" width="85.5" height="43"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgI-hl-B6h">
+                                            <rect key="frame" x="362" y="11" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="I6C-nz-YB6" secondAttribute="bottom" id="D2O-L5-luj"/>
-                                        <constraint firstAttribute="bottom" secondItem="IZP-Zo-Am3" secondAttribute="bottom" id="drE-oS-0ur"/>
-                                        <constraint firstItem="I6C-nz-YB6" firstAttribute="leading" secondItem="Fv0-2D-fvm" secondAttribute="leadingMargin" constant="10" id="kw0-NY-sGq"/>
-                                        <constraint firstItem="I6C-nz-YB6" firstAttribute="top" secondItem="Fv0-2D-fvm" secondAttribute="topMargin" id="s6v-zW-HMN"/>
-                                        <constraint firstItem="IZP-Zo-Am3" firstAttribute="top" secondItem="Fv0-2D-fvm" secondAttribute="top" id="tKk-6l-vl8"/>
-                                        <constraint firstAttribute="trailing" secondItem="IZP-Zo-Am3" secondAttribute="trailing" constant="10" id="v9t-zp-ash"/>
+                                        <constraint firstItem="cgI-hl-B6h" firstAttribute="trailing" secondItem="Fv0-2D-fvm" secondAttribute="trailingMargin" constant="10" id="B4t-XV-0HK"/>
+                                        <constraint firstItem="cgI-hl-B6h" firstAttribute="bottom" secondItem="Fv0-2D-fvm" secondAttribute="bottomMargin" id="IHc-n9-YT2"/>
+                                        <constraint firstItem="cgI-hl-B6h" firstAttribute="top" secondItem="Fv0-2D-fvm" secondAttribute="topMargin" id="d8j-ps-FkG"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="F9t-I2-sgC" secondAttribute="bottom" id="lcE-Yo-fTP"/>
+                                        <constraint firstItem="F9t-I2-sgC" firstAttribute="top" secondItem="Fv0-2D-fvm" secondAttribute="topMargin" id="oVO-Qt-LjL"/>
+                                        <constraint firstItem="F9t-I2-sgC" firstAttribute="leading" secondItem="Fv0-2D-fvm" secondAttribute="leadingMargin" constant="10" id="rCW-NL-Etj"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="calorieCountLabel" destination="eae-Bv-U4p" id="BW1-A2-tNn"/>
+                                    <outlet property="timestampLabel" destination="cgI-hl-B6h" id="vRG-Bi-EkC"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -63,16 +72,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="uL3-5D-A4f">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="yzV-ol-L1J">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="yzV-ol-L1J">
                             <connections>
                                 <action selector="addButtonTapped:" destination="Ebt-gT-2Dw" id="btr-9R-2rR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="calorieCountLabel" destination="Xeq-VD-t1Q" id="ZZO-aV-kPC"/>
-                        <outlet property="timestampLabel" destination="IZP-Zo-Am3" id="HXW-3K-YLT"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j1C-A7-Af8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
