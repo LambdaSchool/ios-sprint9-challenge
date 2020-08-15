@@ -16,11 +16,16 @@ class CalorieTrackerTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateViews()
     }
     
     // MARK: - IBActions
     @IBAction func addButtonTapped(_ sender: Any) {
+        
+    }
+    
+    // MARK: - Functions
+    func updateViews() {
         
     }
     
