@@ -51,9 +51,14 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
 
         let submit = UIAlertAction(title: "Submit", style: .default, handler: { [unowned alertController] _ in
             if let caloriesCount = alertController.textFields?[0].text {
-                guard let caloriesCountInt = Double(caloriesCount) else { return }
+                if let caloriesCountInt = Double(caloriesCount) {
                 DispatchQueue.main.async {
                     self.submitCalories(caloriesCountInt)
+                    }
+                } else {
+                    let errorAlertController = UIAlertController(title: "Invalid Entry", message: "enter a valid number", preferredStyle: .alert)
+                    errorAlertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(errorAlertController, animated: true, completion: nil)
                 }
             }
         })
@@ -61,6 +66,7 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         [cancel, submit].forEach { alertController.addAction($0) }
         present(alertController, animated:  true)
     }
+
 
     private func submitCalories(_ caloriesCount: Double) {
 
@@ -93,6 +99,24 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
         cell.detailTextLabel?.text = dateString
 
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+         if editingStyle == .delete {
+        let calorie = calorieTrackerController.countedCalories[indexPath.row]
+        let context = CoreDataStack.shared.mainContext
+
+        context.delete(calorie)
+
+        do {
+            try context.save()
+            calorieTrackerController.fetchCalories()
+            tableView.reloadData()
+        } catch {
+            NSLog("Error saving context after deleting Calorie entry: \(error)")
+            context.reset()
+        }
+        }
     }
 
     
