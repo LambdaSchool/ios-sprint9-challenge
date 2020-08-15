@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		682D4D4F24E76CAC005AC8BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682D4D4E24E76CAC005AC8BE /* AppDelegate.swift */; };
 		682D4D5124E76CAC005AC8BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682D4D5024E76CAC005AC8BE /* SceneDelegate.swift */; };
-		682D4D5324E76CAC005AC8BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682D4D5224E76CAC005AC8BE /* ViewController.swift */; };
 		682D4D5624E76CAC005AC8BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 682D4D5424E76CAC005AC8BE /* Main.storyboard */; };
 		682D4D5824E76CB0005AC8BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 682D4D5724E76CB0005AC8BE /* Assets.xcassets */; };
 		682D4D5B24E76CB0005AC8BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 682D4D5924E76CB0005AC8BE /* LaunchScreen.storyboard */; };
@@ -19,7 +18,6 @@
 		682D4D4B24E76CAC005AC8BE /* CalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		682D4D4E24E76CAC005AC8BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		682D4D5024E76CAC005AC8BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		682D4D5224E76CAC005AC8BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		682D4D5524E76CAC005AC8BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		682D4D5724E76CB0005AC8BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		682D4D5A24E76CB0005AC8BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,15 +54,46 @@
 		682D4D4D24E76CAC005AC8BE /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
-				682D4D4E24E76CAC005AC8BE /* AppDelegate.swift */,
-				682D4D5024E76CAC005AC8BE /* SceneDelegate.swift */,
-				682D4D5224E76CAC005AC8BE /* ViewController.swift */,
-				682D4D5424E76CAC005AC8BE /* Main.storyboard */,
-				682D4D5724E76CB0005AC8BE /* Assets.xcassets */,
-				682D4D5924E76CB0005AC8BE /* LaunchScreen.storyboard */,
+				682D4D6524E76DCB005AC8BE /* Model */,
+				682D4D6424E76DC4005AC8BE /* ViewControllers */,
+				682D4D6324E76DBC005AC8BE /* Views */,
+				682D4D6224E76DAA005AC8BE /* Resources */,
 				682D4D5C24E76CB0005AC8BE /* Info.plist */,
 			);
 			path = CalorieTracker;
+			sourceTree = "<group>";
+		};
+		682D4D6224E76DAA005AC8BE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				682D4D4E24E76CAC005AC8BE /* AppDelegate.swift */,
+				682D4D5024E76CAC005AC8BE /* SceneDelegate.swift */,
+				682D4D5724E76CB0005AC8BE /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		682D4D6324E76DBC005AC8BE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				682D4D5424E76CAC005AC8BE /* Main.storyboard */,
+				682D4D5924E76CB0005AC8BE /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		682D4D6424E76DC4005AC8BE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		682D4D6524E76DCB005AC8BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +167,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				682D4D5324E76CAC005AC8BE /* ViewController.swift in Sources */,
 				682D4D4F24E76CAC005AC8BE /* AppDelegate.swift in Sources */,
 				682D4D5124E76CAC005AC8BE /* SceneDelegate.swift in Sources */,
 			);
