@@ -10,7 +10,7 @@ import Foundation
 
 struct Calorie {
     
-    var calorieCount: Int
+    var calorieCount: String
     var timestamp: Date
     
 }

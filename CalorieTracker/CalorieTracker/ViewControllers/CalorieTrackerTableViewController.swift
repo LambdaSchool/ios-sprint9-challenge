@@ -7,46 +7,54 @@
 //
 
 import UIKit
+import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController {
 
+    // MARK: - Properties
+    @IBOutlet weak var chartView: Chart!
+    var caloriesAdded: Calorie? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    var calories: [Calorie] = []
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateViews()
+        tableView.reloadData()
     }
     
     // MARK: - IBActions
     @IBAction func addButtonTapped(_ sender: Any) {
+        let alertController = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories", preferredStyle: .alert)
+        alertController.addTextField()
         
-    }
-    
-    // MARK: - Functions
-    func updateViews() {
-        
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
+            let calories = alertController.textFields![0]
+            self.caloriesAdded?.calorieCount = calories.text ?? "Input number greater than 0"
+        }
+        alertController.addAction(submitAction)
+        present(alertController, animated: true, completion: nil)
+        tableView.reloadData()
     }
     
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return calories.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "calorieCell", for: indexPath) as? CalorieTrackerTableViewCell else { return UITableViewCell() }
+
+        cell.calorieCountLabel.text = caloriesAdded?.calorieCount
+        cell.timestampLabel.text = String(describing: Date())
 
         return cell
     }
-    */
+
 
     /*
     // Override to support editing the table view.
