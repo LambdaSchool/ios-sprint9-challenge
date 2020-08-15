@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N9G-SL-Eml">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N9G-SL-Eml">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ldF-62-Lr1">
-                                <rect key="frame" x="0.0" y="288" width="414" height="574"/>
+                                <rect key="frame" x="0.0" y="308" width="414" height="554"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieInputCell" textLabel="WM6-lU-GQL" detailTextLabel="7e2-Y7-aYH" rowHeight="76" style="IBUITableViewCellStyleValue1" id="SMv-p9-CSy" customClass="CalorieChartTableViewCell" customModule="Calorie_Tracker" customModuleProvider="target">
@@ -45,21 +45,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XH3-T1-jJB" customClass="Chart" customModule="SwiftChart">
-                                <rect key="frame" x="0.0" y="88" width="414" height="200"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ldF-62-Lr1" firstAttribute="top" secondItem="5yU-nS-341" secondAttribute="top" constant="200" id="4wP-Xs-myc"/>
-                            <constraint firstItem="XH3-T1-jJB" firstAttribute="top" secondItem="5yU-nS-341" secondAttribute="top" id="56N-jY-iJh"/>
-                            <constraint firstItem="5yU-nS-341" firstAttribute="trailing" secondItem="XH3-T1-jJB" secondAttribute="trailing" id="6NL-4a-NSy"/>
-                            <constraint firstItem="XH3-T1-jJB" firstAttribute="leading" secondItem="5yU-nS-341" secondAttribute="leading" id="7xo-Ey-AXY"/>
+                            <constraint firstItem="ldF-62-Lr1" firstAttribute="top" secondItem="5yU-nS-341" secondAttribute="top" constant="220" id="4wP-Xs-myc"/>
                             <constraint firstItem="5yU-nS-341" firstAttribute="bottom" secondItem="ldF-62-Lr1" secondAttribute="bottom" id="BGl-m5-EX7"/>
                             <constraint firstItem="5yU-nS-341" firstAttribute="trailing" secondItem="ldF-62-Lr1" secondAttribute="trailing" id="Fng-9I-MHW"/>
                             <constraint firstItem="ldF-62-Lr1" firstAttribute="leading" secondItem="5yU-nS-341" secondAttribute="leading" id="TB3-kZ-zkU"/>
-                            <constraint firstItem="ldF-62-Lr1" firstAttribute="top" secondItem="XH3-T1-jJB" secondAttribute="bottom" id="vmk-IN-iKS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5yU-nS-341"/>
                     </view>
@@ -72,7 +64,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="calorieTableView" destination="ldF-62-Lr1" id="Ejp-pL-LgL"/>
-                        <outlet property="chartView" destination="XH3-T1-jJB" id="Lq0-Wq-6Ot"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wyf-qc-sgr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

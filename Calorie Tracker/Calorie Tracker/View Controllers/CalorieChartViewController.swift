@@ -14,14 +14,19 @@ class CalorieChartViewController: UIViewController, UITableViewDelegate, UITable
     
     // MARK: IBOutlets
     @IBOutlet weak var calorieTableView: UITableView!
-    @IBOutlet weak var chartView: UIView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         calorieTableView.delegate = self
         calorieTableView.dataSource = self
+        
+        let chart = Chart(frame: CGRect(x: 0, y: 150, width: 400, height: 180))
+        let series = ChartSeries(caloriesForChart)
+        chart.add(series)
+        updateChart()
+        view.addSubview(chart)
+        calorieTableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,9 +36,8 @@ class CalorieChartViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     var calorieList: [Calorie] = []
+    var caloriesForChart: [Double] = []
     
-    let chart = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-    let series = ChartSeries([0, 6.5, 2, 8, 4.1, 7, -3.1, 10, 8])
 
     // MARK: - Table view data source
 
@@ -44,7 +48,7 @@ class CalorieChartViewController: UIViewController, UITableViewDelegate, UITable
             fatalError("Can't dequeue cell of type 'CalorieInputCell' ")
         }
 
-        cell.textLabel?.text = calorieList[indexPath.row].calorie
+        cell.textLabel?.text = String(calorieList[indexPath.row].calorie)
         cell.detailTextLabel?.text = calorieList[indexPath.row].date.toString(dateFormat: "MM/dd/yy, h:mm a")
         
         // Configure the cell...
@@ -79,6 +83,10 @@ class CalorieChartViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     
+    func updateChart() {
+    
+    }
+    
     func promptForCalorieInput() {
         let ac = UIAlertController(title: "Enter Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
         ac.addTextField()
@@ -86,8 +94,15 @@ class CalorieChartViewController: UIViewController, UITableViewDelegate, UITable
         let sumbitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
             let answer = ac.textFields![0]
             // do something with answer
+            
             let calorieInput = Calorie(calorie: answer.text!, date: Date())
             self.calorieList.append(calorieInput)
+            
+            let calorie = Double(answer.text!)
+            self.caloriesForChart.append(calorie!)
+            
+            self.calorieTableView.reloadData()
+            
         }
         
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (alertAction) in
@@ -98,7 +113,6 @@ class CalorieChartViewController: UIViewController, UITableViewDelegate, UITable
         ac.addAction(sumbitAction)
         present(ac, animated: true)
         
-        calorieTableView.reloadData()
     }
     
     

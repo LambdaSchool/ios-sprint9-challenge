@@ -28,7 +28,7 @@ class CalorieChartTableViewCell: UITableViewCell {
     func updateViews() {
         guard let calorie = calorie else { return }
     
-        calorieLabel.text = calorie.calorie
+        calorieLabel.text = String(calorie.calorie)
         dateLabel.text = calorie.date.toString(dateFormat: "MM/dd/yy, h:mm a")
         
     }
