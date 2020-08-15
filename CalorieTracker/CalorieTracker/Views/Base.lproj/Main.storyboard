@@ -9,7 +9,7 @@
         <!--Calorie Tracker-->
         <scene sceneID="gGQ-R1-DNa">
             <objects>
-                <tableViewController id="Ebt-gT-2Dw" sceneMemberID="viewController">
+                <tableViewController id="Ebt-gT-2Dw" customClass="CalorieTrackerTableViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CBt-GF-d1j">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,8 +63,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="uL3-5D-A4f">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="yzV-ol-L1J"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="yzV-ol-L1J">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="Ebt-gT-2Dw" id="btr-9R-2rR"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="calorieCountLabel" destination="Xeq-VD-t1Q" id="ZZO-aV-kPC"/>
+                        <outlet property="timestampLabel" destination="IZP-Zo-Am3" id="HXW-3K-YLT"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j1C-A7-Af8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -12,6 +12,7 @@
 		682D4D5624E76CAC005AC8BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 682D4D5424E76CAC005AC8BE /* Main.storyboard */; };
 		682D4D5824E76CB0005AC8BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 682D4D5724E76CB0005AC8BE /* Assets.xcassets */; };
 		682D4D5B24E76CB0005AC8BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 682D4D5924E76CB0005AC8BE /* LaunchScreen.storyboard */; };
+		682D4D6724E76F86005AC8BE /* CalorieTrackerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682D4D6624E76F86005AC8BE /* CalorieTrackerTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		682D4D5724E76CB0005AC8BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		682D4D5A24E76CB0005AC8BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		682D4D5C24E76CB0005AC8BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		682D4D6624E76F86005AC8BE /* CalorieTrackerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackerTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		682D4D6424E76DC4005AC8BE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				682D4D6624E76F86005AC8BE /* CalorieTrackerTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				682D4D6724E76F86005AC8BE /* CalorieTrackerTableViewController.swift in Sources */,
 				682D4D4F24E76CAC005AC8BE /* AppDelegate.swift in Sources */,
 				682D4D5124E76CAC005AC8BE /* SceneDelegate.swift in Sources */,
 			);
