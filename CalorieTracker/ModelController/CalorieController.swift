@@ -9,8 +9,10 @@
 import Foundation
 
 class CaloriesController {
+    // MARK: - Properties
     private (set) var calories: [CalorieEntry] = []
     
+    // MARK: - Methods
     // Function to save any created calorie entry
     func createCalorieEntry(with amount: String) {
         let calories = CalorieEntry(calorieAmount: amount)
@@ -22,6 +24,7 @@ class CaloriesController {
         }
     }
     
+    // Function to delete any created calorie entry
     func deleteCalorieEntry(withCalorie calories: CalorieEntry) {
            let moc = CoreDataStack.shared.mainContext
            moc.delete(calories)
@@ -33,7 +36,8 @@ class CaloriesController {
            }
        }
        
-    
+    // MARK: - Helper Method
+    // func to save to Coredata
     func saveToPersistantStore() throws {
         let moc = CoreDataStack.shared.mainContext
         try moc.save()

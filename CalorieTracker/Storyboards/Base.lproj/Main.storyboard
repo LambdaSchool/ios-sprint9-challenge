@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--CalorieTracker-->
+        <!--Calorie Tracker-->
         <scene sceneID="e7z-DQ-EKt">
             <objects>
                 <tableViewController id="NjM-8p-TLZ" customClass="CalorieTackerTableViewController" customModule="CalorieTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,7 +50,7 @@
                             <outlet property="delegate" destination="NjM-8p-TLZ" id="KBf-0n-qGr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="CalorieTracker" id="2VG-9E-RIn">
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="2VG-9E-RIn">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xRB-9A-sUD">
                             <connections>
                                 <action selector="addButtonTapped:" destination="NjM-8p-TLZ" id="XHC-yp-haF"/>

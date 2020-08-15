@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 class CoreDataStack {
-    // Static makes it a class property
+    // MARK: - Properties
     static let shared = CoreDataStack()
     
     lazy var container: NSPersistentContainer = {
@@ -28,15 +28,15 @@ class CoreDataStack {
         return container.viewContext
     }
     
+    // MARK: - Method
     func save(context: NSManagedObjectContext = CoreDataStack.shared.mainContext) throws {
-        var error: Error?
         context.performAndWait {
             do {
                 try context.save()
-            } catch let saveError {
-                error = saveError
+            } catch {
+                print("Error saving to CoreData \(error)")
             }
         }
-        if let error = error { throw error }
     }
+
 }

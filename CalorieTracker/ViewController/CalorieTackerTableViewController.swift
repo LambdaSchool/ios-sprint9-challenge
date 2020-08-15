@@ -21,7 +21,10 @@ class CalorieTackerTableViewController: UITableViewController {
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieEntry> = {
         let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date",
-                                                         ascending: false)]
+                                                         ascending: true),
+                                        NSSortDescriptor(key: "date",
+                                                         ascending: true)
+        ]
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
         
@@ -51,6 +54,7 @@ class CalorieTackerTableViewController: UITableViewController {
         let series = ChartSeries(data)
         series.area = true
         calorieChart.add(series)
+        self.chartView.subviews.forEach({ $0.removeFromSuperview() })
         self.chartView.addSubview(calorieChart)
     }
     
@@ -74,7 +78,6 @@ class CalorieTackerTableViewController: UITableViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return self.fetchedResultsController.sections?.count ?? 1
@@ -82,9 +85,8 @@ class CalorieTackerTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return self.fetchedResultsController.sections?[section].numberOfObjects ?? 0    }
-    
+        return self.fetchedResultsController.sections?[section].numberOfObjects ?? 0
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CaloriesCell", for: indexPath)
@@ -101,11 +103,9 @@ class CalorieTackerTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-    
 }
 
 // MARK: - Extensions
-
 extension Notification.Name {
     static var updateChart = Notification.Name("updateChart")
 }
