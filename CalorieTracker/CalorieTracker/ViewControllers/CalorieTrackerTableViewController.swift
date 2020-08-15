@@ -19,9 +19,11 @@ class CalorieTrackerTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
+    var graphNumbers: [Double] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupChart()
     }
     
     // MARK: - IBActions
@@ -36,12 +38,20 @@ class CalorieTrackerTableViewController: UITableViewController {
             self.calories.append(calorie)
             
             let calorieNumber = Double(calorie.calorieCount)!
+            self.graphNumbers.append(calorieNumber)
             
-            let series = ChartSeries([calorieNumber])
+            let series = ChartSeries(self.graphNumbers)
             self.chartView.add(series)
         }
         alertController.addAction(submitAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: - Functions
+    func setupChart() {
+        chartView.axesColor = .cyan
+        chartView.highlightLineColor = .cyan
+        chartView.highlightLineWidth = 1
     }
     
     // MARK: - Table view data source
