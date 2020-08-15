@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9296FAEC24E78F33008B0570 /* CaloriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9296FAEB24E78F33008B0570 /* CaloriesTableViewController.swift */; };
 		92D521FD24945F5D007BB040 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D521FC24945F5D007BB040 /* AppDelegate.swift */; };
 		92D521FF24945F5D007BB040 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D521FE24945F5D007BB040 /* SceneDelegate.swift */; };
-		92D5220124945F5D007BB040 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5220024945F5D007BB040 /* ViewController.swift */; };
 		92D5220424945F5D007BB040 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92D5220224945F5D007BB040 /* Main.storyboard */; };
 		92D5220624945F5F007BB040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92D5220524945F5F007BB040 /* Assets.xcassets */; };
 		92D5220924945F5F007BB040 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92D5220724945F5F007BB040 /* LaunchScreen.storyboard */; };
@@ -18,10 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9296FAEB24E78F33008B0570 /* CaloriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesTableViewController.swift; sourceTree = "<group>"; };
 		92D521F924945F5D007BB040 /* CalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D521FC24945F5D007BB040 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92D521FE24945F5D007BB040 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		92D5220024945F5D007BB040 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		92D5220324945F5D007BB040 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		92D5220524945F5F007BB040 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92D5220824945F5F007BB040 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,13 +62,13 @@
 			children = (
 				92D521FC24945F5D007BB040 /* AppDelegate.swift */,
 				92D521FE24945F5D007BB040 /* SceneDelegate.swift */,
-				92D5220024945F5D007BB040 /* ViewController.swift */,
 				92D5220224945F5D007BB040 /* Main.storyboard */,
 				92D5220524945F5F007BB040 /* Assets.xcassets */,
 				92D5220724945F5F007BB040 /* LaunchScreen.storyboard */,
 				92D5220A24945F5F007BB040 /* Info.plist */,
 				92D5221024946E34007BB040 /* Calories.swift */,
 				92D5221224947F4E007BB040 /* CaloriesController.swift */,
+				9296FAEB24E78F33008B0570 /* CaloriesTableViewController.swift */,
 			);
 			path = CalorieTracker;
 			sourceTree = "<group>";
@@ -145,7 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92D5221324947F4E007BB040 /* CaloriesController.swift in Sources */,
-				92D5220124945F5D007BB040 /* ViewController.swift in Sources */,
+				9296FAEC24E78F33008B0570 /* CaloriesTableViewController.swift in Sources */,
 				92D521FD24945F5D007BB040 /* AppDelegate.swift in Sources */,
 				92D521FF24945F5D007BB040 /* SceneDelegate.swift in Sources */,
 				92D5221124946E34007BB040 /* Calories.swift in Sources */,

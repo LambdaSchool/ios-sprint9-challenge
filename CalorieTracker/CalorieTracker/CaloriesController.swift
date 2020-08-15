@@ -10,5 +10,8 @@ import Foundation
 import UIKit
 
 class CaloriesController {
+    @IBOutlet weak var caloriesIntLabel: UILabel!
+    @IBOutlet weak var dateAndTimeLabel: UILabel!
+    var calories: Calories? 
     
 }
