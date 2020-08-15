@@ -11,12 +11,24 @@ import CoreData
 import SwiftChart
 
 class CalorieTackerTableViewController: UITableViewController {
-
+    
+    // MARK: - Properties
+    
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-
+    
+    // MARK: - Methods
+    
+    
+    // MARK: - IBAction
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
