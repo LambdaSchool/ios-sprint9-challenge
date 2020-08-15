@@ -13,17 +13,15 @@ class CalorieTrackerTableViewController: UITableViewController {
 
     // MARK: - Properties
     @IBOutlet weak var chartView: Chart!
-    var caloriesAdded: Calorie? {
+    var caloriesAdded: Calorie?
+    var calories: [Calorie] = []  {
         didSet {
             tableView.reloadData()
         }
     }
-    var calories: [Calorie] = []
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
     }
     
     // MARK: - IBActions
@@ -32,12 +30,18 @@ class CalorieTrackerTableViewController: UITableViewController {
         alertController.addTextField()
         
         let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
-            let calories = alertController.textFields![0]
-            self.caloriesAdded?.calorieCount = calories.text ?? "Input number greater than 0"
+            let newCalories = alertController.textFields?[0].text ?? "Input number greater than 0"
+            let calorie = Calorie(calorieCount: newCalories, timestamp: Date())
+            self.caloriesAdded = calorie
+            self.calories.append(calorie)
+            
+            let calorieNumber = Double(calorie.calorieCount)!
+            
+            let series = ChartSeries([calorieNumber])
+            self.chartView.add(series)
         }
         alertController.addAction(submitAction)
         present(alertController, animated: true, completion: nil)
-        tableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -49,8 +53,9 @@ class CalorieTrackerTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "calorieCell", for: indexPath) as? CalorieTrackerTableViewCell else { return UITableViewCell() }
 
-        cell.calorieCountLabel.text = caloriesAdded?.calorieCount
-        cell.timestampLabel.text = String(describing: Date())
+        let calorie = calories[indexPath.row]
+        cell.calorieCountLabel.text = calorie.calorieCount
+        cell.timestampLabel.text = String(describing: calorie.timestamp)
 
         return cell
     }
