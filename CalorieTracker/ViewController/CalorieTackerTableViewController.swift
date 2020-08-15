@@ -43,16 +43,16 @@ class CalorieTackerTableViewController: UITableViewController {
     
     // MARK: - Methods
     @objc func updateChart(notification: Notification) {
-         let calorieChart = Chart(frame: chartView.frame)
-          var data: [Double] = []
-          for calorie in fetchedResultsController.fetchedObjects! {
+        let calorieChart = Chart(frame: chartView.frame)
+        var data: [Double] = []
+        for calorie in fetchedResultsController.fetchedObjects! {
             data.append(Double(calorie.calorieAmount!) as! Double)
-          }
-          let series = ChartSeries(data)
-          series.area = true
-          calorieChart.add(series)
-          self.chartView.addSubview(calorieChart)
-      }
+        }
+        let series = ChartSeries(data)
+        series.area = true
+        calorieChart.add(series)
+        self.chartView.addSubview(calorieChart)
+    }
     
     // MARK: - IBAction
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
@@ -73,27 +73,35 @@ class CalorieTackerTableViewController: UITableViewController {
         alertController.addAction(submitAction)
         self.present(alertController, animated: true, completion: nil)
     }
-
-
-// MARK: - Table view data source
-override func numberOfSections(in tableView: UITableView) -> Int {
-    return self.fetchedResultsController.sections?.count ?? 1
     
-}
-
-override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-    return self.fetchedResultsController.sections?[section].numberOfObjects ?? 0    }
-
-
-override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "CaloriesCell", for: indexPath)
-    let calories = self.fetchedResultsController.object(at: indexPath)
-    cell.textLabel?.text = "Calories: \(calories.calorieAmount ?? "0")"
-    cell.detailTextLabel?.text = calories.dateAdded
-    return cell
-}
-
+    // MARK: - Table view data source
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return self.fetchedResultsController.sections?.count ?? 1
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return self.fetchedResultsController.sections?[section].numberOfObjects ?? 0    }
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CaloriesCell", for: indexPath)
+        let calories = self.fetchedResultsController.object(at: indexPath)
+        cell.textLabel?.text = "Calories: \(calories.calorieAmount ?? "0")"
+        cell.detailTextLabel?.text = calories.dateAdded
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let calorieEntry = self.fetchedResultsController.object(at: indexPath)
+            self.caloriesController.deleteCalorieEntry(withCalorie: calorieEntry)
+            self.tableView.reloadData()
+        }
+    }
+    
 }
 
 // MARK: - Extensions
