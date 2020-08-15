@@ -28,7 +28,7 @@
 		0B57EDF824E76BAD005F046F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B57EDFB24E76BAD005F046F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B57EDFD24E76BAD005F046F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0B57EE0A24E76E7B005F046F /* CalorieTackerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTackerTableViewController.swift; sourceTree = "<group>"; };
+		0B57EE0A24E76E7B005F046F /* CalorieTackerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalorieTackerTableViewController.swift; path = "/Users/claytonwatkins/Development/Sprint 9/CalorieTracker/ios-sprint-challenge-calorie-tracker/CalorieTracker/ViewController/CalorieTackerTableViewController.swift"; sourceTree = "<absolute>"; };
 		0B57EE0D24E76FA5005F046F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		0B57EE0F24E76FDA005F046F /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		0B57EE1124E77029005F046F /* Entry+Convienence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convienence.swift"; sourceTree = "<group>"; };
@@ -54,8 +54,6 @@
 			isa = PBXGroup;
 			children = (
 				0B57EDEE24E76BAC005F046F /* CalorieTracker */,
-				0B57EE0424E76E2A005F046F /* ViewController */,
-				0B57EE0524E76E35005F046F /* Storyboards */,
 				0B57EDED24E76BAC005F046F /* Products */,
 				84613A2F60AF2DE2C0DD8792 /* Pods */,
 				5D8441E815FE279DFE573AAC /* Frameworks */,
@@ -73,6 +71,8 @@
 		0B57EDEE24E76BAC005F046F /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
+				0B57EE0524E76E35005F046F /* Storyboards */,
+				0B57EE0424E76E2A005F046F /* ViewController */,
 				0B57EDFD24E76BAD005F046F /* Info.plist */,
 				0B57EE0924E76E5C005F046F /* Resources */,
 				0B57EE0824E76E52005F046F /* ModelController */,
@@ -87,7 +87,8 @@
 			children = (
 				0B57EE0A24E76E7B005F046F /* CalorieTackerTableViewController.swift */,
 			);
-			path = ViewController;
+			name = ViewController;
+			path = ../ViewController;
 			sourceTree = "<group>";
 		};
 		0B57EE0524E76E35005F046F /* Storyboards */ = {
@@ -96,7 +97,8 @@
 				0B57EDF524E76BAC005F046F /* Main.storyboard */,
 				0B57EDFA24E76BAD005F046F /* LaunchScreen.storyboard */,
 			);
-			path = Storyboards;
+			name = Storyboards;
+			path = ../Storyboards;
 			sourceTree = "<group>";
 		};
 		0B57EE0624E76E46005F046F /* CoreDataStack */ = {
@@ -104,7 +106,6 @@
 			children = (
 				0B57EE0C24E76FA5005F046F /* Entry.xcdatamodeld */,
 				0B57EE0F24E76FDA005F046F /* CoreDataStack.swift */,
-				0B57EE1124E77029005F046F /* Entry+Convienence.swift */,
 			);
 			path = CoreDataStack;
 			sourceTree = "<group>";
@@ -112,6 +113,7 @@
 		0B57EE0724E76E4C005F046F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0B57EE1124E77029005F046F /* Entry+Convienence.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -303,7 +305,8 @@
 				0B57EDF624E76BAC005F046F /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
+			path = "/Users/claytonwatkins/Development/Sprint 9/CalorieTracker/ios-sprint-challenge-calorie-tracker/CalorieTracker/Storyboards";
+			sourceTree = "<absolute>";
 		};
 		0B57EDFA24E76BAD005F046F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -311,7 +314,8 @@
 				0B57EDFB24E76BAD005F046F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
+			path = "/Users/claytonwatkins/Development/Sprint 9/CalorieTracker/ios-sprint-challenge-calorie-tracker/CalorieTracker/Storyboards";
+			sourceTree = "<absolute>";
 		};
 /* End PBXVariantGroup section */
 

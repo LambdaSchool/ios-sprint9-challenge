@@ -18,9 +18,9 @@ extension CalorieEntry {
     
     var dateAdded: String {
         guard let dateAdded = self.date else { return "" }
-        let df = DateFormatter()
-        df.dateFormat = "MMM d Y 'at' h:mm a"
-        let date = df.string(from: dateAdded)
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "MMM d Y 'at' h:mm a"
+        let date = dateformatter.string(from: dateAdded)
         return date
     }
 }
