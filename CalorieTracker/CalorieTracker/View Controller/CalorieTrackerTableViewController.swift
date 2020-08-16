@@ -10,6 +10,8 @@ import CoreData
 import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController {
+    @IBOutlet weak var chartView: Chart!
+    let charts = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
     var data: [(Int, Double)] = []
     let calorieEntryController = CalorieEntry()
     let reuseIdentifier = "Calories"
@@ -37,13 +39,12 @@ class CalorieTrackerTableViewController: UITableViewController {
         return fetchedResultsController
     }()
 
-    @IBOutlet var chartView: Chart!
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        chartUpdate()
         NotificationCenter.default.addObserver(self, selector: #selector(caloriesAdded(_:)), name: .newCaloriesAdded, object: nil)
-        chart()
     }
+
     @IBAction func addCalories(_ sender: Any) {
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories you ate today", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
@@ -52,9 +53,11 @@ class CalorieTrackerTableViewController: UITableViewController {
                   let calories = Int16(input) else { return }
             self.calorieEntryController.create(calories: calories)
             self.data.append((x: self.data.count, y: Double(calories)))
-//            self.chartView.add(ChartSeries(data: self.data))
+            let series = ChartSeries(data: self.data)
+            self.charts.add(series)
             NotificationCenter.default.post(name: .newCaloriesAdded, object: self)
         }
+
         alert.addTextField { (textField) in
             textField.placeholder = "Enter Calories"
         }
@@ -70,17 +73,19 @@ class CalorieTrackerTableViewController: UITableViewController {
         }
     }
 
-    func chart() {
+    func chartUpdate() {
         guard let entries = fetchedResultsController.sections?.first?.objects else {
             NSLog("No entries")
             return
         }
         for entry in entries {
             if let entry = entry as? Tracker {
-                data.append((data.count, Double(entry.calories)))
+                self.data.append((data.count, Double(entry.calories)))
+            let series = ChartSeries(data: data)
+                self.charts.add(series)
             }
         }
-//        chartView.add(ChartSeries(data: data))
+        chartView = charts
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
