@@ -28,23 +28,7 @@ class CalorieTrackerTableViewController: UITableViewController {
     
     // MARK: - IBActions
     @IBAction func addButtonTapped(_ sender: Any) {
-        let alertController = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories", preferredStyle: .alert)
-        alertController.addTextField()
-        
-        let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
-            let newCalories = alertController.textFields?[0].text ?? "Input number greater than 0"
-            let calorie = Calorie(calorieCount: newCalories, timestamp: Date())
-            self.caloriesAdded = calorie
-            self.calories.append(calorie)
-            
-            let calorieNumber = Double(calorie.calorieCount)!
-            self.graphNumbers.append(calorieNumber)
-            
-            let series = ChartSeries(self.graphNumbers)
-            self.chartView.add(series)
-        }
-        alertController.addAction(submitAction)
-        present(alertController, animated: true, completion: nil)
+        alertAndGetCalories()
     }
     
     // MARK: - Functions
@@ -52,6 +36,7 @@ class CalorieTrackerTableViewController: UITableViewController {
         chartView.axesColor = .cyan
         chartView.highlightLineColor = .cyan
         chartView.highlightLineWidth = 1
+        
     }
     
     // MARK: - Table view data source
@@ -70,17 +55,43 @@ class CalorieTrackerTableViewController: UITableViewController {
         return cell
     }
 
+}
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+extension CalorieTrackerTableViewController {
+    
+    func getTimestamp(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy  HH:mm"
+        let date = dateFormatter.string(from: date)
+        return date
     }
-    */
-
+    
+    func alertAndGetCalories() {
+        // Creating alert
+        let alertController = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories", preferredStyle: .alert)
+        alertController.addTextField()
+        
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
+            // Getting input from text field
+            let newCalories = alertController.textFields?[0].text ?? "Input number greater than 0"
+            
+            // Creating new instance of calorie
+            let calorie = Calorie(calorieCount: newCalories, timestamp: self.getTimestamp(date: Date()))
+            self.caloriesAdded = calorie
+            self.calories.append(calorie)
+            
+            // Setting chart points
+            let calorieNumber = Double(calorie.calorieCount)!
+            self.graphNumbers.append(calorieNumber)
+            
+            // Adding chart points to chart
+            let series = ChartSeries(self.graphNumbers)
+            series.color = ChartColors.cyanColor()
+            series.area = true
+            self.chartView.add(series)
+        }
+        alertController.addAction(submitAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
 }
