@@ -7,9 +7,11 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController {
-
+    var data: [(Int, Double)] = []
+    let calorieEntryController = CalorieEntry()
     let reuseIdentifier = "Calories"
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -21,23 +23,64 @@ class CalorieTrackerTableViewController: UITableViewController {
     lazy var fetchedResultsController: NSFetchedResultsController<Tracker> = {
         let fetchRequest: NSFetchRequest<Tracker> = Tracker.fetchRequest()
         fetchRequest.sortDescriptors = [
-        NSSortDescriptor(key: "date", ascending: true)
+        NSSortDescriptor(key: "date", ascending: false)
         ]
 
         let context = CoreDataStack.shared.mainContext
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: "date", cacheName: nil)
+        let fetchedResultsController = NSFetchedResultsController<Tracker>(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
         do {
-            try fetchedResultsController.performFetch()
+            try? fetchedResultsController.performFetch()
         } catch {
             NSLog("Failed to fetch: \(error)")
         }
         return fetchedResultsController
     }()
 
+    @IBOutlet var chartView: Chart!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(caloriesAdded(_:)), name: .newCaloriesAdded, object: nil)
+        chart()
+    }
+    @IBAction func addCalories(_ sender: Any) {
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories you ate today", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
+        guard let input = alert.textFields?[0].text,
+                  let calories = Int16(input) else { return }
+            self.calorieEntryController.create(calories: calories)
+            self.data.append((x: self.data.count, y: Double(calories)))
+//            self.chartView.add(ChartSeries(data: self.data))
+            NotificationCenter.default.post(name: .newCaloriesAdded, object: self)
+        }
+        alert.addTextField { (textField) in
+            textField.placeholder = "Enter Calories"
+        }
 
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    @objc func caloriesAdded(_ notification: Notification) {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+
+    func chart() {
+        guard let entries = fetchedResultsController.sections?.first?.objects else {
+            NSLog("No entries")
+            return
+        }
+        for entry in entries {
+            if let entry = entry as? Tracker {
+                data.append((data.count, Double(entry.calories)))
+            }
+        }
+//        chartView.add(ChartSeries(data: data))
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

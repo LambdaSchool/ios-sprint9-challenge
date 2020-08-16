@@ -33,7 +33,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="ibt-1g-qnm" customClass="CalorieChart" customModule="CalorieTracker" customModuleProvider="target">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="k0K-bS-HC4">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="203"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -54,8 +54,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="Zdt-r4-3fH">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vdr-OO-jl3"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vdr-OO-jl3">
+                            <connections>
+                                <action selector="addCalories:" destination="qIb-xE-Mx2" id="doz-mn-IPB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chartView" destination="k0K-bS-HC4" id="eoj-Pb-EP4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jxc-JV-Jw1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
