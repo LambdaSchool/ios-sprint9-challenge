@@ -11,7 +11,6 @@ import SwiftChart
 
 class CalorieTrackerTableViewController: UITableViewController {
     @IBOutlet weak var chartView: Chart!
-    let charts = Chart(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
     var data: [(Int, Double)] = []
     let calorieEntryController = CalorieEntry()
     let reuseIdentifier = "Calories"
@@ -54,7 +53,8 @@ class CalorieTrackerTableViewController: UITableViewController {
             self.calorieEntryController.create(calories: calories)
             self.data.append((x: self.data.count, y: Double(calories)))
             let series = ChartSeries(data: self.data)
-            self.charts.add(series)
+            series.area = true
+            self.chartView.add(series)
             NotificationCenter.default.post(name: .newCaloriesAdded, object: self)
         }
 
@@ -81,11 +81,12 @@ class CalorieTrackerTableViewController: UITableViewController {
         for entry in entries {
             if let entry = entry as? Tracker {
                 self.data.append((data.count, Double(entry.calories)))
-            let series = ChartSeries(data: data)
-                self.charts.add(series)
             }
         }
-        chartView = charts
+        let series = ChartSeries(data: data)
+        series.area = true
+        chartView.add(series)
+
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -115,8 +116,8 @@ class CalorieTrackerTableViewController: UITableViewController {
                     try context.save()
                 } catch {
                     NSLog("Error saving after deleting: \(error)")
-                    context.reset()
                 }
+                context.reset()
             }
         }
     }
