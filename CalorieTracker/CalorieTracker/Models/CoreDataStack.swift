@@ -2,7 +2,7 @@
 //  CoreDataStack.swift
 //  CalorieTracker
 //
-//  Created by Lambda_School_loaner_226 on 8/14/20.
+//  Created by Lambda_School_loaner_226 on 8/17/20.
 //  Copyright © 2020 LambdaSchool. All rights reserved.
 //
 
@@ -10,19 +10,18 @@ import Foundation
 import CoreData
 
 class CoreDataStack {
-    
     static let coreData = CoreDataStack()
-    
+
     func save(context: NSManagedObjectContext = CoreDataStack.coreData.mainContext) throws {
-        var saveError: Error?
+        var errorSaved: Error?
         context.performAndWait {
             do {
                 try context.save()
             } catch {
-                saveError = error
+                errorSaved = error
             }
         }
-        if let error = saveError { throw error }
+        if let error = errorSaved { throw error }
     }
     
     lazy var container: NSPersistentContainer = {
@@ -38,5 +37,4 @@ class CoreDataStack {
     var mainContext: NSManagedObjectContext {
         return container.viewContext
     }
-    
 }

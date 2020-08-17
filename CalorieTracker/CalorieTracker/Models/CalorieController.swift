@@ -2,7 +2,7 @@
 //  CalorieController.swift
 //  CalorieTracker
 //
-//  Created by Lambda_School_loaner_226 on 8/14/20.
+//  Created by Lambda_School_loaner_226 on 8/17/20.
 //  Copyright © 2020 LambdaSchool. All rights reserved.
 //
 
@@ -11,20 +11,21 @@ import CoreData
 
 class CalorieController {
     
-    func create(recordedCalories: Double) {
-        Calorie(recordedCalories: recordedCalories)
-        saveToPersistentStore()
-    }
+    var calorie: Calorie?
     
-    func update(calories: Calorie, countedCalories: Double) {
-        calories.recordedCalories += countedCalories
-        saveToPersistentStore()
-    }
-    
-    func delete(calorie: Calorie) {
+    var caloriesRecorded: [Calorie] {
+        
+        let fetch: NSFetchRequest<Calorie> = Calorie.fetchRequest()
+        fetch.sortDescriptors = [NSSortDescriptor(key: "timeRecorded", ascending: true)]
+        
         let moc = CoreDataStack.coreData.mainContext
-        moc.delete(calorie)
-        saveToPersistentStore()
+        
+        do {
+            return try moc.fetch(fetch)
+        } catch {
+            NSLog("Error fetching data: \(error)")
+            return []
+        }
     }
     
     private func saveToPersistentStore() {
@@ -36,16 +37,19 @@ class CalorieController {
         }
     }
     
-    var calories: [Calorie] {
-        let fetch: NSFetchRequest<Calorie> = Calorie.fetchRequest()
-        fetch.sortDescriptors = [NSSortDescriptor(key: "timeRecorded", ascending: true)]
+    func createEntry(calorieRecorded: Double) {
+        Calorie(caloriesRecorded: calorieRecorded)
+        saveToPersistentStore()
+    }
+    
+    func deleteEntry(calorie: Calorie) {
         let moc = CoreDataStack.coreData.mainContext
-        
-        do {
-            return try moc.fetch(fetch)
-        } catch {
-            NSLog("Error fetching from persistent store: \(error)")
-            return []
-        }
+        moc.delete(calorie)
+        saveToPersistentStore()
+    }
+    
+    func updateExistingEntry(calorie: Calorie, incomingCalories: Double) {
+        calorie.caloriesRecorded += incomingCalories
+        saveToPersistentStore()
     }
 }
