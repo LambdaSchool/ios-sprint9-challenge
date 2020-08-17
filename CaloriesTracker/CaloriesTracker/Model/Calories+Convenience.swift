@@ -16,7 +16,7 @@ extension Calorie {
         self.calorieValue = calorieValue
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
+        dateFormatter.dateFormat = "MMM-dd-yyyy HH:mm:ss"
         let formatDate = dateFormatter.string(from: Date())
         self.date = formatDate
     }
