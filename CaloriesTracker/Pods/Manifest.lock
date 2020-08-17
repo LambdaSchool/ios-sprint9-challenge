@@ -1,0 +1,29 @@
+PODS:
+  - SCLAlertView (0.8)
+  - SwiftChart (1.0.1)
+
+DEPENDENCIES:
+  - SCLAlertView (~> 0.8)
+  - SwiftChart (from `https://github.com/gpbl/SwiftChart`, branch `master`)
+
+SPEC REPOS:
+  trunk:
+    - SCLAlertView
+
+EXTERNAL SOURCES:
+  SwiftChart:
+    :branch: master
+    :git: https://github.com/gpbl/SwiftChart
+
+CHECKOUT OPTIONS:
+  SwiftChart:
+    :commit: 4949a94090641ca85b8133129f7a7b2230694788
+    :git: https://github.com/gpbl/SwiftChart
+
+SPEC CHECKSUMS:
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
+  SwiftChart: 6ed8c61f3731cc32e3cb92858dba339d08ddac87
+
+PODFILE CHECKSUM: 613db0374d40bcb0d9f655b6730543b6299c7e00
+
+COCOAPODS: 1.9.3
