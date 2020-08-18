@@ -17,3 +17,6 @@ extension Calorie {
            self.timestamp = timestamp
        }
 }
+extension Notification.Name {
+    static var calorieLogChanged = Notification.Name("calorieLogChanged")
+}

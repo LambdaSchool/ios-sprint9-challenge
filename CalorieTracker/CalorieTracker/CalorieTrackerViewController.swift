@@ -14,13 +14,15 @@ class CalorieTrackerViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        
+        NotificationCenter.default.addObserver(self,
+        selector: #selector(updateViews),
+        name: .calorieLogChanged,
+        object: nil)
     }
-    
     //MARK: - OUTLETS -
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var chart: Chart!
-    
-    
     //MARK: - PROPERTIES -
     let calorieController = CalorieController()
     lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
@@ -39,19 +41,18 @@ class CalorieTrackerViewController: UIViewController{
             fatalError("Error Fetching: \(error)")
         }
     }()
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.viewDidLoad()
+//        self.viewDidLoad()
+        tableView.reloadData()
+
     }
     @objc func updateViews() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(updateViews),
-                                               name: .calorieLogChanged,
-                                               object: nil)
-        tableView.reloadData()
+//        let chart = Chart(frame: view.frame)
+        
+        
         guard let sections = fetchedResultsController.sections else { return }
-        chart.removeAllSeries()
+//        chart.removeAllSeries()
         var seriesOfDoubles: [Double] = []
         for section in sections {
             if let objects = section.objects as? [Calorie] {
@@ -60,7 +61,12 @@ class CalorieTrackerViewController: UIViewController{
                 }
             }
         }
-        chart.add(ChartSeries(seriesOfDoubles))
+        DispatchQueue.main.async {
+            
+            self.chart.add(ChartSeries(seriesOfDoubles))
+            self.tableView.reloadData()
+        }
+        
     }
     //MARK: - IBACTION -
     @IBAction func addButtonTapped(_ sender: Any) {
@@ -77,7 +83,7 @@ class CalorieTrackerViewController: UIViewController{
         alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { _ in
             if alert.textFields?.first?.text?.isNumeric == false {
                 self.didNotEnterCaloriesAlert()
-                print("it's empty")
+                print("Empty")
             }
             guard let currentTextField = alert.textFields,
                 let caloriesString = currentTextField[0].text,
@@ -105,9 +111,7 @@ class CalorieTrackerViewController: UIViewController{
 }
 
 extension CalorieTrackerViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView,
-                   commit editingStyle: UITableViewCell.EditingStyle,
-                   forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,forRowAt indexPath:IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             let calorie = fetchedResultsController.object(at: indexPath)
