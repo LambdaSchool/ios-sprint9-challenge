@@ -12,9 +12,9 @@ import SwiftChart
 class CalorieTrackerTableViewController: UITableViewController {
 
     // MARK: - Properties
-    @IBOutlet weak var chartView: Chart!
+    @IBOutlet private var chartView: Chart!
     var caloriesAdded: Calorie?
-    var calories: [Calorie] = []  {
+    var calories: [Calorie] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -41,16 +41,17 @@ class CalorieTrackerTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return calories.count
+        calories.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "calorieCell", for: indexPath) as? CalorieTrackerTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "calorieCell",
+                                                       for: indexPath) as? CalorieTrackerTableViewCell else {
+                                                        return UITableViewCell() }
 
         let calorie = calories[indexPath.row]
-        cell.calorieCountLabel.text = calorie.calorieCount
-        cell.timestampLabel.text = String(describing: calorie.timestamp)
+        cell.calorie = calorie
 
         return cell
     }
@@ -68,7 +69,9 @@ extension CalorieTrackerTableViewController {
     
     func alertAndGetCalories() {
         // Creating alert
-        let alertController = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Add Calorie Intake",
+                                                message: "Enter the amount of calories",
+                                                preferredStyle: .alert)
         alertController.addTextField()
         
         let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
