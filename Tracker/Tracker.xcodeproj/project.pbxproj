@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		64EC77685DC70E7D4FF5381C /* Pods_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9980FA9994CEA683BB7354A /* Pods_Tracker.framework */; };
+		B670575924F09FAB00FD892E /* Notification+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B670575824F09FAB00FD892E /* Notification+Ext.swift */; };
 		B68B03E0242E4D9E00131408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B03DF242E4D9E00131408 /* AppDelegate.swift */; };
 		B68B03E2242E4D9E00131408 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B03E1242E4D9E00131408 /* SceneDelegate.swift */; };
 		B68B03E4242E4D9E00131408 /* CalroriesMainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B03E3242E4D9E00131408 /* CalroriesMainTableViewController.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		54EF2CFD099FBC2143DCE196 /* Pods-Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Tracker/Pods-Tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		B670575824F09FAB00FD892E /* Notification+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Ext.swift"; sourceTree = "<group>"; };
 		B68B03DC242E4D9E00131408 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B68B03DF242E4D9E00131408 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B68B03E1242E4D9E00131408 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,14 +135,12 @@
 		B68B03DE242E4D9E00131408 /* Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				B68B03FC242E66FB00131408 /* CalroiesMainTableViewController + Ext.swift */,
-				B68B03E3242E4D9E00131408 /* CalroriesMainTableViewController.swift */,
-				B68B03F9242E521000131408 /* CalorieController.swift */,
+				B68FCF2024EBFD5C00D3C8AC /* Extensions */,
+				B68FCF1F24EBFD4500D3C8AC /* View Controllers */,
 				B68B03FB242E521D00131408 /* CoreDataStack */,
 				B68B03E5242E4D9E00131408 /* Main.storyboard */,
 				B68B03F3242E4DAB00131408 /* Resources */,
 				B68B03ED242E4D9F00131408 /* Info.plist */,
-				B68B041A242EB5EE00131408 /* SettingViewController.swift */,
 			);
 			path = Tracker;
 			sourceTree = "<group>";
@@ -181,6 +181,25 @@
 				B68B0414242E999400131408 /* Info.plist */,
 			);
 			path = TrackerTests;
+			sourceTree = "<group>";
+		};
+		B68FCF1F24EBFD4500D3C8AC /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B68B03E3242E4D9E00131408 /* CalroriesMainTableViewController.swift */,
+				B68B03F9242E521000131408 /* CalorieController.swift */,
+				B68B041A242EB5EE00131408 /* SettingViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B68FCF2024EBFD5C00D3C8AC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B68B03FC242E66FB00131408 /* CalroiesMainTableViewController + Ext.swift */,
+				B670575824F09FAB00FD892E /* Notification+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,6 +384,7 @@
 				B68B03E2242E4D9E00131408 /* SceneDelegate.swift in Sources */,
 				B68B03F5242E50A700131408 /* CoreDataStack.swift in Sources */,
 				B68B03F8242E511600131408 /* Tracker.xcdatamodeld in Sources */,
+				B670575924F09FAB00FD892E /* Notification+Ext.swift in Sources */,
 				B68B03FA242E521000131408 /* CalorieController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

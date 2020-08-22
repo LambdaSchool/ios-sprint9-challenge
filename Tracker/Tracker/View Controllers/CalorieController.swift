@@ -37,8 +37,4 @@ class CalorieController {
             NSLog("Error deleting item : \(err)")
         }
     }
-    
-    
-    
-
 }

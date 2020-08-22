@@ -68,9 +68,7 @@ extension CalroriesMainTableViewController: NSFetchedResultsControllerDelegate {
                                       completionHandler: nil)
         }
     }
-    
-    
-    
+
     func showErrorAlert(title: String,actionTitle: String) {
           let ac = UIAlertController(title: title, message: nil, preferredStyle: .alert)
           ac.addAction(UIAlertAction(title: actionTitle, style: .destructive, handler: nil))
