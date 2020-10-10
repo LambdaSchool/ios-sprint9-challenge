@@ -126,6 +126,9 @@ class IntakeTableViewController: UITableViewController {
         series.color = ChartColors.purpleColor()
         series.area = true
         chartView.add(series)
+        chartView.yLabels = [0, 500, 1000, 1500, 2000]
+        chartView.gridColor = .systemTeal
+        chartView.labelColor = .systemTeal
     }
     
 }
