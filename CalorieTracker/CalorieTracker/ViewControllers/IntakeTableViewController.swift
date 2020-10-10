@@ -11,9 +11,14 @@ import SwiftChart
 
 class IntakeTableViewController: UITableViewController {
     
+    // MARK: - Outlets
+    
     @IBOutlet private weak var chartView: Chart!
     
+    // MARK: - Properties
+    
     let formatter = DateFormatter()
+    let intakeController = IntakeController()
     
     lazy var fetchedResultsController: NSFetchedResultsController<Intake> = {
         let fetchRequest: NSFetchRequest<Intake> = Intake.fetchRequest()
@@ -28,18 +33,20 @@ class IntakeTableViewController: UITableViewController {
         }
         return frc
     }()
+    
+    // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         formatter.dateStyle = .medium
         formatter.timeStyle = .short
-        updateChart()
         NotificationCenter.default.addObserver(self, selector: #selector(updateChart), name: .shouldUpdate, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         tableView.reloadData()
+        updateChart()
     }
 
     // MARK: - Table view data source
@@ -61,15 +68,19 @@ class IntakeTableViewController: UITableViewController {
                             forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let intake = fetchedResultsController.object(at: indexPath)
-            let moc = CoreDataStack.shared.mainContext
-            moc.delete(intake)
-            do {
-                try moc.save()
-            } catch {
-                moc.reset()
-                NSLog("Error saving managed object context: \(error)")
+            intakeController.deleteIntakeFromServer(intake) { _ in
+                let moc = CoreDataStack.shared.mainContext
+                moc.delete(intake)
+                do {
+                    try moc.save()
+                } catch {
+                    moc.reset()
+                    NSLog("Error saving managed object context: \(error)")
+                }
+                DispatchQueue.main.async {
+                    self.updateChart()
+                }
             }
-            updateChart()
         }
     }
     
@@ -93,7 +104,8 @@ class IntakeTableViewController: UITableViewController {
     }
     
     private func saveIntake(_ calories: Int) {
-        Intake(calories: calories)
+        let intake = Intake(calories: calories)
+        intakeController.sendIntakeToServer(intake: intake)
         do {
             try CoreDataStack.shared.mainContext.save()
         } catch {
@@ -126,6 +138,7 @@ extension IntakeTableViewController: NSFetchedResultsControllerDelegate {
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.endUpdates()
+        self.updateChart()
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,

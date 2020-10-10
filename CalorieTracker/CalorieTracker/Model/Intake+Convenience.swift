@@ -9,6 +9,12 @@ import Foundation
 import CoreData
 
 extension Intake {
+    
+    var intakeRepresentation: IntakeRepresentation? {
+        guard let timestamp = timestamp else { return nil }
+        return IntakeRepresentation(calories: Int(calories), timestamp: timestamp, identifier: identifier?.uuidString ?? "")
+    }
+    
     @discardableResult convenience init(calories: Int,
                                         timestamp: Date = Date(),
                                         identifier: UUID = UUID(),
@@ -18,4 +24,13 @@ extension Intake {
         self.calories = Int16(calories)
         self.timestamp = timestamp
     }
+    
+    @discardableResult convenience init?(intakeRepresentation: IntakeRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        guard let identifier = UUID(uuidString: intakeRepresentation.identifier) else { return nil }
+        self.init(calories: intakeRepresentation.calories,
+                  timestamp: intakeRepresentation.timestamp,
+                  identifier: identifier,
+                  context: context)
+    }
+    
 }
