@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A2BE05D25322DA60076F4BE /* Intake+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2BE05C25322DA60076F4BE /* Intake+Convenience.swift */; };
 		1AC4F26D2532131F0076088E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC4F26C2532131F0076088E /* AppDelegate.swift */; };
 		1AC4F26F2532131F0076088E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC4F26E2532131F0076088E /* SceneDelegate.swift */; };
 		1AC4F2742532131F0076088E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AC4F2722532131F0076088E /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A2BE05C25322DA60076F4BE /* Intake+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Intake+Convenience.swift"; sourceTree = "<group>"; };
 		1AC4F2692532131F0076088E /* CalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AC4F26C2532131F0076088E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AC4F26E2532131F0076088E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +48,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A2BE05F25322E9D0076F4BE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1AC4F28F25321C240076088E /* IntakeTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		1AC4F2602532131F0076088E = {
 			isa = PBXGroup;
 			children = (
@@ -68,13 +78,13 @@
 			isa = PBXGroup;
 			children = (
 				1AC4F287253219620076088E /* Model */,
+				1A2BE05F25322E9D0076F4BE /* ViewControllers */,
 				1AC4F26C2532131F0076088E /* AppDelegate.swift */,
 				1AC4F26E2532131F0076088E /* SceneDelegate.swift */,
 				1AC4F2722532131F0076088E /* Main.storyboard */,
 				1AC4F275253213230076088E /* Assets.xcassets */,
 				1AC4F277253213230076088E /* LaunchScreen.storyboard */,
 				1AC4F27A253213230076088E /* Info.plist */,
-				1AC4F28F25321C240076088E /* IntakeTableViewController.swift */,
 			);
 			path = CalorieTracker;
 			sourceTree = "<group>";
@@ -84,6 +94,7 @@
 			children = (
 				1AC4F288253219840076088E /* CalorieTracker.xcdatamodeld */,
 				1AC4F29225321CCD0076088E /* CoreDataStack.swift */,
+				1A2BE05C25322DA60076F4BE /* Intake+Convenience.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AC4F29325321CCD0076088E /* CoreDataStack.swift in Sources */,
+				1A2BE05D25322DA60076F4BE /* Intake+Convenience.swift in Sources */,
 				1AC4F26D2532131F0076088E /* AppDelegate.swift in Sources */,
 				1AC4F29025321C240076088E /* IntakeTableViewController.swift in Sources */,
 				1AC4F26F2532131F0076088E /* SceneDelegate.swift in Sources */,
