@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7C58C8AA2532182500FC9DB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58C8A92532182500FC9DB3 /* AppDelegate.swift */; };
 		7C58C8AC2532182500FC9DB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58C8AB2532182500FC9DB3 /* SceneDelegate.swift */; };
-		7C58C8AE2532182500FC9DB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58C8AD2532182500FC9DB3 /* ViewController.swift */; };
 		7C58C8B12532182500FC9DB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C58C8AF2532182500FC9DB3 /* Main.storyboard */; };
 		7C58C8B32532182600FC9DB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C58C8B22532182600FC9DB3 /* Assets.xcassets */; };
 		7C58C8B62532182600FC9DB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C58C8B42532182600FC9DB3 /* LaunchScreen.storyboard */; };
@@ -17,13 +16,16 @@
 		7C58C8CA25322E0400FC9DB3 /* CalorieIntakeRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58C8C925322E0400FC9DB3 /* CalorieIntakeRepresentation.swift */; };
 		7C58C8CD25322E2500FC9DB3 /* CalorieIntake+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58C8CC25322E2500FC9DB3 /* CalorieIntake+Convenience.swift */; };
 		7C58C8D025322E3700FC9DB3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58C8CF25322E3700FC9DB3 /* CoreDataStack.swift */; };
+		7C58C8D72532373600FC9DB3 /* CalorieListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58C8D62532373600FC9DB3 /* CalorieListTableViewController.swift */; };
+		7C58C8DA2532377000FC9DB3 /* CalorieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58C8D92532377000FC9DB3 /* CalorieTableViewCell.swift */; };
+		7C58C8E0253237E800FC9DB3 /* CalorieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58C8DF253237E800FC9DB3 /* CalorieChartView.swift */; };
+		7C58C8E925323A7300FC9DB3 /* CalorieTrackRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58C8E825323A7300FC9DB3 /* CalorieTrackRViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7C58C8A62532182500FC9DB3 /* iosCalorieTrackrSprintChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosCalorieTrackrSprintChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C58C8A92532182500FC9DB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C58C8AB2532182500FC9DB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7C58C8AD2532182500FC9DB3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7C58C8B02532182500FC9DB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7C58C8B22532182600FC9DB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C58C8B52532182600FC9DB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -32,6 +34,10 @@
 		7C58C8C925322E0400FC9DB3 /* CalorieIntakeRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeRepresentation.swift; sourceTree = "<group>"; };
 		7C58C8CC25322E2500FC9DB3 /* CalorieIntake+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalorieIntake+Convenience.swift"; sourceTree = "<group>"; };
 		7C58C8CF25322E3700FC9DB3 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		7C58C8D62532373600FC9DB3 /* CalorieListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieListTableViewController.swift; sourceTree = "<group>"; };
+		7C58C8D92532377000FC9DB3 /* CalorieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewCell.swift; sourceTree = "<group>"; };
+		7C58C8DF253237E800FC9DB3 /* CalorieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieChartView.swift; sourceTree = "<group>"; };
+		7C58C8E825323A7300FC9DB3 /* CalorieTrackRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackRViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +70,10 @@
 		7C58C8A82532182500FC9DB3 /* iosCalorieTrackrSprintChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				7C58C8D5253236E800FC9DB3 /* ViewControllers */,
 				7C58C8C825322DDA00FC9DB3 /* Model */,
 				7C58C8A92532182500FC9DB3 /* AppDelegate.swift */,
 				7C58C8AB2532182500FC9DB3 /* SceneDelegate.swift */,
-				7C58C8AD2532182500FC9DB3 /* ViewController.swift */,
 				7C58C8AF2532182500FC9DB3 /* Main.storyboard */,
 				7C58C8B22532182600FC9DB3 /* Assets.xcassets */,
 				7C58C8B42532182600FC9DB3 /* LaunchScreen.storyboard */,
@@ -85,6 +91,17 @@
 				7C58C8CF25322E3700FC9DB3 /* CoreDataStack.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7C58C8D5253236E800FC9DB3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7C58C8D62532373600FC9DB3 /* CalorieListTableViewController.swift */,
+				7C58C8D92532377000FC9DB3 /* CalorieTableViewCell.swift */,
+				7C58C8DF253237E800FC9DB3 /* CalorieChartView.swift */,
+				7C58C8E825323A7300FC9DB3 /* CalorieTrackRViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,13 +174,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C58C8D72532373600FC9DB3 /* CalorieListTableViewController.swift in Sources */,
 				7C58C8D025322E3700FC9DB3 /* CoreDataStack.swift in Sources */,
-				7C58C8AE2532182500FC9DB3 /* ViewController.swift in Sources */,
+				7C58C8E0253237E800FC9DB3 /* CalorieChartView.swift in Sources */,
 				7C58C8AA2532182500FC9DB3 /* AppDelegate.swift in Sources */,
 				7C58C8AC2532182500FC9DB3 /* SceneDelegate.swift in Sources */,
 				7C58C8CA25322E0400FC9DB3 /* CalorieIntakeRepresentation.swift in Sources */,
 				7C58C8C625322D7800FC9DB3 /* CalorieChart.xcdatamodeld in Sources */,
 				7C58C8CD25322E2500FC9DB3 /* CalorieIntake+Convenience.swift in Sources */,
+				7C58C8DA2532377000FC9DB3 /* CalorieTableViewCell.swift in Sources */,
+				7C58C8E925323A7300FC9DB3 /* CalorieTrackRViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
