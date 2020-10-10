@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -91,7 +91,6 @@
 				66480F7513048A91E3A1F579 /* Pods-CalorieTracker.debug.xcconfig */,
 				13CD95AA7BC17B1D8DD2A7E5 /* Pods-CalorieTracker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -107,6 +106,7 @@
 				612768492531478400B549CD /* Frameworks */,
 				6127684A2531478400B549CD /* Resources */,
 				29640273133D06CB858E9819 /* [CP] Embed Pods Frameworks */,
+				6153148525314C9B00620051 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -179,6 +179,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		6153148525314C9B00620051 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/Users/kennethjones/Development/ios-sprint-challenge-calorie-tracker/Pods/SwiftLint/swiftlint\n";
 		};
 		EDBD52B4EA44234EA1B0F53F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
