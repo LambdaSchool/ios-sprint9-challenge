@@ -28,9 +28,13 @@ class IntakeTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         formatter.dateStyle = .medium
         formatter.timeStyle = .short
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -43,7 +47,7 @@ class IntakeTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "intakeCell", for: indexPath)
         let date = formatter.string(from: fetchedResultsController.object(at: indexPath).timestamp ?? Date())
         cell.textLabel?.text = "Calories: \(fetchedResultsController.object(at: indexPath).calories)"
-        cell.detailTextLabel?.text = "Date: \(date)"
+        cell.detailTextLabel?.text = date
         return cell
     }
 
@@ -60,7 +64,6 @@ class IntakeTableViewController: UITableViewController {
                 moc.reset()
                 NSLog("Error saving managed object context: \(error)")
             }
-            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
 
@@ -76,7 +79,7 @@ class IntakeTableViewController: UITableViewController {
     
     // MARK: - Actions
     
-    @IBAction func addButton(_ sender: UIBarButtonItem) {
+    @IBAction func addIntake(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories", preferredStyle: .alert)
         var caloriesTextField: UITextField!
         alert.addTextField { textField in
@@ -86,15 +89,20 @@ class IntakeTableViewController: UITableViewController {
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let submitButton = UIAlertAction(title: "Submit", style: .default, handler: { _ in
             let calories = Int(caloriesTextField.text ?? "0") ?? 0
-            self.createIntake(calories)
+            self.saveIntake(calories)
         })
         alert.addAction(cancelButton)
         alert.addAction(submitButton)
         present(alert, animated: true, completion: nil)
     }
     
-    private func createIntake(_ calories: Int) {
+    func saveIntake(_ calories: Int) {
         Intake(calories: calories)
+        do {
+            try CoreDataStack.shared.mainContext.save()
+        } catch {
+            NSLog("Error saving managed object context: \(error)")
+        }
     }
     
 }
