@@ -7,10 +7,15 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 class IntakeTableViewController: UITableViewController {
     
+    @IBOutlet private weak var chartView: Chart!
+    
     let formatter = DateFormatter()
+    let chart = Chart(frame: .zero)
+    var calorieSeries = [Double]()
     
     lazy var fetchedResultsController: NSFetchedResultsController<Intake> = {
         let fetchRequest: NSFetchRequest<Intake> = Intake.fetchRequest()
@@ -30,6 +35,8 @@ class IntakeTableViewController: UITableViewController {
         super.viewDidLoad()
         formatter.dateStyle = .medium
         formatter.timeStyle = .short
+        updateChart()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateChart), name: .shouldUpdate, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,16 +73,6 @@ class IntakeTableViewController: UITableViewController {
             }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     // MARK: - Actions
     
@@ -96,13 +93,27 @@ class IntakeTableViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func saveIntake(_ calories: Int) {
+    private func saveIntake(_ calories: Int) {
         Intake(calories: calories)
         do {
             try CoreDataStack.shared.mainContext.save()
         } catch {
             NSLog("Error saving managed object context: \(error)")
         }
+        NotificationCenter.default.post(name: .shouldUpdate, object: nil)
+    }
+    
+    @objc func updateChart() {
+        calorieSeries = []
+        if let objects = fetchedResultsController.fetchedObjects {
+            for object in objects {
+                calorieSeries.append(Double(object.calories))
+            }
+        }
+        let series = ChartSeries(calorieSeries)
+        series.color = ChartColors.purpleColor()
+        series.area = true
+        chartView.add(series)
     }
     
 }
