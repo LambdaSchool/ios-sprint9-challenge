@@ -77,16 +77,14 @@ class CaloriesViewController: UIViewController {
     @IBAction func addCalorieButton(_ sender: Any) {
         
         // Create alert
-            let alert = UIAlertController(title: "Add calorie intake",
-                                          message: "Enter the amount of calories",
-                                          preferredStyle: .alert)
+            let alert = UIAlertController(title: "Add calorie intake", message: "Enter the amount of calories", preferredStyle: .alert)
                 
             // Add text field
             alert.addTextField { textField in
                 textField.placeholder = "Calories"
             }
                 
-            // Save button - if textField is NaN returns an error alert.
+            // Save button 
             alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { _ in
                     
                 if alert.textFields?.first?.text?.isNumeric == false {
@@ -99,25 +97,18 @@ class CaloriesViewController: UIViewController {
                     else {
                         return
                 }
-                // Create calories from given integer.
+                // Create calories from given value
                 self.calorieController.createLog(amount: calories)
             }))
-            alert.addAction(UIAlertAction(title: "Cancel",
-                                          style: .destructive,
-                                          handler: nil))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
             present(alert, animated: true, completion: nil)
         }
         
-        // Function to display alert when entering NaN
+        // Function to display alert
         func failedToEnterCaloriesAlert() {
-            let alert = UIAlertController(title: "Error Adding Calories",
-                                          message: "You did not enter a number.",
-                                          preferredStyle: .alert)
+            let alert = UIAlertController(title: "Error Adding Calories", message: "You did not enter a number.", preferredStyle: .alert)
             
-            alert.addAction(UIAlertAction(title: "OK",
-                                          style: .default,
-                                          handler: nil))
-            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
             
         
