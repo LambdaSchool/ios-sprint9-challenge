@@ -14,8 +14,6 @@ class IntakeTableViewController: UITableViewController {
     @IBOutlet private weak var chartView: Chart!
     
     let formatter = DateFormatter()
-    let chart = Chart(frame: .zero)
-    var calorieSeries = [Double]()
     
     lazy var fetchedResultsController: NSFetchedResultsController<Intake> = {
         let fetchRequest: NSFetchRequest<Intake> = Intake.fetchRequest()
@@ -71,6 +69,7 @@ class IntakeTableViewController: UITableViewController {
                 moc.reset()
                 NSLog("Error saving managed object context: \(error)")
             }
+            updateChart()
         }
     }
     
@@ -104,7 +103,8 @@ class IntakeTableViewController: UITableViewController {
     }
     
     @objc func updateChart() {
-        calorieSeries = []
+        var calorieSeries: [Double] = []
+        chartView.removeAllSeries()
         if let objects = fetchedResultsController.fetchedObjects {
             for object in objects {
                 calorieSeries.append(Double(object.calories))
