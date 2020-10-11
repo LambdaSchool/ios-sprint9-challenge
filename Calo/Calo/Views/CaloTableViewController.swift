@@ -15,6 +15,9 @@ class CaloTableViewController: UITableViewController {
 
     }
 
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
