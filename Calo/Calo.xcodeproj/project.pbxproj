@@ -1,0 +1,460 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A47904FBDAEDDE6BE65C1958 /* Pods_Calo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13770ABF98EF963C5B833B45 /* Pods_Calo.framework */; };
+		C27BF5012533571700667205 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27BF5002533571700667205 /* AppDelegate.swift */; };
+		C27BF5032533571700667205 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27BF5022533571700667205 /* SceneDelegate.swift */; };
+		C27BF5052533571700667205 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27BF5042533571700667205 /* ViewController.swift */; };
+		C27BF5082533571700667205 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27BF5062533571700667205 /* Main.storyboard */; };
+		C27BF50A2533571D00667205 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C27BF5092533571D00667205 /* Assets.xcassets */; };
+		C27BF50D2533571D00667205 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27BF50B2533571D00667205 /* LaunchScreen.storyboard */; };
+		C27BF51525335A0100667205 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27BF51425335A0100667205 /* CoreDataStack.swift */; };
+		C27BF51725335C8B00667205 /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27BF51625335C8B00667205 /* Entry+Convenience.swift */; };
+		C27BF51925335E1900667205 /* CaloTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27BF51825335E1900667205 /* CaloTableViewController.swift */; };
+		C27BF51D2533605600667205 /* CaloriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27BF51C2533605600667205 /* CaloriesController.swift */; };
+		C27BF5202533869C00667205 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C27BF51E2533869C00667205 /* Model.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		13770ABF98EF963C5B833B45 /* Pods_Calo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEC8A3D481EA9154D54A5032 /* Pods-Calo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calo.debug.xcconfig"; path = "Target Support Files/Pods-Calo/Pods-Calo.debug.xcconfig"; sourceTree = "<group>"; };
+		C27BF4FD2533571700667205 /* Calo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C27BF5002533571700667205 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C27BF5022533571700667205 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C27BF5042533571700667205 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C27BF5072533571700667205 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C27BF5092533571D00667205 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C27BF50C2533571D00667205 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C27BF50E2533571D00667205 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C27BF51425335A0100667205 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		C27BF51625335C8B00667205 /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
+		C27BF51825335E1900667205 /* CaloTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloTableViewController.swift; sourceTree = "<group>"; };
+		C27BF51C2533605600667205 /* CaloriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesController.swift; sourceTree = "<group>"; };
+		C27BF51F2533869C00667205 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		CBFE7B1B47646F846DA086F7 /* Pods-Calo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calo.release.xcconfig"; path = "Target Support Files/Pods-Calo/Pods-Calo.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C27BF4FA2533571700667205 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A47904FBDAEDDE6BE65C1958 /* Pods_Calo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5F9D72DC3F0E4A0EF777C93A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				13770ABF98EF963C5B833B45 /* Pods_Calo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AF31E5C997DBE22B57BFB68F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BEC8A3D481EA9154D54A5032 /* Pods-Calo.debug.xcconfig */,
+				CBFE7B1B47646F846DA086F7 /* Pods-Calo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C27BF4F42533571700667205 = {
+			isa = PBXGroup;
+			children = (
+				C27BF4FF2533571700667205 /* Calo */,
+				C27BF4FE2533571700667205 /* Products */,
+				AF31E5C997DBE22B57BFB68F /* Pods */,
+				5F9D72DC3F0E4A0EF777C93A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C27BF4FE2533571700667205 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C27BF4FD2533571700667205 /* Calo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C27BF4FF2533571700667205 /* Calo */ = {
+			isa = PBXGroup;
+			children = (
+				C27BF5002533571700667205 /* AppDelegate.swift */,
+				C27BF5022533571700667205 /* SceneDelegate.swift */,
+				C27BF5042533571700667205 /* ViewController.swift */,
+				C27BF51425335A0100667205 /* CoreDataStack.swift */,
+				C27BF51625335C8B00667205 /* Entry+Convenience.swift */,
+				C27BF51B2533603300667205 /* Models */,
+				C27BF51A2533600A00667205 /* Views */,
+				C27BF5062533571700667205 /* Main.storyboard */,
+				C27BF5092533571D00667205 /* Assets.xcassets */,
+				C27BF50B2533571D00667205 /* LaunchScreen.storyboard */,
+				C27BF50E2533571D00667205 /* Info.plist */,
+			);
+			path = Calo;
+			sourceTree = "<group>";
+		};
+		C27BF51A2533600A00667205 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C27BF51825335E1900667205 /* CaloTableViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C27BF51B2533603300667205 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C27BF51C2533605600667205 /* CaloriesController.swift */,
+				C27BF51E2533869C00667205 /* Model.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C27BF4FC2533571700667205 /* Calo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C27BF5112533571D00667205 /* Build configuration list for PBXNativeTarget "Calo" */;
+			buildPhases = (
+				C6808C0391AC1D257F658A55 /* [CP] Check Pods Manifest.lock */,
+				C27BF4F92533571700667205 /* Sources */,
+				C27BF4FA2533571700667205 /* Frameworks */,
+				C27BF4FB2533571700667205 /* Resources */,
+				874AD5C1AAD8408AB66038B5 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Calo;
+			productName = Calo;
+			productReference = C27BF4FD2533571700667205 /* Calo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C27BF4F52533571700667205 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "Gladymir Philippe";
+				TargetAttributes = {
+					C27BF4FC2533571700667205 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = C27BF4F82533571700667205 /* Build configuration list for PBXProject "Calo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C27BF4F42533571700667205;
+			productRefGroup = C27BF4FE2533571700667205 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C27BF4FC2533571700667205 /* Calo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C27BF4FB2533571700667205 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C27BF50D2533571D00667205 /* LaunchScreen.storyboard in Resources */,
+				C27BF50A2533571D00667205 /* Assets.xcassets in Resources */,
+				C27BF5082533571700667205 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		874AD5C1AAD8408AB66038B5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Calo/Pods-Calo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Calo/Pods-Calo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Calo/Pods-Calo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6808C0391AC1D257F658A55 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Calo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C27BF4F92533571700667205 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C27BF5052533571700667205 /* ViewController.swift in Sources */,
+				C27BF5012533571700667205 /* AppDelegate.swift in Sources */,
+				C27BF51925335E1900667205 /* CaloTableViewController.swift in Sources */,
+				C27BF5202533869C00667205 /* Model.xcdatamodeld in Sources */,
+				C27BF5032533571700667205 /* SceneDelegate.swift in Sources */,
+				C27BF51D2533605600667205 /* CaloriesController.swift in Sources */,
+				C27BF51525335A0100667205 /* CoreDataStack.swift in Sources */,
+				C27BF51725335C8B00667205 /* Entry+Convenience.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C27BF5062533571700667205 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C27BF5072533571700667205 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C27BF50B2533571D00667205 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C27BF50C2533571D00667205 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C27BF50F2533571D00667205 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C27BF5102533571D00667205 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C27BF5122533571D00667205 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC8A3D481EA9154D54A5032 /* Pods-Calo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Calo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Glad.Calo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C27BF5132533571D00667205 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBFE7B1B47646F846DA086F7 /* Pods-Calo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Calo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Glad.Calo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C27BF4F82533571700667205 /* Build configuration list for PBXProject "Calo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C27BF50F2533571D00667205 /* Debug */,
+				C27BF5102533571D00667205 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C27BF5112533571D00667205 /* Build configuration list for PBXNativeTarget "Calo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C27BF5122533571D00667205 /* Debug */,
+				C27BF5132533571D00667205 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C27BF51E2533869C00667205 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C27BF51F2533869C00667205 /* Model.xcdatamodel */,
+			);
+			currentVersion = C27BF51F2533869C00667205 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C27BF4F52533571700667205 /* Project object */;
+}

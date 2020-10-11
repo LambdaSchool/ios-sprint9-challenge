@@ -1,0 +1,6 @@
+framework module Pods_Calo {
+  umbrella header "Pods-Calo-umbrella.h"
+
+  export *
+  module * { export * }
+}
