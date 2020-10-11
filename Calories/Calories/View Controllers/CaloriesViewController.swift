@@ -13,8 +13,9 @@ import SwiftChart
 class CaloriesViewController: UIViewController {
     
     // Outlets
-    @IBOutlet weak var tableView: UITableView!
+
     @IBOutlet weak var calorieChart: Chart!
+    @IBOutlet weak var tableView: UITableView!
     
     
     // MARK: - Properties
@@ -69,7 +70,18 @@ class CaloriesViewController: UIViewController {
                    }
                }
            }
-           calorieChart.add(ChartSeries(seriesOfDoubles))
+        
+        let seriesType = ChartSeries(seriesOfDoubles)
+        seriesType.color = ChartColors.pinkColor()
+        seriesType.area = true
+        
+        calorieChart.add(seriesType)
+        calorieChart.yLabels = [0, 250, 500, 750, 1000]
+        calorieChart.labelColor = .systemTeal
+        
+//        calorieChart.tintColor = .systemPink
+//        calorieChart.labelColor = .systemTeal
+//           calorieChart.add(ChartSeries(seriesOfDoubles))
        }
     
     
@@ -77,7 +89,7 @@ class CaloriesViewController: UIViewController {
     @IBAction func addCalorieButton(_ sender: Any) {
         
         // Create alert
-            let alert = UIAlertController(title: "Add calorie intake", message: "Enter the amount of calories", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Add calories", message: "Enter calories amount", preferredStyle: .alert)
                 
             // Add text field
             alert.addTextField { textField in
@@ -85,12 +97,12 @@ class CaloriesViewController: UIViewController {
             }
                 
             // Save button 
-            alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { _ in
+            alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { _ in
                     
                 if alert.textFields?.first?.text?.isNumeric == false {
                     self.failedToEnterCaloriesAlert()
-                    print("it's empty")
                 }
+                
                 guard let currentTextField = alert.textFields,
                     let caloriesString = currentTextField[0].text,
                     let calories = Int(caloriesString)
@@ -106,9 +118,9 @@ class CaloriesViewController: UIViewController {
         
         // Function to display alert
         func failedToEnterCaloriesAlert() {
-            let alert = UIAlertController(title: "Error Adding Calories", message: "You did not enter a number.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Error", message: "Please add the amount of calories.", preferredStyle: .alert)
             
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
             
         

@@ -60,6 +60,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8688919B2532A77F00803E0A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		86CE1E812532128F001DB3C5 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +89,7 @@
 		86CE1E8C2532128F001DB3C5 /* Calories */ = {
 			isa = PBXGroup;
 			children = (
+				8688919B2532A77F00803E0A /* Extensions */,
 				86CE1E8D2532128F001DB3C5 /* AppDelegate.swift */,
 				86CE1E8F2532128F001DB3C5 /* SceneDelegate.swift */,
 				86CE1EA425321BC8001DB3C5 /* Model */,

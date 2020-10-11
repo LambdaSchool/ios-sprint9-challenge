@@ -5,6 +5,8 @@ disabled_rules:
   - trailing_whitespace
 excluded:
 - Pods
+- Carthage
+- Swift Style Guide.playground
 - Source/ExcludedFolder
 - Source/ExcludedFile.swift
 
