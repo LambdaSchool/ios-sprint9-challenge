@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5n0-9i-VXx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -14,25 +14,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="kPP-dC-aSj" customClass="Chart" customModule="SwiftChart">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CaloriesCell" rowHeight="224" id="TbF-OR-9Rt">
-                                <rect key="frame" x="0.0" y="28" width="414" height="224"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CaloriesCell" rowHeight="39" id="TbF-OR-9Rt">
+                                <rect key="frame" x="0.0" y="148" width="414" height="39"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TbF-OR-9Rt" id="zB2-lb-UW9">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="39"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wha-Pj-pV8" customClass="Chart" customModule="SwiftChart">
-                                            <rect key="frame" x="11" y="18" width="374" height="162"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        </view>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Wha-Pj-pV8" firstAttribute="top" secondItem="zB2-lb-UW9" secondAttribute="topMargin" constant="20" id="AIe-0i-FCH"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Wha-Pj-pV8" secondAttribute="bottom" constant="20" id="NZG-2X-4sU"/>
-                                        <constraint firstItem="Wha-Pj-pV8" firstAttribute="trailing" secondItem="zB2-lb-UW9" secondAttribute="trailingMargin" id="Nx1-dE-ged"/>
-                                        <constraint firstItem="Wha-Pj-pV8" firstAttribute="leading" secondItem="zB2-lb-UW9" secondAttribute="leadingMargin" id="Tb4-At-KGI"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -47,12 +40,15 @@
                                 <rect key="frame" x="322" y="11" width="72" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="lRG-95-7vG" eventType="touchUpInside" id="MfJ-NM-noq"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <action selector="addButtonTapped:" destination="lRG-95-7vG" id="eqx-Ka-cfI"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chartView" destination="kPP-dC-aSj" id="K0P-RL-uRR"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Txq-cv-5bb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

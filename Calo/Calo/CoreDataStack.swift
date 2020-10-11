@@ -10,33 +10,34 @@ import Foundation
 import CoreData
 
 class CoreDataStack {
-    //Stactic makes it a class property
+    // MARK: - Properties
     static let shared = CoreDataStack()
-    
+
     lazy var container: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Entry")
-        container.loadPersistentStores { (_, error) in
+        let container = NSPersistentContainer(name: "Model")
+        container.loadPersistentStores { _, error in
             if let error = error {
-                fatalError("Failed to load persistance stores: \(error)")
+                fatalError("Failed to load persistence stores: \(error)")
             }
         }
         container.viewContext.automaticallyMergesChangesFromParent = true
         return container
     }()
-    
+
     var mainContext: NSManagedObjectContext {
         return container.viewContext
     }
-    
+
+    // MARK: - Method
     func save(context: NSManagedObjectContext = CoreDataStack.shared.mainContext) throws {
-        var error: Error?
         context.performAndWait {
             do {
                 try context.save()
-            } catch let saveError {
-                error = saveError
+            } catch {
+                print("Error saving to CoreData \(error)")
             }
         }
-        if let error = error { throw error }
     }
+
 }
+

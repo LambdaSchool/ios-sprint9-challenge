@@ -18,6 +18,7 @@
 		C27BF51725335C8B00667205 /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27BF51625335C8B00667205 /* Entry+Convenience.swift */; };
 		C27BF51925335E1900667205 /* CaloTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27BF51825335E1900667205 /* CaloTableViewController.swift */; };
 		C27BF51D2533605600667205 /* CaloriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27BF51C2533605600667205 /* CaloriesController.swift */; };
+		C27BF5202533869C00667205 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C27BF51E2533869C00667205 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		C27BF51625335C8B00667205 /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
 		C27BF51825335E1900667205 /* CaloTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloTableViewController.swift; sourceTree = "<group>"; };
 		C27BF51C2533605600667205 /* CaloriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesController.swift; sourceTree = "<group>"; };
+		C27BF51F2533869C00667205 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		CBFE7B1B47646F846DA086F7 /* Pods-Calo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calo.release.xcconfig"; path = "Target Support Files/Pods-Calo/Pods-Calo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				C27BF51C2533605600667205 /* CaloriesController.swift */,
+				C27BF51E2533869C00667205 /* Model.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				C27BF5052533571700667205 /* ViewController.swift in Sources */,
 				C27BF5012533571700667205 /* AppDelegate.swift in Sources */,
 				C27BF51925335E1900667205 /* CaloTableViewController.swift in Sources */,
+				C27BF5202533869C00667205 /* Model.xcdatamodeld in Sources */,
 				C27BF5032533571700667205 /* SceneDelegate.swift in Sources */,
 				C27BF51D2533605600667205 /* CaloriesController.swift in Sources */,
 				C27BF51525335A0100667205 /* CoreDataStack.swift in Sources */,
@@ -438,6 +442,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C27BF51E2533869C00667205 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C27BF51F2533869C00667205 /* Model.xcdatamodel */,
+			);
+			currentVersion = C27BF51F2533869C00667205 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C27BF4F52533571700667205 /* Project object */;
 }
