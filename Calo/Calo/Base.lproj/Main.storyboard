@@ -15,12 +15,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CaloriesCell" id="TbF-OR-9Rt">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CaloriesCell" rowHeight="224" id="TbF-OR-9Rt">
+                                <rect key="frame" x="0.0" y="28" width="414" height="224"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TbF-OR-9Rt" id="zB2-lb-UW9">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wha-Pj-pV8" customClass="Chart" customModule="SwiftChart">
+                                            <rect key="frame" x="11" y="18" width="374" height="162"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Wha-Pj-pV8" firstAttribute="top" secondItem="zB2-lb-UW9" secondAttribute="topMargin" constant="20" id="AIe-0i-FCH"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Wha-Pj-pV8" secondAttribute="bottom" constant="20" id="NZG-2X-4sU"/>
+                                        <constraint firstItem="Wha-Pj-pV8" firstAttribute="trailing" secondItem="zB2-lb-UW9" secondAttribute="trailingMargin" id="Nx1-dE-ged"/>
+                                        <constraint firstItem="Wha-Pj-pV8" firstAttribute="leading" secondItem="zB2-lb-UW9" secondAttribute="leadingMargin" id="Tb4-At-KGI"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -29,11 +41,22 @@
                             <outlet property="delegate" destination="lRG-95-7vG" id="50b-B8-Am9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Emd-Ak-jmL"/>
+                    <navigationItem key="navigationItem" id="Emd-Ak-jmL">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="pLD-Nv-sJn">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bkb-sG-h2x">
+                                <rect key="frame" x="322" y="11" width="72" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="plus" catalog="system"/>
+                            </button>
+                            <connections>
+                                <action selector="addButtonTapped:" destination="lRG-95-7vG" id="eqx-Ka-cfI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Txq-cv-5bb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1026.0869565217392" y="103.79464285714285"/>
+            <point key="canvasLocation" x="1098.5507246376812" y="59.598214285714285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kiS-L2-UIk">
@@ -54,4 +77,7 @@
             <point key="canvasLocation" x="115.94202898550725" y="103.79464285714285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+    </resources>
 </document>

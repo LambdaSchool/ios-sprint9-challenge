@@ -16,7 +16,7 @@ class CaloTableViewController: UITableViewController {
     @IBOutlet private weak var chartView: Chart!
     
     // Mark: - Properties
-    let caloriesController = caloriesController()
+    let caloriesController = CaloriesController()
     
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieEntry> = {
         let fetchRequest: NSFetchRequest<CalorieEntry> = CalorieEntry.fetchRequest()
@@ -39,25 +39,56 @@ class CaloTableViewController: UITableViewController {
     // Mark: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        NotificationCenter.default.addObserver(self, selector: #selector(updateChart(notification:)), name: .updateChart, object: nil)
+    }
+    
+    // Mark: - Methods
+    @objc func updateChart(notification: notification) {
+        et calorieChart = Chart(frame: chartView.frame)
+        var data: [Double] = []
+        for calorie in fetchedResultsController.fetchedObjects! {
+          data.append(Double(calorie.calorieAmount!) as! Double)
+        }
+        let series = ChartSeries(data)
+        series.area = true
+        calorieChart.add(series)
+        self.chartView.addSubview(calorieChart)
     }
 
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: "Add Calories", message: "Enter your calorie amount below", preferredStyle: .alert)
+            alertController.addTextField { (textField: UITextField!) -> Void in
+                textField.placeholder = "Enter Calories Here:"
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            let submitAction = UIAlertAction(title: "Add", style: .default, handler: { _ -> Void in
+                let firstTextField = alertController.textFields![0] as UITextField
+                guard let caloriesCount = firstTextField.text else { return }
+                self.caloriesController.createCalorieEntry(with: caloriesCount)
+                NotificationCenter.default.post(name: .updateChart, object: self)
+                self.tableView.reloadData()
 
+            })
+            alertController.addAction(cancelAction)
+            alertController.addAction(submitAction)
+            self.present(alertController, animated: true, completion: nil)
     }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return self.fetchedResultsController.sections?.count ?? 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return self.fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CaloriesCell", for: indexPath)
+        let calories = self.fetchedResultsController.object(at: indexPath)
+        cell.textLabel?.text = "Calories: \(calories.calorieAmount ?? "0")"
+        cell.detailTextLabel?.text = calories.dateAdded
 
         return cell
     }
