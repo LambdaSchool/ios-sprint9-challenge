@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,9 @@
 		C27BF5082533571700667205 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27BF5062533571700667205 /* Main.storyboard */; };
 		C27BF50A2533571D00667205 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C27BF5092533571D00667205 /* Assets.xcassets */; };
 		C27BF50D2533571D00667205 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27BF50B2533571D00667205 /* LaunchScreen.storyboard */; };
+		C27BF51525335A0100667205 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27BF51425335A0100667205 /* CoreDataStack.swift */; };
+		C27BF51725335C8B00667205 /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27BF51625335C8B00667205 /* Entry+Convenience.swift */; };
+		C27BF51925335E1900667205 /* CaloTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27BF51825335E1900667205 /* CaloTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		C27BF5092533571D00667205 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C27BF50C2533571D00667205 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C27BF50E2533571D00667205 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C27BF51425335A0100667205 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		C27BF51625335C8B00667205 /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
+		C27BF51825335E1900667205 /* CaloTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloTableViewController.swift; sourceTree = "<group>"; };
 		CBFE7B1B47646F846DA086F7 /* Pods-Calo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calo.release.xcconfig"; path = "Target Support Files/Pods-Calo/Pods-Calo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,7 +62,6 @@
 				BEC8A3D481EA9154D54A5032 /* Pods-Calo.debug.xcconfig */,
 				CBFE7B1B47646F846DA086F7 /* Pods-Calo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -84,6 +89,9 @@
 				C27BF5002533571700667205 /* AppDelegate.swift */,
 				C27BF5022533571700667205 /* SceneDelegate.swift */,
 				C27BF5042533571700667205 /* ViewController.swift */,
+				C27BF51425335A0100667205 /* CoreDataStack.swift */,
+				C27BF51625335C8B00667205 /* Entry+Convenience.swift */,
+				C27BF51825335E1900667205 /* CaloTableViewController.swift */,
 				C27BF5062533571700667205 /* Main.storyboard */,
 				C27BF5092533571D00667205 /* Assets.xcassets */,
 				C27BF50B2533571D00667205 /* LaunchScreen.storyboard */,
@@ -209,7 +217,10 @@
 			files = (
 				C27BF5052533571700667205 /* ViewController.swift in Sources */,
 				C27BF5012533571700667205 /* AppDelegate.swift in Sources */,
+				C27BF51925335E1900667205 /* CaloTableViewController.swift in Sources */,
 				C27BF5032533571700667205 /* SceneDelegate.swift in Sources */,
+				C27BF51525335A0100667205 /* CoreDataStack.swift in Sources */,
+				C27BF51725335C8B00667205 /* Entry+Convenience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
