@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8D-JH-foF">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8D-JH-foF" customClass="Chart" customModule="SwiftChart">
                                 <rect key="frame" x="0.0" y="140" width="414" height="217"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -88,6 +88,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="chartView" destination="b8D-JH-foF" id="HV9-l7-28v"/>
                         <outlet property="tableView" destination="bCA-16-S0h" id="Ue0-uz-RdZ"/>
                     </connections>
                 </viewController>

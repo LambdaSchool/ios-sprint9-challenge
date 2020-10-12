@@ -9,10 +9,19 @@ import UIKit
 
 class CalorieTableViewCell: UITableViewCell {
     
+    
     var calorieIntake: CalorieIntake? {
         didSet {
             updateViews()
         }
+    }
+    
+    
+    var dateAdded: String {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "MMM d Y 'at' h:mm a"
+        let date = dateformatter.string(from: (calorieIntake?.timestamp)!)
+        return date
     }
     
     // MARK: - IBOUTLETS
@@ -20,21 +29,10 @@ class CalorieTableViewCell: UITableViewCell {
     @IBOutlet weak var numberOfCaloriesLabel: UILabel!
     @IBOutlet weak var timeStampLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     private func updateViews() {
         guard let calorieIntake = calorieIntake?.calories else { return }
         numberOfCaloriesLabel.text = "\(String(calorieIntake)) Calories"
-        timeStampLabel.text = String("\(Date())")
+        timeStampLabel.text = String("\(dateAdded)")
     }
 
 }
