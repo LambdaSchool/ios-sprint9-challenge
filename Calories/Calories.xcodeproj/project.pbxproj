@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8688918825323B2700803E0A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8688918725323B2700803E0A /* .swiftlint.yml */; };
+		868891A4253406DE00803E0A /* CalorieRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868891A3253406DE00803E0A /* CalorieRepresentation.swift */; };
+		868891A725340BFD00803E0A /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868891A625340BFD00803E0A /* Notifications.swift */; };
 		86CE1E8E2532128F001DB3C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE1E8D2532128F001DB3C5 /* AppDelegate.swift */; };
 		86CE1E902532128F001DB3C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE1E8F2532128F001DB3C5 /* SceneDelegate.swift */; };
 		86CE1E952532128F001DB3C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86CE1E932532128F001DB3C5 /* Main.storyboard */; };
@@ -24,6 +26,8 @@
 /* Begin PBXFileReference section */
 		5AF9006CCEF99A9A74F300AF /* Pods_Calories.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calories.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8688918725323B2700803E0A /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		868891A3253406DE00803E0A /* CalorieRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieRepresentation.swift; sourceTree = "<group>"; };
+		868891A625340BFD00803E0A /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		86CE1E8A2532128F001DB3C5 /* Calories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CE1E8D2532128F001DB3C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86CE1E8F2532128F001DB3C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +67,7 @@
 		8688919B2532A77F00803E0A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				868891A625340BFD00803E0A /* Notifications.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -89,9 +94,9 @@
 		86CE1E8C2532128F001DB3C5 /* Calories */ = {
 			isa = PBXGroup;
 			children = (
-				8688919B2532A77F00803E0A /* Extensions */,
 				86CE1E8D2532128F001DB3C5 /* AppDelegate.swift */,
 				86CE1E8F2532128F001DB3C5 /* SceneDelegate.swift */,
+				8688919B2532A77F00803E0A /* Extensions */,
 				86CE1EA425321BC8001DB3C5 /* Model */,
 				86CE1EA525321BD5001DB3C5 /* Model Controller */,
 				86CE1EA125321A46001DB3C5 /* View Controllers */,
@@ -117,6 +122,7 @@
 				86CE1EA625321C06001DB3C5 /* CalorieCounter.xcdatamodeld */,
 				86CE1EA925321C65001DB3C5 /* CoreDataStack.swift */,
 				86CE1EAB25321CDC001DB3C5 /* Calorie+Convenience.swift */,
+				868891A3253406DE00803E0A /* CalorieRepresentation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,8 +278,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				868891A4253406DE00803E0A /* CalorieRepresentation.swift in Sources */,
 				86CE1EAA25321C65001DB3C5 /* CoreDataStack.swift in Sources */,
 				86CE1EAC25321CDC001DB3C5 /* Calorie+Convenience.swift in Sources */,
+				868891A725340BFD00803E0A /* Notifications.swift in Sources */,
 				86CE1EA325321A79001DB3C5 /* CaloriesViewController.swift in Sources */,
 				86CE1EAE25321DBC001DB3C5 /* CalorieController.swift in Sources */,
 				86CE1E8E2532128F001DB3C5 /* AppDelegate.swift in Sources */,

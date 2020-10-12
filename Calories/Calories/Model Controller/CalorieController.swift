@@ -11,42 +11,48 @@ import CoreData
 
 class CalorieController {
     
-    func createLog(amount: Int, timestamp: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
-        
-        _ = Calorie(amount: amount, timestamp: timestamp, context: context)
-        context.perform {
-            
-            do {
-                try CoreDataStack.shared.save(context: context)
-                NotificationCenter.default.post(name: .calorieChanged, object: nil)
-            } catch {
-                print("Error saving calories")
-                context.reset()
-            }
-        }
-    }//
     
     
-    func deleteLog(calorie: Calorie, context: NSManagedObjectContext = CoreDataStack.shared.mainContext, completion: @escaping (Error?) -> Void = { _ in }) {
-        context.perform {
-            do {
-                context.delete(calorie)
-                try CoreDataStack.shared.save(context: context)
-                NotificationCenter.default.post(name: .calorieChanged, object: nil)
-            } catch {
-                print("Error saving changes")
-                context.reset()
-            }
-        }
-        
-        
-    }//
     
     
+    
+    
+    
+    
+//    func createLog(amount: Int, timestamp: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+//
+//        _ = Calorie(amount: amount, timestamp: timestamp, context: context)
+//        context.perform {
+//
+//            do {
+//                try CoreDataStack.shared.save(context: context)
+//                NotificationCenter.default.post(name: .calorieChanged, object: nil)
+//            } catch {
+//                print("Error saving calories")
+//                context.reset()
+//            }
+//        }
+//    }//
+//
+//
+//    func deleteLog(calorie: Calorie, context: NSManagedObjectContext = CoreDataStack.shared.mainContext, completion: @escaping (Error?) -> Void = { _ in }) {
+//        context.perform {
+//            do {
+//                context.delete(calorie)
+//                try CoreDataStack.shared.save(context: context)
+//                NotificationCenter.default.post(name: .calorieChanged, object: nil)
+//            } catch {
+//                print("Error saving changes")
+//                context.reset()
+//            }
+//        }
+//
+//
+//    }//
+//
+//
     
     
 }// CalorieController
 
-extension Notification.Name {
-    static var calorieChanged = Notification.Name("calorieChanged")
-}
+

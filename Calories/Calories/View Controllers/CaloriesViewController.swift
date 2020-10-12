@@ -18,6 +18,7 @@ class CaloriesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     
+    
     // MARK: - Properties
     
     let calorieController = CalorieController()
@@ -51,7 +52,7 @@ class CaloriesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
- //       TableView.reloadData()
+        tableView.reloadData()
         self.viewDidLoad()
     }
     
@@ -63,10 +64,11 @@ class CaloriesViewController: UIViewController {
            calorieChart.removeAllSeries()
                
            var seriesOfDoubles: [Double] = []
+        
            for section in sections {
                if let objects = section.objects as? [Calorie] {
                    for object in objects {
-                       seriesOfDoubles.append(Double(object.amount))
+                       seriesOfDoubles.append(Double(object.calories))
                    }
                }
            }
@@ -74,7 +76,7 @@ class CaloriesViewController: UIViewController {
         let seriesType = ChartSeries(seriesOfDoubles)
         seriesType.color = ChartColors.pinkColor()
         seriesType.area = true
-        
+
         calorieChart.add(seriesType)
         calorieChart.yLabels = [0, 250, 500, 750, 1000]
         calorieChart.labelColor = .systemTeal
@@ -83,7 +85,7 @@ class CaloriesViewController: UIViewController {
 //        calorieChart.labelColor = .systemTeal
 //           calorieChart.add(ChartSeries(seriesOfDoubles))
        }
-    
+
     
     
     @IBAction func addCalorieButton(_ sender: Any) {
@@ -99,9 +101,9 @@ class CaloriesViewController: UIViewController {
             // Save button 
             alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { _ in
                     
-                if alert.textFields?.first?.text?.isNumeric == false {
-                    self.failedToEnterCaloriesAlert()
-                }
+//                if alert.textFields?.first?.text?.isNumeric == false {
+//                    self.failedToEnterCaloriesAlert()
+//                }
                 
                 guard let currentTextField = alert.textFields,
                     let caloriesString = currentTextField[0].text,
@@ -110,7 +112,8 @@ class CaloriesViewController: UIViewController {
                         return
                 }
                 // Create calories from given value
-                self.calorieController.createLog(amount: calories)
+                self.saveCalorie(calories)
+                self.tableView.reloadData()
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
             present(alert, animated: true, completion: nil)
@@ -126,6 +129,17 @@ class CaloriesViewController: UIViewController {
         
     }// addCalorieButton
     
+    
+    private func saveCalorie(_ calories: Int) {
+        let calorie = Calorie(calories: calories)
+        do {
+            try CoreDataStack.shared.mainContext.save()
+        } catch {
+            NSLog("Error saving managed object: \(error)")
+        }
+    }
+    
+    
 
 } // CaloriesViewController
 
@@ -137,31 +151,48 @@ extension CaloriesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: .calorieCell, for: indexPath)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieCell", for: indexPath)
+        
         let calorie = fetchedResultsController.object(at: indexPath)
+        
         guard let timestamp = calorie.timestamp else {
             return UITableViewCell()
         }
             let dateFormatter = DateFormatter()
-            
+
             dateFormatter.dateFormat = "MMMM dd, yyyy h:mm a"
-            cell.textLabel?.text = "\(calorie.amount) Cals"
+            cell.textLabel?.text = "\(calorie.calories) Cals"
             cell.detailTextLabel?.text = dateFormatter.string(from: timestamp)
+        
             return cell
         
     }
     
-    func tableView(_ tableView: UITableView,
-                   commit editingStyle: UITableViewCell.EditingStyle,
-                   forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             let calorie = fetchedResultsController.object(at: indexPath)
-            calorieController.deleteLog(calorie: calorie) { _ in
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+            let moc = CoreDataStack.shared.mainContext
+            moc.delete(calorie)
+            
+            do {
+                try moc.save()
+            } catch {
+                moc.reset()
+                NSLog("Error saving managed object: \(error)")
             }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
+//            calorieController.deleteLog(calorie: calorie) { _ in
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
+//            }
+            
         }
     }
     
@@ -226,12 +257,12 @@ extension String {
     static var calorieCell = "CalorieCell"
     static var timeStamp = "timestamp"
 }
-
-
-extension String {
-    var isNumeric: Bool {
-        guard self.count > 0 else { return false }
-        let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-        return Set(self).isSubset(of: nums)
-    }
-}
+//
+//
+//extension String {
+//    var isNumeric: Bool {
+//        guard self.count > 0 else { return false }
+//        let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+//        return Set(self).isSubset(of: nums)
+//    }
+//}
