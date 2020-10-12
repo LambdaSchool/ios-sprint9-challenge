@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CalorieTrackRViewController: UIViewController {
     
@@ -13,6 +14,20 @@ class CalorieTrackRViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: - Properties
+    var calorieIntakeArray: [CalorieIntake] {
+        let fetchRequest: NSFetchRequest<CalorieIntake> = CalorieIntake.fetchRequest()
+        let context = CoreDataStack.shared.mainContext
+        do {
+            return try context.fetch(fetchRequest)
+        } catch {
+            print("error")
+            return []
+        }
+        
+    }
+    
+    
+    
     
     
     override func viewDidLoad() {
@@ -21,39 +36,54 @@ class CalorieTrackRViewController: UIViewController {
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.reloadData()
     }
-    
 
     @IBAction func addTapped(_ sender: Any) {
         showTextViewAlert()
     }
      
-   @objc func showTextViewAlert() {
-        let alertView = UIAlertController(title: "Add Calorie Intake", message: "Enter The Amount OF Calories In The Field", preferredStyle: .alert)
+    @objc func showTextViewAlert() {
+        let alertView = UIAlertController(title: "Add Calorie Intake", message: "Enter The Amount Of Calories In The Field", preferredStyle: .alert)
         alertView.addTextField(configurationHandler: nil)
         alertView.textFields![0].placeholder = "Calories"
         alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alertView.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
-        print(alertView.textFields![0].text!)
-        }))
+            //TODO
+            guard let calorieInput = alertView.textFields![0].text, !calorieInput.isEmpty else { return }
+            let date = Date()
+            print(date)
+            print("DONE WAS TAPPED! ENTERED \(calorieInput) CALORIES AT \(Date())")
+            CalorieIntake(calories: calorieInput, timestamp: date)
+            self.tableView.reloadData()
+            
+            do {
+                try CoreDataStack.shared.mainContext.save()
+            } catch {
+                print("error try to save")
+            }
+            
+            
         
+    }  ))
         self.present(alertView, animated: true, completion: nil)
-    
+        
     }
     
     
-
 }
 
 extension CalorieTrackRViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
+        calorieIntakeArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-                
-                return cell!
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CalorieTableViewCell else { fatalError() }
+        cell.calorieIntake = calorieIntakeArray[indexPath.row]
+        
+        
+        return cell
     }
     
     

@@ -9,6 +9,12 @@ import UIKit
 
 class CalorieTableViewCell: UITableViewCell {
     
+    var calorieIntake: CalorieIntake? {
+        didSet {
+            updateViews()
+        }
+    }
+    
     // MARK: - IBOUTLETS
     
     @IBOutlet weak var numberOfCaloriesLabel: UILabel!
@@ -23,6 +29,12 @@ class CalorieTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    private func updateViews() {
+        guard let calorieIntake = calorieIntake?.calories else { return }
+        numberOfCaloriesLabel.text = "\(String(calorieIntake)) Calories"
+        timeStampLabel.text = String("\(Date())")
     }
 
 }

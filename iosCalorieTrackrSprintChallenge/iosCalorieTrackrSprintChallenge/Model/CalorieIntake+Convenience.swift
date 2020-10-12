@@ -9,11 +9,12 @@ import Foundation
 import CoreData
 
 extension CalorieIntake {
-    var calorieIntakeRepresentation: CalorieIntakeRepresentation? {
-        guard let calories = calories,
-              let timestamp = timestamp
-        else { return nil }
-        
-        return CalorieIntakeRepresentation(calories: calories, timestamp: timestamp)
+    
+    @discardableResult convenience init(calories: String,
+                                     timestamp: Date,
+                                     context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        self.init(context: context)
+        self.calories = calories
+        self.timestamp = timestamp
     }
 }
