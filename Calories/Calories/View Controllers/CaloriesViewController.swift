@@ -21,13 +21,11 @@ class CaloriesViewController: UIViewController {
     
     // MARK: - Properties
     
-//    let calorieController = CalorieController()
-    
     
     lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
             
         let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: .timeStamp, ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
                                              managedObjectContext: moc,
@@ -73,17 +71,17 @@ class CaloriesViewController: UIViewController {
                }
            }
         
-//        let seriesType = ChartSeries(seriesOfDoubles)
-//        seriesType.color = ChartColors.pinkColor()
-//        seriesType.area = true
-//
-//        calorieChart.add(seriesType)
-//        calorieChart.yLabels = [0, 250, 500, 750, 1000]
-//        calorieChart.labelColor = .systemTeal
-        
-        calorieChart.tintColor = .systemPink
+        let seriesType = ChartSeries(seriesOfDoubles)
+        seriesType.color = ChartColors.pinkColor()
+        seriesType.area = true
+
+        calorieChart.add(seriesType)
+        calorieChart.yLabels = [0, 250, 500, 750, 1000]
         calorieChart.labelColor = .systemTeal
-           calorieChart.add(ChartSeries(seriesOfDoubles))
+        
+//        calorieChart.tintColor = .systemPink
+//        calorieChart.labelColor = .systemTeal
+//           calorieChart.add(ChartSeries(seriesOfDoubles))
        }
 
     
@@ -100,10 +98,6 @@ class CaloriesViewController: UIViewController {
                 
             // Save button 
             alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { _ in
-                    
-//                if alert.textFields?.first?.text?.isNumeric == false {
-//                    self.failedToEnterCaloriesAlert()
-//                }
                 
                 guard let currentTextField = alert.textFields,
                     let caloriesString = currentTextField[0].text,
@@ -188,13 +182,6 @@ extension CaloriesViewController: UITableViewDataSource, UITableViewDelegate {
                 self.tableView.reloadData()
                 self.updateViews()
             }
-            
-//            calorieController.deleteLog(calorie: calorie) { _ in
-//                DispatchQueue.main.async {
-//                    self.tableView.reloadData()
-//                }
-//            }
-            
         }
     }
     
@@ -251,20 +238,6 @@ extension CaloriesViewController: NSFetchedResultsControllerDelegate {
             break
         }
     }
-}
+}//
 
 
-
-extension String {
-    static var calorieCell = "CalorieCell"
-    static var timeStamp = "timestamp"
-}
-//
-//
-//extension String {
-//    var isNumeric: Bool {
-//        guard self.count > 0 else { return false }
-//        let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-//        return Set(self).isSubset(of: nums)
-//    }
-//}
