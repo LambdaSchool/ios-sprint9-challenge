@@ -1,0 +1,12 @@
+
+# platform :ios, '9.0'
+
+target 'iosCalorieTrackrSprintChallenge' do
+ use_frameworks!
+
+
+pod "SwiftChart", :git => 'https://github.com/gpbl/SwiftChart', :branch => 'master'
+
+  
+
+end
