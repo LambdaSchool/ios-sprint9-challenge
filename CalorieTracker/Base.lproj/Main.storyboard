@@ -73,6 +73,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="CEa-cI-ZHq"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="U2P-ir-xIL"/>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OSc-oJ-muI" customClass="Chart" customModule="SwiftChart">

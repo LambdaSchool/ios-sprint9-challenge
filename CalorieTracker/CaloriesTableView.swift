@@ -9,10 +9,13 @@ import UIKit
 
 class CaloriesTableView: UITableView {
     
-    let caloriesController = CaloriesController()
+    var caloriesController: CaloriesController?
     
     override func numberOfRows(inSection section: Int) -> Int {
-        caloriesController.calories.count
+        if let controller = caloriesController {
+            return controller.calories.count
+        }
+        return 0
     }
     
     override func cellForRow(at indexPath: IndexPath) -> UITableViewCell? {

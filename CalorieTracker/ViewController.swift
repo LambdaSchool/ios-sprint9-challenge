@@ -10,20 +10,28 @@ import SwiftChart
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var dataChart: Chart!
-    @IBOutlet weak var dataTable: CaloriesTableView!
+    @IBOutlet private weak var dataChart: Chart!
+    @IBOutlet private weak var dataTable: CaloriesTableView!
+    
+    var caloriesController = CaloriesController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .showNewData, object: nil)
+        dataTable.caloriesController = caloriesController
         updateViews()
     }
     
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
+        alert.addTextField { (alertText) in
+            alertText.text = "Calories:"
+        }
     }
     
     @IBAction func dataChanged(_ sender: Chart) {
+        
     }
     
     @objc func updateViews() {
