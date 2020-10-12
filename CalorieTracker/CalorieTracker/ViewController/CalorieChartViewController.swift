@@ -10,11 +10,24 @@ import SwiftChart
 
 class CalorieChartViewController: UIViewController, ChartDelegate {
   
-    // IBOutlets
+//  MARK: - Properties
+    var calorieLog: LogRepresentation?
+    
+//  MARK: - IBOutlets
    
     @IBOutlet weak var graphView: Chart!
     
-    var selectedChart = 0
+    @IBOutlet weak var AddCaloriesTextView: UITextField!
+    
+//   MARK: - Actions
+    
+    @IBAction func AddCalorieLog(_ sender: Any) {
+        guard let newLog = calorieLog else { return }
+        CalorieLog(representation: newLog)
+        try? CoreDataStack.shared.save()
+    }
+    
+    var selectedChart = 2
     
     override func viewDidLoad() {
         
@@ -121,3 +134,4 @@ class CalorieChartViewController: UIViewController, ChartDelegate {
         graphView.setNeedsDisplay()
         
     }}
+

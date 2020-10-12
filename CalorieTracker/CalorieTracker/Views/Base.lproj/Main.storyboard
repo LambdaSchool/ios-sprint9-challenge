@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IYT-yE-iue">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IYT-yE-iue" customClass="CalorieLogTableView" customModule="CalorieTracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="394" width="414" height="502"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -76,6 +76,9 @@
                                         <state key="normal" title="Submit">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="AddCalorieLog:" destination="PJl-cC-Y1u" eventType="touchUpInside" id="H9C-b5-pbX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -108,6 +111,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Calorie Tracker" id="fhk-8B-BCm"/>
                     <connections>
+                        <outlet property="AddCaloriesTextView" destination="Gek-fF-Vdr" id="jAJ-JE-H9G"/>
                         <outlet property="graphView" destination="c14-UG-hPq" id="Kkv-jB-jtH"/>
                     </connections>
                 </viewController>
