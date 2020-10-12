@@ -6,11 +6,29 @@
 //
 
 import UIKit
+import SwiftChart
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var dataChart: Chart!
+    @IBOutlet weak var dataTable: CaloriesTableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .showNewData, object: nil)
+        updateViews()
     }
+    
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+    }
+    
+    @IBAction func dataChanged(_ sender: Chart) {
+    }
+    
+    @objc func updateViews() {
+        let chart = Chart(frame: dataChart.frame)
+        dataTable.reloadData()
+    }
+    
 }

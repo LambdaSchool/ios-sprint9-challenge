@@ -20,7 +20,11 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                                 <items>
                                     <navigationItem title="Calorie Tracker" id="9Yc-xr-Umd">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="rXj-QV-xCY"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="rXj-QV-xCY">
+                                            <connections>
+                                                <action selector="addButtonTapped:" destination="BYZ-38-t0r" id="nRY-Hy-05S"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -67,6 +71,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="CEa-cI-ZHq"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OSc-oJ-muI" customClass="Chart" customModule="SwiftChart">
                                 <rect key="frame" x="0.0" y="140" width="414" height="227"/>
@@ -74,6 +81,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="227" id="iOL-fb-OGe"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="dataChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="JRh-YZ-Aiy"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -91,6 +101,10 @@
                             <constraint firstItem="HF1-fT-x4m" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sGM-7h-Z6P"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dataChart" destination="OSc-oJ-muI" id="F5n-rL-7Cs"/>
+                        <outlet property="dataTable" destination="HF1-fT-x4m" id="eWn-oD-TCP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -21,14 +21,15 @@ class CaloriesTableViewCell: UITableViewCell {
     var formatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
-        formatter.dateFormat = "MMM dd, yy HH:mm:ss a "
+        formatter.dateFormat = "MMM dd, yy HH:mm:ss a"
         return formatter
     }
 
     func updateViews() {
-        if let num = numCalories {
+        if let num = numCalories,
+           let stamp = num.timestamp {
             calories.text = "Calories: \(num.intake)"
-            timestamp.text = formatter.string(from: num.timestamp ?? Date())
+            timestamp.text = formatter.string(from: stamp)
         }
     }
 
