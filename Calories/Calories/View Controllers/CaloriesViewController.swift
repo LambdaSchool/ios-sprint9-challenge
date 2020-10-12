@@ -73,17 +73,17 @@ class CaloriesViewController: UIViewController {
                }
            }
         
-        let seriesType = ChartSeries(seriesOfDoubles)
-        seriesType.color = ChartColors.pinkColor()
-        seriesType.area = true
-
-        calorieChart.add(seriesType)
-        calorieChart.yLabels = [0, 250, 500, 750, 1000]
-        calorieChart.labelColor = .systemTeal
-        
-//        calorieChart.tintColor = .systemPink
+//        let seriesType = ChartSeries(seriesOfDoubles)
+//        seriesType.color = ChartColors.pinkColor()
+//        seriesType.area = true
+//
+//        calorieChart.add(seriesType)
+//        calorieChart.yLabels = [0, 250, 500, 750, 1000]
 //        calorieChart.labelColor = .systemTeal
-//           calorieChart.add(ChartSeries(seriesOfDoubles))
+        
+        calorieChart.tintColor = .systemPink
+        calorieChart.labelColor = .systemTeal
+           calorieChart.add(ChartSeries(seriesOfDoubles))
        }
 
     
@@ -114,6 +114,7 @@ class CaloriesViewController: UIViewController {
                 // Create calories from given value
                 self.saveCalorie(calories)
                 self.tableView.reloadData()
+                self.updateViews()
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
             present(alert, animated: true, completion: nil)
