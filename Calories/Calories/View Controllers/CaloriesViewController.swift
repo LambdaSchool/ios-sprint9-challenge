@@ -21,7 +21,7 @@ class CaloriesViewController: UIViewController {
     
     // MARK: - Properties
     
-    let calorieController = CalorieController()
+//    let calorieController = CalorieController()
     
     
     lazy var fetchedResultsController: NSFetchedResultsController<Calorie> = {
@@ -186,6 +186,7 @@ extension CaloriesViewController: UITableViewDataSource, UITableViewDelegate {
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.updateViews()
             }
             
 //            calorieController.deleteLog(calorie: calorie) { _ in
