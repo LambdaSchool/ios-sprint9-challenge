@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  SprintCalorieTracker
+//  CalorieTracker
 //
 //  Created by Zachary Thacker on 10/11/20.
 //
