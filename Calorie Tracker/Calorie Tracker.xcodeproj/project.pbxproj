@@ -11,9 +11,15 @@
 		846E70952533F63A0029DDD8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E70942533F63A0029DDD8 /* ContentView.swift */; };
 		846E70972533F63B0029DDD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846E70962533F63B0029DDD8 /* Assets.xcassets */; };
 		846E709A2533F63B0029DDD8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846E70992533F63B0029DDD8 /* Preview Assets.xcassets */; };
-		846E70A52533F63B0029DDD8 /* Calorie_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E70A42533F63B0029DDD8 /* Calorie_TrackerTests.swift */; };
 		846E70B02533F63B0029DDD8 /* Calorie_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E70AF2533F63B0029DDD8 /* Calorie_TrackerUITests.swift */; };
 		846E70C52533FAA50029DDD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846E70C42533FAA50029DDD8 /* Main.storyboard */; };
+		846E70CA2533FD5D0029DDD8 /* SwiftChart-1.0.0 in Resources */ = {isa = PBXBuildFile; fileRef = 846E70C92533FD5D0029DDD8 /* SwiftChart-1.0.0 */; };
+		846E70CF2533FEEF0029DDD8 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 846E70CE2533FEEF0029DDD8 /* .swiftlint.yml */; };
+		846E70E42534003E0029DDD8 /* Calorie_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E70A42533F63B0029DDD8 /* Calorie_TrackerTests.swift */; };
+		846E70E82534003F0029DDD8 /* Calorie_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E70A42533F63B0029DDD8 /* Calorie_TrackerTests.swift */; };
+		846E70EC253400400029DDD8 /* Calorie_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E70A42533F63B0029DDD8 /* Calorie_TrackerTests.swift */; };
+		846E7104253402420029DDD8 /* Model.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 846E7102253402420029DDD8 /* Model.xcdatamodel */; };
+		846E71092534034A0029DDD8 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E71082534034A0029DDD8 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +53,10 @@
 		846E70AF2533F63B0029DDD8 /* Calorie_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calorie_TrackerUITests.swift; sourceTree = "<group>"; };
 		846E70B12533F63B0029DDD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		846E70C42533FAA50029DDD8 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		846E70C92533FD5D0029DDD8 /* SwiftChart-1.0.0 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "SwiftChart-1.0.0"; path = "../../../../../../Downloads/SwiftChart-1.0.0"; sourceTree = "<group>"; };
+		846E70CE2533FEEF0029DDD8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		846E7103253402420029DDD8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		846E71082534034A0029DDD8 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,9 +110,13 @@
 				846E70922533F63A0029DDD8 /* Calorie_TrackerApp.swift */,
 				846E70942533F63A0029DDD8 /* ContentView.swift */,
 				846E70C42533FAA50029DDD8 /* Main.storyboard */,
+				846E70CE2533FEEF0029DDD8 /* .swiftlint.yml */,
+				846E70C92533FD5D0029DDD8 /* SwiftChart-1.0.0 */,
 				846E70962533F63B0029DDD8 /* Assets.xcassets */,
 				846E709B2533F63B0029DDD8 /* Info.plist */,
 				846E70982533F63B0029DDD8 /* Preview Content */,
+				846E7102253402420029DDD8 /* Model.xcdatamodel */,
+				846E71082534034A0029DDD8 /* CoreDataStack.swift */,
 			);
 			path = "Calorie Tracker";
 			sourceTree = "<group>";
@@ -237,7 +251,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846E70CF2533FEEF0029DDD8 /* .swiftlint.yml in Resources */,
 				846E70C52533FAA50029DDD8 /* Main.storyboard in Resources */,
+				846E70CA2533FD5D0029DDD8 /* SwiftChart-1.0.0 in Resources */,
 				846E709A2533F63B0029DDD8 /* Preview Assets.xcassets in Resources */,
 				846E70972533F63B0029DDD8 /* Assets.xcassets in Resources */,
 			);
@@ -284,8 +300,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846E71092534034A0029DDD8 /* CoreDataStack.swift in Sources */,
+				846E70E42534003E0029DDD8 /* Calorie_TrackerTests.swift in Sources */,
 				846E70952533F63A0029DDD8 /* ContentView.swift in Sources */,
 				846E70932533F63A0029DDD8 /* Calorie_TrackerApp.swift in Sources */,
+				846E7104253402420029DDD8 /* Model.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				846E70A52533F63B0029DDD8 /* Calorie_TrackerTests.swift in Sources */,
+				846E70E82534003F0029DDD8 /* Calorie_TrackerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846E70EC253400400029DDD8 /* Calorie_TrackerTests.swift in Sources */,
 				846E70B02533F63B0029DDD8 /* Calorie_TrackerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -605,6 +625,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		846E7102253402420029DDD8 /* Model.xcdatamodel */ = {
+			isa = XCVersionGroup;
+			children = (
+				846E7103253402420029DDD8 /* Model.xcdatamodel */,
+			);
+			currentVersion = 846E7103253402420029DDD8 /* Model.xcdatamodel */;
+			path = Model.xcdatamodel;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 846E70872533F63A0029DDD8 /* Project object */;
 }
