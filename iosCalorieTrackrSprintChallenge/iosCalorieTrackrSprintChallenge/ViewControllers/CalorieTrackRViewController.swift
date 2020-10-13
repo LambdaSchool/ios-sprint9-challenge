@@ -18,7 +18,11 @@ class CalorieTrackRViewController: UIViewController {
     
     
     
+    
+    
     //MARK: - Properties
+    
+    
     var calorieIntakeArray: [CalorieIntake] {
         let fetchRequest: NSFetchRequest<CalorieIntake> = CalorieIntake.fetchRequest()
         let context = CoreDataStack.shared.mainContext
@@ -30,12 +34,16 @@ class CalorieTrackRViewController: UIViewController {
         }
     }
     
+    let series = ChartSeries([1,2,3])
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()
+        
+        chartView.add(series)
     }
     
     //    MARK: - Functions

@@ -22,6 +22,7 @@
 		7C58C8E925323A7300FC9DB3 /* CalorieTrackRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58C8E825323A7300FC9DB3 /* CalorieTrackRViewController.swift */; };
 		7C58C8ED2533AC6200FC9DB3 /* CalorieIntakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58C8EC2533AC6200FC9DB3 /* CalorieIntakeController.swift */; };
 		7CB54B3B2535203200B12ABD /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB54B3A2535203200B12ABD /* Notifications.swift */; };
+		7CB54B41253548DB00B12ABD /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 7CB54B40253548DB00B12ABD /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		7C58C8E825323A7300FC9DB3 /* CalorieTrackRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackRViewController.swift; sourceTree = "<group>"; };
 		7C58C8EC2533AC6200FC9DB3 /* CalorieIntakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeController.swift; sourceTree = "<group>"; };
 		7CB54B3A2535203200B12ABD /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		7CB54B40253548DB00B12ABD /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		7C58C89D2532182500FC9DB3 = {
 			isa = PBXGroup;
 			children = (
+				7CB54B40253548DB00B12ABD /* .swiftlint.yml */,
 				7C58C8A82532182500FC9DB3 /* iosCalorieTrackrSprintChallenge */,
 				7C58C8A72532182500FC9DB3 /* Products */,
 				101208988A194B301CF37211 /* Pods */,
@@ -167,6 +170,7 @@
 				7C58C8A32532182500FC9DB3 /* Frameworks */,
 				7C58C8A42532182500FC9DB3 /* Resources */,
 				C4AD9FE6EBA0BE8DF1002A33 /* [CP] Embed Pods Frameworks */,
+				7CB54B4925354A8300B12ABD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -214,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CB54B41253548DB00B12ABD /* .swiftlint.yml in Resources */,
 				7C58C8B62532182600FC9DB3 /* LaunchScreen.storyboard in Resources */,
 				7C58C8B32532182600FC9DB3 /* Assets.xcassets in Resources */,
 				7C58C8B12532182500FC9DB3 /* Main.storyboard in Resources */,
@@ -223,6 +228,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		7CB54B4925354A8300B12ABD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		BFB4DA51E2A4E5725DC895F6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

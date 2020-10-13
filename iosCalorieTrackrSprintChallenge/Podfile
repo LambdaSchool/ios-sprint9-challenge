@@ -7,6 +7,7 @@ target 'iosCalorieTrackrSprintChallenge' do
 
 pod "SwiftChart", :git => 'https://github.com/gpbl/SwiftChart', :branch => 'master'
 
+
   
 
 end
