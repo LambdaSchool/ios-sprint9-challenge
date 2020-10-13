@@ -6,9 +6,14 @@
 //
 
 import UIKit
+import CoreData
 
 
 class CalorieTrackerTableViewController: UITableViewController {
+    
+    let userController = UserController()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

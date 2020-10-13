@@ -9,31 +9,32 @@ import Foundation
 import CoreData
 
 extension Users {
-
-//     Getting a representation from a task
+    
     var userRepresentation: UserRepresentation? {
-        guard let time = time else { return nil }
-
-        return UserRepresentation(calories: calories,
-                                  time: time)
+        
+        return UserRepresentation(id: id?.uuidString ?? "",
+                                  calories: calories,
+                                  time: time ?? Date())
     }
-
-    @discardableResult convenience init(identifier: UUID = UUID(),
-                                        calories: Double,
+    
+    @discardableResult convenience init(id: UUID = UUID(),
                                         time: Date,
+                                        calories: Double,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext
     ) {
         self.init(context: context)
-        self.calories = calories
-        self.time = time// it defualts to the case value as a string value
+        self.id = id
+        self.time = time
     }
-
-
-    // Turn Task rep into a Task object
-    @discardableResult convenience init?(userRespresentation: UserRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
     
-        self.init(calories: userRespresentation.calories,
+    @discardableResult convenience init?(userRespresentation: UserRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        
+        guard let id = UUID(uuidString: userRespresentation.id) else { return nil }
+        
+        self.init(id: id,
                   time: userRespresentation.time,
+                  calories: userRespresentation.calories,
                   context: context)
     }
 }
+

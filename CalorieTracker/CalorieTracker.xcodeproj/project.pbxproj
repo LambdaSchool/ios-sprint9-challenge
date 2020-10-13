@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D45E5383820DAA526E3F8DE /* Pods_CalorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3C26475735E44AA064C840 /* Pods_CalorieTracker.framework */; };
+		22103AF625352FBF0096C0A8 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22103AF525352FBF0096C0A8 /* UserController.swift */; };
 		221A72DF25340AAE0080E16A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A72DE25340AAE0080E16A /* CoreDataStack.swift */; };
 		221A72E225340B290080E16A /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A72E125340B290080E16A /* User+Convenience.swift */; };
 		221A72E525340D2C0080E16A /* UserRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A72E425340D2C0080E16A /* UserRepresentation.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22103AF525352FBF0096C0A8 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		221A72DE25340AAE0080E16A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		221A72E125340B290080E16A /* User+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Convenience.swift"; sourceTree = "<group>"; };
 		221A72E425340D2C0080E16A /* UserRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepresentation.swift; sourceTree = "<group>"; };
@@ -57,6 +59,14 @@
 				9CA2EFAE6B947A15B6B22BB1 /* Pods-CalorieTracker.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		22103AF425352F950096C0A8 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				22103AF525352FBF0096C0A8 /* UserController.swift */,
+			);
+			path = "Model Controller";
 			sourceTree = "<group>";
 		};
 		221A72E72534126A0080E16A /* Application */ = {
@@ -97,15 +107,24 @@
 		2223BBF625321A1A00D7424D /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
+				22103AF425352F950096C0A8 /* Model Controller */,
 				22F3810925329F44005C1366 /* Core Data */,
 				221A72E72534126A0080E16A /* Application */,
 				221A72E92534128A0080E16A /* View Controllers */,
-				2223BBFD25321A1A00D7424D /* Main.storyboard */,
+				2270F32A2535502000F99FA1 /* Views */,
 				2223BC0025321A1B00D7424D /* Assets.xcassets */,
 				2223BC0225321A1B00D7424D /* LaunchScreen.storyboard */,
 				2223BC0525321A1B00D7424D /* Info.plist */,
 			);
 			path = CalorieTracker;
+			sourceTree = "<group>";
+		};
+		2270F32A2535502000F99FA1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2223BBFD25321A1A00D7424D /* Main.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		22F3810925329F44005C1366 /* Core Data */ = {
@@ -243,6 +262,7 @@
 			files = (
 				221A72DF25340AAE0080E16A /* CoreDataStack.swift in Sources */,
 				221A72E525340D2C0080E16A /* UserRepresentation.swift in Sources */,
+				22103AF625352FBF0096C0A8 /* UserController.swift in Sources */,
 				22F3810725329F2F005C1366 /* User.xcdatamodeld in Sources */,
 				221A72E225340B290080E16A /* User+Convenience.swift in Sources */,
 				22BED49625326E3400E74DCA /* CalorieTrackerTableViewController.swift in Sources */,
