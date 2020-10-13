@@ -27,8 +27,8 @@ class CalorieTableViewCell: UITableViewCell {
     
     // MARK: - IBOUTLETS
     
-    @IBOutlet weak var numberOfCaloriesLabel: UILabel!
-    @IBOutlet weak var timeStampLabel: UILabel!
+    @IBOutlet private weak var numberOfCaloriesLabel: UILabel!
+    @IBOutlet private weak var timeStampLabel: UILabel!
     
     // MARK: - Functions
     
@@ -50,5 +50,3 @@ class CalorieTableViewCell: UITableViewCell {
     
 
 }
-
-

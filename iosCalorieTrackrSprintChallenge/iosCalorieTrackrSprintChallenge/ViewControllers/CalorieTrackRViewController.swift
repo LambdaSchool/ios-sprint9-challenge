@@ -12,15 +12,15 @@ import SwiftChart
 
 class CalorieTrackRViewController: UIViewController {
     
-    //MARK: - IBoutlets
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var chartView: Chart!
+    // MARK: - IBoutlets
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var chartView: Chart!
     
     
     
     
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     
     var calorieIntakeArray: [CalorieIntake] {
@@ -34,7 +34,7 @@ class CalorieTrackRViewController: UIViewController {
         }
     }
     
-    let series = ChartSeries([1,2,3])
+    let series = ChartSeries([1, 2, 3])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,7 @@ class CalorieTrackRViewController: UIViewController {
         chartView.add(series)
     }
     
-    //    MARK: - Functions
+    // MARK: - Functions
     
     @IBAction func addTapped(_ sender: Any) {
         showTextViewAlert()
@@ -58,7 +58,7 @@ class CalorieTrackRViewController: UIViewController {
         alertView.addTextField(configurationHandler: nil)
         alertView.textFields![0].placeholder = "Calories"
         alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alertView.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
+        alertView.addAction(UIAlertAction(title: "Done", style: .default, handler: { _ in
             
             NotificationCenter.default.post(name: .doneWasTapped, object: nil)
             //TODO: NOTIFICATION PATTERN- This is probably where we would send a Notification.default.post, who would be the observers?
@@ -76,7 +76,8 @@ class CalorieTrackRViewController: UIViewController {
             } catch {
                 print("error try to save")
             }
-        }  ))
+        }
+        ))
         let textfield = alertView.textFields![0] as UITextField
         textfield.keyboardType = UIKeyboardType.numberPad
         
@@ -103,12 +104,8 @@ extension CalorieTrackRViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CalorieTableViewCell else { fatalError() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CalorieTableViewCell else { fatalError("error") }
         cell.calorieIntake = calorieIntakeArray[indexPath.row]
         return cell
     }
-    
-    
 }
-
-
