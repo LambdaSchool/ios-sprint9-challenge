@@ -29,8 +29,10 @@ class CalorieController {
             do {
                 context.delete(calories)
                 try CoreDataStack.shared.save(context: context)
+                completion(nil)
             } catch {
                 NSLog("\(error)")
+                completion(error)
             }
         }
     }

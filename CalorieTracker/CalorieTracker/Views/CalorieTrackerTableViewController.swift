@@ -96,7 +96,7 @@ class CalorieTrackerTableViewController: UITableViewController {
             let calories = fetchedResultsController.object(at: indexPath)
             controller.removeCalories(calories: calories) { _ in
                 DispatchQueue.main.async {
-                    tableView.reloadData()
+                    self.updateViews()
                 }
             }
         }
@@ -113,7 +113,9 @@ extension CalorieTrackerTableViewController {
             }
         }
         
+        
         let updatedChart = ChartSeries(double)
+        chart.removeAllSeries()
         chart.add(updatedChart)
         updatedChart.color = ChartColors.yellowColor()
     }
