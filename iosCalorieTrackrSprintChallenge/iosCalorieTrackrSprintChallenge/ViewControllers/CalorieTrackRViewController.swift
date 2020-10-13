@@ -16,12 +16,7 @@ class CalorieTrackRViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var chartView: Chart!
     
-    
-    
-    
-    
     // MARK: - Properties
-    
     
     var calorieIntakeArray: [CalorieIntake] {
         let fetchRequest: NSFetchRequest<CalorieIntake> = CalorieIntake.fetchRequest()
@@ -34,7 +29,17 @@ class CalorieTrackRViewController: UIViewController {
         }
     }
     
-    let series = ChartSeries([1, 2, 3])
+    // MARK: - Chart Implementation
+    var caloriesAdded: CalorieIntake?
+    var calories: [CalorieIntake] = []
+    var chartNumbers: [Double] = []
+    
+    func setupChart() {
+        chartView.axesColor = .systemTeal
+        chartView.gridColor = .systemRed
+        chartView.backgroundColor = .systemBackground
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +47,19 @@ class CalorieTrackRViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()
+        setupChart()
+        createObserver()
         
-        chartView.add(series)
+    }
+    
+    // MARK: - Observer
+    func createObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(notification:)), name: .doneWasTapped, object: nil)
+        print("OBSERVING")
+    }
+   
+    @objc func refreshViews(notification: Notification) {
+        tableView.reloadData()
     }
     
     // MARK: - Functions
@@ -61,15 +77,17 @@ class CalorieTrackRViewController: UIViewController {
         alertView.addAction(UIAlertAction(title: "Done", style: .default, handler: { _ in
             
             NotificationCenter.default.post(name: .doneWasTapped, object: nil)
-            //TODO: NOTIFICATION PATTERN- This is probably where we would send a Notification.default.post, who would be the observers?
-            // OBSERVERS - table viewa(cellForRowAt?) and chart
+            
             guard let calorieInput = Double(alertView.textFields![0].text!), !calorieInput.isZero else { return }
             let date = Date()
-            print(date)
             print("DONE WAS TAPPED! ENTERED \(calorieInput) CALORIES AT \(Date())")
-            CalorieIntake(calories: Double(calorieInput), timestamp: date)
+            
+            let calorie = CalorieIntake(calories: Double(calorieInput), timestamp: date)
             self.tableView.reloadData()
-            self.updateChart()
+            let calorieNumber = calorie.calories
+            self.chartNumbers.append(calorieNumber)
+            let series = ChartSeries(self.chartNumbers)
+            self.chartView.add(series)
             
             do {
                 try CoreDataStack.shared.mainContext.save()
@@ -83,18 +101,7 @@ class CalorieTrackRViewController: UIViewController {
         
         self.present(alertView, animated: true, completion: nil)
     }
-    
-    
-    
-    @objc func updateChart() {
-        //let calorieChart = Chart(frame: chartView.frame)
-    }
-    
 }
-
-
-
- 
 
 // MARK: - TableView Delegate + DataSource
 
