@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,7 @@
 		7C58C8E0253237E800FC9DB3 /* CalorieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58C8DF253237E800FC9DB3 /* CalorieChartView.swift */; };
 		7C58C8E925323A7300FC9DB3 /* CalorieTrackRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58C8E825323A7300FC9DB3 /* CalorieTrackRViewController.swift */; };
 		7C58C8ED2533AC6200FC9DB3 /* CalorieIntakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58C8EC2533AC6200FC9DB3 /* CalorieIntakeController.swift */; };
+		7CB54B3B2535203200B12ABD /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB54B3A2535203200B12ABD /* Notifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		7C58C8DF253237E800FC9DB3 /* CalorieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieChartView.swift; sourceTree = "<group>"; };
 		7C58C8E825323A7300FC9DB3 /* CalorieTrackRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTrackRViewController.swift; sourceTree = "<group>"; };
 		7C58C8EC2533AC6200FC9DB3 /* CalorieIntakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeController.swift; sourceTree = "<group>"; };
+		7CB54B3A2535203200B12ABD /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +64,6 @@
 				2E470762D95385323FD90D78 /* Pods-iosCalorieTrackrSprintChallenge.debug.xcconfig */,
 				5FC1E5836BB7F35E2D83156B /* Pods-iosCalorieTrackrSprintChallenge.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -93,6 +94,7 @@
 				7C58C8F52533BF0700FC9DB3 /* Views */,
 				7C58C8F32533BEBC00FC9DB3 /* Application */,
 				7C58C8B72532182600FC9DB3 /* Info.plist */,
+				7CB54B3A2535203200B12ABD /* Notifications.swift */,
 			);
 			path = iosCalorieTrackrSprintChallenge;
 			sourceTree = "<group>";
@@ -269,6 +271,7 @@
 			files = (
 				7C58C8D025322E3700FC9DB3 /* CoreDataStack.swift in Sources */,
 				7C58C8E0253237E800FC9DB3 /* CalorieChartView.swift in Sources */,
+				7CB54B3B2535203200B12ABD /* Notifications.swift in Sources */,
 				7C58C8ED2533AC6200FC9DB3 /* CalorieIntakeController.swift in Sources */,
 				7C58C8AA2532182500FC9DB3 /* AppDelegate.swift in Sources */,
 				7C58C8AC2532182500FC9DB3 /* SceneDelegate.swift in Sources */,

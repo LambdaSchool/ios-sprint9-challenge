@@ -19,12 +19,6 @@ extension CalorieIntake {
         self.calories = calories
         self.timestamp = timestamp
         
-        var dateAdded: String {
-            let dateAdded = Date()
-            let dateformatter = DateFormatter()
-            dateformatter.dateFormat = "MMM d Y 'at' h:mm a"
-            let date = dateformatter.string(from: dateAdded)
-            return date
-        }
+
     }
 }

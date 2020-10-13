@@ -9,9 +9,10 @@ import UIKit
 
 class CalorieTableViewCell: UITableViewCell {
     
-    
+    // MARK: - Properties
     var calorieIntake: CalorieIntake? {
         didSet {
+            createObserver()
             updateViews()
         }
     }
@@ -29,11 +30,24 @@ class CalorieTableViewCell: UITableViewCell {
     @IBOutlet weak var numberOfCaloriesLabel: UILabel!
     @IBOutlet weak var timeStampLabel: UILabel!
     
-    private func updateViews() {
+    // MARK: - Functions
+    
+    func createObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(notification:)), name: .doneWasTapped, object: nil)
+        print("OBSERVING")
+    }
+   
+    @objc func refreshViews(notification: Notification) {
+       updateViews()
+    }
+    
+    func updateViews() {
         guard let calorieIntake = calorieIntake?.calories else { return }
-        numberOfCaloriesLabel.text = "\(String(calorieIntake)) Calories"
+        numberOfCaloriesLabel.text = "Calories: \(String(calorieIntake))"
         timeStampLabel.text = String("\(dateAdded)")
     }
+    
+    
 
 }
 

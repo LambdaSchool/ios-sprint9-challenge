@@ -16,7 +16,7 @@ class CalorieTrackRViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var chartView: Chart!
     
-   
+    
     
     //MARK: - Properties
     var calorieIntakeArray: [CalorieIntake] {
@@ -32,27 +32,29 @@ class CalorieTrackRViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()
     }
     
-//    MARK: - Functions
-
+    //    MARK: - Functions
+    
     @IBAction func addTapped(_ sender: Any) {
         showTextViewAlert()
     }
-     
+    
     @objc func showTextViewAlert() {
         let alertView = UIAlertController(title: "Add Calorie Intake", message: "Enter The Amount Of Calories In The Field", preferredStyle: .alert)
         
         alertView.addTextField(configurationHandler: nil)
         alertView.textFields![0].placeholder = "Calories"
-        
         alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alertView.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
-            //TODO
+            
+            NotificationCenter.default.post(name: .doneWasTapped, object: nil)
+            //TODO: NOTIFICATION PATTERN- This is probably where we would send a Notification.default.post, who would be the observers?
+            // OBSERVERS - table viewa(cellForRowAt?) and chart
             guard let calorieInput = Double(alertView.textFields![0].text!), !calorieInput.isZero else { return }
             let date = Date()
             print(date)
@@ -66,7 +68,7 @@ class CalorieTrackRViewController: UIViewController {
             } catch {
                 print("error try to save")
             }
-    }  ))
+        }  ))
         let textfield = alertView.textFields![0] as UITextField
         textfield.keyboardType = UIKeyboardType.numberPad
         
@@ -76,18 +78,14 @@ class CalorieTrackRViewController: UIViewController {
     
     
     @objc func updateChart() {
-        let calorieChart = Chart(frame: chartView.frame)
-        
-        
-            
-        
-           }
+        //let calorieChart = Chart(frame: chartView.frame)
+    }
     
 }
 
 
 
-
+ 
 
 // MARK: - TableView Delegate + DataSource
 
@@ -101,6 +99,8 @@ extension CalorieTrackRViewController: UITableViewDelegate, UITableViewDataSourc
         cell.calorieIntake = calorieIntakeArray[indexPath.row]
         return cell
     }
+    
+    
 }
 
 
