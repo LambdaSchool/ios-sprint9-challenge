@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1D45E5383820DAA526E3F8DE /* Pods_CalorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3C26475735E44AA064C840 /* Pods_CalorieTracker.framework */; };
+		221A72DF25340AAE0080E16A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A72DE25340AAE0080E16A /* CoreDataStack.swift */; };
+		221A72E225340B290080E16A /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A72E125340B290080E16A /* User+Convenience.swift */; };
+		221A72E525340D2C0080E16A /* UserRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A72E425340D2C0080E16A /* UserRepresentation.swift */; };
 		2223BBF825321A1A00D7424D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2223BBF725321A1A00D7424D /* AppDelegate.swift */; };
 		2223BBFA25321A1A00D7424D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2223BBF925321A1A00D7424D /* SceneDelegate.swift */; };
 		2223BBFF25321A1A00D7424D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2223BBFD25321A1A00D7424D /* Main.storyboard */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		221A72DE25340AAE0080E16A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		221A72E125340B290080E16A /* User+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Convenience.swift"; sourceTree = "<group>"; };
+		221A72E425340D2C0080E16A /* UserRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepresentation.swift; sourceTree = "<group>"; };
 		2223BBF425321A1A00D7424D /* CalorieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2223BBF725321A1A00D7424D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2223BBF925321A1A00D7424D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +59,23 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		221A72E72534126A0080E16A /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				2223BBF725321A1A00D7424D /* AppDelegate.swift */,
+				2223BBF925321A1A00D7424D /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		221A72E92534128A0080E16A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				22BED49525326E3400E74DCA /* CalorieTrackerTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
 		2223BBEB25321A1A00D7424D = {
 			isa = PBXGroup;
 			children = (
@@ -75,9 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				22F3810925329F44005C1366 /* Core Data */,
-				2223BBF725321A1A00D7424D /* AppDelegate.swift */,
-				2223BBF925321A1A00D7424D /* SceneDelegate.swift */,
-				22BED49525326E3400E74DCA /* CalorieTrackerTableViewController.swift */,
+				221A72E72534126A0080E16A /* Application */,
+				221A72E92534128A0080E16A /* View Controllers */,
 				2223BBFD25321A1A00D7424D /* Main.storyboard */,
 				2223BC0025321A1B00D7424D /* Assets.xcassets */,
 				2223BC0225321A1B00D7424D /* LaunchScreen.storyboard */,
@@ -90,6 +112,9 @@
 			isa = PBXGroup;
 			children = (
 				22F3810525329F2F005C1366 /* User.xcdatamodeld */,
+				221A72DE25340AAE0080E16A /* CoreDataStack.swift */,
+				221A72E125340B290080E16A /* User+Convenience.swift */,
+				221A72E425340D2C0080E16A /* UserRepresentation.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -216,7 +241,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				221A72DF25340AAE0080E16A /* CoreDataStack.swift in Sources */,
+				221A72E525340D2C0080E16A /* UserRepresentation.swift in Sources */,
 				22F3810725329F2F005C1366 /* User.xcdatamodeld in Sources */,
+				221A72E225340B290080E16A /* User+Convenience.swift in Sources */,
 				22BED49625326E3400E74DCA /* CalorieTrackerTableViewController.swift in Sources */,
 				2223BBF825321A1A00D7424D /* AppDelegate.swift in Sources */,
 				2223BBFA25321A1A00D7424D /* SceneDelegate.swift in Sources */,
