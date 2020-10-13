@@ -24,7 +24,9 @@ class CaloriesController {
         }
     }
     
-    func removeCalories(record: Calories) {
+    // Didn't end up implementing this functionality elsewhere in the app
+    func removeCalories(record: Calories, location: Int) {
+        calories.remove(at: location)
         moc.delete(record)
         
         do {

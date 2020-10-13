@@ -15,13 +15,11 @@
 		6127685A2531478400B549CD /* CalorieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 612768582531478400B549CD /* CalorieTracker.xcdatamodeld */; };
 		6127685C2531478500B549CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6127685B2531478500B549CD /* Assets.xcassets */; };
 		6127685F2531478500B549CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6127685D2531478500B549CD /* LaunchScreen.storyboard */; };
-		614B0F342534C1C200BEA734 /* CaloriesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614B0F332534C1C200BEA734 /* CaloriesTableView.swift */; };
 		614B0F372534C20000BEA734 /* CaloriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614B0F362534C20000BEA734 /* CaloriesTableViewCell.swift */; };
 		614B0F3D2534C82200BEA734 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614B0F3C2534C82200BEA734 /* CoreDataStack.swift */; };
 		614B0F432534C90F00BEA734 /* CaloriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614B0F422534C90F00BEA734 /* CaloriesController.swift */; };
 		614B0F472534D00C00BEA734 /* Calories+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614B0F462534D00C00BEA734 /* Calories+Convenience.swift */; };
 		614B0F4B2534DAA200BEA734 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614B0F4A2534DAA200BEA734 /* Notifications.swift */; };
-		61531488253171C400620051 /* CaloriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61531487253171C400620051 /* CaloriesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,13 +34,11 @@
 		6127685B2531478500B549CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6127685E2531478500B549CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		612768602531478500B549CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		614B0F332534C1C200BEA734 /* CaloriesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesTableView.swift; sourceTree = "<group>"; };
 		614B0F362534C20000BEA734 /* CaloriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesTableViewCell.swift; sourceTree = "<group>"; };
 		614B0F3C2534C82200BEA734 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		614B0F422534C90F00BEA734 /* CaloriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesController.swift; sourceTree = "<group>"; };
 		614B0F462534D00C00BEA734 /* Calories+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calories+Convenience.swift"; sourceTree = "<group>"; };
 		614B0F4A2534DAA200BEA734 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
-		61531487253171C400620051 /* CaloriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesTableViewController.swift; sourceTree = "<group>"; };
 		66480F7513048A91E3A1F579 /* Pods-CalorieTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieTracker.debug.xcconfig"; path = "Target Support Files/Pods-CalorieTracker/Pods-CalorieTracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,8 +79,6 @@
 				612768512531478400B549CD /* SceneDelegate.swift */,
 				614B0F422534C90F00BEA734 /* CaloriesController.swift */,
 				612768532531478400B549CD /* ViewController.swift */,
-				61531487253171C400620051 /* CaloriesTableViewController.swift */,
-				614B0F332534C1C200BEA734 /* CaloriesTableView.swift */,
 				614B0F362534C20000BEA734 /* CaloriesTableViewCell.swift */,
 				612768552531478400B549CD /* Main.storyboard */,
 				6127685B2531478500B549CD /* Assets.xcassets */,
@@ -250,12 +244,10 @@
 				612768542531478400B549CD /* ViewController.swift in Sources */,
 				614B0F372534C20000BEA734 /* CaloriesTableViewCell.swift in Sources */,
 				614B0F4B2534DAA200BEA734 /* Notifications.swift in Sources */,
-				61531488253171C400620051 /* CaloriesTableViewController.swift in Sources */,
 				612768502531478400B549CD /* AppDelegate.swift in Sources */,
 				614B0F432534C90F00BEA734 /* CaloriesController.swift in Sources */,
 				6127685A2531478400B549CD /* CalorieTracker.xcdatamodeld in Sources */,
 				612768522531478400B549CD /* SceneDelegate.swift in Sources */,
-				614B0F342534C1C200BEA734 /* CaloriesTableView.swift in Sources */,
 				614B0F3D2534C82200BEA734 /* CoreDataStack.swift in Sources */,
 				614B0F472534D00C00BEA734 /* Calories+Convenience.swift in Sources */,
 			);
