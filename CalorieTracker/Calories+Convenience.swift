@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 extension Calories {
-    @discardableResult convenience init(intake: Int64, timestamp: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    @discardableResult convenience init(intake: Double, timestamp: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.intake = intake
         self.timestamp = timestamp

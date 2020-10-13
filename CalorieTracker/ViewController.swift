@@ -25,9 +25,22 @@ class ViewController: UIViewController {
     
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of calories in the field", preferredStyle: .alert)
-        alert.addTextField { (alertText) in
+        alert.addTextField { alertText in
+            alertText.keyboardType = .numberPad
             alertText.text = "Calories:"
         }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let submitButton = UIAlertAction(title: "Submit", style: .default) { _ in
+            if let numCalories = alert.textFields?[0].text,
+               !numCalories.isEmpty,
+               let finalNum = Double(numCalories) {
+                self.caloriesController.addCalories(howMany: finalNum)
+            }
+        }
+        alert.addAction(cancelButton)
+        alert.addAction(submitButton)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func dataChanged(_ sender: Chart) {
@@ -36,6 +49,7 @@ class ViewController: UIViewController {
     
     @objc func updateViews() {
         let chart = Chart(frame: dataChart.frame)
+//        let series = ChartSeries(caloriesController.calories)
         dataTable.reloadData()
     }
     

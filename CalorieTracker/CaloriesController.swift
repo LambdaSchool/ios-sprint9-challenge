@@ -13,8 +13,8 @@ class CaloriesController {
     
     let moc = CoreDataStack.shared.mainContext
     
-    func addCalories(howMany: Int) {
-        let intake = Calories(intake: Int64(howMany))
+    func addCalories(howMany: Double) {
+        let intake = Calories(intake: howMany)
         calories.append(intake)
         
         do {
