@@ -14,6 +14,12 @@ class CalorieTrackerTableViewController: UITableViewController {
     
     let controller = CalorieController()
     
+    lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, h:mm a"
+        return formatter
+    }()
+    
     lazy var fetchedResultsController: NSFetchedResultsController<CalorieTracker> = {
         let fetchRequest: NSFetchRequest<CalorieTracker> = CalorieTracker.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "time", ascending: true)]
@@ -29,24 +35,26 @@ class CalorieTrackerTableViewController: UITableViewController {
         super.viewWillAppear(true)
         self.viewDidLoad()
         tableView.reloadData()
+        //  updateViews()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
     }
     
     // MARK: - Outlets
     
-    @IBOutlet weak var chart: UIView!
+    @IBOutlet weak var chart: Chart!
     
     @IBAction func addButton(_ sender: UIBarButtonItem) {
         
         let alert = UIAlertController(title: "Add calories",
-                                      message: "Enter calories",
+                                      message: "Enter calories below",
                                       preferredStyle: .alert)
-
+        
         
         alert.addTextField { textField in
-            textField.placeholder = "Add calories here"
+            textField.placeholder = ""
             
             let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             let add = UIAlertAction(title: "Add", style: .default, handler: { (_) in
@@ -66,18 +74,16 @@ class CalorieTrackerTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "calorieCell", for: indexPath)
         let calories = fetchedResultsController.object(at: indexPath)
-        guard let time = calories.time else {return cell}
-        
-        let df = DateFormatter()
-        df.dateFormat = "EEEE, MMM d, yyyy"
+        let time = dateFormatter.string(from: (calories.time!))
         
         cell.textLabel?.text = "\(calories.calories) Calories \(time)"
+        updateViews()
         return cell
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-         return fetchedResultsController.sections?.count ?? 1
+        return fetchedResultsController.sections?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -86,26 +92,36 @@ class CalorieTrackerTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,forRowAt indexPath:IndexPath) {
-          if editingStyle == .delete {
-              let calories = fetchedResultsController.object(at: indexPath)
-              controller.removeCalories(calories: calories) { _ in
-                  DispatchQueue.main.async {
+        if editingStyle == .delete {
+            let calories = fetchedResultsController.object(at: indexPath)
+            controller.removeCalories(calories: calories) { _ in
+                DispatchQueue.main.async {
                     tableView.reloadData()
-                  }
-              }
-          }
-      }
-}
-
-extension CalorieTrackerTableViewController {
-    private func updateViews() {
-        
+                }
+            }
+        }
     }
 }
 
 extension CalorieTrackerTableViewController {
-    
+    private func updateViews() {
+        var double: [Double] = []
+        
+        if let calories = fetchedResultsController.fetchedObjects {
+            for object in calories {
+                double.append(Double(object.calories))
+            }
+        }
+        
+        let updatedChart = ChartSeries(double)
+        chart.add(updatedChart)
+        updatedChart.color = ChartColors.yellowColor()
+    }
 }
+
+//extension CalorieTrackerTableViewController {
+//
+//}
 
 extension CalorieTrackerTableViewController: NSFetchedResultsControllerDelegate {
     // 4 to element

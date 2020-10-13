@@ -14,7 +14,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="F7q-81-gSD">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="F7q-81-gSD" customClass="Chart" customModule="SwiftChart">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
