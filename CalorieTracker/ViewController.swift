@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet private weak var dataTable: UITableView!
     
     var caloriesController = CaloriesController()
+    var chart = Chart()
+    var series = ChartSeries([])
     
     lazy var fetchedResultsController: NSFetchedResultsController<Calories> = {
         let fetchRequest: NSFetchRequest<Calories> = Calories.fetchRequest()
@@ -39,6 +41,8 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .showNewData, object: nil)
         dataTable.delegate = self
         dataTable.dataSource = self
+        chart = Chart(frame: dataChart.bounds)
+        dataChart.addSubview(chart)
         updateViews()
     }
     
@@ -69,16 +73,14 @@ class ViewController: UIViewController {
     }
     
     @objc func updateViews() {
-        let chart = Chart(frame: dataChart.bounds)
         var savedData: [Double] = []
         for entry in fetchedResultsController.fetchedObjects!.reversed() {
             savedData.append(entry.intake)
         }
-        let series = ChartSeries(savedData)
+        series = ChartSeries(savedData)
         series.area = true
         chart.add(series)
-        dataChart.subviews.forEach({ $0.removeFromSuperview() })
-        dataChart.addSubview(chart)
+        dataChart.setNeedsDisplay()
         dataTable.reloadData()
     }
     
