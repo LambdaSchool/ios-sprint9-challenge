@@ -48,17 +48,23 @@ class CalorieTrackRViewController: UIViewController {
         tableView.dataSource = self
         tableView.reloadData()
         setupChart()
-        createObserver()
+        //createObserver()
+        refreshViews()
+        
         
     }
     
     // MARK: - Observer
-    func createObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(notification:)), name: .doneWasTapped, object: nil)
-        print("OBSERVING")
-    }
+//    func createObserver() {
+//        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews()), name: .doneWasTapped, object: nil)
+//        print("OBSERVING")
+//    }
    
-    @objc func refreshViews(notification: Notification) {
+    @objc func refreshViews() {
+        let calorieCollection = calorieIntakeArray
+        let seriesArray = calorieCollection.map { $0.calories }
+        let series = ChartSeries(seriesArray)
+        chartView.add(series)
         tableView.reloadData()
     }
     
