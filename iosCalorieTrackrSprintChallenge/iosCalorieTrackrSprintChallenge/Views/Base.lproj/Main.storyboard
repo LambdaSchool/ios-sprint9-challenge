@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sOh-Zo-QBp">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CalorieTrackR-->
+        <scene sceneID="x4k-nQ-pHt">
+            <objects>
+                <viewController id="XA1-Z3-qpu" customClass="CalorieTrackRViewController" customModule="iosCalorieTrackrSprintChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6QJ-fP-vzS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8D-JH-foF" customClass="Chart" customModule="SwiftChart">
+                                <rect key="frame" x="0.0" y="140" width="414" height="217"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="217" id="Hai-cm-zTb"/>
+                                    <constraint firstAttribute="width" constant="414" id="aaa-Da-R8n"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bCA-16-S0h">
+                                <rect key="frame" x="0.0" y="359" width="414" height="454"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Ai6-S6-t1B" customClass="CalorieTableViewCell" customModule="iosCalorieTrackrSprintChallenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ai6-S6-t1B" id="Na0-b4-JCo">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="zaJ-KI-4Te">
+                                                    <rect key="frame" x="30" y="11.5" width="354.5" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000 calories " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YpA-L8-QfP">
+                                                            <rect key="frame" x="0.0" y="0.0" width="98.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan 00, 0000 at 1:00:00 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDU-JM-ulB">
+                                                            <rect key="frame" x="142.5" y="0.0" width="212" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zaJ-KI-4Te" firstAttribute="centerY" secondItem="Na0-b4-JCo" secondAttribute="centerY" id="TH6-Hk-pW7"/>
+                                                <constraint firstItem="zaJ-KI-4Te" firstAttribute="centerX" secondItem="Na0-b4-JCo" secondAttribute="centerX" id="lZn-q2-Lco"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="numberOfCaloriesLabel" destination="YpA-L8-QfP" id="0i7-yk-iqe"/>
+                                            <outlet property="timeStampLabel" destination="KDU-JM-ulB" id="30Z-u2-xGR"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zFM-kN-aZ1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bCA-16-S0h" firstAttribute="bottom" secondItem="zFM-kN-aZ1" secondAttribute="bottom" id="Czx-ay-B2O"/>
+                            <constraint firstItem="bCA-16-S0h" firstAttribute="top" secondItem="b8D-JH-foF" secondAttribute="bottom" constant="2" id="Fm9-Jk-OAv"/>
+                            <constraint firstItem="bCA-16-S0h" firstAttribute="leading" secondItem="zFM-kN-aZ1" secondAttribute="leading" id="NHd-7R-5bg"/>
+                            <constraint firstItem="b8D-JH-foF" firstAttribute="trailing" secondItem="zFM-kN-aZ1" secondAttribute="trailing" id="Qhv-sc-7xQ"/>
+                            <constraint firstItem="b8D-JH-foF" firstAttribute="leading" secondItem="zFM-kN-aZ1" secondAttribute="leading" id="S67-Zl-zrg"/>
+                            <constraint firstItem="b8D-JH-foF" firstAttribute="top" secondItem="zFM-kN-aZ1" secondAttribute="top" id="qL8-9I-dtf"/>
+                            <constraint firstItem="bCA-16-S0h" firstAttribute="trailing" secondItem="zFM-kN-aZ1" secondAttribute="trailing" id="w7e-ST-1Vj"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="CalorieTrackR" id="5dv-c9-bVF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3oQ-Vn-XEX">
+                            <connections>
+                                <action selector="addTapped:" destination="XA1-Z3-qpu" id="l1Y-bP-3pd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="chartView" destination="b8D-JH-foF" id="HV9-l7-28v"/>
+                        <outlet property="tableView" destination="bCA-16-S0h" id="Ue0-uz-RdZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aIe-a1-gFR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="346.37681159420293" y="96.428571428571431"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tNE-Uv-AV5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sOh-Zo-QBp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ejk-SG-4Cl">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XA1-Z3-qpu" kind="relationship" relationship="rootViewController" id="4x8-hq-eUl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q5R-oo-bXJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-563.768115942029" y="96.428571428571431"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
