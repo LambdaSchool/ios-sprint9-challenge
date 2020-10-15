@@ -34,10 +34,12 @@ class CalorieTrackRViewController: UIViewController {
     var calories: [CalorieIntake] = []
     var chartNumbers: [Double] = []
     
+    
     func setupChart() {
         chartView.axesColor = .systemTeal
         chartView.gridColor = .systemRed
         chartView.backgroundColor = .systemBackground
+        chartView.labelColor = .gray
     }
     
     
