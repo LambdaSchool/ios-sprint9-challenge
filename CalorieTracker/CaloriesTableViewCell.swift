@@ -18,12 +18,12 @@ class CaloriesTableViewCell: UITableViewCell {
         }
     }
     
-    var formatter: DateFormatter {
+    var formatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
-        formatter.dateFormat = "MMM dd, yyyy' at 'h:mm:ss a"
+        formatter.timeStyle = .short
         return formatter
-    }
+    }()
 
     func updateViews() {
         if let num = numCalories,

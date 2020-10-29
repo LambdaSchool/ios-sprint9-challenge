@@ -11,8 +11,8 @@ import SwiftChart
 
 class ViewController: UIViewController {
     
-    @IBOutlet private weak var dataChart: UIView!
-    @IBOutlet private weak var dataTable: UITableView!
+    @IBOutlet private var dataChart: UIView!
+    @IBOutlet private var dataTable: UITableView!
     
     var caloriesController = CaloriesController()
     var chart = Chart()
@@ -57,17 +57,15 @@ class ViewController: UIViewController {
             alertText.keyboardType = .numberPad
             alertText.placeholder = "Calories:"
         }
-        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let submitButton = UIAlertAction(title: "Submit", style: .default) { _ in
-            if let numCalories = alert.textFields?[0].text,
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Submit", style: .default) { _ in
+            if let numCalories = alert.textFields![0].text,
                !numCalories.isEmpty,
                let finalNum = Double(numCalories) {
                 self.caloriesController.addCalories(howMany: finalNum)
             }
             self.updateViews()
-        }
-        alert.addAction(cancelButton)
-        alert.addAction(submitButton)
+        })
         
         present(alert, animated: true, completion: nil)
     }
