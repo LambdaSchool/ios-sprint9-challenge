@@ -18,7 +18,7 @@ class CaloriesTableViewCell: UITableViewCell {
         }
     }
     
-    var formatter: DateFormatter = {
+    let formatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         formatter.timeStyle = .short
