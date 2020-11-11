@@ -1,5 +1,5 @@
 # Track or Lack
-Track calrorie intake everyday and display on a beautiful chart.
+Track calrorie intake everyday and display information on a beautiful chart.
 
 # API Used: 
 - Core Data 
