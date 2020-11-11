@@ -5,6 +5,7 @@ Track calrorie intake everyday and display information on a beautiful chart.
 - Core Data 
 - CocoaPods
 - NSNotificationCenter
+- StoreKit
 
 # App Store Download:
 https://apps.apple.com/app/id1504978164
