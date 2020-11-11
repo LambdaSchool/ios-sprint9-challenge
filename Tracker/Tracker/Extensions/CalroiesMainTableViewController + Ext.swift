@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import UIKit
 
-extension CalroriesMainTableViewController: NSFetchedResultsControllerDelegate {
+extension MainTableViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }

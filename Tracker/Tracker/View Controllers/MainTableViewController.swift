@@ -11,22 +11,28 @@ import CoreData
 import SwiftChart
 import CLTypingLabel
 
-class CalroriesMainTableViewController: UITableViewController {
+class MainTableViewController: UITableViewController {
     
-    //MARK:- IBOutlet
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.navigationBar.barStyle = .black
+    }
+    // MARK:- IBOutlet
     
     @IBOutlet weak var welcomeLabel: CLTypingLabel! {
         didSet {
-            welcomeLabel.charInterval = 0.2
+            welcomeLabel.charInterval = 0.15
             welcomeLabel.continueTyping()
-            welcomeLabel.text = "Welcome to my amazing app!Have a great day!! :]"
-            
+            welcomeLabel.text = "Welcome to my amazing app! Have a great day!!! :]"
             welcomeLabel.font = UIFont(name: "Copperplate-Bold", size: 14)
             welcomeLabel.textColor = #colorLiteral(red: 0.6909318566, green: 0.7678380609, blue: 0.870224297, alpha: 1)
             
         }
     }
-    //MARK:- Properties
+    // MARK:- Properties
     
     private var series : [Double] = []
     
@@ -72,7 +78,8 @@ class CalroriesMainTableViewController: UITableViewController {
     private var dataForSeries: [Double] {
         get {
             return fetchedResultsController.fetchedObjects!.map { (ac) -> Double in
-                ac.amount }
+                ac.amount
+            }
         }
         set {
             print(newValue)
@@ -133,13 +140,13 @@ class CalroriesMainTableViewController: UITableViewController {
         cell.accessibilityIdentifier = "Cell"
         cell.backgroundColor = #colorLiteral(red: 0.6909318566, green: 0.7678380609, blue: 0.870224297, alpha: 1)
         
-        cell.textLabel?.text = " Calories: \(calorie.amount)"
-        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        cell.textLabel?.text = "Calories: \(calorie.amount)"
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         cell.textLabel?.textColor = .white
         
         cell.detailTextLabel?.text = dateFormatter.string(from: calorie.date!)
         cell.detailTextLabel?.textColor = UIColor.white
-        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 16)
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 14)
         
         return cell
     }
@@ -147,8 +154,8 @@ class CalroriesMainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let item = fetchedResultsController.object(at: indexPath)
-            calorieController.deleteItem(calorie: item)
             
+            calorieController.deleteItem(calorie: item)
             
             if fetchedResultsController.fetchedObjects?.count == 0 {
                 calorieChart.removeAllSeries()
