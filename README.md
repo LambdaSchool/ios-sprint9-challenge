@@ -1,4 +1,4 @@
-# Calorie Tracker
+# Track or Lack
 Track calrorie intake everyday and display on a beautiful chart.
 
 # API Used: 
