@@ -21,11 +21,11 @@ class CalorieController {
         newItem.date = date
         
         do {
-            try    CoreDataStack.shared.mainContext.save()
+            try CoreDataStack.shared.mainContext.save()
         } catch let err as NSError {
             NSLog("Error saving data to storage: \(err)")
         }
-     
+        
     }
     
     func deleteItem(calorie: Calorie) {
