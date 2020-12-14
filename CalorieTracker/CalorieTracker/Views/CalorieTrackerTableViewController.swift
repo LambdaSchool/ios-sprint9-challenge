@@ -13,6 +13,7 @@ import SwiftChart
 class CalorieTrackerTableViewController: UITableViewController {
     
     let controller = CalorieController()
+    let notificationObserver = NSNotification()
     
     lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -39,6 +40,12 @@ class CalorieTrackerTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(notification:)), name: .refreshViews, object: nil)
+    }
+    
+    @objc func refreshViews(notification: notificationObserver) {
         updateViews()
     }
     
@@ -67,6 +74,8 @@ class CalorieTrackerTableViewController: UITableViewController {
             alert.addAction(add)
         }
         present(alert, animated: true, completion: nil)
+        
+        NotificationCenter.default.post(name: NSNotification.Name("Adding Calories"), object: self)
     }
     
     // MARK: - Table view data source
@@ -104,6 +113,7 @@ class CalorieTrackerTableViewController: UITableViewController {
 }
 
 extension CalorieTrackerTableViewController {
+    
     private func updateViews() {
         var double: [Double] = []
         
@@ -113,17 +123,12 @@ extension CalorieTrackerTableViewController {
             }
         }
         
-        
         let updatedChart = ChartSeries(double)
         chart.removeAllSeries()
         chart.add(updatedChart)
         updatedChart.color = ChartColors.yellowColor()
     }
 }
-
-//extension CalorieTrackerTableViewController {
-//
-//}
 
 extension CalorieTrackerTableViewController: NSFetchedResultsControllerDelegate {
     // 4 to element

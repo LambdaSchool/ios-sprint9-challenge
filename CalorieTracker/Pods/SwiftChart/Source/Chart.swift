@@ -324,7 +324,7 @@ open class Chart: UIControl {
             view.removeFromSuperview()
         }
         for layer in layerStore {
-            layer.removeFromSuperlayer()
+            layer.removeFromSuperlayer
         }
         layerStore.removeAll()
 
