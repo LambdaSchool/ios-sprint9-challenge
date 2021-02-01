@@ -38,7 +38,9 @@ class CoreDataStack {
     }
 
     var mainContext: NSManagedObjectContext {
-        return container.viewContext
+        let contextContainer = container.viewContext
+        contextContainer.automaticallyMergesChangesFromParent = true
+        return contextContainer
     }
 
 }

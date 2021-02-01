@@ -7,15 +7,38 @@
 
 import UIKit
 import CoreData
+import SwiftChart
 
 
-class CalorieTrackerTableViewController: UITableViewController {
+
+
+class CalorieTrackerTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     let userController = UserController()
+    var user: Users?
     
-    
+    lazy var fetchedResultsControllers: NSFetchedResultsController<Users> = {
+        let fetchRequest: NSFetchRequest<Users> = Users.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "calories", ascending: true),
+                                        NSSortDescriptor(key: "time", ascending: true)]
 
+        let moc = CoreDataStack.shared.mainContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "calories", cacheName: nil)
+        frc.delegate = self
+
+        do {
+            try frc.performFetch()
+        } catch {
+            NSLog("Unable to fetch Tasks from main context")
+        }
+        
+        return frc
+    }()
+    
     override func viewDidLoad() {
+        
+        let chart = Chart(frame: CGRect(x: 0, y: 0, width: 100, height: 200))
+
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -29,23 +52,23 @@ class CalorieTrackerTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return fetchedResultsControllers.sections?.count ?? 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return fetchedResultsControllers.sections?[section].numberOfObjects ?? 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
+//        cell.textLabel = user?.calories
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -8,7 +8,6 @@
 import Foundation
 
 struct UserRepresentation: Codable {
-    var id: String
-    var calories: Double
+    var calories: Int
     var time: Date
 }
