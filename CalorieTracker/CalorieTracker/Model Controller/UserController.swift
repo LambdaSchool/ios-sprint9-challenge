@@ -16,7 +16,18 @@ class UserController {
             try moc.save()
         } catch {
             moc.reset()
-            NSLog("Error saving deleted task: \(error)")
+            NSLog("Error saving new calorie log: \(error)")
+        }
+    }
+    
+    func deleteCalorieFromPersistentStore(_ item: Users) {
+        moc.delete(item)
+        
+        do {
+            try moc.save()
+        } catch {
+            moc.reset()
+            NSLog("Error deleting saved calorie log: \(error)")
         }
     }
 
