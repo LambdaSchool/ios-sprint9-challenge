@@ -8,8 +8,7 @@
 import Foundation
 import CoreData
 
-extension Users {
-    
+extension User {
     var userRepresentation: UserRepresentation? {
         guard let time = time else { return nil }
         return UserRepresentation(calories: Int(calories),

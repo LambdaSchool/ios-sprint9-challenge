@@ -9,16 +9,14 @@ import UIKit
 import CoreData
 import SwiftChart
 
-
-
-
 class CalorieTrackerTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    let userController = UserController()
-    var user: Users?
+    @IBOutlet var chartView: Chart!
     
-    lazy var fetchedResultsControllers: NSFetchedResultsController<Users> = {
-        let fetchRequest: NSFetchRequest<Users> = Users.fetchRequest()
+    
+    
+    lazy var fetchedResultsControllers: NSFetchedResultsController<User> = {
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "calories", ascending: true),
                                         NSSortDescriptor(key: "time", ascending: true)]
 
@@ -37,7 +35,7 @@ class CalorieTrackerTableViewController: UITableViewController, NSFetchedResults
     
     override func viewDidLoad() {
         
-        let chart = Chart(frame: CGRect(x: 0, y: 0, width: 100, height: 200))
+//        let chart = Chart(frame: CGRect(x: 0, y: 0, width: 100, height: 200))
 
         super.viewDidLoad()
 

@@ -20,7 +20,7 @@ class UserController {
         }
     }
     
-    func deleteCalorieFromPersistentStore(_ item: Users) {
+    func deleteCalorieFromPersistentStore(_ item: User) {
         moc.delete(item)
         
         do {
