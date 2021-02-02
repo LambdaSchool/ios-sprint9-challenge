@@ -17,12 +17,12 @@ extension Users {
     }
     
     @discardableResult convenience init(time: Date = Date(),
-                                        calories: Int,
+                                        calories: Int16,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext
     ) {
         self.init(context: context)
         self.time = time
-        self.calories = Int16(calories)
+        self.calories = calories
     }
 }
 

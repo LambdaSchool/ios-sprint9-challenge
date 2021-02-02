@@ -8,27 +8,16 @@
 import Foundation
 import CoreData
 
-enum NetworkError: Error {
-    case noCalories
-    case noTime
-    case noId
-    case noData
-    case noDecode
-    case noEncode
-    case noRep
-    case noUser
-}
-
 class UserController {
+    private let moc = CoreDataStack.shared.mainContext
     
-//    init() {
-//
-//    }
-
-    typealias CompletionHandler  = (Result<Bool, NetworkError>) -> Void
-
-    func fetchUsersFromServer(completion: @escaping CompletionHandler = { _ in }) {
-        
+    func saveCalorieToPersistentStore() throws {
+        do {
+            try moc.save()
+        } catch {
+            moc.reset()
+            NSLog("Error saving deleted task: \(error)")
+        }
     }
 
     
