@@ -11,17 +11,19 @@
 		B670575924F09FAB00FD892E /* Notification+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B670575824F09FAB00FD892E /* Notification+Ext.swift */; };
 		B68B03E0242E4D9E00131408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B03DF242E4D9E00131408 /* AppDelegate.swift */; };
 		B68B03E2242E4D9E00131408 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B03E1242E4D9E00131408 /* SceneDelegate.swift */; };
-		B68B03E4242E4D9E00131408 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B03E3242E4D9E00131408 /* MainTableViewController.swift */; };
+		B68B03E4242E4D9E00131408 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B03E3242E4D9E00131408 /* HomeTableViewController.swift */; };
 		B68B03E7242E4D9E00131408 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B68B03E5242E4D9E00131408 /* Main.storyboard */; };
 		B68B03E9242E4D9F00131408 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B68B03E8242E4D9F00131408 /* Assets.xcassets */; };
 		B68B03EC242E4D9F00131408 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B68B03EA242E4D9F00131408 /* LaunchScreen.storyboard */; };
 		B68B03F5242E50A700131408 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B03F4242E50A700131408 /* CoreDataStack.swift */; };
 		B68B03F8242E511600131408 /* Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B68B03F6242E511600131408 /* Tracker.xcdatamodeld */; };
 		B68B03FA242E521000131408 /* CalorieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B03F9242E521000131408 /* CalorieController.swift */; };
-		B68B03FD242E66FB00131408 /* CalroiesMainTableViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B03FC242E66FB00131408 /* CalroiesMainTableViewController + Ext.swift */; };
+		B68B03FD242E66FB00131408 /* HomeTableViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B03FC242E66FB00131408 /* HomeTableViewController + Ext.swift */; };
 		B68B0405242E998C00131408 /* TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B0404242E998C00131408 /* TrackerUITests.swift */; };
 		B68B0413242E999400131408 /* TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B0412242E999400131408 /* TrackerTests.swift */; };
 		B68B041B242EB5EE00131408 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B041A242EB5EE00131408 /* SettingViewController.swift */; };
+		B68FB7BE25D41B060046D5B0 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FB7BD25D41B060046D5B0 /* DateFormatter.swift */; };
+		B68FB7C625D41C810046D5B0 /* Calorie+Convenience Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FB7C525D41C810046D5B0 /* Calorie+Convenience Init.swift */; };
 		B6AE37FC255C57700033F904 /* Email+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AE37FB255C57700033F904 /* Email+Ext.swift */; };
 		B6C18C68255C319E002F6501 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C18C67255C319E002F6501 /* SettingTableViewController.swift */; };
 		B6C18C6E255C36E6002F6501 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C18C6D255C36E6002F6501 /* MainTabBarController.swift */; };
@@ -50,7 +52,7 @@
 		B68B03DC242E4D9E00131408 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B68B03DF242E4D9E00131408 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B68B03E1242E4D9E00131408 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B68B03E3242E4D9E00131408 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		B68B03E3242E4D9E00131408 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		B68B03E6242E4D9E00131408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B68B03E8242E4D9F00131408 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B68B03EB242E4D9F00131408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,7 +60,7 @@
 		B68B03F4242E50A700131408 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B68B03F7242E511600131408 /* Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tracker.xcdatamodel; sourceTree = "<group>"; };
 		B68B03F9242E521000131408 /* CalorieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieController.swift; sourceTree = "<group>"; };
-		B68B03FC242E66FB00131408 /* CalroiesMainTableViewController + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalroiesMainTableViewController + Ext.swift"; sourceTree = "<group>"; };
+		B68B03FC242E66FB00131408 /* HomeTableViewController + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeTableViewController + Ext.swift"; sourceTree = "<group>"; };
 		B68B0402242E998C00131408 /* TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B68B0404242E998C00131408 /* TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerUITests.swift; sourceTree = "<group>"; };
 		B68B0406242E998C00131408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,6 +68,8 @@
 		B68B0412242E999400131408 /* TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerTests.swift; sourceTree = "<group>"; };
 		B68B0414242E999400131408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B68B041A242EB5EE00131408 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		B68FB7BD25D41B060046D5B0 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		B68FB7C525D41C810046D5B0 /* Calorie+Convenience Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calorie+Convenience Init.swift"; sourceTree = "<group>"; };
 		B6AE37FB255C57700033F904 /* Email+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Email+Ext.swift"; sourceTree = "<group>"; };
 		B6C18C67255C319E002F6501 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		B6C18C6D255C36E6002F6501 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -141,10 +145,11 @@
 		B68B03DE242E4D9E00131408 /* Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				B68FB7BC25D41AFD0046D5B0 /* Utilities */,
 				B6C18C6C255C36D2002F6501 /* MainTabBarController */,
 				B68FCF2024EBFD5C00D3C8AC /* Extensions */,
 				B68FCF1F24EBFD4500D3C8AC /* View Controllers */,
-				B68B03FB242E521D00131408 /* CoreDataStack */,
+				B68B03FB242E521D00131408 /* Models */,
 				B68B03F3242E4DAB00131408 /* Resources */,
 				B68B03ED242E4D9F00131408 /* Info.plist */,
 			);
@@ -163,13 +168,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		B68B03FB242E521D00131408 /* CoreDataStack */ = {
+		B68B03FB242E521D00131408 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				B68B03F4242E50A700131408 /* CoreDataStack.swift */,
 				B68B03F6242E511600131408 /* Tracker.xcdatamodeld */,
+				B68FB7C525D41C810046D5B0 /* Calorie+Convenience Init.swift */,
 			);
-			path = CoreDataStack;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B68B0403242E998C00131408 /* TrackerUITests */ = {
@@ -190,10 +196,18 @@
 			path = TrackerTests;
 			sourceTree = "<group>";
 		};
+		B68FB7BC25D41AFD0046D5B0 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B68FB7BD25D41B060046D5B0 /* DateFormatter.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		B68FCF1F24EBFD4500D3C8AC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B68B03E3242E4D9E00131408 /* MainTableViewController.swift */,
+				B68B03E3242E4D9E00131408 /* HomeTableViewController.swift */,
 				B68B03F9242E521000131408 /* CalorieController.swift */,
 				B68B041A242EB5EE00131408 /* SettingViewController.swift */,
 				B6C18C67255C319E002F6501 /* SettingTableViewController.swift */,
@@ -204,7 +218,7 @@
 		B68FCF2024EBFD5C00D3C8AC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B68B03FC242E66FB00131408 /* CalroiesMainTableViewController + Ext.swift */,
+				B68B03FC242E66FB00131408 /* HomeTableViewController + Ext.swift */,
 				B670575824F09FAB00FD892E /* Notification+Ext.swift */,
 				B6AE37FB255C57700033F904 /* Email+Ext.swift */,
 			);
@@ -395,14 +409,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6C18C68255C319E002F6501 /* SettingTableViewController.swift in Sources */,
-				B68B03FD242E66FB00131408 /* CalroiesMainTableViewController + Ext.swift in Sources */,
+				B68B03FD242E66FB00131408 /* HomeTableViewController + Ext.swift in Sources */,
 				B6C18C6E255C36E6002F6501 /* MainTabBarController.swift in Sources */,
-				B68B03E4242E4D9E00131408 /* MainTableViewController.swift in Sources */,
+				B68B03E4242E4D9E00131408 /* HomeTableViewController.swift in Sources */,
+				B68FB7BE25D41B060046D5B0 /* DateFormatter.swift in Sources */,
 				B68B03E0242E4D9E00131408 /* AppDelegate.swift in Sources */,
 				B68B041B242EB5EE00131408 /* SettingViewController.swift in Sources */,
 				B68B03E2242E4D9E00131408 /* SceneDelegate.swift in Sources */,
 				B68B03F5242E50A700131408 /* CoreDataStack.swift in Sources */,
 				B68B03F8242E511600131408 /* Tracker.xcdatamodeld in Sources */,
+				B68FB7C625D41C810046D5B0 /* Calorie+Convenience Init.swift in Sources */,
 				B670575924F09FAB00FD892E /* Notification+Ext.swift in Sources */,
 				B6AE37FC255C57700033F904 /* Email+Ext.swift in Sources */,
 				B68B03FA242E521000131408 /* CalorieController.swift in Sources */,
