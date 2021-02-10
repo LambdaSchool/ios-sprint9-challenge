@@ -1,0 +1,24 @@
+PODS:
+  - CLTypingLabel (0.4.0)
+  - SwiftChart (1.0.1)
+  - SwiftLint (0.39.1)
+
+DEPENDENCIES:
+  - CLTypingLabel
+  - SwiftChart
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - CLTypingLabel
+    - SwiftChart
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  CLTypingLabel: 95a7d1faf7e3d1d952cd11cb0491d17d80c50934
+  SwiftChart: ba767a678d568a5ee22d419e146a0582865e1aff
+  SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
+
+PODFILE CHECKSUM: a7271398dde69048118b39eccaf1c52c23cc496d
+
+COCOAPODS: 1.8.4
