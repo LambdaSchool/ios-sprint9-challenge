@@ -7,3 +7,18 @@
 //
 
 import Foundation
+import CoreData
+
+
+extension Calorie {
+    var calorieRepresentation: CalorieRepresentation? {
+
+        return CalorieRepresentation(calories: Int(calories), timeStamp: timestamp ?? Date())
+    }
+    
+    @discardableResult convenience init(calories: Int, timestamp: Date = Date(), context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        self.init(context: context)
+        self.calories = Int16(calories)
+        self.timestamp = timestamp
+    }
+}

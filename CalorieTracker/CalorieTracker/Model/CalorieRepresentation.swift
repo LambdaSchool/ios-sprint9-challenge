@@ -7,3 +7,9 @@
 //
 
 import Foundation
+import CoreData
+
+struct CalorieRepresentation: Codable {
+    var calories: Int
+    var timeStamp: Date
+}
