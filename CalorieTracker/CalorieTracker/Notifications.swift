@@ -1,5 +1,5 @@
 //
-//  CalorieRepresentation.swift
+//  Notifications.swift
 //  CalorieTracker
 //
 //  Created by John McCants on 2/19/21.
@@ -7,9 +7,7 @@
 //
 
 import Foundation
-import CoreData
 
-struct CalorieRepresentation: Codable {
-    var calories: Int
-    var timeStamp: Date
+extension Notification.Name {
+    static var calorieUpdated = Notification.Name("calorieUpdated")
 }

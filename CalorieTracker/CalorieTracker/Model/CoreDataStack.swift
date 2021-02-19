@@ -13,7 +13,7 @@ class CoreDataStack {
     static let shared = CoreDataStack()
     
     lazy var container: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Calories")
+        let container = NSPersistentContainer(name: "CalorieTracker")
         container.loadPersistentStores { (_, error) in
             if let error = error {
                 print("Error with container: \(error)")
@@ -35,6 +35,8 @@ class CoreDataStack {
             } catch let error {
                 print("Save Error: \(error)")
             }
+            
         }
+        
     }
 }
