@@ -32,6 +32,6 @@ extension Calories {
 
 }
 
-extension Calories : Identifiable {
+extension Calories: Identifiable {
 
 }

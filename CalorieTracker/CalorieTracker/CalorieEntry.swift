@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 struct CalorieEntry {
-    let calories : Double
-    let date : Date
-    var counter : Int
+    let calories: Double
+    let date: Date
+    var counter: Int
 }

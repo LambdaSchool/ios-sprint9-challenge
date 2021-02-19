@@ -13,4 +13,3 @@ struct CaloriesRepresentation: Codable {
     var calories: Int
     var timestamp: Date
 }
-

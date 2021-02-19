@@ -1,0 +1,28 @@
+# This file will be run to auto-correct certain swiftlint rules before swiftlint is run with the standard .swiftlint.yml configuration file.
+#
+# An enhancement to do this has been requested here: https://github.com/realm/SwiftLint/issues/1451
+# Once done, that enhancement might obsolete this approach.
+
+# Only add rules here you want to auto-correct
+disabled_rules:
+  - type_name
+  - unused_optional_binding
+  - vertical_whitespace
+  - trailing_whitespace
+  - identifier_name
+
+excluded:
+- Pods
+- Carthage
+- Swift Style Guide.playground
+- Source/ExcludedFolder
+- Source/ExcludedFile.swift
+
+line_length: 250
+identifier_name:
+  min_length:
+    error: 2
+  excluded:
+  - id
+  - URL
+  - GlobalAPIKey
