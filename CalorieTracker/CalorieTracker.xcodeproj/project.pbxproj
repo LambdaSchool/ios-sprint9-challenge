@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		311103C625E063880019CED8 /* Calories+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311103C425E063880019CED8 /* Calories+CoreDataClass.swift */; };
 		311103C725E063880019CED8 /* Calories+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311103C525E063880019CED8 /* Calories+CoreDataProperties.swift */; };
+		311103D925E0737D0019CED8 /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 311103D825E0737D0019CED8 /* swiftlint.yml */; };
 		3137C94D25D60ABA00952E15 /* CalorieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3137C94C25D60ABA00952E15 /* CalorieTableViewCell.swift */; };
 		313C421E25B0FC0E009C76AF /* Pods_CalorieTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 313C421D25B0FC0E009C76AF /* Pods_CalorieTracker.framework */; };
 		318FDB242531568B00591861 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318FDB232531568B00591861 /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		311103C425E063880019CED8 /* Calories+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Calories+CoreDataClass.swift"; path = "CalorieTracker/Model/Calories+CoreDataClass.swift"; sourceTree = "<group>"; };
 		311103C525E063880019CED8 /* Calories+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Calories+CoreDataProperties.swift"; path = "CalorieTracker/Model/Calories+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		311103D825E0737D0019CED8 /* swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = swiftlint.yml; path = CalorieTracker/swiftlint.yml; sourceTree = "<group>"; };
 		3137C94C25D60ABA00952E15 /* CalorieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieTableViewCell.swift; sourceTree = "<group>"; };
 		313C421925B0F90F009C76AF /* SwiftChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		313C421D25B0FC0E009C76AF /* Pods_CalorieTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_CalorieTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +63,7 @@
 		318FDB172531568B00591861 = {
 			isa = PBXGroup;
 			children = (
+				311103D825E0737D0019CED8 /* swiftlint.yml */,
 				311103C425E063880019CED8 /* Calories+CoreDataClass.swift */,
 				311103C525E063880019CED8 /* Calories+CoreDataProperties.swift */,
 				318FDB222531568B00591861 /* CalorieTracker */,
@@ -140,6 +143,7 @@
 			buildConfigurationList = 318FDB372531568D00591861 /* Build configuration list for PBXNativeTarget "CalorieTracker" */;
 			buildPhases = (
 				96DCB81F4EE5190780E37C0B /* [CP] Check Pods Manifest.lock */,
+				311103CF25E070340019CED8 /* ShellScript */,
 				318FDB1C2531568B00591861 /* Sources */,
 				318FDB1D2531568B00591861 /* Frameworks */,
 				318FDB1E2531568B00591861 /* Resources */,
@@ -193,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				318FDB332531568D00591861 /* LaunchScreen.storyboard in Resources */,
+				311103D925E0737D0019CED8 /* swiftlint.yml in Resources */,
 				318FDB302531568D00591861 /* Assets.xcassets in Resources */,
 				318FDB2B2531568B00591861 /* Main.storyboard in Resources */,
 			);
@@ -201,6 +206,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		311103CF25E070340019CED8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		4D1FA1810506ABC14C7F1F98 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
