@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var chartView: UIView!
     let chart = Chart(frame: CGRect(x: 0, y: 0, width: 400, height: 318))
     
-    let dateFormatter : DateFormatter = {
+    let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM dd, yyyy h:mm a"
         
@@ -54,16 +54,23 @@ class ViewController: UIViewController {
         
         
         var doubleData: [Double] = []
+        var countArray: [Double] = [0]
+        var index: Double = 0
+        
         
         for section in sections {
             if let objects = section.objects as? [Calories] {
                 for object in objects {
                     doubleData.append(Double(object.calories))
+                    index += 1
+                    countArray.append(index)
+                    print(index)
                 }
             }
         }
         let series = ChartSeries(doubleData)
         chart.add(series)
+        chart.xLabels = countArray
         series.color = ChartColors.greenColor()
         series.area = true
         chartView.addSubview(chart)
@@ -100,8 +107,8 @@ class ViewController: UIViewController {
         
         alert.addAction(cancelAction)
         alert.addAction(submitAction)
-        alert.addTextField { (alertTextField) in
-            
+        alert.addTextField { (_) in
+            print("Textfield added")
         }
         
         present(alert, animated: true, completion: nil)
@@ -205,4 +212,3 @@ extension ViewController: NSFetchedResultsControllerDelegate {
         }
     }
 }
-
