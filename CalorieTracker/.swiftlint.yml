@@ -4,9 +4,25 @@
 # Once done, that enhancement might obsolete this approach.
 
 # Only add rules here you want to auto-correct
-whitelist_rules: 
-- trailing_whitespace
-- trailing_semicolon
-- trailing_newline
-excluded: # paths to ignore during linting.
-  - Carthage
+disabled_rules:
+  - type_name
+  - unused_optional_binding
+  - vertical_whitespace
+  - trailing_whitespace
+  - identifier_name
+
+excluded:
+- Pods
+- Carthage
+- Swift Style Guide.playground
+- Source/ExcludedFolder
+- Source/ExcludedFile.swift
+
+line_length: 250
+identifier_name:
+  min_length:
+    error: 2
+  excluded:
+  - id
+  - URL
+  - GlobalAPIKey
