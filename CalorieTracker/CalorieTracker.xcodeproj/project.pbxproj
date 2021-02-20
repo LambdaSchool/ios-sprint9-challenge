@@ -60,6 +60,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		311103E625E09FA80019CED8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				31A6F97D25E04BFF00641E27 /* Notifications.swift */,
+				318FDB292531568B00591861 /* Main.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		311103E725E09FC70019CED8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3137C94C25D60ABA00952E15 /* CalorieTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		318FDB172531568B00591861 = {
 			isa = PBXGroup;
 			children = (
@@ -84,13 +101,12 @@
 		318FDB222531568B00591861 /* CalorieTracker */ = {
 			isa = PBXGroup;
 			children = (
+				311103E725E09FC70019CED8 /* Views */,
+				311103E625E09FA80019CED8 /* Resources */,
 				31A6F98025E04C4200641E27 /* ViewControllers */,
-				31A6F97D25E04BFF00641E27 /* Notifications.swift */,
 				31A6F97625E0464C00641E27 /* Model */,
 				318FDB232531568B00591861 /* AppDelegate.swift */,
 				318FDB252531568B00591861 /* SceneDelegate.swift */,
-				3137C94C25D60ABA00952E15 /* CalorieTableViewCell.swift */,
-				318FDB292531568B00591861 /* Main.storyboard */,
 				318FDB2F2531568D00591861 /* Assets.xcassets */,
 				318FDB312531568D00591861 /* LaunchScreen.storyboard */,
 				318FDB342531568D00591861 /* Info.plist */,

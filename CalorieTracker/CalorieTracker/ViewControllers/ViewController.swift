@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var chartView: UIView!
     let chart = Chart(frame: CGRect(x: 0, y: 0, width: 400, height: 318))
+    var calories: Int?
     
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -44,6 +45,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        NotificationCenter.default.addObserver(self, selector: #selector(saveCalories), name: .calorieUpdated, object: nil)
         
     }
     
@@ -76,7 +78,8 @@ class ViewController: UIViewController {
         chartView.addSubview(chart)
     }
     
-    func saveCalories(calories: Int) {
+    @objc func saveCalories() {
+        guard let calories = calories else {return}
         _ = Calories(calories: calories)
         do {
             try CoreDataStack.shared.mainContext.save()
@@ -95,11 +98,11 @@ class ViewController: UIViewController {
             
             guard let caloriesNumber = Int(caloriesText) else { print("Must enter a number")
                 return}
+            self.calories = caloriesNumber
             
-    
-            self.saveCalories(calories: caloriesNumber)
+            
+            NotificationCenter.default.post(name: .calorieUpdated, object: nil)
             self.updateViews()
-            self.tableView.reloadData()
             
         }
         
