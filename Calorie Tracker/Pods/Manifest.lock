@@ -1,0 +1,20 @@
+PODS:
+  - SwiftChart (1.0.1)
+  - SwiftLint (0.38.0)
+
+DEPENDENCIES:
+  - SwiftChart
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - SwiftChart
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  SwiftChart: ba767a678d568a5ee22d419e146a0582865e1aff
+  SwiftLint: 4105f061f9812b214568b736dab580ab2c73a582
+
+PODFILE CHECKSUM: db16ddfcedbd614d40914f84fbce9a0ba0d50bf1
+
+COCOAPODS: 1.8.4
