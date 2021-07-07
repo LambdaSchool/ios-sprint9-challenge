@@ -1,0 +1,10 @@
+# Global platform for CalorieTracker project
+platform :ios, '12.2'
+
+target 'CalorieTracker' do
+  use_frameworks!
+
+# Pods for CalorieTracker
+pod "SwiftChart"
+
+end
