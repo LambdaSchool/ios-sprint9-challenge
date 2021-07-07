@@ -17,6 +17,7 @@ disabled_rules: # rule identifiers to exclude from running
   - vertical_parameter_alignment # does not work with tab indentation: https://github.com/realm/SwiftLint/issues/1573
 
 excluded: # paths to ignore during linting.
+  - SwiftLint/Common/3rdPartyLib
   - Carthage
   - Swift Style Guide.playground
   - fastlane/*
@@ -81,4 +82,4 @@ vertical_whitespace:
   max_empty_lines: 2
 trailing_whitespace:
   ignores_empty_lines: true
-
+reporter: "xcode"
