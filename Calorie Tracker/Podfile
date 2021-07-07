@@ -1,0 +1,3 @@
+target "Calorie Tracker" do
+pod "SwiftChart"
+end
