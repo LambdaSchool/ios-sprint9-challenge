@@ -21,6 +21,8 @@ excluded: # paths to ignore during linting.
   - Swift Style Guide.playground
   - fastlane/*
   - Pods
+  - Pods/Pods/SwiftChart/ChartSeries.swift
+  - Pods/Pods/SwiftChart/Chart.swift
 
 opt_in_rules:
   - anyobject_protocol
