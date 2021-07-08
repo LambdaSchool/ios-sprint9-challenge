@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xbK-sy-r4Y">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Calorie Tracker-->
+        <scene sceneID="TTY-rc-bsp">
+            <objects>
+                <tableViewController id="ZBz-Pj-eNw" customClass="CaloriesTableViewController" customModule="calorie_tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kqB-P3-wO6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Y2j-f3-y9z" customClass="Chart" customModule="SwiftChart">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="230"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalorieTableViewCell" rowHeight="43" id="qfS-4r-6oF" customClass="CalorieTableViewCell" customModule="calorie_tracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="258" width="414" height="43"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qfS-4r-6oF" id="gaG-0g-vCs">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="42.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eye-Wm-E0t">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="42.5"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="qOQ-GD-dwz">
+                                                    <rect key="frame" x="8" y="0.0" width="398" height="42.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Calories: 100000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4O9-Mt-Cuz">
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="42.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sep 21, 2018 at 1:59:11 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bdf-Ur-W0c">
+                                                            <rect key="frame" x="193" y="0.0" width="205" height="42.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="42.5" id="xRD-Zs-Qtr"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="qOQ-GD-dwz" firstAttribute="top" secondItem="eye-Wm-E0t" secondAttribute="top" id="6IN-up-W7K"/>
+                                                <constraint firstItem="qOQ-GD-dwz" firstAttribute="leading" secondItem="eye-Wm-E0t" secondAttribute="leading" constant="8" id="LbQ-MR-Ybv"/>
+                                                <constraint firstAttribute="trailing" secondItem="qOQ-GD-dwz" secondAttribute="trailing" constant="8" id="cln-Nw-uNg"/>
+                                                <constraint firstAttribute="bottom" secondItem="qOQ-GD-dwz" secondAttribute="bottom" id="kbG-3u-09I"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="eye-Wm-E0t" firstAttribute="centerY" secondItem="gaG-0g-vCs" secondAttribute="centerY" id="Geo-wE-5sc"/>
+                                        <constraint firstItem="eye-Wm-E0t" firstAttribute="leading" secondItem="gaG-0g-vCs" secondAttribute="leading" id="cmJ-Yg-G78"/>
+                                        <constraint firstItem="eye-Wm-E0t" firstAttribute="top" secondItem="gaG-0g-vCs" secondAttribute="top" id="h3b-sA-Hti"/>
+                                        <constraint firstAttribute="bottom" secondItem="eye-Wm-E0t" secondAttribute="bottom" id="irY-bM-4pw"/>
+                                        <constraint firstItem="eye-Wm-E0t" firstAttribute="centerX" secondItem="gaG-0g-vCs" secondAttribute="centerX" id="knA-P9-667"/>
+                                        <constraint firstAttribute="trailing" secondItem="eye-Wm-E0t" secondAttribute="trailing" id="s0O-Cm-gfW"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="calorieLabel" destination="4O9-Mt-Cuz" id="FIe-64-WSh"/>
+                                    <outlet property="dateLabel" destination="Bdf-Ur-W0c" id="eNU-rT-8ho"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ZBz-Pj-eNw" id="d0M-HO-MeZ"/>
+                            <outlet property="delegate" destination="ZBz-Pj-eNw" id="HRz-xh-J26"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Calorie Tracker" id="LFE-81-GEW"/>
+                    <connections>
+                        <outlet property="chartView" destination="Y2j-f3-y9z" id="vJh-CD-XzL"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sdk-Ge-Ixe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1010.144927536232" y="115.84821428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TRy-ti-wfa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xbK-sy-r4Y" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="3Of-pq-bPj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZBz-Pj-eNw" kind="relationship" relationship="rootViewController" id="vrh-jY-f6T"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Kx-DR-EaH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100.00000000000001" y="115.84821428571428"/>
+        </scene>
+    </scenes>
+</document>
